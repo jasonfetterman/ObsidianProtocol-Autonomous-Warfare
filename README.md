@@ -3,13 +3,16 @@
 <p align="center"><strong>Command intent. Unleash autonomy. Witness war evolve.</strong></p>
 
 ⚫ Obsidian Protocol: Autonomous Warfare
-A next‑generation RTS where autonomous squads think for themselves, battlefields evolve dynamically, and every engagement feels like a cinematic war story unfolding in real time.
-Built for scale. Built for modding. Built for players who crave intelligent, emergent combat.
+A next‑generation real‑time strategy game where autonomous squads think for themselves, battlefields evolve dynamically, and every engagement feels like a cinematic war story unfolding in real time.
+
+Built for scale.
+Built for modding.
+Built for players who crave intelligent, emergent combat.
 
 ⭐ Why People Will Want This Game
 Battles feel alive — squads flank, retreat, take cover, and coordinate without micromanagement
 
-The world reacts — fog‑of‑war, destructible cover, terrain elevation, suppression, visibility cones
+The world reacts — fog‑of‑war, destructible cover, elevation, suppression, visibility cones
 
 AI behaves like a commander — breach tactics, siege logic, multi‑angle assaults
 
@@ -45,15 +48,18 @@ You set goals, priorities, and zones of control. Squads interpret your intent an
 🖤 Why This Game Exists
 RTS games stopped evolving.
 
-They gave us prettier graphics and bigger armies — but the battlefield never thought. Units waited for orders. AI cheated instead of strategizing. Battles felt scripted instead of alive.
+They gave us prettier graphics and bigger armies — but the battlefield never thought.
+Units waited for orders.
+AI cheated instead of strategizing.
+Battles felt scripted instead of alive.
 
-So this project began with a challenge:
+Obsidian Protocol began with a challenge:
 
 What if squads could think?
 What if the battlefield reacted?
 What if war felt emergent, intelligent, and cinematic — every single match?
 
-Obsidian Protocol is the answer.
+This project is the answer.
 
 A push forward — a new foundation for autonomous warfare simulations, built for players who crave depth, developers who want modular systems, and creators who want to shape entire worlds.
 
@@ -66,9 +72,6 @@ Obsidian Protocol is built by a solo developer obsessed with intelligent systems
 Every mechanic, every squad behavior, every AI decision is crafted with one goal:
 
 Make an RTS that finally evolves.
-
-If you believe RTS can be more than micromanagement and scripted AI, you’re in the right place.
-This is the start of something bigger.
 
 🗺️ Roadmap
 🔹 Phase 1 — Core Systems (Current)
@@ -124,7 +127,7 @@ Modding documentation
 Community showcase
 
 🌐 Follow the Project
-GitHub Updates — Track commits and development progress
+GitHub — Track commits and development progress
 
 Devlog (coming soon) — Deep dives into AI systems and design
 
@@ -136,9 +139,7 @@ This project is built in the open.
 If you want to be part of the journey — welcome aboard.
 
 🕹️ How to Play / How to Build
-Playing the Game
-(Coming soon)
-
+Playing the Game (Coming soon)
 Download build
 
 Launch executable
@@ -155,17 +156,6 @@ Open in Unity
 Build or run in editor
 
 Explore modular systems
-
-Coming Soon
-Vertical slice
-
-Test scenarios
-
-AI showcase maps
-
-Faction prototypes
-
-Modding documentation
 
 🤝 Contributing
 Ways to Contribute
@@ -232,10 +222,12 @@ Readable architecture
 Coming soon:
 
 Gameplay Screenshots
+
 AI Showcase Clips
+
 Concept Art & UI
+
 Trailers
-This section will evolve as development continues.
 
 🔮 Future Vision
 Evolving AI commanders
