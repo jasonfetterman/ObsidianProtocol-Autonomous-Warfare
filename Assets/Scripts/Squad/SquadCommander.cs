@@ -1,43 +1,46 @@
+using Assets.Scripts.AI;      // SquadController
+using Assets.Scripts.Squad;   // SquadIntent, SquadAI
 using UnityEngine;
 
-public class SquadCommander : MonoBehaviour
+namespace Assets.Scripts.Squad
 {
-    public SquadAI squad;
-
-    void Update()
+    public class SquadCommander
     {
-        if (Input.GetMouseButtonDown(1))
+        private SquadController controller;
+        private SquadIntent intent;
+
+        public SquadCommander()
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out RaycastHit hit))
-            {
-                GameObject enemy = hit.collider.GetComponentInParent<EnemyTag>()?.gameObject;
-
-                if (enemy != null)
-                    IssueAttack(enemy);
-                else
-                    IssueMove(hit.point);
-            }
+            controller = ServiceLocator.Get<SquadController>();
+            intent = ServiceLocator.Get<SquadIntent>();
         }
-    }
 
-    void IssueAttack(GameObject target)
-    {
-        foreach (var m in squad.members)
+        // Called by UI or input system
+        public void IssueMoveCommand(Vector3 target)
         {
-            if (m == null) continue;
-            m.SetForcedTarget(target);
+            intent.SetMoveIntent(target);
+            controller.SetMoveTarget(target);
         }
-    }
 
-    void IssueMove(Vector3 pos)
-    {
-        foreach (var m in squad.members)
+        public void IssueAttackCommand(GameObject target)
         {
-            UnitMover mover = m.GetComponent<UnitMover>();
-            if (mover != null)
-                mover.MoveTo(pos);
+            if (target == null)
+                return;
+
+            intent.SetAttackIntent(target);
+            controller.Attack(target);
+        }
+
+        public void IssueFormationCommand(SquadAI.FormationType type)
+        {
+            intent.SetFormationIntent(type);
+            controller.SetFormation(type);
+        }
+
+        public void ClearFormation()
+        {
+            intent.ClearFormationIntent();
+            controller.ClearFormation();
         }
     }
 }

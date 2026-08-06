@@ -1,6 +1,4 @@
-using UnityEngine;
-
-public class SupplyManager : MonoBehaviour
+public class SupplyManager
 {
     public int supplyUsed = 0;
     public int supplyMax = 50;

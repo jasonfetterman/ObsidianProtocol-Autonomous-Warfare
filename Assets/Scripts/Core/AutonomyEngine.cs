@@ -1,16 +1,11 @@
-using UnityEngine;
-
-public class AutonomyEngine : MonoBehaviour
+public class AutonomyEngine
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    private readonly WorldState _worldState;
+    private readonly WorldMemory _worldMemory;
 
-    // Update is called once per frame
-    void Update()
+    public AutonomyEngine(WorldState worldState, WorldMemory worldMemory)
     {
-        
+        _worldState = worldState;
+        _worldMemory = worldMemory;
     }
 }

@@ -1,7 +1,6 @@
-using UnityEngine;
 using System.Collections.Generic;
 
-public class ResourceManager : MonoBehaviour
+public class ResourceManager
 {
     public List<Resource> resources = new();
 

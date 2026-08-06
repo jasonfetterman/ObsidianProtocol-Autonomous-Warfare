@@ -1,4 +1,5 @@
 using UnityEngine;
+using Obsidian.VR;   // ⭐ REQUIRED — fixes your UnitMover error
 
 public class AbilityUser : MonoBehaviour
 {

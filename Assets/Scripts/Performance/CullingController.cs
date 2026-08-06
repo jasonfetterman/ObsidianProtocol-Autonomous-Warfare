@@ -1,18 +1,22 @@
 using UnityEngine;
 
-public class CullingController : MonoBehaviour
+public class CullingController
 {
-    Renderer[] renderers;
-    Camera cam;
+    private readonly Renderer[] renderers;
+    private readonly Camera cam;
+    private readonly Transform transform;
 
-    void Awake()
+    public CullingController(Transform root)
     {
+        transform = root;
         cam = Camera.main;
-        renderers = GetComponentsInChildren<Renderer>();
+        renderers = root.GetComponentsInChildren<Renderer>();
     }
 
-    void Update()
+    public void Tick()
     {
+        if (cam == null || transform == null) return;
+
         Vector3 screenPos = cam.WorldToViewportPoint(transform.position);
 
         bool visible =

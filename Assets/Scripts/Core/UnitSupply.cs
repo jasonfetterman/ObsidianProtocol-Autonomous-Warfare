@@ -4,19 +4,16 @@ public class UnitSupply : MonoBehaviour
 {
     public int supplyCost = 1;
 
-    SupplyManager sm;
+    private SupplyManager sm;
 
     void Awake()
     {
-        sm = FindAnyObjectByType<SupplyManager>();
-
-        if (sm != null)
-            sm.Add(supplyCost);
+        sm = ServiceLocator.Get<SupplyManager>();
+        sm?.Add(supplyCost);
     }
 
     void OnDestroy()
     {
-        if (sm != null)
-            sm.Remove(supplyCost);
+        sm?.Remove(supplyCost);
     }
 }

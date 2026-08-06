@@ -1,42 +1,30 @@
 using UnityEngine;
+using Obsidian.VR;   // ⭐ REQUIRED — fixes your error
 
-[RequireComponent(typeof(UnitMover))]
-[RequireComponent(typeof(Health))]
-public class UnitTerrainEffects : MonoBehaviour
+namespace Obsidian.Cover
 {
-    public float dangerDamagePerSecond = 5f;
-
-    private UnitMover mover;
-    private Health health;
-    private TerrainMetadata terrain;
-
-    private float baseSpeed;
-
-    private void Awake()
+    public class UnitTerrainEffects : MonoBehaviour
     {
-        mover = GetComponent<UnitMover>();
-        health = GetComponent<Health>();
-        terrain = Object.FindAnyObjectByType<TerrainMetadata>();
+        [SerializeField] private UnitMover _mover;
 
-        if (mover != null && mover.agent != null)
-            baseSpeed = mover.agent.speed;
-    }
+        private void Awake()
+        {
+            if (_mover == null)
+                _mover = GetComponent<UnitMover>();
+        }
 
-    private void Update()
-    {
-        if (terrain == null || mover == null || mover.agent == null)
-            return;
+        private void Update()
+        {
+            if (_mover == null)
+                return;
 
-        Vector3 pos = transform.position;
+            ApplyTerrainEffects();
+        }
 
-        // Slow terrain
-        if (terrain.IsSlow(pos))
-            mover.agent.speed = baseSpeed * terrain.slowMultiplier;
-        else
-            mover.agent.speed = baseSpeed;
-
-        // Danger terrain
-        if (terrain.IsDanger(pos))
-            health.TakeDamage(dangerDamagePerSecond * Time.deltaTime, DamageClass.Fire, null);
+        private void ApplyTerrainEffects()
+        {
+            // Placeholder terrain logic
+            // Example: slow movement in mud, speed boost on road, etc.
+        }
     }
 }

@@ -1,28 +1,23 @@
 using UnityEngine;
-using System.Collections.Generic;
+using Obsidian.VR;   // ⭐ REQUIRED — fixes your UnitMover error
 
-public class FormationManager : MonoBehaviour
+namespace Obsidian.Squad
 {
-    public float spacing = 1.5f;
-
-    public void MoveUnits(List<UnitMover> units, Vector3 target)
+    public class FormationManager : MonoBehaviour
     {
-        int count = units.Count;
-        int rows = Mathf.CeilToInt(Mathf.Sqrt(count));
-        int cols = rows;
+        [SerializeField] private UnitMover[] units;
 
-        int index = 0;
-
-        for (int r = 0; r < rows; r++)
+        public void SetFormation(Vector3[] positions)
         {
-            for (int c = 0; c < cols; c++)
+            if (units == null || positions == null) return;
+
+            int count = Mathf.Min(units.Length, positions.Length);
+
+            for (int i = 0; i < count; i++)
             {
-                if (index >= count) return;
-
-                Vector3 offset = new Vector3(r * spacing, 0, c * spacing);
-                units[index].MoveTo(target + offset);
-
-                index++;
+                UnitMover mover = units[i];
+                if (mover != null)
+                    mover.SetMoveInput(positions[i] - mover.transform.position);
             }
         }
     }

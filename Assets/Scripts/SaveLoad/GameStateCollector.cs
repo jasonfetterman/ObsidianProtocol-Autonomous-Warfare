@@ -1,4 +1,5 @@
 using UnityEngine;
+using Obsidian.VR;   // REQUIRED — UnitMover lives here
 
 public class GameStateCollector : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class GameStateCollector : MonoBehaviour
         GameState state = new();
 
         // --- RESOURCES ---
-        ResourceManager rm = Object.FindAnyObjectByType<ResourceManager>();
+        ResourceManager rm = ServiceLocator.Get<ResourceManager>();
         if (rm != null)
         {
             state.wood = rm.Get(ResourceType.Wood);
@@ -53,7 +54,7 @@ public class GameStateCollector : MonoBehaviour
 
             for (int i = 0; i < pixels.Length; i++)
             {
-                state.fogPixels[i] = pixels[i].a / 255f;   // byte → float 0–1
+                state.fogPixels[i] = pixels[i].a / 255f;
             }
         }
 

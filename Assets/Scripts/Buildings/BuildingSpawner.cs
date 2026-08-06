@@ -11,8 +11,8 @@ public class BuildingSpawner : MonoBehaviour
 
     private void Awake()
     {
-        rm = Object.FindAnyObjectByType<ResourceManager>();
-        sm = Object.FindAnyObjectByType<SupplyManager>();
+        rm = ServiceLocator.Get<ResourceManager>();
+        sm = ServiceLocator.Get<SupplyManager>();
 
         cost = GetComponent<BuildingCost>();
     }

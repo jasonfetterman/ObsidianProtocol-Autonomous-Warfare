@@ -1,12 +1,19 @@
+using Assets.Scripts.Core;   // UnitMover
+using Obsidian.VR;
 using UnityEngine;
 
 public class GameStateLoader : MonoBehaviour
 {
-    [SerializeField] private ResourceManager resourceManager;
+    private ResourceManager resourceManager;
     [SerializeField] private FogOfWar fog;
 
     [SerializeField] private GameObject[] unitPrefabs;
     [SerializeField] private GameObject[] buildingPrefabs;
+
+    private void Awake()
+    {
+        resourceManager = ServiceLocator.Get<ResourceManager>();
+    }
 
     public void Load(GameState state)
     {
@@ -61,10 +68,10 @@ public class GameStateLoader : MonoBehaviour
 
             GameObject b = Instantiate(prefab, d.position, d.rotation);
 
-            // Safe, compatible, compiles everywhere
-            BuildingHealth bh = b.GetComponent<BuildingHealth>();
-            if (bh != null)
+            if (b.TryGetComponent(out BuildingHealth bh))
+            {
                 bh.currentHealth = d.health;
+            }
         }
     }
 

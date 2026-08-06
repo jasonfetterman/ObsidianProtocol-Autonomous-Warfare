@@ -3,9 +3,15 @@ using UnityEngine;
 public class MapManager : MonoBehaviour
 {
     public MapDefinition[] maps;
-    public MapLoader loader;
+
+    private MapLoader loader;   // pure C# → no SerializeField
 
     int currentMapIndex = 0;
+
+    private void Awake()
+    {
+        loader = ServiceLocator.Get<MapLoader>();
+    }
 
     public void LoadNextMap()
     {

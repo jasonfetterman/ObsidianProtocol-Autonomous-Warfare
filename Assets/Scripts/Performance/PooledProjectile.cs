@@ -16,10 +16,14 @@ public class PooledProjectile : MonoBehaviour
 
     void Update()
     {
-        transform.position += direction * speed * Time.deltaTime;
+        // Operand re-ordering for micro-optimization
+        transform.position += direction * (speed * Time.deltaTime);
 
         timer += Time.deltaTime;
         if (timer >= lifeTime)
-            ObjectPool.Instance.Despawn(gameObject);
+        {
+            var pool = ServiceLocator.Get<ObjectPool>();
+            pool.Despawn(gameObject);
+        }
     }
 }

@@ -1,19 +1,14 @@
-using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
+using Unity.AI.Navigation;
 
-public class MapLoader : MonoBehaviour
+public class MapLoader
 {
     public MapDefinition map;
     public NavMeshSurface navSurface;
 
     public GameObject playerBasePrefab;
     public GameObject enemyBasePrefab;
-
-    void Start()
-    {
-        LoadMap();
-    }
 
     public void LoadMap()
     {
@@ -23,7 +18,7 @@ public class MapLoader : MonoBehaviour
             return;
         }
 
-        Instantiate(map.terrainPrefab, Vector3.zero, Quaternion.identity);
+        Object.Instantiate(map.terrainPrefab, Vector3.zero, Quaternion.identity);
 
         SpawnBases();
         SpawnResources();
@@ -34,15 +29,15 @@ public class MapLoader : MonoBehaviour
 
     void SpawnBases()
     {
-        Instantiate(playerBasePrefab, map.playerSpawn, Quaternion.identity);
-        Instantiate(enemyBasePrefab, map.enemySpawn, Quaternion.identity);
+        Object.Instantiate(playerBasePrefab, map.playerSpawn, Quaternion.identity);
+        Object.Instantiate(enemyBasePrefab, map.enemySpawn, Quaternion.identity);
     }
 
     void SpawnResources()
     {
         foreach (var node in map.resourceNodes)
         {
-            Instantiate(node.prefab, node.position, Quaternion.identity);
+            Object.Instantiate(node.prefab, node.position, Quaternion.identity);
         }
     }
 }

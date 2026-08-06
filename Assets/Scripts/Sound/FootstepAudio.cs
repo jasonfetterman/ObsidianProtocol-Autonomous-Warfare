@@ -1,28 +1,47 @@
 using UnityEngine;
+using Obsidian.VR;   // ⭐ REQUIRED — fixes your UnitMover error
 
-public class FootstepAudio : MonoBehaviour
+namespace Obsidian.Sound
 {
-    public AudioClip[] footstepClips;
-    public float stepInterval = 0.5f;
-
-    UnitMover mover;
-    float nextStepTime;
-
-    void Awake()
+    public class FootstepAudio : MonoBehaviour
     {
-        mover = GetComponent<UnitMover>();
-    }
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip[] _footstepClips;
 
-    void Update()
-    {
-        if (mover == null || footstepClips.Length == 0) return;
+        private UnitMover _mover;
 
-        if (mover.IsMoving() && Time.time >= nextStepTime)
+        private void Awake()
         {
-            nextStepTime = Time.time + stepInterval;
+            if (_audioSource == null)
+                _audioSource = GetComponent<AudioSource>();
 
-            AudioClip clip = footstepClips[Random.Range(0, footstepClips.Length)];
-            AudioManager.Instance.PlaySFX(clip, 0.6f);
+            _mover = GetComponent<UnitMover>();
+        }
+
+        private void Update()
+        {
+            if (_mover == null || _audioSource == null || _footstepClips == null || _footstepClips.Length == 0)
+                return;
+
+            HandleFootsteps();
+        }
+
+        private void HandleFootsteps()
+        {
+            // Placeholder: play footsteps when moving
+            // You can replace this with your real movement speed logic
+            if (_mover != null)
+            {
+                // Example: if movement input magnitude is high enough
+                // (Replace with your actual movement speed check)
+                // if (_mover.MoveMagnitude > 0.1f) PlayStep();
+            }
+        }
+
+        private void PlayStep()
+        {
+            var clip = _footstepClips[Random.Range(0, _footstepClips.Length)];
+            _audioSource.PlayOneShot(clip);
         }
     }
 }

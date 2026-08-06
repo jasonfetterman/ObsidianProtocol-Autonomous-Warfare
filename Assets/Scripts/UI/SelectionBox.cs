@@ -1,63 +1,57 @@
 using UnityEngine;
-using UnityEngine.UI;
 
-[RequireComponent(typeof(RectTransform))]
-public class SelectionBox : MonoBehaviour
+namespace Obsidian.UI
 {
-    public Image boxImage;
-
-    private RectTransform rect;
-    private Vector2 startPos;
-    private bool isDragging;
-
-    private void Awake()
+    public class SelectionBox : MonoBehaviour
     {
-        rect = GetComponent<RectTransform>();
+        public Texture2D boxTexture;
+        public Color boxColor = new Color(0f, 0.8f, 1f, 0.25f);
 
-        if (boxImage != null)
-            boxImage.enabled = false;
-    }
+        private Vector2 startPos;
+        private Vector2 endPos;
+        private bool isDragging;
 
-    private void Update()
-    {
-        // Start drag
-        if (Input.GetMouseButtonDown(0))
+        void OnGUI()
         {
-            isDragging = true;
-            startPos = Input.mousePosition;
+            if (!isDragging)
+                return;
 
-            if (boxImage != null)
-                boxImage.enabled = true;
+            var rect = GetRect(startPos, endPos);
+
+            GUI.color = boxColor;
+            GUI.DrawTexture(rect, boxTexture);
         }
 
-        // End drag
-        if (Input.GetMouseButtonUp(0))
+        public void Begin(Vector2 screenPos)
+        {
+            startPos = screenPos;
+            endPos = screenPos;
+            isDragging = true;
+        }
+
+        public void UpdateDrag(Vector2 screenPos)
+        {
+            endPos = screenPos;
+        }
+
+        public void End()
         {
             isDragging = false;
-
-            if (boxImage != null)
-                boxImage.enabled = false;
         }
 
-        // Update drag box
-        if (isDragging)
-            UpdateBox(Input.mousePosition);
-    }
+        public Rect GetSelectionRect()
+        {
+            return GetRect(startPos, endPos);
+        }
 
-    private void UpdateBox(Vector2 currentPos)
-    {
-        Vector2 size = currentPos - startPos;
+        private Rect GetRect(Vector2 p1, Vector2 p2)
+        {
+            float x = Mathf.Min(p1.x, p2.x);
+            float y = Mathf.Min(p1.y, p2.y);
+            float w = Mathf.Abs(p1.x - p2.x);
+            float h = Mathf.Abs(p1.y - p2.y);
 
-        // Set size
-        rect.sizeDelta = new Vector2(Mathf.Abs(size.x), Mathf.Abs(size.y));
-
-        // Set pivot based on drag direction
-        rect.pivot = new Vector2(
-            size.x >= 0 ? 0f : 1f,
-            size.y >= 0 ? 0f : 1f
-        );
-
-        // Set position
-        rect.anchoredPosition = startPos;
+            return new Rect(x, y, w, h);
+        }
     }
 }

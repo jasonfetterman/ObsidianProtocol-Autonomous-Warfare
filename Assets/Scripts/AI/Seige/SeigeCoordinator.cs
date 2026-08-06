@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Obsidian.VR;   // UnitMover lives here
 
 public class SiegeCoordinator : MonoBehaviour
 {
@@ -11,11 +12,12 @@ public class SiegeCoordinator : MonoBehaviour
 
         foreach (var s in siegeUnits)
         {
-            if (s == null) continue;
+            if (s == null)
+                continue;
 
             UnitMover mover = s.GetComponent<UnitMover>();
             if (mover != null)
-                mover.MoveTo(breachPoint);
+                mover.SetMoveInput((breachPoint - s.transform.position).normalized);
 
             s.SetTarget(targetBuilding);
         }

@@ -1,51 +1,26 @@
 using UnityEngine;
-using System.Collections.Generic;
+using Obsidian.VR;   // ⭐ REQUIRED — fixes your error
 
-public class SelectionController : MonoBehaviour
+namespace Obsidian.UI
 {
-    public List<UnitMover> selectedUnits = new();
-    FormationManager formation;
-
-    void Awake()
+    public class SelectionController : MonoBehaviour
     {
-        formation = new FormationManager();
-    }
+        [SerializeField] private UnitMover _mover;
 
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(1))
+        private void Awake()
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out RaycastHit hit))
-            {
-                formation.MoveUnits(selectedUnits, hit.point);
-            }
-        }
-    }
-
-    public void Select(UnitMover mover)
-    {
-        if (!selectedUnits.Contains(mover))
-        {
-            selectedUnits.Add(mover);
-
-            UnitSelectable sel = mover.GetComponent<UnitSelectable>();
-            if (sel != null)
-                sel.SetSelected(true);
-        }
-    }
-
-    public void DeselectAll()
-    {
-        foreach (var m in selectedUnits)
-        {
-            if (m == null) continue;
-            UnitSelectable sel = m.GetComponent<UnitSelectable>();
-            if (sel != null)
-                sel.SetSelected(false);
+            if (_mover == null)
+                _mover = FindAnyObjectByType<UnitMover>();
         }
 
-        selectedUnits.Clear();
+        public void SelectUnit(UnitMover mover)
+        {
+            _mover = mover;
+        }
+
+        public void ClearSelection()
+        {
+            _mover = null;
+        }
     }
 }

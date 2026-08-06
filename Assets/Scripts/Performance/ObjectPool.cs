@@ -1,42 +1,29 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class ObjectPool : MonoBehaviour
+public class ObjectPool
 {
-    public static ObjectPool Instance;
-
-    Dictionary<string, Queue<GameObject>> pools = new();
-
-    void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        DontDestroyOnLoad(gameObject);
-    }
+    private readonly Dictionary<string, Queue<GameObject>> pools = new();
 
     public GameObject Spawn(GameObject prefab, Vector3 pos, Quaternion rot)
     {
         string key = prefab.name;
 
-        if (!pools.ContainsKey(key))
-            pools[key] = new Queue<GameObject>();
-
-        if (pools[key].Count > 0)
+        if (!pools.TryGetValue(key, out var queue))
         {
-            GameObject obj = pools[key].Dequeue();
-            obj.transform.position = pos;
-            obj.transform.rotation = rot;
+            queue = new Queue<GameObject>();
+            pools[key] = queue;
+        }
+
+        if (queue.Count > 0)
+        {
+            GameObject obj = queue.Dequeue();
+            obj.transform.SetPositionAndRotation(pos, rot);
             obj.SetActive(true);
             return obj;
         }
 
-        GameObject newObj = Instantiate(prefab, pos, rot);
+        GameObject newObj = Object.Instantiate(prefab, pos, rot);
         newObj.name = key;
         return newObj;
     }
@@ -46,9 +33,13 @@ public class ObjectPool : MonoBehaviour
         obj.SetActive(false);
 
         string key = obj.name;
-        if (!pools.ContainsKey(key))
-            pools[key] = new Queue<GameObject>();
 
-        pools[key].Enqueue(obj);
+        if (!pools.TryGetValue(key, out var queue))
+        {
+            queue = new Queue<GameObject>();
+            pools[key] = queue;
+        }
+
+        queue.Enqueue(obj);
     }
 }

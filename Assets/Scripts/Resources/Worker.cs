@@ -12,7 +12,7 @@ public class Worker : MonoBehaviour
 
     void Awake()
     {
-        playerResources = FindAnyObjectByType<ResourceManager>();
+        playerResources = ServiceLocator.Get<ResourceManager>();
     }
 
     void Update()

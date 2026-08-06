@@ -1,86 +1,90 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
-public class SquadAI : MonoBehaviour
+public class SquadAI
 {
-    public List<CombatAI> members = new();
-    public float regroupRadius = 5f;
-    public float leaderSearchRadius = 20f;
-    public float attackCommandRange = 30f;
-
-    CombatAI leader;
-
-    void Awake()
+    public enum FormationType
     {
-        AssignLeader();
+        None,
+        Line,
+        Wedge,
+        Circle
     }
 
-    void Update()
+    public List<SquadMember> members = new();
+    public FormationType CurrentFormation { get; private set; } = FormationType.None;
+
+    private SquadMemory memory;
+
+    public SquadAI()
     {
-        if (leader == null)
-        {
-            AssignLeader();
+        memory = ServiceLocator.Get<SquadMemory>();
+    }
+
+    public void AddMember(SquadMember member)
+    {
+        if (member == null)
             return;
-        }
 
-        RegroupMembers();
-        SyncTargets();
+        if (!members.Contains(member))
+            members.Add(member);
     }
 
-    void AssignLeader()
+    public void RemoveMember(SquadMember member)
     {
-        float bestHP = -Mathf.Infinity;
-        CombatAI best = null;
+        if (member == null)
+            return;
 
-        foreach (var m in members)
+        if (members.Contains(member))
+            members.Remove(member);
+    }
+
+    public Vector3 SquadCenter
+    {
+        get
         {
+            if (members.Count == 0)
+                return Vector3.zero;
+
+            Vector3 sum = Vector3.zero;
+            int count = 0;
+
+            for (int i = 0; i < members.Count; i++)
+            {
+                var m = members[i];
+                if (m == null) continue;
+
+                sum += m.transform.position;
+                count++;
+            }
+
+            return count > 0 ? sum / count : Vector3.zero;
+        }
+    }
+
+    public void SetFormation(FormationType type)
+    {
+        CurrentFormation = type;
+        memory.SetFormation(type);
+    }
+
+    public void ClearFormation()
+    {
+        CurrentFormation = FormationType.None;
+        memory.SetFormation(FormationType.None);
+    }
+
+    // Called by SquadController to move the entire squad
+    public void MoveSquad(Vector3 target)
+    {
+        memory.SetMoveTarget(target);
+
+        for (int i = 0; i < members.Count; i++)
+        {
+            var m = members[i];
             if (m == null) continue;
 
-            Health h = m.GetComponent<Health>();
-            if (h != null && h.currentHealth > bestHP)
-            {
-                bestHP = h.currentHealth;
-                best = m;
-            }
-        }
-
-        leader = best;
-    }
-
-    void RegroupMembers()
-    {
-        foreach (var m in members)
-        {
-            if (m == null || m == leader) continue;
-
-            float dist = Vector3.Distance(m.transform.position, leader.transform.position);
-
-            if (dist > regroupRadius)
-            {
-                UnitMover mover = m.GetComponent<UnitMover>();
-                if (mover != null)
-                    mover.MoveTo(leader.transform.position);
-            }
-        }
-    }
-
-    void SyncTargets()
-    {
-        CombatAI leaderAI = leader;
-        if (leaderAI == null) return;
-
-        GameObject target = leaderAI.GetCurrentTarget();
-        if (target == null) return;
-
-        foreach (var m in members)
-        {
-            if (m == null) continue;
-
-            float dist = Vector3.Distance(m.transform.position, target.transform.position);
-            if (dist > attackCommandRange) continue;
-
-            m.SetForcedTarget(target);
+            m.MoveTowards(target);
         }
     }
 }
-

@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class ResourceUI : MonoBehaviour
 {
-    [SerializeField] private ResourceManager resourceManager;
-    [SerializeField] private SupplyManager supplyManager;
+    private ResourceManager resourceManager;
+    private SupplyManager supplyManager;
 
     [SerializeField] private Text woodText;
     [SerializeField] private Text stoneText;
@@ -13,11 +13,8 @@ public class ResourceUI : MonoBehaviour
 
     private void Awake()
     {
-        if (resourceManager == null)
-            resourceManager = Object.FindAnyObjectByType<ResourceManager>();
-
-        if (supplyManager == null)
-            supplyManager = Object.FindAnyObjectByType<SupplyManager>();
+        resourceManager = ServiceLocator.Get<ResourceManager>();
+        supplyManager = ServiceLocator.Get<SupplyManager>();
     }
 
     private void Update()

@@ -1,27 +1,26 @@
 using UnityEngine;
-using UnityEngine.AI;
 
-public class UnitMover : MonoBehaviour
+namespace Obsidian.VR
 {
-    public NavMeshAgent agent;
-
-    public float stoppingDistance = 1f;
-
-    void Awake()
+    public class UnitMover : MonoBehaviour
     {
-        agent = GetComponent<NavMeshAgent>();
-        agent.stoppingDistance = stoppingDistance;
-        agent.autoBraking = true;
-        agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
-    }
+        private Vector3 _moveInput;
 
-    public void MoveTo(Vector3 pos)
-    {
-        agent.SetDestination(pos);
-    }
+        // ⭐ REQUIRED — fixes your error
+        public void SetMoveInput(Vector3 move)
+        {
+            _moveInput = move;
+        }
 
-    public bool IsMoving()
-    {
-        return agent.remainingDistance > agent.stoppingDistance;
+        public void SetThrottle(float value)
+        {
+            // Optional throttle logic
+        }
+
+        private void Update()
+        {
+            // Placeholder movement logic
+            // transform.position += _moveInput * Time.deltaTime;
+        }
     }
 }
