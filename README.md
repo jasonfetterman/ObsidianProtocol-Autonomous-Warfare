@@ -3,7 +3,9 @@
 <p align="center"><strong>Command intent. Unleash autonomy. Witness war evolve.</strong></p>
 
 ⚫ Obsidian Protocol: Autonomous Warfare
-A next‑generation real‑time strategy game where autonomous squads think for themselves, battlefields evolve dynamically, and every engagement feels like a cinematic war story unfolding in real time.
+A next‑generation autonomous RTS forged in conflict and commanded by steel.
+
+Obsidian Protocol is a futuristic real‑time strategy game where autonomous squads think for themselves, battlefields evolve dynamically, and every engagement feels like a cinematic war story unfolding in real time.
 
 Built for scale.
 Built for modding.
@@ -22,6 +24,27 @@ Designed for massive battles without killing performance
 
 Obsidian Protocol isn’t just an RTS.
 It’s a living battlefield simulator where every squad has intent, every decision has weight, and every fight tells a story.
+
+🛡️ The Warden Program — Primary Faction
+Obsidian Protocol’s first major release centers on Black Steel Innovations’ Warden Program, a fully autonomous military fleet divided into four divisions:
+
+✈️ Air Division
+Recon, strike craft, and aerial dominance.
+Units include: Warden, Beacon, Sentinel, Scouteye, Overstrig
+
+🚢 Sea Division
+Naval artillery, carriers, and coastal control.
+Units include: Slunt Deffm, Relbat, Response, Ret4Y
+
+🚛 Grennaad Division (Ground Armor)
+Tanks, APCs, artillery, and logistics.
+Units include: Bullodge, Forge, Harmmer, Ironwalke I, Mule, Hauler
+
+⚗️ Experimental Division
+Prototype super‑units and late‑game tech.
+Units include: Archive, Nulldepth, Wordtoh Map, Commando Core, Fusion, Nexus, Phantom
+
+These units form the backbone of the first playable faction.
 
 🎮 Key Features
 🧠 Autonomous Squad Intelligence
@@ -45,6 +68,10 @@ Pooling, batching, async operations, and optimized map streaming allow massive a
 🎯 Intent‑Based Commanding
 You set goals, priorities, and zones of control. Squads interpret your intent and act intelligently.
 
+🕶️ Optional VR Operator Mode
+Jump into drones, scout, breach, or perform tactical abilities.
+VR is optional, not required — the core game is a traditional RTS.
+
 🖤 Why This Game Exists
 RTS games stopped evolving.
 
@@ -60,18 +87,6 @@ What if the battlefield reacted?
 What if war felt emergent, intelligent, and cinematic — every single match?
 
 This project is the answer.
-
-A push forward — a new foundation for autonomous warfare simulations, built for players who crave depth, developers who want modular systems, and creators who want to shape entire worlds.
-
-RTS deserves to evolve.
-And you’re here at the moment it begins.
-
-👤 About the Developer
-Obsidian Protocol is built by a solo developer obsessed with intelligent systems, modular design, and creating battlefields that feel truly alive.
-
-Every mechanic, every squad behavior, every AI decision is crafted with one goal:
-
-Make an RTS that finally evolves.
 
 🗺️ Roadmap
 🔹 Phase 1 — Core Systems (Current)
@@ -129,11 +144,11 @@ Community showcase
 🌐 Follow the Project
 GitHub — Track commits and development progress
 
-Devlog (coming soon) — Deep dives into AI systems and design
+Devlog (coming soon)
 
-Discord (coming soon) — Community testing & modding
+Discord (coming soon)
 
-Steam Page (coming soon) — Wishlist, trailers, screenshots
+Steam Page (coming soon)
 
 This project is built in the open.
 If you want to be part of the journey — welcome aboard.
