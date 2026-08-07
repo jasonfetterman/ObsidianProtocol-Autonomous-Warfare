@@ -1,0 +1,422 @@
+OBSIDIAN PROTOCOL
+Vehicle & Asset Design Bible v1.0
+1. WORLD SCALE
+Engine
+
+Unity 6
+
+Modeling Software
+
+Autodesk Maya
+
+Units
+1 Unity Unit = 1 Meter
+
+1 Meter = 1000 mm
+
+Never scale assets inside Unity.
+
+2. MAYA SETTINGS
+
+Working Units
+
+Meters
+
+Grid
+
+Length Width
+100
+
+Grid Lines Every
+10
+
+Subdivisions
+10
+
+Camera
+
+Near
+0.01
+
+Far
+10000
+
+Ground
+
+Y = 0
+
+Origin
+
+0,0,0
+3. FILE NAMING
+
+Models
+
+SM_Warden.mb
+
+SM_Bulldog.mb
+
+SM_CommandCore.mb
+
+FBX
+
+SM_Warden.fbx
+
+Textures
+
+T_Warden_BaseColor
+
+T_Warden_Normal
+
+T_Warden_Roughness
+
+T_Warden_Metallic
+
+Materials
+
+M_Warden
+
+M_Bulldog
+
+Prefabs
+
+PF_Warden
+
+PF_Bulldog
+4. FOLDER STRUCTURE
+Art/
+
+    Models/
+
+        Air/
+
+        Ground/
+
+        Sea/
+
+        Command/
+
+        Experimental/
+
+    Textures/
+
+    Materials/
+
+    Animations/
+
+    FBX/
+5. MILITARY SCALE
+
+Human
+
+1.80m
+
+Door
+
+2.0m
+
+Shipping Container
+
+6.096m
+
+Crate
+
+1m
+6. STANDARD WHEELS
+
+Scout
+
+Diameter
+0.75m
+
+Width
+0.28m
+
+Medium
+
+Diameter
+1.0m
+
+Width
+0.35m
+
+Heavy
+
+Diameter
+1.2m
+
+Width
+0.45m
+
+Siege
+
+Diameter
+1.5m
+
+Width
+0.60m
+
+Titan
+
+Diameter
+1.8m
+
+Width
+0.70m
+7. STANDARD ROTORS
+
+Micro
+
+0.35m
+
+Small
+
+0.55m
+
+Medium
+
+0.90m
+
+Heavy
+
+1.20m
+
+Transport
+
+2.00m
+
+Command
+
+2.50m
+8. STANDARD PROPELLERS
+
+Small
+
+0.35m
+
+Medium
+
+0.60m
+
+Large
+
+1.00m
+
+Capital
+
+1.50m
+9. POLYCOUNT TARGETS
+
+Micro Drone
+
+5,000
+
+Recon Drone
+
+8,000
+
+Combat Drone
+
+12,000
+
+Heavy Drone
+
+18,000
+
+UGV
+
+15,000
+
+Heavy Vehicle
+
+30,000
+
+Sea
+
+20,000
+
+Buildings
+
+25,000
+
+Experimental
+
+40,000+
+10. TEXTURE SIZE
+
+Props
+
+1024
+
+Vehicles
+
+2048
+
+Hero Units
+
+4096
+
+Buildings
+
+4096
+11. MATERIAL STYLE
+
+Primary
+
+Dark graphite
+
+Secondary
+
+Matte gunmetal
+
+Accent
+
+Military orange
+
+or
+
+Electric cyan
+
+Rubber
+
+Dark gray
+
+Glass
+
+Blue-black
+
+Lights
+
+White
+
+Blue
+
+Red
+
+Amber
+12. DESIGN LANGUAGE
+
+Every vehicle should share:
+
+✔ Sharp military lines
+
+✔ Angular armor
+
+✔ Modular panels
+
+✔ Exposed bolts
+
+✔ Cooling vents
+
+✔ Sensor clusters
+
+✔ Maintenance hatches
+
+✔ Identification markings
+
+✔ Small warning decals
+
+✔ Consistent antenna style
+
+✔ Same headlight family
+
+✔ Same camera family
+
+✔ Same weapon mounts
+
+The goal is for someone to immediately recognize "This belongs to The Warden Program."
+
+13. WEAPON HARDPOINT STANDARDS
+
+Light
+
+0.30m mount
+
+Medium
+
+0.50m
+
+Heavy
+
+0.80m
+
+Siege
+
+1.20m
+14. SENSOR STANDARDS
+
+Camera
+
+0.12m
+
+Thermal
+
+0.20m
+
+Radar
+
+1.50m
+
+Lidar
+
+0.35m
+
+Communications Dish
+
+2.00m
+15. COLOR SYSTEM
+
+Combat
+
+Black
+
+Gunmetal
+
+Gray
+
+Engineering
+
+Yellow
+
+Medical
+
+White
+
+Green
+
+Recon
+
+Blue
+
+Command
+
+Orange
+
+Experimental
+
+Black
+
+Red
+
+Carbon
+16. MODELING RULES
+
+Every asset must:
+
+Be modeled at real-world scale.
+Have the pivot correctly placed before export.
+Use meaningful object names (Body, Wheel_FL, Rotor_01, etc.) instead of default names like pCube1.
+Freeze transforms.
+Delete construction history.
+Keep the forward direction consistent for Unity.
+Export at Scale Factor = 1.
+17. FUTURE FACTIONS
+
+Leave room in the design language so future factions feel distinct:
+
+The Warden Program: Angular, modular, utilitarian.
+Enemy AI Faction: Aggressive, asymmetrical, exposed mechanics.
+Corporate Faction: Clean, polished, premium materials.
+Experimental/Black Ops: Stealth, faceted surfaces, minimal visible hardware.
+
+This lets players identify a faction instantly by silhouette, even before they notice colors or markings.
