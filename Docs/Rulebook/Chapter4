@@ -1,0 +1,320 @@
+CHAPTER IV — AUTONOMOUS SQUAD AI
+Autonomous Squad AI is the beating heart of Obsidian Protocol.
+It transforms squads from passive units into thinking battlefield actors capable of flanking, breaching, suppressing, retreating, coordinating, and adapting to dynamic conditions — all without direct micromanagement.
+
+This chapter defines how squads interpret intent, evaluate risk, choose actions, and coordinate with other units.
+
+4.1 Squad Personalities
+Every squad has a personality profile that influences decision‑making. Personalities are lightweight behavioral modifiers layered on top of core AI logic.
+
+Personality Types
+Aggressive — prioritizes damage, pushes advantages
+
+Cautious — avoids high‑risk engagements
+
+Methodical — prefers structured formations and firing lines
+
+Adaptive — rapidly changes tactics based on conditions
+
+Recon — prioritizes visibility, stealth, and information
+
+Supportive — focuses on repairs, escorts, and reinforcement
+
+Personality Effects
+Personality affects:
+
+Engagement range
+
+Retreat thresholds
+
+Target priority
+
+Formation choice
+
+Breach behavior
+
+Suppression response
+
+Pathfinding aggressiveness
+
+4.2 Intent Interpretation
+Squads do not follow orders literally — they interpret intent using a layered decision system.
+
+Intent Processing Pipeline
+Intent Received
+
+Context Evaluation
+
+Risk Assessment
+
+Tactical Plan Generation
+
+Execution
+
+Continuous Re‑evaluation
+
+Context Evaluation Factors
+Terrain
+
+Elevation
+
+Visibility cones
+
+Suppression zones
+
+Enemy composition
+
+Friendly positions
+
+Command radius
+
+Weather
+
+Hazards
+
+Logistics lines
+
+Risk Assessment
+Squads evaluate:
+
+Expected casualties
+
+Enemy firepower
+
+Cover availability
+
+Escape routes
+
+Sensor coverage
+
+Flanking opportunities
+
+If risk exceeds threshold, squads:
+
+Modify the plan
+
+Request support
+
+Retreat
+
+Switch to defensive posture
+
+4.3 Target Prioritization
+Squads choose targets based on a dynamic priority system.
+
+Priority Factors
+Threat level
+
+Proximity
+
+Vulnerability
+
+Mission relevance
+
+Line‑of‑sight
+
+Suppression state
+
+Sensor visibility
+
+Command unit influence
+
+Examples
+Anti‑air units prioritize air threats
+
+Recon units prioritize stealth units
+
+Breach teams prioritize door guards
+
+Armor prioritizes enemy armor or turrets
+
+Target priority is recalculated continuously.
+
+4.4 Flanking Logic
+Flanking is a core autonomous behavior. Squads identify weak angles and maneuver to exploit them.
+
+Flanking Conditions
+A flank is attempted when:
+
+Enemy is entrenched
+
+Direct assault is high‑risk
+
+Terrain allows side approach
+
+Suppression zones block frontal attack
+
+Squad personality supports maneuvering
+
+Flanking Steps
+Identify weak angle
+
+Pathfind around suppression zones
+
+Maintain cover
+
+Coordinate with main assault
+
+Engage from side or rear
+
+Flanking is fully autonomous and requires no micromanagement.
+
+4.5 Breach Logic
+Breach behavior is one of the most advanced systems in Obsidian Protocol.
+
+Breach Team Composition
+Stack Team — forms up at breach point
+
+Suppress Team — lays down covering fire
+
+Entry Team — enters and clears
+
+Anchor Team — holds perimeter
+
+Breach Steps
+Identify breach point
+
+Stack formation
+
+Suppression begins
+
+Entry team moves
+
+Room clearing
+
+Consolidation
+
+Expansion or fallback
+
+Dynamic Adjustments
+If suppression fails or casualties rise:
+
+Breach is aborted
+
+Squad retreats
+
+Squad switches to hold intent
+
+Squad requests support
+
+4.6 Suppression Response
+Squads react intelligently to suppression.
+
+Suppression Effects
+Reduced accuracy
+
+Reduced movement speed
+
+Increased retreat likelihood
+
+Increased cover‑seeking behavior
+
+Suppression Avoidance
+Squads will:
+
+Path around suppression zones
+
+Crawl or crouch behind cover
+
+Deploy smoke or countermeasures
+
+Call for support
+
+Flank instead of assault
+
+4.7 Elevation & Visibility Cones
+Elevation and visibility cones shape squad behavior.
+
+Elevation Effects
+Increased range
+
+Increased accuracy
+
+Increased visibility
+
+Reduced vulnerability
+
+Visibility Cone Logic
+Squads maintain:
+
+Optimal sightlines
+
+Overwatch positions
+
+Sensor coverage
+
+Avoidance of blind spots
+
+Squads reposition autonomously to maintain visibility advantages.
+
+4.8 Autonomous Retreat
+Retreat is not failure — it is intelligent survival.
+
+Retreat Triggers
+High casualties
+
+Overwhelming firepower
+
+Loss of cover
+
+Loss of command radius
+
+Hazard exposure
+
+Flanked position
+
+Failed breach
+
+Retreat Behavior
+Move to nearest safe zone
+
+Regroup with allies
+
+Request reinforcement
+
+Switch to hold intent
+
+Re‑enter battle when safe
+
+4.9 Autonomous Regrouping
+Squads regroup automatically after losses or disorganization.
+
+Regroup Steps
+Identify safe zone
+
+Consolidate remaining units
+
+Reassign roles
+
+Rebuild formation
+
+Re‑evaluate intent
+
+Re‑enter battle
+
+Regrouping ensures squads remain effective even after chaotic engagements.
+
+4.10 Multi‑Angle Assault Behavior
+Squads coordinate multi‑angle attacks without player micromanagement.
+
+Assault Structure
+Primary Assault Team
+
+Flank Team
+
+Suppress Team
+
+Anchor Team
+
+Coordination Logic
+Timed engagement
+
+Shared suppression
+
+Shared sensor data
+
+Shared breach timing
+
+Dynamic adjustment based on casualties
+
+Multi‑angle assaults create cinematic, emergent battles.
