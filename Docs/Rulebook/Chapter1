@@ -1,0 +1,162 @@
+CHAPTER I — CORE IDENTITY & PHILOSOPHY
+1.1 What Obsidian Protocol Is
+Obsidian Protocol is a next‑generation autonomous real‑time strategy game where players issue intent, not micromanaged orders. Squads interpret your goals, adapt to battlefield conditions, and execute complex maneuvers without direct control.
+
+The game blends:
+
+High‑level strategic decision‑making
+
+Autonomous tactical execution
+
+Emergent battlefield behavior
+
+Cinematic engagements
+
+Modular systems for factions, units, and campaigns
+
+Obsidian Protocol is built for scale, modding, and spectacle — a living battlefield simulator where every match unfolds differently.
+
+1.2 Intent‑Based Commanding
+Traditional RTS games rely on micromanagement. Obsidian Protocol replaces this with intent‑based commanding, a system where players define what they want done, and autonomous squads determine how to accomplish it.
+
+Intent Categories
+Assault Intent — breach, flank, suppress, overwhelm
+
+Recon Intent — scout, track, shadow, observe
+
+Hold Intent — fortify, anchor, defend, intercept
+
+Support Intent — repair, escort, reinforce, extract
+
+Strike Intent — precision attack, bombard, disrupt
+
+Retreat Intent — fall back, regroup, reposition
+
+Intent Resolution
+Squads evaluate:
+
+Terrain
+
+Visibility
+
+Enemy composition
+
+Suppression zones
+
+Elevation
+
+Cover
+
+Friendly positions
+
+Command radius
+
+Risk thresholds
+
+Then they autonomously choose:
+
+Pathing
+
+Formation
+
+Engagement range
+
+Breach points
+
+Retreat triggers
+
+Target priority
+
+Intent‑based commanding transforms the player from a micromanager into a battlefield commander.
+
+1.3 Autonomous Squad Warfare
+Squads in Obsidian Protocol behave like trained fireteams, armored platoons, drone wings, or naval detachments. They make decisions based on layered AI systems:
+
+Autonomous Behaviors
+Flanking Logic — identify weak angles and maneuver
+
+Breach Logic — stack, suppress, breach, clear
+
+Suppression Response — avoid kill zones, reposition
+
+Elevation Awareness — exploit height advantages
+
+Visibility Cones — maintain sightlines and avoid blind spots
+
+Multi‑Angle Assaults — coordinate simultaneous attacks
+
+Autonomous Retreat — disengage when overwhelmed
+
+Regrouping — consolidate after losses
+
+Target Prioritization — choose optimal threats
+
+Adaptive Pathfinding — avoid hazards and chokepoints
+
+Emergent Behavior
+Because squads interpret intent dynamically, battles evolve organically:
+
+Fireteams peel off to flank
+
+Drones reposition to maintain sensor coverage
+
+Armor units anchor firing lines
+
+Naval units coordinate depth‑based attacks
+
+Experimental units alter the battlefield itself
+
+No two battles play the same.
+
+1.4 Emergent Battlefield Simulation
+Obsidian Protocol simulates a battlefield that reacts to every decision.
+
+Dynamic Systems
+Fog‑of‑War — shaped by sensors, elevation, and weather
+
+Destructible Cover — buildings, walls, vehicles
+
+Suppression Zones — bullets and artillery create danger areas
+
+Visibility Cones — directional sightlines for all units
+
+Elevation — high ground affects range, accuracy, and detection
+
+Terrain Types — forest, urban, desert, tundra, marsh, ocean
+
+Weather — rain, fog, wind, storms affect sensors and accuracy
+
+Hazards — fire, radiation, EMP zones, flooding
+
+Logistics — supply lines, repair drones, power grids
+
+These systems interact to create emergent warfare, where outcomes are shaped by environment, intent, and autonomous decision‑making.
+
+1.5 Cinematic RTS Philosophy
+Obsidian Protocol is designed to feel like a living war documentary.
+
+Cinematic Principles
+Autonomous shot composition — camera frames dramatic angles
+
+Strategic zoom — seamless transition from macro to micro
+
+Dynamic engagements — squads move naturally, not rigidly
+
+Environmental destruction — battles reshape the map
+
+VR immersion — optional cockpit and operator modes
+
+Massive battles — hundreds of autonomous units acting intelligently
+
+Player Experience Goals
+Battles feel alive, not scripted
+
+Squads behave like trained professionals
+
+The battlefield evolves in real time
+
+Every match produces unique stories
+
+VR provides first‑person immersion without replacing RTS gameplay
+
+Obsidian Protocol is not just a strategy game — it is a cinematic autonomous warfare simulator.
