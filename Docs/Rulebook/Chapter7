@@ -1,0 +1,383 @@
+CHAPTER VII — VR COMBAT SYSTEMS
+VR in Obsidian Protocol is optional, seamless, and fully synchronized with the autonomous RTS simulation.
+Players can jump into drones, pilot air units, perform recon sweeps, designate strikes, or fight full dogfights — all while the RTS battle continues autonomously.
+
+This chapter defines every VR system, control layer, combat mechanic, and integration rule.
+
+7.1 VR Dogfight Rules
+VR dogfights allow players to pilot air units in full cockpit simulation while the RTS battle continues.
+
+Supported Units
+Any air unit with:
+
+Cockpit
+
+Sensor suite
+
+Maneuvering capability
+
+Weapons
+
+Examples: Warden, Beacon, Iris, Nightguard, Overseer, Vector, Watchtower.
+
+Dogfight Engagement Loop
+Acquire target
+
+Manage altitude band
+
+Maintain energy
+
+Avoid missile lock
+
+Engage with guns/missiles
+
+Break off or pursue
+
+Altitude Bands
+Altitude determines:
+
+Visibility
+
+Sensor strength
+
+Missile lock reliability
+
+Maneuverability
+
+Vulnerability to AA
+
+Bands:
+
+Low — strafing, high risk
+
+Mid — balanced
+
+High — air superiority
+
+Extreme — recon, stealth, long‑range missiles
+
+Energy Management
+Energy determines:
+
+Speed
+
+Turn rate
+
+Afterburner duration
+
+Climb ability
+
+Players must balance:
+
+Throttle
+
+Afterburner
+
+Maneuvering
+
+Weapon firing
+
+Missile Lock & Countermeasures
+Missile lock requires:
+
+Sensor alignment
+
+Stable flight
+
+Target within cone
+
+No occlusion
+
+Countermeasures:
+
+Flares
+
+Chaff
+
+ECM bursts
+
+High‑G break turns
+
+Damage Feedback
+Damage is communicated through:
+
+Cockpit shake
+
+Warning alarms
+
+Smoke trails
+
+HUD damage indicators
+
+Control degradation
+
+7.2 VR Maneuvering
+VR maneuvering is full 6‑DOF flight.
+
+Movement
+Pitch
+
+Roll
+
+Yaw
+
+Strafe
+
+Vertical climb/drop
+
+Afterburner
+
+Advanced Maneuvers
+Immelmann turn
+
+Split‑S
+
+Barrel roll
+
+High‑G break
+
+Vertical scissors
+
+Energy trap maneuvers
+
+G‑Force Simulation
+High‑G maneuvers cause:
+
+Tunnel vision
+
+Reduced responsiveness
+
+Temporary blackout risk
+
+Players must manage G‑forces during dogfights.
+
+7.3 VR Damage Feedback
+Damage is immersive and tactile.
+
+Damage Types
+Hull damage
+
+Engine damage
+
+Avionics failure
+
+Weapon malfunction
+
+Sensor disruption
+
+Feedback Channels
+Cockpit vibration
+
+HUD warnings
+
+Smoke/fire effects
+
+Control stiffness
+
+Reduced maneuverability
+
+Critical Damage
+Critical hits may cause:
+
+Spinout
+
+Forced landing
+
+Ejection sequence
+
+Drone‑jump fallback
+
+7.4 VR Weapons
+VR weapons are manually controlled.
+
+Weapon Types
+Autocannons
+
+Machine guns
+
+Missiles
+
+Bombs
+
+Plasma weapons
+
+Railguns (experimental)
+
+Weapon Mechanics
+Manual aiming
+
+Lead calculation
+
+Recoil simulation
+
+Heat buildup
+
+Ammo tracking
+
+Missile Types
+Heat‑seeking
+
+Radar‑guided
+
+IR stealth‑penetrating
+
+Anti‑armor
+
+Anti‑air
+
+Experimental
+
+7.5 VR Cockpit Systems
+The cockpit is a fully diegetic interface.
+
+HUD Elements
+Radar sphere
+
+Thermal overlay
+
+LIDAR grid
+
+Missile lock indicator
+
+Damage panel
+
+Afterburner meter
+
+Altitude bands
+
+Threat arcs
+
+Cockpit Interactions
+Players can:
+
+Flip switches
+
+Adjust sensors
+
+Arm weapons
+
+Deploy countermeasures
+
+Switch flight modes
+
+Toggle overlays
+
+Flight Modes
+Combat Mode — maximum maneuverability
+
+Recon Mode — enhanced sensors
+
+Strike Mode — stabilized bombing platform
+
+Stealth Mode — reduced emissions
+
+7.6 VR Drone‑Jumping
+Drone‑jumping allows players to inhabit any drone or sensor unit.
+
+Activation
+Select drone
+
+Press F
+
+Instantly transition into VR or first‑person view
+
+Drone Capabilities
+Manual recon
+
+Thermal sweep
+
+LIDAR scan
+
+Night vision
+
+Hazard marking
+
+Laser designation
+
+Manual strike targeting
+
+Operator Tools
+Inside drone view, players can:
+
+Tag enemies
+
+Mark breach points
+
+Highlight suppression zones
+
+Identify stealth units
+
+Relay sensor data to squads
+
+Drone‑jumping is a core part of VR Operator Mode.
+
+7.7 VR Tactical Operator Mode
+Operator mode blends RTS and VR.
+
+Operator Abilities
+EMP bursts
+
+Signal jamming
+
+Uplink boosts
+
+Manual strike designation
+
+Sensor control
+
+Recon sweeps
+
+Hazard tagging
+
+Operator Overlays
+Squad intents
+
+Suppression zones
+
+Visibility cones
+
+Elevation map
+
+Logistics lines
+
+Command radius
+
+Operator Workflow
+Issue RTS intent
+
+Jump into VR
+
+Perform recon or strike designation
+
+Exit VR
+
+RTS battle continues autonomously
+
+Operator mode enhances strategic depth without replacing RTS gameplay.
+
+7.8 VR Mission Types
+VR missions appear in campaign, skirmish, and modded scenarios.
+
+Mission Types
+Dogfight Missions — air superiority
+
+Strike Missions — bombing runs
+
+Recon Missions — stealth scanning
+
+Operator Missions — tactical support
+
+Hybrid Missions — RTS + VR combined
+
+Experimental Trials — test experimental units in VR
+
+Mission Integration
+VR missions:
+
+Affect RTS outcomes
+
+Influence squad behavior
+
+Unlock tech tree nodes
+
+Provide campaign progression
