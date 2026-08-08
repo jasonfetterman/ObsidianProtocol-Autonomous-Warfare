@@ -1,0 +1,268 @@
+CHAPTER VIII — UNITS
+Units are the backbone of Obsidian Protocol.
+They execute intents, interpret battlefield conditions, coordinate autonomously, and interact with every environmental and combat system defined in previous chapters.
+
+This chapter defines:
+
+Unit categories
+
+Core attributes
+
+Movement rules
+
+Combat roles
+
+Sensor systems
+
+Specialties
+
+Command interactions
+
+Full breakdowns of Air, Ground, Sea, Command, and Experimental units
+
+8.1 Unit Categories
+Primary Categories
+All units fall into one of five major categories:
+
+Category	Domain	Core Strengths	Core Weaknesses
+Air	Aerial	Speed, altitude, sensors, mobility	Vulnerable to AA, limited payload
+Ground	Land	Versatility, cover usage, suppression	Terrain‑bound, vulnerable to air
+Sea	Naval	Range, depth, sonar, heavy payloads	Slow, predictable lanes
+Command	Leadership	Command radius, bonuses, strategic abilities	Low combat capability
+Experimental	Unique	Superweapons, special rules, battlefield manipulation	High cost, limited availability
+
+
+Each category has unique mechanics and interactions with battlefield systems.
+
+8.2 Air Units
+Air units operate in three‑dimensional space and are the fastest units in the game.
+They excel at reconnaissance, rapid response, precision strikes, and VR dogfight integration.
+
+Air Unit Mechanics
+Altitude Bands (Low, Mid, High, Extreme)
+
+Energy Management (speed, turn rate, afterburner)
+
+Sensor Suite (thermal, LIDAR, radar)
+
+Missile Lock & Countermeasures
+
+VR Cockpit Integration
+
+High Evasion
+
+Limited Payload
+
+Fuel/Endurance Constraints
+
+Air Unit Roles
+Air Superiority — Warden, Nightguard
+
+Recon — ScoutEye, Lidar, Mesh
+
+Strike — Beacon, Drop, Thermal
+
+Support — Lifeline, Relay
+
+Command Air Units — Overseer, Watchtower
+
+Air Unit AI Behaviors
+Maintain altitude advantage
+
+Avoid AA zones
+
+Use vertical maneuvers
+
+Coordinate with ground units
+
+Retreat when fuel or ammo is low
+
+Air units are essential for map control and VR integration.
+
+8.3 Ground Units
+Ground units form the backbone of territorial control.
+They interact heavily with terrain, cover, suppression, elevation, and breach systems.
+
+Ground Unit Mechanics
+Terrain Effects (urban, forest, desert, tundra, marsh)
+
+Cover & Destructible Cover
+
+Suppression Zones
+
+CQB & Breach Combat
+
+Logistics & Supply Lines
+
+Armor & Penetration
+
+Visibility Cones
+
+Elevation Advantage
+
+Ground Unit Roles
+Infantry — Patrol, Rescue, Scout
+
+Light Vehicles — Mule, Rover
+
+Medium Armor — Bulldog, Forge
+
+Heavy Armor — Hammer, Crusher
+
+Specialists — Ironwalker (engineer), Sentinel (AA)
+
+Logistics Units — Hauler
+
+Ground Unit AI Behaviors
+Seek cover
+
+Avoid suppression zones
+
+Anchor firing lines
+
+Flank entrenched enemies
+
+Form breach stacks
+
+Regroup after losses
+
+Ground units are the most tactically diverse category.
+
+8.4 Sea Units
+Sea units dominate naval zones and provide long‑range firepower, sonar coverage, and amphibious support.
+
+Sea Unit Mechanics
+Depth Layers (surface, mid‑depth, deep)
+
+Sonar Detection
+
+Torpedo Mechanics
+
+Naval Artillery
+
+Carrier Operations
+
+Anti‑Sub Warfare
+
+Weather & Wave Effects
+
+Sea Unit Roles
+Recon — Surveyor Mk1
+
+Patrol — Current
+
+Rescue/Support — Rescue
+
+Strike — Sonar, Depthwatch
+
+Heavy Naval — Harbor, Tidebreaker
+
+Sea Unit AI Behaviors
+Maintain optimal depth
+
+Use sonar triangulation
+
+Avoid torpedo lanes
+
+Coordinate with air units
+
+Provide amphibious support
+
+Sea units create strategic pressure across ocean maps.
+
+8.5 Command Units
+Command units are the strategic backbone of the Warden Program.
+They do not fight directly — instead, they provide command radius, bonuses, strategic abilities, and battlefield intelligence.
+
+This section defines the eight Command Units from your chart.
+
+Archive
+Role: Long‑term data repository
+Abilities: Intel boost, cooldown reduction
+Bonuses: Sensor range, recon efficiency
+
+Worldmap
+Role: Strategic overview node
+Abilities: Map reveal, fog‑of‑war manipulation
+Bonuses: Sensor triangulation, elevation mapping
+
+Command Core
+Role: Primary HQ
+Abilities: Global buffs, unit unlocks
+Bonuses: Command radius, morale, initiative
+
+Fusion
+Role: Power generation
+Abilities: Energy grid, shield boosts
+Bonuses: Recharge rate, repair speed
+
+Nexus
+Role: Network relay
+Abilities: Link squads, share sensor data
+Bonuses: Coordination, multi‑angle assault timing
+
+Insight
+Role: Advanced sensor center
+Abilities: Cloak detection, precision targeting
+Bonuses: Visibility cones, elevation advantage
+
+Pulse
+Role: Tactical pulse emitter
+Abilities: EMP bursts, disruption fields
+Bonuses: Anti‑stealth, anti‑electronics
+
+Vector Core
+Role: Experimental command node
+Abilities: Teleportation, vector manipulation
+Bonuses: Rapid redeploy, experimental unlocks
+
+Command units define the strategic layer of the game.
+
+8.6 Experimental Units
+Experimental units break standard rules.
+They are powerful, rare, and capable of altering the battlefield itself.
+
+Experimental Unit Mechanics
+Unique abilities
+
+Terrain manipulation
+
+Energy fields
+
+Teleportation
+
+Gravity distortion
+
+Cloaking
+
+Superweapons
+
+Long cooldowns
+
+High resource cost
+
+Experimental Unit Roles
+Echo — sensor ghost, stealth manipulation
+
+Nullpoint — gravity well, battlefield disruption
+
+Specter — cloaked strike unit
+
+Shadowgrid — electronic warfare
+
+Phantom — teleportation assault
+
+Helix — biological/chemical hazard deployment
+
+Experimental Unit AI Behaviors
+Ignore standard terrain rules
+
+Use abilities to reshape battlefield
+
+Coordinate with command units
+
+Retreat when cooldowns are active
+
+Avoid detection until strike moment
+
+Experimental units are designed for late‑game spectacle and strategic depth.
