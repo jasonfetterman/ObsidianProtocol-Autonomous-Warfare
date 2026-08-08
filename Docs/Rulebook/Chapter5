@@ -1,0 +1,332 @@
+CHAPTER V — BATTLEFIELD SYSTEMS
+Obsidian Protocol’s battlefield is not static — it is a living, reactive environment. Terrain, visibility, elevation, weather, suppression, and hazards all interact with autonomous squads, creating emergent tactical behavior without micromanagement.
+
+This chapter defines every environmental system that influences combat, movement, detection, and intent resolution.
+
+5.1 Fog‑of‑War
+Fog‑of‑war is dynamic, shaped by sensors, elevation, weather, and unit type.
+
+Fog‑of‑War Layers
+Hard Fog — completely unknown; no data
+
+Soft Fog — last known positions; outdated intel
+
+Sensor Fog — visible only through sensors (LIDAR, thermal, recon drones)
+
+Command Fog — visible only within command radius
+
+Fog‑of‑War Influences
+Elevation
+
+Weather
+
+Time of day
+
+Sensor type
+
+Unit stealth
+
+Command radius
+
+Environmental hazards
+
+Fog‑of‑war is recalculated continuously and directly affects autonomous decision‑making.
+
+5.2 Visibility Cones
+Every unit has a directional visibility cone that determines what it can see.
+
+Cone Properties
+Angle — wider for recon, narrower for heavy armor
+
+Range — affected by elevation, weather, and sensors
+
+Height — air units have downward cones; ground units have horizontal cones
+
+Occlusion — blocked by terrain, buildings, smoke, and hazards
+
+Cone Behaviors
+Units will:
+
+Reposition to maintain sightlines
+
+Avoid blind spots
+
+Use elevation to extend visibility
+
+Coordinate cones with allied units
+
+Visibility cones are essential for autonomous flanking, breaching, and suppression avoidance.
+
+5.3 Elevation
+Elevation is one of the most influential battlefield systems.
+
+Elevation Effects
+Increased range
+
+Increased accuracy
+
+Increased visibility
+
+Reduced vulnerability
+
+Improved sensor coverage
+
+Elevation Types
+High ground
+
+Low ground
+
+Ridges
+
+Cliffs
+
+Rooftops
+
+Hills
+
+Multi‑level structures
+
+AI Elevation Behavior
+Squads will:
+
+Seek high ground
+
+Anchor firing lines on elevated positions
+
+Avoid low‑ground kill zones
+
+Use elevation to flank or breach
+
+Elevation is a core part of autonomous tactical reasoning.
+
+5.4 Cover & Destructible Cover
+Cover is dynamic and can be destroyed by weapons, hazards, or environmental effects.
+
+Cover Types
+Soft Cover — vegetation, light debris
+
+Hard Cover — walls, vehicles, fortifications
+
+Temporary Cover — smoke, holographic barriers
+
+Destructible Cover — buildings, barricades, cars
+
+Cover Effects
+Reduced incoming damage
+
+Reduced suppression
+
+Reduced visibility to enemies
+
+Increased survival during breaches
+
+Destruction Rules
+Cover can be destroyed by:
+
+Explosives
+
+Heavy weapons
+
+Experimental units
+
+Environmental hazards
+
+Chain reactions (fire, collapse)
+
+AI dynamically adapts to cover destruction.
+
+5.5 Suppression Zones
+Suppression zones represent areas of intense fire that restrict movement and reduce effectiveness.
+
+Suppression Effects
+Reduced accuracy
+
+Reduced movement speed
+
+Increased retreat likelihood
+
+Increased cover‑seeking behavior
+
+Increased flanking behavior
+
+Suppression Sources
+Machine guns
+
+Artillery
+
+Airstrikes
+
+Naval guns
+
+Experimental weapons
+
+AI Suppression Response
+Squads will:
+
+Path around suppression zones
+
+Deploy smoke
+
+Call for support
+
+Flank instead of assault
+
+Retreat if overwhelmed
+
+Suppression is a core part of autonomous decision‑making.
+
+5.6 Fire Lanes
+Fire lanes represent optimal shooting corridors.
+
+Fire Lane Properties
+Clear line‑of‑sight
+
+Minimal occlusion
+
+High elevation advantage
+
+Overlapping visibility cones
+
+Safe distance from suppression zones
+
+AI Fire Lane Behavior
+Squads will:
+
+Anchor firing lines
+
+Maintain overwatch
+
+Cover breach teams
+
+Coordinate multi‑angle assaults
+
+Use fire lanes to suppress enemies
+
+Fire lanes are essential for coordinated autonomous assaults.
+
+5.7 Terrain Types
+Terrain affects movement, visibility, cover, and detection.
+
+Terrain Categories
+Urban — buildings, alleys, rooftops
+
+Forest — soft cover, concealment
+
+Desert — long sightlines, heat distortion
+
+Tundra — slow movement, cold hazards
+
+Marsh — movement penalties, water hazards
+
+Mountain — extreme elevation advantages
+
+Ocean — depth layers, sonar rules
+
+Terrain Effects
+Movement speed
+
+Visibility
+
+Cover availability
+
+Sensor effectiveness
+
+Hazard exposure
+
+Terrain is a major factor in autonomous pathfinding.
+
+5.8 Weather
+Weather dynamically affects sensors, movement, and combat.
+
+Weather Types
+Rain
+
+Fog
+
+Snow
+
+Storms
+
+Wind
+
+Heatwaves
+
+Weather Effects
+Reduced visibility
+
+Reduced sensor range
+
+Reduced accuracy
+
+Increased hazard risk
+
+Altered flight behavior
+
+Altered naval behavior
+
+Weather is fully integrated into autonomous decision‑making.
+
+5.9 Day/Night Cycle
+Time of day affects visibility, sensors, and stealth.
+
+Day Effects
+High visibility
+
+Strong sensor performance
+
+Reduced stealth effectiveness
+
+Night Effects
+Reduced visibility
+
+Increased stealth effectiveness
+
+Increased reliance on sensors
+
+Increased hazard risk
+
+AI adapts to day/night transitions automatically.
+
+5.10 Hazard Zones
+Hazards create dynamic environmental threats.
+
+Hazard Types
+Fire
+
+Radiation
+
+EMP fields
+
+Flooding
+
+Toxic gas
+
+Structural collapse
+
+Electrical arcs
+
+Hazard Effects
+Damage over time
+
+Sensor disruption
+
+Movement penalties
+
+Weapon malfunction
+
+Forced retreat
+
+Cover destruction
+
+AI Hazard Behavior
+Squads will:
+
+Avoid hazards
+
+Path around danger zones
+
+Retreat if exposed
+
+Use hazards tactically (e.g., lure enemies into fire)
+
+Hazards make the battlefield unpredictable and cinematic.
