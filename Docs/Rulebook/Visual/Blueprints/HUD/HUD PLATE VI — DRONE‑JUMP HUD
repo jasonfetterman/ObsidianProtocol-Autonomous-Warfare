@@ -1,0 +1,21 @@
+┌──────────────────────────────────────────────────────────────────────────┐
+│                               DRONE-JUMP HUD                              │
+├──────────────────────────────────────────────────────────────────────────┤
+│ CAMERA FEED                                                                │
+│   • Stabilized FPV                                                         │
+│   • Thermal toggle                                                         │
+│   • Night vision toggle                                                    │
+│                                                                            │
+│ SCAN PANEL                                                                  │
+│   [Thermal Sweep] [LIDAR Pulse] [Hazard Scan]                              │
+│                                                                            │
+│ TAGGING RETICLE                                                             │
+│   • Tap to tag enemy                                                        │
+│   • Tap to mark breach point                                                │
+│   • Tap to designate strike                                                 │
+│                                                                            │
+│ DRONE STATUS                                                                │
+│   Battery ██████████████████████                                           │
+│   Signal  ██████████████████████                                           │
+│   Altitude ████████████████████                                            │
+└──────────────────────────────────────────────────────────────────────────┘
