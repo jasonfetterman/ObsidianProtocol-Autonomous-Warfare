@@ -1,0 +1,26 @@
+┌──────────────────────────────────────────────────────────────────────────┐
+│                           VR OPERATOR MODE HUD                            │
+├──────────────────────────────────────────────────────────────────────────┤
+│ SENSOR OVERLAY                                                             │
+│   • Thermal (Red)                                                          │
+│   • LIDAR (Green wireframe)                                                │
+│   • Radar (Blue arcs)                                                      │
+│                                                                            │
+│ COMMAND GRID                                                                │
+│   • Squad icons with intent markers                                        │
+│   • Command radius ring                                                     │
+│                                                                            │
+│ TAGGING SYSTEM                                                              │
+│   • Enemy tag                                                              │
+│   • Hazard tag                                                             │
+│   • Breach point tag                                                       │
+│   • Strike designation                                                     │
+│                                                                            │
+│ OPERATOR ABILITIES (Left Wrist Panel)                                      │
+│   [EMP Burst] [Signal Jam] [Uplink Boost] [Recon Sweep]                    │
+│                                                                            │
+│ MAP OVERLAY (Right Wrist Panel)                                            │
+│   • Mini tactical map                                                       │
+│   • Elevation shading                                                       │
+│   • Logistics lines                                                         │
+└──────────────────────────────────────────────────────────────────────────┘
