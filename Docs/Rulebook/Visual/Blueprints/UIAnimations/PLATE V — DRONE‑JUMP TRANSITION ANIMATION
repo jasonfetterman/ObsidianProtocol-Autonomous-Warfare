@@ -1,0 +1,17 @@
+┌──────────────────────────────────────────────────────────────────────────┐
+│                     DRONE-JUMP — TRANSITION BLUEPRINT                    │
+├──────────────────────────────────────────────────────────────────────────┤
+│ STAGE 1 — INITIATE                                                         │
+│   • Screen vignette closes inward                                           │
+│   • Audio low-pass filter applied                                           │
+│                                                                            │
+│ STAGE 2 — TRANSITION                                                        │
+│   • Camera snaps to drone position                                          │
+│   • FPV feed fades in (150ms)                                               │
+│   • HUD elements slide into place                                           │
+│                                                                            │
+│ STAGE 3 — EXIT                                                              │
+│   • FPV feed dissolves                                                      │
+│   • RTS camera fades back (200ms)                                           │
+│   • Overlays reappear                                                       │
+└──────────────────────────────────────────────────────────────────────────┘
