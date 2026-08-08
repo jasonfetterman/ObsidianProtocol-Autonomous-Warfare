@@ -1,0 +1,294 @@
+CHAPTER XI — TECH TREES & PROGRESSION
+Progression in Obsidian Protocol is built around research, upgrades, veterancy, and experimental unlocks.
+These systems allow players to evolve their faction, enhance squads, unlock advanced units, and shape the strategic direction of each match.
+
+This chapter defines:
+
+Research mechanics
+
+Unit upgrades
+
+Building upgrades
+
+Veterancy
+
+Faction tech trees
+
+Experimental unlocks
+
+11.1 Research
+Research unlocks new units, abilities, upgrades, and command actions.
+
+Research Sources
+Research Lab — primary research building
+
+Insight — sensor‑based research boosts
+
+Archive — data‑driven research acceleration
+
+Worldmap — terrain‑based research unlocks
+
+Vector Core — experimental research
+
+Research Types
+Research Type	Unlocks
+Unit Research	New units, variants, specialties
+Weapon Research	New payloads, ammo types, damage upgrades
+Armor Research	Armor tiers, shield systems
+Sensor Research	LIDAR, thermal, stealth detection
+Command Research	Leadership abilities, radius boosts
+Logistics Research	Supply chain efficiency, repair speed
+Experimental Research	Superweapons, teleportation, gravity manipulation
+
+
+Research Rules
+Requires resources
+
+Requires power grid stability
+
+Requires building prerequisites
+
+Can be queued
+
+Can be accelerated by command abilities
+
+Research AI Behavior
+AI may autonomously:
+
+Suggest research based on battlefield needs
+
+Prioritize counter‑unit research
+
+Delay research during hazards
+
+Boost research during stable phases
+
+11.2 Unit Upgrades
+Unit upgrades enhance stats, unlock abilities, and improve battlefield performance.
+
+Upgrade Categories
+Offensive Upgrades — damage, accuracy, rate of fire
+
+Defensive Upgrades — armor, shields, evasion
+
+Mobility Upgrades — speed, maneuverability
+
+Sensor Upgrades — visibility cones, detection
+
+Specialty Upgrades — breach tools, stealth, suppression
+
+Logistics Upgrades — ammo capacity, reload speed
+
+Upgrade Rules
+Require research
+
+Require resources
+
+Apply globally or per unit type
+
+Stack with veterancy
+
+May unlock new intent behaviors
+
+Upgrade Effects
+Upgrades may:
+
+Improve autonomous decision‑making
+
+Enhance breach logic
+
+Increase flanking effectiveness
+
+Reduce retreat likelihood
+
+Improve coordination
+
+11.3 Building Upgrades
+Building upgrades improve production, efficiency, durability, and command capabilities.
+
+Building Upgrade Types
+Production Speed
+
+Queue Capacity
+
+Power Efficiency
+
+Sensor Range
+
+Command Radius
+
+Logistics Throughput
+
+Durability & Repair Rate
+
+Upgrade Rules
+Require tech tree unlocks
+
+Require resources
+
+Require stable power grid
+
+May require command unit presence
+
+Building Upgrade AI Behavior
+AI may:
+
+Recommend upgrades
+
+Delay upgrades during hazards
+
+Prioritize Command Core upgrades
+
+Balance upgrades across infrastructure
+
+11.4 Veterancy
+Veterancy represents unit experience gained through combat.
+
+Veterancy Levels
+Level	Name	Effects
+I	Trained	Minor stat boosts
+II	Hardened	Improved accuracy, reduced suppression
+III	Veteran	Enhanced abilities, faster intent execution
+IV	Elite	Major stat boosts, unique behaviors
+V	Legendary	Unique bonuses, morale aura
+
+
+Veterancy Effects
+Veterancy improves:
+
+Accuracy
+
+Evasion
+
+Morale
+
+Initiative
+
+Breach performance
+
+Flanking behavior
+
+Retreat thresholds
+
+Veterancy Loss
+If a squad is destroyed, veterancy is lost permanently.
+
+11.5 Faction Tech Trees
+Each faction has a unique tech tree defining its strategic identity.
+For the Warden Program (your first playable faction), the tech tree emphasizes:
+
+Autonomous coordination
+
+Sensor superiority
+
+Precision strikes
+
+Logistics efficiency
+
+Experimental integration
+
+Tech Tree Structure
+The Warden tech tree is divided into four branches:
+
+1. Tactical Branch
+Unlocks:
+
+Squad abilities
+
+Breach tools
+
+Suppression upgrades
+
+Autonomous coordination boosts
+
+2. Strategic Branch
+Unlocks:
+
+Command abilities
+
+Radius boosts
+
+Morale upgrades
+
+Initiative surges
+
+3. Logistics Branch
+Unlocks:
+
+Supply chain efficiency
+
+Repair speed
+
+Power grid upgrades
+
+Drone enhancements
+
+4. Experimental Branch
+Unlocks:
+
+Echo
+
+Nullpoint
+
+Specter
+
+Shadowgrid
+
+Phantom
+
+Helix
+
+Vector Core abilities
+
+Tech Tree Rules
+Branches can be pursued independently
+
+Some nodes require cross‑branch prerequisites
+
+Experimental branch requires rare resources
+
+Tech tree choices shape late‑game identity
+
+11.6 Experimental Unlocks
+Experimental unlocks represent the pinnacle of progression.
+
+Unlock Requirements
+High‑tier research
+
+Rare experimental resources
+
+Vector Core activation
+
+Command Core level threshold
+
+Stable power grid
+
+Logistics chain integrity
+
+Experimental Unlock Types
+Superweapons — gravity wells, energy storms
+
+Teleportation — squad redeploy
+
+Cloaking Fields — stealth zones
+
+Hazard Manipulation — fire, radiation, EMP
+
+Terrain Reshaping — collapse, elevation shifts
+
+Quantum Units — Echo, Nullpoint, Phantom
+
+Experimental AI Behavior
+Experimental units:
+
+Ignore standard terrain rules
+
+Use abilities to reshape battlefield
+
+Coordinate with command units
+
+Retreat when cooldowns are active
+
+Avoid detection until strike moment
+
+Experimental unlocks define the late‑game spectacle.
