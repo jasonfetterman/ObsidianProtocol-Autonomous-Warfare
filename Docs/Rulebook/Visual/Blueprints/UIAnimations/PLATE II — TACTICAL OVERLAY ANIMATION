@@ -1,0 +1,24 @@
+┌──────────────────────────────────────────────────────────────────────────┐
+│                   TACTICAL OVERLAY — ANIMATION BLUEPRINT                 │
+├──────────────────────────────────────────────────────────────────────────┤
+│ INPUT: Press TAB                                                          │
+│                                                                            │
+│ OVERLAY SPAWN                                                             │
+│   • Fog-of-war dims (opacity 0.0 → 0.4)                                    │
+│   • Visibility cones sweep outward from units (radial animation)           │
+│   • Suppression zones pulse red (sin-wave intensity)                       │
+│                                                                            │
+│ HAZARD FIELD ANIMATION                                                     │
+│   • Fire: flicker noise shader                                             │
+│   • Radiation: green ripple rings                                          │
+│   • EMP: blue grid distortion                                               │
+│                                                                            │
+│ PATHFINDING LINES                                                          │
+│   • Intent paths draw from unit → target                                   │
+│   • Line animation: 0% → 100% over 200ms                                    │
+│   • Color-coded by intent                                                  │
+│                                                                            │
+│ EXIT ANIMATION                                                             │
+│   • All overlays fade out (150ms)                                          │
+│   • Fog-of-war returns to normal                                           │
+└──────────────────────────────────────────────────────────────────────────┘
