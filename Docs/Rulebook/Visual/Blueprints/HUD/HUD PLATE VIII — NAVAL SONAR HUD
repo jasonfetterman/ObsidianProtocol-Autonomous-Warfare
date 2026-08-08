@@ -1,0 +1,17 @@
+┌──────────────────────────────────────────────────────────────────────────┐
+│                             NAVAL SONAR HUD                               │
+├──────────────────────────────────────────────────────────────────────────┤
+│ SONAR CONE                                                                  │
+│   ▼  Surface                                                                │
+│   ▼▼ Mid-depth                                                              │
+│   ▼▼▼ Deep                                                                  │
+│                                                                            │
+│ CONTACT LIST                                                                │
+│   • Ping strength                                                           │
+│   • Depth estimate                                                          │
+│   • Bearing                                                                 │
+│                                                                            │
+│ TORPEDO LANE OVERLAY                                                        │
+│   • Predicted enemy torpedo paths                                           │
+│   • Safe zones                                                               │
+└──────────────────────────────────────────────────────────────────────────┘
