@@ -1,0 +1,237 @@
+CHAPTER II — GAME MODES
+This chapter defines every playable mode in Obsidian Protocol, including traditional RTS modes, autonomous warfare modes, VR cockpit combat, VR operator mode, and modded/custom scenarios.
+Each mode is designed to support the game’s core pillars: intent‑based commanding, autonomous squads, emergent battlefields, and cinematic warfare.
+
+2.1 Skirmish Mode
+Skirmish is the primary gameplay mode — fast, replayable, endlessly variable.
+
+Purpose
+Provide a complete autonomous RTS experience with:
+
+Base building
+
+Resource economy
+
+Autonomous squads
+
+Command units
+
+Experimental units
+
+Dynamic battlefields
+
+Full tech trees
+
+Features
+Procedural or handcrafted maps
+
+Fog‑of‑war with elevation, weather, and visibility cones
+
+Autonomous squad behavior (flanking, breaching, suppressing)
+
+Intent‑based commanding
+
+Full faction tech trees
+
+Experimental unit unlocks
+
+Victory conditions (VP, elimination, objectives)
+
+Skirmish Variants
+Standard Skirmish — classic RTS structure
+
+Autonomy Mode — squads act with minimal player input
+
+Hardcore Mode — limited command tokens, harsher logistics
+
+No‑Base Mode — pure unit‑vs‑unit tactical engagements
+
+Endless Mode — waves of autonomous enemies
+
+2.2 Campaign Mode
+A structured narrative experience built around the Warden Program and the rise of autonomous warfare.
+
+Structure
+Story missions with scripted and emergent events
+
+Branching paths based on player decisions
+
+Persistent squads that gain veterancy
+
+Command unit progression
+
+Experimental unit unlock arcs
+
+VR missions integrated into campaign flow
+
+Campaign Elements
+Narrative Briefings — strategic context and mission goals
+
+Dynamic Objectives — change based on battlefield conditions
+
+Persistent Losses — destroyed squads remain dead
+
+Logistics Management — supply lines, repair, power grid
+
+Commander Upgrades — unlock new intents, abilities, and bonuses
+
+2.3 Sandbox Mode
+A freeform environment for experimentation, testing, and creative play.
+
+Purpose
+Let players:
+
+Spawn any unit
+
+Modify stats
+
+Test autonomous behaviors
+
+Simulate large battles
+
+Experiment with command units
+
+Try experimental units without cost
+
+Practice VR dogfights or operator mode
+
+Tools Available
+Unit Spawner
+
+Building Spawner
+
+Environmental Controls (weather, time of day, hazards)
+
+AI Personality Editor
+
+Intent Debugger
+
+Autonomy Toggle
+
+VR Mode Access
+
+Sandbox mode is essential for modders, testers, and players who want to explore the game’s systems.
+
+2.4 VR Operator Mode
+A hybrid RTS‑VR mode where the player becomes a tactical operator inside the battlefield.
+
+Purpose
+Provide immersive, first‑person tactical control without replacing RTS gameplay.
+
+Capabilities
+Drone‑jumping — inhabit any drone or sensor unit
+
+Manual recon — sweep areas, tag enemies, mark hazards
+
+Manual strike designation — laser‑mark targets for artillery or airstrikes
+
+Sensor control — adjust LIDAR, thermal, night vision
+
+Operator abilities — EMP bursts, signal jamming, uplink boosts
+
+Tactical overlays — see squad intents, suppression zones, visibility cones
+
+Gameplay Loop
+Player issues high‑level RTS intents
+
+Player jumps into VR to support squads
+
+Player returns to RTS view to manage strategy
+
+VR Operator Mode is optional but deeply integrated.
+
+2.5 VR Dogfight Mode
+Full cockpit‑level air combat inside the RTS.
+
+Purpose
+Let players directly pilot air units in first‑person VR while the RTS battle continues autonomously.
+
+Supported Units
+Any air unit with:
+
+Cockpit
+
+Sensor suite
+
+Weapons
+
+Maneuvering capability
+
+Examples: Warden, Beacon, Iris, Nightguard, Overseer, Vector, Watchtower.
+
+Dogfight Mechanics
+Full 6‑DOF flight
+
+Altitude bands
+
+Energy management
+
+Afterburners
+
+G‑force simulation
+
+VR HUD (radar, thermal, LIDAR, missile lock indicators)
+
+Damage feedback (cockpit shake, alarms, smoke)
+
+Manual weapon control (guns, missiles, bombs)
+
+Integration With RTS
+RTS squads continue fighting autonomously
+
+Player can exit cockpit at any time
+
+Air unit returns to autonomous behavior when player leaves
+
+VR dogfights can influence RTS outcomes (destroy AA, scout, strike targets)
+
+This mode is optional but adds cinematic depth and skill expression.
+
+2.6 Modded Scenarios
+Obsidian Protocol is built for modding. Modded scenarios allow creators to build:
+
+Custom factions
+
+Custom units
+
+Custom abilities
+
+Custom maps
+
+Custom campaigns
+
+Custom VR missions
+
+Custom AI personalities
+
+Custom experimental units
+
+Scenario Types
+Scripted Missions
+
+Autonomous Battles
+
+VR‑focused Scenarios
+
+Puzzle/Challenge Maps
+
+Massive Army Simulations
+
+Experimental Unit Trials
+
+Scenario Tools
+Map Editor
+
+Faction Editor
+
+Unit Editor
+
+Ability Scripting
+
+AI Personality Scripting
+
+VR Mission Designer
+
+Data Schema Tools
+
+Modded scenarios are treated as first‑class citizens in the rulebook.
