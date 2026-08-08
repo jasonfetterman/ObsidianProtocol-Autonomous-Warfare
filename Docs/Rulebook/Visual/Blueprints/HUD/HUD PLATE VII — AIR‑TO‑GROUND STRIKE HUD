@@ -1,0 +1,19 @@
+┌──────────────────────────────────────────────────────────────────────────┐
+│                         AIR-TO-GROUND STRIKE HUD                          │
+├──────────────────────────────────────────────────────────────────────────┤
+│ BOMBING RETICLE                                                            │
+│   ●  Drop point prediction                                                  │
+│   ○  Blast radius overlay                                                   │
+│                                                                            │
+│ MISSILE CAMERA                                                              │
+│   • Wireframe target lock                                                   │
+│   • Impact timer                                                            │
+│                                                                            │
+│ AA ZONE WARNING                                                             │
+│   RED GRID = Anti-air coverage                                              │
+│                                                                            │
+│ STRIKE ANGLE INDICATOR                                                      │
+│   /  Optimal dive angle                                                     │
+│  /   Too steep                                                              │
+│ /    Too shallow                                                            │
+└──────────────────────────────────────────────────────────────────────────┘
