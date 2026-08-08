@@ -1,0 +1,23 @@
+┌──────────────────────────────────────────────────────────────────────────┐
+│                     VR COCKPIT HUD — ANIMATION BLUEPRINT                 │
+├──────────────────────────────────────────────────────────────────────────┤
+│ RADAR SPHERE                                                               │
+│   • Continuous rotation (slow yaw)                                         │
+│   • Contact blips pulse (80ms)                                             │
+│                                                                            │
+│ ALTITUDE BAND                                                              │
+│   • Smooth sliding bar (no jumps)                                          │
+│   • Color shift when changing bands                                         │
+│                                                                            │
+│ DAMAGE PANEL                                                               │
+│   • Bars shake when taking damage                                           │
+│   • Flash red on critical hits                                              │
+│                                                                            │
+│ MISSILE LOCK                                                                │
+│   • Lock meter fills clockwise                                              │
+│   • Final lock triggers red flash                                           │
+│                                                                            │
+│ COUNTERMEASURES                                                             │
+│   • Button depress animation                                                │
+│   • Cooldown ring sweeps around icon                                       │
+└──────────────────────────────────────────────────────────────────────────┘
