@@ -1,0 +1,336 @@
+CHAPTER XII — MODDING FRAMEWORK
+Obsidian Protocol is built from the ground up for modding.
+Every system — units, factions, abilities, AI personalities, maps, campaigns, VR missions, and experimental mechanics — is fully data‑driven and exposed through structured, designer‑friendly tools.
+
+This chapter defines:
+
+Faction creation
+
+Unit creation
+
+Ability scripting
+
+AI personality scripting
+
+Map editor rules
+
+Data schema
+
+Packaging mods
+
+Modding is a first‑class feature of Obsidian Protocol.
+
+12.1 Faction Creation
+Modders can create entirely new factions with unique:
+
+Units
+
+Buildings
+
+Tech trees
+
+Command units
+
+Experimental units
+
+Visual identity
+
+AI personalities
+
+VR mission integration
+
+Faction Definition File
+Factions are defined in JSON:
+
+Code
+{
+  "id": "faction_wastelanders",
+  "name": "Wastelanders",
+  "description": "A nomadic faction specializing in stealth and salvage.",
+  "command_units": ["core_waste", "insight_scrap"],
+  "tech_tree": "tech_waste",
+  "unit_list": ["scout_buggy", "scrap_mech", "sand_drone"]
+}
+Faction Components
+Faction Identity — lore, theme, strengths, weaknesses
+
+Command Units — strategic backbone
+
+Tech Tree — progression path
+
+Unit Roster — air, ground, sea, command, experimental
+
+Visual Style — materials, colors, silhouettes
+
+Audio Style — VO, effects, ambience
+
+Faction Balancing
+Modders can:
+
+Adjust resource costs
+
+Tune unit stats
+
+Modify tech tree pacing
+
+Add or remove experimental units
+
+12.2 Unit Creation
+Units are fully data‑driven and defined in JSON or CSV.
+
+Unit Definition File
+Code
+{
+  "id": "scrap_mech",
+  "category": "ground",
+  "hp": 900,
+  "armor": 4,
+  "speed": 2.0,
+  "range": 5,
+  "payload": ["scrap_cannon", "torch"],
+  "specialties": ["self_repair", "hazard_resist"],
+  "ai_personality": "aggressive"
+}
+Unit Components
+Stats
+
+Payload
+
+Specialties
+
+Sensors
+
+Movement type
+
+AI personality
+
+Visual model
+
+Animation set
+
+Sound set
+
+Unit Specialties
+Modders can add:
+
+Breach tools
+
+Stealth systems
+
+Suppression mechanics
+
+Hazard immunity
+
+Teleportation
+
+Cloaking
+
+Custom VR cockpit support
+
+12.3 Ability Scripting
+Abilities are defined in a lightweight scripting system.
+
+Ability Definition File
+Code
+{
+  "id": "pulse_emp",
+  "type": "command",
+  "cost": {"strategy_tokens": 2},
+  "cooldown": 30,
+  "effect": "disable_electronics",
+  "radius": 40
+}
+Ability Types
+Squad Abilities — smoke, breach charge, overdrive
+
+Command Abilities — morale boost, sensor sweep
+
+Strategic Abilities — orbital recon, logistics surge
+
+Experimental Abilities — gravity well, teleportation
+
+Ability Effects
+Modders can script:
+
+Damage
+
+Status effects
+
+Terrain manipulation
+
+Hazard creation
+
+Sensor disruption
+
+Teleportation
+
+VR‑specific interactions
+
+12.4 AI Personality Scripting
+AI personalities define how squads behave.
+
+Personality Definition File
+Code
+{
+  "id": "reckless",
+  "engagement_range": "short",
+  "retreat_threshold": 0.1,
+  "flank_bias": 0.8,
+  "breach_priority": 0.9,
+  "suppression_tolerance": 0.7
+}
+Personality Parameters
+Engagement range
+
+Retreat threshold
+
+Flank bias
+
+Breach priority
+
+Suppression tolerance
+
+Hazard avoidance
+
+Coordination level
+
+AI Personality Types
+Aggressive
+
+Cautious
+
+Methodical
+
+Adaptive
+
+Recon
+
+Supportive
+
+Modders can create entirely new AI behaviors.
+
+12.5 Map Editor Rules
+The map editor allows modders to create:
+
+Skirmish maps
+
+Campaign maps
+
+VR missions
+
+Hazard zones
+
+Terrain layers
+
+Elevation profiles
+
+Environmental systems
+
+Map Components
+Terrain
+
+Elevation
+
+Cover
+
+Hazards
+
+Weather patterns
+
+Resource nodes
+
+Spawn points
+
+Command unit slots
+
+Map Logic
+Maps can include:
+
+Scripted events
+
+Dynamic hazards
+
+Reinforcement waves
+
+VR triggers
+
+Environmental shifts
+
+12.6 Data Schema
+All modding systems rely on a unified schema.
+
+Schema Types
+Unit schema
+
+Building schema
+
+Ability schema
+
+AI schema
+
+Faction schema
+
+Map schema
+
+VR mission schema
+
+Experimental schema
+
+Schema Validation
+The engine validates:
+
+Required fields
+
+Data types
+
+Cross‑references
+
+Resource costs
+
+Ability cooldowns
+
+AI parameters
+
+Errors are reported in a mod‑friendly console.
+
+12.7 Packaging Mods
+Mods are packaged as folders with:
+
+/Units
+
+/Buildings
+
+/Abilities
+
+/AI
+
+/Factions
+
+/Maps
+
+/VR
+
+/Experimental
+
+/Assets
+
+Packaging Rules
+Mods must include a manifest
+
+Mods must declare dependencies
+
+Mods must declare version
+
+Mods must pass schema validation
+
+Mods can be uploaded to Steam Workshop or local folder
+
+Manifest Example
+Code
+{
+  "name": "Wastelanders Expansion",
+  "version": "1.0.0",
+  "author": "ModderName",
+  "dependencies": ["BaseGame"],
+  "description": "Adds a new faction with unique units and experimental abilities."
+}
