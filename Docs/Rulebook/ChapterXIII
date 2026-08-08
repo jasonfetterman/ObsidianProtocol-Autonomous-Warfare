@@ -1,0 +1,214 @@
+13.1 Victory Points (VP)
+Victory Points represent strategic progress.
+Players earn VP through objectives, combat achievements, territory control, and experimental milestones.
+
+VP Sources
+Capturing command zones
+
+Destroying enemy command units
+
+Completing objectives
+
+Holding strategic terrain
+
+Deploying experimental units
+
+Completing recon sweeps
+
+Winning VR missions
+
+Maintaining logistics superiority
+
+VP Thresholds
+Different game modes use different VP thresholds:
+
+Skirmish: 100 VP
+
+Campaign: mission‑specific
+
+Competitive: configurable
+
+Modded: defined by scenario
+
+VP Decay
+Some VP sources decay over time:
+
+Temporary objectives
+
+Hazard‑affected zones
+
+Disrupted command radius
+
+VP ensures multiple paths to victory.
+
+13.2 Objectives
+Objectives define the strategic tasks players must complete to win.
+
+Objective Types
+Type	Description
+Primary Objectives	Required to win; mission‑critical
+Secondary Objectives	Optional; grant VP or bonuses
+Dynamic Objectives	Change based on battlefield conditions
+Secret Objectives	Hidden until triggered
+VR Objectives	Completed in VR missions
+Experimental Objectives	Related to superweapon deployment
+
+
+Objective Examples
+Capture and hold command zones
+
+Destroy enemy Command Core
+
+Complete recon sweep
+
+Breach fortified structure
+
+Escort logistics convoy
+
+Deploy experimental unit
+
+Survive hazard event
+
+Complete VR dogfight mission
+
+Objectives create structure and variety in every match.
+
+13.3 Secret Objectives
+Secret objectives add unpredictability and strategic depth.
+
+Secret Objective Types
+Hidden recon tasks
+
+Covert sabotage
+
+Stealth infiltration
+
+Hazard manipulation
+
+Experimental activation
+
+VR operator missions
+
+Secret Objective Rules
+Revealed only when triggered
+
+Provide large VP bonuses
+
+May alter battlefield conditions
+
+May unlock new abilities or units
+
+Secret objectives reward adaptive play.
+
+13.4 Elimination Rules
+Elimination occurs when a player loses the ability to continue meaningful play.
+
+Elimination Conditions
+A player is eliminated when:
+
+Command Core is destroyed
+
+All command units are destroyed
+
+No logistics nodes remain
+
+No production buildings remain
+
+No combat‑capable units remain
+
+No experimental units remain (if required by scenario)
+
+Elimination Effects
+Command radius collapses
+
+Token generation stops
+
+Morale drops globally
+
+Autonomous behavior becomes defensive
+
+Remaining units attempt emergency retreat
+
+Elimination is final unless revival mechanics are enabled.
+
+13.5 Superweapon Victory
+Experimental units and superweapons can create unique win conditions.
+
+Superweapon Types
+Gravity well
+
+Energy storm
+
+Quantum destabilizer
+
+Terrain collapse
+
+EMP blackout
+
+Hazard field deployment
+
+Superweapon Victory Conditions
+A player wins if:
+
+A superweapon is successfully deployed
+
+The enemy Command Core is destroyed by experimental action
+
+The battlefield is reshaped beyond enemy recovery
+
+A quantum unit triggers a scenario‑specific victory event
+
+Superweapon Rules
+Require experimental resources
+
+Require Vector Core activation
+
+Require stable power grid
+
+Require command unit presence
+
+Have long cooldowns
+
+Can be countered by enemy experimental units
+
+Superweapon victories are rare, dramatic, and cinematic.
+
+13.6 Campaign Victory
+Campaign victory is determined by narrative progression.
+
+Campaign Victory Types
+Story Victory — complete all primary objectives
+
+Branch Victory — choose one of multiple endings
+
+Survival Victory — endure final mission
+
+Experimental Victory — unlock and deploy final experimental unit
+
+VR Victory — complete final VR mission chain
+
+Campaign Loss Conditions
+Command Core destroyed
+
+Critical character death (if narrative‑based)
+
+Logistics collapse
+
+Failure of mission chain
+
+Experimental failure event
+
+Persistent Campaign Systems
+Squad veterancy
+
+Command unit upgrades
+
+Tech tree progression
+
+Resource carryover
+
+VR mission unlocks
+
+Experimental unit development
+
+Campaign victory is designed to feel earned and consequential.
