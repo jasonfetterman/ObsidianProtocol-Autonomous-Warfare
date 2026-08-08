@@ -1,0 +1,342 @@
+CHAPTER IX — BUILDINGS & ECONOMY
+Buildings define your strategic infrastructure.
+Economy determines your ability to produce units, maintain logistics, power your systems, and unlock advanced technologies.
+Together, they form the foundation of Obsidian Protocol’s autonomous warfare ecosystem.
+
+This chapter defines:
+
+Construction rules
+
+Building types
+
+Resource systems
+
+Supply chains
+
+Logistics nodes
+
+Power grids
+
+Repair systems
+
+Production queues
+
+Building upgrades
+
+9.1 Construction Rules
+Construction Phases
+All buildings follow a three‑phase construction model:
+
+Site Preparation
+
+Clear terrain
+
+Mark build radius
+
+Deploy construction drones
+
+Structural Assembly
+
+Frame construction
+
+Material delivery
+
+Power grid connection
+
+Activation
+
+Systems online
+
+Command link established
+
+Autonomous routines initialized
+
+Construction Requirements
+Sufficient resources
+
+Build radius within Command Core or Nexus
+
+Power grid access (for advanced buildings)
+
+No hazards or suppression zones in build area
+
+Autonomous Construction Drones
+Construction is performed by autonomous drones that:
+
+Avoid hazards
+
+Path around suppression zones
+
+Request escort if threatened
+
+Repair themselves if damaged
+
+Scale in number based on building size
+
+9.2 Build Radius
+The build radius determines where structures can be placed.
+
+Radius Sources
+Command Core — primary radius
+
+Nexus — extends build radius
+
+Fusion — extends power grid radius
+
+Vector Core — allows experimental structures
+
+Radius Rules
+Buildings must be placed within active radius
+
+Radius expands with upgrades
+
+Radius can be disrupted by EMP or hazards
+
+Command units can temporarily boost radius
+
+9.3 Autonomous Construction Drones
+Construction drones are semi‑autonomous units dedicated to building and repair.
+
+Drone Capabilities
+Material transport
+
+Structural assembly
+
+Power grid linking
+
+Hazard avoidance
+
+Self‑repair
+
+Emergency evacuation
+
+Drone Behavior
+Retreat when suppressed
+
+Request escort from nearby squads
+
+Prioritize Command Core repairs
+
+Avoid fire, radiation, EMP zones
+
+Coordinate with logistics nodes
+
+9.4 Resource Types
+Obsidian Protocol uses a four‑tier resource system:
+
+Tier I — Raw Resources
+Meat
+
+Wood
+
+Coal
+
+Iron
+
+Used for basic construction and unit production.
+
+Tier II — Processed Materials
+Alloys
+
+Electronics
+
+Fuel
+
+Composite armor
+
+Used for advanced units and buildings.
+
+Tier III — Strategic Resources
+Energy
+
+Data
+
+Command tokens
+
+Used for command units, abilities, and experimental unlocks.
+
+Tier IV — Experimental Resources
+Vector charge
+
+Quantum lattice
+
+Helix substrate
+
+Used exclusively for experimental units and structures.
+
+9.5 Supply Chains
+Supply chains connect resource extractors, logistics nodes, and production buildings.
+
+Supply Chain Components
+Extractors — gather raw resources
+
+Refineries — convert raw to processed
+
+Logistics Nodes — distribute materials
+
+Factories — produce units
+
+Command Units — regulate flow
+
+Supply Chain Rules
+Chains must be continuous
+
+Chains can be disrupted by hazards
+
+Chains can be extended by Nexus units
+
+Chains can be optimized with upgrades
+
+Autonomous Logistics Behavior
+Reroute around hazards
+
+Prioritize critical buildings
+
+Request escort if threatened
+
+Balance load across multiple nodes
+
+9.6 Logistics Nodes
+Logistics nodes are the backbone of resource distribution.
+
+Node Functions
+Material routing
+
+Storage
+
+Repair drone coordination
+
+Power grid linking
+
+Hazard monitoring
+
+Node Upgrades
+Increased storage
+
+Faster routing
+
+Hazard resistance
+
+Autonomous repair boost
+
+9.7 Power Grid
+The power grid connects Fusion units to all powered structures.
+
+Power Grid Rules
+Buildings require power to operate
+
+Power grid radius expands with Fusion upgrades
+
+EMP disrupts grid temporarily
+
+Backup generators activate during outages
+
+Power Types
+Basic Power — factories, extractors
+
+Advanced Power — command units, research labs
+
+Experimental Power — Vector Core, experimental units
+
+Power Grid AI Behavior
+Reroute power around damaged nodes
+
+Prioritize Command Core
+
+Activate emergency reserves
+
+Request repair drones
+
+9.8 Repair Systems
+Repair systems maintain building integrity.
+
+Repair Sources
+Construction drones
+
+Repair drones
+
+Fusion energy fields
+
+Command unit abilities
+
+Repair Rules
+Repairs require resources
+
+Repairs pause during suppression
+
+Repairs accelerate inside command radius
+
+Repairs can be automated or manual
+
+Repair AI Behavior
+Prioritize critical structures
+
+Avoid hazards
+
+Retreat when suppressed
+
+Coordinate with logistics nodes
+
+9.9 Production Queues
+Production queues manage unit creation.
+
+Queue Rules
+Units build sequentially
+
+Queue length depends on building level
+
+Queue can be paused or reprioritized
+
+Queue efficiency increases with upgrades
+
+Queue Types
+Ground Factory Queue
+
+Airfield Queue
+
+Shipyard Queue
+
+Experimental Lab Queue
+
+Autonomous Queue Behavior
+Adjust based on battlefield needs
+
+Prioritize counter‑units
+
+Request resources from logistics nodes
+
+Delay production during hazards
+
+9.10 Building Upgrades
+Upgrades improve building performance.
+
+Upgrade Types
+Capacity
+
+Efficiency
+
+Durability
+
+Power usage
+
+Sensor range
+
+Command radius
+
+Production speed
+
+Upgrade Rules
+Require resources
+
+Require tech tree unlocks
+
+Require power grid stability
+
+Can be queued like units
+
+Upgrade AI Behavior
+Recommend upgrades based on battlefield state
+
+Delay upgrades during hazards
+
+Prioritize Command Core upgrades
