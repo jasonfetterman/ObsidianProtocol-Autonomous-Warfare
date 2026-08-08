@@ -1,0 +1,23 @@
+┌──────────────────────────────────────────────────────────────────────────┐
+│                 EXPERIMENTAL ABILITY — ANIMATION BLUEPRINT               │
+├──────────────────────────────────────────────────────────────────────────┤
+│ GRAVITY WELL                                                                │
+│   • Screen distortion ripple                                                │
+│   • Terrain grid bends inward                                               │
+│                                                                            │
+│ PHASE STRIKE                                                                │
+│   • Unit flickers (cloak shader)                                            │
+│   • Motion blur streak                                                      │
+│                                                                            │
+│ BLINK                                                                       │
+│   • Unit dissolves → reappears                                              │
+│   • Shockwave ring expands                                                  │
+│                                                                            │
+│ SIGNAL JAM                                                                  │
+│   • Blue interference lines                                                  │
+│   • Enemy HUD flicker                                                       │
+│                                                                            │
+│ HAZARD FIELD                                                                │
+│   • Toxic fog billows outward                                               │
+│   • Ground shader shifts color                                              │
+└──────────────────────────────────────────────────────────────────────────┘
