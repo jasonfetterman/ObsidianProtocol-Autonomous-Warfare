@@ -1,0 +1,21 @@
+┌──────────────────────────────────────────────────────────────────────────┐
+│                   VR OPERATOR MODE — ANIMATION BLUEPRINT                 │
+├──────────────────────────────────────────────────────────────────────────┤
+│ SENSOR OVERLAY                                                             │
+│   • Thermal: heat shimmer                                                   │
+│   • LIDAR: wireframe pulses outward                                         │
+│   • Radar: sweeping arc                                                     │
+│                                                                            │
+│ TAGGING RETICLE                                                             │
+│   • Expands 10% on tag                                                      │
+│   • Emits a brief pulse toward tagged object                                │
+│                                                                            │
+│ ABILITY PANEL                                                               │
+│   • Wrist panel slides open (200ms)                                         │
+│   • Ability icons bounce slightly when ready                                │
+│   • Cooldowns animate clockwise                                             │
+│                                                                            │
+│ MAP OVERLAY                                                                 │
+│   • Mini-map zooms in/out smoothly                                           │
+│   • Elevation shading animates in layers                                    │
+└──────────────────────────────────────────────────────────────────────────┘
