@@ -1,0 +1,26 @@
+┌──────────────────────────────────────────────────────────────────────────┐
+│                           TACTICAL OVERLAY HUD                            │
+├──────────────────────────────────────────────────────────────────────────┤
+│ VISIBILITY CONES                                                          │
+│   • White arcs showing line-of-sight                                      │
+│   • Darkened fog-of-war beyond                                            │
+│                                                                            │
+│ SUPPRESSION ZONES                                                         │
+│   • Red circles / wedges                                                   │
+│   • Pulsing intensity based on firepower                                   │
+│                                                                            │
+│ HAZARD FIELDS                                                              │
+│   • Fire = Orange                                                          │
+│   • Radiation = Green                                                      │
+│   • EMP = Blue                                                             │
+│                                                                            │
+│ ELEVATION LINES                                                            │
+│   • Contour lines                                                          │
+│   • High ground highlighted                                                │
+│                                                                            │
+│ UNIT INTENT PATHS                                                          │
+│   • Blue = Recon                                                           │
+│   • Red = Assault                                                          │
+│   • Yellow = Support                                                       │
+│   • White = Hold                                                           │
+└──────────────────────────────────────────────────────────────────────────┘
