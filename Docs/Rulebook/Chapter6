@@ -1,0 +1,358 @@
+CHAPTER VI — COMBAT SYSTEMS
+Combat in Obsidian Protocol is a hybrid of deterministic simulation and autonomous decision‑making.
+Squads evaluate risk, terrain, visibility, suppression, and intent to choose optimal actions.
+This chapter defines the underlying mechanics that govern all engagements across air, ground, sea, command, and experimental units.
+
+6.1 Initiative
+Initiative determines who acts first in any engagement or combat cycle.
+
+Initiative Sources
+Unit Speed — faster units act earlier
+
+Command Radius — units inside radius gain initiative bonuses
+
+Elevation Advantage — high ground improves reaction time
+
+Suppression — reduces initiative
+
+Weather — storms and fog reduce initiative
+
+Specialties — recon units often have initiative bonuses
+
+Initiative Tiers
+Tier I — Immediate Response (air superiority fighters, recon drones)
+
+Tier II — Fast Response (light vehicles, scouts)
+
+Tier III — Standard Response (infantry, medium armor)
+
+Tier IV — Heavy Response (heavy armor, naval guns)
+
+Tier V — Delayed Response (experimental superweapons)
+
+Initiative is recalculated continuously during combat.
+
+6.2 Range Bands
+Range is divided into discrete bands to simplify targeting and engagement logic.
+
+Range Bands
+Melee — CQB, breach combat
+
+Short — SMGs, shotguns, pistols
+
+Medium — rifles, light cannons
+
+Long — sniper rifles, tank guns
+
+Extreme — artillery, missiles, naval guns
+
+Range Band Effects
+Accuracy modifiers
+
+Damage falloff
+
+Sensor effectiveness
+
+Visibility cone interaction
+
+Suppression potential
+
+Range bands are essential for autonomous target selection.
+
+6.3 Accuracy & Evasion
+Accuracy determines the chance to hit; evasion determines the chance to avoid.
+
+Accuracy Influencers
+Range band
+
+Elevation
+
+Weather
+
+Suppression
+
+Movement
+
+Weapon type
+
+Unit specialty
+
+Sensor lock
+
+Evasion Influencers
+Speed
+
+Maneuverability
+
+Cover
+
+Smoke
+
+Stealth
+
+Electronic warfare
+
+Air units rely heavily on evasion; ground units rely more on cover.
+
+6.4 Damage Types
+Damage types interact with armor, shields, and specialty defenses.
+
+Damage Categories
+Kinetic — bullets, shells
+
+Explosive — grenades, artillery
+
+Energy — lasers, plasma
+
+Thermal — heat weapons, flamers
+
+EMP — disables electronics
+
+Shock — concussive force
+
+Piercing — armor‑penetrating rounds
+
+Damage Interactions
+Armor reduces kinetic and explosive
+
+Shields reduce energy and thermal
+
+EMP bypasses armor entirely
+
+Piercing bypasses armor partially
+
+Shock increases suppression
+
+Experimental units may have unique interactions.
+
+6.5 Armor & Penetration
+Armor reduces incoming damage; penetration bypasses armor.
+
+Armor Types
+Light Armor — infantry, drones
+
+Medium Armor — vehicles, turrets
+
+Heavy Armor — tanks, naval hulls
+
+Superheavy Armor — experimental units
+
+Penetration Rules
+High‑caliber rounds penetrate light armor
+
+Anti‑tank weapons penetrate medium/heavy armor
+
+Experimental weapons may ignore armor entirely
+
+Armor is directional — flanking reduces armor effectiveness.
+
+6.6 Shields
+Shields are energy barriers used by advanced and experimental units.
+
+Shield Properties
+Capacity — total energy
+
+Recharge Rate — energy restored per cycle
+
+Delay — time before recharge begins
+
+Damage Type Interaction — energy weapons drain shields faster
+
+Shield Break
+When shields break:
+
+Unit becomes vulnerable
+
+Accuracy decreases
+
+Retreat likelihood increases
+
+AI may reposition or request support
+
+6.7 Payload & Munitions
+Payload defines the weapons a unit carries.
+
+Payload Categories
+Guns
+
+Cannons
+
+Missiles
+
+Bombs
+
+Torpedoes
+
+Depth charges
+
+Plasma weapons
+
+Railguns
+
+Experimental weapons
+
+Munitions Rules
+Limited ammo
+
+Reload required
+
+Resupply at base, carrier, or shipyard
+
+Weight affects speed and maneuverability
+
+Air units have strict payload limits; ground units have moderate limits; naval units have large magazines.
+
+6.8 Reload & Resupply
+Reloading is essential for sustained combat.
+
+Reload Types
+Soft Reload — internal magazine reload
+
+Hard Reload — full resupply at base
+
+Carrier Reload — air units rearm on carriers
+
+Shipyard Reload — naval units rearm at ports
+
+Reload Effects
+Reduced fire rate
+
+Temporary vulnerability
+
+AI may retreat during reload
+
+6.9 CQB & Breach Combat
+Close‑quarters combat is governed by breach logic.
+
+CQB Rules
+Melee range
+
+High suppression
+
+High lethality
+
+Reduced visibility
+
+Increased importance of cover
+
+Breach Combat
+Defined in Chapter IV, but mechanically includes:
+
+Door penetration
+
+Room clearing
+
+Stack formation
+
+Suppression fire
+
+Flashbang effects
+
+Hazard interaction
+
+CQB is the most dangerous combat type.
+
+6.10 Air‑to‑Air Combat
+Air‑to‑air combat is fast, lethal, and maneuver‑driven.
+
+Aerial Combat Rules
+Altitude bands
+
+Energy management
+
+Afterburners
+
+Missile lock
+
+Countermeasures
+
+G‑force limits
+
+VR cockpit integration
+
+AI Aerial Behavior
+Maintain altitude advantage
+
+Use vertical maneuvers
+
+Avoid missile lock
+
+Seek sensor superiority
+
+Retreat when fuel is low
+
+6.11 Air‑to‑Ground Combat
+Air units engage ground targets using:
+
+Bombs
+
+Missiles
+
+Strafing runs
+
+Precision strikes
+
+Air‑to‑Ground Rules
+Anti‑air zones
+
+Visibility cones
+
+Weather effects
+
+Elevation interaction
+
+Sensor lock requirements
+
+Air‑to‑ground combat is high‑risk but high‑reward.
+
+6.12 Naval Combat
+Naval combat uses depth, sonar, and long‑range weapons.
+
+Naval Rules
+Depth layers
+
+Sonar detection
+
+Torpedo mechanics
+
+Naval artillery
+
+Anti‑sub warfare
+
+Carrier operations
+
+Naval AI Behavior
+Maintain optimal depth
+
+Use sonar triangulation
+
+Avoid torpedo lanes
+
+Coordinate with air units
+
+6.13 Experimental Combat Rules
+Experimental units break standard rules.
+
+Experimental Abilities
+Terrain manipulation
+
+Energy fields
+
+Teleportation
+
+Gravity distortion
+
+Cloaking
+
+Superweapons
+
+Balancing Factors
+High cost
+
+Long cooldowns
+
+Unique counters
+
+Limited availability
+
+Experimental combat is designed to be spectacular and rare.
