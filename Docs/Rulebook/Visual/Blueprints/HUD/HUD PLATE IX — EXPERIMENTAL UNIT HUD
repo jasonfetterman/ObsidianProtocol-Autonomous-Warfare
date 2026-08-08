@@ -1,0 +1,18 @@
+┌──────────────────────────────────────────────────────────────────────────┐
+│                         EXPERIMENTAL UNIT HUD                             │
+├──────────────────────────────────────────────────────────────────────────┤
+│ ABILITY GRID                                                                │
+│   [Gravity Well] [Phase Strike] [Blink] [Signal Jam] [Hazard Field]        │
+│                                                                            │
+│ ENERGY CORE                                                                  │
+│   ██████████████████████████████████████████████████████████████████      │
+│                                                                            │
+│ COOLDOWN MATRIX                                                              │
+│   • Ability cooldown timers                                                  │
+│   • Vector charge availability                                               │
+│                                                                            │
+│ FIELD DISTORTION OVERLAY                                                     │
+│   • Gravity distortion                                                       │
+│   • Cloak shimmer                                                            │
+│   • Hazard projection                                                        │
+└──────────────────────────────────────────────────────────────────────────┘
