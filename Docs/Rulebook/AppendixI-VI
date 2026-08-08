@@ -1,0 +1,126 @@
+APPENDIX I — UNIT TABLES
+This appendix provides structured, at‑a‑glance tables for every unit category: Air, Ground, Sea, Command, and Experimental.
+
+A. Air Units
+Unit	Role	Range	Speed	Armor	Payload	Sensors	Notes
+Warden	Air Superiority	Long	Very High	Light	Missiles, Cannon	Radar, Thermal	Best dogfighter
+Nightguard	Interceptor	Long	High	Light	Missiles	Radar	Anti‑air specialist
+Beacon	Strike	Medium	Medium	Medium	Bombs, Missiles	Thermal	Precision strike
+Iris	Recon	Extreme	High	Light	None	LIDAR, Thermal	Best recon unit
+Overseer	Command Air	Medium	Medium	Medium	Support tools	Full suite	Extends command radius
+Vector	Support Air	Medium	Medium	Light	ECM	Radar, EW	Electronic warfare
+Watchtower	Heavy Recon	Long	Low	Heavy	Missiles	LIDAR	Slow but durable
+
+
+B. Ground Units
+Unit	Role	Range	Speed	Armor	Payload	Specialties	Notes
+Patrol	Infantry	Short	Medium	Light	Rifle	Breach	Basic infantry
+Rescue	Support Infantry	Short	Medium	Light	SMG	Heal/Repair	Field medic
+Scout	Recon	Medium	High	Light	Carbine	Stealth	Fast recon
+Mule	Light Vehicle	Medium	High	Medium	MG	Logistics	Fast transport
+Rover	Light Vehicle	Medium	High	Medium	Cannon	Flank	Mobile fire support
+Bulldog	Medium Armor	Long	Medium	Medium	Cannon	Suppression	Main battle tank
+Forge	Medium Armor	Medium	Medium	Heavy	Flamethrower	Hazard	Close‑range tank
+Hammer	Heavy Armor	Long	Low	Heavy	Cannon	Breach	Siege tank
+Crusher	Heavy Armor	Long	Low	Heavy	Railgun	Penetration	Anti‑armor specialist
+Ironwalker	Engineer	Short	Medium	Medium	Tools	Build/Repair	Field engineer
+Sentinel	Anti‑Air	Long	Low	Medium	AA Missiles	AA	Dedicated anti‑air
+
+
+C. Sea Units
+Unit	Role	Depth	Speed	Armor	Payload	Sensors	Notes
+Surveyor Mk1	Recon	Surface	Medium	Light	None	Sonar	Basic naval recon
+Current	Patrol	Surface	Medium	Medium	Cannon	Sonar	Anti‑small craft
+Rescue	Support	Surface	Medium	Light	Tools	Sonar	Naval repair
+Sonar	Strike	Mid	Medium	Medium	Torpedoes	Sonar	Anti‑sub
+Depthwatch	Heavy Strike	Deep	Low	Heavy	Torpedoes	Sonar	Submarine hunter
+Harbor	Heavy Naval	Surface	Low	Heavy	Naval guns	Radar	Long‑range artillery
+Tidebreaker	Superheavy	Surface	Low	Superheavy	Missiles, Guns	Full suite	Naval flagship
+
+
+D. Command Units
+Command Unit	Role	Bonuses	Abilities	Notes
+Archive	Data Core	Research speed	Intel boost	Long‑term progression
+Worldmap	Strategic Map	Fog‑of‑war	Terrain reveal	Macro‑level control
+Command Core	HQ	Radius, tokens	Global buffs	Most important structure
+Fusion	Power Core	Power grid	Shield boost	Energy backbone
+Nexus	Network Relay	Coordination	Link squads	Multi‑angle assaults
+Insight	Sensor Hub	Detection	Precision targeting	Anti‑stealth
+Pulse	Disruption Node	Anti‑EW	EMP	Electronic warfare
+Vector Core	Experimental Node	Teleportation	Vector abilities	Unlocks experimental units
+
+
+E. Experimental Units
+Unit	Role	Armor	Speed	Abilities	Notes
+Echo	Stealth Recon	Light	High	Cloak, Ghost Scan	Perfect stealth
+Nullpoint	Gravity Control	Heavy	Low	Gravity Well	Battlefield manipulation
+Specter	Cloaked Strike	Medium	High	Phase Strike	Ambush specialist
+Shadowgrid	EW Control	Medium	Medium	Signal Jam	Electronic dominance
+Phantom	Teleport Assault	Medium	High	Blink	Hit‑and‑run
+Helix	Biohazard	Medium	Low	Hazard Field	Area denial
+
+
+APPENDIX II — BUILDING TABLES
+Building	Role	Power	Cost	Upgrades	Notes
+Command Core	HQ	High	High	Radius, tokens	Essential
+Nexus	Network	Medium	Medium	Coordination	Extends radius
+Fusion	Power	High	Medium	Grid, shields	Energy backbone
+Insight	Sensor	Medium	Medium	Detection	Anti‑stealth
+Pulse	EW	Medium	Medium	EMP	Disruption
+Vector Core	Experimental	High	Very High	Teleportation	Unlocks experimental
+Extractor	Resource	Low	Low	Efficiency	Raw resources
+Refinery	Processing	Medium	Medium	Throughput	Converts resources
+Factory	Ground Production	Medium	Medium	Queue, speed	Produces ground units
+Airfield	Air Production	Medium	Medium	Payload, speed	Produces air units
+Shipyard	Naval Production	High	High	Armor, speed	Produces sea units
+Research Lab	Research	Medium	Medium	Speed	Unlocks tech
+Logistics Node	Supply	Low	Low	Routing	Resource distribution
+
+
+APPENDIX III — COMMAND ECONOMY TABLES
+A. Token Types
+Token	Used For
+Tactic	Intents, squad abilities
+Strategy	Command abilities
+Logistics	Supply chain actions
+Vector	Experimental abilities
+
+
+B. Token Generation
+Source	Tokens Generated
+Command Core	Tactic, Strategy
+Nexus	Tactic
+Insight	Strategy
+Fusion	Logistics
+Vector Core	Vector
+
+
+APPENDIX IV — INTENT WHEEL REFERENCE
+Intent	Behavior	Modifiers
+Assault	Breach, flank, suppress	Aggressive, Rapid
+Recon	Scout, shadow	Silent, Stealth
+Hold	Defend, anchor	Cautious
+Support	Repair, escort	Rapid
+Strike	Precision attack	Aggressive
+Retreat	Fall back	Cautious
+
+
+APPENDIX V — VR CONTROL TABLES
+Action	VR Control
+Fire	Trigger
+Stabilize	Grip
+Maneuver	Thumbstick
+Drone‑Jump	F
+Command Wheel	R
+Tactical Overlays	Tab
+
+
+APPENDIX VI — BATTLEFIELD SYSTEMS TABLE
+System	Effect
+Elevation	Range, accuracy, visibility
+Visibility Cones	Sightlines
+Suppression	Accuracy, morale
+Hazards	Damage, disruption
+Weather	Sensors, accuracy
+Terrain	Movement, cover
+
