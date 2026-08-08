@@ -1,0 +1,26 @@
+┌──────────────────────────────────────────────────────────────────────────┐
+│                     COMMAND WHEEL — ANIMATION BLUEPRINT                  │
+├──────────────────────────────────────────────────────────────────────────┤
+│ INPUT: Hold R                                                             │
+│                                                                            │
+│ STAGE 1 — INITIALIZE                                                       │
+│   • Wheel spawns at cursor position                                        │
+│   • Opacity: 0 → 100% (150ms)                                              │
+│   • Scale: 0.85 → 1.00 (ease-out)                                          │
+│                                                                            │
+│ STAGE 2 — SEGMENT PULSE                                                    │
+│   • Each segment pulses outward 4px                                        │
+│   • Ripple timing: 40ms offset per segment                                 │
+│   • Color shift: neutral → highlight                                       │
+│                                                                            │
+│ STAGE 3 — SELECTION                                                        │
+│   • Hover segment expands +6%                                              │
+│   • Text label fades in (120ms)                                            │
+│   • Intent icon rotates 15°                                                │
+│                                                                            │
+│ STAGE 4 — CONFIRM                                                          │
+│   • Release R                                                              │
+│   • Selected segment flashes (white, 80ms)                                 │
+│   • Wheel collapses inward (scale 1.0 → 0.6)                               │
+│   • Opacity: 100% → 0% (100ms)                                             │
+└──────────────────────────────────────────────────────────────────────────┘
