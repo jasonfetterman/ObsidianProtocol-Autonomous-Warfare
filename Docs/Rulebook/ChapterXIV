@@ -1,0 +1,310 @@
+CHAPTER XIV — GLOSSARY, QUICK‑START & CHEAT SHEETS
+This chapter provides:
+
+A complete glossary of all major terms
+
+A quick‑start guide for new players
+
+Icon reference for UI clarity
+
+Cheat sheets for turn structure, unit roles, command economy, and VR controls
+
+These tools ensure players can learn Obsidian Protocol quickly and play confidently.
+
+14.1 Glossary
+A
+Accuracy — Chance to hit a target; influenced by range, elevation, suppression.
+
+Afterburner — Temporary speed boost for air units; drains energy.
+
+AI Personality — Behavioral profile that shapes squad decision‑making.
+
+Altitude Bands — Vertical layers determining air combat behavior.
+
+B
+Breach — Autonomous CQB entry maneuver involving stack, suppress, and clear phases.
+
+Build Radius — Area where buildings can be constructed.
+
+C
+Command Core — Primary HQ; generates tokens, radius, and strategic abilities.
+
+Command Radius — Area where squads receive bonuses and improved coordination.
+
+Command Tokens — Strategic currency used for intents, abilities, logistics, and experimental actions.
+
+Cover — Terrain or objects that reduce incoming damage and suppression.
+
+D
+Depth Layers — Vertical zones for naval units (surface, mid, deep).
+
+Destructible Cover — Cover that can be destroyed by weapons or hazards.
+
+E
+Elevation — Height advantage affecting visibility, accuracy, and range.
+
+Experimental Units — Unique units with special rules and superweapon abilities.
+
+F
+Flanking — Autonomous maneuver to attack from side or rear.
+
+Fog‑of‑War — Hidden areas of the map; influenced by sensors and elevation.
+
+G
+Gravity Well — Experimental ability that distorts movement and terrain.
+
+H
+Hazard Zone — Fire, radiation, EMP, or toxic areas affecting units.
+
+I
+Initiative — Determines action order in combat cycles.
+
+Intent — High‑level command directive interpreted by autonomous squads.
+
+L
+Logistics Node — Structure that routes resources and coordinates repairs.
+
+M
+Morale — Squad confidence; affects accuracy, retreat likelihood, and cohesion.
+
+P
+Payload — Weapons and munitions carried by a unit.
+
+Penetration — Ability to bypass armor.
+
+R
+Range Bands — Discrete engagement distances (melee, short, medium, long, extreme).
+
+Repair Drones — Autonomous drones that repair buildings and units.
+
+S
+Sensor Suite — LIDAR, thermal, radar systems used for detection.
+
+Shields — Energy barriers that absorb damage before HP.
+
+Suppression — Heavy fire that reduces movement, accuracy, and morale.
+
+T
+Tech Tree — Progression system unlocking units, upgrades, and abilities.
+
+Torpedo Lane — Naval path where torpedoes travel; dangerous for subs.
+
+V
+Vector Core — Experimental command unit enabling teleportation and superweapons.
+
+Visibility Cone — Directional sightline determining what a unit can see.
+
+VR Operator Mode — First‑person tactical support mode.
+
+VR Dogfight Mode — Full cockpit air combat integrated with RTS.
+
+14.2 Icon Reference
+Unit Icons
+Air Unit — Wing symbol
+
+Ground Unit — Boot or tread symbol
+
+Sea Unit — Wave symbol
+
+Command Unit — Star or node symbol
+
+Experimental Unit — Hexagon with energy core
+
+Status Icons
+Suppressed — Downward arrow with shock lines
+
+Shields Down — Broken hexagon
+
+Low Ammo — Hollow bullet icon
+
+Low Fuel — Droplet icon
+
+Hazard — Flame, radiation, or lightning symbol
+
+Intent Icons
+Assault — Forward arrow
+
+Recon — Eye symbol
+
+Hold — Shield
+
+Support — Plus sign
+
+Strike — Crosshair
+
+Retreat — Backward arrow
+
+VR Icons
+Cockpit Mode — Helmet symbol
+
+Drone‑Jump — Small quadcopter icon
+
+Sensor Sweep — Radar pulse
+
+14.3 Quick‑Start Guide
+This section teaches new players how to begin playing Obsidian Protocol in under 2 minutes.
+
+Step 1 — Build Your Command Core
+Your Command Core establishes:
+
+Command radius
+
+Token generation
+
+Strategic abilities
+
+Tech tree access
+
+Place it in a safe, elevated, defensible location.
+
+Step 2 — Establish Economy
+Build:
+
+Resource extractors
+
+Logistics nodes
+
+Fusion (power grid)
+
+Research lab
+
+Your economy determines your long‑term strength.
+
+Step 3 — Deploy Initial Squads
+Recommended starting squads:
+
+1 Recon unit
+
+2 Infantry squads
+
+1 Light vehicle
+
+1 Air recon drone
+
+These units secure early map control.
+
+Step 4 — Issue Intents
+Use the Command Wheel to issue:
+
+Recon intent
+
+Hold intent
+
+Assault intent
+
+Squads interpret intent autonomously.
+
+Step 5 — Expand Command Radius
+Build:
+
+Nexus
+
+Insight
+
+This increases coordination and visibility.
+
+Step 6 — Unlock Tech Tree
+Choose a branch:
+
+Tactical
+
+Strategic
+
+Logistics
+
+Experimental
+
+Your tech tree defines your faction identity.
+
+Step 7 — Use VR Mode (Optional)
+Jump into:
+
+Recon drones
+
+Air units
+
+Operator mode
+
+VR enhances tactical precision.
+
+Step 8 — Push Objectives
+Capture:
+
+Command zones
+
+Resource nodes
+
+Strategic terrain
+
+Complete objectives to earn VP.
+
+Step 9 — Deploy Experimental Units
+Late‑game power spikes:
+
+Echo
+
+Nullpoint
+
+Specter
+
+Phantom
+
+Helix
+
+These units reshape the battlefield.
+
+Step 10 — Win Conditions
+Achieve victory by:
+
+VP threshold
+
+Command Core destruction
+
+Superweapon deployment
+
+Campaign completion
+
+14.4 Cheat Sheets
+Turn Structure Cheat Sheet
+Command Phase
+
+Movement Phase
+
+Combat Phase
+
+Production Phase
+
+End Phase
+
+Unit Role Cheat Sheet
+Air — recon, strike, superiority
+
+Ground — breach, suppress, hold
+
+Sea — long‑range, sonar, amphibious
+
+Command — radius, tokens, abilities
+
+Experimental — superweapons, manipulation
+
+Command Economy Cheat Sheet
+Tactic tokens — intents
+
+Strategy tokens — command abilities
+
+Logistics tokens — supply chains
+
+Vector tokens — experimental abilities
+
+VR Controls Cheat Sheet
+Trigger — fire
+
+Grip — stabilize
+
+Thumbstick — maneuver
+
+F — drone‑jump
+
+R — command wheel
+
+Tab — tactical overlays
