@@ -1,0 +1,220 @@
+CHAPTER III — CONTROLS & INTERFACE
+3.1 RTS Controls
+Obsidian Protocol uses a modern RTS control scheme designed for speed, clarity, and intent‑based commanding. The interface minimizes micromanagement and maximizes strategic expression.
+
+Core Navigation
+Left‑Click — Select unit, building, or UI element
+
+Right‑Click — Issue contextual intent (move, attack, interact)
+
+Middle‑Mouse / Scroll — Zoom in/out (strategic zoom)
+
+WASD / Edge Pan — Move camera
+
+Q/E — Rotate camera
+
+Shift — Queue intents or multi‑select
+
+Ctrl — Add/remove units from selection
+
+Selection Tools
+Click‑Drag Box — Select multiple units
+
+Double‑Click — Select all units of the same type on screen
+
+Ctrl+Number — Assign control group
+
+Number Key — Recall control group
+
+Strategic Zoom
+The camera transitions seamlessly from:
+
+Macro view (entire battlefield)
+
+Operational view (frontlines, squads, command units)
+
+Micro view (individual units, breach teams, drones)
+
+Zoom level affects:
+
+Visibility cones
+
+Sensor overlays
+
+Command radius visualization
+
+3.2 Command Wheel
+The Command Wheel is the core interface for intent‑based commanding. It replaces traditional micromanaged orders with high‑level strategic directives.
+
+Wheel Structure
+When a unit or squad is selected, pressing R (default) opens the wheel:
+
+Primary Intents
+Assault — breach, flank, suppress
+
+Recon — scout, shadow, track
+
+Hold — defend, anchor, intercept
+
+Support — repair, escort, reinforce
+
+Strike — precision attack, bombard, disrupt
+
+Retreat — fall back, regroup, reposition
+
+Intent Modifiers
+Holding Shift while selecting an intent adds modifiers:
+
+Aggressive — prioritize damage
+
+Cautious — prioritize survival
+
+Silent — minimize detection
+
+Rapid — maximize speed
+
+Stealth — avoid visibility cones
+
+Intent Preview
+Before confirming, the wheel shows:
+
+Predicted squad path
+
+Expected breach point
+
+Suppression zones
+
+Visibility cones
+
+Estimated risk level
+
+This preview helps players make informed decisions without micromanagement.
+
+3.3 Tactical Overlays
+Tactical overlays visualize battlefield information that autonomous squads use internally.
+
+Overlay Types
+Visibility Cones — directional sightlines
+
+Suppression Zones — areas of heavy fire
+
+Elevation Map — height advantages and disadvantages
+
+Cover Indicators — destructible and non‑destructible cover
+
+Sensor Fields — LIDAR, thermal, night vision
+
+Command Radius — influence area of command units
+
+Logistics Lines — supply routes, repair drone paths
+
+Hazard Zones — fire, radiation, EMP, flooding
+
+Overlay Controls
+Tab — toggle overlays
+
+Shift+Tab — cycle overlay types
+
+Alt — hold to show all overlays temporarily
+
+Overlays are designed to be readable without cluttering the battlefield.
+
+3.4 VR Controls
+VR modes use a hybrid control scheme that blends cockpit simulation with tactical operator functionality.
+
+Movement & Interaction
+Head Movement — look around cockpit or drone view
+
+VR Controllers — interact with cockpit panels, switches, and overlays
+
+Trigger — fire weapons or activate tools
+
+Grip — stabilize aim or interact with physical controls
+
+Thumbstick — maneuver drones or navigate operator interface
+
+VR Comfort Options
+Snap turning
+
+Smooth turning
+
+Cockpit stabilization
+
+Reduced shake mode
+
+High‑fidelity mode
+
+3.5 VR Cockpit HUD
+The VR HUD is a fully diegetic cockpit interface for dogfights and air‑unit piloting.
+
+HUD Elements
+Radar Sphere — 360° situational awareness
+
+Thermal Overlay — heat signatures
+
+LIDAR Grid — structural outlines
+
+Missile Lock Indicator — tone + visual cue
+
+Damage Panel — hull, engine, avionics, weapons
+
+Afterburner Meter — energy management
+
+Altitude Bands — engagement layers
+
+Threat Arcs — incoming fire direction
+
+Cockpit Interactions
+Players can:
+
+Flip switches
+
+Adjust sensors
+
+Arm weapons
+
+Deploy countermeasures
+
+Switch between flight modes
+
+The cockpit is designed to feel tactile and immersive.
+
+3.6 Drone‑Jumping Interface
+Drone‑jumping allows players to inhabit any drone or sensor unit in real time.
+
+Activation
+Select drone
+
+Press F (default)
+
+Instantly transition into VR or first‑person view
+
+Drone Capabilities
+Manual recon
+
+Thermal sweep
+
+LIDAR scan
+
+Night vision
+
+Hazard marking
+
+Laser designation
+
+Manual strike targeting
+
+Operator Tools
+Inside drone view, players can:
+
+Tag enemies
+
+Mark breach points
+
+Highlight suppression zones
+
+Identify stealth units
+
+Relay sensor data to squads
+
+Drone‑jumping is a core part of VR Operator Mode and integrates directly with RTS intent‑based commanding.
