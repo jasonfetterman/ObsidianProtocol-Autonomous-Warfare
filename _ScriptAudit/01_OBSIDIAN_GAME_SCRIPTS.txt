@@ -1,7 +1,0 @@
-﻿
-FullName                                                                             
---------                                                                             
-C:\ObsidianProtocol-Autonomous-Warfare\Assets\Data\Settings\PerformanceSettings.cs   
-C:\ObsidianProtocol-Autonomous-Warfare\Assets\Data\Technology\Upgrades\UpgradeItem.cs
-
-

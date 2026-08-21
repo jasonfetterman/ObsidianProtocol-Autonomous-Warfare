@@ -1,7 +1,0 @@
-OBSIDIAN PROTOCOL — SCRIPTS BY SYSTEM
-======================================
-
-Project: C:\ObsidianProtocol-Autonomous-Warfare
-Scripts: C:\ObsidianProtocol-Autonomous-Warfare\Assets\Scripts
-Total C# scripts: 0
-
