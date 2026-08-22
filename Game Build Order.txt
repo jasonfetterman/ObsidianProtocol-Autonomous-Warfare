@@ -2,8 +2,8 @@ OBSIDIAN PROTOCOL: AUTONOMOUS WARFARE
 MASTER DEVELOPMENT CHECKLIST — BUILD ORDER
 SECTION 1 — CORE FOUNDATION
 
-[x] 1.1 Unity project foundation
-[x] 1.2 Game scene foundation
+[ ] 1.1 Unity project foundation
+[ ] 1.2 Game scene foundation
 [ ] 1.3 Core game architecture
 [ ] 1.4 Core managers / service architecture
 [ ] 1.5 Game state system
