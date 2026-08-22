@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c1580580b948e46a051feac4afc005, type: 3}
   m_Name: FuelResourceDefinition
   m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Resources.ResourceDefinition
-  resourceId: 
-  displayName: 
+  resourceId: fuel
+  displayName: fuel
