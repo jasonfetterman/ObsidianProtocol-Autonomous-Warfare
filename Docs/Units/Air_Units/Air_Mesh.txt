@@ -1,0 +1,136 @@
+
+✈️ AIR UNIT #13 — MESH
+ID:
+obs-air-mesh
+Role: High‑Capacity Mesh Relay / Network Backbone
+Tier: Advanced Support
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 2.4 m
+Width: 1.8 m
+Height: 0.9 m
+Mass: 20 kg
+Power Source: High‑efficiency battery
+Energy Capacity: 2000 Wh
+Energy Consumption: 45 Wh/min
+Endurance: 35–55 min
+Payload Capacity: 1.0 kg
+Modules: Multi‑antenna mesh array
+Navigation System: GPS + Mesh Optimization AI
+Structural Integrity: 115 HP
+Armor Rating: 0.15
+Heat Signature: Low
+Noise Signature: Low
+Top Speed: 19 m/s
+Acceleration: Medium
+Turning Radius: Tight
+Climb Rate: Medium
+Stability Rating: High
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Mesh Relay / Network Backbone
+Aggression: 0.0
+Caution: 0.9
+Persistence: 0.9
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.85
+Target Priority: Network gaps / weak mesh zones
+Formation Discipline: Very High
+Risk Tolerance: Very Low
+Sensors
+Visual Range: 900 m
+Thermal Range: 400 m
+Acoustic Range: Low
+Radar Range: None
+LiDAR Range: None
+Signal Detection Range: Very High
+Communication
+Mesh Range: 18 km
+Relay Capacity: 12 nodes
+Command Link Type: Mesh‑Optimized
+Network Priority: Very High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: 0
+Accuracy: N/A
+Stabilization: High
+Weapon Mounts: None
+Weapon Types: None
+Suppression Value: 0
+Tracking Strength: Low
+Disruption Strength: Medium
+Breach Capability: None
+Countermeasure Rating: Medium
+Threat Modeling
+Threat Level: 2
+Engagement Distance: N/A
+Preferred Terrain: High‑altitude mesh corridors
+Preferred Targets: None
+Vulnerability Profile: Ballistic / EMP / jamming
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Mesh Relay
+Squad Size Contribution: 1
+Formation Behavior: High‑discipline mesh spacing
+Intent Interpretation Rules: Maintain coverage, avoid conflict
+Retreat Behavior: Early
+Breach Behavior: None
+Flanking Behavior: None
+Reinforcement Behavior: Supports communication and command squads
+Command Hierarchy
+Parent Command Unit: NexusGrid / Overseer
+Subordinate Units: None
+Relay Nodes: 12
+Network Dependencies: Warden mesh grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Drone View
+Operator HUD: Mesh Relay Overlay
+Camera Feeds: Optical
+Thermal View: Yes
+LiDAR View: No
+Sonar View: No
+Tactical Overlay: Mesh coverage visualization
+Operator Controls
+Movement Controls: Full drone flight
+Sensor Controls: Signal scan / relay diagnostics
+Ability Controls: Deploy Relay, Boost Signal, Mesh Stabilize
+Weapon Controls: None
+Stabilization Controls: Auto‑hover
+Operator Abilities
+Deploy Relay Node
+Boost Signal
+Mesh Stabilization
+Network Scan
+Relay Diagnostics
+⚫ ECONOMY & LOGISTICS
+Build Cost: 160 Metal / 160 Electronics
+Build Time: 55 sec
+Factory Type: Drone Bay
+Tech Requirements: Mesh Networking II
+Maintenance Cost: Low
+Repair Time: 12 sec
+Supply Consumption: Low
+Operational Cost: Minimal
+Deployment Requirements: Standard drone pad
+Transport Compatibility: All aerial racks
+Launch Method: Vertical takeoff
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+12× Light Alloy Plates
+8× Composite Frame Rods
+6× Micro‑Servo Actuators
+2× Stabilizer Fins
+1× Mesh Antenna Housing
+Electronics
+14× Circuit Bundles
+10× Signal Processors
+4× Drone Control Chips
+4× Mesh Routing Chips
+Power
+1× High‑Efficiency Battery Pack
+2× Power Regulation Nodes
+Rare / Tradeable
+1× High‑Grade Mesh Antenna Array
+1× Encrypted Mesh Core
+Optional Upgrades
+Extended Mesh Range Module
+Signal Boost Amplifier
+Anti‑Jamming Shielding
+Silent Rotor Kit

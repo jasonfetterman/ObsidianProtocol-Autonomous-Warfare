@@ -1,0 +1,120 @@
+
+⭐ DEPTHWATCH
+(7.0 m × 3.0 m × 2.5 m)
+🌊 SEA UNIT — DEPTHWATCH
+ID:
+obs-sea-depthwatch
+Role: Deep‑Water Monitoring / Subsurface Recon
+Tier: Recon / Specialist
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 7.0 m
+Width: 3.0 m
+Height: 2.5 m
+Mass: 3,000 kg
+Power Source: Marine diesel‑electric hybrid
+Energy Capacity: 14,000 Wh
+Fuel Capacity: 180 L
+Endurance: 8–16 hours
+Payload Capacity: 200 kg
+Modules: Deep sonar array + subsurface mapping suite + stability fins
+Navigation System: Marine GPS + DeepScan AI
+Structural Integrity: 1,000 HP
+Armor Rating: 0.45
+Heat Signature: Very Low
+Noise Signature: Ultra‑Low
+Top Speed: 7 m/s
+Acceleration: Low
+Turning Radius: Moderate
+Stability Rating: Maximum (deep‑water optimized)
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Deep‑water scanning / anomaly detection
+Aggression: 0.0
+Caution: 0.95
+Persistence: 1.0
+Retreat Threshold: 0.9
+Target Priority: Subsurface anomalies / deep acoustic signatures
+Formation Discipline: High
+Risk Tolerance: Low
+Sensors
+Visual Range: 1400 m
+Thermal Range: 900 m
+Acoustic Range: Very High
+Sonar Range: Long (deep‑water tuned)
+Radar Range: Short
+Signal Detection Range: Medium
+Communication
+Mesh Range: 6 km
+Relay Capacity: 1
+Command Link Type: Marine Recon Grid
+Network Priority: High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: None
+Weapon Mounts: None
+Tracking Strength: Very High (deep sonar)
+Disruption Strength: Medium
+Countermeasure Rating: Medium
+Threat Modeling
+Threat Level: 4
+Preferred Terrain: Deep water / subsurface corridors
+Vulnerability Profile: Ballistic / collision / extreme waves
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Deep‑water Recon / Acoustic Mapping
+Squad Size Contribution: 2
+Formation Behavior: Sensor‑optimized spacing
+Intent Interpretation Rules: Scan deep zones & identify anomalies
+Retreat Behavior: Early
+Reinforcement Behavior: Supports recon & marine squads
+Command Hierarchy
+Parent Command Unit: Insight / Pulse
+Subordinate Units: None
+Relay Nodes: 1
+Network Dependencies: Marine Recon Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: DeepScan Console
+Operator HUD: Deep Acoustic Overlay
+Camera Feeds: Optical
+Thermal View: Yes
+Sonar View: Long‑range, deep‑water
+Tactical Overlay: Subsurface contours / anomaly markers
+Operator Controls
+Movement Controls: Marine drive
+Sensor Controls: Deep sonar / acoustic filters / zoom
+Ability Controls: Deep Scan, Mark Anomaly, Stabilize
+Operator Abilities
+Deep Sonar Sweep
+Subsurface Mapping
+Hazard Detection
+Recon Relay
+⚫ ECONOMY & LOGISTICS
+Build Cost: 620 Metal / 340 Electronics
+Build Time: 130 sec
+Factory Type: Marine Bay
+Tech Requirements: Marine Systems II
+Maintenance Cost: Medium
+Repair Time: 32 sec
+Supply Consumption: Medium
+Operational Cost: Medium
+Deployment Requirements: Water launch pad
+Transport Compatibility: Marine racks
+Launch Method: Water drop
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+40× Marine Alloy Plates
+20× Reinforced Marine Rods
+6× Hydraulic Actuators
+1× Deep Sonar Housing
+Electronics
+24× Circuit Bundles
+16× Signal Processors
+4× Marine Control Chips
+2× Recon AI Chips
+Power
+1× Marine Hybrid Engine Core
+2× Power Regulation Nodes
+Rare / Tradeable
+1× Deep Sonar Core
+Optional Upgrades
+Silent Propulsion
+Extended Battery Pack
+Anti‑Jamming Shielding

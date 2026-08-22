@@ -1,0 +1,125 @@
+
+⭐ SEA UNIT — SCOUT
+(4.5 m × 2.2 m × 1.8 m)
+🌊 SEA UNIT — SCOUT
+ID:
+obs-sea-scout
+Role: Marine Recon / Fast Surface Scouting
+Tier: Recon
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 4.5 m
+Width: 2.2 m
+Height: 1.8 m
+Mass: 1,600 kg
+Power Source: Electric‑hybrid marine drive
+Energy Capacity: 7,000 Wh
+Fuel Capacity: 90 L
+Endurance: 4–8 hours
+Payload Capacity: 80 kg
+Modules: Recon optics + light sonar + silent propulsion
+Navigation System: Marine GPS + Recon AI
+Structural Integrity: 600 HP
+Armor Rating: 0.25
+Heat Signature: Very Low
+Noise Signature: Very Low
+Top Speed: 14 m/s
+Acceleration: High
+Turning Radius: Very tight
+Stability Rating: High
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Recon / Forward Scouting
+Aggression: 0.1
+Caution: 0.9
+Persistence: 0.8
+Retreat Threshold: 0.85
+Target Priority: Movement / anomalies
+Formation Discipline: Medium
+Risk Tolerance: Low
+Sensors
+Visual Range: 2400 m
+Thermal Range: 900 m
+Acoustic Range: High
+Sonar Range: Short
+Radar Range: Short
+Signal Detection Range: Medium
+Communication
+Mesh Range: 6 km
+Relay Capacity: 0
+Command Link Type: Marine Recon Grid
+Network Priority: High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: Very Low
+Weapon Mounts: 1 (light)
+Weapon Types: Light turret / recon suppressor
+Accuracy: Medium
+Suppression Value: Low
+Tracking Strength: Medium
+Disruption Strength: Low
+Countermeasure Rating: Low
+Threat Modeling
+Threat Level: 3
+Engagement Distance: 200–400 m
+Preferred Terrain: Surface waters / recon lanes
+Vulnerability Profile: Ballistic / waves / collision
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Marine Recon / Forward Eyes
+Squad Size Contribution: 1
+Formation Behavior: Forward spacing
+Intent Interpretation Rules: Identify threats early
+Retreat Behavior: Early
+Reinforcement Behavior: Supports recon & marine squads
+Command Hierarchy
+Parent Command Unit: Insight / Pulse
+Subordinate Units: None
+Relay Nodes: None
+Network Dependencies: Marine Recon Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Recon Cockpit
+Operator HUD: Marine Recon Overlay
+Camera Feeds: Optical
+Thermal View: Yes
+Sonar View: Basic
+Tactical Overlay: Movement markers / terrain scan
+Operator Controls
+Movement Controls: Marine drive
+Weapon Controls: Light turret
+Sensor Controls: Thermal / sonar / zoom
+Ability Controls: Mark Target, Scan, Stabilize
+Operator Abilities
+Recon Scan
+Silent Approach
+Threat Marking
+Recon Relay
+⚫ ECONOMY & LOGISTICS
+Build Cost: 300 Metal / 160 Electronics
+Build Time: 70 sec
+Factory Type: Marine Bay
+Tech Requirements: Marine Systems I
+Maintenance Cost: Low
+Repair Time: 18 sec
+Supply Consumption: Low
+Operational Cost: Low
+Deployment Requirements: Water launch pad
+Transport Compatibility: Light marine racks
+Launch Method: Water drop
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+24× Marine Alloy Plates
+12× Reinforced Marine Rods
+4× Hydraulic Actuators
+1× Recon Sensor Housing
+Electronics
+14× Circuit Bundles
+10× Signal Processors
+3× Marine Control Chips
+2× Recon AI Chips
+Power
+1× Hybrid Marine Engine Core
+2× Power Regulation Nodes
+Rare / Tradeable
+1× Silent Propulsion Module
+Optional Upgrades
+Extended Battery Pack
+Silent Drive Kit
+Anti‑Jamming Shielding

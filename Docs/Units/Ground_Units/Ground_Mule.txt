@@ -1,0 +1,130 @@
+
+⭐ MULE
+🚜 GROUND UNIT — MULE
+ID:
+obs-ground-mule
+Role: Logistics / Field Transport
+Tier: Support
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 4.4 m
+Width: 2.2 m
+Height: 1.9 m
+Mass: 1,300 kg
+Power Source: Diesel‑electric hybrid
+Energy Capacity: 5000 Wh
+Fuel Capacity: 70 L
+Endurance: 6–12 hours
+Payload Capacity: 800 kg
+Modules: Cargo bed + modular rack system
+Navigation System: GPS + Logistics AI
+Structural Integrity: 850 HP
+Armor Rating: 0.40
+Heat Signature: Medium
+Noise Signature: Medium
+Top Speed: 16 m/s
+Acceleration: Medium
+Turning Radius: Tight
+Stability Rating: High
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Transport / Supply Delivery
+Aggression: 0.0
+Caution: 0.9
+Persistence: 1.0
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.8
+Target Priority: Supply routes / friendly units
+Formation Discipline: High
+Risk Tolerance: Low
+Sensors
+Visual Range: 1400 m
+Thermal Range: 600 m
+Acoustic Range: Medium
+Radar Range: None
+LiDAR Range: Short
+Signal Detection Range: Short
+Communication
+Mesh Range: 5 km
+Relay Capacity: 1
+Command Link Type: Logistics Grid
+Network Priority: High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: None
+Weapon Mounts: None
+Weapon Types: None
+Suppression Value: 0
+Tracking Strength: None
+Disruption Strength: Low
+Breach Capability: None
+Countermeasure Rating: Low
+Threat Modeling
+Threat Level: 2
+Engagement Distance: N/A
+Preferred Terrain: Supply routes / safe lanes
+Preferred Targets: None
+Vulnerability Profile: Ballistic / explosives
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Logistics / Transport
+Squad Size Contribution: 2
+Formation Behavior: Rear‑line spacing
+Intent Interpretation Rules: Deliver supplies safely
+Retreat Behavior: Early
+Breach Behavior: None
+Flanking Behavior: None
+Reinforcement Behavior: Supports all squads
+Command Hierarchy
+Parent Command Unit: Command Core / Fusion
+Subordinate Units: Hauler, Forge
+Relay Nodes: 1
+Network Dependencies: Logistics Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Transport Cockpit
+Operator HUD: Logistics Overlay
+Camera Feeds: Optical
+Thermal View: Yes
+LiDAR View: Yes
+Tactical Overlay: Supply routes / drop markers
+Operator Controls
+Movement Controls: Full vehicle drive
+Cargo Controls: Load / unload / secure
+Sensor Controls: Thermal / LiDAR / zoom
+Ability Controls: Mark Drop Zone, Stabilize, Route Lock
+Operator Abilities
+Supply Drop
+Cargo Stabilization
+Route Optimization
+Logistics Relay
+⚫ ECONOMY & LOGISTICS
+Build Cost: 500 Metal / 250 Electronics
+Build Time: 100 sec
+Factory Type: Vehicle Bay
+Tech Requirements: Logistics Systems I
+Maintenance Cost: Low
+Repair Time: 25 sec
+Supply Consumption: Low
+Operational Cost: Low
+Deployment Requirements: Vehicle pad
+Transport Compatibility: Heavy racks
+Launch Method: Drive‑out
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+36× Heavy Alloy Plates
+18× Reinforced Frame Rods
+6× Hydraulic Actuators
+3× Armor Panels
+1× Cargo Bed Assembly
+Electronics
+18× Circuit Bundles
+12× Signal Processors
+4× Vehicle Control Chips
+2× Logistics AI Chips
+Power
+1× Hybrid Engine Core
+2× Power Regulation Nodes
+Rare / Tradeable
+1× Cargo Stabilization Module
+Optional Upgrades
+Reinforced Cargo Bed
+Silent Drive Kit
+Extended Fuel Tank
+Anti‑Jamming Shielding

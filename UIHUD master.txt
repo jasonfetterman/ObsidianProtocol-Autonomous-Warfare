@@ -1,0 +1,670 @@
+⚫ OBSIDIAN PROTOCOL: AUTONOMOUS WARFARE
+MASTER UI / HUD / WINDOWS / POPUPS BUILD CHECKLIST
+
+Current UI rebuild: 0%
+UI architecture: REBUILD FROM ZERO
+Build rule: Complete → Test → Verify → Check off → Move to next item
+
+PHASE 00 — UI FOUNDATION
+00.1 UI Architecture
+ [UI-001] UI Manager
+ [UI-002] UI Screen Manager
+ [UI-003] UI Window Manager
+ [UI-004] UI Popup Manager
+ [UI-005] UI Notification Manager
+ [UI-006] UI Overlay Manager
+ [UI-007] UI Input Manager
+ [UI-008] UI State System
+ [UI-009] UI Layer System
+ [UI-010] UI Navigation System
+ [UI-011] UI Focus System
+ [UI-012] UI Selection System
+ [UI-013] UI Tooltip System
+ [UI-014] UI Confirmation System
+ [UI-015] UI Audio Feedback System
+ [UI-016] UI Animation System
+ [UI-017] UI Transition System
+ [UI-018] UI Scaling / Resolution System
+ [UI-019] UI Controller/Gamepad Navigation
+ [UI-020] UI Keyboard/Mouse Navigation
+PHASE 01 — GLOBAL UI
+
+These exist throughout the game.
+
+ [UI-021] Global notification system
+ [UI-022] Global alert system
+ [UI-023] Global tooltip
+ [UI-024] Global confirmation popup
+ [UI-025] Global warning popup
+ [UI-026] Global error popup
+ [UI-027] Global loading indicator
+ [UI-028] Global progress indicator
+ [UI-029] Global connection indicator
+ [UI-030] Global objective notification
+ [UI-031] Global achievement notification
+ [UI-032] Global resource notification
+ [UI-033] Global unlock notification
+ [UI-034] Global purchase notification
+ [UI-035] Global system message
+PHASE 02 — MAIN MENU
+ [UI-036] Main Menu background
+ [UI-037] Main Menu logo
+ [UI-038] Continue
+ [UI-039] Campaign
+ [UI-040] Multiplayer
+ [UI-041] Garage
+ [UI-042] Store
+ [UI-043] VR Operator
+ [UI-044] Settings
+ [UI-045] Credits
+ [UI-046] Exit
+ [UI-047] Profile/account display
+ [UI-048] Player level/status display
+ [UI-049] Connection status
+ [UI-050] Version/build display
+PHASE 03 — MAIN RTS HUD
+
+THIS IS THE HUD IN YOUR SCREENSHOT.
+
+This is one of the most important sections in the entire game.
+
+Top HUD
+ [HUD-001] Top resource bar
+ [HUD-002] Resource: Meat
+ [HUD-003] Resource: Wood
+ [HUD-004] Resource: Coal
+ [HUD-005] Resource: Iron
+ [HUD-006] Resource: Alloy
+ [HUD-007] Resource: Electronics
+ [HUD-008] Resource: Fuel
+ [HUD-009] Resource: Energy
+ [HUD-010] Population/force indicator
+ [HUD-011] Command/intent availability
+ [HUD-012] Match timer
+ [HUD-013] Game state indicator
+ [HUD-014] Connection indicator
+Battlefield HUD
+ [HUD-015] Selection indicator
+ [HUD-016] Unit health bars
+ [HUD-017] Unit status indicators
+ [HUD-018] Squad indicators
+ [HUD-019] Enemy indicators
+ [HUD-020] Friendly indicators
+ [HUD-021] Objective markers
+ [HUD-022] Waypoint markers
+ [HUD-023] Attack markers
+ [HUD-024] Defense markers
+ [HUD-025] Move markers
+ [HUD-026] Recon markers
+ [HUD-027] Tactical intent markers
+ [HUD-028] Threat markers
+ [HUD-029] Suppression indicators
+ [HUD-030] Damage indicators
+ [HUD-031] Destruction indicators
+ [HUD-032] Building/structure indicators
+PHASE 04 — RTS UNIT CONTROL
+Unit Selection
+ [HUD-033] Single-unit selection
+ [HUD-034] Multi-unit selection
+ [HUD-035] Squad selection
+ [HUD-036] Selection box
+ [HUD-037] Selection ring
+ [HUD-038] Unit identification
+ [HUD-039] Unit status
+ [HUD-040] Unit health
+ [HUD-041] Unit armor
+ [HUD-042] Unit energy
+ [HUD-043] Unit ammunition
+ [HUD-044] Unit fuel
+ [HUD-045] Unit capability status
+Unit Command Panel
+ [HUD-046] Unit command panel
+ [HUD-047] Move
+ [HUD-048] Attack
+ [HUD-049] Stop
+ [HUD-050] Hold
+ [HUD-051] Patrol
+ [HUD-052] Follow
+ [HUD-053] Escort
+ [HUD-054] Retreat
+ [HUD-055] Repair
+ [HUD-056] Resupply
+ [HUD-057] Recon
+ [HUD-058] Ability controls
+PHASE 05 — AUTONOMY / INTENT HUD
+
+This is the system that makes Obsidian Protocol different from a normal RTS.
+
+ [AUTO-001] Intent interface
+ [AUTO-002] Intent selection
+ [AUTO-003] Objective selection
+ [AUTO-004] Priority selection
+ [AUTO-005] Rules of engagement
+ [AUTO-006] Engagement range
+ [AUTO-007] Aggression setting
+ [AUTO-008] Formation setting
+ [AUTO-009] Movement behavior
+ [AUTO-010] Flanking intent
+ [AUTO-011] Suppression intent
+ [AUTO-012] Breach intent
+ [AUTO-013] Defensive intent
+ [AUTO-014] Recon intent
+ [AUTO-015] Pursuit intent
+ [AUTO-016] Retreat intent
+ [AUTO-017] Reinforcement intent
+ [AUTO-018] Support intent
+ [AUTO-019] Autonomy state indicator
+ [AUTO-020] AI decision/status display
+PHASE 06 — MINIMAP
+ [MAP-001] Minimap frame
+ [MAP-002] Terrain
+ [MAP-003] Friendly units
+ [MAP-004] Enemy units
+ [MAP-005] Unknown contacts
+ [MAP-006] Squad markers
+ [MAP-007] Objective markers
+ [MAP-008] Resource locations
+ [MAP-009] Structures
+ [MAP-010] Tactical markers
+ [MAP-011] Waypoints
+ [MAP-012] Camera position
+ [MAP-013] Camera direction
+ [MAP-014] Zoom
+ [MAP-015] Minimap filters
+PHASE 07 — TACTICAL MAP
+ [MAP-016] Tactical Map window
+ [MAP-017] Full battlefield view
+ [MAP-018] Unit filtering
+ [MAP-019] Squad filtering
+ [MAP-020] Enemy filtering
+ [MAP-021] Intelligence filtering
+ [MAP-022] Logistics filtering
+ [MAP-023] Resource filtering
+ [MAP-024] Objective filtering
+ [MAP-025] Threat overlay
+ [MAP-026] Sensor coverage
+ [MAP-027] Movement routes
+ [MAP-028] Attack routes
+ [MAP-029] Defensive zones
+ [MAP-030] Recon zones
+PHASE 08 — STRATEGIC MAP
+ [MAP-031] Strategic Map
+ [MAP-032] Territory control
+ [MAP-033] Regions
+ [MAP-034] Bases
+ [MAP-035] Armies
+ [MAP-036] Front lines
+ [MAP-037] Logistics
+ [MAP-038] Resources
+ [MAP-039] Enemy activity
+ [MAP-040] Strategic objectives
+ [MAP-041] Strategic routes
+ [MAP-042] Intelligence layer
+PHASE 09 — UNIT INFORMATION WINDOW
+
+When the player selects a unit and wants detailed information.
+
+ [WIN-001] Unit Details window
+ [WIN-002] Unit portrait/model
+ [WIN-003] Unit name
+ [WIN-004] Unit type
+ [WIN-005] Unit faction
+ [WIN-006] Health
+ [WIN-007] Armor
+ [WIN-008] Speed
+ [WIN-009] Fuel
+ [WIN-010] Energy
+ [WIN-011] Sensors
+ [WIN-012] Weapons
+ [WIN-013] Equipment
+ [WIN-014] Abilities
+ [WIN-015] Status
+ [WIN-016] Current orders
+ [WIN-017] Current intent
+ [WIN-018] AI state
+ [WIN-019] Squad assignment
+PHASE 10 — SQUAD WINDOW
+ [WIN-020] Squad Details
+ [WIN-021] Squad name
+ [WIN-022] Squad composition
+ [WIN-023] Squad leader
+ [WIN-024] Squad health
+ [WIN-025] Squad strength
+ [WIN-026] Squad formation
+ [WIN-027] Squad objective
+ [WIN-028] Squad intent
+ [WIN-029] Squad priority
+ [WIN-030] Squad behavior
+ [WIN-031] Squad orders
+ [WIN-032] Squad casualties
+ [WIN-033] Squad reinforcement
+ [WIN-034] Squad autonomy state
+PHASE 11 — PRODUCTION WINDOW
+ [WIN-035] Production window
+ [WIN-036] Available units
+ [WIN-037] Unit categories
+ [WIN-038] Unit preview
+ [WIN-039] Unit cost
+ [WIN-040] Required resources
+ [WIN-041] Production time
+ [WIN-042] Queue
+ [WIN-043] Queue controls
+ [WIN-044] Cancel production
+ [WIN-045] Production complete
+ [WIN-046] Production unavailable state
+PHASE 12 — CONSTRUCTION WINDOW
+ [WIN-047] Construction menu
+ [WIN-048] Structure categories
+ [WIN-049] Structure preview
+ [WIN-050] Structure cost
+ [WIN-051] Placement preview
+ [WIN-052] Valid placement
+ [WIN-053] Invalid placement
+ [WIN-054] Rotation
+ [WIN-055] Construction progress
+ [WIN-056] Cancel construction
+ [WIN-057] Construction complete
+PHASE 13 — LOGISTICS WINDOW
+ [WIN-058] Logistics overview
+ [WIN-059] Supply status
+ [WIN-060] Fuel status
+ [WIN-061] Ammunition status
+ [WIN-062] Repair status
+ [WIN-063] Resource transport
+ [WIN-064] Supply routes
+ [WIN-065] Convoys
+ [WIN-066] Depot status
+ [WIN-067] Logistics warnings
+ [WIN-068] Route disruption display
+PHASE 14 — INTELLIGENCE WINDOW
+ [WIN-069] Intelligence window
+ [WIN-070] Contact list
+ [WIN-071] Known enemy units
+ [WIN-072] Unknown contacts
+ [WIN-073] Contact classification
+ [WIN-074] Threat level
+ [WIN-075] Last known position
+ [WIN-076] Sensor source
+ [WIN-077] Confidence level
+ [WIN-078] Tracking status
+ [WIN-079] Intelligence history
+PHASE 15 — TECHNOLOGY / RESEARCH
+ [WIN-080] Technology window
+ [WIN-081] Technology tree
+ [WIN-082] Technology categories
+ [WIN-083] Research requirements
+ [WIN-084] Research cost
+ [WIN-085] Research progress
+ [WIN-086] Locked technology
+ [WIN-087] Unlocked technology
+ [WIN-088] Technology details
+PHASE 16 — EQUIPMENT / LOADOUT
+ [WIN-089] Equipment window
+ [WIN-090] Loadout
+ [WIN-091] Weapon slots
+ [WIN-092] Armor slots
+ [WIN-093] Sensor slots
+ [WIN-094] Module slots
+ [WIN-095] Payload slots
+ [WIN-096] Equipment comparison
+ [WIN-097] Equipment statistics
+ [WIN-098] Equipment restrictions
+ [WIN-099] Apply loadout
+ [WIN-100] Save loadout
+PHASE 17 — ABILITY WINDOW
+ [WIN-101] Ability panel
+ [WIN-102] Ability icons
+ [WIN-103] Ability description
+ [WIN-104] Ability cooldown
+ [WIN-105] Ability resource cost
+ [WIN-106] Ability range
+ [WIN-107] Ability targeting
+ [WIN-108] Ability unavailable state
+PHASE 18 — DEPLOYMENT UI
+
+Critical because of the Deployment Budget system.
+
+ [DEP-001] Deployment screen
+ [DEP-002] Deployment Budget display
+ [DEP-003] Available Deployment
+ [DEP-004] Maximum Deployment Points
+ [DEP-005] Unit selection
+ [DEP-006] Unit Deployment Point cost
+ [DEP-007] Army composition
+ [DEP-008] Squad composition
+ [DEP-009] Deployment zones
+ [DEP-010] Unit placement
+ [DEP-011] Invalid deployment warning
+ [DEP-012] Budget exceeded warning
+ [DEP-013] Deployment confirmation
+ [DEP-014] Ready button
+ [DEP-015] Opponent ready status
+ [DEP-016] Deployment countdown
+PHASE 19 — COMBAT POPUPS
+ [POP-001] Enemy detected
+ [POP-002] Enemy lost
+ [POP-003] Target acquired
+ [POP-004] Under attack
+ [POP-005] Unit damaged
+ [POP-006] Unit destroyed
+ [POP-007] Squad damaged
+ [POP-008] Squad destroyed
+ [POP-009] Objective attacked
+ [POP-010] Objective captured
+ [POP-011] Objective lost
+ [POP-012] Base attacked
+ [POP-013] Critical threat
+ [POP-014] Retreat recommended
+ [POP-015] Reinforcement available
+PHASE 20 — SYSTEM POPUPS
+ [POP-016] Confirmation popup
+ [POP-017] Cancel confirmation
+ [POP-018] Delete confirmation
+ [POP-019] Purchase confirmation
+ [POP-020] Sell confirmation
+ [POP-021] Repair confirmation
+ [POP-022] Salvage confirmation
+ [POP-023] Deploy confirmation
+ [POP-024] Exit confirmation
+ [POP-025] Restart confirmation
+ [POP-026] Error popup
+ [POP-027] Connection lost
+ [POP-028] Connection restored
+ [POP-029] Server unavailable
+ [POP-030] Save error
+PHASE 21 — PAUSE MENU
+ [MENU-001] Pause overlay
+ [MENU-002] Resume
+ [MENU-003] Settings
+ [MENU-004] Controls
+ [MENU-005] Objectives
+ [MENU-006] Map
+ [MENU-007] Restart
+ [MENU-008] Exit match
+ [MENU-009] Quit game
+PHASE 22 — SETTINGS
+ [MENU-010] Settings home
+ [MENU-011] Video
+ [MENU-012] Graphics
+ [MENU-013] Display
+ [MENU-014] Audio
+ [MENU-015] Gameplay
+ [MENU-016] Controls
+ [MENU-017] Mouse
+ [MENU-018] Keyboard
+ [MENU-019] Controller
+ [MENU-020] VR
+ [MENU-021] Accessibility
+ [MENU-022] UI scale
+ [MENU-023] HUD customization
+ [MENU-024] Color/display options
+ [MENU-025] Apply
+ [MENU-026] Reset
+ [MENU-027] Back
+PHASE 23 — MULTIPLAYER MENUS
+ [MP-001] Multiplayer home
+ [MP-002] Play
+ [MP-003] Create Match
+ [MP-004] Join Match
+ [MP-005] Server Browser
+ [MP-006] Match type
+ [MP-007] Map selection
+ [MP-008] Player count
+ [MP-009] Team selection
+ [MP-010] Faction selection
+ [MP-011] Match settings
+ [MP-012] Deployment Budget
+ [MP-013] Ready state
+ [MP-014] Player list
+ [MP-015] Team list
+ [MP-016] Match countdown
+ [MP-017] Loading screen
+PHASE 24 — MULTIPLAYER IN-MATCH UI
+ [MP-018] Player status
+ [MP-019] Team status
+ [MP-020] Team objectives
+ [MP-021] Team resources
+ [MP-022] Team deployment
+ [MP-023] Score
+ [MP-024] Match timer
+ [MP-025] Player communication
+ [MP-026] Team communication
+ [MP-027] Player list
+ [MP-028] Scoreboard
+ [MP-029] Spectator UI
+PHASE 25 — GARAGE
+
+The Garage is a major game system, not just a menu.
+
+Garage Main
+ [GAR-001] Garage entry screen
+ [GAR-002] Garage overview
+ [GAR-003] Fleet overview
+ [GAR-004] Available slots
+ [GAR-005] Facility status
+Unit Inspection
+ [GAR-006] Unit inspection
+ [GAR-007] Rotate unit
+ [GAR-008] Zoom unit
+ [GAR-009] Unit information
+ [GAR-010] Unit statistics
+ [GAR-011] Unit condition
+Configuration
+ [GAR-012] Configuration screen
+ [GAR-013] Equipment
+ [GAR-014] Weapons
+ [GAR-015] Armor
+ [GAR-016] Sensors
+ [GAR-017] Modules
+ [GAR-018] AI personality
+ [GAR-019] AI behavior
+ [GAR-020] Loadout save
+Maintenance
+ [GAR-021] Repair screen
+ [GAR-022] Repair condition
+ [GAR-023] Repair cost
+ [GAR-024] Repair time
+ [GAR-025] Repair confirmation
+Customization
+ [GAR-026] Paint
+ [GAR-027] Color selection
+ [GAR-028] Decals
+ [GAR-029] Emblems
+ [GAR-030] Unit name
+ [GAR-031] Customization preview
+ [GAR-032] Save customization
+PHASE 26 — STORE
+ [STORE-001] Store home
+ [STORE-002] Featured
+ [STORE-003] Units
+ [STORE-004] Equipment
+ [STORE-005] Materials
+ [STORE-006] Cosmetics
+ [STORE-007] Garage slots
+ [STORE-008] Convenience items
+ [STORE-009] Campaign resources
+ [STORE-010] Fabrication materials
+ [STORE-011] Credits
+ [STORE-012] Item details
+ [STORE-013] Purchase confirmation
+ [STORE-014] Purchase success
+ [STORE-015] Purchase failure
+ [STORE-016] Ownership status
+ [STORE-017] Unlock requirements
+ [STORE-018] Inventory
+PHASE 27 — CAMPAIGN
+ [CAM-001] Campaign home
+ [CAM-002] Campaign map
+ [CAM-003] Region selection
+ [CAM-004] Mission selection
+ [CAM-005] Mission briefing
+ [CAM-006] Mission objectives
+ [CAM-007] Mission requirements
+ [CAM-008] Deployment preparation
+ [CAM-009] Mission loading
+ [CAM-010] Mission HUD
+ [CAM-011] Mission progress
+ [CAM-012] Mission complete
+ [CAM-013] Mission failed
+ [CAM-014] Mission rewards
+ [CAM-015] Campaign progression
+PHASE 28 — RESULTS / END OF MATCH
+ [RESULT-001] Victory screen
+ [RESULT-002] Defeat screen
+ [RESULT-003] Draw screen
+ [RESULT-004] Match statistics
+ [RESULT-005] Units deployed
+ [RESULT-006] Units lost
+ [RESULT-007] Damage dealt
+ [RESULT-008] Damage received
+ [RESULT-009] Objectives completed
+ [RESULT-010] Resources collected
+ [RESULT-011] Economy statistics
+ [RESULT-012] AI/autonomy statistics
+ [RESULT-013] Player performance
+ [RESULT-014] Rewards
+ [RESULT-015] Progression
+ [RESULT-016] Continue
+ [RESULT-017] Return to Garage
+ [RESULT-018] Return to Multiplayer
+PHASE 29 — NOTIFICATIONS / FEEDBACK
+ [NOTIF-001] Resource gained
+ [NOTIF-002] Resource depleted
+ [NOTIF-003] Unit produced
+ [NOTIF-004] Unit deployed
+ [NOTIF-005] Unit destroyed
+ [NOTIF-006] Squad created
+ [NOTIF-007] Squad destroyed
+ [NOTIF-008] Objective completed
+ [NOTIF-009] Objective failed
+ [NOTIF-010] Technology unlocked
+ [NOTIF-011] Unit unlocked
+ [NOTIF-012] Equipment unlocked
+ [NOTIF-013] Mission unlocked
+ [NOTIF-014] Achievement unlocked
+ [NOTIF-015] Construction complete
+ [NOTIF-016] Production complete
+ [NOTIF-017] Repair complete
+ [NOTIF-018] Research complete
+PHASE 30 — VR OPERATOR UI
+
+This is separate from the normal RTS HUD.
+
+VR Operator
+ [VR-001] Operator entry
+ [VR-002] Operator selection
+ [VR-003] Machine compatibility
+ [VR-004] Enter machine
+ [VR-005] Exit machine
+ [VR-006] Cockpit HUD
+ [VR-007] Vehicle status
+ [VR-008] Health
+ [VR-009] Energy
+ [VR-010] Fuel
+ [VR-011] Ammunition
+ [VR-012] Targeting
+ [VR-013] Weapon selection
+ [VR-014] Sensor controls
+ [VR-015] Radar
+ [VR-016] Thermal
+ [VR-017] Lidar
+ [VR-018] Tactical map
+ [VR-019] Communications
+ [VR-020] Squad status
+ [VR-021] Emergency systems
+ [VR-022] Operator transfer
+PHASE 31 — TUTORIAL / ONBOARDING
+ [TUT-001] First-launch onboarding
+ [TUT-002] Basic controls
+ [TUT-003] Camera tutorial
+ [TUT-004] Unit selection tutorial
+ [TUT-005] Command tutorial
+ [TUT-006] Intent tutorial
+ [TUT-007] Squad tutorial
+ [TUT-008] Autonomy tutorial
+ [TUT-009] Combat tutorial
+ [TUT-010] Logistics tutorial
+ [TUT-011] Deployment Budget tutorial
+ [TUT-012] VR tutorial
+PHASE 32 — TOOLTIP / INFORMATION SYSTEM
+
+Every complicated system needs readable information.
+
+ [TIP-001] Unit tooltip
+ [TIP-002] Weapon tooltip
+ [TIP-003] Equipment tooltip
+ [TIP-004] Ability tooltip
+ [TIP-005] Resource tooltip
+ [TIP-006] Building tooltip
+ [TIP-007] Technology tooltip
+ [TIP-008] Intent tooltip
+ [TIP-009] AI state tooltip
+ [TIP-010] Deployment Point tooltip
+ [TIP-011] Objective tooltip
+ [TIP-012] Status effect tooltip
+PHASE 33 — UI OVERLAYS
+ [OVER-001] Fog of War overlay
+ [OVER-002] Sensor coverage overlay
+ [OVER-003] Threat overlay
+ [OVER-004] Range overlay
+ [OVER-005] Weapon range overlay
+ [OVER-006] Movement range overlay
+ [OVER-007] Path overlay
+ [OVER-008] Formation overlay
+ [OVER-009] Defensive zone overlay
+ [OVER-010] Objective zone overlay
+ [OVER-011] Resource overlay
+ [OVER-012] Logistics overlay
+ [OVER-013] Airspace overlay
+ [OVER-014] Naval overlay
+ [OVER-015] Command network overlay
+PHASE 34 — HUD POLISH
+
+Only after functionality works.
+
+ [POLISH-001] HUD spacing
+ [POLISH-002] Alignment
+ [POLISH-003] Typography
+ [POLISH-004] Icon consistency
+ [POLISH-005] Panel hierarchy
+ [POLISH-006] Selection animations
+ [POLISH-007] Alert animations
+ [POLISH-008] Popup animations
+ [POLISH-009] Window transitions
+ [POLISH-010] Map transitions
+ [POLISH-011] Hover feedback
+ [POLISH-012] Click feedback
+ [POLISH-013] Error feedback
+ [POLISH-014] Audio feedback
+ [POLISH-015] Controller feedback
+ [POLISH-016] VR feedback
+ [POLISH-017] Resolution testing
+ [POLISH-018] Ultrawide testing
+ [POLISH-019] VR readability
+ [POLISH-020] Performance optimization
+PHASE 35 — FINAL UI QA
+ [QA-001] Every HUD element tested
+ [QA-002] Every popup tested
+ [QA-003] Every window tested
+ [QA-004] Every menu tested
+ [QA-005] Every screen tested
+ [QA-006] Every overlay tested
+ [QA-007] Every button tested
+ [QA-008] Every input tested
+ [QA-009] Keyboard tested
+ [QA-010] Mouse tested
+ [QA-011] Controller tested
+ [QA-012] VR tested
+ [QA-013] Multiplayer tested
+ [QA-014] Campaign tested
+ [QA-015] Garage tested
+ [QA-016] Store tested
+ [QA-017] Deployment tested
+ [QA-018] Save/load tested
+ [QA-019] Resolution tested
+ [QA-020] Performance tested
+ [QA-021] Accessibility tested
+ [QA-022] UI asset audit
+ [QA-023] Missing-image audit
+ [QA-024] Missing-icon audit
+ [QA-025] Final UI integration test

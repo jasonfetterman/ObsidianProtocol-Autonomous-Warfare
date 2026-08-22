@@ -1,0 +1,123 @@
+	
+⭐ PULSE	
+(8 m × 6 m × 4 m)	
+Let’s build it.	
+🧭 COMMAND UNIT — PULSE	
+ID:	
+obs-command-pulse	
+Role: Tactical Signal Hub / Real‑Time Mesh Stabilizer	
+Tier: Command	
+Status: Active	
+⚫ PHYSICAL & TECHNICAL	
+Length: 8 m	
+Width: 6 m	
+Height: 4 m	
+Mass: 12,000 kg	
+Power Source: Dual tactical‑grade reactors	
+Energy Capacity: 90,000 Wh	
+Fuel Capacity: N/A (reactor‑based)	
+Endurance: Continuous	
+Payload Capacity: Internal systems only	
+Modules:	
+	Tactical signal chamber
+	Mesh stabilization lattice
+	Multi‑node relay interface
+	Redundant cooling towers
+Navigation System: Stationary (anchored command node)	
+Structural Integrity: 3,000 HP	
+Armor Rating: 1.00	
+Heat Signature: Low	
+Noise Signature: Low	
+Top Speed: N/A	
+Stability Rating: Maximum	
+⚫ AUTONOMY & AI BEHAVIOR	
+Behavior Profile: Tactical signal routing / mesh stabilization	
+Aggression: 0.0	
+Caution: 1.0	
+Persistence: 1.0	
+Retreat Threshold: N/A	
+Target Priority: None (non‑combat)	
+Formation Discipline: Maximum	
+Risk Tolerance: Very Low	
+Sensors	
+Visual Range: Short	
+Thermal Range: Short	
+Acoustic Range: Short	
+Radar Range: Medium	
+Signal Detection Range: Very High	
+Communication	
+Mesh Range: Global	
+Relay Capacity: 6	
+Command Link Type: Strategic Command Mesh	
+Network Priority: Maximum	
+⚫ COMBAT & THREAT MODEL	
+Firepower Rating: None	
+Weapon Mounts: None	
+Tracking Strength: Very High (tactical signal intelligence)	
+Disruption Strength: High	
+Countermeasure Rating: Very High	
+Threat Modeling	
+Threat Level: 5	
+Preferred Terrain: Secure command zones	
+Vulnerability Profile: EMP / sabotage	
+⚫ SQUAD & COMMAND INTEGRATION	
+Squad Role: Tactical Mesh Stabilizer	
+Squad Size Contribution: 5	
+Formation Behavior: Central anchor	
+Intent Interpretation Rules: Maintain mesh stability and tactical routing	
+Retreat Behavior: None	
+Reinforcement Behavior: Supports all units	
+Command Hierarchy	
+Parent Command Unit: Insight / Nexus	
+Subordinate Units: None	
+Relay Nodes: 6	
+Network Dependencies: Strategic Command Mesh	
+⚫ VR OPERATOR MODE	
+Operator Seat Type: Tactical Signal Console	
+Operator HUD: Mesh Stability Overlay	
+Camera Feeds: Internal systems only	
+Thermal View: Yes	
+Tactical Overlay: Mesh health / routing paths / signal load	
+Operator Controls	
+Mesh routing	
+Stabilization lattice control	
+Tactical diagnostics	
+Signal balancing	
+Operator Abilities	
+Mesh Pulse	
+Stabilization Burst	
+Tactical Sync	
+Encryption Surge	
+⚫ ECONOMY & LOGISTICS	
+Build Cost: 1,800 Metal / 1,000 Electronics	
+Build Time: 200 sec	
+Factory Type: Command Foundry	
+Tech Requirements: Command Systems I	
+Maintenance Cost: Medium	
+Repair Time: 60 sec	
+Supply Consumption: Medium	
+Operational Cost: Medium	
+Deployment Requirements: Command zone	
+Transport Compatibility: Heavy command carriers	
+Launch Method: Anchor‑install	
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)	
+Common Components	
+100× Command Alloy Plates	
+50× Reinforced Command Rods	
+8× Hydraulic Actuators	
+3× Armor Panels	
+1× Signal Chamber Assembly	
+Electronics	
+36× Circuit Bundles	
+24× Signal Processors	
+8× Command Control Chips	
+3× Command AI Chips	
+Power	
+1× Tactical Reactor Core	
+2× Power Regulation Nodes	
+Rare / Tradeable	
+1× Mesh Stabilization Lattice	
+Optional Upgrades	
+Quantum Encryption	
+Reinforced Hull	
+Anti‑Jamming Shielding	

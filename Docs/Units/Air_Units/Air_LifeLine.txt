@@ -1,0 +1,136 @@
+
+✈️ AIR UNIT #9 — LIFELINE
+ID:
+obs-air-lifeline
+Role: Emergency Support / Medical Supply / Rapid Response
+Tier: Advanced Support
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 3.2 m
+Width: 2.4 m
+Height: 1.2 m
+Mass: 30 kg
+Power Source: High‑capacity battery
+Energy Capacity: 2600 Wh
+Energy Consumption: 60 Wh/min
+Endurance: 30–45 min
+Payload Capacity: 3.0 kg (medical payload bay)
+Modules: Medical supply bay; stabilization rotors
+Navigation System: GPS + Emergency Routing AI
+Structural Integrity: 150 HP
+Armor Rating: 0.22
+Heat Signature: Medium
+Noise Signature: Medium
+Top Speed: 21 m/s
+Acceleration: Medium
+Turning Radius: Moderate
+Climb Rate: Medium
+Stability Rating: Very High (for safe medical delivery)
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Rescue Support / Medical Delivery
+Aggression: 0.0
+Caution: 0.9
+Persistence: 0.8
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.7
+Target Priority: Injured units / emergency zones
+Formation Discipline: Medium
+Risk Tolerance: Low
+Sensors
+Visual Range: 1400 m
+Thermal Range: 800 m
+Acoustic Range: Low
+Radar Range: None
+LiDAR Range: Short‑range
+Signal Detection Range: Medium
+Communication
+Mesh Range: 6 km
+Relay Capacity: 0
+Command Link Type: Rescue Grid
+Network Priority: High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: 0
+Accuracy: N/A
+Stabilization: Very High
+Weapon Mounts: None
+Weapon Types: None
+Suppression Value: 0
+Tracking Strength: Medium
+Disruption Strength: Low
+Breach Capability: None
+Countermeasure Rating: Low
+Threat Modeling
+Threat Level: 3
+Engagement Distance: N/A
+Preferred Terrain: Rescue corridors
+Preferred Targets: None
+Vulnerability Profile: Ballistic / weather
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Emergency Support
+Squad Size Contribution: 1
+Formation Behavior: Rescue corridor spacing
+Intent Interpretation Rules: Prioritize medical delivery over speed
+Retreat Behavior: Medium
+Breach Behavior: None
+Flanking Behavior: None
+Reinforcement Behavior: Supports rescue and logistics squads
+Command Hierarchy
+Parent Command Unit: Rescue / Command Core
+Subordinate Units: None
+Relay Nodes: None
+Network Dependencies: Rescue Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Drone View
+Operator HUD: Medical Overlay
+Camera Feeds: Optical
+Thermal View: Yes
+LiDAR View: Yes (short‑range)
+Sonar View: No
+Tactical Overlay: Rescue markers / medical zones
+Operator Controls
+Movement Controls: Full drone flight
+Sensor Controls: Thermal / LiDAR / zoom
+Ability Controls: Medical Drop, Scan, Stabilize
+Weapon Controls: None
+Stabilization Controls: Auto‑hover
+Operator Abilities
+Medical Payload Drop
+Rescue Scan
+Thermal Search
+Stabilize
+Relay Rescue Data
+⚫ ECONOMY & LOGISTICS
+Build Cost: 200 Metal / 220 Electronics
+Build Time: 65 sec
+Factory Type: Drone Bay
+Tech Requirements: Rescue Systems I
+Maintenance Cost: Medium
+Repair Time: 16 sec
+Supply Consumption: Medium
+Operational Cost: Moderate
+Deployment Requirements: Standard drone pad
+Transport Compatibility: All aerial racks
+Launch Method: Vertical takeoff
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+16× Medium Alloy Plates
+12× Composite Frame Rods
+8× Micro‑Servo Actuators
+4× Stabilizer Fins
+1× Medical Payload Bay Housing
+Electronics
+14× Circuit Bundles
+10× Signal Processors
+6× Drone Control Chips
+2× Rescue AI Chips
+Power
+1× High‑Capacity Battery Pack
+3× Power Regulation Nodes
+Rare / Tradeable
+1× Medical Delivery Core
+1× Thermal Search Processor
+Optional Upgrades
+Extended Battery Module
+Silent Rotor Kit
+High‑Capacity Medical Bay
+Anti‑Jamming Shielding

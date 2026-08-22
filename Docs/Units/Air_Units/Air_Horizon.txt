@@ -1,0 +1,135 @@
+
+✈️ AIR UNIT #28 — HORIZON
+ID:
+obs-air-horizon
+Role: High‑Altitude Surveillance / Persistent Watch
+Tier: Advanced Recon
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 3.4 m
+Width: 2.6 m
+Height: 1.2 m
+Mass: 32 kg
+Power Source: Long‑endurance battery
+Energy Capacity: 3600 Wh
+Energy Consumption: 50 Wh/min
+Endurance: 60–90 min
+Payload Capacity: 2.0 kg
+Modules: Long‑range optical + atmospheric stability suite
+Navigation System: GPS + High‑Altitude Recon AI
+Structural Integrity: 180 HP
+Armor Rating: 0.30
+Heat Signature: Low
+Noise Signature: Low
+Top Speed: 21 m/s
+Acceleration: Medium
+Turning Radius: Moderate
+Climb Rate: Very High
+Stability Rating: Extremely High
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Persistent Surveillance / High‑Altitude Recon
+Aggression: 0.0
+Caution: 0.95
+Persistence: 1.0
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.95
+Target Priority: Long‑range visibility targets
+Formation Discipline: Very High
+Risk Tolerance: Very Low
+Sensors
+Visual Range: 3000 m
+Thermal Range: 1200 m
+Acoustic Range: Low
+Radar Range: Medium
+LiDAR Range: Medium
+Signal Detection Range: High
+Communication
+Mesh Range: 10 km
+Relay Capacity: 2
+Command Link Type: Recon Grid
+Network Priority: High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: 0
+Accuracy: N/A
+Stabilization: Extremely High
+Weapon Mounts: None
+Weapon Types: None
+Suppression Value: 0
+Tracking Strength: Very High
+Disruption Strength: Low
+Breach Capability: None
+Countermeasure Rating: Medium
+Threat Modeling
+Threat Level: 3
+Engagement Distance: N/A
+Preferred Terrain: High‑altitude recon lanes
+Preferred Targets: None
+Vulnerability Profile: Ballistic / weather
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: High‑Altitude Recon
+Squad Size Contribution: 1
+Formation Behavior: High‑altitude spacing
+Intent Interpretation Rules: Maintain persistent visibility
+Retreat Behavior: Very Early
+Breach Behavior: None
+Flanking Behavior: None
+Reinforcement Behavior: Supports recon, command, and mesh squads
+Command Hierarchy
+Parent Command Unit: Insight / Overseer
+Subordinate Units: Skywatch, Survey, Terrain, Thermal
+Relay Nodes: 2
+Network Dependencies: Recon Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: High‑Altitude Drone View
+Operator HUD: Long‑Range Recon Overlay
+Camera Feeds: Optical
+Thermal View: Yes
+LiDAR View: Yes
+Radar View: Yes
+Tactical Overlay: Long‑range markers / altitude bands
+Operator Controls
+Movement Controls: Full drone flight
+Sensor Controls: Multi‑sensor switching
+Ability Controls: Scan, Mark Target, Stabilize
+Weapon Controls: None
+Stabilization Controls: High‑altitude auto‑hover
+Operator Abilities
+Long‑Range Scan
+High‑Altitude Stabilize
+Target Mark
+Relay Recon Data
+⚫ ECONOMY & LOGISTICS
+Build Cost: 210 Metal / 220 Electronics
+Build Time: 70 sec
+Factory Type: Drone Bay
+Tech Requirements: Recon Systems III
+Maintenance Cost: Medium
+Repair Time: 18 sec
+Supply Consumption: Medium
+Operational Cost: Moderate
+Deployment Requirements: High‑altitude drone pad
+Transport Compatibility: All aerial racks
+Launch Method: Vertical takeoff
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+16× Medium Alloy Plates
+12× Composite Frame Rods
+6× Micro‑Servo Actuators
+3× Stabilizer Fins
+1× High‑Altitude Sensor Housing
+Electronics
+16× Circuit Bundles
+12× Signal Processors
+4× Drone Control Chips
+4× Recon AI Chips
+Power
+1× Long‑Endurance Battery Pack
+3× Power Regulation Nodes
+Rare / Tradeable
+1× Long‑Range Optics Core
+1× High‑Altitude Stability Processor
+Optional Upgrades
+Extended Altitude Module
+Silent Rotor Kit
+Ultra‑Long‑Range Lens
+Anti‑Jamming Shielding

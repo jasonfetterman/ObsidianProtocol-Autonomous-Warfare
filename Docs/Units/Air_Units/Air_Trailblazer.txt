@@ -1,0 +1,132 @@
+
+✈️ AIR UNIT — TRAILBLAZER
+ID:
+obs-air-trailblazer
+Role: Forward Recon / Pathfinding
+Tier: Recon
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 2.9 m
+Width: 2.1 m
+Height: 1.0 m
+Mass: 24 kg
+Power Source: Mid‑endurance battery
+Energy Capacity: 2600 Wh
+Energy Consumption: 42 Wh/min
+Endurance: 45–70 min
+Payload Capacity: 1.4 kg
+Modules: Pathfinding optics + terrain‑scan suite
+Navigation System: GPS + Route‑Mapping AI
+Structural Integrity: 140 HP
+Armor Rating: 0.22
+Heat Signature: Low
+Noise Signature: Low
+Top Speed: 23 m/s
+Acceleration: Medium
+Turning Radius: Tight
+Climb Rate: High
+Stability Rating: High
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Forward Recon / Route Discovery
+Aggression: 0.0
+Caution: 0.85
+Persistence: 0.9
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.9
+Target Priority: Terrain anomalies / movement
+Formation Discipline: Medium
+Risk Tolerance: Low
+Sensors
+Visual Range: 2400 m
+Thermal Range: 900 m
+Acoustic Range: Low
+Radar Range: None
+LiDAR Range: Medium
+Signal Detection Range: Medium
+Communication
+Mesh Range: 7 km
+Relay Capacity: 0
+Command Link Type: Recon Grid
+Network Priority: Medium
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: 0
+Accuracy: N/A
+Stabilization: High
+Weapon Mounts: None
+Weapon Types: None
+Suppression Value: 0
+Tracking Strength: Medium
+Disruption Strength: Low
+Breach Capability: None
+Countermeasure Rating: Low
+Threat Modeling
+Threat Level: 2
+Engagement Distance: N/A
+Preferred Terrain: Forward recon lanes
+Preferred Targets: None
+Vulnerability Profile: Ballistic / weather
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Pathfinding Recon
+Squad Size Contribution: 1
+Formation Behavior: Forward spacing
+Intent Interpretation Rules: Discover safe routes
+Retreat Behavior: Early
+Breach Behavior: None
+Flanking Behavior: None
+Reinforcement Behavior: Supports recon and command squads
+Command Hierarchy
+Parent Command Unit: Insight / Overseer
+Subordinate Units: Survey, Terrain, Scout Eye
+Relay Nodes: None
+Network Dependencies: Recon Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Recon Drone View
+Operator HUD: Pathfinding Overlay
+Camera Feeds: Optical
+Thermal View: Yes
+LiDAR View: Yes
+Tactical Overlay: Route markers / terrain contours
+Operator Controls
+Movement Controls: Full drone flight
+Sensor Controls: Thermal / LiDAR / zoom
+Ability Controls: Scan, Mark Route, Stabilize
+Weapon Controls: None
+Stabilization Controls: Auto‑hover
+Operator Abilities
+Route Scan
+Terrain Mapping
+Mark Safe Path
+Relay Recon Data
+⚫ ECONOMY & LOGISTICS
+Build Cost: 150 Metal / 110 Electronics
+Build Time: 50 sec
+Factory Type: Drone Bay
+Tech Requirements: Recon Systems II
+Maintenance Cost: Low
+Repair Time: 14 sec
+Supply Consumption: Low
+Operational Cost: Minimal
+Deployment Requirements: Standard drone pad
+Transport Compatibility: All aerial racks
+Launch Method: Vertical takeoff
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+14× Light Alloy Plates
+10× Composite Frame Rods
+4× Micro‑Servo Actuators
+2× Stabilizer Fins
+1× Pathfinding Sensor Housing
+Electronics
+14× Circuit Bundles
+10× Signal Processors
+3× Drone Control Chips
+2× Recon AI Chips
+Power
+1× Mid‑Endurance Battery Pack
+2× Power Regulation Nodes
+Rare / Tradeable
+1× Terrain‑Scan Optics Core
+Optional Upgrades
+Extended Battery Pack
+Silent Rotor Kit
+High‑Density Recon Grid

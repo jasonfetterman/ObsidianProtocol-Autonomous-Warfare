@@ -1,0 +1,120 @@
+
+🌊 SEA UNIT — RESCUE
+ID:
+obs-sea-rescue
+Role: Marine Emergency Response / Extraction
+Tier: Support
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 7.0 m
+Width: 3.2 m
+Height: 2.5 m
+Mass: 2,800 kg
+Power Source: Marine diesel-electric hybrid
+Energy Capacity: 10,000 Wh
+Fuel Capacity: 160 L
+Endurance: 6–12 hours
+Payload Capacity: 2 personnel or 250 kg medical equipment
+Modules: Medical bay, extraction cradle, stabilization winch
+Navigation System: Marine GPS + Rescue AI
+Structural Integrity: 950 HP
+Armor Rating: 0.40
+Heat Signature: Low
+Noise Signature: Low
+Top Speed: 10 m/s
+Acceleration: Medium
+Turning Radius: Tight marine turn
+Stability Rating: Very High
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Emergency Response / Extraction
+Aggression: 0.0
+Caution: 0.95
+Persistence: 1.0
+Retreat Threshold: 0.9
+Target Priority: Downed units / distress signals
+Formation Discipline: High
+Risk Tolerance: Low
+Sensors
+Visual Range: 2000 m
+Thermal Range: 900 m
+Acoustic Range: High
+Sonar Range: Short
+Radar Range: Short
+Signal Detection Range: Medium
+Communication
+Mesh Range: 6 km
+Relay Capacity: 1
+Command Link Type: Marine Support Grid
+Network Priority: High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: None
+Weapon Mounts: None
+Tracking Strength: Low
+Disruption Strength: Low
+Countermeasure Rating: Medium
+Threat Modeling
+Threat Level: 3
+Preferred Terrain: Surface waters / rescue corridors
+Vulnerability Profile: Ballistic / collision / waves
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Marine Rescue / Extraction
+Squad Size Contribution: 2
+Formation Behavior: Rear-line support spacing
+Intent Interpretation Rules: Recover and stabilize allies
+Retreat Behavior: Early
+Reinforcement Behavior: Supports all marine squads
+Command Hierarchy
+Parent Command Unit: Worldmap / Insight
+Subordinate Units: None
+Relay Nodes: 1
+Network Dependencies: Marine Support Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Marine Rescue Console
+Operator HUD: Medical & Extraction Overlay
+Camera Feeds: Optical + winch cam
+Thermal View: Yes
+Sonar View: Basic
+Tactical Overlay: Distress markers / safe routes
+Operator Controls
+Movement Controls: Marine drive
+Extraction Controls: Winch / cradle / lift
+Sensor Controls: Thermal / sonar / zoom
+Ability Controls: Stabilize, Extract, Mark Safe Zone
+Operator Abilities
+Emergency Extraction
+Stabilization Pulse
+Rapid Recovery
+Support Relay
+⚫ ECONOMY & LOGISTICS
+Build Cost: 480 Metal / 260 Electronics
+Build Time: 100 sec
+Factory Type: Marine Bay
+Tech Requirements: Marine Systems I
+Maintenance Cost: Low
+Repair Time: 26 sec
+Supply Consumption: Low
+Operational Cost: Low
+Deployment Requirements: Water launch pad
+Transport Compatibility: Marine racks
+Launch Method: Water drop
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+34× Marine Alloy Plates
+18× Reinforced Marine Rods
+5× Hydraulic Actuators
+1× Extraction Cradle Assembly
+Electronics
+18× Circuit Bundles
+12× Signal Processors
+3× Marine Control Chips
+2× Support AI Chips
+Power
+1× Marine Hybrid Engine Core
+2× Power Regulation Nodes
+Rare / Tradeable
+1× Medical Stabilization Module
+Optional Upgrades
+Reinforced Cradle
+Silent Propulsion
+Extended Fuel Tank
+Anti‑Jamming Shielding

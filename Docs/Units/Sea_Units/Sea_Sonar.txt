@@ -1,0 +1,120 @@
+
+⭐ SONAR
+(5.5 m × 2.5 m × 2.0 m)
+🌊 SEA UNIT — SONAR
+ID:
+obs-sea-sonar
+Role: Dedicated Marine Sonar Platform / Acoustic Mapping
+Tier: Recon / Specialist
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 5.5 m
+Width: 2.5 m
+Height: 2.0 m
+Mass: 2,000 kg
+Power Source: Marine diesel-electric hybrid
+Energy Capacity: 11,000 Wh
+Fuel Capacity: 120 L
+Endurance: 6–14 hours
+Payload Capacity: 120 kg
+Modules: High‑resolution sonar array + acoustic mapping suite
+Navigation System: Marine GPS + Sonar AI
+Structural Integrity: 700 HP
+Armor Rating: 0.30
+Heat Signature: Very Low
+Noise Signature: Ultra‑Low (acoustic stealth)
+Top Speed: 8 m/s
+Acceleration: Medium
+Turning Radius: Tight
+Stability Rating: High
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Acoustic Recon / Deep Scan
+Aggression: 0.0
+Caution: 0.9
+Persistence: 1.0
+Retreat Threshold: 0.85
+Target Priority: Subsurface anomalies / acoustic signatures
+Formation Discipline: High
+Risk Tolerance: Low
+Sensors
+Visual Range: 1600 m
+Thermal Range: 700 m
+Acoustic Range: Very High
+Sonar Range: Long (primary system)
+Radar Range: Short
+Signal Detection Range: Medium
+Communication
+Mesh Range: 6 km
+Relay Capacity: 1
+Command Link Type: Marine Recon Grid
+Network Priority: High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: None
+Weapon Mounts: None
+Tracking Strength: High (acoustic)
+Disruption Strength: Medium (sonar interference)
+Countermeasure Rating: Medium
+Threat Modeling
+Threat Level: 3
+Preferred Terrain: Surface + shallow subsurface
+Vulnerability Profile: Ballistic / collision / heavy waves
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Sonar Recon / Acoustic Mapping
+Squad Size Contribution: 1
+Formation Behavior: Sensor‑optimized spacing
+Intent Interpretation Rules: Scan and identify subsurface anomalies
+Retreat Behavior: Early
+Reinforcement Behavior: Supports recon & marine squads
+Command Hierarchy
+Parent Command Unit: Insight / Pulse
+Subordinate Units: None
+Relay Nodes: 1
+Network Dependencies: Marine Recon Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Sonar Console
+Operator HUD: Acoustic Mapping Overlay
+Camera Feeds: Optical
+Thermal View: Yes
+Sonar View: Long‑range, high‑resolution
+Tactical Overlay: Acoustic contours / anomaly markers
+Operator Controls
+Movement Controls: Marine drive
+Sensor Controls: Sonar / acoustic filters / zoom
+Ability Controls: Deep Scan, Mark Anomaly, Stabilize
+Operator Abilities
+Long‑Range Sonar Sweep
+Acoustic Mapping
+Subsurface Hazard Detection
+Recon Relay
+⚫ ECONOMY & LOGISTICS
+Build Cost: 520 Metal / 300 Electronics
+Build Time: 120 sec
+Factory Type: Marine Bay
+Tech Requirements: Marine Systems II
+Maintenance Cost: Low
+Repair Time: 30 sec
+Supply Consumption: Low
+Operational Cost: Low
+Deployment Requirements: Water launch pad
+Transport Compatibility: Marine racks
+Launch Method: Water drop
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+36× Marine Alloy Plates
+18× Reinforced Marine Rods
+5× Hydraulic Actuators
+1× Sonar Array Housing
+Electronics
+22× Circuit Bundles
+16× Signal Processors
+4× Marine Control Chips
+2× Recon AI Chips
+Power
+1× Marine Hybrid Engine Core
+2× Power Regulation Nodes
+Rare / Tradeable
+1× High‑Resolution Sonar Core
+Optional Upgrades
+Silent Propulsion
+Extended Battery Pack
+Anti‑Jamming Shielding

@@ -1,0 +1,122 @@
+	
+🧭 COMMAND UNIT — ARCHIVE	
+(10 m × 7 m × 5 m) Source: your Unit Sizes doc	
+🧭 ARCHIVE	
+ID:	
+obs-command-archive	
+Role: Strategic Data Core / Global Intelligence Storage	
+Tier: Command	
+Status: Active	
+⚫ PHYSICAL & TECHNICAL	
+Length: 10 m	
+Width: 7 m	
+Height: 5 m	
+Mass: 18,000 kg	
+Power Source: Dual redundant command‑grade reactors	
+Energy Capacity: 120,000 Wh	
+Fuel Capacity: N/A (reactor‑based)	
+Endurance: Continuous	
+Payload Capacity: 0 (internal systems only)	
+Modules:	
+	Strategic data vault
+	Encryption lattice
+	Multi‑node command mesh
+	Redundant cooling towers
+Navigation System: Stationary (anchored command node)	
+Structural Integrity: 4,000 HP	
+Armor Rating: 1.20	
+Heat Signature: Medium	
+Noise Signature: Low	
+Top Speed: N/A	
+Stability Rating: Maximum	
+⚫ AUTONOMY & AI BEHAVIOR	
+Behavior Profile: Strategic data management / command relay	
+Aggression: 0.0	
+Caution: 1.0	
+Persistence: 1.0	
+Retreat Threshold: N/A	
+Target Priority: None (non‑combat)	
+Formation Discipline: Maximum	
+Risk Tolerance: Very Low	
+Sensors	
+Visual Range: Short	
+Thermal Range: Short	
+Acoustic Range: Short	
+Radar Range: Medium	
+Signal Detection Range: Very High	
+Communication	
+Mesh Range: Global (command‑tier)	
+Relay Capacity: 8	
+Command Link Type: Strategic Command Mesh	
+Network Priority: Maximum	
+⚫ COMBAT & THREAT MODEL	
+Firepower Rating: None	
+Weapon Mounts: None	
+Tracking Strength: High (signals only)	
+Disruption Strength: High (data routing)	
+Countermeasure Rating: Very High	
+Threat Modeling	
+Threat Level: 5 (due to strategic importance)	
+Preferred Terrain: Secure command zones	
+Vulnerability Profile: EMP / sabotage	
+⚫ SQUAD & COMMAND INTEGRATION	
+Squad Role: Strategic Data Core	
+Squad Size Contribution: 6	
+Formation Behavior: Central command anchor	
+Intent Interpretation Rules: Store, route, and secure global data	
+Retreat Behavior: None	
+Reinforcement Behavior: Supports all units	
+Command Hierarchy	
+Parent Command Unit: Command Core	
+Subordinate Units: Insight, Pulse	
+Relay Nodes: 8	
+Network Dependencies: Strategic Command Mesh	
+⚫ VR OPERATOR MODE	
+Operator Seat Type: Command Data Console	
+Operator HUD: Strategic Data Overlay	
+Camera Feeds: Internal systems only	
+Thermal View: Yes	
+Tactical Overlay: Global data routes / mesh health	
+Operator Controls	
+Data routing	
+Encryption lattice management	
+Mesh node control	
+System diagnostics	
+Operator Abilities	
+Global Data Sync	
+Mesh Stabilization	
+Encryption Pulse	
+Command Relay	
+⚫ ECONOMY & LOGISTICS	
+Build Cost: 2,000 Metal / 1,200 Electronics	
+Build Time: 240 sec	
+Factory Type: Command Foundry	
+Tech Requirements: Command Systems I	
+Maintenance Cost: High	
+Repair Time: 70 sec	
+Supply Consumption: Medium	
+Operational Cost: Medium	
+Deployment Requirements: Command zone	
+Transport Compatibility: Heavy command carriers	
+Launch Method: Anchor‑install	
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)	
+Common Components	
+120× Command Alloy Plates	
+60× Reinforced Command Rods	
+10× Hydraulic Actuators	
+4× Armor Panels	
+1× Data Vault Assembly	
+Electronics	
+40× Circuit Bundles	
+30× Signal Processors	
+10× Command Control Chips	
+4× Command AI Chips	
+Power	
+1× Command Reactor Core	
+3× Power Regulation Nodes	
+Rare / Tradeable	
+1× Encryption Lattice Module	
+Optional Upgrades	
+Reinforced Vault	
+Quantum Encryption	
+Anti‑Jamming Shielding	

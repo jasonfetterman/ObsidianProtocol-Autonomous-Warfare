@@ -1,0 +1,134 @@
+
+✈️ AIR UNIT #24 — SURVEY
+ID:
+obs-air-survey
+Role: Wide‑Area Recon / Terrain Scanning
+Tier: Recon Support
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 2.0 m
+Width: 1.5 m
+Height: 0.8 m
+Mass: 14 kg
+Power Source: Mid‑capacity battery
+Energy Capacity: 1600 Wh
+Energy Consumption: 32 Wh/min
+Endurance: 40–60 min
+Payload Capacity: 1.0 kg
+Modules: Wide‑area optical + terrain scan suite
+Navigation System: GPS + Survey AI
+Structural Integrity: 100 HP
+Armor Rating: 0.12
+Heat Signature: Low
+Noise Signature: Low
+Top Speed: 20 m/s
+Acceleration: Medium
+Turning Radius: Tight
+Climb Rate: Medium
+Stability Rating: High
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Wide‑Area Recon / Terrain Survey
+Aggression: 0.0
+Caution: 0.85
+Persistence: 0.8
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.9
+Target Priority: Terrain features / movement
+Formation Discipline: Medium
+Risk Tolerance: Low
+Sensors
+Visual Range: 1800 m
+Thermal Range: 700 m
+Acoustic Range: Low
+Radar Range: None
+LiDAR Range: Medium
+Signal Detection Range: Medium
+Communication
+Mesh Range: 5 km
+Relay Capacity: 0
+Command Link Type: Recon Grid
+Network Priority: Medium
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: 0
+Accuracy: N/A
+Stabilization: High
+Weapon Mounts: None
+Weapon Types: None
+Suppression Value: 0
+Tracking Strength: Medium
+Disruption Strength: Low
+Breach Capability: None
+Countermeasure Rating: Low
+Threat Modeling
+Threat Level: 2
+Engagement Distance: N/A
+Preferred Terrain: Open air / recon corridors
+Preferred Targets: None
+Vulnerability Profile: Ballistic / weather
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Wide‑Area Recon
+Squad Size Contribution: 1
+Formation Behavior: Broad recon spacing
+Intent Interpretation Rules: Maintain visibility, avoid conflict
+Retreat Behavior: Early
+Breach Behavior: None
+Flanking Behavior: None
+Reinforcement Behavior: Supports recon and command squads
+Command Hierarchy
+Parent Command Unit: Overseer / Insight
+Subordinate Units: None
+Relay Nodes: None
+Network Dependencies: Recon Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Drone View
+Operator HUD: Survey Overlay
+Camera Feeds: Optical
+Thermal View: Yes
+LiDAR View: Yes
+Sonar View: No
+Tactical Overlay: Terrain markers / movement indicators
+Operator Controls
+Movement Controls: Full drone flight
+Sensor Controls: Thermal / LiDAR / zoom
+Ability Controls: Scan, Mark Terrain, Stabilize
+Weapon Controls: None
+Stabilization Controls: Auto‑hover
+Operator Abilities
+Wide‑Area Scan
+Terrain Mark
+Thermal Search
+LiDAR Sweep
+Relay Recon Data
+⚫ ECONOMY & LOGISTICS
+Build Cost: 90 Metal / 80 Electronics
+Build Time: 30 sec
+Factory Type: Drone Bay
+Tech Requirements: Recon Systems II
+Maintenance Cost: Low
+Repair Time: 10 sec
+Supply Consumption: Low
+Operational Cost: Minimal
+Deployment Requirements: Standard drone pad
+Transport Compatibility: All aerial racks
+Launch Method: Vertical takeoff
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+10× Light Alloy Plates
+6× Composite Frame Rods
+4× Micro‑Servo Actuators
+2× Stabilizer Fins
+1× Survey Sensor Housing
+Electronics
+10× Circuit Bundles
+8× Signal Processors
+3× Drone Control Chips
+2× Survey AI Chips
+Power
+1× Mid‑Capacity Battery Pack
+2× Power Regulation Nodes
+Rare / Tradeable
+1× Wide‑Area Scan Core
+Optional Upgrades
+Silent Rotor Kit
+Extended Battery Pack
+High‑Density Scan Grid

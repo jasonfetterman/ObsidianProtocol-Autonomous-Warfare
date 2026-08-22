@@ -1,0 +1,1132 @@
+⚫ OBSIDIAN PROTOCOL: AUTONOMOUS WARFARE
+MASTER DEVELOPMENT CHECKLIST — BUILD ORDER
+MASTER / CORRECTED / SYNCHRONIZED VERSION
+
+Status key
+
+[x] = verified complete
+[ ] = not complete
+[~] = design/reference exists, implementation not verified
+UI items are included in the sections where their underlying system belongs
+Concept art never counts as implementation complete
+Do not skip ahead unless explicitly directed
+SECTION 1 — CORE FOUNDATION
+ 1.1 Unity project foundation
+ 1.2 Game scene foundation
+ 1.3 Core game architecture
+ 1.4 Core managers / service architecture
+ 1.5 Game state system
+ 1.6 Save / load foundation
+ 1.7 Configuration / settings framework
+ 1.8 Event / messaging system
+ 1.9 Entity identification system
+ 1.10 Unit framework
+ 1.11 Faction framework
+ 1.12 Resource framework
+ 1.13 Technology framework
+ 1.14 Equipment framework
+ 1.15 Ability framework
+ 1.16 Status-effect framework
+ 1.17 Basic unit spawning
+ 1.18 Basic unit destruction
+ 1.19 Basic battlefield foundation
+ 1.20 Game time / simulation clock
+UI FOUNDATION
+ 1.21 Global UI architecture
+ 1.22 UI canvas / layer architecture
+ 1.23 UI scaling / resolution system
+ 1.24 UI input / navigation foundation
+ 1.25 UI window management
+ 1.26 UI panel / button foundation
+ 1.27 UI icon system
+ 1.28 UI font / typography system
+ 1.29 Tooltip foundation
+ 1.30 Notification foundation
+ 1.31 Popup / confirmation foundation
+ 1.32 UI state system
+ 1.33 UI audio feedback foundation
+SECTION 2 — WORLD FOUNDATION
+ 2.1 World framework
+ 2.2 World coordinates
+ 2.3 Terrain system
+ 2.4 Terrain materials
+ 2.5 Elevation system
+ 2.6 Water system
+ 2.7 Airspace system
+ 2.8 World boundaries
+ 2.9 World sectors / regions
+ 2.10 Points of interest
+ 2.11 Strategic locations
+ 2.12 Roads / traversal routes
+ 2.13 Bridges / crossings
+ 2.14 Structures
+ 2.15 Environmental objects
+ 2.16 Destructible world objects
+ 2.17 World hazards
+ 2.18 Day / night cycle
+ 2.19 Weather foundation
+ 2.20 Dynamic world state
+WORLD UI SUPPORT
+ 2.21 Terrain information data
+ 2.22 Elevation information data
+ 2.23 Cover / defense information
+ 2.24 Movement-cost information
+ 2.25 Weather / visibility information
+ 2.26 World-region information
+SECTION 3 — MOVEMENT & NAVIGATION
+ 3.1 Ground navigation
+ 3.2 Air navigation
+ 3.3 Water navigation
+ 3.4 Terrain-aware movement
+ 3.5 Pathfinding
+ 3.6 Dynamic pathfinding
+ 3.7 Obstacle avoidance
+ 3.8 Formation movement
+ 3.9 Convoy movement
+ 3.10 Route planning
+ 3.11 Strategic movement
+ 3.12 Tactical movement
+ 3.13 Retreat routing
+ 3.14 Reinforcement routing
+ 3.15 Navigation recovery
+ 3.16 Large-scale navigation optimization
+NAVIGATION UI
+ 3.17 Destination display
+ 3.18 Waypoint display
+ 3.19 Distance / ETA display
+ 3.20 Path preview
+ 3.21 Route status
+ 3.22 Navigation warnings
+ 3.23 Navigation world markers
+SECTION 4 — COMBAT FOUNDATION
+ 4.1 Combat framework
+ 4.2 Targeting foundation
+ 4.3 Weapon framework
+ 4.4 Weapon categories
+ 4.5 Projectile system
+ 4.6 Hitscan / direct-fire system
+ 4.7 Explosive damage
+ 4.8 Area-of-effect system
+ 4.9 Damage system
+ 4.10 Health system
+ 4.11 Armor system
+ 4.12 Hit detection
+ 4.13 Critical damage
+ 4.14 Component damage
+ 4.15 Mobility damage
+ 4.16 Sensor damage
+ 4.17 Weapon damage
+ 4.18 Destruction system
+ 4.19 Wreckage system
+ 4.20 Combat feedback
+COMBAT UI
+ 4.21 Target information
+ 4.22 Target health / armor
+ 4.23 Target type
+ 4.24 Threat indicator
+ 4.25 Range information
+ 4.26 Weapon status
+ 4.27 Ammunition status
+ 4.28 Cooldown status
+ 4.29 Hit feedback
+ 4.30 Damage feedback
+ 4.31 Destruction feedback
+ 4.32 Combat alerts
+SECTION 5 — COMMAND & INTENT
+ 5.1 Command system
+ 5.2 Command hierarchy
+ 5.3 Player command authority
+ 5.4 Intent-based orders
+ 5.5 Objective system
+ 5.6 Priority system
+ 5.7 Rules of engagement
+ 5.8 Engagement parameters
+ 5.9 Movement orders
+ 5.10 Attack orders
+ 5.11 Defend orders
+ 5.12 Hold orders
+ 5.13 Patrol orders
+ 5.14 Escort orders
+ 5.15 Recon orders
+ 5.16 Capture / secure orders
+ 5.17 Reinforce orders
+ 5.18 Retreat orders
+ 5.19 Regroup orders
+ 5.20 Follow / support orders
+COMMAND UI
+ 5.21 Command order interface
+ 5.22 Intent interface
+ 5.23 Priority interface
+ 5.24 Rules-of-engagement interface
+ 5.25 Engagement parameter interface
+ 5.26 Objective assignment
+ 5.27 Tactical command markers
+ 5.28 Order visualization
+ 5.29 Command confirmation
+ 5.30 Command cancellation
+ 5.31 Command conflict feedback
+SECTION 6 — SQUADS & AUTONOMY
+ 6.1 Squad framework
+ 6.2 Squad composition
+ 6.3 Squad roles
+ 6.4 Squad command hierarchy
+ 6.5 Autonomous squad execution
+ 6.6 Squad movement
+ 6.7 Squad formations
+ 6.8 Squad target selection
+ 6.9 Target prioritization
+ 6.10 Threat evaluation
+ 6.11 Tactical decision making
+ 6.12 Attack behaviors
+ 6.13 Defensive behaviors
+ 6.14 Flanking
+ 6.15 Suppression
+ 6.16 Breach / assault behavior
+ 6.17 Ambush behavior
+ 6.18 Pursuit behavior
+ 6.19 Retreat / regroup behavior
+ 6.20 Reinforcement behavior
+ 6.21 Squad communication
+ 6.22 Squad adaptation
+ 6.23 Autonomous recovery
+ 6.24 Player intent override
+AUTONOMY UI
+ 6.25 Squad autonomy state
+ 6.26 Current squad intent
+ 6.27 Current squad objective
+ 6.28 Squad activity
+ 6.29 AI behavior state
+ 6.30 Threat assessment display
+ 6.31 Engagement state
+ 6.32 Retreat / regroup state
+ 6.33 Autonomous recovery state
+ 6.34 Player override indicator
+ 6.35 Squad communication state
+ 6.36 Tactical decision feedback
+SECTION 7 — INTELLIGENCE & SENSOR NETWORK
+ 7.1 Sensor framework
+ 7.2 Detection system
+ 7.3 Fog of war
+ 7.4 Enemy detection
+ 7.5 Visual detection
+ 7.6 Audio detection
+ 7.7 Thermal detection
+ 7.8 Radar / sensor detection
+ 7.9 LiDAR detection
+ 7.10 Reconnaissance
+ 7.11 Target identification
+ 7.12 Target classification
+ 7.13 Battlefield mapping
+ 7.14 Intelligence sharing
+ 7.15 Network relay
+ 7.16 Sensor fusion
+ 7.17 Tracking
+ 7.18 Lost-contact behavior
+ 7.19 Intelligence persistence
+ 7.20 Battlefield intelligence model
+INTELLIGENCE UI
+ 7.21 Visible territory
+ 7.22 Explored territory
+ 7.23 Unknown territory
+ 7.24 Enemy contact display
+ 7.25 Last-known enemy position
+ 7.26 Sensor coverage
+ 7.27 Recon information
+ 7.28 Target classification
+ 7.29 Intelligence confidence
+ 7.30 Contact history
+ 7.31 Intelligence sharing display
+ 7.32 Network relay status
+ 7.33 Battlefield intelligence overlay
+SECTION 8 — WARDEN FORCE
+ 8.1 Warden faction foundation
+ 8.2 Air unit framework
+ 8.3 Ground unit framework
+ 8.4 Sea unit framework
+ 8.5 Command unit framework
+ 8.6 Experimental unit framework
+ 8.7 Unit roles
+ 8.8 Unit capabilities
+ 8.9 Unit statistics
+ 8.10 Unit modules
+ 8.11 Unit navigation profiles
+ 8.12 Unit sensor profiles
+ 8.13 Unit weapon profiles
+ 8.14 Unit abilities
+ 8.15 Unit behavior profiles
+ 8.16 Unit deployment profiles
+ 8.17 Unit data integration
+ 8.18 Unit visual integration
+ 8.19 Unit audio integration
+ 8.20 Complete Warden unit roster
+SECTION 9 — AIR WARFARE
+ 9.1 Airspace framework
+ 9.2 Drone flight controller
+ 9.3 Flight stabilization
+ 9.4 Altitude control
+ 9.5 Air navigation
+ 9.6 Aerial formations
+ 9.7 Aerial reconnaissance
+ 9.8 Aerial surveillance
+ 9.9 Aerial tracking
+ 9.10 Aerial relay systems
+ 9.11 Aerial mapping
+ 9.12 Aerial payload systems
+ 9.13 Aerial support systems
+ 9.14 Aerial combat systems
+ 9.15 Air-unit autonomy
+ 9.16 Warden air roster integration
+AIR UI
+ 9.17 Air unit status
+ 9.18 Airspace status
+ 9.19 Air reconnaissance display
+ 9.20 Air surveillance display
+ 9.21 Air relay status
+ 9.22 Air targeting display
+SECTION 10 — GROUND WARFARE
+ 10.1 Ground vehicle controller
+ 10.2 Ground movement
+ 10.3 Terrain traversal
+ 10.4 Vehicle formations
+ 10.5 Ground logistics
+ 10.6 Ground reconnaissance
+ 10.7 Ground security
+ 10.8 Ground support
+ 10.9 Heavy transport
+ 10.10 Construction vehicles
+ 10.11 Rescue vehicles
+ 10.12 Combat ground units
+ 10.13 Ground-unit autonomy
+ 10.14 Warden ground roster integration
+SECTION 11 — NAVAL WARFARE
+ 11.1 Marine navigation
+ 11.2 Surface movement
+ 11.3 Underwater movement
+ 11.4 Marine formations
+ 11.5 Coastal operations
+ 11.6 Marine reconnaissance
+ 11.7 Sonar
+ 11.8 Underwater mapping
+ 11.9 Marine rescue
+ 11.10 Naval logistics
+ 11.11 Naval combat
+ 11.12 Naval autonomy
+ 11.13 Warden sea roster integration
+SECTION 12 — COMMAND UNITS
+ 12.1 Command-unit framework
+ 12.2 Fleet control
+ 12.3 Data storage
+ 12.4 World mapping
+ 12.5 Intelligence processing
+ 12.6 Data fusion
+ 12.7 Network coordination
+ 12.8 Analytics
+ 12.9 Command network
+ 12.10 Command-unit autonomy
+ 12.11 Command-unit destruction consequences
+ 12.12 Warden command roster integration
+SECTION 13 — EXPERIMENTAL SYSTEMS
+ 13.1 Experimental framework
+ 13.2 Experimental unit restrictions
+ 13.3 Signal intelligence
+ 13.4 Electronic disruption
+ 13.5 Stealth systems
+ 13.6 Covert networking
+ 13.7 Experimental AI
+ 13.8 Experimental abilities
+ 13.9 Experimental risks
+ 13.10 Experimental progression
+ 13.11 Echo
+ 13.12 Nullpoint
+ 13.13 Specter
+ 13.14 Shadowgrid
+ 13.15 Phantom
+ 13.16 Helix
+SECTION 14 — ECONOMY & RESOURCES
+ 14.1 Resource system
+ 14.2 Meat resource
+ 14.3 Wood resource
+ 14.4 Coal resource
+ 14.5 Iron resource
+ 14.6 Alloy resource
+ 14.7 Electronics resource
+ 14.8 Fuel resource
+ 14.9 Energy infrastructure
+ 14.10 Resource nodes
+ 14.11 Resource extraction
+ 14.12 Resource transport
+ 14.13 Resource storage
+ 14.14 Resource processing
+ 14.15 Resource consumption
+ 14.16 Resource scarcity
+ 14.17 Economic balancing
+ECONOMY UI
+ 14.18 Resource HUD
+ 14.19 Resource overview
+ 14.20 Income display
+ 14.21 Expenditure display
+ 14.22 Storage display
+ 14.23 Resource tooltip system
+ 14.24 Resource alerts
+ 14.25 Resource detail window
+ 14.26 Resource graphs / trends
+SECTION 15 — LOGISTICS & SUPPLY
+ 15.1 Supply framework
+ 15.2 Supply routes
+ 15.3 Supply depots
+ 15.4 Fuel logistics
+ 15.5 Ammunition logistics
+ 15.6 Repair logistics
+ 15.7 Resource logistics
+ 15.8 Convoys
+ 15.9 Autonomous logistics
+ 15.10 Logistics disruption
+ 15.11 Forward operating locations
+ 15.12 Strategic supply network
+LOGISTICS UI
+ 15.13 Logistics overview
+ 15.14 Supply routes display
+ 15.15 Supply depot status
+ 15.16 Fuel status
+ 15.17 Ammunition status
+ 15.18 Repair status
+ 15.19 Resource flow
+ 15.20 Convoy status
+ 15.21 Logistics disruption alerts
+ 15.22 Forward operating location status
+ 15.23 Strategic supply map
+ 15.24 Supply bottleneck feedback
+SECTION 16 — CONSTRUCTION & PRODUCTION
+ 16.1 Construction framework
+ 16.2 Build permissions
+ 16.3 Construction sites
+ 16.4 Construction vehicles
+ 16.5 Base structures
+ 16.6 Defensive structures
+ 16.7 Resource structures
+ 16.8 Logistics structures
+ 16.9 Command structures
+ 16.10 Production structures
+ 16.11 Fabrication
+ 16.12 Unit manufacturing
+ 16.13 Equipment manufacturing
+ 16.14 Repair
+ 16.15 Salvage
+ 16.16 Recycling
+ 16.17 Production queues
+ 16.18 Manufacturing dependencies
+PRODUCTION UI
+ 16.19 Build menu
+ 16.20 Structure categories
+ 16.21 Unit categories
+ 16.22 Equipment categories
+ 16.23 Build item cards
+ 16.24 Item details
+ 16.25 Resource costs
+ 16.26 Production queue
+ 16.27 Queue management
+ 16.28 Production progress
+ 16.29 Construction progress
+ 16.30 Factory status
+ 16.31 Production completion feedback
+SECTION 17 — DEPLOYMENT & MILITARY BUDGET
+ 17.1 Deployment framework
+ 17.2 Deployment zones
+ 17.3 Deployment points
+ 17.4 Battle budget
+ 17.5 Unit deployment costs
+ 17.6 Deployment validation
+ 17.7 Army composition
+ 17.8 Reinforcement budget
+ 17.9 Deployment restrictions
+ 17.10 Multiplayer deployment rules
+ 17.11 Offline deployment rules
+ 17.12 Deployment staging
+ 17.13 Deployment UI
+DEPLOYMENT UI
+ 17.14 Deployment screen
+ 17.15 Available Deployment Points
+ 17.16 Maximum Deployment Points
+ 17.17 Unit deployment cost display
+ 17.18 Selected army display
+ 17.19 Remaining budget display
+ 17.20 Deployment slot display
+ 17.21 Spawn location selection
+ 17.22 Invalid deployment feedback
+ 17.23 Reinforcement budget display
+ 17.24 Deployment confirmation
+ 17.25 Ready / not-ready state
+SECTION 18 — RTS COMMAND INTERFACE
+
+This is the main battlefield HUD section.
+
+The original checklist already defines RTS interface, camera, selection, squads, orders, intent, markers, unit/squad status, resources, deployment, combat feedback, tactical information, minimap, strategic map, intelligence, command hierarchy, and autonomous feedback.
+
+CORE RTS
+ 18.1 RTS command interface
+ 18.2 Camera system
+ 18.3 Unit selection
+ 18.4 Multi-selection
+ 18.5 Squad selection
+ 18.6 Command orders
+ 18.7 Intent interface
+ 18.8 Tactical markers
+ 18.9 Objective markers
+ 18.10 Unit status
+ 18.11 Squad status
+ 18.12 Resource HUD
+ 18.13 Deployment HUD
+ 18.14 Combat feedback
+ 18.15 Tactical information
+ 18.16 Minimap
+ 18.17 Strategic map
+ 18.18 Battlefield intelligence UI
+ 18.19 Command hierarchy UI
+ 18.20 Autonomous activity feedback
+MAIN RTS HUD
+ 18.21 Main HUD frame
+ 18.22 Top resource bar
+ 18.23 Command token display
+ 18.24 Population / capacity
+ 18.25 Match timer
+ 18.26 Menu access
+ 18.27 Main battlefield status layer
+UNIT / SQUAD UI
+ 18.28 Selected unit panel
+ 18.29 Unit name / type
+ 18.30 Unit image / model
+ 18.31 Health
+ 18.32 Armor
+ 18.33 Ammunition
+ 18.34 Fuel
+ 18.35 Energy
+ 18.36 Abilities
+ 18.37 Status effects
+ 18.38 Current activity
+ 18.39 Current orders
+ 18.40 Squad panel
+ 18.41 Squad strength
+ 18.42 Squad member status
+ 18.43 Squad formation
+ 18.44 Squad objective
+ 18.45 Squad autonomy state
+COMMAND UI
+ 18.46 Command wheel
+ 18.47 Move
+ 18.48 Attack
+ 18.49 Scan
+ 18.50 Repair
+ 18.51 Hold
+ 18.52 Guard
+ 18.53 Patrol
+ 18.54 Stop
+ 18.55 Context-sensitive commands
+ 18.56 Command hotkeys
+ 18.57 Command feedback
+MAP / INTELLIGENCE UI
+ 18.58 Minimap frame
+ 18.59 Camera rectangle
+ 18.60 Friendly markers
+ 18.61 Enemy markers
+ 18.62 Unknown contacts
+ 18.63 Objective markers
+ 18.64 Resource markers
+ 18.65 Squad markers
+ 18.66 Alert markers
+ 18.67 Map zoom
+ 18.68 Map layers
+ 18.69 Fog-of-war display
+ 18.70 Strategic map
+ 18.71 Battlefield intelligence overlay
+ALERT / FEEDBACK UI
+ 18.72 Alert container
+ 18.73 Enemy attack alert
+ 18.74 Unit under attack alert
+ 18.75 Resource alert
+ 18.76 Objective update
+ 18.77 Objective complete
+ 18.78 Production complete
+ 18.79 Construction complete
+ 18.80 Logistics warning
+ 18.81 Autonomy warning
+ 18.82 Communication warning
+ 18.83 Priority system
+ 18.84 Alert history
+TACTICAL INFORMATION
+ 18.85 Terrain information
+ 18.86 Elevation information
+ 18.87 Cover information
+ 18.88 Movement cost
+ 18.89 Weather
+ 18.90 Visibility
+ 18.91 Threat information
+ 18.92 Range information
+AUTONOMY FEEDBACK
+ 18.93 Current AI behavior
+ 18.94 Current intent
+ 18.95 Current objective
+ 18.96 Threat assessment
+ 18.97 Tactical response
+ 18.98 Engagement state
+ 18.99 Retreat state
+ 18.100 Player override state
+ 18.101 Autonomous recovery state
+SECTION 19 — GARAGE / FLEET MANAGEMENT
+ 19.1 Garage framework
+ 19.2 Fleet inventory
+ 19.3 Owned units
+ 19.4 Unit inspection
+ 19.5 Unit configuration
+ 19.6 Unit modules
+ 19.7 Unit equipment
+ 19.8 Unit customization
+ 19.9 Paint system
+ 19.10 Emblems
+ 19.11 Decals
+ 19.12 AI personality configuration
+ 19.13 AI diagnostics
+ 19.14 Repair stations
+ 19.15 Upgrade stations
+ 19.16 Fabrication facility
+ 19.17 Salvage facility
+ 19.18 Storage
+ 19.19 Garage slots
+ 19.20 Fleet management
+GARAGE UI
+ 19.21 Garage overview
+ 19.22 Fleet overview
+ 19.23 Unit inspection window
+ 19.24 Unit configuration window
+ 19.25 Equipment window
+ 19.26 Weapon window
+ 19.27 Upgrade window
+ 19.28 Repair window
+ 19.29 AI personality window
+ 19.30 AI diagnostics window
+ 19.31 Fabrication window
+ 19.32 Manufacturing queue
+ 19.33 Salvage window
+ 19.34 Storage window
+ 19.35 Garage slot management
+ 19.36 Deployment preparation
+SECTION 20 — STORE / ECONOMY / OWNERSHIP
+ 20.1 Military Store
+ 20.2 Unit catalog
+ 20.3 Unit purchasing
+ 20.4 Equipment purchasing
+ 20.5 Module purchasing
+ 20.6 Fabrication materials
+ 20.7 Repairs
+ 20.8 Garage slots
+ 20.9 Cosmetic customization
+ 20.10 Convenience purchases
+ 20.11 Campaign resources
+ 20.12 Credit system
+ 20.13 Purchase validation
+ 20.14 Ownership persistence
+ 20.15 Anti-pay-to-win restrictions
+ 20.16 Deployment-budget separation
+ 20.17 Store UI
+STORE UI
+ 20.18 Store front
+ 20.19 Category navigation
+ 20.20 Unit catalog UI
+ 20.21 Equipment catalog UI
+ 20.22 Module catalog UI
+ 20.23 Cosmetic catalog UI
+ 20.24 Material catalog UI
+ 20.25 Credit balance
+ 20.26 Item details
+ 20.27 Ownership state
+ 20.28 Purchase confirmation
+ 20.29 Insufficient-credit state
+ 20.30 Restricted-item state
+SECTION 21 — PROGRESSION
+ 21.1 Player progression
+ 21.2 Fleet progression
+ 21.3 Technology progression
+ 21.4 Unit unlocks
+ 21.5 Equipment unlocks
+ 21.6 Experimental unlocks
+ 21.7 Facility progression
+ 21.8 Fabrication progression
+ 21.9 AI progression
+ 21.10 Reputation / achievement framework
+ 21.11 Progression persistence
+ 21.12 Progression balancing
+PROGRESSION UI
+ 21.13 Player progression screen
+ 21.14 Fleet progression screen
+ 21.15 Technology tree
+ 21.16 Research progress
+ 21.17 Unlock screen
+ 21.18 Facility progression
+ 21.19 Fabrication progression
+ 21.20 AI progression
+ 21.21 Achievement screen
+ 21.22 Player profile
+ 21.23 Statistics overview
+SECTION 22 — AI COMMANDERS
+ 22.1 AI commander framework
+ 22.2 Battlefield evaluation
+ 22.3 Strategic objectives
+ 22.4 Resource evaluation
+ 22.5 Force evaluation
+ 22.6 Tactical responses
+ 22.7 Multi-angle assaults
+ 22.8 Defensive repositioning
+ 22.9 Siege operations
+ 22.10 Reinforcement decisions
+ 22.11 Retreat decisions
+ 22.12 Logistics decisions
+ 22.13 Reconnaissance decisions
+ 22.14 Autonomous army management
+ 22.15 Adaptive behavior
+ 22.16 AI personalities
+AI COMMANDER UI
+ 22.17 Commander status
+ 22.18 Commander objective
+ 22.19 Strategic priority
+ 22.20 Battlefield evaluation display
+ 22.21 AI personality display
+ 22.22 Commander activity feedback
+SECTION 23 — OFFLINE 2-PLAYER
+ 23.1 Local multiplayer architecture
+ 23.2 Player 1 command
+ 23.3 Player 2 command
+ 23.4 Shared world state
+ 23.5 Shared battlefield simulation
+ 23.6 Cooperative objectives
+ 23.7 Competitive objectives
+ 23.8 Shared resources
+ 23.9 Separate resources
+ 23.10 Player territories
+ 23.11 Player alliances
+ 23.12 Offline AI forces
+ 23.13 Offline save state
+ 23.14 Two-player battle testing
+OFFLINE MULTIPLAYER UI
+ 23.15 Player identification
+ 23.16 Team identification
+ 23.17 Shared / separate resource display
+ 23.18 Player command indicators
+ 23.19 Match status
+SECTION 24 — ONLINE MULTIPLAYER
+ 24.1 Online architecture
+ 24.2 Dedicated server architecture
+ 24.3 Authentication
+ 24.4 Player identity
+ 24.5 Session management
+ 24.6 Player synchronization
+ 24.7 World synchronization
+ 24.8 Unit synchronization
+ 24.9 Squad synchronization
+ 24.10 Combat synchronization
+ 24.11 Resource synchronization
+ 24.12 Construction synchronization
+ 24.13 Production synchronization
+ 24.14 Persistence synchronization
+ 24.15 Connection recovery
+ 24.16 Server authority
+ 24.17 Anti-cheat foundation
+ 24.18 Online voice / communication
+ 24.19 Player permissions
+ 24.20 Online testing
+MULTIPLAYER UI
+ 24.21 Multiplayer menu
+ 24.22 Server browser
+ 24.23 Create match
+ 24.24 Join match
+ 24.25 Match settings
+ 24.26 Player list
+ 24.27 Team selection
+ 24.28 Faction selection
+ 24.29 Ready state
+ 24.30 Connection status
+ 24.31 Network warning
+ 24.32 Player disconnect
+ 24.33 Scoreboard
+ 24.34 Team score
+ 24.35 Player statistics
+ 24.36 Match results
+ 24.37 Victory screen
+ 24.38 Defeat screen
+SECTION 25 — OPEN-WORLD WARFARE
+ 25.1 Persistent world framework
+ 25.2 Persistent world state
+ 25.3 World ownership
+ 25.4 Territory system
+ 25.5 Strategic regions
+ 25.6 Player bases
+ 25.7 Forward bases
+ 25.8 Resource territories
+ 25.9 Strategic objectives
+ 25.10 World events
+ 25.11 Dynamic conflicts
+ 25.12 Player-created conflicts
+ 25.13 AI-controlled regions
+ 25.14 Persistent armies
+ 25.15 Persistent logistics
+ 25.16 Persistent construction
+ 25.17 Persistent destruction
+ 25.18 World simulation
+ 25.19 Long-distance travel
+ 25.20 World persistence recovery
+OPEN-WORLD UI
+ 25.21 Strategic world map
+ 25.22 Territory display
+ 25.23 World ownership display
+ 25.24 Strategic region information
+ 25.25 Persistent army display
+ 25.26 World event display
+ 25.27 Dynamic conflict display
+ 25.28 Long-distance travel interface
+SECTION 26 — VR OPERATOR MODE
+ 26.1 Operator framework
+ 26.2 VR input framework
+ 26.3 Compatible unit entry
+ 26.4 Operator transfer
+ 26.5 VR cockpit
+ 26.6 Operator movement / control
+ 26.7 Vehicle interaction
+ 26.8 Sensor interfaces
+ 26.9 Targeting
+ 26.10 Operator weapons
+ 26.11 Operator abilities
+ 26.12 Physical controls
+ 26.13 Unit interior interaction
+ 26.14 Damage feedback
+ 26.15 Emergency exit
+ 26.16 Return to strategic command
+ 26.17 VR Garage
+ 26.18 VR Store
+ 26.19 VR facility navigation
+VR UI
+ 26.20 Operator HUD
+ 26.21 Targeting reticle
+ 26.22 Unit system status
+ 26.23 Sensor display
+ 26.24 Thermal overlay
+ 26.25 LiDAR overlay
+ 26.26 Radar overlay
+ 26.27 Command grid
+ 26.28 Target tagging
+ 26.29 Operator ability interface
+ 26.30 Tactical map overlay
+ 26.31 Emergency state UI
+ 26.32 Return-to-command interface
+SECTION 27 — BATTLEFIELD DYNAMICS
+ 27.1 Destruction propagation
+ 27.2 Building damage
+ 27.3 Road damage
+ 27.4 Bridge destruction
+ 27.5 Terrain deformation where required
+ 27.6 Fire systems
+ 27.7 Smoke systems
+ 27.8 Weather effects
+ 27.9 Visibility changes
+ 27.10 Environmental hazards
+ 27.11 Battlefield debris
+ 27.12 Persistent battlefield changes
+ 27.13 Dynamic tactical conditions
+DYNAMIC BATTLEFIELD UI
+ 27.14 Fire warnings
+ 27.15 Smoke / visibility warnings
+ 27.16 Environmental hazard warnings
+ 27.17 Dynamic terrain information
+ 27.18 Battlefield-condition feedback
+SECTION 28 — SCALE & PERFORMANCE
+ 28.1 Large-unit simulation
+ 28.2 Object pooling
+ 28.3 Simulation optimization
+ 28.4 Tick management
+ 28.5 AI update scheduling
+ 28.6 Batched processing
+ 28.7 LOD system
+ 28.8 Culling
+ 28.9 Rendering optimization
+ 28.10 Physics optimization
+ 28.11 Navigation optimization
+ 28.12 Network optimization
+ 28.13 Server optimization
+ 28.14 World streaming
+ 28.15 Map streaming
+ 28.16 Sector simulation
+ 28.17 Background simulation
+ 28.18 Memory management
+ 28.19 Stress testing
+ 28.20 Massive battle testing
+DEVELOPER PERFORMANCE UI
+ 28.21 FPS display
+ 28.22 Frame-time display
+ 28.23 CPU display
+ 28.24 GPU display
+ 28.25 VRAM display
+ 28.26 Ping display
+ 28.27 Packet-loss display
+ 28.28 Simulation statistics
+ 28.29 Unit-count display
+ 28.30 AI-count display
+ 28.31 Network diagnostics
+ 28.32 Performance graphs
+
+Developer/debug only — not part of normal player HUD.
+
+SECTION 29 — VERTICAL SLICE
+
+The vertical slice is where we prove the actual game loop, not merely individual systems.
+
+ 29.1 Playable Warden force
+ 29.2 Enemy force
+ 29.3 Air units
+ 29.4 Ground units
+ 29.5 Sea units
+ 29.6 Resources
+ 29.7 Logistics
+ 29.8 Construction
+ 29.9 Production
+ 29.10 Deployment budget
+ 29.11 Autonomous squads
+ 29.12 Combat
+ 29.13 Intelligence
+ 29.14 Battlefield systems
+ 29.15 RTS command UI
+ 29.16 Garage
+ 29.17 Initial VR Operator Mode
+ 29.18 Two-player battle
+ 29.19 Complete playable battle
+ 29.20 Vertical slice verification
+
+These are the systems the original checklist explicitly identifies as the vertical-slice proof.
+
+SECTION 30 — CONTENT COMPLETION
+ 30.1 Complete Warden air roster
+ 30.2 Complete Warden ground roster
+ 30.3 Complete Warden sea roster
+ 30.4 Complete Warden command roster
+ 30.5 Complete Warden experimental roster
+ 30.6 Complete weapons
+ 30.7 Complete equipment
+ 30.8 Complete abilities
+ 30.9 Complete structures
+ 30.10 Complete resources
+ 30.11 Complete AI behaviors
+ 30.12 Complete maps / world regions
+ 30.13 Complete garage
+ 30.14 Complete facility
+ 30.15 Complete Store
+ 30.16 Complete VR-compatible units
+ 30.17 Complete audio
+ 30.18 Complete VFX
+ 30.19 Complete UI
+ 30.20 Content validation
+
+The original checklist already puts Complete UI at 30.19, so all the UI work we are defining now ultimately has to pass this gate.
+
+SECTION 31 — CAMPAIGN
+ 31.1 Campaign framework
+ 31.2 Campaign world state
+ 31.3 Campaign missions
+ 31.4 Campaign objectives
+ 31.5 Campaign progression
+ 31.6 Campaign resources
+ 31.7 Campaign unit unlocks
+ 31.8 Campaign AI commanders
+ 31.9 Campaign narrative systems
+ 31.10 Campaign save system
+ 31.11 Campaign balancing
+ 31.12 Campaign completion
+CAMPAIGN UI
+ 31.13 Campaign menu
+ 31.14 Campaign map
+ 31.15 Mission selection
+ 31.16 Mission briefing
+ 31.17 Mission preparation
+ 31.18 Campaign progression display
+ 31.19 Campaign resource display
+ 31.20 Mission result
+ 31.21 Campaign save/load UI
+SECTION 32 — CREATION / MODDING TOOLS
+ 32.1 Unit creation framework
+ 32.2 Weapon creation framework
+ 32.3 Ability creation framework
+ 32.4 Faction creation framework
+ 32.5 AI behavior configuration
+ 32.6 Map creation tools
+ 32.7 Mission creation tools
+ 32.8 Campaign tools
+ 32.9 Resource configuration tools
+ 32.10 Technology configuration tools
+ 32.11 Unit balancing tools
+ 32.12 Mod loading framework
+ 32.13 Community content framework
+TOOL UI
+ 32.14 Unit editor UI
+ 32.15 Weapon editor UI
+ 32.16 Ability editor UI
+ 32.17 Faction editor UI
+ 32.18 AI behavior editor
+ 32.19 Map editor UI
+ 32.20 Mission editor UI
+ 32.21 Campaign editor UI
+ 32.22 Resource editor UI
+ 32.23 Technology editor UI
+ 32.24 Balancing UI
+ 32.25 Mod management UI
+SECTION 33 — ONLINE WORLD SERVICES
+ 33.1 Persistent player data
+ 33.2 Fleet persistence
+ 33.3 Garage persistence
+ 33.4 Economy persistence
+ 33.5 Territory persistence
+ 33.6 World persistence
+ 33.7 Server persistence
+ 33.8 Player progression persistence
+ 33.9 Match history
+ 33.10 Statistics
+ 33.11 Leaderboards
+ 33.12 Player reporting
+ 33.13 Moderation tools
+ 33.14 Server administration
+ 33.15 World recovery
+ 33.16 Service monitoring
+ONLINE SERVICE UI
+ 33.17 Player profile
+ 33.18 Fleet history
+ 33.19 Garage persistence status
+ 33.20 Match history
+ 33.21 Statistics
+ 33.22 Leaderboards
+ 33.23 Reporting interface
+ 33.24 Moderation interface
+ 33.25 Server administration interface
+ 33.26 Service status
+SECTION 34 — POLISH
+ 34.1 UI/UX polish
+ 34.2 RTS feedback polish
+ 34.3 Autonomous behavior feedback
+ 34.4 Combat VFX polish
+ 34.5 Environmental VFX polish
+ 34.6 Audio polish
+ 34.7 Unit animation polish
+ 34.8 VR interaction polish
+ 34.9 Garage polish
+ 34.10 Store polish
+ 34.11 World polish
+ 34.12 Accessibility
+ 34.13 Settings
+ 34.14 Tutorials
+ 34.15 Onboarding
+GLOBAL PLAYER UI
+ 34.16 Pause menu
+ 34.17 Settings menu
+ 34.18 Video settings
+ 34.19 Audio settings
+ 34.20 Gameplay settings
+ 34.21 Control settings
+ 34.22 VR settings
+ 34.23 Accessibility settings
+ 34.24 Key rebinding
+ 34.25 Loading screens
+ 34.26 Loading progress
+ 34.27 Connection/reconnection screen
+ 34.28 Confirmation dialogs
+ 34.29 Error dialogs
+ 34.30 Tooltip system
+ 34.31 Notification system
+ 34.32 UI transition polish
+ 34.33 UI audio polish
+ 34.34 UI consistency pass
+ 34.35 Controller navigation pass
+ 34.36 VR UI polish
+
+The original checklist already places UI/UX, accessibility, settings, tutorials, and onboarding in Section 34.
+
+SECTION 35 — TESTING
+ 35.1 Unit testing
+ 35.2 System testing
+ 35.3 AI testing
+ 35.4 Autonomous behavior testing
+ 35.5 Combat testing
+ 35.6 Navigation testing
+ 35.7 Economy testing
+ 35.8 Logistics testing
+ 35.9 Construction testing
+ 35.10 Production testing
+ 35.11 Offline 2-player testing
+ 35.12 Online multiplayer testing
+ 35.13 Persistent-world testing
+ 35.14 VR testing
+ 35.15 Server stress testing
+ 35.16 Massive-unit testing
+ 35.17 Save/load testing
+ 35.18 Recovery testing
+ 35.19 Security / anti-cheat testing
+ 35.20 Full-system playtesting
+UI TESTING
+ 35.21 Main RTS HUD testing
+ 35.22 Selection UI testing
+ 35.23 Command UI testing
+ 35.24 Squad UI testing
+ 35.25 Autonomy UI testing
+ 35.26 Intelligence UI testing
+ 35.27 Minimap testing
+ 35.28 Resource HUD testing
+ 35.29 Production UI testing
+ 35.30 Deployment UI testing
+ 35.31 Garage UI testing
+ 35.32 Store UI testing
+ 35.33 Multiplayer UI testing
+ 35.34 VR UI testing
+ 35.35 Settings testing
+ 35.36 Accessibility testing
+ 35.37 Resolution/scaling testing
+ 35.38 Input/controller testing
+ 35.39 Error/popup testing
+ 35.40 Full UI flow testing
+SECTION 36 — RELEASE
+ 36.1 Build pipeline
+ 36.2 Development build
+ 36.3 Internal test build
+ 36.4 PC build
+ 36.5 VR build
+ 36.6 Offline multiplayer build
+ 36.7 Online server build
+ 36.8 Performance certification
+ 36.9 Multiplayer certification
+ 36.10 Final bug fixing
+ 36.11 Final balance pass
+ 36.12 Final UI/UX pass
+ 36.13 Final VFX/SFX pass
+ 36.14 Security pass
+ 36.15 Steam preparation
+ 36.16 Store preparation
+ 36.17 Public test build
+ 36.18 Early access / launch preparation
+ 36.19 Launch build
+ 36.20 Post-launch infrastructure
+
+These release gates are preserved from the original master checklist.
+
+⚠️ IMPORTANT CORRECTIONS WE ARE NOW LOCKING IN
+1. UI is no longer a separate disconnected project
+
+The old master already had RTS UI in Section 18 and "Complete UI" at 30.19.
+
+Now the detailed UI inventory is nested under the system that actually produces the data.
+
+So:
+
+Resources → Economy → Resource HUD
+
+Production → Construction/Production → Production UI
+
+Deployment → Deployment system → Deployment UI
+
+Squads/AI → Autonomy → Autonomy UI
+
+Intelligence → Sensors → Intelligence UI
+
+RTS → Section 18 → Main battlefield HUD
+
+That prevents us from building pretty UI for systems that don't exist yet.

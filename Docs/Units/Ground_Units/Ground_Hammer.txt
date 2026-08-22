@@ -1,0 +1,130 @@
+
+🚜 GROUND UNIT — HAMMER
+ID:
+obs-ground-hammer
+Role: Heavy Breach / Structural Breaker
+Tier: Assault Engineering
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 4.9 m
+Width: 2.4 m
+Height: 2.1 m
+Mass: 1,800 kg
+Power Source: Industrial diesel‑electric hybrid
+Energy Capacity: 7200 Wh
+Fuel Capacity: 90 L
+Endurance: 4–7 hours
+Payload Capacity: 400 kg
+Modules: Hydraulic breach ram + reinforced chassis
+Navigation System: GPS + Breach AI
+Structural Integrity: 1,300 HP
+Armor Rating: 0.75
+Heat Signature: High
+Noise Signature: High
+Top Speed: 10 m/s
+Acceleration: Low
+Turning Radius: Tight
+Stability Rating: Maximum
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Breach / Structural Assault
+Aggression: 0.6
+Caution: 0.5
+Persistence: 1.0
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.4
+Target Priority: Barriers / fortifications / hardened structures
+Formation Discipline: High
+Risk Tolerance: High
+Sensors
+Visual Range: 1200 m
+Thermal Range: 500 m
+Acoustic Range: Medium
+Radar Range: None
+LiDAR Range: Medium
+Signal Detection Range: Short
+Communication
+Mesh Range: 4 km
+Relay Capacity: 0
+Command Link Type: Engineering Grid
+Network Priority: Medium
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: Low (ram only)
+Weapon Mounts: None
+Weapon Types: Hydraulic breach ram
+Accuracy: N/A
+Suppression Value: Low
+Tracking Strength: None
+Disruption Strength: High
+Breach Capability: Very High
+Countermeasure Rating: Medium
+Threat Modeling
+Threat Level: 6
+Engagement Distance: Contact
+Preferred Terrain: Fortified zones / breach points
+Preferred Targets: Walls, gates, bunkers
+Vulnerability Profile: Ballistic / explosives
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Breach / Assault Engineering
+Squad Size Contribution: 3
+Formation Behavior: Front‑line breach spacing
+Intent Interpretation Rules: Break fortifications
+Retreat Behavior: Late
+Breach Behavior: Primary
+Flanking Behavior: None
+Reinforcement Behavior: Supports assault squads
+Command Hierarchy
+Parent Command Unit: Command Core / Fusion
+Subordinate Units: Mule, Forge
+Relay Nodes: None
+Network Dependencies: Engineering Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Heavy Engineering Cockpit
+Operator HUD: Breach Overlay
+Camera Feeds: Optical + ram cam
+Thermal View: Yes
+LiDAR View: Yes
+Tactical Overlay: Structural integrity map
+Operator Controls
+Movement Controls: Heavy vehicle drive
+Tool Controls: Ram charge / impact / retract
+Sensor Controls: Thermal / LiDAR / zoom
+Ability Controls: Breach Mode, Stabilize, Structural Scan
+Operator Abilities
+Hydraulic Ram Charge
+Structural Weak‑Point Scan
+Breach Execution
+Reinforced Stance
+⚫ ECONOMY & LOGISTICS
+Build Cost: 900 Metal / 450 Electronics
+Build Time: 160 sec
+Factory Type: Vehicle Bay
+Tech Requirements: Engineering Systems II
+Maintenance Cost: High
+Repair Time: 40 sec
+Supply Consumption: High
+Operational Cost: High
+Deployment Requirements: Heavy vehicle pad
+Transport Compatibility: Heavy racks
+Launch Method: Drive‑out
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+60× Heavy Alloy Plates
+30× Reinforced Frame Rods
+10× Hydraulic Actuators
+6× Armor Panels
+1× Breach Ram Housing
+Electronics
+28× Circuit Bundles
+18× Signal Processors
+6× Vehicle Control Chips
+4× Engineering AI Chips
+Power
+1× Industrial Hybrid Engine Core
+3× Power Regulation Nodes
+Rare / Tradeable
+1× Hydraulic Ram Core
+Optional Upgrades
+Reinforced Ram
+Shock‑Dampened Chassis
+Extended Fuel Tank
+Anti‑Jamming Shielding

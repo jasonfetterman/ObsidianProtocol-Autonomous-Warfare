@@ -1,0 +1,128 @@
+	
+🌊 SEA UNIT — TIDEBREAKER	
+ID:	
+obs-sea-tidebreaker	
+Role: Heavy Marine Assault / Wave‑Stabilized Breaker Vessel	
+Tier: Heavy	
+Status: Active	
+⚫ PHYSICAL & TECHNICAL	
+Length: 14.0 m	
+Width: 5.5 m	
+Height: 4.0 m	
+Mass: 12,000 kg	
+Power Source: Dual marine diesel-electric turbines	
+Energy Capacity: 40,000 Wh	
+Fuel Capacity: 500 L	
+Endurance: 16–30 hours	
+Payload Capacity: 800 kg or 6 personnel	
+Modules:	
+	Reinforced breaker hull
+	Heavy stabilization fins
+	Forward impact prow
+	Marine assault suite
+Navigation System: Marine GPS + Assault AI	
+Structural Integrity: 2,400 HP	
+Armor Rating: 0.75	
+Heat Signature: Medium	
+Noise Signature: High	
+Top Speed: 9 m/s	
+Acceleration: Low	
+Turning Radius: Heavy marine turn	
+Stability Rating: Maximum (storm‑grade)	
+⚫ AUTONOMY & AI BEHAVIOR	
+Behavior Profile: Heavy assault / wave breaking / path clearing	
+Aggression: 0.7	
+Caution: 0.6	
+Persistence: 1.0	
+Retreat Threshold: 0.4	
+Target Priority: Obstacles / hostile marine positions	
+Formation Discipline: High	
+Risk Tolerance: High	
+Sensors	
+Visual Range: 2400 m	
+Thermal Range: 900 m	
+Acoustic Range: Medium	
+Sonar Range: Medium	
+Radar Range: Medium	
+Signal Detection Range: Medium	
+Communication	
+Mesh Range: 8 km	
+Relay Capacity: 2	
+Command Link Type: Marine Assault Grid	
+Network Priority: High	
+⚫ COMBAT & THREAT MODEL	
+Firepower Rating: Medium	
+Weapon Mounts: 2 (medium)	
+Weapon Types: Marine autocannon / suppression turret	
+Accuracy: Medium	
+Suppression Value: Medium	
+Tracking Strength: Medium	
+Disruption Strength: Medium	
+Breach Capability: Very High (breaker prow)	
+Countermeasure Rating: Medium	
+Threat Modeling	
+Threat Level: 7	
+Preferred Terrain: Rough waters / storm zones / assault lanes	
+Vulnerability Profile: Ballistic / torpedoes / heavy waves	
+⚫ SQUAD & COMMAND INTEGRATION	
+Squad Role: Heavy Marine Assault / Path Clearing	
+Squad Size Contribution: 4	
+Formation Behavior: Front‑line assault spacing	
+Intent Interpretation Rules: Break waves, clear paths, push forward	
+Retreat Behavior: Late	
+Reinforcement Behavior: Supports assault & marine squads	
+Command Hierarchy	
+Parent Command Unit: Fusion / Command Core	
+Subordinate Units: Harbor, Current	
+Relay Nodes: 2	
+Network Dependencies: Marine Assault Grid	
+⚫ VR OPERATOR MODE	
+Operator Seat Type: Heavy Assault Console	
+Operator HUD: Marine Assault Overlay	
+Camera Feeds: Optical + prow cam	
+Thermal View: Yes	
+Sonar View: Medium	
+Tactical Overlay: Wave contours / breach markers	
+Operator Controls	
+Movement Controls: Heavy marine drive	
+Weapon Controls: Turrets	
+Sensor Controls: Thermal / sonar / zoom	
+Ability Controls: Break Wave, Stabilize, Breach Mode	
+Operator Abilities	
+Wave Break	
+Hull Ram	
+Suppression Burst	
+Assault Relay	
+⚫ ECONOMY & LOGISTICS	
+Build Cost: 1,400 Metal / 700 Electronics	
+Build Time: 200 sec	
+Factory Type: Marine Bay	
+Tech Requirements: Marine Systems III	
+Maintenance Cost: High	
+Repair Time: 55 sec	
+Supply Consumption: High	
+Operational Cost: High	
+Deployment Requirements: Heavy water launch pad	
+Transport Compatibility: Heavy marine racks	
+Launch Method: Water drop	
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)	
+Common Components	
+80× Marine Alloy Plates	
+40× Reinforced Marine Rods	
+12× Hydraulic Actuators	
+4× Armor Panels	
+1× Breaker Hull Assembly	
+Electronics	
+36× Circuit Bundles	
+22× Signal Processors	
+6× Marine Control Chips	
+3× Assault AI Chips	
+Power	
+1× Dual Marine Turbine Core	
+3× Power Regulation Nodes	
+Rare / Tradeable	
+1× Breaker Prow Module	
+Optional Upgrades	
+Reinforced Hull	
+Extended Fuel Tank	
+Anti‑Jamming Shielding	

@@ -1,0 +1,136 @@
+
+✈️ AIR UNIT #14 — NIGHTGUARD
+ID:
+obs-air-nightguard
+Role: Night Surveillance / Thermal Recon
+Tier: Advanced Recon
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 2.6 m
+Width: 2.0 m
+Height: 0.9 m
+Mass: 22 kg
+Power Source: High‑density battery
+Energy Capacity: 2400 Wh
+Energy Consumption: 50 Wh/min
+Endurance: 35–55 min
+Payload Capacity: 1.5 kg
+Modules: Thermal imaging suite
+Navigation System: GPS + Night‑Ops AI
+Structural Integrity: 130 HP
+Armor Rating: 0.18
+Heat Signature: Very Low
+Noise Signature: Very Low
+Top Speed: 21 m/s
+Acceleration: Medium
+Turning Radius: Tight
+Climb Rate: Medium
+Stability Rating: Very High (night hover stability)
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Night Surveillance / Thermal Recon
+Aggression: 0.1
+Caution: 0.9
+Persistence: 0.8
+Flanking Likelihood: 0.1
+Retreat Threshold: 0.75
+Target Priority: Heat signatures / movement
+Formation Discipline: High
+Risk Tolerance: Low
+Sensors
+Visual Range: 1200 m
+Thermal Range: 1800 m (very high)
+Acoustic Range: Medium
+Radar Range: None
+LiDAR Range: Short‑range
+Signal Detection Range: Medium
+Communication
+Mesh Range: 6 km
+Relay Capacity: 0
+Command Link Type: Night‑Ops Grid
+Network Priority: High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: 0
+Accuracy: N/A
+Stabilization: Very High
+Weapon Mounts: None
+Weapon Types: None
+Suppression Value: 0
+Tracking Strength: High
+Disruption Strength: Low
+Breach Capability: None
+Countermeasure Rating: Medium
+Threat Modeling
+Threat Level: 3
+Engagement Distance: N/A
+Preferred Terrain: Low‑light airspace
+Preferred Targets: Heat signatures / moving targets
+Vulnerability Profile: Ballistic / weather / jamming
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Night Surveillance
+Squad Size Contribution: 1
+Formation Behavior: Night‑ops spacing
+Intent Interpretation Rules: Maintain thermal lock, avoid conflict
+Retreat Behavior: Medium
+Breach Behavior: None
+Flanking Behavior: Minimal
+Reinforcement Behavior: Supports recon and security squads
+Command Hierarchy
+Parent Command Unit: Overseer / Insight
+Subordinate Units: None
+Relay Nodes: None
+Network Dependencies: Night‑Ops Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Drone View
+Operator HUD: Night‑Ops Thermal Overlay
+Camera Feeds: Optical
+Thermal View: Yes (high‑resolution)
+LiDAR View: Yes (short‑range)
+Sonar View: No
+Tactical Overlay: Thermal markers / movement indicators
+Operator Controls
+Movement Controls: Full drone flight
+Sensor Controls: Thermal / zoom / LiDAR
+Ability Controls: Thermal Lock, Scan, Stabilize
+Weapon Controls: None
+Stabilization Controls: Auto‑hover
+Operator Abilities
+Thermal Lock
+Night Scan
+LiDAR Sweep
+Stabilize
+Relay Thermal Data
+⚫ ECONOMY & LOGISTICS
+Build Cost: 180 Metal / 170 Electronics
+Build Time: 55 sec
+Factory Type: Drone Bay
+Tech Requirements: Night‑Ops Systems I
+Maintenance Cost: Medium
+Repair Time: 14 sec
+Supply Consumption: Medium
+Operational Cost: Moderate
+Deployment Requirements: Standard drone pad
+Transport Compatibility: All aerial racks
+Launch Method: Vertical takeoff
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+14× Medium Alloy Plates
+10× Composite Frame Rods
+6× Micro‑Servo Actuators
+3× Stabilizer Fins
+1× Thermal Sensor Housing
+Electronics
+14× Circuit Bundles
+10× Signal Processors
+4× Drone Control Chips
+3× Thermal AI Chips
+Power
+1× High‑Density Battery Pack
+2× Power Regulation Nodes
+Rare / Tradeable
+1× High‑Resolution Thermal Core
+1× Night‑Ops Microprocessor
+Optional Upgrades
+Ultra‑Thermal Lens
+Anti‑Jamming Shielding
+Silent Rotor Kit
+Extended Battery Module

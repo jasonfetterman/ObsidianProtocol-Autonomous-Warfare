@@ -1,0 +1,136 @@
+
+✈️ AIR UNIT #20 — SAR
+ID:
+obs-air-sar
+Role: Search & Rescue / Survival Extraction
+Tier: Advanced Support
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 3.3 m
+Width: 2.4 m
+Height: 1.2 m
+Mass: 30 kg
+Power Source: High‑capacity rescue battery
+Energy Capacity: 3000 Wh
+Energy Consumption: 70 Wh/min
+Endurance: 30–45 min
+Payload Capacity: 3.0 kg (rescue harness + supply bay)
+Modules: SAR harness, thermal search suite
+Navigation System: GPS + Rescue Pathfinding AI
+Structural Integrity: 160 HP
+Armor Rating: 0.26
+Heat Signature: Medium
+Noise Signature: Medium
+Top Speed: 24 m/s
+Acceleration: Medium
+Turning Radius: Tight
+Climb Rate: High
+Stability Rating: Very High (hover‑lock for extraction)
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Search & Rescue / Extraction
+Aggression: 0.0
+Caution: 0.9
+Persistence: 0.95
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.85
+Target Priority: Survivors / distress signals
+Formation Discipline: Medium
+Risk Tolerance: Medium
+Sensors
+Visual Range: 1600 m
+Thermal Range: 1800 m
+Acoustic Range: High (survivor detection)
+Radar Range: None
+LiDAR Range: Short‑range
+Signal Detection Range: High
+Communication
+Mesh Range: 6 km
+Relay Capacity: 0
+Command Link Type: Rescue Grid
+Network Priority: High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: 0
+Accuracy: N/A
+Stabilization: Very High
+Weapon Mounts: None
+Weapon Types: None
+Suppression Value: 0
+Tracking Strength: High
+Disruption Strength: Low
+Breach Capability: None
+Countermeasure Rating: Medium
+Threat Modeling
+Threat Level: 3
+Engagement Distance: N/A
+Preferred Terrain: Rescue corridors / disaster zones
+Preferred Targets: None
+Vulnerability Profile: Ballistic / weather
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Search & Rescue
+Squad Size Contribution: 1
+Formation Behavior: SAR spacing
+Intent Interpretation Rules: Prioritize survivor extraction
+Retreat Behavior: Medium
+Breach Behavior: None
+Flanking Behavior: None
+Reinforcement Behavior: Supports rescue, logistics, and command squads
+Command Hierarchy
+Parent Command Unit: Rescue / Command Core
+Subordinate Units: Lifeline, Response
+Relay Nodes: None
+Network Dependencies: Rescue Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Drone View
+Operator HUD: SAR Overlay
+Camera Feeds: Optical
+Thermal View: Yes (high‑resolution)
+LiDAR View: Yes (short‑range)
+Sonar View: Yes (acoustic survivor detection)
+Tactical Overlay: Survivor markers / extraction zones
+Operator Controls
+Movement Controls: Full drone flight
+Sensor Controls: Thermal / LiDAR / sonar / zoom
+Ability Controls: Deploy Harness, Scan, Stabilize
+Weapon Controls: None
+Stabilization Controls: Auto‑hover + extraction lock
+Operator Abilities
+Survivor Extraction Harness
+Thermal Search
+Sonar Sweep
+LiDAR Scan
+Relay Rescue Data
+⚫ ECONOMY & LOGISTICS
+Build Cost: 220 Metal / 230 Electronics
+Build Time: 70 sec
+Factory Type: Drone Bay
+Tech Requirements: Rescue Systems III
+Maintenance Cost: Medium
+Repair Time: 18 sec
+Supply Consumption: Medium
+Operational Cost: Moderate
+Deployment Requirements: Standard drone pad
+Transport Compatibility: All aerial racks
+Launch Method: Vertical takeoff
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+16× Medium Alloy Plates
+12× Composite Frame Rods
+6× Micro‑Servo Actuators
+3× Stabilizer Fins
+1× SAR Harness Housing
+Electronics
+16× Circuit Bundles
+12× Signal Processors
+4× Drone Control Chips
+4× Rescue AI Chips
+Power
+1× High‑Capacity Rescue Battery
+3× Power Regulation Nodes
+Rare / Tradeable
+1× Survivor Detection Core
+1× Rescue Pathfinding Processor
+Optional Upgrades
+Extended Battery Module
+Silent Rotor Kit
+High‑Capacity Harness
+Anti‑Jamming Shielding

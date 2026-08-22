@@ -1,0 +1,132 @@
+
+✈️ AIR UNIT — TRACKER
+ID:
+obs-air-tracker
+Role: Mobile Target‑Tracking Recon
+Tier: Recon
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 2.7 m
+Width: 2.0 m
+Height: 0.9 m
+Mass: 22 kg
+Power Source: Mid‑capacity battery
+Energy Capacity: 2400 Wh
+Energy Consumption: 40 Wh/min
+Endurance: 45–65 min
+Payload Capacity: 1.2 kg
+Modules: Motion‑tracking optics + pursuit stabilization
+Navigation System: GPS + Target‑Tracking AI
+Structural Integrity: 130 HP
+Armor Rating: 0.20
+Heat Signature: Low
+Noise Signature: Low
+Top Speed: 24 m/s
+Acceleration: High
+Turning Radius: Tight
+Climb Rate: Medium
+Stability Rating: High
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Mobile Tracking / Pursuit Recon
+Aggression: 0.0
+Caution: 0.8
+Persistence: 1.0
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.85
+Target Priority: Moving targets
+Formation Discipline: Medium
+Risk Tolerance: Medium
+Sensors
+Visual Range: 2200 m
+Thermal Range: 800 m
+Acoustic Range: Medium
+Radar Range: None
+LiDAR Range: Short
+Signal Detection Range: Medium
+Communication
+Mesh Range: 6 km
+Relay Capacity: 0
+Command Link Type: Recon Grid
+Network Priority: Medium
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: 0
+Accuracy: N/A
+Stabilization: High
+Weapon Mounts: None
+Weapon Types: None
+Suppression Value: 0
+Tracking Strength: Very High
+Disruption Strength: Low
+Breach Capability: None
+Countermeasure Rating: Low
+Threat Modeling
+Threat Level: 2
+Engagement Distance: N/A
+Preferred Terrain: Open lanes / pursuit corridors
+Preferred Targets: Moving units
+Vulnerability Profile: Ballistic / weather
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Mobile Tracking Recon
+Squad Size Contribution: 1
+Formation Behavior: Pursuit spacing
+Intent Interpretation Rules: Maintain lock on moving targets
+Retreat Behavior: Early
+Breach Behavior: None
+Flanking Behavior: None
+Reinforcement Behavior: Supports recon and command squads
+Command Hierarchy
+Parent Command Unit: Insight / Overseer
+Subordinate Units: Spotter, Scout Eye, Survey
+Relay Nodes: None
+Network Dependencies: Recon Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Tracking Drone View
+Operator HUD: Motion‑Tracking Overlay
+Camera Feeds: Optical
+Thermal View: Yes
+LiDAR View: Yes (short‑range)
+Tactical Overlay: Movement vectors / lock indicators
+Operator Controls
+Movement Controls: Full drone flight
+Sensor Controls: Thermal / LiDAR / zoom
+Ability Controls: Acquire Lock, Mark Target, Stabilize
+Weapon Controls: None
+Stabilization Controls: Auto‑hover
+Operator Abilities
+Motion Lock
+Pursuit Tracking
+Mark Moving Target
+Relay Recon Data
+⚫ ECONOMY & LOGISTICS
+Build Cost: 140 Metal / 100 Electronics
+Build Time: 45 sec
+Factory Type: Drone Bay
+Tech Requirements: Recon Systems II
+Maintenance Cost: Low
+Repair Time: 13 sec
+Supply Consumption: Low
+Operational Cost: Minimal
+Deployment Requirements: Standard drone pad
+Transport Compatibility: All aerial racks
+Launch Method: Vertical takeoff
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+12× Light Alloy Plates
+9× Composite Frame Rods
+4× Micro‑Servo Actuators
+2× Stabilizer Fins
+1× Tracking Sensor Housing
+Electronics
+12× Circuit Bundles
+9× Signal Processors
+3× Drone Control Chips
+2× Recon AI Chips
+Power
+1× Mid‑Capacity Battery Pack
+2× Power Regulation Nodes
+Rare / Tradeable
+1× Motion‑Tracking Optics Core
+Optional Upgrades
+Extended Battery Pack
+Silent Rotor Kit
+High‑Density Recon Grid

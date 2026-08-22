@@ -1,0 +1,129 @@
+
+🚜 GROUND UNIT — FORGE
+ID:
+obs-ground-forge
+Role: Field Construction / Mobile Fabrication
+Tier: Engineering
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 4.6 m
+Width: 2.3 m
+Height: 2.0 m
+Mass: 1,450 kg
+Power Source: Heavy industrial generator + auxiliary battery
+Energy Capacity: 6800 Wh
+Fuel Capacity: 80 L
+Endurance: 5–8 hours
+Payload Capacity: 500 kg (materials)
+Modules: Fabrication arm + welding suite + structural scanner
+Navigation System: GPS + Construction AI
+Structural Integrity: 1,000 HP
+Armor Rating: 0.55
+Heat Signature: Medium
+Noise Signature: High
+Top Speed: 12 m/s
+Acceleration: Low
+Turning Radius: Moderate
+Stability Rating: Very High
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Construction / Repair / Deployment
+Aggression: 0.0
+Caution: 0.9
+Persistence: 1.0
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.7
+Target Priority: Damaged structures / build sites
+Formation Discipline: High
+Risk Tolerance: Low
+Sensors
+Visual Range: 1500 m
+Thermal Range: 600 m
+Acoustic Range: Medium
+Radar Range: None
+LiDAR Range: Medium
+Signal Detection Range: Short
+Communication
+Mesh Range: 4 km
+Relay Capacity: 1
+Command Link Type: Engineering Grid
+Network Priority: High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: 0
+Weapon Mounts: None
+Weapon Types: None
+Suppression Value: 0
+Tracking Strength: Low
+Disruption Strength: Medium (construction tools)
+Breach Capability: Medium (structural arm)
+Countermeasure Rating: Low
+Threat Modeling
+Threat Level: 3
+Engagement Distance: N/A
+Preferred Terrain: Build zones / forward bases
+Preferred Targets: None
+Vulnerability Profile: Ballistic / explosives
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Engineering / Construction
+Squad Size Contribution: 3
+Formation Behavior: Build‑site spacing
+Intent Interpretation Rules: Prioritize repairs and construction
+Retreat Behavior: Early
+Breach Behavior: Structural arm only
+Flanking Behavior: None
+Reinforcement Behavior: Supports all squads via repairs
+Command Hierarchy
+Parent Command Unit: Command Core / Fusion
+Subordinate Units: Mule, Hauler
+Relay Nodes: 1
+Network Dependencies: Engineering Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Engineering Cockpit
+Operator HUD: Construction Overlay
+Camera Feeds: Optical + arm cam
+Thermal View: Yes
+LiDAR View: Yes
+Tactical Overlay: Build zones / repair markers
+Operator Controls
+Movement Controls: Full vehicle drive
+Tool Controls: Welding, cutting, fabrication arm
+Sensor Controls: Thermal / LiDAR / zoom
+Ability Controls: Deploy Structure, Repair, Scan Integrity
+Operator Abilities
+Structural Repair
+Rapid Deployment
+Material Fabrication
+Build Zone Marking
+⚫ ECONOMY & LOGISTICS
+Build Cost: 700 Metal / 400 Electronics
+Build Time: 140 sec
+Factory Type: Vehicle Bay
+Tech Requirements: Engineering Systems I
+Maintenance Cost: Medium
+Repair Time: 35 sec
+Supply Consumption: Medium
+Operational Cost: Moderate
+Deployment Requirements: Vehicle pad
+Transport Compatibility: Heavy racks
+Launch Method: Drive‑out
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+50× Heavy Alloy Plates
+24× Reinforced Frame Rods
+8× Hydraulic Actuators
+4× Armor Panels
+1× Fabrication Arm Housing
+Electronics
+24× Circuit Bundles
+16× Signal Processors
+5× Vehicle Control Chips
+3× Engineering AI Chips
+Power
+1× Industrial Generator Core
+3× Power Regulation Nodes
+Rare / Tradeable
+1× Precision Welding Module
+Optional Upgrades
+Reinforced Arm
+Silent Generator Kit
+Extended Fuel Tank
+Anti‑Jamming Shielding

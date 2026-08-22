@@ -1,0 +1,133 @@
+
+✈️ AIR UNIT #26 — THERMAL
+ID:
+obs-air-thermal
+Role: High‑Resolution Heat Detection / Night Recon
+Tier: Recon Support
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 2.1 m
+Width: 1.5 m
+Height: 0.8 m
+Mass: 15 kg
+Power Source: Mid‑capacity battery
+Energy Capacity: 1700 Wh
+Energy Consumption: 36 Wh/min
+Endurance: 35–55 min
+Payload Capacity: 1.0 kg
+Modules: High‑resolution thermal camera
+Navigation System: GPS + Thermal AI
+Structural Integrity: 110 HP
+Armor Rating: 0.14
+Heat Signature: Very Low
+Noise Signature: Very Low
+Top Speed: 19 m/s
+Acceleration: Medium
+Turning Radius: Tight
+Climb Rate: Medium
+Stability Rating: High
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Thermal Recon / Heat Detection
+Aggression: 0.0
+Caution: 0.9
+Persistence: 0.85
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.9
+Target Priority: Heat signatures / movement
+Formation Discipline: Medium
+Risk Tolerance: Low
+Sensors
+Visual Range: 1400 m
+Thermal Range: 2000 m (very high)
+Acoustic Range: Low
+Radar Range: None
+LiDAR Range: Short‑range
+Signal Detection Range: Medium
+Communication
+Mesh Range: 5 km
+Relay Capacity: 0
+Command Link Type: Recon Grid
+Network Priority: Medium
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: 0
+Accuracy: N/A
+Stabilization: High
+Weapon Mounts: None
+Weapon Types: None
+Suppression Value: 0
+Tracking Strength: High
+Disruption Strength: Low
+Breach Capability: None
+Countermeasure Rating: Low
+Threat Modeling
+Threat Level: 2
+Engagement Distance: N/A
+Preferred Terrain: Low‑light airspace
+Preferred Targets: None
+Vulnerability Profile: Ballistic / weather
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Thermal Recon
+Squad Size Contribution: 1
+Formation Behavior: Night‑ops spacing
+Intent Interpretation Rules: Maintain thermal visibility
+Retreat Behavior: Early
+Breach Behavior: None
+Flanking Behavior: None
+Reinforcement Behavior: Supports recon and command squads
+Command Hierarchy
+Parent Command Unit: Overseer / Insight
+Subordinate Units: None
+Relay Nodes: None
+Network Dependencies: Recon Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Drone View
+Operator HUD: Thermal Recon Overlay
+Camera Feeds: Optical
+Thermal View: Yes (high‑resolution)
+LiDAR View: Yes (short‑range)
+Sonar View: No
+Tactical Overlay: Heat markers / movement indicators
+Operator Controls
+Movement Controls: Full drone flight
+Sensor Controls: Thermal / LiDAR / zoom
+Ability Controls: Thermal Scan, Mark Target, Stabilize
+Weapon Controls: None
+Stabilization Controls: Auto‑hover
+Operator Abilities
+High‑Resolution Thermal Scan
+Mark Heat Target
+LiDAR Sweep
+Relay Recon Data
+⚫ ECONOMY & LOGISTICS
+Build Cost: 100 Metal / 90 Electronics
+Build Time: 30 sec
+Factory Type: Drone Bay
+Tech Requirements: Recon Systems II
+Maintenance Cost: Low
+Repair Time: 10 sec
+Supply Consumption: Low
+Operational Cost: Minimal
+Deployment Requirements: Standard drone pad
+Transport Compatibility: All aerial racks
+Launch Method: Vertical takeoff
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+10× Light Alloy Plates
+6× Composite Frame Rods
+4× Micro‑Servo Actuators
+2× Stabilizer Fins
+1× Thermal Sensor Housing
+Electronics
+10× Circuit Bundles
+8× Signal Processors
+3× Drone Control Chips
+2× Thermal AI Chips
+Power
+1× Mid‑Capacity Battery Pack
+2× Power Regulation Nodes
+Rare / Tradeable
+1× High‑Resolution Thermal Core
+Optional Upgrades
+Silent Rotor Kit
+Extended Battery Pack
+Ultra‑Thermal Lens

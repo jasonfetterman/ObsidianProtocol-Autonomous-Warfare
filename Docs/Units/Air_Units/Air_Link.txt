@@ -1,0 +1,135 @@
+
+✈️ AIR UNIT #10 — LINK
+ID:
+obs-air-link
+Role: Network Bridge / Signal Routing Drone
+Tier: Operational
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 1.9 m
+Width: 1.4 m
+Height: 0.7 m
+Mass: 14 kg
+Power Source: High‑efficiency battery
+Energy Capacity: 1700 Wh
+Energy Consumption: 30 Wh/min
+Endurance: 40–55 min
+Payload Capacity: 1.0 kg
+Modules: Dual antenna array
+Navigation System: GPS + Mesh Routing AI
+Structural Integrity: 100 HP
+Armor Rating: 0.12
+Heat Signature: Low
+Noise Signature: Low
+Top Speed: 18 m/s
+Acceleration: Medium
+Turning Radius: Tight
+Climb Rate: Medium
+Stability Rating: High
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Network Bridge / Signal Routing
+Aggression: 0.0
+Caution: 0.8
+Persistence: 0.7
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.8
+Target Priority: Network gaps / weak mesh zones
+Formation Discipline: High
+Risk Tolerance: Low
+Sensors
+Visual Range: 900 m
+Thermal Range: 400 m
+Acoustic Range: Low
+Radar Range: None
+LiDAR Range: None
+Signal Detection Range: High
+Communication
+Mesh Range: 15 km
+Relay Capacity: 6 nodes
+Command Link Type: Mesh‑Optimized
+Network Priority: High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: 0
+Accuracy: N/A
+Stabilization: High
+Weapon Mounts: None
+Weapon Types: None
+Suppression Value: 0
+Tracking Strength: Low
+Disruption Strength: Medium
+Breach Capability: None
+Countermeasure Rating: Low
+Threat Modeling
+Threat Level: 2
+Engagement Distance: N/A
+Preferred Terrain: High‑altitude mesh corridors
+Preferred Targets: None
+Vulnerability Profile: Ballistic / EMP / jamming
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Network Bridge
+Squad Size Contribution: 1
+Formation Behavior: Mesh‑optimized spacing
+Intent Interpretation Rules: Maintain coverage, avoid conflict
+Retreat Behavior: Early
+Breach Behavior: None
+Flanking Behavior: None
+Reinforcement Behavior: Supports communication squads
+Command Hierarchy
+Parent Command Unit: NexusGrid / Overseer
+Subordinate Units: None
+Relay Nodes: 6
+Network Dependencies: Warden mesh grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Drone View
+Operator HUD: Mesh Bridge Overlay
+Camera Feeds: Optical
+Thermal View: Yes
+LiDAR View: No
+Sonar View: No
+Tactical Overlay: Mesh coverage visualization
+Operator Controls
+Movement Controls: Full drone flight
+Sensor Controls: Signal scan / relay diagnostics
+Ability Controls: Deploy Bridge, Boost Signal
+Weapon Controls: None
+Stabilization Controls: Auto‑hover
+Operator Abilities
+Deploy Bridge Node
+Boost Signal
+Network Scan
+Mesh Diagnostics
+⚫ ECONOMY & LOGISTICS
+Build Cost: 150 Metal / 140 Electronics
+Build Time: 50 sec
+Factory Type: Drone Bay
+Tech Requirements: Mesh Networking I
+Maintenance Cost: Low
+Repair Time: 12 sec
+Supply Consumption: Low
+Operational Cost: Minimal
+Deployment Requirements: Standard drone pad
+Transport Compatibility: All aerial racks
+Launch Method: Vertical takeoff
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+12× Light Alloy Plates
+8× Composite Frame Rods
+6× Micro‑Servo Actuators
+2× Stabilizer Fins
+1× Dual Antenna Housing
+Electronics
+12× Circuit Bundles
+8× Signal Processors
+4× Drone Control Chips
+2× Mesh Routing Chips
+Power
+1× High‑Efficiency Battery Pack
+2× Power Regulation Nodes
+Rare / Tradeable
+1× Mesh‑Grade Antenna Array
+1× Encrypted Bridge Core
+Optional Upgrades
+Extended Mesh Range Module
+Signal Boost Amplifier
+Anti‑Jamming Shielding
+Silent Rotor Kit
