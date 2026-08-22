@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class HealthSystem
 {
@@ -7,39 +7,36 @@ public class HealthSystem
 
     public bool IsDestroyed => CurrentHealth <= 0f;
 
-    // Apply damage
     public void TakeDamage(float amount)
     {
-        Debug.Log($\"HealthSystem: Taking {amount} damage.\");
+        Debug.Log($"HealthSystem: Taking {amount} damage.");
 
         CurrentHealth -= amount;
         CurrentHealth = Mathf.Clamp(CurrentHealth, 0f, MaxHealth);
 
         if (IsDestroyed)
         {
-            Debug.Log(\"Unit destroyed.\");
+            Debug.Log("Unit destroyed.");
         }
         else
         {
-            Debug.Log($\"Current health: {CurrentHealth}/{MaxHealth}\");
+            Debug.Log($"Current health: {CurrentHealth}/{MaxHealth}");
         }
     }
 
-    // Heal the unit
     public void Heal(float amount)
     {
-        Debug.Log($\"HealthSystem: Healing {amount} HP.\");
+        Debug.Log($"HealthSystem: Healing {amount} HP.");
 
         CurrentHealth += amount;
         CurrentHealth = Mathf.Clamp(CurrentHealth, 0f, MaxHealth);
 
-        Debug.Log($\"Current health: {CurrentHealth}/{MaxHealth}\");
+        Debug.Log($"Current health: {CurrentHealth}/{MaxHealth}");
     }
 
-    // Reset health to full
     public void ResetHealth()
     {
         CurrentHealth = MaxHealth;
-        Debug.Log(\"Health reset to maximum.\");
+        Debug.Log("Health reset to maximum.");
     }
 }

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ProjectileSystem : MonoBehaviour
 {
@@ -17,20 +17,22 @@ public class ProjectileSystem : MonoBehaviour
 
         launched = true;
 
-        Debug.Log($\"Projectile launched from {origin} toward {target} at speed {speed}.\");
+        Debug.Log($"Projectile launched from {origin} toward {target} at speed {speed}.");
     }
 
     private void Update()
     {
         if (!launched) return;
 
-        // Move toward target
-        transform.position = Vector3.MoveTowards(transform.position, TargetPosition, Speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            TargetPosition,
+            Speed * Time.deltaTime
+        );
 
-        // Impact check
         if (Vector3.Distance(transform.position, TargetPosition) < 0.1f)
         {
-            Debug.Log($\"Projectile impacted at {TargetPosition}, dealing {Damage} damage.\");
+            Debug.Log($"Projectile impacted at {TargetPosition}, dealing {Damage} damage.");
             Destroy(gameObject);
         }
     }

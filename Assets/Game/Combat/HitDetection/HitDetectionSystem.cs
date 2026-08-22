@@ -1,35 +1,41 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ObsidianProtocol.Game.Combat.HitDetection
 {
     public sealed class HitDetectionSystem : MonoBehaviour
     {
-        [SerializeField] private HitDetectionDefinition definition;
+        [SerializeField] private LayerMask targetLayers = ~0;
+        [SerializeField] private float maxRayDistance = 10000f;
 
-        public HitDetectionDefinition Definition => definition;
+        public bool TryDetectHit(
+            Vector3 origin,
+            Vector3 direction,
+            out RaycastHit hit)
+        {
+            hit = default;
+
+            if (direction.sqrMagnitude <= 0.0001f)
+            {
+                return false;
+            }
+
+            return Physics.Raycast(
+                origin,
+                direction.normalized,
+                out hit,
+                Mathf.Max(0.01f, maxRayDistance),
+                targetLayers,
+                QueryTriggerInteraction.Ignore);
+        }
 
         public bool TryDetectHit(
             Ray ray,
             out RaycastHit hit)
         {
-            hit = default;
-
-            float maxDistance =
-                definition != null
-                    ? definition.MaximumHitDistance
-                    : 5000f;
-
-            LayerMask hitMask =
-                definition != null
-                    ? definition.HitMask
-                    : ~0;
-
-            return Physics.Raycast(
-                ray,
-                out hit,
-                maxDistance,
-                hitMask,
-                QueryTriggerInteraction.Ignore);
+            return TryDetectHit(
+                ray.origin,
+                ray.direction,
+                out hit);
         }
     }
 }

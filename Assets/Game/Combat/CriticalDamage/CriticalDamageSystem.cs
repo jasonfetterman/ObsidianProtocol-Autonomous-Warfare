@@ -1,43 +1,35 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ObsidianProtocol.Game.Combat.CriticalDamage
 {
-    public sealed class CriticalDamageSystem : MonoBehaviour
+    public sealed class CriticalDamageSystem
     {
-        [SerializeField] private CriticalDamageDefinition definition;
+        private readonly float criticalMultiplier;
 
-        public CriticalDamageDefinition Definition => definition;
-
-        public bool RollCritical()
+        public CriticalDamageSystem(
+            float criticalMultiplier = 2f)
         {
-            if (definition == null)
-            {
-                return false;
-            }
-
-            return Random.value <= definition.CriticalChance;
+            this.criticalMultiplier =
+                Mathf.Max(1f, criticalMultiplier);
         }
 
-        public float ApplyCriticalMultiplier(float damage)
+        public float CalculateDamage(
+            float baseDamage,
+            bool criticalHit)
         {
-            if (damage <= 0f || definition == null)
-            {
-                return Mathf.Max(0f, damage);
-            }
+            float damage =
+                Mathf.Max(0f, baseDamage);
 
-            return damage * definition.CriticalMultiplier;
+            return criticalHit
+                ? damage * criticalMultiplier
+                : damage;
         }
 
-        public float ResolveDamage(float damage, out bool wasCritical)
+        public bool IsCritical(
+            float criticalChance)
         {
-            wasCritical = RollCritical();
-
-            if (!wasCritical)
-            {
-                return Mathf.Max(0f, damage);
-            }
-
-            return ApplyCriticalMultiplier(damage);
+            return Random.value <
+                   Mathf.Clamp01(criticalChance);
         }
     }
 }

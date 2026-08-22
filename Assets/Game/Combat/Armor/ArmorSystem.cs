@@ -1,52 +1,53 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ObsidianProtocol.Game.Combat.Armor
 {
-    public sealed class ArmorSystem : MonoBehaviour
+    public sealed class ArmorSystem
     {
-        [SerializeField] private ArmorDefinition definition;
+        public float MaxArmor { get; private set; }
+        public float CurrentArmor { get; private set; }
 
-        public ArmorDefinition Definition => definition;
+        public bool IsDepleted =>
+            CurrentArmor <= 0f;
 
-        public float GetArmorValue(Vector3 localHitDirection)
+        public ArmorSystem(float armor)
         {
-            if (definition == null)
-            {
-                return 0f;
-            }
-
-            Vector3 direction = localHitDirection.normalized;
-
-            if (direction.y > 0.5f)
-            {
-                return definition.TopArmor;
-            }
-
-            if (direction.z >= 0.5f)
-            {
-                return definition.FrontArmor;
-            }
-
-            if (direction.z <= -0.5f)
-            {
-                return definition.RearArmor;
-            }
-
-            return definition.SideArmor;
+            MaxArmor = Mathf.Max(0f, armor);
+            CurrentArmor = MaxArmor;
         }
 
-        public float AbsorbDamage(
-            float incomingDamage,
-            Vector3 localHitDirection)
+        public float AbsorbDamage(float damage)
         {
-            if (incomingDamage <= 0f)
+            if (damage <= 0f || CurrentArmor <= 0f)
             {
-                return 0f;
+                return Mathf.Max(0f, damage);
             }
 
-            float armor = GetArmorValue(localHitDirection);
+            float absorbed =
+                Mathf.Min(CurrentArmor, damage);
 
-            return Mathf.Max(0f, incomingDamage - armor);
+            CurrentArmor -= absorbed;
+
+            return damage - absorbed;
+        }
+
+        public void Restore(float amount)
+        {
+            if (amount <= 0f)
+            {
+                return;
+            }
+
+            CurrentArmor =
+                Mathf.Clamp(
+                    CurrentArmor + amount,
+                    0f,
+                    MaxArmor);
+        }
+
+        public void Reset()
+        {
+            CurrentArmor = MaxArmor;
         }
     }
 }
