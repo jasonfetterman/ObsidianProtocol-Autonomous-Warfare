@@ -1,0 +1,464 @@
+OFFICIAL OBSIDIAN PROTOCOL
+
+FIELD MANUAL
+
+COMMANDER'S OPERATIONAL HANDBOOK
+
+FRONT MATTER
+
+Cover
+
+Obsidian Protocol insignia
+FIELD MANUAL
+COMMANDER'S OPERATIONAL HANDBOOK
+Version / revision
+Classification-style markings
+
+Inside Cover
+
+Publication information
+Developer
+Game version
+Manual version
+Copyright
+
+Commander's Foreword
+
+The purpose of the manual
+The nature of autonomous warfare
+The commander's responsibility
+
+How to Use This Manual
+
+Doctrine
+Tactics
+Techniques
+Procedures
+Quick-reference sections
+
+Field Manual Principles
+
+Command with intent
+Maintain information superiority
+Preserve combat power
+Exploit autonomy
+Adapt continuously
+
+PART I — THE AUTONOMOUS BATTLEFIELD
+
+Chapter 1 — The New Battlefield
+
+Autonomous warfare
+Human-machine warfare
+Multi-domain combat
+Battlefield complexity
+Information dominance
+
+Chapter 2 — The Commander
+
+Commander's role
+Strategic thinking
+Tactical thinking
+Decision-making
+Risk management
+Responsibility
+
+Chapter 3 — Command Intent
+
+Intent philosophy
+Desired outcome
+Constraints
+Priorities
+Rules of engagement
+Autonomy boundaries
+
+Chapter 4 — The Autonomous Force
+
+Ground forces
+Air forces
+Naval forces
+Command units
+Experimental forces
+
+Chapter 5 — The Operational Environment
+
+Terrain
+Weather
+Visibility
+Infrastructure
+Airspace
+Water
+Information environment
+
+PART II — COMMAND AND CONTROL
+
+Chapter 6 — Command Structure
+
+Strategic
+Operational
+Tactical
+Fleet
+Group
+Unit
+
+Chapter 7 — Command Networks
+
+Command links
+Data links
+Relay units
+Communication range
+Network structure
+
+Chapter 8 — Command Authority
+
+Authority
+Ownership
+Delegation
+Restrictions
+Loss of command
+
+Chapter 9 — Orders and Intent
+
+Creating orders
+Assigning orders
+Modifying orders
+Cancelling orders
+Conflicting orders
+
+Chapter 10 — Priority Management
+Mission priority
+Objective priority
+Threat priority
+Survival priority
+Resource priority
+
+Chapter 11 — Rules of Engagement
+
+Engagement restrictions
+Target restrictions
+Aggression
+Risk tolerance
+Civilian restrictions
+
+Chapter 12 — Command Failure
+
+Communication loss
+Unit isolation
+Network degradation
+Conflicting authority
+Autonomous fallback
+
+PART III — INTELLIGENCE AND INFORMATION WARFARE
+
+Chapter 13 — The Information Battlefield
+Chapter 14 — Sensors
+Chapter 15 — Detection
+Chapter 16 — Identification
+Chapter 17 — Sensor Fusion
+Chapter 18 — Battlefield Intelligence
+Chapter 19 — Unknown Contacts
+Chapter 20 — Stale Information
+Chapter 21 — False Information
+Chapter 22 — Communication Warfare
+Chapter 23 — Electronic Warfare
+Chapter 24 — Information Denial
+Chapter 25 — Maintaining Information Superiority
+
+PART IV — FORCE EMPLOYMENT
+
+Chapter 26 — Force Organization
+Chapter 27 — Ground Forces
+Chapter 28 — Air Forces
+Chapter 29 — Naval Forces
+Chapter 30 — Command Forces
+Chapter 31 — Experimental Forces
+Chapter 32 — Combined Arms
+Chapter 33 — Force Concentration
+Chapter 34 — Force Dispersion
+Chapter 35 — Reserve Forces
+Chapter 36 — Support Forces
+
+PART V — MANEUVER
+
+Chapter 37 — Movement and Maneuver
+Chapter 38 — Strategic Movement
+Chapter 39 — Tactical Movement
+Chapter 40 — Formation Movement
+Chapter 41 — Terrain and Mobility
+Chapter 42 — Dynamic Obstacles
+Chapter 43 — Route Selection
+Chapter 44 — Replanning
+Chapter 45 — Flanking
+Chapter 46 — Encirclement
+Chapter 47 — Advance
+Chapter 48 — Withdrawal
+Chapter 49 — Retreat
+Chapter 50 — Pursuit
+
+PART VI — COMBAT DOCTRINE
+
+Chapter 51 — Principles of Combat
+Chapter 52 — Target Acquisition
+Chapter 53 — Target Prioritization
+Chapter 54 — Weapons Employment
+Chapter 55 — Direct Fire
+Chapter 56 — Projectile Warfare
+Chapter 57 — Ballistic Engagements
+Chapter 58 — Air Combat
+Chapter 59 — Ground Combat
+Chapter 60 — Naval Combat
+Chapter 61 — Anti-Air Operations
+Chapter 62 — Reconnaissance Combat
+Chapter 63 — Defensive Fire
+Chapter 64 — Suppression
+Chapter 65 — Breaching
+Chapter 66 — Combined-Arms Engagements
+
+PART VII — AUTONOMOUS TACTICS
+
+Chapter 67 — Autonomous Decision-Making
+Chapter 68 — Tactical Autonomy
+Chapter 69 — Strategic Autonomy
+Chapter 70 — Threat Assessment
+Chapter 71 — Risk Assessment
+Chapter 72 — Target Selection
+Chapter 73 — Formation Adaptation
+Chapter 74 — Tactical Replanning
+Chapter 75 — Autonomous Flanking
+Chapter 76 — Autonomous Suppression
+Chapter 77 — Autonomous Breaching
+Chapter 78 — Autonomous Reconnaissance
+Chapter 79 — Autonomous Pursuit
+Chapter 80 — Autonomous Retreat
+Chapter 81 — Reinforcement
+Chapter 82 — Support Operations
+Chapter 83 — Battlefield Adaptation
+
+PART VIII — UNIT SURVIVAL
+
+Chapter 84 — Damage
+Chapter 85 — Armor
+Chapter 86 — Penetration
+Chapter 87 — Critical Damage
+Chapter 88 — Component Damage
+Chapter 89 — Disabled Systems
+Chapter 90 — Mobility Loss
+Chapter 91 — Weapon Failure
+Chapter 92 — Sensor Failure
+Chapter 93 — Communication Failure
+Chapter 94 — Unit Destruction
+Chapter 95 — Recovery Operations
+
+PART IX — LOGISTICS AND SUSTAINMENT
+
+Chapter 96 — The Logistics Battlefield
+Chapter 97 — Resources
+Chapter 98 — Resource Production
+Chapter 99 — Resource Consumption
+Chapter 100 — Storage
+Chapter 101 — Fuel
+Chapter 102 — Energy
+Chapter 103 — Ammunition
+Chapter 104 — Resupply
+Chapter 105 — Repair
+Chapter 106 — Recovery
+Chapter 107 — Manufacturing
+Chapter 108 — Fabrication
+Chapter 109 — Salvage
+Chapter 110 — Recycling
+
+PART X — DEPLOYMENT OPERATIONS
+
+Chapter 111 — Deployment Doctrine
+Chapter 112 — Deployment Planning
+Chapter 113 — Deployment Budget
+Chapter 114 — Deployment Points
+Chapter 115 — Force Composition
+Chapter 116 — Deployment Zones
+Chapter 117 — Deployment Restrictions
+Chapter 118 — Deployment Eligibility
+Chapter 119 — Forward Deployment
+Chapter 120 — Reserve Deployment
+Chapter 121 — Deployment Confirmation
+Chapter 122 — Match Start
+
+PART XI — BATTLEFIELD OPERATIONS
+
+Chapter 123 — Reconnaissance
+Chapter 124 — Security
+Chapter 125 — Offensive Operations
+Chapter 126 — Defensive Operations
+Chapter 127 — Holding Positions
+Chapter 128 — Securing Objectives
+Chapter 129 — Attacking Objectives
+Chapter 130 — Defending Objectives
+Chapter 131 — Search Operations
+Chapter 132 — Rescue Operations
+Chapter 133 — Escort Operations
+Chapter 134 — Patrol Operations
+Chapter 135 — Reinforcement Operations
+Chapter 136 — Withdrawal Operations
+
+PART XII — INFORMATION-DENIED OPERATIONS
+
+This should be one of the signature sections of the book.
+
+Chapter 137 — Fighting Blind
+Chapter 138 — Lost Sensors
+Chapter 139 — Lost Communications
+Chapter 140 — Unknown Enemy Forces
+Chapter 141 — Stale Intelligence
+Chapter 142 — Deception
+Chapter 143 — Sensor Degradation
+Chapter 144 — Network Collapse
+Chapter 145 — Autonomous Operations Without Command
+Chapter 146 — Re-establishing Battlefield Awareness
+
+PART XIII — COMMANDER DECISION-MAKING
+
+Chapter 147 — Reading the Battlefield
+Chapter 148 — Identifying the Main Threat
+Chapter 149 — Identifying the Main Effort
+Chapter 150 — Managing Risk
+Chapter 151 — Preserving Combat Power
+Chapter 152 — Choosing When to Attack
+Chapter 153 — Choosing When to Defend
+Chapter 154 — Choosing When to Withdraw
+Chapter 155 — Adapting Command Intent
+Chapter 156 — Managing Autonomous Forces
+Chapter 157 — Learning From Failure
+
+PART XIV — VR OPERATIONS
+
+Chapter 158 — VR Command
+Chapter 159 — Operator Stations
+Chapter 160 — Physical Controls
+Chapter 161 — Ground Vehicle Operation
+Chapter 162 — Air Vehicle Operation
+Chapter 163 — Naval Operation
+Chapter 164 — Sensor Operation
+Chapter 165 — Targeting
+Chapter 166 — Communications
+Chapter 167 — Tactical Displays
+Chapter 168 — Operator Safety and Comfort
+
+PART XV — FACILITY OPERATIONS
+
+Chapter 169 — Command Center
+Chapter 170 — Fleet HQ
+Chapter 171 — Main Hangar
+Chapter 172 — Air Operations
+Chapter 173 — Ground Vehicle Bay
+Chapter 174 — Drone Operations
+Chapter 175 — Command Unit Chamber
+Chapter 176 — Experimental Containment
+Chapter 177 — Naval Facility
+Chapter 178 — Repair Operations
+Chapter 179 — Fabrication Operations
+Chapter 180 — Deployment Staging
+
+PART XVI — MISSION EXECUTION
+
+Chapter 181 — Mission Planning
+Chapter 182 — Mission Briefing
+Chapter 183 — Situation Assessment
+Chapter 184 — Objective Planning
+Chapter 185 — Force Assignment
+Chapter 186 — Initial Deployment
+Chapter 187 — Mission Execution
+Chapter 188 — Battlefield Adaptation
+Chapter 189 — Mission Completion
+Chapter 190 — Mission Failure
+Chapter 191 — After-Action Review
+
+PART XVII — MULTIPLAYER COMMAND
+
+Chapter 192 — Multiplayer Command
+Chapter 193 — Team Organization
+Chapter 194 — Shared Intent
+Chapter 195 — Coordinated Operations
+Chapter 196 — Combined Forces
+Chapter 197 — Information Sharing
+Chapter 198 — Command Conflicts
+Chapter 199 — Team Communication
+Chapter 200 — Network Disruption
+Chapter 201 — Reconnection
+Chapter 202 — Late Entry
+Chapter 203 — Competitive Integrity
+
+PART XVIII — AFTER-ACTION DOCTRINE
+
+Chapter 204 — Battle Results
+Chapter 205 — Tactical Review
+Chapter 206 — Intelligence Review
+Chapter 207 — Unit Losses
+Chapter 208 — Resource Expenditure
+Chapter 209 — Command Decisions
+Chapter 210 — Autonomous Decisions
+Chapter 211 — Critical Failures
+Chapter 212 — Successful Adaptations
+Chapter 213 — Lessons Learned
+Chapter 214 — Preparing for the Next Engagement
+
+PART XIX — FIELD REFERENCE
+
+Chapter 215 — Unit Identification
+Chapter 216 — Unit Roles
+Chapter 217 — Weapon Identification
+Chapter 218 — Sensor Identification
+Chapter 219 — Command Symbols
+Chapter 220 — Tactical Symbols
+Chapter 221 — Status Indicators
+Chapter 222 — Damage States
+Chapter 223 — Communication States
+Chapter 224 — Autonomy States
+Chapter 225 — Combat States
+Chapter 226 — Deployment States
+Chapter 227 — Alert Levels
+
+APPENDICES
+
+Appendix A — Command Intent Quick Reference
+Appendix B — Objective Quick Reference
+Appendix C — Rules of Engagement
+Appendix D — Formation Reference
+Appendix E — Unit Classification
+Appendix F — Weapon Classification
+Appendix G — Sensor Classification
+Appendix H — Damage States
+Appendix I — Autonomous Behavior Reference
+Appendix J — Resource Reference
+Appendix K — Deployment Budget Reference
+Appendix L — Tactical Symbols
+Appendix M — Communication Codes
+Appendix N — Battlefield Status Codes
+Appendix O — Emergency Procedures
+Appendix P — VR Controls
+Appendix Q — Glossary
+Appendix R — Abbreviations
+Appendix S — Version History
+Appendix T — Field Notes
+
+The key difference from the Rule Book
+
+The Rule Book should say:
+“This is how Obsidian Protocol works.”
+The Field Manual should say:
+“This is how you command it.”
+So the Field Manual should contain things the Rule Book doesn't emphasize:
+tactical principles
+commander doctrine
+decision-making
+battlefield examples
+tactical diagrams
+formations
+operational scenarios
+information-denied situations
+autonomous behavior examples
+deployment planning
+after-action reviews
+commander mistakes
+successful tactical patterns
+emergency procedures
+quick-reference charts
+

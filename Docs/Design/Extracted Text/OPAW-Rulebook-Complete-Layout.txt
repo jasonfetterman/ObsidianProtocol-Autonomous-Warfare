@@ -1,0 +1,394 @@
+OFFICIAL OBSIDIAN PROTOCOL: AUTONOMOUS WARFARE
+
+RULE BOOK — COMPLETE LAYOUT
+
+FRONT MATTER
+
+Cover
+Obsidian Protocol logo
+Autonomous Warfare
+COMMAND INTENT. UNLEASH AUTONOMY. WITNESS WAR EVOLVE.
+Inside Cover
+Classification / publication information
+Version number
+Copyright
+Developer information
+Opening Statement
+Welcome, Commander
+What this rule book contains
+How to use the rule book
+Quick Reference
+Core terminology
+Essential controls
+Core gameplay sequence
+Important numbers
+Deployment Budget overview
+
+PART I — CORE CONCEPTS OF AUTONOMOUS WARFARE
+
+Chapter 1 — What Obsidian Protocol Is
+
+Game identity
+Core fantasy
+What makes the game different
+Command versus control
+Autonomous warfare
+
+Chapter 2 — The Player
+
+Commander role
+Strategic decision-making
+Tactical decision-making
+Command Intent philosophy
+What the player controls
+What the AI controls
+
+Chapter 3 — The Battlefield
+
+Battlefield structure
+Ground
+Air
+Sea
+Terrain
+Structures
+Strategic locations
+Information environment
+
+Chapter 4 — The Core Gameplay Loop
+
+Prepare
+Configure
+Deploy
+Command
+Observe
+Adapt
+Engage
+Recover
+Conclude
+
+Chapter 5 — Understanding Autonomy
+
+Autonomous units
+Decision-making
+Goals
+Priorities
+Context
+Adaptation
+Failure
+Recovery
+PART II — GAME STRUCTURE
+
+Chapter 6 — Game Setup
+Chapter 7 — Match Structure
+Chapter 8 — Players, Teams, and Factions
+Chapter 9 — Units and Unit Categories
+Chapter 10 — Unit Roles
+Chapter 11 — Unit States
+Chapter 12 — Ownership and Fleet Organization
+
+PART III — COMMAND INTENT
+
+Chapter 13 — Command Intent System
+Chapter 14 — Creating Intent
+Chapter 15 — Assigning Intent
+Chapter 16 — Objectives
+
+Move, Secure, Defend, Recon, Attack, Escort, Search, Rescue, Patrol, Suppress, Breach, Pursue, Retreat, Reinforce, Support, Hold, Withdraw.
+
+Chapter 17 — Priority
+Chapter 18 — Rules of Engagement
+Chapter 19 — Aggression and Risk
+Chapter 20 — Formation and Movement
+Chapter 21 — Fallback Orders
+Chapter 22 — Conflicting Orders
+Chapter 23 — Command Hierarchy
+Chapter 24 — Command Failure
+
+PART IV — AUTONOMOUS WARFARE
+
+Chapter 25 — Autonomous Decision-Making
+Chapter 26 — Tactical Behavior
+Chapter 27 — Strategic Behavior
+Chapter 28 — Threat Assessment
+Chapter 29 — Target Prioritization
+Chapter 30 — Formation Behavior
+Chapter 31 — Flanking
+Chapter 32 — Suppression
+Chapter 33 — Breaching
+Chapter 34 — Reconnaissance
+Chapter 35 — Pursuit
+Chapter 36 — Retreat
+Chapter 37 — Reinforcement
+Chapter 38 — Support
+Chapter 39 — Replanning and Adaptation
+Chapter 40 — AI Personality and Doctrine
+Chapter 41 — Autonomous Failure
+Chapter 42 — Recovery
+
+PART V — INFORMATION WARFARE
+
+Chapter 43 — Sensors
+Chapter 44 — Detection
+Chapter 45 — Identification
+Chapter 46 — Vision
+Chapter 47 — Thermal
+Chapter 48 — Lidar
+Chapter 49 — Radar
+Chapter 50 — Sonar
+Chapter 51 — Acoustic Detection
+Chapter 52 — Signal Detection
+Chapter 53 — Sensor Fusion
+Chapter 54 — Information Confidence
+Chapter 55 — Unknown and Stale Information
+Chapter 56 — Communication
+Chapter 57 — Command Networks
+Chapter 58 — Relays and Data Links
+Chapter 59 — Communication Degradation
+Chapter 60 — Electronic Warfare
+Chapter 61 — Information Denial
+
+PART VI — UNIT OPERATIONS
+
+Chapter 62 — Ground Units
+Chapter 63 — Ground Movement
+Chapter 64 — Air Units
+Chapter 65 — Air Movement
+Chapter 66 — Sea Units
+Chapter 67 — Naval Movement
+Chapter 68 — Command Units
+Chapter 69 — Experimental Units
+Chapter 70 — Unit Damage
+Chapter 71 — Disabled Systems
+Chapter 72 — Unit Destruction
+Chapter 73 — Repair and Recovery
+Chapter 74 — Fuel and Energy
+Chapter 75 — Ammunition
+
+PART VII — COMBAT
+
+Chapter 76 — Combat Fundamentals
+Chapter 77 — Targeting
+Chapter 78 — Weapons
+Chapter 79 — Hitscan Weapons
+Chapter 80 — Projectile Weapons
+Chapter 81 — Ballistics
+Chapter 82 — Accuracy
+Chapter 83 — Range
+Chapter 84 — Damage
+Chapter 85 — Armor
+Chapter 86 — Penetration
+Chapter 87 — Explosions and Area Effects
+Chapter 88 — Critical Damage
+Chapter 89 — Component Damage
+Chapter 90 — Combat States
+Chapter 91 — Destruction
+Chapter 92 — Combat Feedback
+
+PART VIII — DEPLOYMENT
+
+Chapter 93 — Deployment System
+Chapter 94 — Deployment Budget
+Chapter 95 — Deployment Points
+Chapter 96 — Unit Deployment Costs
+Chapter 97 — Available Deployment
+Chapter 98 — Deployment Zones
+Chapter 99 — Deployment Eligibility
+Chapter 100 — Army Composition
+Chapter 101 — Deployment Restrictions
+Chapter 102 — Deployment Confirmation
+Chapter 103 — Match Start Lock
+Chapter 104 — Deployment Failure
+
+PART IX — RESOURCES AND LOGISTICS
+Chapter 105 — Resource System
+Chapter 106 — Meat
+Chapter 107 — Wood
+Chapter 108 — Coal
+Chapter 109 — Iron
+Chapter 110 — Alloy
+Chapter 111 — Electronics
+Chapter 112 — Fuel
+Chapter 113 — Energy
+Chapter 114 — Storage
+Chapter 115 — Production
+Chapter 116 — Consumption
+Chapter 117 — Logistics
+Chapter 118 — Resupply
+Chapter 119 — Resource Recovery
+
+PART X — MANUFACTURING AND FLEET
+
+Chapter 120 — Manufacturing
+Chapter 121 — Fabrication
+Chapter 122 — Manufacturing Requirements
+Chapter 123 — Manufacturing Queues
+Chapter 124 — Repairs
+Chapter 125 — Salvage
+Chapter 126 — Recycling
+Chapter 127 — Fleet Ownership
+Chapter 128 — Garage
+Chapter 129 — Storage
+Chapter 130 — Customization
+Chapter 131 — Equipment
+Chapter 132 — Unit Configuration
+
+PART XI — COMMAND FACILITY
+
+Chapter 133 — The Facility
+Chapter 134 — Command Center
+Chapter 135 — Fleet HQ
+Chapter 136 — Main Hangar
+Chapter 137 — Air Operations
+Chapter 138 — Ground Vehicle Bay
+Chapter 139 — Drone Showroom
+Chapter 140 — Command Unit Chamber
+Chapter 141 — Experimental Containment
+Chapter 142 — Naval Facility
+Chapter 143 — Repair Stations
+Chapter 144 — Paint and Customization
+Chapter 145 — Weapons and Equipment
+Chapter 146 — AI / Personality Lab
+Chapter 147 — Fabrication Facility
+Chapter 148 — Deployment Staging
+
+PART XII — WORLD AND ENVIRONMENT
+
+Chapter 149 — World Structure
+Chapter 150 — Terrain
+Chapter 151 — Roads and Infrastructure
+Chapter 152 — Structures
+Chapter 153 — Water
+Chapter 154 — Weather
+Chapter 155 — Day and Night
+Chapter 156 — Visibility
+Chapter 157 — Environmental Effects
+Chapter 158 — Destruction
+Chapter 159 — Battlefield Changes
+
+PART XIII — MULTIPLAYER
+
+Chapter 160 — Multiplayer Fundamentals
+Chapter 161 — Servers
+Chapter 162 — Players and Teams
+Chapter 163 — Replication
+Chapter 164 — Authority
+Chapter 165 — Multiplayer Combat
+Chapter 166 — Multiplayer Deployment
+Chapter 167 — Multiplayer AI
+Chapter 168 — Disconnects and Reconnection
+Chapter 169 — Late Joining
+Chapter 170 — Network Failure
+Chapter 171 — Competitive Integrity
+
+PART XIV — UI AND COMMAND INTERFACE
+
+Chapter 172 — Command Interface
+Chapter 173 — Battlefield HUD
+Chapter 174 — Unit Interface
+Chapter 175 — Sensor Interface
+Chapter 176 — Communication Interface
+Chapter 177 — Autonomy Interface
+Chapter 178 — Command Interface
+Chapter 179 — Strategic Map
+Chapter 180 — Tactical Map
+Chapter 181 — Minimap
+Chapter 182 — Deployment Interface
+Chapter 183 — Alerts and Notifications
+Chapter 184 — Intelligence Interface
+
+PART XV — VR OPERATIONS
+
+Chapter 185 — VR Fundamentals
+Chapter 186 — VR Setup
+Chapter 187 — Locomotion
+Chapter 188 — Physical Interaction
+Chapter 189 — Command Station
+Chapter 190 — Operator Stations
+Chapter 191 — Ground Vehicle Operation
+Chapter 192 — Air Vehicle Operation
+Chapter 193 — Naval Operation
+Chapter 194 — Sensors in VR
+Chapter 195 — Targeting in VR
+Chapter 196 — Weapons in VR
+Chapter 197 — VR Communication
+Chapter 198 — VR Comfort
+
+PART XVI — PROGRESSION AND ECONOMY
+
+Chapter 199 — Player Progression
+Chapter 200 — Unit Progression
+Chapter 201 — Unlocks
+Chapter 202 — Research
+Chapter 203 — Achievements
+Chapter 204 — Rewards
+Chapter 205 — Credits
+Chapter 206 — Store
+Chapter 207 — Cosmetics
+Chapter 208 — Garage Slots
+Chapter 209 — Convenience Purchases
+Chapter 210 — Competitive Integrity
+Chapter 211 — Anti-Pay-to-Win Rules
+
+PART XVII — MISSIONS AND CAMPAIGN
+
+Chapter 212 — Missions
+Chapter 213 — Objectives
+Chapter 214 — Mission Briefings
+Chapter 215 — Intelligence
+Chapter 216 — Mission Events
+Chapter 217 — Mission Failure
+Chapter 218 — Mission Completion
+Chapter 219 — Campaign Progression
+Chapter 220 — Campaign Consequences
+
+PART XVIII — MATCH OUTCOMES
+
+Chapter 221 — Victory
+Chapter 222 — Defeat
+Chapter 223 — Objectives and Scoring
+Chapter 224 — Battlefield Results
+Chapter 225 — Tactical Review
+Chapter 226 — Rewards
+Chapter 227 — Progression After Battle
+Chapter 228 — Fleet Recovery
+
+PART XIX — REFERENCE
+
+Chapter 229 — Unit Reference
+Chapter 230 — Weapon Reference
+Chapter 231 — Equipment Reference
+Chapter 232 — Resource Reference
+Chapter 233 — Sensor Reference
+Chapter 234 — Command Reference
+Chapter 235 — Objective Reference
+Chapter 236 — Status Reference
+Chapter 237 — Combat Reference
+Chapter 238 — Deployment Reference
+Chapter 239 — AI Behavior Reference
+Chapter 240 — Terminology
+Chapter 241 — Acronyms
+Chapter 242 — Frequently Asked Questions
+
+APPENDICES
+
+Appendix A — Quick Start
+Appendix B — First Match Guide
+Appendix C — Command Intent Quick Reference
+Appendix D — Objective Quick Reference
+Appendix E — Rules of Engagement Quick Reference
+Appendix F — Combat Quick Reference
+Appendix G — Deployment Budget Quick Reference
+Appendix H — Unit Classification Chart
+Appendix I — Weapon Classification Chart
+Appendix J — Sensor Classification Chart
+Appendix K — Resource Chart
+Appendix L — Status Effects
+Appendix M — Damage States
+Appendix N — Multiplayer Rules
+Appendix O — VR Controls
+Appendix P — Accessibility
+Appendix Q — Troubleshooting
+Appendix R — Version History
+Appendix S — Glossary
+Appendix T — Credits
+

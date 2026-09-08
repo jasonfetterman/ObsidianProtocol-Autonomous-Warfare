@@ -91,3 +91,11 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Iron-Valley-Map.pdf - detailed Iron Valley map specification
 
 - Source PDFs/OPAW-Deadlock-Map.pdf - detailed Deadlock map specification
+
+- Source PDFs/OPAW-Command-Intent-Don-t-Forget-Me.pdf - command-intent theme song and lyrics
+
+- Source PDFs/OPAW-Image-Only-Reference-53.pdf - preserved image-only reference (no text layer)
+
+- Source PDFs/OPAW-Rulebook-Complete-Layout.pdf - complete rule-book layout reference
+
+- Source PDFs/OPAW-Commanders-Field-Manual.pdf - commander field manual layout reference
