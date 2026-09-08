@@ -28,3 +28,8 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Broken-Ground-Map.pdf - detailed Broken Ground map specification
 - Source PDFs/OPAW-Silent-Valley-Map.pdf - detailed Silent Valley map specification
 - Source PDFs/OPAW-Mirage-Map.pdf - detailed Mirage map specification
+
+- Source PDFs/OPAW-Canyon-Run-Map.pdf - detailed Canyon Run map specification
+- Source PDFs/OPAW-Sunburn-Map.pdf - detailed Sunburn map specification
+- Source PDFs/OPAW-Canopy-Map.pdf - detailed Canopy map specification
+- Source PDFs/OPAW-Rainfall-Map.pdf - detailed Rainfall map specification
