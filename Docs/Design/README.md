@@ -73,3 +73,11 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Greenline-Map.pdf - detailed Greenline map specification
 
 - Source PDFs/OPAW-Stormwatch-Map.pdf - detailed Stormwatch map specification
+
+- Source PDFs/OPAW-Blackwater-Map.pdf - detailed Blackwater map specification
+
+- Source PDFs/OPAW-Breaker-Bay-Map.pdf - detailed Breaker Bay map specification
+
+- Source PDFs/OPAW-Ghost-Coast-Map.pdf - detailed Ghost Coast map specification
+
+- Source PDFs/OPAW-Dustline-Map.pdf - detailed Dustline map specification
