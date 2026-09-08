@@ -199,3 +199,11 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Sea-Current-Unit.pdf - detailed Current rapid-marine-transport unit specification
 
 - Source PDFs/OPAW-Sea-Rescue-Unit.pdf - detailed Rescue marine-emergency-response unit specification
+
+- Source PDFs/OPAW-Sea-Scout-Unit.pdf - detailed Scout marine-recon unit specification
+
+- Source PDFs/OPAW-Sea-Sonar-Unit.pdf - detailed Sonar acoustic-mapping unit specification
+
+- Source PDFs/OPAW-Sea-Depthwatch-Unit.pdf - detailed Depthwatch subsurface-recon unit specification
+
+- Source PDFs/OPAW-Sea-Harbor-Unit.pdf - detailed Harbor logistics and support-platform specification
