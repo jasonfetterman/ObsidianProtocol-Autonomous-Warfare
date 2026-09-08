@@ -14,6 +14,19 @@ The same documents are available as searchable text in `Extracted Text/`.
 Detailed map specifications should also be integrated into the matching files under
 `Assets/Data/Maps/MapDefinitions/` as they are supplied.
 
+## Concept art
+
+The supplied interface and gameplay images are preserved under `Assets/Art/Concepts/` as design references:
+
+- `HUD/Logistics-Window-Phase-13.png` — logistics routes, supply status, transports, and alerts
+- `Buildings/Construction-Window-Phase-12.png` — construction placement, queues, repairs, and upgrades
+- `HUD/Production-Window-Phase-11.png` — unit manufacturing, production queues, and facility status
+- `HUD/Squad-Window-Phase-10.png` — squad composition, autonomy, objectives, and command controls
+- `HUD/Unit-Information-Window-Phase-09.png` — unit condition, sensors, orders, autonomy, and history
+- `Maps/Strategic-Map-Phase-08.png` — strategic regions, front lines, forces, objectives, and logistics
+- `Buildings/Command-Unit-Design-Sheet.png` — command-unit facility silhouettes and design variants
+- `HUD/Tactical-Command-Gameplay.png` — tactical battlefield view with selected units and command panel
+- `HUD/Main-Menu-Concept.png` and `HUD/Main-Menu-Alternate-Concept.png` — main-menu presentation concepts
 
 
 
