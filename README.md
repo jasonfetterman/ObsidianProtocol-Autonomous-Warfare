@@ -15,9 +15,8 @@ Obsidian Protocol is being created as a complete player-facing game for commerci
 to give players a persistent military to build, command, deploy, and experience across strategic and tactical
 operations.
 
-This repository contains development material for the game. It is not a template, starter kit, or invitation for other
-developers to recreate the project. The game, its world, systems, art direction, branding, and player experience are
-being developed as one original product for its future player community.
+This page presents the game, its world, systems, art direction, branding, and player experience for its future player
+community. Obsidian Protocol is not a template or starter kit for recreating another game.
 
 ## Visual direction
 
@@ -136,40 +135,6 @@ The battlefield is affected by more than unit statistics. Time of day, weather, 
 
 A reconnaissance plan that works in daylight may fail at night. A communications network that works across open terrain may degrade in difficult environments. The battlefield itself is part of the tactical problem.
 
-## Project structure
-
-This repository contains the Unity project source:
-
-```text
-Assets/
-├── Animations/       Animation assets and controllers
-├── Art/              Concepts, models, textures, and visual assets
-├── Audio/            Music, ambience, voice, and sound effects
-├── Data/             Game data and configuration assets
-│   └── Units/        Air, command, ground, and sea unit definitions
-├── Debug/            Development and diagnostic tools
-├── Editor/           Unity editor tooling
-├── Equipment/        Equipment and loadout assets
-├── Game/             Core game content
-├── Maps/             Battlefield and map assets
-├── Scenes/           Unity scenes
-├── Scripts/          Gameplay and systems code
-├── Settings/         Project and runtime settings
-├── Tests/            Project tests
-├── UI/               User-interface assets
-├── VFX/              Visual effects
-└── Weapons/          Weapon assets and systems
-Packages/             Unity package manifest
-ProjectSettings/     Unity project settings
-```
-
-The imported unit catalog is organized into:
-
-- `Assets/Data/Units/Air_Units`
-- `Assets/Data/Units/Command`
-- `Assets/Data/Units/Ground_Units`
-- `Assets/Data/Units/Sea_Units`
-
 ## Obsidian Protocol vs. comparable games
 
 This comparison describes the intended design focus of Obsidian Protocol relative to other strategy and warfare
@@ -234,20 +199,10 @@ Obsidian Protocol's strongest differentiation is not any single green dot. It is
 
 That combination is what separates the project from a conventional RTS.
 
-## Development status
+## Release status
 
-Obsidian Protocol is an active commercial game in development. The systems described here represent the current
-direction of the Steam release and may evolve as implementation continues. Some features are prototypes or works in
-progress and are not yet finished player-facing functionality.
-
-## Development notes
-
-This repository is maintained for the game's development. Before making internal changes:
-
-- Open the project in the required Unity version.
-- Confirm modified scenes and assets import without errors.
-- Test the affected behavior in Play Mode.
-- Do not commit generated Unity caches or local editor settings.
+Obsidian Protocol is an upcoming commercial game for Steam. Development is ongoing, and the release date will be
+announced when the game is ready.
 
 ## License
 
