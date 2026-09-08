@@ -1,0 +1,136 @@
+						
+✈️ AIR UNIT: WARDEN						
+ID:						
+obs-air-warden						
+Role: Aerial Surveillance / Recon Intelligence						
+Tier: Operational						
+Status: Active						
+⚫ PHYSICAL & TECHNICAL						
+Length: 3.0 m						
+Width: 2.2 m						
+Height: 0.8 m						
+Mass: 18 kg						
+Power Source: High‑density battery						
+Energy Capacity: 2200 Wh						
+Energy Consumption: 45 Wh/min						
+Endurance: 30–50 min						
+Payload Capacity: 2.5 kg						
+Modules: Camera array; stabilization frame						
+Navigation System: GPS + AI Stabilization						
+Structural Integrity: 120 HP						
+Armor Rating: 0.15						
+Heat Signature: Low						
+Noise Signature: Low						
+Top Speed: 22 m/s						
+Acceleration: Medium						
+Turning Radius: Tight						
+Climb Rate: High						
+Stability Rating: High						
+⚫ AUTONOMY & AI BEHAVIOR						
+Behavior Profile: Surveillance						
+Aggression: 0.1						
+Caution: 0.8						
+Persistence: 0.6						
+Flanking Likelihood: 0.0						
+Retreat Threshold: 0.7						
+Target Priority: Recon targets						
+Formation Discipline: High						
+Risk Tolerance: Low						
+Sensors						
+Visual Range: 1800 m						
+Thermal Range: 900 m						
+Acoustic Range: Low						
+Radar Range: None						
+LiDAR Range: None						
+Signal Detection Range: Medium						
+Communication						
+Mesh Range: 5 km						
+Relay Capacity: 0						
+Command Link Type: Standard						
+Network Priority: Medium						
+⚫ COMBAT & THREAT MODEL						
+Firepower Rating: 0						
+Accuracy: N/A						
+Stabilization: High (for imaging)						
+Weapon Mounts: None						
+Weapon Types: None						
+Suppression Value: 0						
+Tracking Strength: High						
+Disruption Strength: Low						
+Breach Capability: None						
+Countermeasure Rating: Low						
+Threat Modeling						
+Threat Level: 2						
+Engagement Distance: N/A						
+Preferred Terrain: Open air						
+Preferred Targets: High‑value recon targets						
+Vulnerability Profile: Ballistic / weather / jamming						
+⚫ SQUAD & COMMAND INTEGRATION						
+Squad Role: Recon						
+Squad Size Contribution: 1						
+Formation Behavior: High‑discipline recon spacing						
+Intent Interpretation Rules: Maintain distance, avoid threats, prioritize visibility						
+Retreat Behavior: Early						
+Breach Behavior: None						
+Flanking Behavior: None						
+Reinforcement Behavior: Supports recon squads						
+Command Hierarchy						
+Parent Command Unit: Sentinel / Overseer						
+Subordinate Units: None						
+Relay Nodes: None						
+Network Dependencies: Standard Warden mesh						
+⚫ VR OPERATOR MODE						
+Operator Seat Type: Drone View						
+Operator HUD: Recon overlay						
+Camera Feeds: Optical						
+Thermal View: Yes						
+LiDAR View: No						
+Sonar View: No						
+Tactical Overlay: Yes						
+Operator Controls						
+Movement Controls: Full drone flight						
+Sensor Controls: Zoom / thermal / tracking						
+Ability Controls: Scan, Mark Target, Stabilize						
+Weapon Controls: None						
+Stabilization Controls: Auto‑hover, auto‑level						
+Operator Abilities						
+Scan						
+Mark Target						
+Stabilize						
+Relay Recon Data						
+⚫ ECONOMY & LOGISTICS						
+Build Cost: 120 Metal / 80 Electronics						
+Build Time: 40 sec						
+Factory Type: Drone Bay						
+Tech Requirements: Basic Recon						
+Maintenance Cost: Low						
+Repair Time: 10 sec						
+Supply Consumption: Low						
+Operational Cost: Minimal						
+Deployment Requirements: Standard drone pad						
+Transport Compatibility: All aerial racks						
+Launch Method: Vertical takeoff						
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)						
+These are the components players must gather, salvage, trade, or craft to build a Warden.						
+Common Components						
+12× Light Alloy Plates						
+8× Composite Frame Rods						
+6× Micro‑Servo Actuators						
+4× Stabilizer Fins						
+1× Optical Camera Core						
+1× Thermal Micro‑Sensor						
+Electronics						
+10× Circuit Bundles						
+6× Signal Processors						
+4× Drone Control Chips						
+1× AI Stabilization Module						
+Power						
+1× High‑Density Battery Pack						
+2× Power Regulation Nodes						
+Rare / Tradeable						
+1× Recon‑Grade Lens Array						
+1× Encrypted Mesh Transceiver (Basic)						
+Optional Upgrades						
+Thermal Lens Upgrade						
+Extended Battery Module						
+Silent Rotor Kit						

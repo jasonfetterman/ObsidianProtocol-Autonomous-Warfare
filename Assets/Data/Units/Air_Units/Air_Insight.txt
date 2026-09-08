@@ -1,0 +1,136 @@
+
+✈️ AIR UNIT #16 — INSIGHT
+ID:
+obs-air-insight
+Role: Strategic Intelligence / Multi‑Spectrum Recon
+Tier: Command
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 3.6 m
+Width: 2.8 m
+Height: 1.3 m
+Mass: 34 kg
+Power Source: Command‑grade battery
+Energy Capacity: 3200 Wh
+Energy Consumption: 75 Wh/min
+Endurance: 35–50 min
+Payload Capacity: 3.5 kg
+Modules: Multi‑spectrum intelligence suite
+Navigation System: GPS + Strategic Recon AI
+Structural Integrity: 190 HP
+Armor Rating: 0.30
+Heat Signature: Medium
+Noise Signature: Medium
+Top Speed: 23 m/s
+Acceleration: Medium
+Turning Radius: Moderate
+Climb Rate: Medium
+Stability Rating: Very High
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Strategic Recon / Intelligence
+Aggression: 0.1
+Caution: 0.8
+Persistence: 0.9
+Flanking Likelihood: 0.2
+Retreat Threshold: 0.65
+Target Priority: High‑value intelligence targets
+Formation Discipline: Very High
+Risk Tolerance: Medium
+Sensors
+Visual Range: 2400 m
+Thermal Range: 1500 m
+Acoustic Range: Medium
+Radar Range: Medium
+LiDAR Range: Medium
+Signal Detection Range: Very High
+Communication
+Mesh Range: 10 km
+Relay Capacity: 4
+Command Link Type: Intelligence Grid
+Network Priority: Very High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: Low
+Accuracy: Medium
+Stabilization: Very High
+Weapon Mounts: 1 (marker beam / deterrent pulse)
+Weapon Types: Marker beam / deterrent pulse
+Suppression Value: Medium
+Tracking Strength: Very High
+Disruption Strength: Medium
+Breach Capability: None
+Countermeasure Rating: Medium
+Threat Modeling
+Threat Level: 5
+Engagement Distance: 200–400 m
+Preferred Terrain: High‑visibility recon airspace
+Preferred Targets: High‑value targets / command nodes
+Vulnerability Profile: Ballistic / EMP / jamming
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Strategic Recon
+Squad Size Contribution: 1
+Formation Behavior: Command‑grade spacing
+Intent Interpretation Rules: Maintain oversight, coordinate recon units
+Retreat Behavior: Medium
+Breach Behavior: None
+Flanking Behavior: Light
+Reinforcement Behavior: Supports recon, mesh, and command squads
+Command Hierarchy
+Parent Command Unit: Command Core
+Subordinate Units: Iris, Locator, Nightguard, ScoutEye
+Relay Nodes: 4
+Network Dependencies: Intelligence Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Command Drone View
+Operator HUD: Multi‑Spectrum Intelligence Overlay
+Camera Feeds: Optical
+Thermal View: Yes
+LiDAR View: Yes
+Radar View: Yes
+Tactical Overlay: Intelligence markers / squad overlays
+Operator Controls
+Movement Controls: Full drone flight
+Sensor Controls: Multi‑sensor switching
+Ability Controls: Mark Target, Intelligence Ping, Scan
+Weapon Controls: Marker beam / deterrent pulse
+Stabilization Controls: Auto‑hover
+Operator Abilities
+Intelligence Ping
+Multi‑Spectrum Scan
+Target Mark
+Squad Coordination
+Relay Intelligence Data
+⚫ ECONOMY & LOGISTICS
+Build Cost: 280 Metal / 260 Electronics
+Build Time: 80 sec
+Factory Type: Drone Bay
+Tech Requirements: Intelligence Systems I
+Maintenance Cost: Medium
+Repair Time: 20 sec
+Supply Consumption: Medium
+Operational Cost: Moderate
+Deployment Requirements: Command drone pad
+Transport Compatibility: All aerial racks
+Launch Method: Vertical takeoff
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+20× Medium Alloy Plates
+12× Composite Frame Rods
+8× Micro‑Servo Actuators
+4× Stabilizer Fins
+1× Intelligence Sensor Housing
+Electronics
+20× Circuit Bundles
+14× Signal Processors
+6× Drone Control Chips
+4× Intelligence AI Chips
+Power
+1× Command‑Grade Battery Pack
+3× Power Regulation Nodes
+Rare / Tradeable
+1× Multi‑Spectrum Intelligence Core
+1× Encrypted Intelligence Processor
+Optional Upgrades
+Extended Intelligence Range Module
+Anti‑Jamming Shielding
+Silent Rotor Kit
+High‑Density Sensor Grid

@@ -1,0 +1,136 @@
+
+✈️ AIR UNIT #18 — RELAY
+ID:
+obs-air-relay
+Role: Tactical Signal Relay / Battlefield Communications
+Tier: Operational Support
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 2.1 m
+Width: 1.6 m
+Height: 0.8 m
+Mass: 16 kg
+Power Source: High‑efficiency battery
+Energy Capacity: 1800 Wh
+Energy Consumption: 35 Wh/min
+Endurance: 40–60 min
+Payload Capacity: 1.0 kg
+Modules: Tactical relay antenna
+Navigation System: GPS + Signal Routing AI
+Structural Integrity: 110 HP
+Armor Rating: 0.14
+Heat Signature: Low
+Noise Signature: Low
+Top Speed: 18 m/s
+Acceleration: Medium
+Turning Radius: Tight
+Climb Rate: Medium
+Stability Rating: High
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Tactical Communications / Relay
+Aggression: 0.0
+Caution: 0.85
+Persistence: 0.8
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.8
+Target Priority: Signal gaps / comms dead zones
+Formation Discipline: High
+Risk Tolerance: Low
+Sensors
+Visual Range: 900 m
+Thermal Range: 400 m
+Acoustic Range: Low
+Radar Range: None
+LiDAR Range: None
+Signal Detection Range: High
+Communication
+Mesh Range: 12 km
+Relay Capacity: 8 nodes
+Command Link Type: Tactical Grid
+Network Priority: High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: 0
+Accuracy: N/A
+Stabilization: High
+Weapon Mounts: None
+Weapon Types: None
+Suppression Value: 0
+Tracking Strength: Low
+Disruption Strength: Medium
+Breach Capability: None
+Countermeasure Rating: Medium
+Threat Modeling
+Threat Level: 2
+Engagement Distance: N/A
+Preferred Terrain: Mid‑altitude comms corridors
+Preferred Targets: None
+Vulnerability Profile: Ballistic / EMP / jamming
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Tactical Relay
+Squad Size Contribution: 1
+Formation Behavior: Relay‑optimized spacing
+Intent Interpretation Rules: Maintain coverage, avoid conflict
+Retreat Behavior: Early
+Breach Behavior: None
+Flanking Behavior: None
+Reinforcement Behavior: Supports mesh, command, and recon squads
+Command Hierarchy
+Parent Command Unit: NexusGrid / Overseer
+Subordinate Units: None
+Relay Nodes: 8
+Network Dependencies: Tactical Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Drone View
+Operator HUD: Tactical Relay Overlay
+Camera Feeds: Optical
+Thermal View: Yes
+LiDAR View: No
+Sonar View: No
+Tactical Overlay: Relay coverage visualization
+Operator Controls
+Movement Controls: Full drone flight
+Sensor Controls: Signal scan / relay diagnostics
+Ability Controls: Deploy Relay, Boost Signal
+Weapon Controls: None
+Stabilization Controls: Auto‑hover
+Operator Abilities
+Deploy Relay Node
+Boost Signal
+Tactical Scan
+Relay Diagnostics
+Network Stabilization
+⚫ ECONOMY & LOGISTICS
+Build Cost: 140 Metal / 130 Electronics
+Build Time: 45 sec
+Factory Type: Drone Bay
+Tech Requirements: Tactical Networking I
+Maintenance Cost: Low
+Repair Time: 10 sec
+Supply Consumption: Low
+Operational Cost: Minimal
+Deployment Requirements: Standard drone pad
+Transport Compatibility: All aerial racks
+Launch Method: Vertical takeoff
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+10× Light Alloy Plates
+6× Composite Frame Rods
+4× Micro‑Servo Actuators
+2× Stabilizer Fins
+1× Relay Antenna Housing
+Electronics
+12× Circuit Bundles
+8× Signal Processors
+4× Drone Control Chips
+2× Relay AI Chips
+Power
+1× High‑Efficiency Battery Pack
+2× Power Regulation Nodes
+Rare / Tradeable
+1× Tactical Relay Core
+1× Signal Routing Processor
+Optional Upgrades
+Extended Relay Range Module
+Anti‑Jamming Shielding
+Silent Rotor Kit
+Signal Boost Amplifier

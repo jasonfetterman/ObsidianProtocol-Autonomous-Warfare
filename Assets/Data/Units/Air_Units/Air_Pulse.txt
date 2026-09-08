@@ -1,0 +1,136 @@
+
+✈️ AIR UNIT #17 — PULSE
+ID:
+obs-air-pulse
+Role: Electronic Pulse / Area Disruption Drone
+Tier: Advanced Support
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 2.7 m
+Width: 2.0 m
+Height: 1.0 m
+Mass: 24 kg
+Power Source: High‑discharge battery
+Energy Capacity: 2600 Wh
+Energy Consumption: 65 Wh/min
+Endurance: 25–40 min
+Payload Capacity: 1.5 kg
+Modules: Pulse emitter array
+Navigation System: GPS + Disruption AI
+Structural Integrity: 140 HP
+Armor Rating: 0.22
+Heat Signature: Medium
+Noise Signature: Medium
+Top Speed: 20 m/s
+Acceleration: Medium
+Turning Radius: Tight
+Climb Rate: Medium
+Stability Rating: High
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Electronic Disruption / Support
+Aggression: 0.3
+Caution: 0.7
+Persistence: 0.8
+Flanking Likelihood: 0.2
+Retreat Threshold: 0.6
+Target Priority: Electronic systems / drones
+Formation Discipline: Medium
+Risk Tolerance: Medium
+Sensors
+Visual Range: 1200 m
+Thermal Range: 600 m
+Acoustic Range: Medium
+Radar Range: None
+LiDAR Range: None
+Signal Detection Range: High
+Communication
+Mesh Range: 6 km
+Relay Capacity: 0
+Command Link Type: Disruption Grid
+Network Priority: High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: Medium (non‑lethal electronic disruption)
+Accuracy: Medium
+Stabilization: High
+Weapon Mounts: 1 (pulse emitter)
+Weapon Types: EMP pulse / disruption wave
+Suppression Value: High
+Tracking Strength: Medium
+Disruption Strength: Very High
+Breach Capability: None
+Countermeasure Rating: Medium
+Threat Modeling
+Threat Level: 5
+Engagement Distance: 100–300 m
+Preferred Terrain: Electronic warfare corridors
+Preferred Targets: Drones / sensors / electronics
+Vulnerability Profile: Ballistic / weather
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Electronic Warfare Support
+Squad Size Contribution: 1
+Formation Behavior: Disruption spacing
+Intent Interpretation Rules: Prioritize electronic suppression
+Retreat Behavior: Medium
+Breach Behavior: None
+Flanking Behavior: Light
+Reinforcement Behavior: Supports recon, mesh, and command squads
+Command Hierarchy
+Parent Command Unit: Overseer / Insight
+Subordinate Units: None
+Relay Nodes: None
+Network Dependencies: Disruption Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Drone View
+Operator HUD: Electronic Warfare Overlay
+Camera Feeds: Optical
+Thermal View: Yes
+LiDAR View: No
+Radar View: No
+Tactical Overlay: Disruption radius / affected systems
+Operator Controls
+Movement Controls: Full drone flight
+Sensor Controls: Signal scan / disruption diagnostics
+Ability Controls: Pulse, Wave, Stabilize
+Weapon Controls: EMP pulse
+Stabilization Controls: Auto‑hover
+Operator Abilities
+EMP Pulse
+Disruption Wave
+Signal Scan
+Stabilize
+Relay EW Data
+⚫ ECONOMY & LOGISTICS
+Build Cost: 200 Metal / 210 Electronics
+Build Time: 65 sec
+Factory Type: Drone Bay
+Tech Requirements: Electronic Warfare I
+Maintenance Cost: Medium
+Repair Time: 16 sec
+Supply Consumption: Medium
+Operational Cost: Moderate
+Deployment Requirements: Standard drone pad
+Transport Compatibility: All aerial racks
+Launch Method: Vertical takeoff
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+14× Medium Alloy Plates
+10× Composite Frame Rods
+6× Micro‑Servo Actuators
+3× Stabilizer Fins
+1× Pulse Emitter Housing
+Electronics
+16× Circuit Bundles
+12× Signal Processors
+4× Drone Control Chips
+4× Disruption AI Chips
+Power
+1× High‑Discharge Battery Pack
+3× Power Regulation Nodes
+Rare / Tradeable
+1× EMP Pulse Core
+1× Electronic Disruption Processor
+Optional Upgrades
+Extended Pulse Range Module
+Anti‑Jamming Shielding
+Silent Rotor Kit
+High‑Density Disruption Grid

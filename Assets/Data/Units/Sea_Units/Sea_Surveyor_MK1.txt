@@ -1,0 +1,123 @@
+
+🌊 SEA UNIT — SURVEYOR Mk1
+ID:
+obs-sea-surveyor-mk1
+Role: Marine Recon / Surface & Shallow-Water Survey
+Tier: Recon
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 8.0 m
+Width: 3.5 m
+Height: 2.5 m
+Mass: 3,200 kg
+Power Source: Marine diesel-electric hybrid
+Energy Capacity: 12,000 Wh
+Fuel Capacity: 180 L
+Endurance: 6–12 hours
+Payload Capacity: 200 kg
+Modules: Forward sonar array + surface optics + mapping suite
+Navigation System: Marine GPS + Survey AI
+Structural Integrity: 900 HP
+Armor Rating: 0.35
+Heat Signature: Low
+Noise Signature: Low
+Top Speed: 9 m/s
+Acceleration: Medium
+Turning Radius: Tight marine turn
+Stability Rating: High (surface optimized)
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Recon / Mapping / Marine Survey
+Aggression: 0.0
+Caution: 0.85
+Persistence: 0.9
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.8
+Target Priority: Marine anomalies / surface movement
+Formation Discipline: Medium
+Risk Tolerance: Low
+Sensors
+Visual Range: 2200 m
+Thermal Range: 900 m
+Acoustic Range: High
+Sonar Range: Medium (shallow optimized)
+Radar Range: Short
+Signal Detection Range: Medium
+Communication
+Mesh Range: 6 km
+Relay Capacity: 1
+Command Link Type: Marine Recon Grid
+Network Priority: High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: None
+Weapon Mounts: None
+Suppression Value: 0
+Tracking Strength: Medium (sonar only)
+Disruption Strength: Low
+Breach Capability: None
+Countermeasure Rating: Low
+Threat Modeling
+Threat Level: 2
+Engagement Distance: N/A
+Preferred Terrain: Surface & shallow waters
+Preferred Targets: None
+Vulnerability Profile: Ballistic / waves / collision
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Marine Recon / Mapping
+Squad Size Contribution: 1
+Formation Behavior: Loose recon spacing
+Intent Interpretation Rules: Identify anomalies & map terrain
+Retreat Behavior: Early
+Reinforcement Behavior: Supports recon & naval squads
+Command Hierarchy
+Parent Command Unit: Worldmap / Insight
+Subordinate Units: None
+Relay Nodes: 1
+Network Dependencies: Marine Recon Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Marine Recon Console
+Operator HUD: Marine Survey Overlay
+Camera Feeds: Optical + sonar visualization
+Thermal View: Yes
+Sonar View: Medium-range
+Tactical Overlay: Marine contours / anomaly markers
+Operator Controls
+Movement Controls: Marine drive
+Sensor Controls: Sonar / thermal / zoom
+Ability Controls: Scan, Mark Target, Stabilize
+Operator Abilities
+Sonar Sweep
+Surface Scan
+Hazard Detection
+Recon Relay
+⚫ ECONOMY & LOGISTICS
+Build Cost: 500 Metal / 260 Electronics
+Build Time: 110 sec
+Factory Type: Marine Bay
+Tech Requirements: Marine Systems I
+Maintenance Cost: Low
+Repair Time: 28 sec
+Supply Consumption: Low
+Operational Cost: Low
+Deployment Requirements: Water launch pad
+Transport Compatibility: Marine racks
+Launch Method: Water drop
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+40× Marine Alloy Plates
+20× Reinforced Marine Rods
+6× Hydraulic Actuators
+1× Sonar Housing
+Electronics
+20× Circuit Bundles
+14× Signal Processors
+4× Marine Control Chips
+2× Recon AI Chips
+Power
+1× Marine Hybrid Engine Core
+2× Power Regulation Nodes
+Rare / Tradeable
+1× Medium Sonar Module
+Optional Upgrades
+Silent Propulsion
+Extended Battery Pack
+Anti‑Jamming Shielding

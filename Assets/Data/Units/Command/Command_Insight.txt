@@ -1,0 +1,122 @@
+	
+⭐ INSIGHT	
+(9 m × 7 m × 5 m)	
+🧭 COMMAND UNIT — INSIGHT	
+ID:	
+obs-command-insight	
+Role: Strategic Analysis Core / Pattern Recognition & Intelligence Processing	
+Tier: Command	
+Status: Active	
+⚫ PHYSICAL & TECHNICAL	
+Length: 9 m	
+Width: 7 m	
+Height: 5 m	
+Mass: 17,000 kg	
+Power Source: Dual command‑grade reactors	
+Energy Capacity: 130,000 Wh	
+Fuel Capacity: N/A (reactor‑based)	
+Endurance: Continuous	
+Payload Capacity: Internal systems only	
+Modules:	
+	Strategic analysis chamber
+	Pattern recognition lattice
+	Multi‑node mesh interface
+	Redundant cooling towers
+Navigation System: Stationary (anchored command node)	
+Structural Integrity: 3,800 HP	
+Armor Rating: 1.10	
+Heat Signature: Medium	
+Noise Signature: Low	
+Top Speed: N/A	
+Stability Rating: Maximum	
+⚫ AUTONOMY & AI BEHAVIOR	
+Behavior Profile: Strategic analysis / anomaly detection / intelligence synthesis	
+Aggression: 0.0	
+Caution: 1.0	
+Persistence: 1.0	
+Retreat Threshold: N/A	
+Target Priority: None (non‑combat)	
+Formation Discipline: Maximum	
+Risk Tolerance: Very Low	
+Sensors	
+Visual Range: Short	
+Thermal Range: Short	
+Acoustic Range: Short	
+Radar Range: Medium	
+Signal Detection Range: Very High	
+Communication	
+Mesh Range: Global	
+Relay Capacity: 8	
+Command Link Type: Strategic Command Mesh	
+Network Priority: Maximum	
+⚫ COMBAT & THREAT MODEL	
+Firepower Rating: None	
+Weapon Mounts: None	
+Tracking Strength: Very High (intelligence-grade signal analysis)	
+Disruption Strength: High	
+Countermeasure Rating: Very High	
+Threat Modeling	
+Threat Level: 6	
+Preferred Terrain: Secure command zones	
+Vulnerability Profile: EMP / sabotage	
+⚫ SQUAD & COMMAND INTEGRATION	
+Squad Role: Strategic Intelligence Processor	
+Squad Size Contribution: 6	
+Formation Behavior: Central anchor	
+Intent Interpretation Rules: Analyze patterns, detect anomalies, synthesize intelligence	
+Retreat Behavior: None	
+Reinforcement Behavior: Supports all units	
+Command Hierarchy	
+Parent Command Unit: Nexus / Fusion	
+Subordinate Units: Pulse	
+Relay Nodes: 8	
+Network Dependencies: Strategic Command Mesh	
+⚫ VR OPERATOR MODE	
+Operator Seat Type: Intelligence Console	
+Operator HUD: Strategic Analysis Overlay	
+Camera Feeds: Internal systems only	
+Thermal View: Yes	
+Tactical Overlay: Pattern maps / anomaly markers / intelligence routes	
+Operator Controls	
+Pattern analysis	
+Mesh intelligence routing	
+Lattice control	
+System diagnostics	
+Operator Abilities	
+Pattern Sync	
+Anomaly Detection Pulse	
+Intelligence Broadcast	
+Mesh Stabilization	
+⚫ ECONOMY & LOGISTICS	
+Build Cost: 2,200 Metal / 1,300 Electronics	
+Build Time: 230 sec	
+Factory Type: Command Foundry	
+Tech Requirements: Command Systems I	
+Maintenance Cost: Medium	
+Repair Time: 70 sec	
+Supply Consumption: Medium	
+Operational Cost: Medium	
+Deployment Requirements: Command zone	
+Transport Compatibility: Heavy command carriers	
+Launch Method: Anchor‑install	
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)	
+Common Components	
+120× Command Alloy Plates	
+60× Reinforced Command Rods	
+10× Hydraulic Actuators	
+4× Armor Panels	
+1× Analysis Chamber Assembly	
+Electronics	
+44× Circuit Bundles	
+30× Signal Processors	
+10× Command Control Chips	
+4× Command AI Chips	
+Power	
+1× Command Reactor Core	
+3× Power Regulation Nodes	
+Rare / Tradeable	
+1× Pattern Recognition Lattice	
+Optional Upgrades	
+Quantum Encryption	
+Reinforced Hull	
+Anti‑Jamming Shielding	

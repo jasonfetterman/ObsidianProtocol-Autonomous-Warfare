@@ -1,0 +1,136 @@
+
+✈️ AIR UNIT #27 — SKYWATCH
+ID:
+obs-air-skywatch
+Role: Airspace Security / Perimeter Enforcement
+Tier: Security
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 2.8 m
+Width: 2.1 m
+Height: 1.0 m
+Mass: 26 kg
+Power Source: High‑capacity patrol battery
+Energy Capacity: 2600 Wh
+Energy Consumption: 55 Wh/min
+Endurance: 35–50 min
+Payload Capacity: 2.0 kg
+Modules: Security optics + deterrent pulse
+Navigation System: GPS + Patrol AI
+Structural Integrity: 170 HP
+Armor Rating: 0.28
+Heat Signature: Medium
+Noise Signature: Medium
+Top Speed: 23 m/s
+Acceleration: Medium
+Turning Radius: Tight
+Climb Rate: Medium
+Stability Rating: Very High
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Airspace Security / Patrol
+Aggression: 0.3
+Caution: 0.7
+Persistence: 0.9
+Flanking Likelihood: 0.2
+Retreat Threshold: 0.6
+Target Priority: Unauthorized drones / intruders
+Formation Discipline: High
+Risk Tolerance: Medium
+Sensors
+Visual Range: 2000 m
+Thermal Range: 900 m
+Acoustic Range: Medium
+Radar Range: Short‑range
+LiDAR Range: Medium
+Signal Detection Range: High
+Communication
+Mesh Range: 8 km
+Relay Capacity: 2
+Command Link Type: Security Grid
+Network Priority: High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: Medium (deterrent pulse)
+Accuracy: Medium
+Stabilization: Very High
+Weapon Mounts: 1 (deterrent pulse emitter)
+Weapon Types: Pulse / marker beam
+Suppression Value: Medium
+Tracking Strength: High
+Disruption Strength: Medium
+Breach Capability: None
+Countermeasure Rating: Medium
+Threat Modeling
+Threat Level: 5
+Engagement Distance: 150–350 m
+Preferred Terrain: Patrol corridors
+Preferred Targets: Unauthorized drones / intruders
+Vulnerability Profile: Ballistic / EMP / jamming
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Airspace Security
+Squad Size Contribution: 1
+Formation Behavior: Patrol spacing
+Intent Interpretation Rules: Maintain perimeter integrity
+Retreat Behavior: Medium
+Breach Behavior: None
+Flanking Behavior: Light
+Reinforcement Behavior: Supports command, recon, and mesh squads
+Command Hierarchy
+Parent Command Unit: Overseer / Command Core
+Subordinate Units: None
+Relay Nodes: 2
+Network Dependencies: Security Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Drone View
+Operator HUD: Security Overlay
+Camera Feeds: Optical
+Thermal View: Yes
+LiDAR View: Yes
+Radar View: Yes
+Tactical Overlay: Intrusion markers / patrol paths
+Operator Controls
+Movement Controls: Full drone flight
+Sensor Controls: Multi‑sensor switching
+Ability Controls: Pulse, Mark Target, Scan
+Weapon Controls: Deterrent pulse
+Stabilization Controls: Auto‑hover
+Operator Abilities
+Deterrent Pulse
+Multi‑Sensor Scan
+Target Mark
+Patrol Pathing
+Relay Security Data
+⚫ ECONOMY & LOGISTICS
+Build Cost: 180 Metal / 190 Electronics
+Build Time: 60 sec
+Factory Type: Drone Bay
+Tech Requirements: Security Systems I
+Maintenance Cost: Medium
+Repair Time: 15 sec
+Supply Consumption: Medium
+Operational Cost: Moderate
+Deployment Requirements: Standard drone pad
+Transport Compatibility: All aerial racks
+Launch Method: Vertical takeoff
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+14× Medium Alloy Plates
+10× Composite Frame Rods
+6× Micro‑Servo Actuators
+3× Stabilizer Fins
+1× Security Sensor Housing
+Electronics
+14× Circuit Bundles
+10× Signal Processors
+4× Drone Control Chips
+3× Security AI Chips
+Power
+1× High‑Capacity Patrol Battery
+3× Power Regulation Nodes
+Rare / Tradeable
+1× Security Pulse Core
+1× Intrusion Detection Processor
+Optional Upgrades
+Extended Patrol Range Module
+Anti‑Jamming Shielding
+Silent Rotor Kit
+High‑Density Sensor Grid

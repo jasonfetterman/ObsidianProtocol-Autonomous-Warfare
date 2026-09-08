@@ -1,0 +1,119 @@
+
+🌊 SEA UNIT — CURRENT
+ID:
+obs-sea-current
+Role: Fast Marine Transport / Rapid Response
+Tier: Support
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 6.0 m
+Width: 2.8 m
+Height: 2.0 m
+Mass: 2,100 kg
+Power Source: Marine diesel-electric hybrid
+Energy Capacity: 9,000 Wh
+Fuel Capacity: 140 L
+Endurance: 5–10 hours
+Payload Capacity: 300 kg or 2 personnel
+Modules: Stabilized hull + rapid-thrust propulsion
+Navigation System: Marine GPS + Response AI
+Structural Integrity: 800 HP
+Armor Rating: 0.30
+Heat Signature: Low
+Noise Signature: Low
+Top Speed: 12 m/s
+Acceleration: High
+Turning Radius: Tight marine turn
+Stability Rating: High
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Rapid Transport / Marine Response
+Aggression: 0.0
+Caution: 0.8
+Persistence: 0.7
+Retreat Threshold: 0.85
+Target Priority: Friendly units requesting support
+Formation Discipline: Medium
+Risk Tolerance: Low
+Sensors
+Visual Range: 1800 m
+Thermal Range: 700 m
+Acoustic Range: Medium
+Sonar Range: Short
+Radar Range: Short
+Signal Detection Range: Medium
+Communication
+Mesh Range: 6 km
+Relay Capacity: 1
+Command Link Type: Marine Support Grid
+Network Priority: High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: None
+Weapon Mounts: None
+Tracking Strength: Low
+Disruption Strength: Low
+Countermeasure Rating: Low
+Threat Modeling
+Threat Level: 2
+Preferred Terrain: Surface waters
+Vulnerability Profile: Ballistic / collision / waves
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Marine Transport / Support
+Squad Size Contribution: 2
+Formation Behavior: Support spacing
+Intent Interpretation Rules: Deliver personnel or supplies
+Retreat Behavior: Early
+Reinforcement Behavior: Supports all marine squads
+Command Hierarchy
+Parent Command Unit: Worldmap / Insight
+Subordinate Units: None
+Relay Nodes: 1
+Network Dependencies: Marine Support Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Marine Transport Console
+Operator HUD: Support Overlay
+Camera Feeds: Optical
+Thermal View: Yes
+Sonar View: Basic
+Tactical Overlay: Routes / drop markers
+Operator Controls
+Movement Controls: Marine drive
+Cargo Controls: Load / secure
+Sensor Controls: Thermal / sonar / zoom
+Ability Controls: Mark Drop Zone, Stabilize, Route Lock
+Operator Abilities
+Rapid Transport
+Stabilization Pulse
+Route Optimization
+Support Relay
+⚫ ECONOMY & LOGISTICS
+Build Cost: 420 Metal / 240 Electronics
+Build Time: 95 sec
+Factory Type: Marine Bay
+Tech Requirements: Marine Systems I
+Maintenance Cost: Low
+Repair Time: 24 sec
+Supply Consumption: Low
+Operational Cost: Low
+Deployment Requirements: Water launch pad
+Transport Compatibility: Marine racks
+Launch Method: Water drop
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+32× Marine Alloy Plates
+18× Reinforced Marine Rods
+5× Hydraulic Actuators
+1× Hull Stabilizer Assembly
+Electronics
+18× Circuit Bundles
+12× Signal Processors
+3× Marine Control Chips
+2× Support AI Chips
+Power
+1× Marine Hybrid Engine Core
+2× Power Regulation Nodes
+Rare / Tradeable
+1× Rapid-Thrust Propulsion Module
+Optional Upgrades
+Silent Propulsion
+Extended Fuel Tank
+Anti‑Jamming Shielding

@@ -1,0 +1,135 @@
+
+✈️ AIR UNIT #7 — INSPECT
+ID:
+obs-air-inspect
+Role: Structural Inspection / Close‑Range Analysis
+Tier: Operational
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 2.0 m
+Width: 1.6 m
+Height: 0.8 m
+Mass: 16 kg
+Power Source: Compact battery
+Energy Capacity: 1600 Wh
+Energy Consumption: 35 Wh/min
+Endurance: 30–45 min
+Payload Capacity: 1.2 kg
+Modules: Inspection camera; micro‑stabilizers
+Navigation System: GPS + Close‑Range Obstacle Avoidance
+Structural Integrity: 110 HP
+Armor Rating: 0.12
+Heat Signature: Low
+Noise Signature: Low
+Top Speed: 18 m/s
+Acceleration: Medium
+Turning Radius: Very Tight
+Climb Rate: Medium
+Stability Rating: High (for close‑range hovering)
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Inspection / Analysis
+Aggression: 0.0
+Caution: 0.9
+Persistence: 0.7
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.8
+Target Priority: Structural points / anomalies
+Formation Discipline: Medium
+Risk Tolerance: Very Low
+Sensors
+Visual Range: 1600 m
+Thermal Range: 700 m
+Acoustic Range: Low
+Radar Range: None
+LiDAR Range: Short‑range (for close inspection)
+Signal Detection Range: Low
+Communication
+Mesh Range: 4 km
+Relay Capacity: 0
+Command Link Type: Standard
+Network Priority: Low
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: 0
+Accuracy: N/A
+Stabilization: Very High
+Weapon Mounts: None
+Weapon Types: None
+Suppression Value: 0
+Tracking Strength: Medium
+Disruption Strength: Low
+Breach Capability: None
+Countermeasure Rating: Low
+Threat Modeling
+Threat Level: 2
+Engagement Distance: N/A
+Preferred Terrain: Close‑range hover zones
+Preferred Targets: None
+Vulnerability Profile: Ballistic / weather
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Structural Inspection
+Squad Size Contribution: 1
+Formation Behavior: Tight hover patterns
+Intent Interpretation Rules: Approach slowly, maintain inspection distance
+Retreat Behavior: Early
+Breach Behavior: None
+Flanking Behavior: None
+Reinforcement Behavior: Supports engineering squads
+Command Hierarchy
+Parent Command Unit: Insight / Command Core
+Subordinate Units: None
+Relay Nodes: None
+Network Dependencies: Standard Warden mesh
+⚫ VR OPERATOR MODE
+Operator Seat Type: Drone View
+Operator HUD: Inspection Overlay
+Camera Feeds: High‑zoom optical
+Thermal View: Yes
+LiDAR View: Yes (short‑range)
+Sonar View: No
+Tactical Overlay: Structural markers
+Operator Controls
+Movement Controls: Full drone flight
+Sensor Controls: Zoom / thermal / LiDAR
+Ability Controls: Scan, Mark Structural Weakness
+Weapon Controls: None
+Stabilization Controls: Auto‑hover, micro‑adjust
+Operator Abilities
+Close‑Range Scan
+Structural Mark
+LiDAR Sweep
+Stabilize
+⚫ ECONOMY & LOGISTICS
+Build Cost: 140 Metal / 120 Electronics
+Build Time: 45 sec
+Factory Type: Drone Bay
+Tech Requirements: Inspection Systems I
+Maintenance Cost: Low
+Repair Time: 12 sec
+Supply Consumption: Low
+Operational Cost: Minimal
+Deployment Requirements: Standard drone pad
+Transport Compatibility: All aerial racks
+Launch Method: Vertical takeoff
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+12× Light Alloy Plates
+8× Composite Frame Rods
+6× Micro‑Servo Actuators
+2× Stabilizer Fins
+1× Inspection Camera Housing
+Electronics
+10× Circuit Bundles
+6× Signal Processors
+4× Drone Control Chips
+2× LiDAR Micro‑Emitters
+Power
+1× Compact Battery Pack
+2× Power Regulation Nodes
+Rare / Tradeable
+1× Precision Inspection Lens
+1× Short‑Range LiDAR Core
+Optional Upgrades
+Ultra‑Zoom Lens
+Thermal Enhancement Module
+Silent Rotor Kit
+Micro‑Hover Stabilization Grid

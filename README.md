@@ -8,6 +8,18 @@ Obsidian Protocol: Autonomous Warfare is a military strategy and warfare simulat
 
 Instead of micromanaging every unit, the player establishes objectives, priorities, rules of engagement, formations, doctrines, and operational intent. Autonomous forces interpret those orders according to their capabilities, sensors, communications, role, condition, and understanding of the battlefield.
 
+## Visual direction
+
+The project’s visual language combines dark industrial armor, warm amber systems lighting, autonomous platforms, and human command leadership.
+
+<p align="center">
+  <img src="Assets/Art/Concepts/Units/Autonomous/Obsidian-Rover.png" alt="Obsidian autonomous rover concept" width="31%">
+  <img src="Assets/Art/Concepts/Units/Autonomous/Warden-Drone.png" alt="Warden autonomous drone concept" width="31%">
+  <img src="Assets/Art/Concepts/Units/Autonomous/Field-Commander.png" alt="Obsidian Protocol field commander concept" width="31%">
+</p>
+
+These concept images represent the intended relationship between autonomous vehicles, reconnaissance systems, and the commander directing them.
+
 ## The vision
 
 Obsidian Protocol is designed to make the player feel like a commander rather than a cursor controlling a collection of game pieces.
@@ -123,6 +135,7 @@ Assets/
 ├── Art/              Concepts, models, textures, and visual assets
 ├── Audio/            Music, ambience, voice, and sound effects
 ├── Data/             Game data and configuration assets
+│   └── Units/        Air, command, ground, and sea unit definitions
 ├── Debug/            Development and diagnostic tools
 ├── Editor/           Unity editor tooling
 ├── Equipment/        Equipment and loadout assets
@@ -138,6 +151,13 @@ Assets/
 Packages/             Unity package manifest
 ProjectSettings/     Unity project settings
 ```
+
+The imported unit catalog is organized into:
+
+- `Assets/Data/Units/Air_Units`
+- `Assets/Data/Units/Command`
+- `Assets/Data/Units/Ground_Units`
+- `Assets/Data/Units/Sea_Units`
 
 ## Getting started
 

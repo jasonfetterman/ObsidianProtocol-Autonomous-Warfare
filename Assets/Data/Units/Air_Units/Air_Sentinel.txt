@@ -1,0 +1,135 @@
+
+✈️ AIR UNIT #5 — SENTINEL
+ID:
+obs-air-sentinel
+Role: Aerial Perimeter Defense / Security Patrol
+Tier: Operational
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 3.5 m
+Width: 2.5 m
+Height: 1.1 m
+Mass: 26 kg
+Power Source: High‑density battery
+Energy Capacity: 2300 Wh
+Energy Consumption: 55 Wh/min
+Endurance: 40 min
+Payload Capacity: 2.5 kg
+Modules: Tracking sensors
+Navigation System: GPS + AI Defense Grid
+Structural Integrity: 160 HP
+Armor Rating: 0.25
+Heat Signature: Medium
+Noise Signature: Medium
+Top Speed: 23 m/s
+Acceleration: Medium
+Turning Radius: Moderate
+Climb Rate: Medium
+Stability Rating: High
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Security / Patrol
+Aggression: 0.4
+Caution: 0.6
+Persistence: 0.7
+Flanking Likelihood: 0.2
+Retreat Threshold: 0.5
+Target Priority: Hostile signatures
+Formation Discipline: Medium
+Risk Tolerance: Medium
+Sensors
+Visual Range: 1500 m
+Thermal Range: 900 m
+Acoustic Range: Medium
+Radar Range: None
+LiDAR Range: None
+Signal Detection Range: Medium
+Communication
+Mesh Range: 6 km
+Relay Capacity: 0
+Command Link Type: Defense Grid
+Network Priority: High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: Low (non‑lethal deterrence)
+Accuracy: Medium
+Stabilization: High
+Weapon Mounts: 1 (non‑lethal deterrent or spotlight)
+Weapon Types: Tracking beam / deterrent pulse
+Suppression Value: Medium
+Tracking Strength: High
+Disruption Strength: Medium
+Breach Capability: None
+Countermeasure Rating: Medium
+Threat Modeling
+Threat Level: 4
+Engagement Distance: 200–400 m
+Preferred Terrain: Perimeter airspace
+Preferred Targets: Hostile drones / intruders
+Vulnerability Profile: Ballistic / EMP
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Airspace Security
+Squad Size Contribution: 1
+Formation Behavior: Patrol loops
+Intent Interpretation Rules: Maintain perimeter, intercept threats
+Retreat Behavior: Medium
+Breach Behavior: None
+Flanking Behavior: Light
+Reinforcement Behavior: Supports defense squads
+Command Hierarchy
+Parent Command Unit: Command Core / Sentinel (Ground)
+Subordinate Units: None
+Relay Nodes: None
+Network Dependencies: Defense Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Drone View
+Operator HUD: Defense Grid Overlay
+Camera Feeds: Optical
+Thermal View: Yes
+LiDAR View: No
+Sonar View: No
+Tactical Overlay: Threat markers / patrol routes
+Operator Controls
+Movement Controls: Full drone flight
+Sensor Controls: Thermal / tracking / spotlight
+Ability Controls: Mark Target, Suppress, Spotlight
+Weapon Controls: Non‑lethal deterrent
+Stabilization Controls: Auto‑hover
+Operator Abilities
+Threat Mark
+Suppression Pulse
+Spotlight Tracking
+Relay Defense Data
+⚫ ECONOMY & LOGISTICS
+Build Cost: 200 Metal / 180 Electronics
+Build Time: 60 sec
+Factory Type: Drone Bay
+Tech Requirements: Defense Grid I
+Maintenance Cost: Medium
+Repair Time: 16 sec
+Supply Consumption: Medium
+Operational Cost: Moderate
+Deployment Requirements: Standard drone pad
+Transport Compatibility: All aerial racks
+Launch Method: Vertical takeoff
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+16× Medium Alloy Plates
+12× Composite Frame Rods
+8× Micro‑Servo Actuators
+4× Stabilizer Fins
+1× Tracking Sensor Array
+Electronics
+14× Circuit Bundles
+10× Signal Processors
+6× Drone Control Chips
+2× Defense Grid AI Chips
+Power
+1× High‑Density Battery Pack
+3× Power Regulation Nodes
+Rare / Tradeable
+1× Threat‑Detection Core
+1× Non‑Lethal Deterrent Module
+Optional Upgrades
+Enhanced Spotlight
+Anti‑Jamming Shielding
+Extended Patrol Range Module
+Thermal Boost Lens
