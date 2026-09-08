@@ -47,6 +47,9 @@ Command-AI and operational-planning references are documented in
 is preserved under `Tools/ThirdParty/PyCMO-Learning/`; GPL or unclear-license CMO
 repositories were reviewed but not imported.
 
+Downloaded RTS asset and code extractions are documented in
+`Docs/Design/Third-Party/Downloaded-RTS-Assets.md`.
+
 
 
 
