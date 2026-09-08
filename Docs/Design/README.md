@@ -31,6 +31,9 @@ The supplied interface and gameplay images are preserved under `Assets/Art/Conce
 Third-party integration references are documented under `Docs/Design/Third-Party/`, including the imported
 `Assets/ThirdParty/URP-Ocean-System/` ocean-system asset tree.
 
+The same directory documents the imported
+`Assets/ThirdParty/Procedural-Desert-Terrain/` procedural desert-terrain reference.
+
 
 
 
