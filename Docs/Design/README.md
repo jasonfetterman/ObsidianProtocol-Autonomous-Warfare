@@ -215,3 +215,13 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Command-Worldmap-Unit.pdf - detailed Worldmap navigation and terrain-intelligence specification
 
 - Source PDFs/OPAW-Command-Core-Unit.pdf - detailed Command Core strategic-coordination specification
+
+- Source PDFs/OPAW-Command-Fusion-Unit.pdf - detailed Fusion multi-domain command-integration specification
+
+- Source PDFs/OPAW-Command-Nexus-Unit.pdf - detailed Nexus strategic-routing and synchronization specification
+
+- Source PDFs/OPAW-Command-Insight-Unit.pdf - detailed Insight strategic-analysis specification
+
+- Source PDFs/OPAW-Command-Pulse-Unit.pdf - detailed Pulse tactical signal-hub specification
+
+- Source PDFs/OPAW-Command-Vector-Core-Unit.pdf - detailed Vector Core tactical vector-routing specification
