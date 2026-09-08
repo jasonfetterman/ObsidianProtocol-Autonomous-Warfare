@@ -159,6 +159,70 @@ The imported unit catalog is organized into:
 - `Assets/Data/Units/Ground_Units`
 - `Assets/Data/Units/Sea_Units`
 
+## Obsidian Protocol vs. comparable games
+
+This comparison describes the intended design focus of Obsidian Protocol relative to other strategy and warfare
+games. It is a high-level design comparison, not a claim that every listed feature is fully implemented today.
+
+**Legend:** 🟢 Core / strong · 🟡 Partial / limited · 🔴 Absent / not a core system
+
+| Game | Autonomous units | Command intent | AI commanders | Sensors | Fog / uncertainty | Info warfare | Communications | Persistent military | Strategic | Tactical | Logistics | Customization | Massive battles | Multiplayer | VR | Physical facility |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ⚫ Obsidian Protocol | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
+| WARNO | 🟡 | 🔴 | 🔴 | 🟢 | 🟢 | 🟡 | 🟡 | 🔴 | 🟢 | 🟢 | 🟡 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 |
+| Broken Arrow | 🟡 | 🔴 | 🔴 | 🟢 | 🟢 | 🟡 | 🟡 | 🔴 | 🟡 | 🟢 | 🟡 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 |
+| Steel Division 2 | 🟡 | 🔴 | 🟡 | 🟢 | 🟢 | 🟡 | 🟡 | 🔴 | 🟢 | 🟢 | 🟡 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 |
+| Wargame: Red Dragon | 🟡 | 🔴 | 🔴 | 🟢 | 🟢 | 🟡 | 🟡 | 🔴 | 🟢 | 🟢 | 🟡 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 |
+| Regiments | 🟡 | 🔴 | 🟡 | 🟢 | 🟢 | 🟡 | 🟡 | 🔴 | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🟡 | 🔴 | 🔴 |
+| Company of Heroes 3 | 🟡 | 🔴 | 🔴 | 🟡 | 🟢 | 🔴 | 🔴 | 🔴 | 🟡 | 🟢 | 🟡 | 🟡 | 🟡 | 🟢 | 🔴 | 🔴 |
+| Supreme Commander | 🟢 | 🔴 | 🟡 | 🟡 | 🟡 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 |
+| Beyond All Reason | 🟢 | 🔴 | 🟡 | 🟢 | 🟢 | 🟡 | 🟡 | 🔴 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 |
+| Ashes of the Singularity | 🟢 | 🔴 | 🟡 | 🟡 | 🟡 | 🔴 | 🔴 | 🔴 | 🟡 | 🟢 | 🟢 | 🟡 | 🟢 | 🟢 | 🔴 | 🔴 |
+| World in Conflict | 🟡 | 🟡 | 🟡 | 🟢 | 🟢 | 🟡 | 🟡 | 🔴 | 🔴 | 🟢 | 🟡 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 |
+| Sins of a Solar Empire II | 🟢 | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 |
+| Homeworld 3 | 🟡 | 🟡 | 🟡 | 🟡 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟡 | 🟡 | 🟡 | 🟢 | 🔴 | 🔴 |
+| Deserts of Kharak | 🟡 | 🟡 | 🟡 | 🟡 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟡 | 🟡 | 🟡 | 🟢 | 🔴 | 🔴 |
+| Total War: Warhammer III | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 | 🔴 | 🔴 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🔴 | 🔴 |
+| Dune: Spice Wars | 🟡 | 🟡 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟢 | 🟡 | 🟡 | 🟢 | 🔴 | 🔴 |
+| Age of Empires IV | 🔴 | 🔴 | 🔴 | 🟡 | 🟡 | 🔴 | 🔴 | 🔴 | 🟡 | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🔴 | 🔴 |
+| StarCraft II | 🔴 | 🔴 | 🔴 | 🟡 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🟢 | 🟡 | 🟢 | 🔴 | 🔴 |
+| Command & Conquer | 🔴 | 🔴 | 🔴 | 🟡 | 🟡 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🔴 | 🔴 |
+| Iron Harvest | 🟡 | 🔴 | 🔴 | 🟡 | 🟡 | 🔴 | 🔴 | 🟡 | 🟡 | 🟢 | 🟡 | 🟢 | 🟡 | 🟢 | 🔴 | 🔴 |
+
+### The most important comparison
+
+| Capability | Obsidian Protocol | Closest comparable |
+| --- | --- | --- |
+| 🧠 Autonomous behavior | 🟢 | 🟡 |
+| 🎖️ Command intent | 🟢 | 🔴 |
+| 👨‍✈️ Autonomous commanders | 🟢 | 🟡 |
+| 👁️ Real sensor model | 🟢 | 🟢 |
+| ❓ Unknown / uncertain contacts | 🟢 | 🟢 |
+| 📡 Communications affecting knowledge | 🟢 | 🟡 |
+| 🛰️ Information warfare | 🟢 | 🟡 |
+| 🏭 Persistent military | 🟢 | 🟡 |
+| 🌎 Persistent consequences | 🟢 | 🟡 |
+| ⚔️ Strategic and tactical warfare | 🟢 | 🟢 |
+| 🚚 Logistics | 🟢 | 🟡 |
+| 💰 Deployment budget | 🟢 | 🟡 |
+| 🤖 Large autonomous formations | 🟢 | 🟢 |
+| 🎮 Traditional unit micromanagement | 🔴 Intentionally not core | 🟢 |
+| 🥽 Full VR command | 🟢 | 🔴 |
+| 🏢 Physical military facility | 🟢 | 🔴 |
+| 💾 Persistent ownership and fleet | 🟢 | 🟡 |
+| 🔥 Emergent battlefield | 🟢 | 🟢 |
+| 🌐 Multiplayer | 🟢 | 🟢 |
+| ⚠️ Meaningful consequences | 🟢 | 🟡 |
+
+### Bottom line
+
+Obsidian Protocol's strongest differentiation is not any single green dot. It is the combination:
+
+> 🧠 Intent → 🎖️ Commanders → 🤖 Autonomous units → 👁️ Sensors → 📡 Communications → ❓ Imperfect information →
+> ⚔️ Emergent battle → 💾 Persistent military → 🏢 Physical facility → 🥽 VR command
+
+That combination is what separates the project from a conventional RTS.
+
 ## Getting started
 
 ### Requirements
