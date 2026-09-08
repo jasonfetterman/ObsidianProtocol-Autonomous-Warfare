@@ -33,3 +33,8 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Sunburn-Map.pdf - detailed Sunburn map specification
 - Source PDFs/OPAW-Canopy-Map.pdf - detailed Canopy map specification
 - Source PDFs/OPAW-Rainfall-Map.pdf - detailed Rainfall map specification
+
+- Source PDFs/OPAW-Floodplain-Map.pdf - detailed Floodplain map specification
+- Source PDFs/OPAW-Trenchline-Map.pdf - detailed Trenchline map specification
+- Source PDFs/OPAW-Bluewater-Map.pdf - detailed Bluewater map specification
+- Source PDFs/OPAW-Archipelago-Map.pdf - detailed Archipelago map specification
