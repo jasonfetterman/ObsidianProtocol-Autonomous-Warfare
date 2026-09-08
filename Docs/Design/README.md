@@ -43,3 +43,13 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Frozen-Strait-Map.pdf - detailed Frozen Strait map specification
 - Source PDFs/OPAW-Whiteout-Map.pdf - detailed Whiteout map specification
 - Source PDFs/OPAW-Outpost-Zero-Map.pdf - detailed Outpost Zero map specification
+
+- Source PDFs/OPAW-Fortress-Map.pdf - detailed Fortress map specification
+
+- Source PDFs/OPAW-Black-Site-Map.pdf - detailed Black Site map specification
+
+- Source PDFs/OPAW-Foundry-Map.pdf - detailed Foundry map specification
+
+- Source PDFs/OPAW-The-Yard-Map.pdf - detailed The Yard map specification
+
+- Source PDFs/OPAW-Skyline-Map.pdf - detailed Skyline map specification
