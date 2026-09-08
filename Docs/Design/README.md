@@ -125,3 +125,11 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Air-LiDAR-Unit.pdf - detailed LiDAR terrain-mapping unit specification
 
 - Source PDFs/OPAW-Air-Lifeline-Unit.pdf - detailed Lifeline emergency-support unit specification
+
+- Source PDFs/OPAW-Air-Link-Unit.pdf - detailed Link network-bridge unit specification
+
+- Source PDFs/OPAW-Air-Locator-Unit.pdf - detailed Locator target-tracking unit specification
+
+- Source PDFs/OPAW-Air-Cartographer-Unit.pdf - detailed Cartographer mapping unit specification
+
+- Source PDFs/OPAW-Air-Mesh-Unit.pdf - detailed Mesh network-backbone unit specification
