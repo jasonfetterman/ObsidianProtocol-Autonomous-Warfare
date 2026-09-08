@@ -107,3 +107,13 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Production-Staffing-Master-Plan.pdf - phased production staffing reference
 
 - Source PDFs/OPAW-Black-Site-Master-Facility-Layout.pdf - Black Site facility and interior layout reference
+
+- Source PDFs/OPAW-Air-Warden-Unit.pdf - detailed Warden aerial surveillance unit specification
+
+- Source PDFs/OPAW-Air-Beacon-Unit.pdf - detailed Beacon aerial mesh relay unit specification
+
+- Source PDFs/OPAW-Air-Drop-Unit.pdf - detailed Drop precision payload unit specification
+
+- Source PDFs/OPAW-Air-Iris-Unit.pdf - detailed Iris imaging and target-tracking unit specification
+
+- Source PDFs/OPAW-Air-Sentinel-Unit.pdf - detailed Sentinel aerial perimeter-defense unit specification
