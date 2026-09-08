@@ -133,3 +133,11 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Air-Cartographer-Unit.pdf - detailed Cartographer mapping unit specification
 
 - Source PDFs/OPAW-Air-Mesh-Unit.pdf - detailed Mesh network-backbone unit specification
+
+- Source PDFs/OPAW-Air-Nightguard-Unit.pdf - detailed Nightguard thermal-recon unit specification
+
+- Source PDFs/OPAW-Air-Overseer-Unit.pdf - detailed Overseer command-grade coordination unit specification
+
+- Source PDFs/OPAW-Air-Insight-Unit.pdf - detailed Insight strategic-intelligence unit specification
+
+- Source PDFs/OPAW-Air-Pulse-Unit.pdf - detailed Pulse electronic-disruption unit specification
