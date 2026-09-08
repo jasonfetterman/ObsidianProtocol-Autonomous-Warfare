@@ -99,3 +99,11 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Rulebook-Complete-Layout.pdf - complete rule-book layout reference
 
 - Source PDFs/OPAW-Commanders-Field-Manual.pdf - commander field manual layout reference
+
+- Source PDFs/OPAW-Feature-Film-Screenplay-Bible.pdf - feature-film screenplay and story reference
+
+- Source PDFs/OPAW-Feature-Film-Cast-Crew-Budget.pdf - feature-film cast and crew budget reference
+
+- Source PDFs/OPAW-Production-Staffing-Master-Plan.pdf - phased production staffing reference
+
+- Source PDFs/OPAW-Black-Site-Master-Facility-Layout.pdf - Black Site facility and interior layout reference
