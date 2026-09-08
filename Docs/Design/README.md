@@ -141,3 +141,9 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Air-Insight-Unit.pdf - detailed Insight strategic-intelligence unit specification
 
 - Source PDFs/OPAW-Air-Pulse-Unit.pdf - detailed Pulse electronic-disruption unit specification
+
+- Source PDFs/OPAW-Air-Relay-Unit-77.pdf and OPAW-Air-Relay-Unit-78.pdf - duplicate preserved Relay specification uploads
+
+- Source PDFs/OPAW-Air-SAR-Unit.pdf - detailed SAR search-and-rescue unit specification
+
+- Source PDFs/OPAW-Air-Scout-Unit.pdf - detailed Scout rapid-recon unit specification
