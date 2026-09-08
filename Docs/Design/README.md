@@ -39,6 +39,9 @@ RTS architecture and systems references are documented in
 `Docs/Design/Third-Party/RTS-Learning.md` and imported under
 `Assets/ThirdParty/RTS-Learning/`.
 
+Additional MIT-licensed building-placement and selection references are documented in
+`Docs/Design/Third-Party/Additional-RTS-References.md`.
+
 
 
 
