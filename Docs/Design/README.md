@@ -35,6 +35,10 @@ The same directory documents the imported
 It also documents the focused water, terrain, and environment learning subset imported from
 `Assets/ThirdParty/AmyTheHedgehog-Learning/`.
 
+RTS architecture and systems references are documented in
+`Docs/Design/Third-Party/RTS-Learning.md` and imported under
+`Assets/ThirdParty/RTS-Learning/`.
+
 
 
 
