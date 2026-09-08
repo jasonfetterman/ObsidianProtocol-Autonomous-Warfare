@@ -234,25 +234,6 @@ Obsidian Protocol's strongest differentiation is not any single green dot. It is
 
 That combination is what separates the project from a conventional RTS.
 
-## Getting started
-
-### Requirements
-
-- Unity **6000.0.80f1**
-- A Windows development environment suitable for Unity
-- Git and enough disk space for Unity's generated project cache
-
-### Open the project
-
-1. Clone the repository.
-2. Open Unity Hub.
-3. Select **Add** and choose the cloned repository folder.
-4. Open the project with Unity `6000.0.80f1`.
-5. Allow Unity to import assets and resolve packages.
-6. Open a scene from `Assets/Scenes/` and press Play.
-
-Unity-generated folders such as `Library`, `Logs`, `Temp`, `Obj`, and `UserSettings` are intentionally excluded from version control. Unity recreates them locally when the project is opened.
-
 ## Development status
 
 Obsidian Protocol is an active commercial game in development. The systems described here represent the current
