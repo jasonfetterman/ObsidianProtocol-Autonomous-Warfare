@@ -63,3 +63,13 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Crossroads-Map.pdf - detailed Crossroads map specification
 
 - Source PDFs/OPAW-The-Corridor-Map.pdf - detailed The Corridor map specification
+
+- Source PDFs/OPAW-Crown-Ridge-Map.pdf - detailed Crown Ridge map specification
+
+- Source PDFs/OPAW-Highland-Map.pdf - detailed Highland map specification
+
+- Source PDFs/OPAW-Dark-Forest-Map.pdf - detailed Dark Forest map specification
+
+- Source PDFs/OPAW-Greenline-Map.pdf - detailed Greenline map specification
+
+- Source PDFs/OPAW-Stormwatch-Map.pdf - detailed Stormwatch map specification
