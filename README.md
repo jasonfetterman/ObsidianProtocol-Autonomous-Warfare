@@ -8,6 +8,18 @@ Obsidian Protocol: Autonomous Warfare is a military strategy and warfare simulat
 
 Instead of micromanaging every unit, the player establishes objectives, priorities, rules of engagement, formations, doctrines, and operational intent. Autonomous forces interpret those orders according to their capabilities, sensors, communications, role, condition, and understanding of the battlefield.
 
+## Visual direction
+
+The project’s visual language combines dark industrial armor, warm amber systems lighting, autonomous platforms, and human command leadership.
+
+<p align="center">
+  <img src="Assets/Art/Concepts/Units/Autonomous/Obsidian-Rover.png" alt="Obsidian autonomous rover concept" width="31%">
+  <img src="Assets/Art/Concepts/Units/Autonomous/Warden-Drone.png" alt="Warden autonomous drone concept" width="31%">
+  <img src="Assets/Art/Concepts/Units/Autonomous/Field-Commander.png" alt="Obsidian Protocol field commander concept" width="31%">
+</p>
+
+These concept images represent the intended relationship between autonomous vehicles, reconnaissance systems, and the commander directing them.
+
 ## The vision
 
 Obsidian Protocol is designed to make the player feel like a commander rather than a cursor controlling a collection of game pieces.
