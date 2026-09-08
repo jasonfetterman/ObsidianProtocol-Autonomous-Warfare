@@ -1,0 +1,597 @@
+OBSIDIAN PROTOCOL: AUTONOMOUS WARFARE
+PURCHASE LIST — CREDIT COSTS
+
+==================================================
+UNIT PURCHASES
+==================================================
+
+AIR UNITS         750 Credits
+Warden            500 Credits
+Beacon         1,200 Credits
+Drop          650 Credits
+Iris            1,000 Credits
+Sentinel          450 Credits
+ScoutEye         400 Credits
+Inspect        700 Credits
+Lidar           800 Credits
+Lifeline       650 Credits
+Link             500 Credits
+Locator
+Cartographer         800 Credits
+Mesh             900 Credits
+Nightguard
+Overseer           950 Credits
+Trailblazer      1,500 Credits
+Relay             850 Credits
+Response        750 Credits
+SAR
+Scout              850 Credits
+NexusGrid      900 Credits
+Spotter         400 Credits
+Survey
+Terrain           1,400 Credits
+Thermal          500 Credits
+Tracker          550 Credits
+                 650 Credits
+                  700 Credits
+                 650 Credits
+Vector         1,100 Credits
+Watchtower          1,000 Credits
+Horizon
+Skywatch        1,050 Credits
+Insight          1,100 Credits
+               1,300 Credits
+
+GROUND UNITS   1,250 Credits
+Bulldog        1,400 Credits
+Forge
+Hammer            1,650 Credits
+Ironwalker       2,000 Credits
+Mule            850 Credits
+Patrol          900 Credits
+Rescue           950 Credits
+Scout           600 Credits
+Sentinel       1,100 Credits
+Rover           650 Credits
+Crusher         2,200 Credits
+Hauler         1,000 Credits
+
+SEA UNITS            750 Credits
+Surveyor Mk1     900 Credits
+Current        1,000 Credits
+Rescue          700 Credits
+Scout          1,100 Credits
+Sonar
+Depthwatch          1,500 Credits
+Harbor          2,200 Credits
+Tidebreaker
+                   2,800 Credits
+
+COMMAND UNITS  2,500 Credits
+Archive           2,750 Credits
+Worldmap             3,000 Credits
+Command Core
+Fusion               3,500 Credits
+Nexus                3,750 Credits
+Insight              3,250 Credits
+Pulse                3,000 Credits
+Vector Core
+                        4,000 Credits
+
+EXPERIMENTAL UNITS
+
+Echo                 7,500 Credits
+
+Nullpoint             10,000 Credits
+
+Specter               12,500 Credits
+
+Shadowgrid            15,000 Credits
+
+Phantom               17,500 Credits
+
+Helix                20,000 Credits
+
+==================================================
+FACILITIES
+==================================================
+
+Starter Garage        FREE
+
+Garage Expansion I    2,500 Credits
+
+Garage Expansion II   5,000 Credits
+
+Garage Expansion III  10,000 Credits
+
+Garage Expansion IV   20,000 Credits
+
+Premium Garage Bay    4,000 Credits
+
+Heavy Vehicle Bay     3,500 Credits
+
+Air / Drone Bay       3,000 Credits
+
+Naval Bay             4,000 Credits
+
+Command Unit Chamber                 5,000 Credits
+
+Experimental Containment Bay 15,000 Credits
+
+Repair Station        2,500 Credits
+
+Upgrade Station       2,500 Credits
+
+Fabrication Station   4,000 Credits
+
+Salvage Station       2,500 Credits
+Recycling Station            2,500 Credits
+
+Storage Facility           2,000 Credits
+
+Fuel Storage Expansion       1,500 Credits
+
+Electronics Storage Expansion 2,000 Credits
+
+Resource Storage Expansion   1,500 Credits
+
+Fleet Command Center         7,500 Credits
+
+Deployment Staging Area      3,000 Credits
+
+AI Diagnostics Station       3,000 Credits
+
+AI Personality Station       3,000 Credits
+
+Paint & Customization Bay    2,000 Credits
+
+Equipment Station            2,500 Credits
+
+Weapons Station              3,000 Credits
+
+==================================================
+GARAGE SLOTS
+==================================================
+
+Additional Garage Slot ×1    250 Credits
+Additional Garage Slots ×5   1,000 Credits
+Additional Garage Slots ×10  1,750 Credits
+Additional Garage Slots ×25  3,500 Credits
+Additional Garage Slots ×50  6,000 Credits
+
+Air Unit Slot              300 Credits
+Ground Unit Slot              300 Credits
+Sea Unit Slot
+Command Unit Slot          500 Credits
+Experimental Unit Slot           750 Credits
+Heavy Vehicle Slot              2,000 Credits
+Specialized Unit Slot
+Reserve Fleet Slot             500 Credits
+                               750 Credits
+                              250 Credits
+==================================================
+GENERIC MODULES
+==================================================
+
+Sensor Module               300 Credits
+Recon Module                350 Credits
+Thermal Module               400 Credits
+LiDAR Module               450 Credits
+Radar Module               500 Credits
+Acoustic Sensor Module
+Signal Detection Module         450 Credits
+Communication Module            400 Credits
+Mesh Relay Module
+Command Relay Module              350 Credits
+AI Control Module              500 Credits
+Navigation Module
+Stabilization Module              750 Credits
+Power Module                 600 Credits
+Battery Module                350 Credits
+Fuel Module                  300 Credits
+Armor Module                 400 Credits
+Mobility Module             350 Credits
+Payload Module             350 Credits
+Weapon Mount Module          600 Credits
+Countermeasure Module        500 Credits
+Stealth Module               500 Credits
+Electronic Warfare Module
+Medical Module                     650 Credits
+Cargo Module                       550 Credits
+Repair Module              1,000 Credits
+Recovery Module                  1,250 Credits
+                             700 Credits
+                            500 Credits
+                            750 Credits
+                              650 Credits
+
+==================================================
+AIR UNIT UPGRADES
+==================================================
+
+Extended Mesh Range Module     450 Credits
+
+Signal Boost Amplifier        500 Credits
+
+Anti-Jamming Shielding        600 Credits
+
+Extended Tracking Range Module 500 Credits
+
+Thermal Boost Lens            450 Credits
+
+Silent Rotor Kit              650 Credits
+
+Extended Battery Module       500 Credits
+
+Precision Drop Enhancer       600 Credits
+
+Anti-Wind Stabilization Grid  550 Credits
+
+Extended Altitude Module      600 Credits
+
+Ultra-Long-Range Lens         850 Credits
+
+Extended Intelligence Range Module 700 Credits
+
+High-Density Sensor Grid      800 Credits
+
+Ultra-Zoom Lens               650 Credits
+
+Thermal Enhancement Module     550 Credits
+
+Micro-Hover Stabilization Grid 500 Credits
+
+Extended LiDAR Range Module    700 Credits
+
+High-Density Scan Grid        750 Credits
+
+High-Capacity Medical Bay     900 Credits
+
+Ultra-Thermal Lens            850 Credits
+
+Extended Command Range Module              850 Credits
+
+Extended Pulse Range Module    800 Credits
+
+High-Density Disruption Grid 1,000 Credits
+
+Extended Relay Range Module    750 Credits
+
+High-Density Mesh Grid        850 Credits
+
+Extended Patrol Range Module   600 Credits
+
+Enhanced Spotlight            300 Credits
+
+Thermal Boost Module          500 Credits
+
+Extended Battery Pack         450 Credits
+
+High-Density Elevation Grid   750 Credits
+
+Ultra-Long-Range Sensor Grid 1,000 Credits
+High-Density Recon Grid   800 Credits
+
+==================================================
+GROUND UNIT UPGRADES
+==================================================
+
+Reinforced Armor             750 Credits
+Silent Drive Kit          650 Credits
+Extended Patrol Battery
+Anti-Jamming Shielding          500 Credits
+Reinforced Arms                 600 Credits
+Shock-Dampened Chassis       700 Credits
+Extended Fuel Tank
+Reinforced Arm                     600 Credits
+Silent Generator Kit          450 Credits
+Reinforced Ram              650 Credits
+Reinforced Cargo Bed         700 Credits
+Stabilized Weapon Mounts    750 Credits
+Extended Battery Pack          550 Credits
+Reinforced Cradle
+Thermal-Enhanced Optics            700 Credits
+                                450 Credits
+                             600 Credits
+
+                                  550 Credits
+
+==================================================
+SEA UNIT UPGRADES
+==================================================
+
+Silent Propulsion          850 Credits
+Extended Fuel Tank            600 Credits
+Anti-Jamming Shielding          650 Credits
+Extended Battery Pack           550 Credits
+Reinforced Hull
+Reinforced Cradle         1,000 Credits
+                             700 Credits
+Silent Drive Kit        750 Credits
+
+==================================================
+COMMAND UNIT UPGRADES
+==================================================
+
+Reinforced Vault        1,000 Credits
+Quantum Encryption         1,500 Credits
+Anti-Jamming Shielding       850 Credits
+Reinforced Hull
+                        1,000 Credits
+
+==================================================
+GENERIC EQUIPMENT
+==================================================
+
+Optical Camera System        250 Credits
+Thermal Imaging System        400 Credits
+LiDAR System            500 Credits
+Radar System            600 Credits
+Sonar System            600 Credits
+Acoustic Sensor         400 Credits
+Signal Detector         400 Credits
+Recon Package            500 Credits
+Surveillance Package       650 Credits
+Target Tracking System      600 Credits
+Navigation System         350 Credits
+Communication System          350 Credits
+Mesh Transceiver          500 Credits
+Signal Processor        450 Credits
+Relay System            550 Credits
+Command Link              700 Credits
+AI Control System         800 Credits
+Stabilization System          350 Credits
+Countermeasure System              700 Credits
+Electronic Warfare System
+Stealth System                   1,250 Credits
+Power System               1,500 Credits
+Battery System
+Fuel System                  450 Credits
+Medical System              400 Credits
+Recovery System            400 Credits
+Repair System                750 Credits
+Cargo System
+Transport System              650 Credits
+                            700 Credits
+                            500 Credits
+
+                              550 Credits
+
+==================================================
+WEAPONS — CURRENT CLASS PRICING
+==================================================
+
+Light Weapon               500 Credits
+Medium Weapon                  900 Credits
+Heavy Weapon
+Turret Weapon              1,500 Credits
+Suppression Weapon          750 Credits
+Direct-Fire Weapon
+Projectile Weapon               850 Credits
+Explosive Weapon              900 Credits
+Area-of-Effect Weapon       1,000 Credits
+Defensive Weapon            1,250 Credits
+Anti-Vehicle Weapon            1,500 Credits
+Anti-Air Weapon               750 Credits
+Naval Weapon                  1,500 Credits
+Experimental Weapon        1,400 Credits
+                           1,500 Credits
+                               5,000 Credits
+==================================================
+COSMETICS
+==================================================
+
+Basic Paint                100 Credits
+
+Premium Paint               250 Credits
+
+Metallic Finish             300 Credits
+
+Matte Finish                250 Credits
+
+Gloss Finish               250 Credits
+
+Weathered Finish            400 Credits
+
+Industrial Finish           400 Credits
+
+Battle-Worn Finish          500 Credits
+
+Unit Emblem                 150 Credits
+
+Faction Emblem              250 Credits
+
+Player Emblem               200 Credits
+
+Squad Emblem                200 Credits
+
+Decal Pack                 200 Credits
+
+Number Decal Pack           150 Credits
+
+Warning Decal Pack          200 Credits
+
+Identification Decal Pack   150 Credits
+
+Unit Marking Pack           300 Credits
+
+Kill Marking Pack           350 Credits
+
+Lighting Package            400 Credits
+
+Exterior Light Kit          300 Credits
+
+Status Light Kit            250 Credits
+
+Accent Light Kit            300 Credits
+
+Antenna Variant             150 Credits
+
+Sensor Housing Variant      300 Credits
+
+Armor Appearance Variant    500 Credits
+
+Wheel Appearance Variant    300 Credits
+
+Panel Appearance Variant    250 Credits
+
+Chassis Appearance Variant  500 Credits
+==================================================
+AI PERSONALIZATION
+==================================================
+
+AI Personality Package   500 Credits
+
+Aggressive Personality   500 Credits
+
+Defensive Personality    500 Credits
+
+Recon Personality        500 Credits
+
+Cautious Personality     500 Credits
+
+Adaptive Personality     750 Credits
+
+Logistics Personality    600 Credits
+
+Support Personality      600 Credits
+
+Command Personality      750 Credits
+
+Voice Pack               750 Credits
+
+Command Voice Pack       1,000 Credits
+
+Warning Voice Pack       500 Credits
+
+Status Voice Pack        500 Credits
+
+AI Core Appearance       250 Credits
+
+AI Core Housing          400 Credits
+
+AI Diagnostic Theme      250 Credits
+
+Command Interface Theme  300 Credits
+
+==================================================
+REPAIR
+==================================================
+
+Emergency Repair            150 Credits
+Standard Repair           300 Credits
+Advanced Repair            500 Credits
+Full Restoration         750 Credits
+Field Repair Kit         250 Credits
+Vehicle Repair Kit         350 Credits
+Drone Repair Kit           250 Credits
+Naval Repair Kit             500 Credits
+
+Command Repair Kit             750 Credits
+
+Maintenance Package            300 Credits
+
+Extended Maintenance Package   600 Credits
+
+Preventive Maintenance Package 450 Credits
+
+==================================================
+FABRICATION MATERIALS
+==================================================
+
+Light Alloy Plates ×10         100 Credits
+
+Heavy Alloy Plates ×10         175 Credits
+
+Command Alloy Plates ×10       250 Credits
+
+Composite Frame Rods ×10       125 Credits
+
+Reinforced Frame Rods ×10      175 Credits
+
+Reinforced Command Rods ×10    250 Credits
+
+Micro-Servo Actuators ×5       150 Credits
+
+Hydraulic Actuators ×5         200 Credits
+
+Stabilizer Fins ×5           125 Credits
+
+Armor Panels ×5                175 Credits
+
+Circuit Bundles ×10            150 Credits
+
+Signal Processors ×10          200 Credits
+
+Drone Control Chips ×5         200 Credits
+
+Vehicle Control Chips ×5       225 Credits
+
+Command Control Chips ×5       350 Credits
+
+Security AI Chips ×5           300 Credits
+
+AI Stabilization Modules ×5    350 Credits
+
+High-Density Battery Packs ×5  250 Credits
+
+Hybrid Engine Cores ×1         500 Credits
+
+Command Reactor Core ×1        1,000 Credits
+
+Power Regulation Nodes ×5      200 Credits
+
+Optical Camera Cores ×5        175 Credits
+
+Thermal Micro-Sensors ×5       225 Credits
+Patrol Sensor Housings ×5       250 Credits
+Data Vault Assembly ×1          600 Credits
+Encryption Lattice Module ×1
+Turret Stabilization Module ×1    750 Credits
+                                  500 Credits
+
+==================================================
+STORAGE / PRODUCTION CONVENIENCE
+==================================================
+
+Storage Expansion               750 Credits
+
+Fuel Storage Expansion          750 Credits
+
+Electronics Storage Expansion 1,000 Credits
+
+Alloy Storage Expansion         1,000 Credits
+
+Component Storage Expansion     750 Credits
+
+Resource Storage Expansion      750 Credits
+
+Fabrication Queue Expansion     1,500 Credits
+
+Repair Queue Expansion          1,000 Credits
+
+Manufacturing Queue Expansion 1,500 Credits
+
+Salvage Queue Expansion         1,000 Credits
+
+Additional Production Slot      2,000 Credits
+
+Additional Repair Slot          1,000 Credits
+
+Additional Fabrication Slot     1,500 Credits
+
+Additional Salvage Slot         1,000 Credits
+
+==================================================
+FLEET MANAGEMENT
+==================================================
+
+Deployment Configuration Slot   250 Credits
+
+Army Preset Slot             250 Credits
+
+Fleet Preset Slot            250 Credits
+
+Squad Preset Slot            150 Credits
+Loadout Preset Slot       150 Credits
+Deployment Template Slot       250 Credits
