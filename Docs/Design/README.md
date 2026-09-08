@@ -215,3 +215,26 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Command-Worldmap-Unit.pdf - detailed Worldmap navigation and terrain-intelligence specification
 
 - Source PDFs/OPAW-Command-Core-Unit.pdf - detailed Command Core strategic-coordination specification
+- Source PDFs/OPAW-Command-Fusion-Unit.pdf - detailed Fusion multi-domain command-integration specification
+
+- Source PDFs/OPAW-Command-Nexus-Unit.pdf - detailed Nexus strategic-routing and synchronization specification
+
+- Source PDFs/OPAW-Command-Insight-Unit.pdf - detailed Insight strategic-analysis specification
+
+- Source PDFs/OPAW-Command-Pulse-Unit.pdf - detailed Pulse tactical signal-hub specification
+
+- Source PDFs/OPAW-Command-Vector-Core-Unit.pdf - detailed Vector Core tactical vector-routing specification
+
+- Source PDFs/OPAW-Satellite-Orbiter-Unit.pdf - detailed Orbiter low-orbit reconnaissance and relay specification
+
+- Source PDFs/OPAW-Satellite-Skylink-Unit.pdf - detailed Skylink mid-orbit communications-relay specification
+
+- Source PDFs/OPAW-Satellite-Astral-Unit.pdf - detailed Astral high-resolution reconnaissance specification
+
+- Source PDFs/OPAW-Satellite-Starcast-Unit.pdf - detailed Starcast strategic broadcast specification
+
+- Source PDFs/OPAW-Satellite-Cosmos-Unit.pdf - detailed Cosmos deep-orbit strategic-relay specification
+
+- Source PDFs/OPAW-Satellite-Nebula-Unit.pdf - detailed Nebula deep-space reconnaissance specification
+
+- Source PDFs/OPAW-Satellite-Galaxy-Unit.pdf - detailed Galaxy ultra-long-range relay specification

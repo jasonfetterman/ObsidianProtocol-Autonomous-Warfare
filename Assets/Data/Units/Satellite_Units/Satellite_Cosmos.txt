@@ -1,0 +1,133 @@
+🛰 SATELLITE UNIT — COSMOS
+
+ID:
+obs-sat-cosmos
+Role: Deep‑Orbit Strategic Relay / Long‑Range Signal Projection
+Tier: Satellite
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+
+Length: 14 m
+Width: 8 m
+Height: 5 m
+Mass: 10,200 kg
+Power Source: Expanded solar array + dual micro‑reactor backups
+Energy Capacity: 55,000 Wh
+Fuel Capacity: 120 L (orbital correction thrusters)
+Endurance: 8–12 years
+Payload Capacity: Internal systems only
+Modules:
+
+              Deep‑orbit relay dish
+              Long‑range signal amplifier
+              Stabilization gyros
+              Micro‑thruster array
+Navigation System: Orbital AI + star tracker
+Structural Integrity: 2,200 HP
+Armor Rating: 0.60
+Heat Signature: Very Low
+Noise Signature: None
+Top Speed: Orbital velocity
+Stability Rating: Maximum
+
+⚫ AUTONOMY & AI BEHAVIOR
+
+Behavior Profile: Long‑range relay / deep‑orbit stabilization
+Aggression: 0.0
+Caution: 1.0
+Persistence: 1.0
+Retreat Threshold: N/A
+Target Priority: None
+Formation Discipline: Maximum
+Risk Tolerance: Very Low
+Sensors
+Optical Range: Global
+Thermal Range: Medium
+Radar Range: Medium
+Signal Detection Range: Extremely High
+Communication
+Mesh Range: Global
+Relay Capacity: 10
+Command Link Type: Satellite Mesh
+Network Priority: Maximum
+
+⚫ COMBAT & THREAT MODEL
+
+Firepower Rating: None
+Weapon Mounts: None
+Tracking Strength: Medium
+Disruption Strength: High
+Countermeasure Rating: Medium
+Threat Modeling
+Threat Level: 7
+Preferred Terrain: Deep orbit
+Vulnerability Profile: Debris / EMP / solar storms
+
+⚫ SQUAD & COMMAND INTEGRATION
+
+Squad Role: Strategic Long‑Range Relay
+Squad Size Contribution: 5
+Formation Behavior: Orbital spacing
+Intent Interpretation Rules: Maintain long‑range communications coverage
+Retreat Behavior: None
+Reinforcement Behavior: Supports all grids
+Command Hierarchy
+Parent Command Unit: Nexus / Fusion
+Subordinate Units: None
+Relay Nodes: 10
+Network Dependencies: Satellite Mesh
+
+⚫ VR OPERATOR MODE
+
+Operator Seat Type: Deep‑Orbit Relay Console
+Operator HUD: Long‑Range Signal Overlay
+Camera Feeds: Optical + thermal
+Tactical Overlay: Relay routes / signal load / mesh health
+Operator Controls
+Relay routing
+Signal amplification
+Thermal view
+Orbital diagnostics
+Operator Abilities
+Long‑Range Boost
+Mesh Stabilization
+Signal Sync
+Thermal Sweep
+
+⚫ ECONOMY & LOGISTICS
+
+Build Cost: 2,000 Metal / 1,300 Electronics
+Build Time: 260 sec
+Factory Type: Satellite Bay
+Tech Requirements: Satellite Systems II
+Maintenance Cost: Low
+Repair Time: 60 sec
+Supply Consumption: Very Low
+Operational Cost: Very Low
+Deployment Requirements: Launch pad
+Transport Compatibility: Satellite carrier
+Launch Method: Orbital insertion
+
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+
+Common Components
+110× Satellite Alloy Plates
+55× Reinforced Satellite Rods
+10× Hydraulic Actuators
+1× Deep‑Orbit Relay Assembly
+Electronics
+44× Circuit Bundles
+30× Signal Processors
+10× Satellite Control Chips
+4× Relay AI Chips
+Power
+1× Expanded Solar Array Assembly
+2× Micro‑Reactor Cores
+3× Power Regulation Nodes
+Rare / Tradeable
+1× Long‑Range Amplifier Module
+Optional Upgrades
+Enhanced Relay Dish
+Thermal Boost
+Anti‑Jamming Shielding
+
