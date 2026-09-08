@@ -20,3 +20,6 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Signal-Lost-Map.pdf � detailed Signal Lost map specification
 - Source PDFs/OPAW-Long-Range-Map.pdf � detailed Long Range map specification
 - Source PDFs/OPAW-The-Divide-Map.pdf � detailed The Divide map specification
+
+- Source PDFs/OPAW-Harbor-Black-Map.pdf - detailed Harbor Black map specification
+- Source PDFs/OPAW-Dead-River-Map.pdf - detailed Dead River map specification
