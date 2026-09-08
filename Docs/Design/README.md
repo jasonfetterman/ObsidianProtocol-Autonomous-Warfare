@@ -38,3 +38,8 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Trenchline-Map.pdf - detailed Trenchline map specification
 - Source PDFs/OPAW-Bluewater-Map.pdf - detailed Bluewater map specification
 - Source PDFs/OPAW-Archipelago-Map.pdf - detailed Archipelago map specification
+
+- Source PDFs/OPAW-Tidal-Reach-Map.pdf - detailed Tidal Reach map specification
+- Source PDFs/OPAW-Frozen-Strait-Map.pdf - detailed Frozen Strait map specification
+- Source PDFs/OPAW-Whiteout-Map.pdf - detailed Whiteout map specification
+- Source PDFs/OPAW-Outpost-Zero-Map.pdf - detailed Outpost Zero map specification
