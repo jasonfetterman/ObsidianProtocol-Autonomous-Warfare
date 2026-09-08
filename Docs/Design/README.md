@@ -233,3 +233,9 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Satellite-Astral-Unit.pdf - detailed Astral high-resolution reconnaissance specification
 
 - Source PDFs/OPAW-Satellite-Starcast-Unit.pdf - detailed Starcast strategic broadcast specification
+
+- Source PDFs/OPAW-Satellite-Cosmos-Unit.pdf - detailed Cosmos deep-orbit strategic-relay specification
+
+- Source PDFs/OPAW-Satellite-Nebula-Unit.pdf - detailed Nebula deep-space reconnaissance specification
+
+- Source PDFs/OPAW-Satellite-Galaxy-Unit.pdf - detailed Galaxy ultra-long-range relay specification

@@ -1,0 +1,136 @@
+⭐ NEBULA
+
+(16 m × 9 m × 5 m)
+
+🛰 SATELLITE UNIT — NEBULA
+
+ID:
+obs-sat-nebula
+Role: Deep‑Space Recon / Cosmic Signal Analysis
+Tier: Satellite
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+
+Length: 16 m
+Width: 9 m
+Height: 5 m
+Mass: 12,800 kg
+Power Source: Expanded solar array + dual micro‑reactor backups
+Energy Capacity: 70,000 Wh
+Fuel Capacity: 160 L (orbital correction thrusters)
+Endurance: 10–15 years
+Payload Capacity: Internal systems only
+Modules:
+
+              Deep‑space imaging suite
+              Cosmic signal analyzer
+              Stabilization gyros
+              Micro‑thruster array
+Navigation System: Orbital AI + star tracker
+Structural Integrity: 2,600 HP
+Armor Rating: 0.65
+Heat Signature: Very Low
+Noise Signature: None
+Top Speed: Orbital velocity
+Stability Rating: Maximum
+⚫ AUTONOMY & AI BEHAVIOR
+
+Behavior Profile: Deep‑space recon / cosmic signal analysis
+Aggression: 0.0
+Caution: 1.0
+Persistence: 1.0
+Retreat Threshold: N/A
+Target Priority: None
+Formation Discipline: Maximum
+Risk Tolerance: Very Low
+Sensors
+Optical Range: Global (deep‑space)
+Thermal Range: High
+Radar Range: Medium
+Signal Detection Range: Extremely High
+Communication
+Mesh Range: Global
+Relay Capacity: 12
+Command Link Type: Satellite Mesh
+Network Priority: Maximum
+
+⚫ COMBAT & THREAT MODEL
+
+Firepower Rating: None
+Weapon Mounts: None
+Tracking Strength: Very High
+Disruption Strength: Medium
+Countermeasure Rating: Medium
+Threat Modeling
+Threat Level: 7
+Preferred Terrain: Deep orbit / high orbit
+Vulnerability Profile: Debris / EMP / solar storms
+
+⚫ SQUAD & COMMAND INTEGRATION
+
+Squad Role: Deep‑Space Recon & Analysis
+Squad Size Contribution: 6
+Formation Behavior: Orbital spacing
+Intent Interpretation Rules: Maintain cosmic recon coverage
+Retreat Behavior: None
+Reinforcement Behavior: Supports all grids
+Command Hierarchy
+Parent Command Unit: Insight / Worldmap
+Subordinate Units: None
+Relay Nodes: 12
+Network Dependencies: Satellite Mesh
+
+⚫ VR OPERATOR MODE
+
+Operator Seat Type: Deep‑Space Recon Console
+Operator HUD: Cosmic Recon Overlay
+Camera Feeds: Optical + thermal
+Tactical Overlay: Deep‑space recon grid / cosmic signal markers
+Operator Controls
+Deep‑space optics
+Cosmic signal analysis
+Thermal view
+Orbital diagnostics
+Operator Abilities
+Cosmic Scan
+Deep‑Space Sweep
+Relay Boost
+Stabilization Burst
+
+⚫ ECONOMY & LOGISTICS
+
+Build Cost: 2,400 Metal / 1,600 Electronics
+Build Time: 300 sec
+Factory Type: Satellite Bay
+Tech Requirements: Satellite Systems III
+Maintenance Cost: Low
+Repair Time: 70 sec
+Supply Consumption: Very Low
+Operational Cost: Very Low
+Deployment Requirements: Launch pad
+Transport Compatibility: Satellite carrier
+Launch Method: Orbital insertion
+
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+
+Common Components
+130× Satellite Alloy Plates
+65× Reinforced Satellite Rods
+12× Hydraulic Actuators
+1× Cosmic Imaging Assembly
+Electronics
+50× Circuit Bundles
+34× Signal Processors
+12× Satellite Control Chips
+4× Recon AI Chips
+Power
+1× Expanded Solar Array Assembly
+2× Micro‑Reactor Cores
+3× Power Regulation Nodes
+Rare / Tradeable
+1× Cosmic Signal Analysis Module
+Optional Upgrades
+Enhanced Optics
+Thermal Boost
+Anti‑Jamming Shielding
+
