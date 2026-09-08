@@ -165,3 +165,13 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Air-Trailblazer-Unit.pdf - detailed Trailblazer pathfinding unit specification
 
 - Source PDFs/OPAW-Air-Tracker-Unit.pdf - detailed Tracker target-tracking unit specification
+
+- Source PDFs/OPAW-Air-Vector-Unit.pdf - detailed Vector rapid-response reconnaissance unit specification
+
+- Source PDFs/OPAW-Air-Watchtower-Unit.pdf - detailed Watchtower high-altitude overwatch unit specification
+
+- Source PDFs/OPAW-Ground-Bulldog-Unit.pdf - detailed Bulldog armored-patrol unit specification
+
+- Source PDFs/OPAW-Ground-Forge-Unit.pdf - detailed Forge field-construction unit specification
+
+- Source PDFs/OPAW-Ground-Hammer-Unit.pdf - detailed Hammer heavy-breach unit specification
