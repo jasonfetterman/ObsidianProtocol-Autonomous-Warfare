@@ -183,3 +183,11 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Ground-Patrol-Unit.pdf - detailed Patrol perimeter-sweep unit specification
 
 - Source PDFs/OPAW-Ground-Rescue-Unit.pdf - detailed Rescue emergency-extraction unit specification
+
+- Source PDFs/OPAW-Ground-Scout-Unit.pdf - detailed Scout light-recon unit specification
+
+- Source PDFs/OPAW-Ground-Sentinal-Unit.pdf - detailed Sentinal static-defense unit specification
+
+- Source PDFs/OPAW-Ground-Rover-Unit.pdf - detailed Rover terrain-survey unit specification
+
+- Source PDFs/OPAW-Ground-Crusher-Unit.pdf - detailed Crusher demolition unit specification
