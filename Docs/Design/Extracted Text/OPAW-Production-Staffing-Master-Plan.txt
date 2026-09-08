@@ -1,0 +1,822 @@
+OBSIDIAN PROTOCOL: AUTONOMOUS WARFARE
+PRODUCTION STAFFING MASTER PLAN
+===================================
+
+TARGET:
+Approximately 200–350 UNIQUE PEOPLE across the entire project.
+
+IMPORTANT:
+This does NOT mean 200–350 people are working simultaneously.
+
+People enter the production when their department is needed
+and leave when their work is complete.
+
+------------------------------------------------------------
+PHASE 01 — DEVELOPMENT
+------------------------------------------------------------
+
+TIME:
+Approximately 6–12 months
+
+ACTIVE TEAM:
+8–15 people
+
+   PRODUCER
+
+   │
+
+┌────────────┼────────────┐
+
+▼             ▼     ▼
+
+WRITER DIRECTOR DEVELOPMENT
+
+                 PRODUCER
+
+│  │             │
+
+└────────────┼──────────────┘
+
+   │
+
+   CORE CREATIVE
+
+   │
+┌────────────┼────────────┐
+
+▼               ▼       ▼
+
+STORY/LORE MILITARY VFX/TECH
+
+          ADVISOR CONSULTANT
+
+STAFF:
+
+Director             1
+
+Producer             1–2
+
+Writer               1–2
+
+Development Producer          1
+
+Military/Technical Advisor 1–2
+
+AI/Technology Consultant 1
+
+Concept Artist          1–3
+
+VFX Supervisor          1
+
+Production Designer        1
+
+Casting Consultant         1
+
+Legal / Business Affairs 1
+
+Production Coordinator 1
+
+TOTAL:
+~8–15
+
+------------------------------------------------------------
+PHASE 02 — PRE-PRODUCTION
+------------------------------------------------------------
+
+TIME:
+Approximately 4–8 months
+
+ACTIVE TEAM:
+30–70 people
+The production begins expanding.
+
+           PRODUCERS
+
+           │
+
+        ┌──────────┼──────────┐
+
+        ▼ ▼ ▼
+
+     DIRECTOR LINE UPM
+
+           PRODUCER
+
+           │
+
+┌───────────────┼────────────────┐
+
+▼              ▼             ▼
+
+PRODUCTION CAMERA PRODUCTION
+
+DESIGN                    OFFICE
+
+│
+
+┌────┼─────┬────────┐
+
+▼▼ ▼ ▼
+
+SETS PROPS COSTUME VFX
+
+           PREPARATION
+
+STAFF:
+
+DIRECTING / PRODUCING
+
+---------------------
+
+Director               1
+
+Producers                 2–4
+
+Line Producer             1
+
+UPM                    1
+
+1st AD                 1
+
+2nd AD                 1–2
+
+Production Coordinator          2–4
+WRITING / TECHNICAL
+
+-------------------
+
+Writer                  1–2
+
+Military Advisor           1–2
+
+AI/Technology Advisor           1
+
+Weapons/Vehicle Advisor 1
+
+Stunt Coordinator            1
+
+PRODUCTION DESIGN                1
+-----------------          1–2
+Production Designer         2–4
+Art Director
+Set Designers                2–4
+Set Decorators               1
+Prop Master                  2–5
+Prop Assistants
+Construction Crew              5–15
+Graphic Designers              1–3
+
+CAMERA
+
+------
+
+Director of Photography 1
+
+Camera Operator              1–2
+
+1st AC                  1
+
+2nd AC                  1
+
+DIT                  1
+
+Camera Assistants            1–3
+
+LIGHTING / GRIP
+
+---------------
+
+Gaffer                  1
+Best Boy            1
+
+Electricians        3–6
+
+Key Grip            1
+
+Best Boy Grip            1
+
+Grip Crew           3–6
+
+COSTUME / MAKEUP
+
+----------------
+
+Costume Designer            1
+
+Costume Supervisor          1
+
+Costume Assistants          2–4
+
+Makeup Department Head           1
+
+Makeup Artists           2–4
+
+Hair                1–2
+
+VFX PREPARATION
+
+---------------
+
+VFX Supervisor           1
+
+VFX Producer             1
+
+VFX Coordinator             1–2
+
+Previsualization Artists 2–5
+
+Concept Artists          2–5
+
+3D Artists          2–5
+
+Virtual Production Team 2–6
+
+ACTION                      1
+------                     1
+Stunt Coordinator         1–2
+Fight Coordinator        5–15
+Military Advisor
+Stunt Team
+LOCATIONS / LOGISTICS
+
+---------------------
+
+Location Manager            1
+
+Location Scouts             2–4
+
+Transportation Coordinator 1
+
+Drivers                3–8
+
+Security               2–6
+
+Catering               4–8
+
+Production Assistants       5–15
+
+TOTAL:
+~30–70
+
+------------------------------------------------------------
+PHASE 03 — PRINCIPAL PHOTOGRAPHY
+------------------------------------------------------------
+
+TIME:
+Approximately 10–16 weeks
+
+ACTIVE TEAM:
+80–150 people
+
+This is when the largest physical production crew
+is working at the same time.
+
+             PRODUCER
+                │
+
+             DIRECTOR
+                │
+        1ST AD
+
+        │
+
+┌────────────────┼─────────────────┐
+
+▼          ▼            ▼
+
+CAMERA             LIGHTING GRIP
+
+│         │          │
+
+└────────────────┼─────────────────┘
+
+        │
+
+┌────────────────┼─────────────────┐
+
+▼          ▼            ▼
+
+PRODUCTION SOUND              COSTUME
+
+DESIGN
+
+│
+
+├── SETS
+
+├── PROPS
+
+├── VEHICLES
+
+└── PRACTICAL EFFECTS
+
+        │
+
+┌────────────────┼─────────────────┐
+
+▼          ▼            ▼
+
+ACTORS       STUNTS           VFX
+
+        │
+
+        ▼
+
+   BACKGROUND CAST
+
+CORE FILMING CREW:
+
+Director           1
+Producers            2–4
+1st AD
+2nd AD             1
+Script Supervisor  2
+Production Office
+                        1
+                        5–10
+Camera               5–8
+Lighting            6–12
+Grip               5–10
+Sound               4–7
+Production Design
+Costume                    15–30
+Makeup/Hair           5–10
+Locations
+Transportation           5–10
+Stunts                5–10
+Special Effects
+Security                 5–10
+PAs                 8–20
+
+                       3–8
+                    2–6
+                   10–20
+
+CAST:
+
+Lead actors            5–10
+
+Supporting actors      10–20
+
+Day players            10–30
+
+Background performers         20–100+
+
+TOTAL ACTIVE:
+~80–150
+
+------------------------------------------------------------
+PHASE 04 — VFX PRODUCTION
+------------------------------------------------------------
+
+TIME:
+Approximately 12–24 months
+
+ACTIVE TEAM:
+40–100+ people
+
+This does NOT mean 100 VFX artists work
+for the entire two years.
+
+They enter according to workload.
+
+   VFX SUPERVISOR
+
+   │
+
+   VFX PRODUCER
+
+   │
+
+┌────────────────┼─────────────────┐
+
+▼               ▼     ▼
+
+VFX COORD. CG SUPERVISOR EDITORIAL
+
+   │
+
+┌───────────────┼────────────────┐
+
+▼               ▼     ▼
+
+MODELING ANIMATION FX
+
+│             │    │
+
+▼               ▼     ▼
+
+TEXTURING RIGGING SIMULATION
+
+│             │    │
+
+└───────────────┼────────────────┘
+
+   ▼
+
+   LIGHTING
+
+   │
+
+   ▼
+
+   COMPOSITING
+
+VFX DEPARTMENTS:
+
+VFX Supervisor     1
+
+VFX Producer       1–2
+VFX Coordinators     2–4
+
+Concept Artists      2–6
+
+3D Modelers          5–15
+
+Texture Artists      3–8
+
+Look Development          2–5
+
+Rigging Artists      2–6
+
+Animators            6–15
+
+FX / Simulation Artists 5–12
+
+Environment Artists  3–10
+
+Lighting Artists     3–8
+
+Compositors          6–15
+
+Technical Artists    2–6
+
+Motion Graphics      2–5
+
+Virtual Production   2–8
+
+TOTAL PEAK:
+~40–100+
+
+Some specialists may work only
+for several weeks or months.
+
+------------------------------------------------------------
+PHASE 05 — EDITORIAL / POST PRODUCTION
+------------------------------------------------------------
+
+TIME:
+Approximately 8–14 months
+
+ACTIVE TEAM:
+15–35 people
+
+             POST PRODUCER
+               │
+
+            EDITOR
+
+               │
+
+┌────────────────┼────────────────┐
+
+▼                 ▼         ▼
+
+ASSISTANT EDIT VFX EDITOR SOUND EDITOR
+
+│                        │
+
+│                  ┌─────────────┼─────────────┐
+
+│                  ▼        ▼    ▼
+
+│                 SOUND FOLEY ADR
+
+│
+
+▼
+
+COLOR
+
+│
+
+▼
+
+MUSIC
+
+│
+
+▼
+
+FINAL MASTER
+
+STAFF:
+
+Post Producer            1
+
+Editor                1
+
+Assistant Editors           2–4
+
+VFX Editor               1–2
+
+Post Coordinators           1–3
+
+Colorist              1
+
+Online Editor            1
+
+Sound Designer              1–3
+
+Supervising Sound Editor 1
+
+Dialogue Editor          1
+
+Foley Team               2–4
+ADR Team             2–5
+Re-Recording Mixers       2–3
+Composer
+Music Editor         1
+Music Supervisor     1
+Titles / Graphics
+Mastering / QC         1
+                      1–3
+TOTAL:                2–4
+~15–35
+
+------------------------------------------------------------
+PHASE 06 — MARKETING / DELIVERY
+------------------------------------------------------------
+
+TIME:
+Final 3–9 months
+
+ACTIVE TEAM:
+10–30 people
+
+   PRODUCERS
+
+   │
+
+   MARKETING TEAM
+
+   │
+
+┌────────────────┼────────────────┐
+
+▼             ▼         ▼
+
+TRAILER POSTERS SOCIAL
+
+│  │                 │
+
+├────────────────┼────────────────┤
+
+▼             ▼         ▼
+
+PUBLICITY PRESS KIT DISTRIBUTION
+STAFF:
+
+Marketing Producer          1
+
+Trailer Editor      1–2
+
+Graphic Designers        2–4
+
+Publicist           1–3
+
+Social Media           1–3
+
+Press / Publicity      2–5
+
+Distribution        2–5
+
+Legal / Business Affairs 1–3
+
+Delivery / QC          2–4
+
+TOTAL:
+~10–30
+
+============================================================
+OVERALL PRODUCTION STAFFING
+============================================================
+
+           UNIQUE PEOPLE
+               │
+               ▼
+
+        ┌─────────────────────┐
+
+        │ DEVELOPMENT │
+
+        │ 8–15      │
+
+        └──────────┬──────────┘
+
+                │
+
+                ▼
+
+        ┌─────────────────────┐
+
+        │ PRE-PRODUCTION │
+
+        │ 30–70     │
+└──────────┬──────────┘
+
+       │
+
+       ▼
+
+┌─────────────────────┐
+
+│ FILMING        │
+
+│ 80–150      │
+
+└──────────┬──────────┘
+
+       │
+
+       ▼
+
+┌─────────────────────┐
+
+│ VFX      │
+
+│ 40–100+ │
+
+└──────────┬──────────┘
+
+       │
+
+       ▼
+
+┌─────────────────────┐
+
+│ POST     │
+
+│ 15–35       │
+
+└──────────┬──────────┘
+
+       │
+
+       ▼
+
+┌─────────────────────┐
+
+│ MARKETING / DELIVERY│
+
+│ 10–30       │
+
+└─────────────────────┘
+
+============================================================
+IMPORTANT — THESE NUMBERS OVERLAP
+============================================================
+
+For example:
+
+Director
+Producer
+Writer
+VFX Supervisor
+Production Designer
+Editor
+Post Producer
+
+may remain involved for most of the project.
+
+But:
+
+Construction Crew
+Camera Crew
+Grip Crew
+Background Performers
+Stunt Performers
+Set Dressers
+VFX Modelers
+Compositors
+ADR personnel
+Marketing personnel
+
+come in only when their work is needed.
+
+============================================================
+ESTIMATED UNIQUE PEOPLE
+============================================================
+
+DEVELOPMENT         8–15
+
+PRE-PRODUCTION 30–70
+
+FILMING      80–150
+
+VFX          40–100+
+
+POST         15–35
+MARKETING       10–30
+
+Because departments overlap and many people
+work in multiple phases:
+
+EXPECTED UNIQUE PEOPLE:
+
+~180–300
+
+LARGE VERSION:
+
+~300–350+
+
+PEAK PEOPLE ON SET:
+
+~100–150
+
+NOT:
+
+300 PEOPLE × 2 YEARS
+
+============================================================
+CORE TEAM — PEOPLE WHO STAY
+============================================================
+
+These are the people who should remain involved
+through most of the production:
+
+Director
+Lead Producer
+Producer(s)
+Line Producer / UPM
+Writer
+Production Designer
+VFX Supervisor
+VFX Producer
+Director of Photography
+Post Producer
+Editor
+Casting Director
+Military Technical Advisor
+AI / Technology Advisor
+Production Accountant
+Production Coordinator
+
+CORE TEAM:
+
+~15–25 people
+
+============================================================
+THE PRODUCTION SHOULD WORK LIKE THIS
+============================================================
+
+        SMALL CORE TEAM
+             │
+             ▼
+
+         DEVELOPMENT
+             │
+             ▼
+
+        ADD DEPARTMENTS
+             │
+             ▼
+
+        PRE-PRODUCTION
+             │
+             ▼
+      LARGE FILMING CREW
+             │
+             ▼
+
+    FILMING CREW REDUCES
+             │
+             ▼
+
+        VFX EXPANDS
+             │
+             ▼
+
+       VFX REDUCES
+             │
+             ▼
+
+        POST EXPANDS
+             │
+             ▼
+
+      FINAL POST / DELIVERY
+             │
+             ▼
+
+        SMALL FINAL TEAM
+
+THE KEY IS:
+
+HIRE FOR THE WORK.
+
+DO NOT HIRE 300 PEOPLE AT THE START.
+
+DO NOT KEEP PEOPLE ON PAYROLL
+AFTER THEIR DEPARTMENT'S WORK IS FINISHED.
+
