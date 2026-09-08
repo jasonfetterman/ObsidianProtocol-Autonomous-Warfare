@@ -1,0 +1,124 @@
+	
+⭐ COMMAND CORE	
+(14 m × 10 m × 7 m)	
+🧭 COMMAND UNIT — COMMAND CORE	
+ID:	
+obs-command-core	
+Role: Primary Strategic Command / Global Coordination Hub	
+Tier: Command (Top‑Tier)	
+Status: Active	
+⚫ PHYSICAL & TECHNICAL	
+Length: 14 m	
+Width: 10 m	
+Height: 7 m	
+Mass: 30,000 kg	
+Power Source: Dual high‑capacity command reactors	
+Energy Capacity: 200,000 Wh	
+Fuel Capacity: N/A (reactor‑based)	
+Endurance: Continuous	
+Payload Capacity: Internal systems only	
+Modules:	
+	Strategic command chamber
+	Multi‑layer encryption lattice
+	Global mesh router
+	Redundant cooling towers
+	Command-grade stabilizers
+Navigation System: Stationary (anchored command node)	
+Structural Integrity: 5,000 HP	
+Armor Rating: 1.40	
+Heat Signature: Medium	
+Noise Signature: Low	
+Top Speed: N/A	
+Stability Rating: Maximum	
+⚫ AUTONOMY & AI BEHAVIOR	
+Behavior Profile: Global command / coordination / strategic routing	
+Aggression: 0.0	
+Caution: 1.0	
+Persistence: 1.0	
+Retreat Threshold: N/A	
+Target Priority: None (non‑combat)	
+Formation Discipline: Maximum	
+Risk Tolerance: Very Low	
+Sensors	
+Visual Range: Short	
+Thermal Range: Short	
+Acoustic Range: Short	
+Radar Range: Medium	
+Signal Detection Range: Very High	
+Communication	
+Mesh Range: Global	
+Relay Capacity: 12	
+Command Link Type: Strategic Command Mesh	
+Network Priority: Maximum	
+⚫ COMBAT & THREAT MODEL	
+Firepower Rating: None	
+Weapon Mounts: None	
+Tracking Strength: Very High (command-grade signal intelligence)	
+Disruption Strength: Very High	
+Countermeasure Rating: Extremely High	
+Threat Modeling	
+Threat Level: 8 (highest strategic value)	
+Preferred Terrain: Secure command zones	
+Vulnerability Profile: EMP / sabotage / coordinated strikes	
+⚫ SQUAD & COMMAND INTEGRATION	
+Squad Role: Primary Command Node	
+Squad Size Contribution: 10	
+Formation Behavior: Central anchor	
+Intent Interpretation Rules: Coordinate all global units	
+Retreat Behavior: None	
+Reinforcement Behavior: Supports all units	
+Command Hierarchy	
+Parent Command Unit: None (top of hierarchy)	
+Subordinate Units: Archive, Worldmap, Fusion, Nexus	
+Relay Nodes: 12	
+Network Dependencies: Strategic Command Mesh	
+⚫ VR OPERATOR MODE	
+Operator Seat Type: High Command Console	
+Operator HUD: Global Command Overlay	
+Camera Feeds: Internal systems only	
+Thermal View: Yes	
+Tactical Overlay: Global unit positions / mesh health / strategic routes	
+Operator Controls	
+Global routing	
+Command mesh management	
+Encryption lattice control	
+System diagnostics	
+Strategic directives	
+Operator Abilities	
+Global Command Sync	
+Mesh Stabilization Pulse	
+Strategic Directive Broadcast	
+Encryption Surge	
+⚫ ECONOMY & LOGISTICS	
+Build Cost: 3,000 Metal / 1,800 Electronics	
+Build Time: 300 sec	
+Factory Type: Command Foundry	
+Tech Requirements: Command Systems II	
+Maintenance Cost: Very High	
+Repair Time: 90 sec	
+Supply Consumption: High	
+Operational Cost: High	
+Deployment Requirements: Command zone	
+Transport Compatibility: Heavy command carriers	
+Launch Method: Anchor‑install	
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)	
+Common Components	
+180× Command Alloy Plates	
+90× Reinforced Command Rods	
+14× Hydraulic Actuators	
+6× Armor Panels	
+1× Command Chamber Assembly	
+Electronics	
+60× Circuit Bundles	
+40× Signal Processors	
+14× Command Control Chips	
+6× Command AI Chips	
+Power	
+1× High‑Capacity Command Reactor Core	
+4× Power Regulation Nodes	
+Rare / Tradeable	
+1× Strategic Encryption Lattice	
+Optional Upgrades	
+Quantum Encryption	
+Reinforced Hull	
+Anti‑Jamming Shielding	

@@ -1,0 +1,136 @@
+
+✈️ AIR UNIT #4 — IRIS
+ID:
+obs-air-iris
+Role: High‑Resolution Imaging / Target Tracking
+Tier: Advanced
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 2.5 m
+Width: 2.0 m
+Height: 0.9 m
+Mass: 22 kg
+Power Source: High‑density battery
+Energy Capacity: 2400 Wh
+Energy Consumption: 50 Wh/min
+Endurance: 35–55 min
+Payload Capacity: 2.0 kg
+Modules: HD optical sensor
+Navigation System: GPS + Optical AI
+Structural Integrity: 130 HP
+Armor Rating: 0.18
+Heat Signature: Low
+Noise Signature: Low
+Top Speed: 24 m/s
+Acceleration: Medium
+Turning Radius: Tight
+Climb Rate: High
+Stability Rating: Very High (precision imaging)
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Imaging / Target Tracking
+Aggression: 0.2
+Caution: 0.7
+Persistence: 0.8
+Flanking Likelihood: 0.1
+Retreat Threshold: 0.6
+Target Priority: High‑value targets
+Formation Discipline: High
+Risk Tolerance: Low
+Sensors
+Visual Range: 2200 m
+Thermal Range: 1200 m
+Acoustic Range: Low
+Radar Range: None
+LiDAR Range: None
+Signal Detection Range: Medium
+Communication
+Mesh Range: 6 km
+Relay Capacity: 0
+Command Link Type: Standard
+Network Priority: Medium
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: 0
+Accuracy: N/A
+Stabilization: Very High
+Weapon Mounts: None
+Weapon Types: None
+Suppression Value: 0
+Tracking Strength: Very High
+Disruption Strength: Low
+Breach Capability: None
+Countermeasure Rating: Low
+Threat Modeling
+Threat Level: 3
+Engagement Distance: N/A
+Preferred Terrain: High‑visibility airspace
+Preferred Targets: High‑value targets / moving targets
+Vulnerability Profile: Ballistic / weather / jamming
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Optical Intelligence
+Squad Size Contribution: 1
+Formation Behavior: High‑precision spacing
+Intent Interpretation Rules: Maintain optimal imaging distance
+Retreat Behavior: Medium
+Breach Behavior: None
+Flanking Behavior: Minimal
+Reinforcement Behavior: Supports recon and targeting squads
+Command Hierarchy
+Parent Command Unit: Overseer / Insight
+Subordinate Units: None
+Relay Nodes: None
+Network Dependencies: Standard Warden mesh
+⚫ VR OPERATOR MODE
+Operator Seat Type: Drone View
+Operator HUD: High‑Resolution Imaging Suite
+Camera Feeds: HD Optical
+Thermal View: Yes
+LiDAR View: No
+Sonar View: No
+Tactical Overlay: Target tracking overlay
+Operator Controls
+Movement Controls: Full drone flight
+Sensor Controls: Zoom / thermal / tracking / focus
+Ability Controls: Scan, Mark Target, Track Target
+Weapon Controls: None
+Stabilization Controls: Auto‑hover, auto‑level
+Operator Abilities
+High‑Res Scan
+Target Lock
+Mark Target
+Stabilize
+Relay Imaging Data
+⚫ ECONOMY & LOGISTICS
+Build Cost: 180 Metal / 160 Electronics
+Build Time: 55 sec
+Factory Type: Drone Bay
+Tech Requirements: Advanced Imaging I
+Maintenance Cost: Medium
+Repair Time: 14 sec
+Supply Consumption: Medium
+Operational Cost: Moderate
+Deployment Requirements: Standard drone pad
+Transport Compatibility: All aerial racks
+Launch Method: Vertical takeoff
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+14× Medium Alloy Plates
+10× Composite Frame Rods
+6× Micro‑Servo Actuators
+4× Stabilizer Fins
+Electronics
+14× Circuit Bundles
+10× Signal Processors
+6× Drone Control Chips
+2× Optical AI Chips
+Power
+1× High‑Density Battery Pack
+3× Power Regulation Nodes
+Rare / Tradeable
+1× HD Optical Sensor Core
+1× Precision Lens Assembly
+1× Target‑Tracking Microprocessor
+Optional Upgrades
+Ultra‑Zoom Lens
+Thermal Enhancement Module
+Silent Rotor Kit
+Anti‑Jamming Shielding

@@ -1,0 +1,128 @@
+
+⭐ ROVER
+🚜 GROUND UNIT — ROVER
+ID:
+obs-ground-rover
+Role: Terrain Survey / Mobile Mapping
+Tier: Recon / Engineering Hybrid
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 3.7 m
+Width: 2.0 m
+Height: 1.6 m
+Mass: 820 kg
+Power Source: Electric‑hybrid
+Energy Capacity: 5000 Wh
+Fuel Capacity: 35 L (range extender)
+Endurance: 5–9 hours
+Payload Capacity: 150 kg
+Modules: Terrain scanner + mapping suite + stabilization cradle
+Navigation System: GPS + Survey AI
+Structural Integrity: 650 HP
+Armor Rating: 0.30
+Heat Signature: Low
+Noise Signature: Low
+Top Speed: 17 m/s
+Acceleration: Medium
+Turning Radius: Tight
+Stability Rating: High
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Survey / Mapping / Recon
+Aggression: 0.0
+Caution: 0.85
+Persistence: 0.9
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.8
+Target Priority: Terrain anomalies / structural features
+Formation Discipline: Medium
+Risk Tolerance: Low
+Sensors
+Visual Range: 1800 m
+Thermal Range: 700 m
+Acoustic Range: Medium
+Radar Range: Short
+LiDAR Range: Long
+Signal Detection Range: Medium
+Communication
+Mesh Range: 6 km
+Relay Capacity: 1
+Command Link Type: Recon Grid
+Network Priority: High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: None
+Weapon Mounts: None
+Weapon Types: None
+Suppression Value: 0
+Tracking Strength: Medium (terrain only)
+Disruption Strength: Low
+Breach Capability: None
+Countermeasure Rating: Low
+Threat Modeling
+Threat Level: 2
+Engagement Distance: N/A
+Preferred Terrain: Rough ground / survey lanes
+Preferred Targets: None
+Vulnerability Profile: Ballistic / explosives
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Terrain Survey / Recon Support
+Squad Size Contribution: 1
+Formation Behavior: Forward survey spacing
+Intent Interpretation Rules: Map terrain and identify hazards
+Retreat Behavior: Early
+Breach Behavior: None
+Flanking Behavior: None
+Reinforcement Behavior: Supports recon & engineering squads
+Command Hierarchy
+Parent Command Unit: Command Core / Fusion
+Subordinate Units: None
+Relay Nodes: 1
+Network Dependencies: Recon Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Survey Cockpit
+Operator HUD: Terrain Mapping Overlay
+Camera Feeds: Optical
+Thermal View: Yes
+LiDAR View: Yes (long‑range)
+Tactical Overlay: Terrain contours / hazard markers
+Operator Controls
+Movement Controls: Full vehicle drive
+Sensor Controls: LiDAR / thermal / zoom
+Ability Controls: Scan Terrain, Mark Hazard, Stabilize
+Operator Abilities
+Terrain Scan
+Hazard Detection
+Mapping Sweep
+Recon Relay
+⚫ ECONOMY & LOGISTICS
+Build Cost: 320 Metal / 170 Electronics
+Build Time: 75 sec
+Factory Type: Vehicle Bay
+Tech Requirements: Recon Systems II
+Maintenance Cost: Low
+Repair Time: 20 sec
+Supply Consumption: Low
+Operational Cost: Low
+Deployment Requirements: Vehicle pad
+Transport Compatibility: Light racks
+Launch Method: Drive‑out
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+26× Light Alloy Plates
+14× Reinforced Frame Rods
+4× Hydraulic Actuators
+2× Armor Panels
+1× Survey Sensor Housing
+Electronics
+16× Circuit Bundles
+12× Signal Processors
+3× Vehicle Control Chips
+2× Recon AI Chips
+Power
+1× Hybrid Engine Core
+2× Power Regulation Nodes
+Rare / Tradeable
+1× Long‑Range LiDAR Core
+Optional Upgrades
+Extended Battery Pack
+Silent Drive Kit
+Anti‑Jamming Shielding

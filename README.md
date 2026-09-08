@@ -135,6 +135,7 @@ Assets/
 ├── Art/              Concepts, models, textures, and visual assets
 ├── Audio/            Music, ambience, voice, and sound effects
 ├── Data/             Game data and configuration assets
+│   └── Units/        Air, command, ground, and sea unit definitions
 ├── Debug/            Development and diagnostic tools
 ├── Editor/           Unity editor tooling
 ├── Equipment/        Equipment and loadout assets
@@ -150,6 +151,13 @@ Assets/
 Packages/             Unity package manifest
 ProjectSettings/     Unity project settings
 ```
+
+The imported unit catalog is organized into:
+
+- `Assets/Data/Units/Air_Units`
+- `Assets/Data/Units/Command`
+- `Assets/Data/Units/Ground_Units`
+- `Assets/Data/Units/Sea_Units`
 
 ## Getting started
 

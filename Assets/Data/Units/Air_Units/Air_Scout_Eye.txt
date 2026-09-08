@@ -1,0 +1,131 @@
+
+✈️ AIR UNIT #6 — SCOUT EYE
+ID:
+obs-air-scouteye
+Role: Lightweight Recon / Rapid Visual Scan
+Tier: Basic
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 1.2 m
+Width: 0.9 m
+Height: 0.5 m
+Mass: 10 kg
+Power Source: Compact battery
+Energy Capacity: 1200 Wh
+Energy Consumption: 25 Wh/min
+Endurance: 25–40 min
+Payload Capacity: 0.8 kg
+Modules: Micro‑camera array
+Navigation System: GPS + Basic Stabilization
+Structural Integrity: 80 HP
+Armor Rating: 0.10
+Heat Signature: Very Low
+Noise Signature: Very Low
+Top Speed: 20 m/s
+Acceleration: High
+Turning Radius: Very Tight
+Climb Rate: Medium
+Stability Rating: Medium
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Light Recon
+Aggression: 0.0
+Caution: 0.9
+Persistence: 0.5
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.8
+Target Priority: Recon targets
+Formation Discipline: Medium
+Risk Tolerance: Very Low
+Sensors
+Visual Range: 1200 m
+Thermal Range: 400 m
+Acoustic Range: Low
+Radar Range: None
+LiDAR Range: None
+Signal Detection Range: Low
+Communication
+Mesh Range: 4 km
+Relay Capacity: 0
+Command Link Type: Standard
+Network Priority: Low
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: 0
+Accuracy: N/A
+Stabilization: Medium
+Weapon Mounts: None
+Weapon Types: None
+Suppression Value: 0
+Tracking Strength: Low
+Disruption Strength: Low
+Breach Capability: None
+Countermeasure Rating: Low
+Threat Modeling
+Threat Level: 1
+Engagement Distance: N/A
+Preferred Terrain: Low‑risk airspace
+Preferred Targets: None
+Vulnerability Profile: Ballistic / weather
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Recon
+Squad Size Contribution: 1
+Formation Behavior: Loose recon spacing
+Intent Interpretation Rules: Avoid threats, prioritize visibility
+Retreat Behavior: Early
+Breach Behavior: None
+Flanking Behavior: None
+Reinforcement Behavior: Supports recon squads
+Command Hierarchy
+Parent Command Unit: Sentinel / Overseer
+Subordinate Units: None
+Relay Nodes: None
+Network Dependencies: Standard Warden mesh
+⚫ VR OPERATOR MODE
+Operator Seat Type: Drone View
+Operator HUD: Minimal Recon Overlay
+Camera Feeds: Optical
+Thermal View: Yes (low‑resolution)
+LiDAR View: No
+Sonar View: No
+Tactical Overlay: Basic recon markers
+Operator Controls
+Movement Controls: Full drone flight
+Sensor Controls: Zoom / thermal
+Ability Controls: Scan, Mark Target
+Weapon Controls: None
+Stabilization Controls: Auto‑hover
+Operator Abilities
+Quick Scan
+Mark Target
+Relay Recon Data
+⚫ ECONOMY & LOGISTICS
+Build Cost: 60 Metal / 40 Electronics
+Build Time: 25 sec
+Factory Type: Drone Bay
+Tech Requirements: Basic Recon
+Maintenance Cost: Very Low
+Repair Time: 8 sec
+Supply Consumption: Very Low
+Operational Cost: Minimal
+Deployment Requirements: Standard drone pad
+Transport Compatibility: All aerial racks
+Launch Method: Vertical takeoff
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+8× Light Alloy Plates
+4× Composite Frame Rods
+4× Micro‑Servo Actuators
+2× Stabilizer Fins
+1× Micro‑Camera Housing
+Electronics
+6× Circuit Bundles
+4× Signal Processors
+2× Drone Control Chips
+Power
+1× Compact Battery Pack
+1× Power Regulation Node
+Rare / Tradeable
+1× Miniature Lens Assembly
+Optional Upgrades
+Silent Rotor Kit
+Thermal Boost Module
+Extended Battery Pack

@@ -1,0 +1,135 @@
+
+✈️ AIR UNIT #8 — LiDAR
+ID:
+obs-air-lidar
+Role: 3D Terrain Mapping / Structural Scanning
+Tier: Advanced
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 2.8 m
+Width: 2.1 m
+Height: 1.0 m
+Mass: 28 kg
+Power Source: High‑capacity battery
+Energy Capacity: 2600 Wh
+Energy Consumption: 60 Wh/min
+Endurance: 30–45 min
+Payload Capacity: 2.0 kg
+Modules: LiDAR emitter array
+Navigation System: GPS + LiDAR‑assisted stabilization
+Structural Integrity: 140 HP
+Armor Rating: 0.20
+Heat Signature: Medium
+Noise Signature: Medium
+Top Speed: 20 m/s
+Acceleration: Medium
+Turning Radius: Tight
+Climb Rate: Medium
+Stability Rating: Very High (mapping precision)
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Mapping / Survey
+Aggression: 0.0
+Caution: 0.8
+Persistence: 0.9
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.7
+Target Priority: Terrain features / structures
+Formation Discipline: High
+Risk Tolerance: Low
+Sensors
+Visual Range: 1400 m
+Thermal Range: 600 m
+Acoustic Range: Low
+Radar Range: None
+LiDAR Range: 2000 m (high‑resolution)
+Signal Detection Range: Medium
+Communication
+Mesh Range: 6 km
+Relay Capacity: 0
+Command Link Type: Mapping Grid
+Network Priority: High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: 0
+Accuracy: N/A
+Stabilization: Very High
+Weapon Mounts: None
+Weapon Types: None
+Suppression Value: 0
+Tracking Strength: Medium
+Disruption Strength: Low
+Breach Capability: None
+Countermeasure Rating: Low
+Threat Modeling
+Threat Level: 3
+Engagement Distance: N/A
+Preferred Terrain: Mapping corridors / open air
+Preferred Targets: None
+Vulnerability Profile: Ballistic / weather
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: 3D Mapping
+Squad Size Contribution: 1
+Formation Behavior: Grid‑pattern scanning
+Intent Interpretation Rules: Maintain mapping altitude and coverage
+Retreat Behavior: Medium
+Breach Behavior: None
+Flanking Behavior: None
+Reinforcement Behavior: Supports recon and engineering squads
+Command Hierarchy
+Parent Command Unit: Cartographer / Insight
+Subordinate Units: None
+Relay Nodes: None
+Network Dependencies: Mapping Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Drone View
+Operator HUD: LiDAR Grid Overlay
+Camera Feeds: Optical
+Thermal View: Yes
+LiDAR View: Yes (full‑resolution)
+Sonar View: No
+Tactical Overlay: Terrain mesh visualization
+Operator Controls
+Movement Controls: Full drone flight
+Sensor Controls: LiDAR sweep / density adjustment
+Ability Controls: Scan, Map Terrain, Structural Sweep
+Weapon Controls: None
+Stabilization Controls: Auto‑hover, mapping‑lock
+Operator Abilities
+LiDAR Sweep
+Terrain Mesh Generation
+Structural Scan
+Mark Terrain Features
+⚫ ECONOMY & LOGISTICS
+Build Cost: 220 Metal / 200 Electronics
+Build Time: 70 sec
+Factory Type: Drone Bay
+Tech Requirements: Mapping Systems I
+Maintenance Cost: Medium
+Repair Time: 18 sec
+Supply Consumption: Medium
+Operational Cost: Moderate
+Deployment Requirements: Standard drone pad
+Transport Compatibility: All aerial racks
+Launch Method: Vertical takeoff
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+16× Medium Alloy Plates
+12× Composite Frame Rods
+8× Micro‑Servo Actuators
+4× Stabilizer Fins
+1× LiDAR Emitter Housing
+Electronics
+16× Circuit Bundles
+12× Signal Processors
+6× Drone Control Chips
+4× LiDAR Processing Chips
+Power
+1× High‑Capacity Battery Pack
+3× Power Regulation Nodes
+Rare / Tradeable
+1× High‑Resolution LiDAR Core
+1× Mapping Grid Microprocessor
+Optional Upgrades
+Extended LiDAR Range Module
+High‑Density Scan Grid
+Anti‑Jamming Shielding
+Silent Rotor Kit

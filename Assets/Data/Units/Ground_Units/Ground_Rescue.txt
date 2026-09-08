@@ -1,0 +1,130 @@
+
+⭐ RESCUE
+🚑 GROUND UNIT — RESCUE
+ID:
+obs-ground-rescue
+Role: Emergency Extraction / Battlefield Recovery
+Tier: Support
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 4.3 m
+Width: 2.2 m
+Height: 1.8 m
+Mass: 1,250 kg
+Power Source: Diesel‑electric hybrid
+Energy Capacity: 4800 Wh
+Fuel Capacity: 65 L
+Endurance: 5–9 hours
+Payload Capacity: 2 personnel or 300 kg equipment
+Modules: Medical bay + extraction winch + stabilization cradle
+Navigation System: GPS + Rescue AI
+Structural Integrity: 800 HP
+Armor Rating: 0.38
+Heat Signature: Medium
+Noise Signature: Medium
+Top Speed: 18 m/s
+Acceleration: Medium
+Turning Radius: Tight
+Stability Rating: Very High
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Emergency Response / Extraction
+Aggression: 0.0
+Caution: 0.95
+Persistence: 1.0
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.9
+Target Priority: Downed units / critical injuries
+Formation Discipline: High
+Risk Tolerance: Low
+Sensors
+Visual Range: 1500 m
+Thermal Range: 800 m
+Acoustic Range: Medium
+Radar Range: None
+LiDAR Range: Short
+Signal Detection Range: Short
+Communication
+Mesh Range: 6 km
+Relay Capacity: 1
+Command Link Type: Support Grid
+Network Priority: High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: None
+Weapon Mounts: None
+Weapon Types: None
+Suppression Value: 0
+Tracking Strength: None
+Disruption Strength: Low
+Breach Capability: None
+Countermeasure Rating: Medium
+Threat Modeling
+Threat Level: 3
+Engagement Distance: N/A
+Preferred Terrain: Safe lanes / extraction corridors
+Preferred Targets: Downed allies
+Vulnerability Profile: Ballistic / explosives
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Emergency Extraction
+Squad Size Contribution: 2
+Formation Behavior: Rear‑line support spacing
+Intent Interpretation Rules: Recover and stabilize allies
+Retreat Behavior: Early
+Breach Behavior: None
+Flanking Behavior: None
+Reinforcement Behavior: Supports all squads
+Command Hierarchy
+Parent Command Unit: Command Core / Fusion
+Subordinate Units: Scout, Mule
+Relay Nodes: 1
+Network Dependencies: Support Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Rescue Cockpit
+Operator HUD: Medical & Extraction Overlay
+Camera Feeds: Optical + winch cam
+Thermal View: Yes
+LiDAR View: Yes
+Tactical Overlay: Downed‑unit markers / safe routes
+Operator Controls
+Movement Controls: Full vehicle drive
+Extraction Controls: Winch / cradle / lift
+Sensor Controls: Thermal / LiDAR / zoom
+Ability Controls: Stabilize, Extract, Mark Safe Zone
+Operator Abilities
+Emergency Extraction
+Stabilization Pulse
+Rapid Recovery
+Support Relay
+⚫ ECONOMY & LOGISTICS
+Build Cost: 450 Metal / 260 Electronics
+Build Time: 90 sec
+Factory Type: Vehicle Bay
+Tech Requirements: Support Systems I
+Maintenance Cost: Low
+Repair Time: 22 sec
+Supply Consumption: Low
+Operational Cost: Low
+Deployment Requirements: Vehicle pad
+Transport Compatibility: Light racks
+Launch Method: Drive‑out
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+32× Light Alloy Plates
+16× Reinforced Frame Rods
+5× Hydraulic Actuators
+2× Armor Panels
+1× Extraction Cradle Assembly
+Electronics
+16× Circuit Bundles
+12× Signal Processors
+4× Vehicle Control Chips
+2× Support AI Chips
+Power
+1× Hybrid Engine Core
+2× Power Regulation Nodes
+Rare / Tradeable
+1× Medical Stabilization Module
+Optional Upgrades
+Reinforced Cradle
+Silent Drive Kit
+Extended Fuel Tank
+Anti‑Jamming Shielding

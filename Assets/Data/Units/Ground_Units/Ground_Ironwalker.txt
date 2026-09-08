@@ -1,0 +1,131 @@
+
+⭐ IRONWALKER
+🚜 GROUND UNIT — IRONWALKER
+ID:
+obs-ground-ironwalker
+Role: Heavy Walker / Mobile Fortification
+Tier: Heavy Assault
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 3.8 m
+Width: 2.6 m
+Height: 3.4 m
+Mass: 2,200 kg
+Power Source: Dual industrial battery + hydraulic drive
+Energy Capacity: 8200 Wh
+Fuel Capacity: N/A (fully electric‑hydraulic)
+Endurance: 3–5 hours
+Payload Capacity: 250 kg
+Modules: Reinforced walker legs + shock‑dampened chassis
+Navigation System: GPS + Walker‑Stability AI
+Structural Integrity: 1,600 HP
+Armor Rating: 0.85
+Heat Signature: Medium
+Noise Signature: High
+Top Speed: 8 m/s
+Acceleration: Very Low
+Turning Radius: Precise pivot
+Stability Rating: Maximum
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Heavy Assault / Mobile Cover
+Aggression: 0.7
+Caution: 0.5
+Persistence: 1.0
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.3
+Target Priority: Hardened targets / fortified positions
+Formation Discipline: High
+Risk Tolerance: High
+Sensors
+Visual Range: 1600 m
+Thermal Range: 700 m
+Acoustic Range: Medium
+Radar Range: Short
+LiDAR Range: Medium
+Signal Detection Range: Short
+Communication
+Mesh Range: 4 km
+Relay Capacity: 1
+Command Link Type: Assault Grid
+Network Priority: High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: Medium
+Weapon Mounts: 2
+Weapon Types: Heavy machine gun / suppression cannon
+Accuracy: Medium
+Suppression Value: High
+Tracking Strength: Low
+Disruption Strength: Medium
+Breach Capability: Medium
+Countermeasure Rating: High
+Threat Modeling
+Threat Level: 7
+Engagement Distance: 200–600 m
+Preferred Terrain: Urban / fortified zones
+Preferred Targets: Heavy infantry / light vehicles
+Vulnerability Profile: EMP / concentrated fire
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Heavy Assault / Mobile Cover
+Squad Size Contribution: 4
+Formation Behavior: Front‑line anchor
+Intent Interpretation Rules: Push forward and absorb fire
+Retreat Behavior: Late
+Breach Behavior: Secondary
+Flanking Behavior: None
+Reinforcement Behavior: Supports assault squads
+Command Hierarchy
+Parent Command Unit: Command Core / Fusion
+Subordinate Units: Hammer, Crusher
+Relay Nodes: 1
+Network Dependencies: Assault Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Walker Cockpit
+Operator HUD: Assault Overlay
+Camera Feeds: Optical + weapon cams
+Thermal View: Yes
+LiDAR View: Yes
+Tactical Overlay: Cover zones / threat arcs
+Operator Controls
+Movement Controls: Walker stride + pivot
+Weapon Controls: Dual mounts
+Sensor Controls: Thermal / LiDAR / zoom
+Ability Controls: Brace, Suppress, Stabilize
+Operator Abilities
+Heavy Suppression
+Brace Mode
+Mobile Cover Deployment
+Threat Marking
+⚫ ECONOMY & LOGISTICS
+Build Cost: 1,200 Metal / 600 Electronics
+Build Time: 180 sec
+Factory Type: Heavy Vehicle Bay
+Tech Requirements: Assault Systems I
+Maintenance Cost: High
+Repair Time: 45 sec
+Supply Consumption: High
+Operational Cost: High
+Deployment Requirements: Heavy walker pad
+Transport Compatibility: Walker racks
+Launch Method: Walk‑out
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+70× Heavy Alloy Plates
+36× Reinforced Frame Rods
+12× Hydraulic Actuators
+8× Armor Panels
+1× Walker Leg Assembly
+Electronics
+32× Circuit Bundles
+20× Signal Processors
+7× Vehicle Control Chips
+4× Assault AI Chips
+Power
+1× Dual Industrial Battery Core
+3× Power Regulation Nodes
+Rare / Tradeable
+1× Shock‑Dampened Chassis Core
+Optional Upgrades
+Reinforced Armor
+Stabilized Weapon Mounts
+Extended Battery Pack
+Anti‑Jamming Shielding

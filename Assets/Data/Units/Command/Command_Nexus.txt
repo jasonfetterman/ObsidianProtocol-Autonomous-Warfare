@@ -1,0 +1,123 @@
+	
+⭐ NEXUS	
+(16 m × 11 m × 8 m)	
+🧭 COMMAND UNIT — NEXUS	
+ID:	
+obs-command-nexus	
+Role: High‑Capacity Strategic Router / Multi‑Grid Synchronizer	
+Tier: Command (Major Node)	
+Status: Active	
+⚫ PHYSICAL & TECHNICAL	
+Length: 16 m	
+Width: 11 m	
+Height: 8 m	
+Mass: 38,000 kg	
+Power Source: Triple command‑grade reactors	
+Energy Capacity: 260,000 Wh	
+Fuel Capacity: N/A (reactor‑based)	
+Endurance: Continuous	
+Payload Capacity: Internal systems only	
+Modules:	
+	High‑capacity routing core
+	Multi‑grid synchronization lattice
+	Global mesh router
+	Redundant cooling towers
+	Stabilization pylons
+Navigation System: Stationary (anchored command node)	
+Structural Integrity: 6,000 HP	
+Armor Rating: 1.50	
+Heat Signature: Medium	
+Noise Signature: Low	
+Top Speed: N/A	
+Stability Rating: Maximum	
+⚫ AUTONOMY & AI BEHAVIOR	
+Behavior Profile: Global synchronization / command routing	
+Aggression: 0.0	
+Caution: 1.0	
+Persistence: 1.0	
+Retreat Threshold: N/A	
+Target Priority: None (non‑combat)	
+Formation Discipline: Maximum	
+Risk Tolerance: Very Low	
+Sensors	
+Visual Range: Short	
+Thermal Range: Short	
+Acoustic Range: Short	
+Radar Range: Medium	
+Signal Detection Range: Extremely High	
+Communication	
+Mesh Range: Global	
+Relay Capacity: 14	
+Command Link Type: Strategic Command Mesh	
+Network Priority: Maximum	
+⚫ COMBAT & THREAT MODEL	
+Firepower Rating: None	
+Weapon Mounts: None	
+Tracking Strength: Extremely High (command‑grade signal intelligence)	
+Disruption Strength: Extremely High	
+Countermeasure Rating: Maximum	
+Threat Modeling	
+Threat Level: 9 (critical strategic node)	
+Preferred Terrain: Secure command zones	
+Vulnerability Profile: EMP / sabotage / coordinated strikes	
+⚫ SQUAD & COMMAND INTEGRATION	
+Squad Role: High‑Capacity Synchronizer	
+Squad Size Contribution: 12	
+Formation Behavior: Central anchor	
+Intent Interpretation Rules: Synchronize AIR / GROUND / SEA / COMMAND grids	
+Retreat Behavior: None	
+Reinforcement Behavior: Supports all units	
+Command Hierarchy	
+Parent Command Unit: Fusion / Command Core	
+Subordinate Units: Insight, Pulse, Vector Core	
+Relay Nodes: 14	
+Network Dependencies: Strategic Command Mesh	
+⚫ VR OPERATOR MODE	
+Operator Seat Type: High‑Capacity Command Console	
+Operator HUD: Multi‑Grid Synchronization Overlay	
+Camera Feeds: Internal systems only	
+Thermal View: Yes	
+Tactical Overlay: Full global mesh visualization	
+Operator Controls	
+Grid routing	
+Synchronization lattice control	
+Multi‑domain diagnostics	
+Strategic coordination	
+Operator Abilities	
+Global Sync Pulse	
+Mesh Stabilization	
+Strategic Directive Broadcast	
+Encryption Surge	
+⚫ ECONOMY & LOGISTICS	
+Build Cost: 3,400 Metal / 2,000 Electronics	
+Build Time: 340 sec	
+Factory Type: Command Foundry	
+Tech Requirements: Command Systems III	
+Maintenance Cost: Very High	
+Repair Time: 100 sec	
+Supply Consumption: High	
+Operational Cost: High	
+Deployment Requirements: Command zone	
+Transport Compatibility: Heavy command carriers	
+Launch Method: Anchor‑install	
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)	
+Common Components	
+200× Command Alloy Plates	
+100× Reinforced Command Rods	
+16× Hydraulic Actuators	
+6× Armor Panels	
+1× Synchronization Core Assembly	
+Electronics	
+70× Circuit Bundles	
+44× Signal Processors	
+16× Command Control Chips	
+6× Command AI Chips	
+Power	
+1× Triple Command Reactor Core	
+4× Power Regulation Nodes	
+Rare / Tradeable	
+1× High‑Capacity Synchronization Module	
+Optional Upgrades	
+Quantum Encryption	
+Reinforced Hull	
+Anti‑Jamming Shielding	

@@ -1,0 +1,89 @@
+	
+⭐ WORLDMAP	
+(12 m × 8 m × 5 m)	
+🧭 COMMAND UNIT — WORLDMAP	
+ID:	
+obs-command-worldmap	
+Role: Global Navigation Core / Strategic Terrain Intelligence	
+Tier: Command	
+Status: Active	
+⚫ PHYSICAL & TECHNICAL	
+Length: 12 m	
+Width: 8 m	
+Height: 5 m	
+Mass: 22,000 kg	
+Power Source: Dual command‑grade reactors	
+Energy Capacity: 150,000 Wh	
+Fuel Capacity: N/A (reactor‑based)	
+Endurance: Continuous	
+Payload Capacity: 0 (internal systems only)	
+Modules:	
+	Global terrain processor
+	Satellite uplink array
+	Multi‑node command mesh
+	Redundant cooling towers
+Navigation System: Strategic geospatial AI	
+Structural Integrity: 4,400 HP	
+Armor Rating: 1.25	
+Heat Signature: Medium	
+Noise Signature: Low	
+Top Speed: N/A	
+Stability Rating: Maximum	
+⚫ AUTONOMY & AI BEHAVIOR	
+Behavior Profile: Global terrain analysis / strategic routing	
+Aggression: 0.0	
+Caution: 1.0	
+Persistence: 1.0	
+Retreat Threshold: N/A	
+Target Priority: None (non‑combat)	
+Formation Discipline: Maximum	
+Risk Tolerance: Very Low	
+Sensors	
+Visual Range: Short	
+Thermal Range: Short	
+Acoustic Range: Short	
+Radar Range: Medium	
+Signal Detection Range: Very High	
+Communication	
+Mesh Range: Global	
+Relay Capacity: 10	
+Command Link Type: Strategic Command Mesh	
+Network Priority: Maximum	
+⚫ COMBAT & THREAT MODEL	
+Firepower Rating: None	
+Weapon Mounts: None	
+Tracking Strength: Very High (geospatial)	
+Disruption Strength: Very High	
+Countermeasure Rating: Very High	
+Threat Modeling	
+Threat Level: 6 (due to strategic importance)	
+Preferred Terrain: Secure command zones	
+Vulnerability Profile: EMP / sabotage	
+⚫ SQUAD & COMMAND INTEGRATION	
+Squad Role: Global Navigation Core	
+Squad Size Contribution: 7	
+Formation Behavior: Central command anchor	
+Intent Interpretation Rules: Provide global terrain intelligence	
+Retreat Behavior: None	
+Reinforcement Behavior: Supports all units	
+Command Hierarchy	
+Parent Command Unit: Command Core	
+Subordinate Units: Archive, Insight	
+Relay Nodes: 10	
+Network Dependencies: Strategic Command Mesh	
+⚫ VR OPERATOR MODE	
+Operator Seat Type: Strategic Navigation Console	
+Operator HUD: Global Terrain Overlay	
+Camera Feeds: Internal systems only	
+Thermal View: Yes	
+Tactical Overlay: Global terrain / route intelligence	
+Operator Controls	
+Terrain routing	
+Satellite uplink management	
+Mesh node control	
+System diagnostics	
+Operator Abilities	
+Global Route Sync	
+Terrain Forecast	
+Mesh Stabilization	
+Command Relay	

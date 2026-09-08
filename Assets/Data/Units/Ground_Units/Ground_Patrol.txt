@@ -1,0 +1,131 @@
+
+⭐ PATROL
+🚜 GROUND UNIT — PATROL
+ID:
+obs-ground-patrol
+Role: Light Patrol / Perimeter Sweep
+Tier: Security
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 3.9 m
+Width: 1.9 m
+Height: 1.7 m
+Mass: 900 kg
+Power Source: Diesel‑electric hybrid
+Energy Capacity: 4200 Wh
+Fuel Capacity: 55 L
+Endurance: 6–10 hours
+Payload Capacity: 120 kg
+Modules: Patrol optics + light turret mount
+Navigation System: GPS + Patrol AI
+Structural Integrity: 700 HP
+Armor Rating: 0.35
+Heat Signature: Medium
+Noise Signature: Medium
+Top Speed: 20 m/s
+Acceleration: Medium
+Turning Radius: Tight
+Stability Rating: High
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Perimeter Sweep / Light Security
+Aggression: 0.3
+Caution: 0.8
+Persistence: 0.7
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.7
+Target Priority: Movement near perimeter
+Formation Discipline: Medium
+Risk Tolerance: Medium
+Sensors
+Visual Range: 1600 m
+Thermal Range: 700 m
+Acoustic Range: Medium
+Radar Range: Short
+LiDAR Range: Short
+Signal Detection Range: Short
+Communication
+Mesh Range: 4 km
+Relay Capacity: 0
+Command Link Type: Security Grid
+Network Priority: Medium
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: Low
+Weapon Mounts: 1
+Weapon Types: Light turret / suppression gun
+Accuracy: Medium
+Suppression Value: Low
+Tracking Strength: Low
+Disruption Strength: Low
+Breach Capability: None
+Countermeasure Rating: Low
+Threat Modeling
+Threat Level: 4
+Engagement Distance: 200–500 m
+Preferred Terrain: Perimeter roads / open ground
+Preferred Targets: Light infantry
+Vulnerability Profile: Ballistic / explosives
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Light Patrol
+Squad Size Contribution: 1
+Formation Behavior: Perimeter sweep spacing
+Intent Interpretation Rules: Maintain patrol route
+Retreat Behavior: Early
+Breach Behavior: None
+Flanking Behavior: None
+Reinforcement Behavior: Supports security squads
+Command Hierarchy
+Parent Command Unit: Command Core / Pulse
+Subordinate Units: Scout
+Relay Nodes: None
+Network Dependencies: Security Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Light Vehicle Cockpit
+Operator HUD: Patrol Overlay
+Camera Feeds: Optical + turret cam
+Thermal View: Yes
+LiDAR View: Yes
+Tactical Overlay: Patrol route + threat markers
+Operator Controls
+Movement Controls: Full vehicle drive
+Weapon Controls: Light turret
+Sensor Controls: Thermal / LiDAR / zoom
+Ability Controls: Mark Threat, Stabilize, Patrol Mode
+Operator Abilities
+Light Suppression
+Threat Marking
+Patrol Route Lock
+Relay Security Data
+⚫ ECONOMY & LOGISTICS
+Build Cost: 350 Metal / 180 Electronics
+Build Time: 80 sec
+Factory Type: Vehicle Bay
+Tech Requirements: Security Systems I
+Maintenance Cost: Low
+Repair Time: 20 sec
+Supply Consumption: Low
+Operational Cost: Low
+Deployment Requirements: Vehicle pad
+Transport Compatibility: Light racks
+Launch Method: Drive‑out
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+28× Light Alloy Plates
+14× Reinforced Frame Rods
+4× Hydraulic Actuators
+2× Armor Panels
+1× Patrol Sensor Housing
+Electronics
+14× Circuit Bundles
+10× Signal Processors
+3× Vehicle Control Chips
+2× Security AI Chips
+Power
+1× Hybrid Engine Core
+2× Power Regulation Nodes
+Rare / Tradeable
+1× Light Turret Stabilizer
+Optional Upgrades
+Reinforced Armor
+Silent Drive Kit
+Extended Fuel Tank
+Anti‑Jamming Shielding

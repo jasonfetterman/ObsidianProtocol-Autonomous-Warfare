@@ -1,0 +1,134 @@
+
+✈️ AIR UNIT — VECTOR
+ID:
+obs-air-vector
+Role: High‑Speed Recon / Rapid Response Scouting
+Tier: Advanced Recon
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 3.1 m
+Width: 2.3 m
+Height: 1.0 m
+Mass: 28 kg
+Power Source: High‑output battery
+Energy Capacity: 3000 Wh
+Energy Consumption: 58 Wh/min
+Endurance: 40–55 min
+Payload Capacity: 1.6 kg
+Modules: High‑speed optics + stabilization fins
+Navigation System: GPS + Rapid‑Response AI
+Structural Integrity: 160 HP
+Armor Rating: 0.26
+Heat Signature: Medium
+Noise Signature: Medium
+Top Speed: 32 m/s
+Acceleration: Very High
+Turning Radius: Tight
+Climb Rate: High
+Stability Rating: High
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Rapid Recon / High‑Speed Sweep
+Aggression: 0.0
+Caution: 0.75
+Persistence: 0.85
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.8
+Target Priority: Fast‑moving or time‑critical targets
+Formation Discipline: Medium
+Risk Tolerance: Medium
+Sensors
+Visual Range: 2600 m
+Thermal Range: 900 m
+Acoustic Range: Medium
+Radar Range: Short
+LiDAR Range: Short
+Signal Detection Range: Medium
+Communication
+Mesh Range: 8 km
+Relay Capacity: 1
+Command Link Type: Recon Grid
+Network Priority: Medium
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: 0
+Accuracy: N/A
+Stabilization: High
+Weapon Mounts: None
+Weapon Types: None
+Suppression Value: 0
+Tracking Strength: High
+Disruption Strength: Low
+Breach Capability: None
+Countermeasure Rating: Medium
+Threat Modeling
+Threat Level: 3
+Engagement Distance: N/A
+Preferred Terrain: Open lanes / rapid‑response corridors
+Preferred Targets: Moving / time‑sensitive targets
+Vulnerability Profile: Ballistic / weather
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: High‑Speed Recon
+Squad Size Contribution: 1
+Formation Behavior: Rapid‑response spacing
+Intent Interpretation Rules: Reach target zones quickly
+Retreat Behavior: Early
+Breach Behavior: None
+Flanking Behavior: None
+Reinforcement Behavior: Supports recon and command squads
+Command Hierarchy
+Parent Command Unit: Insight / Overseer
+Subordinate Units: Tracker, Spotter, Scout Eye
+Relay Nodes: 1
+Network Dependencies: Recon Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: High‑Speed Drone View
+Operator HUD: Velocity‑Tracking Overlay
+Camera Feeds: Optical
+Thermal View: Yes
+LiDAR View: Yes (short‑range)
+Radar View: Yes (short‑range)
+Tactical Overlay: Speed vectors / rapid‑zone markers
+Operator Controls
+Movement Controls: High‑speed flight
+Sensor Controls: Thermal / LiDAR / radar / zoom
+Ability Controls: Rapid Scan, Mark Target, Stabilize
+Weapon Controls: None
+Stabilization Controls: Auto‑hover
+Operator Abilities
+Rapid Recon Sweep
+Velocity Tracking
+Mark Fast Target
+Relay Recon Data
+⚫ ECONOMY & LOGISTICS
+Build Cost: 180 Metal / 150 Electronics
+Build Time: 60 sec
+Factory Type: Drone Bay
+Tech Requirements: Recon Systems III
+Maintenance Cost: Medium
+Repair Time: 16 sec
+Supply Consumption: Medium
+Operational Cost: Moderate
+Deployment Requirements: High‑speed drone pad
+Transport Compatibility: All aerial racks
+Launch Method: Vertical takeoff
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+16× Light Alloy Plates
+12× Composite Frame Rods
+5× Micro‑Servo Actuators
+2× Stabilizer Fins
+1× High‑Speed Sensor Housing
+Electronics
+16× Circuit Bundles
+12× Signal Processors
+4× Drone Control Chips
+3× Recon AI Chips
+Power
+1× High‑Output Battery Pack
+3× Power Regulation Nodes
+Rare / Tradeable
+1× High‑Speed Optics Core
+Optional Upgrades
+Extended Battery Pack
+Silent Rotor Kit
+High‑Density Recon Grid
+Anti‑Jamming Shielding

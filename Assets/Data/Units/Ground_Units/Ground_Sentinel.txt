@@ -1,0 +1,127 @@
+
+🛡️ GROUND UNIT — SENTINAL
+ID:
+obs-ground-sentinal
+Role: Static Defense / Automated Turret Platform
+Tier: Security
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 2.1 m
+Width: 2.1 m
+Height: 1.4 m
+Mass: 650 kg
+Power Source: High‑capacity battery + optional generator
+Energy Capacity: 5200 Wh
+Fuel Capacity: N/A
+Endurance: 8–14 hours (battery) / unlimited (generator)
+Payload Capacity: N/A
+Modules: Auto‑turret + stabilization base
+Navigation System: Stationary (micro‑adjust motors only)
+Structural Integrity: 700 HP
+Armor Rating: 0.45
+Heat Signature: Low
+Noise Signature: Low
+Top Speed: N/A (stationary)
+Stability Rating: Maximum
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Static Defense / Automated Threat Response
+Aggression: 0.6
+Caution: 0.9
+Persistence: 1.0
+Flanking Likelihood: 0.0
+Retreat Threshold: N/A
+Target Priority: Hostile movement in line‑of‑sight
+Formation Discipline: Very High
+Risk Tolerance: Medium
+Sensors
+Visual Range: 2200 m
+Thermal Range: 1000 m
+Acoustic Range: Medium
+Radar Range: Short
+LiDAR Range: Medium
+Signal Detection Range: Medium
+Communication
+Mesh Range: 5 km
+Relay Capacity: 0
+Command Link Type: Security Grid
+Network Priority: High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: Medium
+Weapon Mounts: 1 (auto‑turret)
+Weapon Types: Medium machine gun / suppression cannon
+Accuracy: High
+Suppression Value: Medium
+Tracking Strength: High
+Disruption Strength: Medium
+Breach Capability: None
+Countermeasure Rating: Medium
+Threat Modeling
+Threat Level: 6
+Engagement Distance: 300–900 m
+Preferred Terrain: Defensive positions / choke points
+Preferred Targets: Infantry / light vehicles
+Vulnerability Profile: EMP / explosives
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Static Defense
+Squad Size Contribution: 1
+Formation Behavior: Fixed emplacement
+Intent Interpretation Rules: Hold position and fire
+Retreat Behavior: None
+Breach Behavior: None
+Flanking Behavior: None
+Reinforcement Behavior: Supports security squads
+Command Hierarchy
+Parent Command Unit: Command Core / Pulse
+Subordinate Units: None
+Relay Nodes: None
+Network Dependencies: Security Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Remote Turret Console
+Operator HUD: Defense Overlay
+Camera Feeds: Optical + turret cam
+Thermal View: Yes
+LiDAR View: Yes
+Tactical Overlay: Threat arcs / line‑of‑sight map
+Operator Controls
+Weapon Controls: Turret aim + fire
+Sensor Controls: Thermal / LiDAR / zoom
+Ability Controls: Mark Target, Stabilize, Lock Zone
+Operator Abilities
+Auto‑Tracking
+Suppression Burst
+Zone Lock
+Threat Marking
+⚫ ECONOMY & LOGISTICS
+Build Cost: 380 Metal / 200 Electronics
+Build Time: 85 sec
+Factory Type: Vehicle Bay (Static Platform Output)
+Tech Requirements: Security Systems II
+Maintenance Cost: Low
+Repair Time: 20 sec
+Supply Consumption: Low
+Operational Cost: Low
+Deployment Requirements: Fixed emplacement pad
+Transport Compatibility: Light racks
+Launch Method: Place‑and‑activate
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+26× Light Alloy Plates
+12× Reinforced Frame Rods
+4× Hydraulic Actuators
+2× Armor Panels
+1× Turret Base Assembly
+Electronics
+16× Circuit Bundles
+12× Signal Processors
+4× Vehicle Control Chips
+2× Security AI Chips
+Power
+1× High‑Capacity Battery Core
+2× Power Regulation Nodes
+Rare / Tradeable
+1× Auto‑Turret Stabilizer
+Optional Upgrades
+Reinforced Armor
+Extended Battery Pack
+Anti‑Jamming Shielding
+Thermal‑Enhanced Optics

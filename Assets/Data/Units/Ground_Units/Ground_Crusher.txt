@@ -1,0 +1,131 @@
+
+⭐ CRUSHER
+🚜 GROUND UNIT — CRUSHER
+ID:
+obs-ground-crusher
+Role: Heavy Demolition / Terrain Clearing
+Tier: Assault Engineering
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 5.1 m
+Width: 2.8 m
+Height: 2.3 m
+Mass: 2,600 kg
+Power Source: Industrial diesel‑electric hybrid
+Energy Capacity: 9000 Wh
+Fuel Capacity: 110 L
+Endurance: 4–6 hours
+Payload Capacity: 500 kg debris
+Modules: Dual crushing arms + reinforced demolition chassis
+Navigation System: GPS + Demolition AI
+Structural Integrity: 1,800 HP
+Armor Rating: 0.90
+Heat Signature: High
+Noise Signature: Very High
+Top Speed: 9 m/s
+Acceleration: Low
+Turning Radius: Heavy pivot
+Stability Rating: Maximum
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Demolition / Terrain Clearing
+Aggression: 0.7
+Caution: 0.4
+Persistence: 1.0
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.3
+Target Priority: Obstacles / structures / debris
+Formation Discipline: High
+Risk Tolerance: High
+Sensors
+Visual Range: 1200 m
+Thermal Range: 600 m
+Acoustic Range: Medium
+Radar Range: None
+LiDAR Range: Medium
+Signal Detection Range: Short
+Communication
+Mesh Range: 4 km
+Relay Capacity: 0
+Command Link Type: Engineering Grid
+Network Priority: Medium
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: Low (crushing arms only)
+Weapon Mounts: None
+Weapon Types: Hydraulic crushing arms
+Accuracy: N/A
+Suppression Value: Low
+Tracking Strength: None
+Disruption Strength: High
+Breach Capability: Very High
+Countermeasure Rating: Medium
+Threat Modeling
+Threat Level: 7
+Engagement Distance: Contact
+Preferred Terrain: Urban rubble / breach zones
+Preferred Targets: Structures / debris / fortifications
+Vulnerability Profile: Ballistic / explosives
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Heavy Demolition
+Squad Size Contribution: 4
+Formation Behavior: Front‑line demolition spacing
+Intent Interpretation Rules: Clear obstacles and open paths
+Retreat Behavior: Late
+Breach Behavior: Primary
+Flanking Behavior: None
+Reinforcement Behavior: Supports assault & engineering squads
+Command Hierarchy
+Parent Command Unit: Command Core / Fusion
+Subordinate Units: Hammer, Ironwalker
+Relay Nodes: None
+Network Dependencies: Engineering Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Heavy Demolition Cockpit
+Operator HUD: Demolition Overlay
+Camera Feeds: Optical + arm cams
+Thermal View: Yes
+LiDAR View: Yes
+Tactical Overlay: Structural integrity map / debris markers
+Operator Controls
+Movement Controls: Heavy vehicle drive
+Tool Controls: Crush / lift / break / clear
+Sensor Controls: Thermal / LiDAR / zoom
+Ability Controls: Demolition Mode, Stabilize, Structural Scan
+Operator Abilities
+Hydraulic Crush
+Debris Clearing
+Structural Weak‑Point Scan
+Reinforced Stance
+⚫ ECONOMY & LOGISTICS
+Build Cost: 1,300 Metal / 700 Electronics
+Build Time: 190 sec
+Factory Type: Heavy Vehicle Bay
+Tech Requirements: Engineering Systems II
+Maintenance Cost: High
+Repair Time: 48 sec
+Supply Consumption: High
+Operational Cost: High
+Deployment Requirements: Heavy vehicle pad
+Transport Compatibility: Heavy racks
+Launch Method: Drive‑out
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+80× Heavy Alloy Plates
+40× Reinforced Frame Rods
+14× Hydraulic Actuators
+8× Armor Panels
+1× Crushing Arm Assembly
+Electronics
+36× Circuit Bundles
+22× Signal Processors
+7× Vehicle Control Chips
+4× Engineering AI Chips
+Power
+1× Industrial Hybrid Engine Core
+3× Power Regulation Nodes
+Rare / Tradeable
+1× Hydraulic Crushing Core
+Optional Upgrades
+Reinforced Arms
+Shock‑Dampened Chassis
+Extended Fuel Tank
+Anti‑Jamming Shielding

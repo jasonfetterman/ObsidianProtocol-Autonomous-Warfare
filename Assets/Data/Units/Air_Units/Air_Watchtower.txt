@@ -1,0 +1,135 @@
+
+✈️ AIR UNIT — WATCHTOWER
+ID:
+obs-air-watchtower
+Role: High‑Altitude Overwatch / Strategic Visibility
+Tier: Advanced Recon
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 3.8 m
+Width: 2.9 m
+Height: 1.3 m
+Mass: 36 kg
+Power Source: Long‑endurance battery
+Energy Capacity: 4000 Wh
+Energy Consumption: 55 Wh/min
+Endurance: 70–100 min
+Payload Capacity: 2.2 kg
+Modules: Long‑range optics + atmospheric stabilization suite
+Navigation System: GPS + Overwatch AI
+Structural Integrity: 200 HP
+Armor Rating: 0.34
+Heat Signature: Low
+Noise Signature: Low
+Top Speed: 20 m/s
+Acceleration: Medium
+Turning Radius: Moderate
+Climb Rate: Extremely High
+Stability Rating: Maximum
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: High‑Altitude Overwatch / Persistent Visibility
+Aggression: 0.0
+Caution: 0.95
+Persistence: 1.0
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.95
+Target Priority: Long‑range visibility targets
+Formation Discipline: Very High
+Risk Tolerance: Very Low
+Sensors
+Visual Range: 3500 m
+Thermal Range: 1500 m
+Acoustic Range: Low
+Radar Range: Medium
+LiDAR Range: Medium
+Signal Detection Range: 12 km
+Communication
+Mesh Range: 12 km
+Relay Capacity: 3
+Command Link Type: Recon Grid
+Network Priority: High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: 0
+Accuracy: N/A
+Stabilization: Extremely High
+Weapon Mounts: None
+Weapon Types: None
+Suppression Value: 0
+Tracking Strength: High
+Disruption Strength: Medium
+Breach Capability: None
+Countermeasure Rating: High
+Threat Modeling
+Threat Level: 4
+Engagement Distance: N/A
+Preferred Terrain: High‑altitude overwatch lanes
+Preferred Targets: None
+Vulnerability Profile: Ballistic / EMP / jamming
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: High‑Altitude Overwatch
+Squad Size Contribution: 1
+Formation Behavior: High‑altitude spacing
+Intent Interpretation Rules: Maintain persistent visibility
+Retreat Behavior: Very Early
+Breach Behavior: None
+Flanking Behavior: None
+Reinforcement Behavior: Supports recon and command squads
+Command Hierarchy
+Parent Command Unit: Insight / Overseer
+Subordinate Units: Horizon, Skywatch, Trailblazer
+Relay Nodes: 3
+Network Dependencies: Recon Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Overwatch Drone View
+Operator HUD: Strategic Visibility Overlay
+Camera Feeds: Optical
+Thermal View: Yes
+LiDAR View: Yes
+Radar View: Yes
+Tactical Overlay: Long‑range markers / movement predictions
+Operator Controls
+Movement Controls: High‑altitude flight
+Sensor Controls: Thermal / LiDAR / radar / zoom
+Ability Controls: Strategic Scan, Mark Target, Stabilize
+Weapon Controls: None
+Stabilization Controls: High‑altitude auto‑hover
+Operator Abilities
+Strategic Overwatch
+Long‑Range Scan
+Predictive Movement Analysis
+Relay Recon Data
+⚫ ECONOMY & LOGISTICS
+Build Cost: 300 Metal / 300 Electronics
+Build Time: 90 sec
+Factory Type: Drone Bay
+Tech Requirements: Recon Systems III
+Maintenance Cost: Medium
+Repair Time: 22 sec
+Supply Consumption: Medium
+Operational Cost: Moderate
+Deployment Requirements: High‑altitude drone pad
+Transport Compatibility: All aerial racks
+Launch Method: Vertical takeoff
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+20× Medium Alloy Plates
+14× Composite Frame Rods
+6× Micro‑Servo Actuators
+3× Stabilizer Fins
+1× Overwatch Sensor Housing
+Electronics
+22× Circuit Bundles
+16× Signal Processors
+5× Drone Control Chips
+4× Command‑Recon AI Chips
+Power
+1× Long‑Endurance Battery Pack
+3× Power Regulation Nodes
+Rare / Tradeable
+1× Long‑Range Optics Core
+1× Atmospheric Stability Processor
+Optional Upgrades
+Extended Altitude Module
+Anti‑Jamming Shielding
+Silent Rotor Kit
+Ultra‑Long‑Range Sensor Grid

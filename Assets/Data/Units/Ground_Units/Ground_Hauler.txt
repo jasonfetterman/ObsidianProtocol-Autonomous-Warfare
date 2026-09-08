@@ -1,0 +1,129 @@
+
+⭐ HAULER
+🚚 GROUND UNIT — HAULER
+ID:
+obs-ground-hauler
+Role: Heavy Logistics / Bulk Transport
+Tier: Support
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 5.4 m
+Width: 2.6 m
+Height: 2.2 m
+Mass: 2,000 kg
+Power Source: Diesel‑electric hybrid
+Energy Capacity: 7200 Wh
+Fuel Capacity: 120 L
+Endurance: 8–14 hours
+Payload Capacity: 1,500 kg
+Modules: Heavy cargo bed + reinforced suspension
+Navigation System: GPS + Logistics AI
+Structural Integrity: 1,100 HP
+Armor Rating: 0.50
+Heat Signature: Medium
+Noise Signature: Medium
+Top Speed: 14 m/s
+Acceleration: Low
+Turning Radius: Moderate
+Stability Rating: Very High
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Bulk Transport / Supply Chain
+Aggression: 0.0
+Caution: 0.9
+Persistence: 1.0
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.85
+Target Priority: Supply routes / logistics nodes
+Formation Discipline: High
+Risk Tolerance: Low
+Sensors
+Visual Range: 1400 m
+Thermal Range: 600 m
+Acoustic Range: Medium
+Radar Range: None
+LiDAR Range: Short
+Signal Detection Range: Short
+Communication
+Mesh Range: 6 km
+Relay Capacity: 1
+Command Link Type: Logistics Grid
+Network Priority: High
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: None
+Weapon Mounts: None
+Weapon Types: None
+Suppression Value: 0
+Tracking Strength: None
+Disruption Strength: Low
+Breach Capability: None
+Countermeasure Rating: Low
+Threat Modeling
+Threat Level: 2
+Engagement Distance: N/A
+Preferred Terrain: Supply lanes / safe corridors
+Preferred Targets: None
+Vulnerability Profile: Ballistic / explosives
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Heavy Logistics
+Squad Size Contribution: 3
+Formation Behavior: Rear‑line supply spacing
+Intent Interpretation Rules: Deliver bulk supplies safely
+Retreat Behavior: Early
+Breach Behavior: None
+Flanking Behavior: None
+Reinforcement Behavior: Supports all squads
+Command Hierarchy
+Parent Command Unit: Command Core / Fusion
+Subordinate Units: Mule, Forge
+Relay Nodes: 1
+Network Dependencies: Logistics Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Heavy Transport Cockpit
+Operator HUD: Logistics Overlay
+Camera Feeds: Optical
+Thermal View: Yes
+LiDAR View: Yes
+Tactical Overlay: Supply routes / drop markers
+Operator Controls
+Movement Controls: Heavy vehicle drive
+Cargo Controls: Load / unload / secure
+Sensor Controls: Thermal / LiDAR / zoom
+Ability Controls: Mark Drop Zone, Stabilize, Route Lock
+Operator Abilities
+Bulk Supply Drop
+Cargo Stabilization
+Route Optimization
+Logistics Relay
+⚫ ECONOMY & LOGISTICS
+Build Cost: 650 Metal / 300 Electronics
+Build Time: 130 sec
+Factory Type: Vehicle Bay
+Tech Requirements: Logistics Systems II
+Maintenance Cost: Medium
+Repair Time: 30 sec
+Supply Consumption: Medium
+Operational Cost: Medium
+Deployment Requirements: Heavy vehicle pad
+Transport Compatibility: Heavy racks
+Launch Method: Drive‑out
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+48× Heavy Alloy Plates
+24× Reinforced Frame Rods
+8× Hydraulic Actuators
+3× Armor Panels
+1× Heavy Cargo Bed Assembly
+Electronics
+20× Circuit Bundles
+14× Signal Processors
+4× Vehicle Control Chips
+2× Logistics AI Chips
+Power
+1× Hybrid Engine Core
+3× Power Regulation Nodes
+Rare / Tradeable
+1× Cargo Stabilization Module
+Optional Upgrades
+Reinforced Cargo Bed
+Extended Fuel Tank
+Anti‑Jamming Shielding

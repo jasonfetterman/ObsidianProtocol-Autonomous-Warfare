@@ -1,0 +1,135 @@
+
+✈️ AIR UNIT #3 — DROP
+ID:
+obs-air-drop
+Role: Precision Payload Delivery
+Tier: Operational
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 4.5 m
+Width: 3.2 m
+Height: 1.5 m
+Mass: 30 kg
+Power Source: High‑capacity battery
+Energy Capacity: 2600 Wh
+Energy Consumption: 55 Wh/min
+Endurance: 25–40 min
+Payload Capacity: 2.0 kg (precision‑drop bay)
+Modules: Servo drop system
+Navigation System: GPS + IMU
+Structural Integrity: 150 HP
+Armor Rating: 0.20
+Heat Signature: Medium
+Noise Signature: Medium
+Top Speed: 20 m/s
+Acceleration: Medium
+Turning Radius: Moderate
+Climb Rate: Medium
+Stability Rating: High (optimized for drop accuracy)
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Logistics / Delivery
+Aggression: 0.0
+Caution: 0.7
+Persistence: 0.8
+Flanking Likelihood: 0.0
+Retreat Threshold: 0.6
+Target Priority: Delivery coordinates
+Formation Discipline: Medium
+Risk Tolerance: Low
+Sensors
+Visual Range: 1200 m
+Thermal Range: 600 m
+Acoustic Range: Low
+Radar Range: None
+LiDAR Range: None
+Signal Detection Range: Medium
+Communication
+Mesh Range: 6 km
+Relay Capacity: 0
+Command Link Type: Standard
+Network Priority: Medium
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: 0
+Accuracy: N/A
+Stabilization: High (for drop precision)
+Weapon Mounts: None
+Weapon Types: None
+Suppression Value: 0
+Tracking Strength: Low
+Disruption Strength: Low
+Breach Capability: None
+Countermeasure Rating: Low
+Threat Modeling
+Threat Level: 3
+Engagement Distance: N/A
+Preferred Terrain: Open air / delivery corridors
+Preferred Targets: None
+Vulnerability Profile: Ballistic / jamming / weather
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Payload Delivery
+Squad Size Contribution: 1
+Formation Behavior: Delivery corridor spacing
+Intent Interpretation Rules: Prioritize delivery accuracy over speed
+Retreat Behavior: Medium
+Breach Behavior: None
+Flanking Behavior: None
+Reinforcement Behavior: Supports logistics squads
+Command Hierarchy
+Parent Command Unit: Command Core / Overseer
+Subordinate Units: None
+Relay Nodes: None
+Network Dependencies: Standard Warden mesh
+⚫ VR OPERATOR MODE
+Operator Seat Type: Drone View
+Operator HUD: Delivery Overlay
+Camera Feeds: Optical
+Thermal View: Yes
+LiDAR View: No
+Sonar View: No
+Tactical Overlay: Drop‑zone visualization
+Operator Controls
+Movement Controls: Full drone flight
+Sensor Controls: Drop‑zone targeting
+Ability Controls: Payload Drop, Stabilize
+Weapon Controls: None
+Stabilization Controls: Auto‑hover, auto‑level
+Operator Abilities
+Precision Drop
+Drop‑Zone Scan
+Stabilize
+Delivery Confirmation
+⚫ ECONOMY & LOGISTICS
+Build Cost: 160 Metal / 140 Electronics
+Build Time: 50 sec
+Factory Type: Drone Bay
+Tech Requirements: Logistics I
+Maintenance Cost: Medium
+Repair Time: 14 sec
+Supply Consumption: Medium
+Operational Cost: Moderate
+Deployment Requirements: Standard drone pad
+Transport Compatibility: All aerial racks
+Launch Method: Vertical takeoff
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+14× Medium Alloy Plates
+10× Composite Frame Rods
+8× Micro‑Servo Actuators
+4× Stabilizer Fins
+1× Payload Drop Bay Housing
+Electronics
+12× Circuit Bundles
+8× Signal Processors
+4× Drone Control Chips
+2× IMU Stabilization Chips
+Power
+1× High‑Capacity Battery Pack
+3× Power Regulation Nodes
+Rare / Tradeable
+1× Precision Servo Assembly
+1× Encrypted Delivery Core
+Optional Upgrades
+Extended Battery Module
+Silent Rotor Kit
+Precision Drop Enhancer
+Anti‑Wind Stabilization Grid

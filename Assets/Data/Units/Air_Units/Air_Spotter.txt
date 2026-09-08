@@ -1,0 +1,134 @@
+
+✈️ AIR UNIT #23 — SPOTTER
+ID:
+obs-air-spotter
+Role: Target Identification / Precision Marking
+Tier: Recon Support
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+Length: 1.8 m
+Width: 1.3 m
+Height: 0.7 m
+Mass: 12 kg
+Power Source: Compact battery
+Energy Capacity: 1400 Wh
+Energy Consumption: 30 Wh/min
+Endurance: 35–50 min
+Payload Capacity: 0.8 kg
+Modules: Precision marker beam
+Navigation System: GPS + Targeting AI
+Structural Integrity: 90 HP
+Armor Rating: 0.10
+Heat Signature: Low
+Noise Signature: Very Low
+Top Speed: 22 m/s
+Acceleration: High
+Turning Radius: Tight
+Climb Rate: Medium
+Stability Rating: High
+⚫ AUTONOMY & AI BEHAVIOR
+Behavior Profile: Target Identification / Recon Support
+Aggression: 0.1
+Caution: 0.85
+Persistence: 0.7
+Flanking Likelihood: 0.1
+Retreat Threshold: 0.85
+Target Priority: High‑value targets / moving targets
+Formation Discipline: Medium
+Risk Tolerance: Low
+Sensors
+Visual Range: 1600 m
+Thermal Range: 600 m
+Acoustic Range: Medium
+Radar Range: None
+LiDAR Range: Short‑range
+Signal Detection Range: Medium
+Communication
+Mesh Range: 5 km
+Relay Capacity: 0
+Command Link Type: Recon Grid
+Network Priority: Medium
+⚫ COMBAT & THREAT MODEL
+Firepower Rating: Low (marker beam only)
+Accuracy: High
+Stabilization: High
+Weapon Mounts: 1 (marker beam)
+Weapon Types: Target marker beam
+Suppression Value: Low
+Tracking Strength: High
+Disruption Strength: Low
+Breach Capability: None
+Countermeasure Rating: Low
+Threat Modeling
+Threat Level: 2
+Engagement Distance: 200–400 m
+Preferred Terrain: Recon corridors
+Preferred Targets: High‑value targets
+Vulnerability Profile: Ballistic / weather
+⚫ SQUAD & COMMAND INTEGRATION
+Squad Role: Target Spotting
+Squad Size Contribution: 1
+Formation Behavior: Recon spacing
+Intent Interpretation Rules: Maintain visibility, avoid conflict
+Retreat Behavior: Early
+Breach Behavior: None
+Flanking Behavior: Minimal
+Reinforcement Behavior: Supports recon and command squads
+Command Hierarchy
+Parent Command Unit: Overseer / Insight
+Subordinate Units: None
+Relay Nodes: None
+Network Dependencies: Recon Grid
+⚫ VR OPERATOR MODE
+Operator Seat Type: Drone View
+Operator HUD: Targeting Overlay
+Camera Feeds: Optical
+Thermal View: Yes
+LiDAR View: Yes (short‑range)
+Sonar View: No
+Tactical Overlay: Target markers / lock indicators
+Operator Controls
+Movement Controls: Full drone flight
+Sensor Controls: Thermal / LiDAR / zoom
+Ability Controls: Mark Target, Scan, Stabilize
+Weapon Controls: Marker beam
+Stabilization Controls: Auto‑hover
+Operator Abilities
+Precision Target Mark
+Recon Scan
+Thermal Search
+Stabilize
+Relay Target Data
+⚫ ECONOMY & LOGISTICS
+Build Cost: 70 Metal / 60 Electronics
+Build Time: 25 sec
+Factory Type: Drone Bay
+Tech Requirements: Recon Systems I
+Maintenance Cost: Low
+Repair Time: 8 sec
+Supply Consumption: Low
+Operational Cost: Minimal
+Deployment Requirements: Standard drone pad
+Transport Compatibility: All aerial racks
+Launch Method: Vertical takeoff
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+Common Components
+8× Light Alloy Plates
+6× Composite Frame Rods
+3× Micro‑Servo Actuators
+1× Stabilizer Fin
+1× Marker Beam Housing
+Electronics
+8× Circuit Bundles
+6× Signal Processors
+2× Drone Control Chips
+2× Targeting AI Chips
+Power
+1× Compact Battery Pack
+1× Power Regulation Node
+Rare / Tradeable
+1× Precision Marker Core
+Optional Upgrades
+Silent Rotor Kit
+Thermal Boost Module
+Extended Battery Pack
