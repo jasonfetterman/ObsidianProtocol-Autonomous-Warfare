@@ -175,3 +175,11 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Ground-Forge-Unit.pdf - detailed Forge field-construction unit specification
 
 - Source PDFs/OPAW-Ground-Hammer-Unit.pdf - detailed Hammer heavy-breach unit specification
+
+- Source PDFs/OPAW-Ground-Ironwalker-Unit.pdf - detailed Ironwalker heavy-walker unit specification
+
+- Source PDFs/OPAW-Ground-Mule-Unit.pdf - detailed Mule logistics-transport unit specification
+
+- Source PDFs/OPAW-Ground-Patrol-Unit.pdf - detailed Patrol perimeter-sweep unit specification
+
+- Source PDFs/OPAW-Ground-Rescue-Unit.pdf - detailed Rescue emergency-extraction unit specification
