@@ -81,3 +81,13 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Ghost-Coast-Map.pdf - detailed Ghost Coast map specification
 
 - Source PDFs/OPAW-Dustline-Map.pdf - detailed Dustline map specification
+
+- Source PDFs/OPAW-Red-Basin-Map.pdf - detailed Red Basin map specification
+
+- Source PDFs/OPAW-Ashfall-Map.pdf - detailed Ashfall map specification
+
+- Source PDFs/OPAW-Black-Mesa-Map.pdf - detailed Black Mesa map specification
+
+- Source PDFs/OPAW-Iron-Valley-Map.pdf - detailed Iron Valley map specification
+
+- Source PDFs/OPAW-Deadlock-Map.pdf - detailed Deadlock map specification
