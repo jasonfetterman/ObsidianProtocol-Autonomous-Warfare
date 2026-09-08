@@ -155,3 +155,13 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Air-Survey-Unit.pdf - detailed Survey wide-area reconnaissance unit specification
 
 - Source PDFs/OPAW-Air-Terrain-Unit.pdf - detailed Terrain elevation-analysis unit specification
+
+- Source PDFs/OPAW-Air-Thermal-Unit.pdf - detailed Thermal heat-detection unit specification
+
+- Source PDFs/OPAW-Air-Skywatch-Unit.pdf - detailed Skywatch airspace-security unit specification
+
+- Source PDFs/OPAW-Air-Horizon-Unit.pdf - detailed Horizon persistent-surveillance unit specification
+
+- Source PDFs/OPAW-Air-Trailblazer-Unit.pdf - detailed Trailblazer pathfinding unit specification
+
+- Source PDFs/OPAW-Air-Tracker-Unit.pdf - detailed Tracker target-tracking unit specification
