@@ -2,25 +2,96 @@
 
 > **Command intent. Unleash autonomy. Witness war evolve.**
 
-Obsidian Protocol: Autonomous Warfare is a military strategy and warfare simulation built around a simple idea:
+Obsidian Protocol: Autonomous Warfare is an original commercial military strategy and warfare game being developed
+for players to experience through Steam, online or offline. It is built around a simple idea:
 
 > **You do not command every move. You command the war.**
 
 Instead of micromanaging every unit, the player establishes objectives, priorities, rules of engagement, formations, doctrines, and operational intent. Autonomous forces interpret those orders according to their capabilities, sensors, communications, role, condition, and understanding of the battlefield.
 
+## Take command of a living war
+
+Build a force. Set the mission. Shape the doctrine. Then watch your military interpret your orders and fight through
+the consequences.
+
+Obsidian Protocol is for players who want more than a traditional click-heavy RTS. It is a command experience where
+your decisions create the conditions for victory:
+
+- Give a formation a mission instead of directing every vehicle by hand.
+- Build a combined force of ground, air, naval, reconnaissance, command, and experimental systems.
+- Decide what your commanders know, what they prioritize, and what risks they are allowed to take.
+- Break the enemy's sensors and communications before destroying its strength.
+- Keep your military supplied, repaired, informed, and ready for the next operation.
+- Watch battles develop into situations no script could predict.
+
+Your army is not a disposable row of icons. It is a military you build, deploy, protect, and carry forward.
+
+## Open online warfare or play offline
+
+Obsidian Protocol is being designed for a wide-open online experience where players can meet, compete, and command
+their forces across multiplayer warfare. It is also being created to support offline play, giving you a complete
+command experience when you want to play alone, practice, plan, or fight without an internet connection.
+
+Whether you are facing other commanders online or running an operation on your own, the core experience remains the
+same: establish intent, manage information, trust your forces, and adapt when the battlefield changes.
+
+## Steam release
+
+Obsidian Protocol is being created as a complete player-facing game for commercial release on **Steam**. The goal is
+to give players a persistent military to build, command, deploy, and experience across strategic and tactical
+operations, with online multiplayer and offline play available as part of the full game experience.
+
+This page presents the game, its world, systems, art direction, branding, and player experience for its future player
+community. Obsidian Protocol is not a template or starter kit for recreating another game.
+
+## Why Obsidian Protocol
+
+Most strategy games ask you to control more units faster. Obsidian Protocol asks you to become a better commander.
+
+The game combines:
+
+- The scale and decision-making of a strategic war
+- The tension of incomplete information
+- The unpredictability of autonomous forces
+- The satisfaction of building a persistent military
+- The intensity of tactical battlefield decisions
+- The freedom to play online with others or offline on your own
+- The immersion of a physical command facility and optional full VR operations
+
+## VR-enhanced command and direct control
+
+VR is fully supported, but never required. Play the entire game traditionally, or put on a headset when you want
+to step directly into the battlefield.
+
+At any time, you can jump into one of your units and take full control. Pilot a drone, operate a vehicle, observe
+from a reconnaissance platform, or experience the action from inside another machine. When you are ready, jump back
+out and return control to the autonomous command structure without losing the larger battle.
+
+This jump-in, jump-out design lets you move naturally between:
+
+- Strategic command over the whole military
+- Tactical control of a single unit
+- Autonomous operation while your forces continue executing intent
+- Immersive VR observation and direct action
+
+VR is an enhancement for players who want deeper presence, not a requirement for anyone who prefers a screen and
+traditional controls.
+
 ## Visual direction
 
-The project’s visual language combines dark industrial armor, warm amber systems lighting, autonomous platforms, and human command leadership.
+The game's visual language combines dark industrial armor, warm amber systems lighting, autonomous platforms, and
+human command leadership.
 
 <p align="center">
   <img src="Assets/Art/Concepts/Units/Autonomous/Obsidian-Rover.png" alt="Obsidian autonomous rover concept" width="31%">
   <img src="Assets/Art/Concepts/Units/Autonomous/Warden-Drone.png" alt="Warden autonomous drone concept" width="31%">
-  <img src="Assets/Art/Concepts/Units/Autonomous/Field-Commander.png" alt="Obsidian Protocol field commander concept" width="31%">
+  <img src="Assets/Art/Concepts/Units/Autonomous/Field-Commander-Updated.png" alt="Obsidian Protocol field commander concept" width="31%">
 </p>
 
-These concept images represent the intended relationship between autonomous vehicles, reconnaissance systems, and the commander directing them.
+These concept images represent the relationship between autonomous vehicles, reconnaissance systems, and the commander
+directing them.
 
-## The vision
+## The game vision
 
 Obsidian Protocol is designed to make the player feel like a commander rather than a cursor controlling a collection of game pieces.
 
@@ -109,7 +180,8 @@ The goal is for the military to feel like something the player inhabits, not onl
 
 ## Full VR command
 
-VR is intended as a complete way to inhabit the military rather than an isolated minigame. The planned command experience includes:
+VR is intended as a complete way to inhabit the military rather than an isolated minigame. The planned command
+experience includes:
 
 - Immersive command-facility navigation
 - Equipment inspection
@@ -118,6 +190,22 @@ VR is intended as a complete way to inhabit the military rather than an isolated
 - Force monitoring
 - Deployment preparation
 - Sensor and information displays
+- Jumping directly into any controllable unit
+- Returning from direct control to autonomous command at any time
+
+## A living player community
+
+The online experience is designed to extend beyond standard matches. Players will be able to take part in special
+events and community activities built around the game's autonomous systems, including:
+
+- Drone pink-slip racing
+- Competitive drone contests
+- Community challenges
+- Special events and leaderboards
+- Giveaways and player rewards
+
+These activities are part of the larger goal: create a living military universe where players can compete, experiment,
+celebrate unusual victories, and build stories together.
 
 ## Living-world systems
 
@@ -125,75 +213,82 @@ The battlefield is affected by more than unit statistics. Time of day, weather, 
 
 A reconnaissance plan that works in daylight may fail at night. A communications network that works across open terrain may degrade in difficult environments. The battlefield itself is part of the tactical problem.
 
-## Project structure
+## Obsidian Protocol vs. comparable games
 
-This repository contains the Unity project source:
+This comparison describes the intended design focus of Obsidian Protocol relative to other strategy and warfare
+games. It is a high-level design comparison, not a claim that every listed feature is fully implemented today.
 
-```text
-Assets/
-├── Animations/       Animation assets and controllers
-├── Art/              Concepts, models, textures, and visual assets
-├── Audio/            Music, ambience, voice, and sound effects
-├── Data/             Game data and configuration assets
-│   └── Units/        Air, command, ground, and sea unit definitions
-├── Debug/            Development and diagnostic tools
-├── Editor/           Unity editor tooling
-├── Equipment/        Equipment and loadout assets
-├── Game/             Core game content
-├── Maps/             Battlefield and map assets
-├── Scenes/           Unity scenes
-├── Scripts/          Gameplay and systems code
-├── Settings/         Project and runtime settings
-├── Tests/            Project tests
-├── UI/               User-interface assets
-├── VFX/              Visual effects
-└── Weapons/          Weapon assets and systems
-Packages/             Unity package manifest
-ProjectSettings/     Unity project settings
-```
+**Legend:** 🟢 Core / strong · 🟡 Partial / limited · 🔴 Absent / not a core system
 
-The imported unit catalog is organized into:
+| Game | Autonomous units | Command intent | AI commanders | Sensors | Fog / uncertainty | Info warfare | Communications | Persistent military | Strategic | Tactical | Logistics | Customization | Massive battles | Multiplayer | VR | Physical facility |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ⚫ Obsidian Protocol | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
+| WARNO | 🟡 | 🔴 | 🔴 | 🟢 | 🟢 | 🟡 | 🟡 | 🔴 | 🟢 | 🟢 | 🟡 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 |
+| Broken Arrow | 🟡 | 🔴 | 🔴 | 🟢 | 🟢 | 🟡 | 🟡 | 🔴 | 🟡 | 🟢 | 🟡 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 |
+| Steel Division 2 | 🟡 | 🔴 | 🟡 | 🟢 | 🟢 | 🟡 | 🟡 | 🔴 | 🟢 | 🟢 | 🟡 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 |
+| Wargame: Red Dragon | 🟡 | 🔴 | 🔴 | 🟢 | 🟢 | 🟡 | 🟡 | 🔴 | 🟢 | 🟢 | 🟡 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 |
+| Regiments | 🟡 | 🔴 | 🟡 | 🟢 | 🟢 | 🟡 | 🟡 | 🔴 | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🟡 | 🔴 | 🔴 |
+| Company of Heroes 3 | 🟡 | 🔴 | 🔴 | 🟡 | 🟢 | 🔴 | 🔴 | 🔴 | 🟡 | 🟢 | 🟡 | 🟡 | 🟡 | 🟢 | 🔴 | 🔴 |
+| Supreme Commander | 🟢 | 🔴 | 🟡 | 🟡 | 🟡 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 |
+| Beyond All Reason | 🟢 | 🔴 | 🟡 | 🟢 | 🟢 | 🟡 | 🟡 | 🔴 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 |
+| Ashes of the Singularity | 🟢 | 🔴 | 🟡 | 🟡 | 🟡 | 🔴 | 🔴 | 🔴 | 🟡 | 🟢 | 🟢 | 🟡 | 🟢 | 🟢 | 🔴 | 🔴 |
+| World in Conflict | 🟡 | 🟡 | 🟡 | 🟢 | 🟢 | 🟡 | 🟡 | 🔴 | 🔴 | 🟢 | 🟡 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 |
+| Sins of a Solar Empire II | 🟢 | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 |
+| Homeworld 3 | 🟡 | 🟡 | 🟡 | 🟡 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟡 | 🟡 | 🟡 | 🟢 | 🔴 | 🔴 |
+| Deserts of Kharak | 🟡 | 🟡 | 🟡 | 🟡 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟡 | 🟡 | 🟡 | 🟢 | 🔴 | 🔴 |
+| Total War: Warhammer III | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 | 🔴 | 🔴 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🔴 | 🔴 |
+| Dune: Spice Wars | 🟡 | 🟡 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟢 | 🟡 | 🟡 | 🟢 | 🔴 | 🔴 |
+| Age of Empires IV | 🔴 | 🔴 | 🔴 | 🟡 | 🟡 | 🔴 | 🔴 | 🔴 | 🟡 | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🔴 | 🔴 |
+| StarCraft II | 🔴 | 🔴 | 🔴 | 🟡 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🟢 | 🟡 | 🟢 | 🔴 | 🔴 |
+| Command & Conquer | 🔴 | 🔴 | 🔴 | 🟡 | 🟡 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🔴 | 🔴 |
+| Iron Harvest | 🟡 | 🔴 | 🔴 | 🟡 | 🟡 | 🔴 | 🔴 | 🟡 | 🟡 | 🟢 | 🟡 | 🟢 | 🟡 | 🟢 | 🔴 | 🔴 |
 
-- `Assets/Data/Units/Air_Units`
-- `Assets/Data/Units/Command`
-- `Assets/Data/Units/Ground_Units`
-- `Assets/Data/Units/Sea_Units`
+### The most important comparison
 
-## Getting started
+| Capability | Obsidian Protocol | Closest comparable |
+| --- | --- | --- |
+| 🧠 Autonomous behavior | 🟢 | 🟡 |
+| 🎖️ Command intent | 🟢 | 🔴 |
+| 👨‍✈️ Autonomous commanders | 🟢 | 🟡 |
+| 👁️ Real sensor model | 🟢 | 🟢 |
+| ❓ Unknown / uncertain contacts | 🟢 | 🟢 |
+| 📡 Communications affecting knowledge | 🟢 | 🟡 |
+| 🛰️ Information warfare | 🟢 | 🟡 |
+| 🏭 Persistent military | 🟢 | 🟡 |
+| 🌎 Persistent consequences | 🟢 | 🟡 |
+| ⚔️ Strategic and tactical warfare | 🟢 | 🟢 |
+| 🚚 Logistics | 🟢 | 🟡 |
+| 💰 Deployment budget | 🟢 | 🟡 |
+| 🤖 Large autonomous formations | 🟢 | 🟢 |
+| 🎮 Traditional unit micromanagement | 🔴 Intentionally not core | 🟢 |
+| 🥽 Full VR command | 🟢 | 🔴 |
+| 🏢 Physical military facility | 🟢 | 🔴 |
+| 💾 Persistent ownership and fleet | 🟢 | 🟡 |
+| 🔥 Emergent battlefield | 🟢 | 🟢 |
+| 🌐 Multiplayer | 🟢 | 🟢 |
+| ⚠️ Meaningful consequences | 🟢 | 🟡 |
 
-### Requirements
+### Bottom line
 
-- Unity **6000.0.80f1**
-- A Windows development environment suitable for Unity
-- Git and enough disk space for Unity's generated project cache
+Obsidian Protocol's strongest differentiation is not any single green dot. It is the combination:
 
-### Open the project
+> 🧠 Intent → 🎖️ Commanders → 🤖 Autonomous units → 👁️ Sensors → 📡 Communications → ❓ Imperfect information →
+> ⚔️ Emergent battle → 💾 Persistent military → 🏢 Physical facility → 🥽 VR command
 
-1. Clone the repository.
-2. Open Unity Hub.
-3. Select **Add** and choose the cloned repository folder.
-4. Open the project with Unity `6000.0.80f1`.
-5. Allow Unity to import assets and resolve packages.
-6. Open a scene from `Assets/Scenes/` and press Play.
+That combination is what separates Obsidian Protocol from a conventional RTS. It is a game where you can command an
+entire military, trust autonomous forces to execute your intent, or step into any unit yourself whenever the moment
+demands it.
 
-Unity-generated folders such as `Library`, `Logs`, `Temp`, `Obj`, and `UserSettings` are intentionally excluded from version control. Unity recreates them locally when the project is opened.
+## Release status
 
-## Development status
-
-Obsidian Protocol is an active development project. The systems and vision described here represent the direction of the game and may evolve as implementation continues. Some features are prototypes, works in progress, or design targets rather than finished player-facing functionality.
-
-## Contributing
-
-Keep changes focused on the relevant gameplay system or content area. Before submitting changes:
-
-- Open the project in the required Unity version.
-- Confirm modified scenes and assets import without errors.
-- Test the affected behavior in Play Mode.
-- Do not commit generated Unity caches or local editor settings.
+Obsidian Protocol is an upcoming commercial game for Steam. Development is ongoing, and the release date will be
+announced when the game is ready.
 
 ## License
 
-No license has been declared for this repository yet. Until one is added, all rights are reserved by the project owner.
+Obsidian Protocol: Autonomous Warfare, including its code, game design, world, branding, artwork, and other original
+content, is proprietary to the project owner. No permission is granted to reproduce, redistribute, resell, or create a
+competing game from this repository without written authorization.
 
 ---
 
