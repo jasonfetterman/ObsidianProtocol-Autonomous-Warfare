@@ -2,11 +2,22 @@
 
 > **Command intent. Unleash autonomy. Witness war evolve.**
 
-Obsidian Protocol: Autonomous Warfare is a military strategy and warfare simulation built around a simple idea:
+Obsidian Protocol: Autonomous Warfare is an original commercial military strategy and warfare game being developed
+for players to experience through Steam. It is built around a simple idea:
 
 > **You do not command every move. You command the war.**
 
 Instead of micromanaging every unit, the player establishes objectives, priorities, rules of engagement, formations, doctrines, and operational intent. Autonomous forces interpret those orders according to their capabilities, sensors, communications, role, condition, and understanding of the battlefield.
+
+## Steam release
+
+Obsidian Protocol is being created as a complete player-facing game for commercial release on **Steam**. The goal is
+to give players a persistent military to build, command, deploy, and experience across strategic and tactical
+operations.
+
+This repository contains development material for the game. It is not a template, starter kit, or invitation for other
+developers to recreate the project. The game, its world, systems, art direction, branding, and player experience are
+being developed as one original product for its future player community.
 
 ## Visual direction
 
@@ -20,7 +31,7 @@ The project’s visual language combines dark industrial armor, warm amber syste
 
 These concept images represent the intended relationship between autonomous vehicles, reconnaissance systems, and the commander directing them.
 
-## The vision
+## The game vision
 
 Obsidian Protocol is designed to make the player feel like a commander rather than a cursor controlling a collection of game pieces.
 
@@ -244,11 +255,13 @@ Unity-generated folders such as `Library`, `Logs`, `Temp`, `Obj`, and `UserSetti
 
 ## Development status
 
-Obsidian Protocol is an active development project. The systems and vision described here represent the direction of the game and may evolve as implementation continues. Some features are prototypes, works in progress, or design targets rather than finished player-facing functionality.
+Obsidian Protocol is an active commercial game in development. The systems described here represent the current
+direction of the Steam release and may evolve as implementation continues. Some features are prototypes or works in
+progress and are not yet finished player-facing functionality.
 
-## Contributing
+## Development notes
 
-Keep changes focused on the relevant gameplay system or content area. Before submitting changes:
+This repository is maintained for the game's development. Before making internal changes:
 
 - Open the project in the required Unity version.
 - Confirm modified scenes and assets import without errors.
@@ -257,7 +270,9 @@ Keep changes focused on the relevant gameplay system or content area. Before sub
 
 ## License
 
-No license has been declared for this repository yet. Until one is added, all rights are reserved by the project owner.
+Obsidian Protocol: Autonomous Warfare, including its code, game design, world, branding, artwork, and other original
+content, is proprietary to the project owner. No permission is granted to reproduce, redistribute, resell, or create a
+competing game from this repository without written authorization.
 
 ---
 
