@@ -53,3 +53,13 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-The-Yard-Map.pdf - detailed The Yard map specification
 
 - Source PDFs/OPAW-Skyline-Map.pdf - detailed Skyline map specification
+
+- Source PDFs/OPAW-Terminal-Map.pdf - detailed Terminal map specification
+
+- Source PDFs/OPAW-Steel-City-Map.pdf - detailed Steel City map specification
+
+- Source PDFs/OPAW-Gridfall-Map.pdf - detailed Gridfall map specification
+
+- Source PDFs/OPAW-Crossroads-Map.pdf - detailed Crossroads map specification
+
+- Source PDFs/OPAW-The-Corridor-Map.pdf - detailed The Corridor map specification
