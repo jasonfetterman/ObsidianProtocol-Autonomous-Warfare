@@ -3,24 +3,65 @@
 > **Command intent. Unleash autonomy. Witness war evolve.**
 
 Obsidian Protocol: Autonomous Warfare is an original commercial military strategy and warfare game being developed
-for players to experience through Steam. It is built around a simple idea:
+for players to experience through Steam, online or offline. It is built around a simple idea:
 
 > **You do not command every move. You command the war.**
 
 Instead of micromanaging every unit, the player establishes objectives, priorities, rules of engagement, formations, doctrines, and operational intent. Autonomous forces interpret those orders according to their capabilities, sensors, communications, role, condition, and understanding of the battlefield.
 
+## Take command of a living war
+
+Build a force. Set the mission. Shape the doctrine. Then watch your military interpret your orders and fight through
+the consequences.
+
+Obsidian Protocol is for players who want more than a traditional click-heavy RTS. It is a command experience where
+your decisions create the conditions for victory:
+
+- Give a formation a mission instead of directing every vehicle by hand.
+- Build a combined force of ground, air, naval, reconnaissance, command, and experimental systems.
+- Decide what your commanders know, what they prioritize, and what risks they are allowed to take.
+- Break the enemy's sensors and communications before destroying its strength.
+- Keep your military supplied, repaired, informed, and ready for the next operation.
+- Watch battles develop into situations no script could predict.
+
+Your army is not a disposable row of icons. It is a military you build, deploy, protect, and carry forward.
+
+## Open online warfare or play offline
+
+Obsidian Protocol is being designed for a wide-open online experience where players can meet, compete, and command
+their forces across multiplayer warfare. It is also being created to support offline play, giving you a complete
+command experience when you want to play alone, practice, plan, or fight without an internet connection.
+
+Whether you are facing other commanders online or running an operation on your own, the core experience remains the
+same: establish intent, manage information, trust your forces, and adapt when the battlefield changes.
+
 ## Steam release
 
 Obsidian Protocol is being created as a complete player-facing game for commercial release on **Steam**. The goal is
 to give players a persistent military to build, command, deploy, and experience across strategic and tactical
-operations.
+operations, with online multiplayer and offline play available as part of the full game experience.
 
 This page presents the game, its world, systems, art direction, branding, and player experience for its future player
 community. Obsidian Protocol is not a template or starter kit for recreating another game.
 
+## Why Obsidian Protocol
+
+Most strategy games ask you to control more units faster. Obsidian Protocol asks you to become a better commander.
+
+The game combines:
+
+- The scale and decision-making of a strategic war
+- The tension of incomplete information
+- The unpredictability of autonomous forces
+- The satisfaction of building a persistent military
+- The intensity of tactical battlefield decisions
+- The freedom to play online with others or offline on your own
+- The immersion of a physical command facility and VR operations
+
 ## Visual direction
 
-The project’s visual language combines dark industrial armor, warm amber systems lighting, autonomous platforms, and human command leadership.
+The game's visual language combines dark industrial armor, warm amber systems lighting, autonomous platforms, and
+human command leadership.
 
 <p align="center">
   <img src="Assets/Art/Concepts/Units/Autonomous/Obsidian-Rover.png" alt="Obsidian autonomous rover concept" width="31%">
@@ -28,7 +69,8 @@ The project’s visual language combines dark industrial armor, warm amber syste
   <img src="Assets/Art/Concepts/Units/Autonomous/Field-Commander-Updated.png" alt="Obsidian Protocol field commander concept" width="31%">
 </p>
 
-These concept images represent the intended relationship between autonomous vehicles, reconnaissance systems, and the commander directing them.
+These concept images represent the relationship between autonomous vehicles, reconnaissance systems, and the commander
+directing them.
 
 ## The game vision
 
