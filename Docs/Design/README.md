@@ -27,6 +27,11 @@ The supplied interface and gameplay images are preserved under `Assets/Art/Conce
 - `Buildings/Command-Unit-Design-Sheet.png` — command-unit facility silhouettes and design variants
 - `HUD/Tactical-Command-Gameplay.png` — tactical battlefield view with selected units and command panel
 - `HUD/Main-Menu-Concept.png` and `HUD/Main-Menu-Alternate-Concept.png` — main-menu presentation concepts
+Third-party integration references are documented under `Docs/Design/Third-Party/`, including the imported
+`Assets/ThirdParty/URP-Ocean-System/` ocean-system asset tree.
+
+The same directory documents the imported
+`Assets/ThirdParty/Procedural-Desert-Terrain/` procedural desert-terrain reference.
 
 
 
