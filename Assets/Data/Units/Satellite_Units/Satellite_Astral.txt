@@ -1,0 +1,136 @@
+⭐ ASTRAL
+
+(12 m × 7 m × 4 m)
+
+🛰 SATELLITE UNIT — ASTRAL
+
+ID:
+obs-sat-astral
+Role: High‑Resolution Recon / Deep‑Scan Imaging
+Tier: Satellite
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+
+Length: 12 m
+Width: 7 m
+Height: 4 m
+Mass: 8,400 kg
+Power Source: Expanded solar array + micro‑reactor backup
+Energy Capacity: 40,000 Wh
+Fuel Capacity: 100 L (orbital correction thrusters)
+Endurance: 6–10 years
+Payload Capacity: Internal systems only
+Modules:
+
+              High‑resolution imaging suite
+              Deep‑scan thermal array
+              Stabilization gyros
+              Micro‑thruster array
+Navigation System: Orbital AI + star tracker
+Structural Integrity: 1,800 HP
+Armor Rating: 0.55
+Heat Signature: Very Low
+Noise Signature: None
+Top Speed: Orbital velocity
+Stability Rating: Maximum
+⚫ AUTONOMY & AI BEHAVIOR
+
+Behavior Profile: Recon / deep‑scan imaging / orbital stabilization
+Aggression: 0.0
+Caution: 1.0
+Persistence: 1.0
+Retreat Threshold: N/A
+Target Priority: None (non‑combat)
+Formation Discipline: Maximum
+Risk Tolerance: Very Low
+Sensors
+Optical Range: Global (high‑resolution)
+Thermal Range: High
+Radar Range: Medium
+Signal Detection Range: High
+Communication
+Mesh Range: Global
+Relay Capacity: 6
+Command Link Type: Satellite Mesh
+Network Priority: High
+
+⚫ COMBAT & THREAT MODEL
+
+Firepower Rating: None
+Weapon Mounts: None
+Tracking Strength: Very High (optical + thermal)
+Disruption Strength: Medium
+Countermeasure Rating: Medium
+Threat Modeling
+Threat Level: 6
+Preferred Terrain: High orbit
+Vulnerability Profile: Debris / EMP / solar storms
+
+⚫ SQUAD & COMMAND INTEGRATION
+
+Squad Role: High‑Resolution Recon
+Squad Size Contribution: 4
+Formation Behavior: Orbital spacing
+Intent Interpretation Rules: Maintain deep‑scan recon coverage
+Retreat Behavior: None
+Reinforcement Behavior: Supports all grids
+Command Hierarchy
+Parent Command Unit: Insight / Worldmap
+Subordinate Units: None
+Relay Nodes: 6
+Network Dependencies: Satellite Mesh
+
+⚫ VR OPERATOR MODE
+
+Operator Seat Type: Deep‑Scan Recon Console
+Operator HUD: High‑Resolution Recon Overlay
+Camera Feeds: Optical + thermal
+Tactical Overlay: Recon grid / deep‑scan markers
+Operator Controls
+Recon optics
+Deep‑scan thermal
+Signal relay
+Orbital diagnostics
+Operator Abilities
+Deep‑Scan Sweep
+Thermal Pulse
+Relay Boost
+Stabilization Burst
+
+⚫ ECONOMY & LOGISTICS
+
+Build Cost: 1,800 Metal / 1,200 Electronics
+Build Time: 240 sec
+Factory Type: Satellite Bay
+Tech Requirements: Satellite Systems II
+Maintenance Cost: Low
+Repair Time: 55 sec
+Supply Consumption: Very Low
+Operational Cost: Very Low
+Deployment Requirements: Launch pad
+Transport Compatibility: Satellite carrier
+Launch Method: Orbital insertion
+
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+
+Common Components
+90× Satellite Alloy Plates
+45× Reinforced Satellite Rods
+8× Hydraulic Actuators
+1× Imaging Suite Assembly
+Electronics
+40× Circuit Bundles
+28× Signal Processors
+8× Satellite Control Chips
+4× Recon AI Chips
+Power
+1× Expanded Solar Array Assembly
+1× Micro‑Reactor Core
+2× Power Regulation Nodes
+Rare / Tradeable
+1× Deep‑Scan Thermal Module
+Optional Upgrades
+Enhanced Optics
+Thermal Boost
+Anti‑Jamming Shielding
+

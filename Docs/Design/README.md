@@ -225,3 +225,11 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Command-Pulse-Unit.pdf - detailed Pulse tactical signal-hub specification
 
 - Source PDFs/OPAW-Command-Vector-Core-Unit.pdf - detailed Vector Core tactical vector-routing specification
+
+- Source PDFs/OPAW-Satellite-Orbiter-Unit.pdf - detailed Orbiter low-orbit reconnaissance and relay specification
+
+- Source PDFs/OPAW-Satellite-Skylink-Unit.pdf - detailed Skylink mid-orbit communications-relay specification
+
+- Source PDFs/OPAW-Satellite-Astral-Unit.pdf - detailed Astral high-resolution reconnaissance specification
+
+- Source PDFs/OPAW-Satellite-Starcast-Unit.pdf - detailed Starcast strategic broadcast specification

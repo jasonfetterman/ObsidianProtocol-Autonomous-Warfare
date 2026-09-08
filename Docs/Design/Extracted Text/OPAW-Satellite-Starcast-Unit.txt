@@ -1,0 +1,136 @@
+⭐ STARCAST
+
+(10 m × 6 m × 4 m)
+
+🛰 SATELLITE UNIT — STARCAST
+
+ID:
+obs-sat-starcast
+Role: High‑Orbit Broadcast / Strategic Signal Distribution
+Tier: Satellite
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+
+Length: 10 m
+Width: 6 m
+Height: 4 m
+Mass: 7,200 kg
+Power Source: Expanded solar array + micro‑reactor backup
+Energy Capacity: 32,000 Wh
+Fuel Capacity: 80 L (orbital correction thrusters)
+Endurance: 6–10 years
+Payload Capacity: Internal systems only
+Modules:
+
+              High‑orbit broadcast dish
+              Wide‑band signal amplifier
+              Stabilization gyros
+              Micro‑thruster array
+Navigation System: Orbital AI + star tracker
+Structural Integrity: 1,600 HP
+Armor Rating: 0.50
+Heat Signature: Very Low
+Noise Signature: None
+Top Speed: Orbital velocity
+Stability Rating: Maximum
+⚫ AUTONOMY & AI BEHAVIOR
+
+Behavior Profile: Broadcast / long‑range relay / orbital stabilization
+Aggression: 0.0
+Caution: 1.0
+Persistence: 1.0
+Retreat Threshold: N/A
+Target Priority: None (non‑combat)
+Formation Discipline: Maximum
+Risk Tolerance: Very Low
+Sensors
+Optical Range: Global
+Thermal Range: Medium
+Radar Range: Medium
+Signal Detection Range: Extremely High
+Communication
+Mesh Range: Global
+Relay Capacity: 8
+Command Link Type: Satellite Mesh
+Network Priority: Maximum
+
+⚫ COMBAT & THREAT MODEL
+
+Firepower Rating: None
+Weapon Mounts: None
+Tracking Strength: Medium
+Disruption Strength: High
+Countermeasure Rating: Medium
+Threat Modeling
+Threat Level: 6
+Preferred Terrain: High orbit
+Vulnerability Profile: Debris / EMP / solar storms
+
+⚫ SQUAD & COMMAND INTEGRATION
+
+Squad Role: Strategic Broadcast
+Squad Size Contribution: 4
+Formation Behavior: Orbital spacing
+Intent Interpretation Rules: Maintain broadcast coverage
+Retreat Behavior: None
+Reinforcement Behavior: Supports all grids
+Command Hierarchy
+Parent Command Unit: Fusion / Nexus
+Subordinate Units: None
+Relay Nodes: 8
+Network Dependencies: Satellite Mesh
+
+⚫ VR OPERATOR MODE
+
+Operator Seat Type: Broadcast Console
+Operator HUD: High‑Orbit Signal Overlay
+Camera Feeds: Optical + thermal
+Tactical Overlay: Broadcast routes / signal load / mesh health
+Operator Controls
+Broadcast routing
+Signal amplification
+Thermal view
+Orbital diagnostics
+Operator Abilities
+Broadcast Boost
+Mesh Stabilization
+Signal Sync
+Thermal Sweep
+
+⚫ ECONOMY & LOGISTICS
+
+Build Cost: 1,600 Metal / 1,000 Electronics
+Build Time: 220 sec
+Factory Type: Satellite Bay
+Tech Requirements: Satellite Systems II
+Maintenance Cost: Low
+Repair Time: 50 sec
+Supply Consumption: Very Low
+Operational Cost: Very Low
+Deployment Requirements: Launch pad
+Transport Compatibility: Satellite carrier
+Launch Method: Orbital insertion
+
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+
+Common Components
+80× Satellite Alloy Plates
+40× Reinforced Satellite Rods
+8× Hydraulic Actuators
+1× Broadcast Dish Assembly
+Electronics
+36× Circuit Bundles
+26× Signal Processors
+8× Satellite Control Chips
+3× Broadcast AI Chips
+Power
+1× Expanded Solar Array Assembly
+1× Micro‑Reactor Core
+2× Power Regulation Nodes
+Rare / Tradeable
+1× Wide‑Band Broadcast Module
+Optional Upgrades
+Enhanced Broadcast Dish
+Thermal Boost
+Anti‑Jamming Shielding
+

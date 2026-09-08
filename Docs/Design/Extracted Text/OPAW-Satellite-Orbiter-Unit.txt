@@ -1,0 +1,136 @@
+⭐ ORBITER
+
+(6 m × 4 m × 3 m)
+
+🛰 SATELLITE UNIT — ORBITER
+
+ID:
+obs-sat-orbiter
+Role: Low‑Orbit Recon / Signal Relay
+Tier: Satellite
+Status: Active
+⚫ PHYSICAL & TECHNICAL
+
+Length: 6 m
+Width: 4 m
+Height: 3 m
+Mass: 4,200 kg
+Power Source: Solar array + micro‑reactor backup
+Energy Capacity: 18,000 Wh
+Fuel Capacity: 40 L (orbital correction thrusters)
+Endurance: 3–5 years
+Payload Capacity: Internal systems only
+Modules:
+
+              Low‑orbit recon optics
+              Signal relay dish
+              Stabilization gyros
+              Micro‑thruster array
+Navigation System: Orbital AI + star tracker
+Structural Integrity: 1,200 HP
+Armor Rating: 0.40
+Heat Signature: Very Low
+Noise Signature: None
+Top Speed: Orbital velocity
+Stability Rating: Maximum
+⚫ AUTONOMY & AI BEHAVIOR
+
+Behavior Profile: Recon / relay / orbital stabilization
+Aggression: 0.0
+Caution: 1.0
+Persistence: 1.0
+Retreat Threshold: N/A
+Target Priority: None (non‑combat)
+Formation Discipline: Maximum
+Risk Tolerance: Very Low
+Sensors
+Optical Range: Global
+Thermal Range: High
+Radar Range: Medium
+Signal Detection Range: Very High
+Communication
+Mesh Range: Global
+Relay Capacity: 4
+Command Link Type: Satellite Mesh
+Network Priority: High
+
+⚫ COMBAT & THREAT MODEL
+
+Firepower Rating: None
+Weapon Mounts: None
+Tracking Strength: High (optical + thermal)
+Disruption Strength: Medium
+Countermeasure Rating: Medium
+Threat Modeling
+Threat Level: 4
+Preferred Terrain: Low orbit
+Vulnerability Profile: Debris / EMP / solar storms
+
+⚫ SQUAD & COMMAND INTEGRATION
+
+Squad Role: Recon & Relay
+Squad Size Contribution: 2
+Formation Behavior: Orbital spacing
+Intent Interpretation Rules: Maintain recon coverage
+Retreat Behavior: None
+Reinforcement Behavior: Supports all grids
+Command Hierarchy
+Parent Command Unit: Worldmap / Insight
+Subordinate Units: None
+Relay Nodes: 4
+Network Dependencies: Satellite Mesh
+
+⚫ VR OPERATOR MODE
+
+Operator Seat Type: Orbital Recon Console
+Operator HUD: Satellite Recon Overlay
+Camera Feeds: Optical + thermal
+Tactical Overlay: Global recon grid
+Operator Controls
+Recon optics
+Thermal view
+Signal relay
+Orbital diagnostics
+Operator Abilities
+Global Recon Sweep
+Thermal Scan
+Relay Boost
+Stabilization Pulse
+
+⚫ ECONOMY & LOGISTICS
+
+Build Cost: 1,200 Metal / 700 Electronics
+Build Time: 180 sec
+Factory Type: Satellite Bay
+Tech Requirements: Satellite Systems I
+Maintenance Cost: Low
+Repair Time: 40 sec
+Supply Consumption: Very Low
+Operational Cost: Very Low
+Deployment Requirements: Launch pad
+Transport Compatibility: Satellite carrier
+Launch Method: Orbital insertion
+
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+
+Common Components
+60× Satellite Alloy Plates
+30× Reinforced Satellite Rods
+6× Hydraulic Actuators
+1× Optics Housing
+Electronics
+28× Circuit Bundles
+20× Signal Processors
+6× Satellite Control Chips
+3× Recon AI Chips
+Power
+1× Solar Array Assembly
+1× Micro‑Reactor Core
+2× Power Regulation Nodes
+Rare / Tradeable
+1× Orbital Stabilization Module
+Optional Upgrades
+Enhanced Optics
+Thermal Boost
+Anti‑Jamming Shielding
+

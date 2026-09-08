@@ -1,0 +1,156 @@
+⭐ SKYLINK
+
+(8 m × 5 m × 3 m)
+
+🛰 SATELLITE UNIT — SKYLINK
+
+ID:
+
+obs-sat-skylink
+
+Role: Mid‑Orbit Communications / High‑Bandwidth Relay
+
+Tier: Satellite
+
+Status: Active
+
+⚫ PHYSICAL & TECHNICAL
+
+Length: 8 m
+
+Width: 5 m
+
+Height: 3 m
+
+Mass: 5,600 kg
+Power Source: Solar array + micro‑reactor backup
+
+Energy Capacity: 24,000 Wh
+
+Fuel Capacity: 60 L (orbital correction thrusters)
+
+Endurance: 4–7 years
+
+Payload Capacity: Internal systems only
+
+Modules:
+
+            High‑bandwidth relay dish
+            Mid‑orbit stabilization gyros
+            Multi‑node mesh router
+            Micro‑thruster array
+
+Navigation System: Orbital AI + star tracker
+
+Structural Integrity: 1,400 HP
+
+Armor Rating: 0.45
+
+Heat Signature: Very Low
+
+Noise Signature: None
+
+Top Speed: Orbital velocity
+
+Stability Rating: Maximum
+⚫ AUTONOMY & AI BEHAVIOR
+
+Behavior Profile: Communications relay / mesh routing
+Aggression: 0.0
+Caution: 1.0
+Persistence: 1.0
+Retreat Threshold: N/A
+Target Priority: None (non‑combat)
+Formation Discipline: Maximum
+Risk Tolerance: Very Low
+Sensors
+Optical Range: Global
+Thermal Range: Medium
+Radar Range: Medium
+Signal Detection Range: Extremely High
+Communication
+Mesh Range: Global
+Relay Capacity: 6
+Command Link Type: Satellite Mesh
+Network Priority: Maximum
+
+⚫ COMBAT & THREAT MODEL
+
+Firepower Rating: None
+Weapon Mounts: None
+Tracking Strength: Medium
+Disruption Strength: High
+Countermeasure Rating: Medium
+Threat Modeling
+Threat Level: 5
+Preferred Terrain: Mid orbit
+Vulnerability Profile: Debris / EMP / solar storms
+
+⚫ SQUAD & COMMAND INTEGRATION
+
+Squad Role: High‑Bandwidth Relay
+Squad Size Contribution: 3
+Formation Behavior: Orbital spacing
+Intent Interpretation Rules: Maintain communications coverage
+Retreat Behavior: None
+Reinforcement Behavior: Supports all grids
+Command Hierarchy
+Parent Command Unit: Fusion / Insight
+Subordinate Units: None
+Relay Nodes: 6
+Network Dependencies: Satellite Mesh
+
+⚫ VR OPERATOR MODE
+
+Operator Seat Type: Communications Console
+Operator HUD: Relay Network Overlay
+Camera Feeds: Optical + thermal
+Tactical Overlay: Mesh routes / signal load / relay health
+Operator Controls
+Relay routing
+Signal balancing
+Thermal view
+Orbital diagnostics
+Operator Abilities
+Relay Boost
+Mesh Stabilization
+Signal Sync
+Thermal Sweep
+
+⚫ ECONOMY & LOGISTICS
+
+Build Cost: 1,400 Metal / 900 Electronics
+Build Time: 200 sec
+Factory Type: Satellite Bay
+Tech Requirements: Satellite Systems I
+Maintenance Cost: Low
+Repair Time: 45 sec
+Supply Consumption: Very Low
+Operational Cost: Very Low
+Deployment Requirements: Launch pad
+Transport Compatibility: Satellite carrier
+Launch Method: Orbital insertion
+
+🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+
+Common Components
+70× Satellite Alloy Plates
+34× Reinforced Satellite Rods
+6× Hydraulic Actuators
+1× Relay Dish Assembly
+Electronics
+32× Circuit Bundles
+22× Signal Processors
+6× Satellite Control Chips
+3× Relay AI Chips
+Power
+1× Solar Array Assembly
+1× Micro‑Reactor Core
+2× Power Regulation Nodes
+Rare / Tradeable
+1× High‑Bandwidth Relay Module
+Optional Upgrades
+Enhanced Relay Dish
+Thermal Boost
+Anti‑Jamming Shielding
+
