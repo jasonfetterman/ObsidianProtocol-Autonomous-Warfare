@@ -191,3 +191,11 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Ground-Rover-Unit.pdf - detailed Rover terrain-survey unit specification
 
 - Source PDFs/OPAW-Ground-Crusher-Unit.pdf - detailed Crusher demolition unit specification
+
+- Source PDFs/OPAW-Ground-Hauler-Unit.pdf - detailed Hauler heavy-logistics unit specification
+
+- Source PDFs/OPAW-Sea-Surveyor-Mk1-Unit.pdf - detailed Surveyor Mk1 marine-recon unit specification
+
+- Source PDFs/OPAW-Sea-Current-Unit.pdf - detailed Current rapid-marine-transport unit specification
+
+- Source PDFs/OPAW-Sea-Rescue-Unit.pdf - detailed Rescue marine-emergency-response unit specification
