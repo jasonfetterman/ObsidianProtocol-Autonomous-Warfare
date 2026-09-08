@@ -117,3 +117,11 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Air-Iris-Unit.pdf - detailed Iris imaging and target-tracking unit specification
 
 - Source PDFs/OPAW-Air-Sentinel-Unit.pdf - detailed Sentinel aerial perimeter-defense unit specification
+
+- Source PDFs/OPAW-Air-Scout-Eye-Unit.pdf - detailed Scout Eye lightweight recon unit specification
+
+- Source PDFs/OPAW-Air-Inspect-Unit.pdf - detailed Inspect structural-analysis unit specification
+
+- Source PDFs/OPAW-Air-LiDAR-Unit.pdf - detailed LiDAR terrain-mapping unit specification
+
+- Source PDFs/OPAW-Air-Lifeline-Unit.pdf - detailed Lifeline emergency-support unit specification
