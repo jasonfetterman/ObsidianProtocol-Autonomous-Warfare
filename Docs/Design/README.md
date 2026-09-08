@@ -15,7 +15,8 @@ The same documents are available as searchable text in `Extracted Text/`.
 Detailed map specifications should also be integrated into the matching files under
 `Assets/Data/Maps/MapDefinitions/` as they are supplied.
 
-- Source PDFs/OPAW-No-Mans-Grid-Map.pdf — detailed No Man's Grid map specification
-- Source PDFs/OPAW-Blind-Zone-Map.pdf — detailed Blind Zone map specification
-- Source PDFs/OPAW-Signal-Lost-Map.pdf — detailed Signal Lost map specification
-- Source PDFs/OPAW-Long-Range-Map.pdf — detailed Long Range map specification
+- Source PDFs/OPAW-No-Mans-Grid-Map.pdf ï¿½ detailed No Man's Grid map specification
+- Source PDFs/OPAW-Blind-Zone-Map.pdf ï¿½ detailed Blind Zone map specification
+- Source PDFs/OPAW-Signal-Lost-Map.pdf ï¿½ detailed Signal Lost map specification
+- Source PDFs/OPAW-Long-Range-Map.pdf ï¿½ detailed Long Range map specification
+- Source PDFs/OPAW-The-Divide-Map.pdf ï¿½ detailed The Divide map specification

@@ -1,12 +1,13 @@
-﻿# No Man's Grid
+﻿# Canyon Run
+
 
 Map status: Planned
 
 ## Environment
-Open Military Range
+Canyon / Highway
 
 ## Main warfare focus
-Pure tactical experimentation
+Mobility, ambushes, route control
 
 ## Map information
 - Strategic role: [Add map role]
