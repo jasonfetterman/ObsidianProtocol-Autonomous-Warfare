@@ -147,3 +147,11 @@ Detailed map specifications should also be integrated into the matching files un
 - Source PDFs/OPAW-Air-SAR-Unit.pdf - detailed SAR search-and-rescue unit specification
 
 - Source PDFs/OPAW-Air-Scout-Unit.pdf - detailed Scout rapid-recon unit specification
+
+- Source PDFs/OPAW-Air-Nexusgrid-Unit.pdf - detailed Nexusgrid strategic mesh-anchor unit specification
+
+- Source PDFs/OPAW-Air-Spotter-Unit.pdf - detailed Spotter precision-marking unit specification
+
+- Source PDFs/OPAW-Air-Survey-Unit.pdf - detailed Survey wide-area reconnaissance unit specification
+
+- Source PDFs/OPAW-Air-Terrain-Unit.pdf - detailed Terrain elevation-analysis unit specification
