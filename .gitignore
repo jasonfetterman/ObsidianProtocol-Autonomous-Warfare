@@ -6,10 +6,8 @@ Obj/
 Build/
 Builds/
 UserSettings/
-ProjectSettings/
-Packages/
 
-# Visual Studio / Rider
+# Visual Studio / Rider generated files
 .vs/
 .idea/
 *.csproj
