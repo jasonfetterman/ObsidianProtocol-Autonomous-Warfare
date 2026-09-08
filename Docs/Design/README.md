@@ -32,7 +32,6 @@ Third-party integration references are documented under `Docs/Design/Third-Party
 
 The same directory documents the imported
 `Assets/ThirdParty/Procedural-Desert-Terrain/` procedural desert-terrain reference.
-
 It also documents the focused water, terrain, and environment learning subset imported from
 `Assets/ThirdParty/AmyTheHedgehog-Learning/`.
 
