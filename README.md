@@ -56,7 +56,26 @@ The game combines:
 - The satisfaction of building a persistent military
 - The intensity of tactical battlefield decisions
 - The freedom to play online with others or offline on your own
-- The immersion of a physical command facility and VR operations
+- The immersion of a physical command facility and optional full VR operations
+
+## VR-enhanced command and direct control
+
+VR is fully supported, but never required. Play the entire game traditionally, or put on a headset when you want
+to step directly into the battlefield.
+
+At any time, you can jump into one of your units and take full control. Pilot a drone, operate a vehicle, observe
+from a reconnaissance platform, or experience the action from inside another machine. When you are ready, jump back
+out and return control to the autonomous command structure without losing the larger battle.
+
+This jump-in, jump-out design lets you move naturally between:
+
+- Strategic command over the whole military
+- Tactical control of a single unit
+- Autonomous operation while your forces continue executing intent
+- Immersive VR observation and direct action
+
+VR is an enhancement for players who want deeper presence, not a requirement for anyone who prefers a screen and
+traditional controls.
 
 ## Visual direction
 
@@ -161,7 +180,8 @@ The goal is for the military to feel like something the player inhabits, not onl
 
 ## Full VR command
 
-VR is intended as a complete way to inhabit the military rather than an isolated minigame. The planned command experience includes:
+VR is intended as a complete way to inhabit the military rather than an isolated minigame. The planned command
+experience includes:
 
 - Immersive command-facility navigation
 - Equipment inspection
@@ -170,6 +190,22 @@ VR is intended as a complete way to inhabit the military rather than an isolated
 - Force monitoring
 - Deployment preparation
 - Sensor and information displays
+- Jumping directly into any controllable unit
+- Returning from direct control to autonomous command at any time
+
+## A living player community
+
+The online experience is designed to extend beyond standard matches. Players will be able to take part in special
+events and community activities built around the game's autonomous systems, including:
+
+- Drone pink-slip racing
+- Competitive drone contests
+- Community challenges
+- Special events and leaderboards
+- Giveaways and player rewards
+
+These activities are part of the larger goal: create a living military universe where players can compete, experiment,
+celebrate unusual victories, and build stories together.
 
 ## Living-world systems
 
@@ -239,7 +275,9 @@ Obsidian Protocol's strongest differentiation is not any single green dot. It is
 > 🧠 Intent → 🎖️ Commanders → 🤖 Autonomous units → 👁️ Sensors → 📡 Communications → ❓ Imperfect information →
 > ⚔️ Emergent battle → 💾 Persistent military → 🏢 Physical facility → 🥽 VR command
 
-That combination is what separates the project from a conventional RTS.
+That combination is what separates Obsidian Protocol from a conventional RTS. It is a game where you can command an
+entire military, trust autonomous forces to execute your intent, or step into any unit yourself whenever the moment
+demands it.
 
 ## Release status
 
