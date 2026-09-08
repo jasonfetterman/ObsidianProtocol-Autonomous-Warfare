@@ -42,6 +42,11 @@ RTS architecture and systems references are documented in
 Additional MIT-licensed building-placement and selection references are documented in
 `Docs/Design/Third-Party/Additional-RTS-References.md`.
 
+Command-AI and operational-planning references are documented in
+`Docs/Design/Third-Party/Command-AI-References.md`. The MIT-licensed PyCMO learning subset
+is preserved under `Tools/ThirdParty/PyCMO-Learning/`; GPL or unclear-license CMO
+repositories were reviewed but not imported.
+
 
 
 
