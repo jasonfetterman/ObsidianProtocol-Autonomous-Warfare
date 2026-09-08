@@ -23,3 +23,8 @@ Detailed map specifications should also be integrated into the matching files un
 
 - Source PDFs/OPAW-Harbor-Black-Map.pdf - detailed Harbor Black map specification
 - Source PDFs/OPAW-Dead-River-Map.pdf - detailed Dead River map specification
+
+- Source PDFs/OPAW-Aftermath-Map.pdf - detailed Aftermath map specification
+- Source PDFs/OPAW-Broken-Ground-Map.pdf - detailed Broken Ground map specification
+- Source PDFs/OPAW-Silent-Valley-Map.pdf - detailed Silent Valley map specification
+- Source PDFs/OPAW-Mirage-Map.pdf - detailed Mirage map specification
