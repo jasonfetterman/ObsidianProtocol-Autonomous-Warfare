@@ -1,152 +1,185 @@
-﻿# Black Mesa
+# Black Mesa
 
-Black Mesa (Mountain/Industrial) Map Design
-Executive Summary: Black Mesa is a sprawling mountainous-industrial battlefield designed for AR command. The map emphasizes combined-arms warfare (ground vehicles, infantry, and air support) with dramatic elevation differences and industrial facilities. It incorporates Obsidian Protocolâ€™s key systems: autonomous decision-making, sensor-driven tactics, communications networks, and logistical nodes. In AR (Nreal Light/Air), the map will be anchored at ~4â€“5â€¯m viewing distance, covering roughly a 10â€¯Ã—â€¯10â€¯m physical area (e.g. a conference table) to represent ~1â€¯kmÂ² of terrain. Key features include high ridges for aerial and sensor advantage, narrow mountain passes for chokepoints, and an industrial valley with supply depots and objectives. We propose detailed layout coordinates, asset budgets, and an implementation/test plan for Unreal Engine with Nreal support.
+**Mountain / Industrial Battlefield**
+
+## Executive Summary
+
+Black Mesa is a sprawling mountainous‑industrial battlefield designed for AR command. The map emphasizes combined‑arms warfare across ground vehicles, infantry, and air support, with dramatic elevation differences and industrial facilities. It incorporates Obsidian Protocol’s core systems: autonomous decision‑making, sensor‑driven tactics, communications networks, and logistical nodes.
+
+In AR (Nreal Light/Air), the map anchors at roughly a 4–5 m viewing distance, covering a 10×10 m physical area (e.g., a conference table) to represent about 1 km² of terrain. Key features include high ridges for aerial and sensor advantage, narrow mountain passes for chokepoints, and an industrial valley with supply depots and objectives.
 
 ## Design Goals & Gameplay
 
-Combined Arms & Scale: Black Mesa supports infantry, armor, and air simultaneously. Wide open valley floors enable ground maneuver, while towering peaks and plateaus allow air/Artillery vantage. This enforces Obsidian Protocolâ€™s combined-arms fantasy.
-Autonomy & Flanking: Multiple routes (mountain passes, road tunnels, rivers) create non-linear paths. Autonomous AI can choose flanks or ambushes, fulfilling the intent-driven design where units adapt tactics (e.g. retreat under fire or flank) without micromanagement.
-Sensor & Information Warfare: High peaks host sensors and relays; deep valleys create occlusions and radar dead zones. Units must scout and share intel. Communication relays near ridges can be destroyed, degrading network (information warfare). This enforces Fog-of-War/uncertainty themes.
-Logistics & Resources: An industrial plant and mine in the valley serve as resource/logistics nodes. Players may secure fuel depots or fabrication facilities to resupply units. Distances matter: long supply lines and resupply times exemplify logistics.
-Deployment & Progress: The fixed deployment budget (~10,000 points) forces strategic choices: send heavy armor up the passes or mobile recon around the flanks? Deployment zones are at far corners or on heights, making positioning decisions meaningful.
+### Combined Arms & Scale
+Black Mesa supports infantry, armor, and air simultaneously. Wide valley floors enable ground maneuver, while towering peaks and plateaus provide air and artillery vantage points.
+
+### Autonomy & Flanking
+Multiple routes — mountain passes, tunnels, and rivers — create non‑linear paths. Autonomous AI can flank, ambush, retreat, or reposition without micromanagement.
+
+### Sensor & Information Warfare
+High peaks host sensors and relays; deep valleys create occlusions and radar dead zones. Destroying ridge‑top relays degrades network clarity and expands fog‑of‑war.
+
+### Logistics & Resources
+An industrial plant and mine in the valley serve as logistics nodes. Fuel depots and fabrication facilities support resupply. Long supply lines reinforce the importance of logistics.
+
+### Deployment & Progress
+A fixed deployment budget (~10,000 points) forces strategic choices: heavy armor up the passes or mobile recon around the flanks. Deployment zones sit at opposite corners and elevated terrain.
+
 ## Spatial Constraints (Nreal AR)
 
-Device Capabilities: Nreal Light/Air have ~53Â° diagonal FOV and 1920Ã—1080 per-eye resolution. The display covers ~70% of the lens width and 85% height. In practice, content should be placed a few meters away so the user can see it comfortably.
-Playable Area & Scaling: We assume an anchored AR map projected ~4â€¯m in front of the user. At this distance, a 10â€¯Ã—â€¯10â€¯m physical area can represent roughly a 1â€¯kmÂ² battlefield (1:100 scale). This fits on a conference table. (If larger maps are needed, multi-anchor streaming or marker tracking can extend coverage.)
-Tracking & Occlusion: Nrealâ€™s inside-out tracking can detect horizontal planes (table/floor), but earlier versions lack true depth occlusion. The SDKâ€™s depth-mesh (if using the latest XREAL SDK) can create an environment mesh for occlusion and collision, but we assume minimal occlusion otherwise. All virtual objects render on top of real-world view by default. Hence, design the map to work as an overlay on empty floor/ground.
+### Device Capabilities
+Nreal Light/Air: ~53° diagonal FOV, 1920×1080 per‑eye resolution. Content should be placed several meters away for comfortable viewing.
+
+### Playable Area & Scaling
+A 10×10 m anchored AR map at ~4 m distance represents ~1 km² (1:100 scale). Fits on a conference table.
+
+### Tracking & Occlusion
+Inside‑out tracking detects horizontal planes. Depth mesh (if available) provides limited occlusion. Virtual objects render over real‑world view by default.
+
 ## Layout Overview
 
-Axes & Coordinates: We define a 1000Ã—1000 unit grid (1 unit â‰ˆ 1â€¯m). The origin (0,0) is the southwest corner. Key points (with sizes):
+### Coordinate System
+1000×1000 grid (1 unit ≈ 1 m). Origin (0,0) = southwest corner.
 
-West Base (Blue HQ): at (0,0), 100Ã—100â€¯m. High plateau north of this base overlooks the valley.
-East Base (Red HQ): at (1000,1000), 100Ã—100â€¯m. Situated on a mountain spur with a radio tower.
-Industrial Complex: centered at (500,300), occupies ~150Ã—150â€¯m. Includes a factory, storage tanks, and warehouses.
-Power Plant / Refinery: at (800,200) by a river, 80Ã—80â€¯m. Heavy pipes and cooling towers.
-Supply Depot: at (200,800), 60Ã—60â€¯m, with crates and fuel tanks.
-Mountain Passes: â€œNorth Passâ€ linking (400,1000) to (600,600); â€œSouth Tunnelâ€ at (300,0) to (400,400) through a ridge.
-Rivers/Bridges: A river runs from (0,500) to (400,900). Two bridges at (150,600) and (350,500).
-Terrain: Two mountain peaks: Peak A (600,100) at +300â€¯m above valley; Peak B (100,600) at +250â€¯m. Valley floor baseline = 0.
-Chokepoints & Sightlines:
+### Key Locations
+- **West Base (Blue HQ)** — (0,0), 100×100 m  
+  High plateau north of base overlooks the valley.
 
-The North Pass (400,1000 â†’ 600,600) is a narrow defile between cliffs (line-of-sight blocked except from air).
-The South Tunnel (entrance at (300,0), exit (400,400)) is a road cut in the cliff: close-range combat.
-Bridges: control of the two river crossings is critical (inhibits flanking).
-Sightlines: From Peak A, units can see northwards across the valley (sensor range ~300â€¯m). From the East Base tower, long-range radar covers most of the map. Heavy fog of war in deep valleys.
-Deployment Zones: Blue forces start around West Base; Red around East Base. (Exact spawn points at map edges facing inward). Both have fallback rally points at rear. A neutral forward deployment zone (airfield at (500,950)) allows limited forward resupply (drone drops).
+- **East Base (Red HQ)** — (1000,1000), 100×100 m  
+  Mountain spur with radio tower.
 
-sql
+- **Industrial Complex** — (500,300), ~150×150 m  
+  Factory, storage tanks, warehouses.
 
-Copy
+- **Power Plant / Refinery** — (800,200), 80×80 m  
+  Pipes, cooling towers, river access.
 
-stateDiagram-v2
+- **Supply Depot** — (200,800), 60×60 m  
+  Crates, fuel tanks.
 
-[*] --> Deployment : Player deploys forces in start zones
+### Mountain Passes & Tunnels
+- **North Pass** — (400,1000 → 600,600)  
+  Narrow defile between cliffs.
 
-Deployment --> Recon : Initial scouting of terrain/objectives
+- **South Tunnel** — (300,0 → 400,400)  
+  Road tunnel through ridge; close‑range combat.
 
-Recon --> Engage : Forces clash at chokepoints and objectives
+### Rivers & Bridges
+River runs from (0,500) → (400,900).  
+Bridges at (150,600) and (350,500).
 
-Engage --> Hold : Secure captured ground and key targets
+### Terrain Heights
+- **Peak A** — (600,100), +300 m  
+- **Peak B** — (100,600), +250 m  
+Valley floor baseline = 0.
 
-Hold --> [*] : Battle concludes (Victory/Defeat)
+## Chokepoints & Sightlines
+
+### North Pass
+Narrow, high‑risk chokepoint; limited sightlines except from air.
+
+### South Tunnel
+Confined combat zone; ideal for ambushes.
+
+### Bridges
+Critical river crossings; controlling them prevents flanking.
+
+### Sightlines
+Peak A offers ~300 m sensor range across valley.  
+East Base tower provides long‑range radar.  
+Deep valleys create heavy fog‑of‑war.
+
+### Deployment Zones
+Blue: West Base  
+Red: East Base  
+Neutral forward zone: Airfield at (500,950)
 
 ## Assets & Environment
 
+### Terrain
+Mountains, cliffs, riverbeds; rocky cliffs, dirt, grass.
 
-Terrain: Procedurally sculpted mountains, cliffs, and riverbed. Terrain material: rocky cliffs, dirt, grass textures.
+### Vegetation
+Sparse conifer trees (~2k tris each), shrubs, grass patches.
 
-Vegetation: Sparse conifer trees on slopes (LOD models, ~2k tris each, ~100 instances), shrubs and grass patches (billboard billboards).
+### Buildings & Props
+Industrial: Factory shells, tanks, pipelines  
+Military: Radar dish, antennas, watchtowers  
+Logistics: Crates, barrels, trucks  
+Bridges/Roads: Metal truss bridges, asphalt roads
 
-Buildings/Props:
+### Effects
+Steam vents, furnace glow, caution lights.
 
-Industrial: Factory shells, oil tanks, pipelines.
+### Audio
+Wind, distant rumble, machinery hum, radio chatter.
 
-Military: Radar dish, antennas, watchtowers.
+## LOD & Budget
 
-Logistics: Supply crates, barrels, trucks (static scatter).
+Target total: ~2.59M tris
 
-Bridges/Roads: Metal truss bridges at river crossings, asphalt roads with potholes.
+- Mountains/Cliffs: ~600k  
+- Slopes/Hills: ~320k  
+- Industrial Buildings: ~750k  
+- Bridges/Roads: ~120k  
+- Vegetation: ~300k  
+- Props/Vehicles: ~500k  
 
-Reinforcements: At spawn zones â€“ vehicles/transport.
+### Textures
+2048² for terrain/buildings  
+1024² for props  
+DXT1/5 compression  
+Target ≤100 MB
 
-Effect: Smokestacks emit steam (VFX sprites), furnaces glow. Dynamic lights in factories (caution lights).
+## Unreal / Nreal Integration
 
-Audio: Ambient wind in mountains, distant rumble, machinery hum at factory, radio chatter, footsteps on gravel, bridge creak. Subtly dynamic (stronger wind on peaks).
+### Engine & Plugins
+Unreal ARTemplate + Nreal SDK (XREAL).  
+Enable ARKit/ARCore for anchors and plane detection.
 
-LOD & Budget: Aim for mobile-level assets. Use 3-LOD hierarchy. For example, large cliff meshes (~200k tris LOD0, 100k LOD1, 40k LOD2). Buildings ~50â€“80k tris LOD0 down to 5k. Vehicles ~20k. Keep most meshes â‰¤50k tris after LOD0. Modern phones can handle high-poly objects individually, but the entire scene should target <3â€“4M total tris (AR rendering is per-eye).
+### Rendering
+Forward renderer, limited dynamic lights, baked GI.
 
-Materials: Mostly opaque Lit materials. Use simpler (Flat/Unlit) shaders for UI overlays. Minimal transparency (translucent smoke is expensive â€“ use particle billboards).
+### Anchors
+Single spatial anchor for entire map.
 
-Navigation: Mark traversable surfaces (roads/paths) and obstacles (cliffs, rivers). Bake a NavMesh for AI (roughly following valley floor and passes). Bridges and tunnels have their own nav links.
+### Interaction
+Phone pointer for pan/zoom; HUD as screen‑space widgets.
 
-Asset CategoCroyunt Tri/Item Total Tris
+### Multiplayer
+Client‑server architecture; offload physics/AI to server.
 
-Mountains/Cliffs (me3she20s)0k     600k
-
-Slopes/Hills      4 80k            320k
-
-Buildings (industrial1,5etc5.0) k  750k
-
-Bridges/Roads     4 30k            120k
-
-Vegetation (trees/1s5h0rub2sk)     300k
-
-Props (vehicles, crat5e0s) 10k     500k
-
-Total (approx.)                    2.59M
-
-Texture Budget: Use 2048Â² textures for large ground/buildings; 1024Â² for props. Use DXT1/5 compression (4â€“8â€¯bpp). Limit to ~100â€¯MB total.
-
-Unreal/Nreal Integration
-Engine & Plugins: Use Unrealâ€™s ARTemplate (ARKit for iOS or ARCore for Android via Nreal). Nreal SDK (XREAL) can integrate via the ARCore XR plugin on Android devices. Enable ARKit/ARCore plugins for plane detection and anchors. Use the Nreal depth-mesh feature (if available) for occlusion.
-Rendering Settings: Forward renderer with optimizations (msaa off, modest shadow distance). Limit dynamic lights (preferring stationary). Enable GPU-friendly lightmaps.
-Spatial Anchors: Place the map as a single large anchored object. Use Nrealâ€™s Spatial Anchor or ARAnchor to lock it to real-world (so it stays in place across sessions).
-Interaction: Touch controller (phone as pointer) to pan/zoom the map. HUD overlays should be 2D widgets (screen space) since AR glasses provide limited UI.
-Multiplayer: Use Unrealâ€™s networking (client-server). Since AR devices have limited compute, offload physics/AI to server or allocate to more capable hardware if possible.
 ## Implementation Plan & Testing
 
-Milestone Timeframe Deliverables
-1. PrototypeMLaoynothut1 Blocked-out terrain (mountains, valleys, rivers). Initial placement of bases and objectives. AR anchor test with one unit moving.
-2. Core SysteMmosnth 2 Deploy/Navigation: AI navmesh, unit pathfinding. Basic autonomous behaviors (move/attack/retreat). Sensor raycasts implemented. Deployment UI placeholder.
-3. AR IntegraMtioonnth 3 Nreal AR build: map anchors, plane detection, camera feed. Verify stable tracking and anchoring at target distance. Add simple interactivity (select unit, set intent via gaze/tap).
-4. Content FMillonth 4-5 Populate terrain with final models/textures (buildings, props, vegetation). LODs and collisions set. Lighting and audio ambiance. Fallback plan for occlusion: place simple colliders for important real objects.
-5. GameplayM&oPnothlis6h-7 Link campaign objectives. Balance deployment costs for units on map. Add VFX (smoke, fire). VR (if any) integration verification. Profile performance, optimize where needed.
-6. Testing &MQAonth 8 Multiplayer stress test (50â€“100 units). AI/autonomy test (units handle comms loss, adapt). Sensor tests (LOS, sensor fusion). Communication drop tests (simulate relay loss). Check AR stability (anchors, drift). Fix issues.
+### Milestones
+1. **Month 1 — Prototype Layout**  
+   Block out terrain, bases, objectives. AR anchor test.
 
-Testing Plan:
+2. **Month 2 — Core Systems**  
+   NavMesh, pathfinding, autonomous behaviors, sensor raycasts.
 
-Autonomy: Use logs/visualization to ensure AI obeys intent (e.g. â€œAttackâ€, â€œHoldâ€). Test corner cases (lost comms, no targets).
-Comms/Sensors: Place units and detect others at various line-of-sight angles. Verify fog-of-war updates. Disable a relay node to test network fragmentation.
-Multiplayer: Simulate high-latency packet loss. Ensure authoritative physics and prevent unit desync.
-Performance: Aim for â‰¥60â€¯Hz AR render. Profile on target phone (e.g. high-end Android). Optimize by culling distant LODs aggressively.
-QA Checklist: Unit navigation complete? All deployment zones reachable? No shader or light leaks (framerate dips)? AR anchor reposition stable? Units correctly use cover and flanking? Sensor ping intervals and identification errors within spec? Deployment budget strictly enforced? Network cheat tests?
+3. **Month 3 — AR Integration**  
+   Anchors, plane detection, basic interactivity.
 
-Visual Aids
-(See conceptual illustrations below)
+4. **Months 4–5 — Content Fill**  
+   Final models, textures, lighting, audio.
 
-Figure: Concept art sketch of Black Mesaâ€™s industrial valley and mountain passes. Forces engage in combined-arms combat across challenging elevation.
+5. **Months 6–7 — Gameplay & Polish**  
+   Objectives, balance, VFX.
 
-Figure: Simplified top-down schematic (coordinates in meters). Blue (SW) and Red (NE) deployment zones, chokepoints (green), objectives (stars), and terrain heights.
+6. **Month 8 — Testing & QA**  
+   Multiplayer stress test, sensor validation, hazard simulation.
 
-Set up forces at bases
+### Testing Plan
 
-Scout passes and objectives
+#### Autonomy
+Verify flanking, retreat, hazard avoidance.
 
-Combat at passes/valley center
+#### Comms/Sensors
+Test relay destruction, fog‑of‑war updates, LOS checks.
 
-Secure objectives & high ground
+#### Performance
+≥60 Hz AR render on target device.
 
-Battle concludes (result)
-
-Deployment
-
-Recon
-
-Engage
-
-Hold
-
-Show code
-Sources: Nreal (XREAL) SDK and hardware specs, Unreal performance guidelines, mobile AR asset advice, and AR FOV benchmarks informed design decisions.
-
+#### QA Checklist
+Navigation, deployment budget enforcement, anchor stability, sensor accuracy.
