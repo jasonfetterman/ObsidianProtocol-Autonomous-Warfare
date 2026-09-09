@@ -1,187 +1,192 @@
-﻿# Crown Ridge
+# Crown Ridge
 
-Crown Ridge (Mountain / Military / Command Networks & Strategic Positioning)
+**Mountain / Military / Command Networks & Strategic Positioning**
 
 ## Executive Summary
 
+Crown Ridge is a fortified mountain‑military battlefield built for command‑network warfare, strategic positioning, elevation control, and long‑range coordination. The terrain features steep alpine ridges, hardened bunkers, command relays, fortified passes, elevated artillery platforms, and multi‑tier mountain roads.
 
-Crown Ridge is a fortified mountainâ€‘military battlefield built for commandâ€‘network warfare, strategic positioning, elevation control, and longâ€‘range coordination. The terrain features steep alpine ridges, hardened bunkers, command relays, fortified passes, elevated artillery platforms, and multiâ€‘tier mountain roads. The map emphasizes Obsidian Protocolâ€™s autonomous commandâ€‘network logic, sensorâ€‘relay chaining, airâ€‘ground coordination, and logistics under highâ€‘altitude constraints. In AR (Nreal Light/Air), the map anchors at ~4â€“5â€¯m viewing distance, covering a 10Ã—10â€¯m physical area representing ~1â€¯kmÂ² of mountainous territory. Key features include commandâ€‘relay chains, multiâ€‘tier defensive positions, elevationâ€‘driven chokepoints, and strategic highâ€‘ground control.
+The map emphasizes Obsidian Protocol’s autonomous command‑network logic, sensor‑relay chaining, air‑ground coordination, and logistics under high‑altitude constraints. In AR (Nreal Light/Air), the map anchors at roughly a 4–5 m viewing distance, covering a 10×10 m physical area representing about 1 km² of mountainous territory.
+
+Key features include command‑relay chains, multi‑tier defensive positions, elevation‑driven chokepoints, and strategic high‑ground control.
 
 ## Design Goals & Gameplay
 
+### Command‑Network Warfare
+Crown Ridge prioritizes command‑relay nodes, sensor hubs, and strategic communication lines. Destroying or capturing relays shifts control of entire sectors.
 
-Commandâ€‘Network Warfare
-Crown Ridge prioritizes commandâ€‘relay nodes, sensor hubs, and strategic communication lines. Destroying or capturing relays shifts control of entire sectors.
-Elevation & Strategic Positioning
-Highâ€‘ground positions dominate artillery arcs, recon coverage, and defensive lines. Controlling ridges is essential for longâ€‘range dominance.
-Autonomy & Commandâ€‘Chain Logic
-Autonomous AI selects routes that maintain commandâ€‘network integrity, avoids exposed plateaus, and uses bunkers to break lineâ€‘ofâ€‘sight.
+### Elevation & Strategic Positioning
+High‑ground positions dominate artillery arcs, recon coverage, and defensive lines. Controlling ridges is essential for long‑range dominance.
+
+### Autonomy & Command‑Chain Logic
+Autonomous AI selects routes that maintain command‑network integrity, avoids exposed plateaus, and uses bunkers to break line‑of‑sight.
+
 ## Sensor & Information Warfare
 
-
 Thin air, fog pockets, and elevation gradients distort sensors. Relay towers on peaks restore clarity. Destroying relays creates massive blind zones across the ridge.
+
 ## Logistics & Resources
 
-Mountain depots, command bunkers, and helipads serve as resupply nodes. Supply convoys must navigate narrow roads and avoid ambushâ€‘prone passes.
+Mountain depots, command bunkers, and helipads serve as resupply nodes. Supply convoys must navigate narrow roads and avoid ambush‑prone passes.
+
 ## Deployment & Progress
 
-A fixed deployment budget (~10,000 points) forces players to choose between heavy artillery, commandâ€‘relay units, or mobile mountain infantry. Blue deploys from the southwest valley command; Red deploys from the northeast ridge citadel.
+A fixed deployment budget (~10,000 points) forces players to choose between heavy artillery, command‑relay units, or mobile mountain infantry.  
+Blue deploys from the southwest valley command; Red deploys from the northeast ridge citadel.
 
 ## Spatial Constraints (Nreal AR)
 
+### Device Capabilities
+Nreal Light/Air: ~53° diagonal FOV, 1920×1080 per‑eye resolution. Optimal viewing distance: ~4–5 m.
 
-## Device Capabilities
+### Playable Area & Scaling
+10×10 m physical area ≈ 1 km² mountain zone (1:100 scale). Designed for tabletop AR.
 
-Nreal Light/Air: ~53Â° diagonal FOV, 1920Ã—1080 perâ€‘eye resolution. Optimal viewing distance ~4â€“5â€¯m.
-## Playable Area & Scaling
-
-
-10Ã—10â€¯m physical area â‰ˆ 1â€¯kmÂ² mountain zone (1:100 scale). Designed for tabletop AR.
-## Tracking & Occlusion
-
-Insideâ€‘out tracking detects horizontal planes. Depthâ€‘mesh (if available) provides limited occlusion. Virtual objects render over realâ€‘world view; assume minimal realâ€‘world occlusion.
+### Tracking & Occlusion
+Inside‑out tracking detects horizontal planes. Depth mesh (if available) provides limited occlusion. Virtual objects render over real‑world view; assume minimal real‑world occlusion.
 
 ## Layout Overview
 
+### Coordinate System
+1000×1000 grid (1 unit ≈ 1 m). Origin (0,0) = southwest corner.
 
-## Coordinate System
+### Key Locations
+- **Blue HQ (Valley Command Base)** — (0,0), 140×140 m  
+  Mountain‑foot command center with relay uplinks and artillery.
 
+- **Red HQ (Ridge Citadel)** — (1000,1000), 140×140 m  
+  Fortified high‑ground citadel with radar mast and AA emplacements.
 
-1000Ã—1000 grid (1 unit â‰ˆ 1â€¯m). Origin (0,0) = southwest corner.
-## Key Locations
+- **Central Crown Plateau** — (500,450), 250×250 m  
+  Wind‑exposed plateau with long‑range sightlines and command relay nodes.
 
-Blue HQ (Valley Command Base) â€” (0,0), 140Ã—140â€¯m Mountainâ€‘foot command center with relay uplinks and artillery.
-Red HQ (Ridge Citadel) â€” (1000,1000), 140Ã—140â€¯m Fortified highâ€‘ground citadel with radar mast and AA emplacements.
-Central Crown Plateau â€” (500,450), 250Ã—250â€¯m Windâ€‘exposed plateau with longâ€‘range sightlines and command relay nodes.
-Command Relay Depot â€” (250,800), 100Ã—100â€¯m Relay towers, generators, comms equipment, supply crates.
-Cliffside Bunker Network â€” (800,300), 150Ã—150â€¯m Interior tunnels, firing ports, hardened defensive positions.
-Ridge Pass Corridor â€” (0,450 â†’ 400,900) Narrow elevated corridor; critical choke zone for commandâ€‘network control.
-Lower Valley Road â€” (300,0 â†’ 450,350) Safer movement route with partial cover.
-Peak A (Crown Peak) â€” (650,150), +300â€¯m Primary commandâ€‘relay hub with longâ€‘range sensor coverage.
-Peak B (Sentinel Peak) â€” (150,650), +280â€¯m Secondary relay tower and AA platform.
-Neutral Forward Outpost â€” (500,950) Drone resupply zone.
+- **Command Relay Depot** — (250,800), 100×100 m  
+  Relay towers, generators, comms equipment, supply crates.
+
+- **Cliffside Bunker Network** — (800,300), 150×150 m  
+  Interior tunnels, firing ports, hardened defensive positions.
+
+- **Ridge Pass Corridor** — (0,450 → 400,900)  
+  Narrow elevated corridor; critical choke zone for command‑network control.
+
+- **Lower Valley Road** — (300,0 → 450,350)  
+  Safer movement route with partial cover.
+
+- **Peak A (Crown Peak)** — (650,150), +300 m  
+  Primary command‑relay hub with long‑range sensor coverage.
+
+- **Peak B (Sentinel Peak)** — (150,650), +280 m  
+  Secondary relay tower and AA platform.
+
+- **Neutral Forward Outpost** — (500,950)
 
 ## Chokepoints & Sightlines
 
+### Ridge Pass Corridor
+Extremely narrow; ideal for defensive artillery and command‑relay protection.
 
-Ridge Pass Corridor
-Extremely narrow; ideal for defensive artillery and commandâ€‘relay protection.
-
-Cliffside Bunker Network
-
+### Cliffside Bunker Network
 Interior routes and firing ports; strong defensive positions.
-Crown Plateau
-Longâ€‘range sightlines; commandâ€‘network dominance essential.
-Lower Valley Road
 
+### Crown Plateau
+Long‑range sightlines; command‑network dominance essential.
+
+### Lower Valley Road
 Safer but predictable; vulnerable to aerial recon.
-## Sightlines
 
-Peak A provides longâ€‘range sensor coverage (~350â€¯m). Fog pockets and elevation gradients create blind zones.
+### Sightlines
+Peak A provides long‑range sensor coverage (~350 m). Fog pockets and elevation gradients create blind zones.
 
 ## Deployment Zones
-
-
-Blue Deployment: SW valley command base + rear rally point.
-Red Deployment: NE ridge citadel + AA emplacements.
-Neutral Forward Zone: Outpost at (500,950) for drone drops.
+- **Blue Deployment:** SW valley command base + rear rally point  
+- **Red Deployment:** NE ridge citadel + AA emplacements  
+- **Neutral Forward Zone:** Outpost at (500,950)
 
 ## Assets & Environment
 
-
-## Terrain
-
-
+### Terrain
 Cliffs, ridges, plateaus, valleys, rock formations.
-## Vegetation
 
-
+### Vegetation
 Sparse alpine shrubs, pine clusters, grass patches.
-## Buildings & Props
 
+### Buildings & Props
+Military: Bunkers, AA guns, radar dishes, helipads, command relays  
+Industrial: Generators, pipelines, comms towers  
+Logistics: Trucks, crates, fuel drums, drones
 
-Military: Bunkers, AA guns, radar dishes, helipads, command relays. Industrial: Generators, pipelines, comms towers. Logistics: Trucks, crates, fuel drums, drones.
-## Effects
-
-
+### Effects
 Fog, wind gusts, dust, snow flurries (optional), rockfall debris.
-## Audio
 
-
+### Audio
 Wind, distant artillery, radio chatter, aircraft movement.
 
 ## LOD & Budget
 
+Target total: ~2.59M tris
 
-Asset CategCooruynt      Tri/Item  Total Tris
-200k      600k
-Cliffs/Ridges        3   80k       320k
-50k       750k
-Rock Formations 4        30k       120k
-2k        300k
-Buildings/Military15     10k       500k
-â€”         ~2.59M
-Roads/Paths 4
+- Cliffs/Ridges: ~600k  
+- Rock Formations: ~320k  
+- Buildings/Military: ~750k  
+- Roads/Paths: ~300k  
+- Vegetation: ~150k  
+- Props: ~500k  
 
-Vegetation 150
-
-Props                50
-
-Total â€”
-
-## Texture Budget
-
-
-2048Â² for terrain/buildings, 1024Â² for props. DXT1/5 compression. Target â‰¤100â€¯MB.
+### Textures
+2048² for terrain/buildings  
+1024² for props  
+DXT1/5 compression  
+Target ≤100 MB
 
 ## Unreal / Nreal Integration
 
+### Engine & Plugins
+Unreal ARTemplate + Nreal SDK (XREAL).  
+Enable ARKit/ARCore for anchors and plane detection.
 
-## Engine & Plugins
-
-
-Unreal ARTemplate + Nreal SDK (XREAL). ARKit/ARCore enabled.
-## Rendering
-
-
+### Rendering
 Forward renderer, stationary lights, baked GI, aggressive culling.
-## Anchors
 
-
+### Anchors
 Single spatial anchor for entire map.
-## Interaction
 
-Phone pointer for pan/zoom; HUD as screenâ€‘space widgets.
-## Multiplayer
+### Interaction
+Phone pointer for pan/zoom; HUD as screen‑space widgets.
 
-Clientâ€‘server architecture; offload AI/physics to server.
+### Multiplayer
+Client‑server architecture; offload AI/physics to server.
 
 ## Implementation Plan & Testing
 
+### Milestones
+1. **Month 1 — Prototype Layout**  
+   Block out ridges, plateau, bunkers. AR anchor test.
 
-## Milestones
+2. **Month 2 — Core Systems**  
+   NavMesh, command‑network autonomy behaviors.
 
-1. Prototype Layout â€” Month 1 Blockâ€‘out ridges, plateau, bunkers, AR anchor test.
-2. Core Systems â€” Month 2 NavMesh, commandâ€‘network autonomy behaviors.
-3. AR Integration â€” Month 3 Anchors, plane detection, basic interactivity.
-4. Content Fill â€” Month 4â€“5 Final models, textures, lighting, audio.
-5. Gameplay & Polish â€” Month 6â€“7 Objectives, balance, VFX (fog, wind, dust).
-6. Testing & QA â€” Month 8 Multiplayer stress test, sensor validation.
+3. **Month 3 — AR Integration**  
+   Anchors, plane detection, basic interactivity.
 
-## Testing Plan
+4. **Months 4–5 — Content Fill**  
+   Final models, textures, lighting, audio.
 
+5. **Months 6–7 — Gameplay & Polish**  
+   Objectives, balance, VFX (fog, wind, dust).
 
-## Autonomy
+6. **Month 8 — Testing & QA**  
+   Multiplayer stress test, sensor validation.
 
-Verify commandâ€‘network logic, ridge navigation, airâ€‘ground coordination.
-## Comms/Sensors
+### Testing Plan
 
-Test relay destruction, fogâ€‘ofâ€‘war updates, LOS checks.
-## Performance
+#### Autonomy
+Verify command‑network logic, ridge navigation, air‑ground coordination.
 
+#### Comms/Sensors
+Test relay destruction, fog‑of‑war updates, LOS checks.
 
-â‰¥60â€¯Hz AR render on target device.
-## QA Checklist
+#### Performance
+≥60 Hz AR render on target device.
 
-Navigation, elevation behavior, commandâ€‘network integrity, deployment budget enforcement, anchor drift, sensor accuracy.
-
+#### QA Checklist
+Navigation, elevation behavior, command‑network integrity, deployment budget enforcement, anchor drift, sensor accuracy.
