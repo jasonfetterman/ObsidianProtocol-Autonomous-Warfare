@@ -1,183 +1,185 @@
-﻿# Canopy
+# Canopy
 
-Canopy (Dense Jungle / Recon & Autonomous Search)
+**Dense Jungle / Recon & Autonomous Search**
 
 ## Executive Summary
 
+Canopy is an ultra‑dense tropical jungle reconnaissance battlefield built for autonomous search, stealth movement, sensor‑limited engagements, and foliage‑driven concealment. The terrain features towering canopy layers, tangled undergrowth, vine‑choked ravines, mossy cliffs, hidden trails, abandoned outposts, and river‑cut gorges.
 
-Canopy is an ultraâ€‘dense tropical jungle reconnaissance battlefield built for autonomous search, stealth movement, sensorâ€‘limited engagements, and foliageâ€‘driven concealment. The terrain features towering canopy layers, tangled undergrowth, vineâ€‘choked ravines, mossy cliffs, hidden trails, abandoned outposts, and riverâ€‘cut gorges. The map emphasizes Obsidian Protocolâ€™s autonomous recon logic, sensorâ€‘fusion under heavy occlusion, commsâ€‘relay warfare, and logistics under extreme vegetation density. In AR (Nreal Light/Air), the map anchors at ~4â€“5â€¯m viewing distance, covering a 10Ã—10â€¯m physical area representing ~1â€¯kmÂ² of deepâ€‘jungle terrain. Key features include multiâ€‘layer canopy concealment, autonomous search corridors, unpredictable sightlines, and stealthâ€‘heavy engagements.
+The map emphasizes Obsidian Protocol’s autonomous recon logic, sensor‑fusion under heavy occlusion, comms‑relay warfare, and logistics under extreme vegetation density. In AR (Nreal Light/Air), the map anchors at roughly a 4–5 m viewing distance, covering a 10×10 m physical area representing about 1 km² of deep‑jungle terrain.
+
+Key features include multi‑layer canopy concealment, autonomous search corridors, unpredictable sightlines, and stealth‑heavy engagements.
 
 ## Design Goals & Gameplay
 
-
-Denseâ€‘Jungle Reconnaissance
-
+### Dense‑Jungle Reconnaissance
 Canopy prioritizes scouting, tracking, and stealth infiltration. Vegetation density creates natural blind zones, forcing reliance on autonomous recon units and sensor triangulation.
-Autonomous Search & Pathfinding
-Units navigate canopy shadows, narrow trails, rootâ€‘choked paths, and vineâ€‘covered ravines. Autonomous logic selects routes based on concealment, sensor clarity, and terrain stability.
-Concealment & Ambush Warfare
-Foliage, canopy layers, and humidity fog create stealth pockets. Ambushes, flanking, and sudden closeâ€‘range engagements dominate.
-Sensor & Information Warfare
 
+### Autonomous Search & Pathfinding
+Units navigate canopy shadows, narrow trails, root‑choked paths, and vine‑covered ravines. Autonomous logic selects routes based on concealment, sensor clarity, and terrain stability.
+
+### Concealment & Ambush Warfare
+Foliage, canopy layers, and humidity fog create stealth pockets. Ambushes, flanking, and sudden close‑range engagements dominate.
+
+### Sensor & Information Warfare
 Humidity, fog, vegetation clutter, thermal distortion, and canopy occlusion degrade sensors. Relay towers on cliffs restore clarity. Destroying relays creates blind pockets across the jungle.
-Logistics & Resources
-Fuel caches, abandoned outposts, and river docks serve as resupply nodes. Convoys must navigate narrow jungle trails and avoid ambushâ€‘prone canopy corridors.
-Deployment & Progress
-A fixed deployment budget (~10,000 points) forces players to choose between stealth infantry, recon drones, or heavy jungleâ€‘adapted armor. Blue deploys from the southwest riverâ€‘trail camp; Red deploys from the northeast cliffside recon tower.
+
+### Logistics & Resources
+Fuel caches, abandoned outposts, and river docks serve as resupply nodes. Convoys must navigate narrow jungle trails and avoid ambush‑prone canopy corridors.
+
+### Deployment & Progress
+A fixed deployment budget (~10,000 points) forces players to choose between stealth infantry, recon drones, or heavy jungle‑adapted armor.  
+Blue deploys from the southwest river‑trail camp; Red deploys from the northeast cliffside recon tower.
 
 ## Spatial Constraints (Nreal AR)
 
+### Device Capabilities
+Nreal Light/Air: ~53° diagonal FOV, 1920×1080 per‑eye resolution. Optimal viewing distance: ~4–5 m.
 
-## Device Capabilities
+### Playable Area & Scaling
+10×10 m physical area ≈ 1 km² dense‑jungle zone (1:100 scale). Designed for tabletop AR.
 
-Nreal Light/Air: ~53Â° diagonal FOV, 1920Ã—1080 perâ€‘eye resolution. Optimal viewing distance ~4â€“5â€¯m.
-## Playable Area & Scaling
-
-10Ã—10â€¯m physical area â‰ˆ 1â€¯kmÂ² denseâ€‘jungle zone (1:100 scale). Designed for tabletop AR.
-## Tracking & Occlusion
-
-Insideâ€‘out tracking detects horizontal planes. Depthâ€‘mesh (if available) provides limited occlusion. Virtual objects render over realâ€‘world view; assume minimal realâ€‘world occlusion.
+### Tracking & Occlusion
+Inside‑out tracking detects horizontal planes. Depth mesh (if available) provides limited occlusion. Virtual objects render over real‑world view; assume minimal real‑world occlusion.
 
 ## Layout Overview
 
+### Coordinate System
+1000×1000 grid (1 unit ≈ 1 m). Origin (0,0) = southwest corner.
 
-## Coordinate System
+### Key Locations
+- **Blue HQ (River‑Trail Recon Camp)** — (0,0), 150×150 m  
+  Boats, crates, recon drones, jungle staging.
 
+- **Red HQ (Cliffside Recon Tower)** — (1000,1000), 150×150 m  
+  Elevated bunker with radar mast, thermal relays, canopy overwatch.
 
-1000Ã—1000 grid (1 unit â‰ˆ 1â€¯m). Origin (0,0) = southwest corner.
-## Key Locations
+- **Central Canopy Basin** — (500,450), 300×300 m  
+  Dense canopy, fog pockets, unpredictable sightlines, stealth‑heavy combat.
 
-Blue HQ (Riverâ€‘Trail Recon Camp) â€” (0,0), 150Ã—150â€¯m Boats, crates, recon drones, jungle staging.
-Red HQ (Cliffside Recon Tower) â€” (1000,1000), 150Ã—150â€¯m Elevated bunker with radar mast, thermal relays, and canopyâ€‘overwatch.
-Central Canopy Basin â€” (500,450), 300Ã—300â€¯m Dense canopy, fog pockets, unpredictable sightlines, stealthâ€‘heavy combat.
-Abandoned Outpost Cluster â€” (250,800), 120Ã—120â€¯m Ruins, generators, interior flanking routes.
-Ridgeâ€‘Top Canopy Network â€” (800,300), 200Ã—200â€¯m Highâ€‘ground overwatch, treeâ€‘top concealment, stealth movement.
-Recon Corridor â€” (0,450 â†’ 400,900) Heavy vegetation zone; extreme sensor degradation.
-Hidden Trail Route â€” (300,0 â†’ 450,350) Safer but slow; root hazards and vegetation cover.
-Cliff Relay A â€” (650,150), +240â€¯m Longâ€‘range sensor vantage point.
-Cliff Relay B â€” (150,650), +260â€¯m Comms relay hub and reconâ€‘monitoring node.
-Neutral Forward Outpost â€” (500,950) Drone resupply zone.
+- **Abandoned Outpost Cluster** — (250,800), 120×120 m  
+  Ruins, generators, interior flanking routes.
+
+- **Ridge‑Top Canopy Network** — (800,300), 200×200 m  
+  High‑ground overwatch, tree‑top concealment, stealth movement.
+
+- **Recon Corridor** — (0,450 → 400,900)  
+  Heavy vegetation zone; extreme sensor degradation.
+
+- **Hidden Trail Route** — (300,0 → 450,350)  
+  Safer but slow; root hazards and vegetation cover.
+
+- **Cliff Relay A** — (650,150), +240 m  
+- **Cliff Relay B** — (150,650), +260 m  
+
+- **Neutral Forward Outpost** — (500,950)
 
 ## Chokepoints & Sightlines
 
-
-Recon Corridor
-
+### Recon Corridor
 Severe visibility loss; ideal for stealth ambushes and sensor deception.
-Ridgeâ€‘Top Canopy Network
 
+### Ridge‑Top Canopy Network
 Interior flanking routes; unpredictable cover due to foliage.
-Canopy Basin
-Longâ€‘range engagements broken by vegetation; humidity reduces accuracy.
-Hidden Trail Route
 
+### Canopy Basin
+Long‑range engagements broken by vegetation; humidity reduces accuracy.
+
+### Hidden Trail Route
 Predictable but safe; vulnerable to overwatch from ridges.
-## Sightlines
 
-Cliff Relay A provides longâ€‘range sensor coverage (~300â€¯m). Fog and canopy shadows create fogâ€‘ofâ€‘war pockets.
+### Sightlines
+Cliff Relay A provides long‑range sensor coverage (~300 m). Fog and canopy shadows create fog‑of‑war pockets.
 
 ## Deployment Zones
-
-
-Blue Deployment: SW riverâ€‘trail camp + recon staging.
-Red Deployment: NE cliffside recon tower + thermal defenses.
-Neutral Forward Zone: Outpost at (500,950) for drone drops.
+- **Blue Deployment:** SW river‑trail camp + recon staging  
+- **Red Deployment:** NE cliffside recon tower + thermal defenses  
+- **Neutral Forward Zone:** Outpost at (500,950)
 
 ## Assets & Environment
 
-
-## Terrain
-
-
+### Terrain
 Canopy layers, cliffs, rivers, mud trails, abandoned outposts.
-## Vegetation
 
-
+### Vegetation
 Dense trees, vines, ferns, underbrush, mossy cliffs.
-## Buildings & Props
 
+### Buildings & Props
+Military: Radar dishes, thermal relays, bunkers  
+Rural: Huts, bridges, wooden structures  
+Logistics: Trucks, crates, fuel drums, boats, drones
 
-Military: Radar dishes, thermal relays, bunkers. Rural: Huts, bridges, wooden structures. Logistics: Trucks, crates, fuel drums, boats, drones.
-## Effects
-
-
+### Effects
 Fog, humidity haze, rain, canopy shadows, mud splashes.
-## Audio
 
-
+### Audio
 Insects, rainfall, distant machinery, river flow, radio chatter.
 
 ## LOD & Budget
 
+Target total: ~2.29M tris
 
-Asset CategCooruynt      Tri/Item  Total Tris
-200k      600k
-Jungle Terrain 3         80k       320k
-50k       750k
-Rural/Industrial 4       30k       120k
-10k       500k
-Buildings/Rural 15       â€”         ~2.29M
+- Jungle Terrain: ~600k  
+- Rural/Industrial Meshes: ~320k  
+- Buildings/Rural: ~750k  
+- Roads/Paths: ~120k  
+- Props: ~500k  
 
-Roads/Paths 4
-
-Props                50
-
-Total â€”
-
-## Texture Budget
-
-
-2048Â² for terrain/buildings, 1024Â² for props. DXT1/5 compression. Target â‰¤100â€¯MB.
+### Textures
+2048² for terrain/buildings  
+1024² for props  
+DXT1/5 compression  
+Target ≤100 MB
 
 ## Unreal / Nreal Integration
 
+### Engine & Plugins
+Unreal ARTemplate + Nreal SDK (XREAL).  
+Enable ARKit/ARCore for anchors and plane detection.
 
-## Engine & Plugins
-
-
-Unreal ARTemplate + Nreal SDK (XREAL). ARKit/ARCore enabled.
-## Rendering
-
-
+### Rendering
 Forward renderer, stationary lights, baked GI, aggressive culling.
-## Anchors
 
-
+### Anchors
 Single spatial anchor for entire map.
 
-## Interaction
+### Interaction
+Phone pointer for pan/zoom; HUD as screen‑space widgets.
 
-Phone pointer for pan/zoom; HUD as screenâ€‘space widgets.
-## Multiplayer
-
-Clientâ€‘server architecture; offload AI/physics to server.
+### Multiplayer
+Client‑server architecture; offload AI/physics to server.
 
 ## Implementation Plan & Testing
 
+### Milestones
+1. **Month 1 — Prototype Layout**  
+   Block out canopy basin, ridges, outposts. AR anchor test.
 
-## Milestones
+2. **Month 2 — Core Systems**  
+   NavMesh, jungle autonomy behaviors, recon logic.
 
-1. Prototype Layout â€” Month 1 Blockâ€‘out canopy basin, ridges, outposts, AR anchor test.
-2. Core Systems â€” Month 2 NavMesh, jungle autonomy behaviors, recon logic.
-3. AR Integration â€” Month 3 Anchors, plane detection, basic interactivity.
-4. Content Fill â€” Month 4â€“5 Final models, textures, lighting, audio.
-5. Gameplay & Polish â€” Month 6â€“7 Objectives, balance, VFX (fog, humidity haze, canopy shadows).
-6. Testing & QA â€” Month 8 Multiplayer stress test, sensor validation.
+3. **Month 3 — AR Integration**  
+   Anchors, plane detection, basic interactivity.
 
-## Testing Plan
+4. **Months 4–5 — Content Fill**  
+   Final models, textures, lighting, audio.
 
+5. **Months 6–7 — Gameplay & Polish**  
+   Objectives, balance, VFX (fog, humidity haze, canopy shadows).
 
-## Autonomy
+6. **Month 8 — Testing & QA**  
+   Multiplayer stress test, sensor validation.
 
-Verify jungle navigation, reconâ€‘aware pathfinding, hazard avoidance.
-## Comms/Sensors
+### Testing Plan
 
-Test relay destruction, fogâ€‘ofâ€‘war updates, LOS checks under canopy occlusion.
-## Performance
+#### Autonomy
+Verify jungle navigation, recon‑aware pathfinding, hazard avoidance.
 
+#### Comms/Sensors
+Test relay destruction, fog‑of‑war updates, LOS checks under canopy occlusion.
 
-â‰¥60â€¯Hz AR render on target device.
-## QA Checklist
+#### Performance
+≥60 Hz AR render on target device.
 
-
+#### QA Checklist
 Navigation, recon logic, deployment budget enforcement, anchor drift, sensor accuracy.
