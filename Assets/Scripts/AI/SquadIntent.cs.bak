@@ -1,9 +1,10 @@
-using UnityEngine;
+﻿using UnityEngine;
+using ObsidianProtocol.Game.Command;
 
 public class SquadIntent : MonoBehaviour
 {
     [SerializeField]
-    private IntentType currentIntent = IntentType.Hold;
+    private IntentType currentIntent = IntentType.Defend;
 
     private IntentType lastIntent;
 
@@ -22,5 +23,13 @@ public class SquadIntent : MonoBehaviour
         lastIntent = currentIntent;
 
         Debug.Log($"{gameObject.name} Intent = {currentIntent}");
+    }
+
+    public void SetIntent(IntentType intent)
+    {
+        if (currentIntent == intent)
+            return;
+
+        currentIntent = intent;
     }
 }

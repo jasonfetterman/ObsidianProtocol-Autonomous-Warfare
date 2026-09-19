@@ -5,19 +5,71 @@ public class SelectableUnit : MonoBehaviour
     [SerializeField]
     private bool isSelected;
 
+    [SerializeField]
+    private Color normalColor = Color.white;
+
+    [SerializeField]
+    private Color hoverColor = Color.yellow;
+
+    [SerializeField]
+    private Color selectedColor = Color.green;
+
+    private Renderer unitRenderer;
+    private bool isHovered;
+
     public bool IsSelected => isSelected;
+
+    private Color originalColor;
+
+    private void Awake()
+    {
+        unitRenderer = GetComponent<Renderer>();
+
+        if (unitRenderer != null)
+        {
+            originalColor = unitRenderer.material.color;
+            normalColor = originalColor;
+        }
+
+        UpdateColor();
+    }
 
     public void Select()
     {
         isSelected = true;
-
-        Debug.Log($"{gameObject.name} Selected");
+        UpdateColor();
     }
 
     public void Deselect()
     {
         isSelected = false;
+        UpdateColor();
+    }
 
-        Debug.Log($"{gameObject.name} Deselected");
+    public void SetHovered(bool hovered)
+    {
+        isHovered = hovered;
+        UpdateColor();
+    }
+
+    private void UpdateColor()
+    {
+        if (unitRenderer == null)
+        {
+            return;
+        }
+
+        if (isSelected)
+        {
+            unitRenderer.material.color = selectedColor;
+        }
+        else if (isHovered)
+        {
+            unitRenderer.material.color = hoverColor;
+        }
+        else
+        {
+            unitRenderer.material.color = normalColor;
+        }
     }
 }

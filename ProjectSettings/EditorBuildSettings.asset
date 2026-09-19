@@ -9,15 +9,13 @@ EditorBuildSettings:
     path: "Assets/Scenes/SYS\u201104_CORE_SIMULATION/SYS\u201104_SimulationCore/SYS\u201104_SimulationCore.unity"
     guid: 9002e9d3ddaf0d845b84d42884cf1e4e
   - enabled: 1
-    path: "Assets/Scenes/SCN\u201101  MAIN MENU/[HUD] MAIN MENU HUD/SCN\u201101 
-      MAIN MENU.unity"
+    path: "Assets/Scenes/SCN\u201101  MAIN MENU/[HUD] MAIN MENU HUD/SCN\u201101  MAIN MENU.unity"
     guid: 3a119c7292583d54cbbc2cfac953750c
   - enabled: 1
     path: "Assets/Scenes/SCN\u201102  COMMAND CENTER/[HUD] COMMAND CENTER HUD/Command_Center.unity"
     guid: 7283dd3c6babe0d4f907577c96b6f010
   - enabled: 1
-    path: "Assets/Scenes/SCN\u201103  BATTLEFIELD/[HUD] BATTLEFIELD HUD/[HUD] BATTLEFIELD
-      HUD.unity"
+    path: "Assets/Scenes/SCN\u201103  BATTLEFIELD/[HUD] BATTLEFIELD HUD/[HUD] BATTLEFIELD HUD.unity"
     guid: 155ca26d6107e0a42ac705229f04688d
   - enabled: 1
     path: Assets/Scenes/SCN-04 GARAGE/GARAGE.unity
@@ -38,8 +36,7 @@ EditorBuildSettings:
     path: "Assets/Scenes/SCN\u201109  COMMANDER PROFILE/[HUD] COMMANDER PROFILE HUD/Player_Commander_Profile.unity"
     guid: 4f9ed23072e7c744b83e08cc42cccfd6
   - enabled: 1
-    path: "Assets/Scenes/SCN\u201110  AFTER ACTION REPORT/[HUD] AFTER ACTION REPORT
-      HUD/After_Action_HUD.unity"
+    path: "Assets/Scenes/SCN\u201110  AFTER ACTION REPORT/[HUD] AFTER ACTION REPORT HUD/After_Action_HUD.unity"
     guid: a0757e715182ce54883ba1be86234e42
   - enabled: 1
     path: "Assets/Scenes/SCN\u201111  BATTLE REPLAY/[HUD] BATTLE REPLAY HUD/Battle_Replay_HUD.unity"
