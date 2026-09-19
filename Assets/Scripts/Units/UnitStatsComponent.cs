@@ -39,4 +39,10 @@ public class UnitStatsComponent : MonoBehaviour
 
         currentHealth = maxHealth;
     }
+
+    public void TakeDamage(float amount)
+    {
+        currentHealth = Mathf.Max(0f, currentHealth - amount);
+        Debug.Log($"{gameObject.name} took {amount} damage. Health: {currentHealth}/{maxHealth}");
+    }
 }

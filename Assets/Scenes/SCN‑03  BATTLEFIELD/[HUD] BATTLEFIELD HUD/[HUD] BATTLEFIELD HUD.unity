@@ -12244,8 +12244,9 @@ GameObject:
   - component: {fileID: 545076049}
   - component: {fileID: 545076048}
   - component: {fileID: 545076047}
+  - component: {fileID: 545076053}
   m_Layer: 0
-  m_Name: '[UNIT] ALPHA SQUAD (3)'
+  m_Name: '[UNIT] ALPHA SQUAD 04'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12392,6 +12393,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 545076045}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &545076053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545076045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c1b01370e04e6f44b31daf0047f4d02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitStatsComponent
+  unitId: ALPHA SQUAD 04
+  maxHealth: 100
+  armor: 0
+  mobility: 5
+  sensorRange: 20
+  detection: 10
+  accuracy: 0.7
+  damage: 10
+  fireRate: 1
+  commandCapacity: 0
+  energyCapacity: 100
+  currentHealth: 0
 --- !u!1 &551133036
 GameObject:
   m_ObjectHideFlags: 0
@@ -15113,8 +15138,9 @@ GameObject:
   - component: {fileID: 716132857}
   - component: {fileID: 716132858}
   - component: {fileID: 716132859}
+  - component: {fileID: 716132860}
   m_Layer: 0
-  m_Name: '[UNIT] ALPHA SQUAD'
+  m_Name: '[UNIT] ALPHA SQUAD 01'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15261,6 +15287,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dce68e2cd48a3a40a5e8edf4ca45f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitMovement
+--- !u!114 &716132860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716132852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c1b01370e04e6f44b31daf0047f4d02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitStatsComponent
+  unitId: ALPHA SQUAD 01
+  maxHealth: 100
+  armor: 0
+  mobility: 5
+  sensorRange: 20
+  detection: 10
+  accuracy: 0.7
+  damage: 10
+  fireRate: 1
+  commandCapacity: 0
+  energyCapacity: 100
+  currentHealth: 0
 --- !u!21 &722743956
 Material:
   serializedVersion: 8
@@ -18814,8 +18864,9 @@ GameObject:
   - component: {fileID: 856545711}
   - component: {fileID: 856545710}
   - component: {fileID: 856545709}
+  - component: {fileID: 856545715}
   m_Layer: 0
-  m_Name: '[UNIT] ALPHA SQUAD (1)'
+  m_Name: '[UNIT] ALPHA SQUAD 02'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18962,6 +19013,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 856545707}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &856545715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856545707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c1b01370e04e6f44b31daf0047f4d02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitStatsComponent
+  unitId: ALPHA SQUAD 02
+  maxHealth: 100
+  armor: 0
+  mobility: 5
+  sensorRange: 20
+  detection: 10
+  accuracy: 0.7
+  damage: 10
+  fireRate: 1
+  commandCapacity: 0
+  energyCapacity: 100
+  currentHealth: 0
 --- !u!1 &861033263
 GameObject:
   m_ObjectHideFlags: 0
@@ -39941,8 +40016,9 @@ GameObject:
   - component: {fileID: 2001347536}
   - component: {fileID: 2001347535}
   - component: {fileID: 2001347534}
+  - component: {fileID: 2001347540}
   m_Layer: 0
-  m_Name: '[UNIT] ALPHA SQUAD (2)'
+  m_Name: '[UNIT] ALPHA SQUAD 03'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40089,6 +40165,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001347532}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2001347540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001347532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c1b01370e04e6f44b31daf0047f4d02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitStatsComponent
+  unitId: ALPHA SQUAD 03
+  maxHealth: 100
+  armor: 0
+  mobility: 5
+  sensorRange: 20
+  detection: 10
+  accuracy: 0.7
+  damage: 10
+  fireRate: 1
+  commandCapacity: 0
+  energyCapacity: 100
+  currentHealth: 0
 --- !u!1 &2007100115
 GameObject:
   m_ObjectHideFlags: 0
