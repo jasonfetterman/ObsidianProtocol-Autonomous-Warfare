@@ -1,3 +1,4 @@
+﻿#pragma warning disable 0619
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -54,6 +55,7 @@ namespace MiniRTS
         {
             walkGrid = grid ??
                 throw new System.ArgumentNullException(nameof(grid));
+
             VisibilityGrid = new FogGrid(grid);
             Current = this;
             BuildOverlay();
@@ -85,8 +87,10 @@ namespace MiniRTS
                     building.Footprint)
                 : Current.VisibilityGrid.GetState(
                     target.CombatTargetPosition);
+
             bool omniscient =
                 observerOwnerId != BalanceConfig.PlayerOwnerId;
+
             return FogVisibilityRules.CanSeeEntity(
                 observerOwnerId,
                 target.OwnerId,
@@ -96,7 +100,9 @@ namespace MiniRTS
 
         public static bool IsVisibleToPlayer(ICombatTarget target)
         {
-            return CanOwnerSeeTarget(BalanceConfig.PlayerOwnerId, target);
+            return CanOwnerSeeTarget(
+                BalanceConfig.PlayerOwnerId,
+                target);
         }
 
         public void RefreshVisibilityNow()
@@ -110,6 +116,7 @@ namespace MiniRTS
             StampPlayerVision();
             RefreshOverlayTexture();
             RefreshEnemyVisibility();
+
             nextVisibilityUpdate =
                 Time.unscaledTime + BalanceConfig.FogUpdateInterval;
         }
@@ -148,9 +155,11 @@ namespace MiniRTS
         private void StampPlayerVision()
         {
             IReadOnlyList<Unit> units = Unit.ActiveUnits;
+
             for (int i = 0; i < units.Count; i++)
             {
                 Unit unit = units[i];
+
                 if (unit == null ||
                     !unit.IsAlive ||
                     unit.OwnerId != BalanceConfig.PlayerOwnerId)
@@ -161,13 +170,19 @@ namespace MiniRTS
                 float radius =
                     BalanceConfig.GetVisionRadius(unit.Type) *
                     walkGrid.CellSize;
-                VisibilityGrid.StampCircle(unit.transform.position, radius);
+
+                VisibilityGrid.StampCircle(
+                    unit.transform.position,
+                    radius);
             }
 
-            IReadOnlyList<Building> buildings = Building.ActiveBuildings;
+            IReadOnlyList<Building> buildings =
+                Building.ActiveBuildings;
+
             for (int i = 0; i < buildings.Count; i++)
             {
                 Building building = buildings[i];
+
                 if (building == null ||
                     !building.IsAlive ||
                     building.OwnerId != BalanceConfig.PlayerOwnerId)
@@ -178,7 +193,10 @@ namespace MiniRTS
                 float radius =
                     BalanceConfig.GetVisionRadius(building.Type) *
                     walkGrid.CellSize;
-                VisibilityGrid.StampCircle(building.transform.position, radius);
+
+                VisibilityGrid.StampCircle(
+                    building.transform.position,
+                    radius);
             }
         }
 
@@ -195,9 +213,13 @@ namespace MiniRTS
                 filterMode = FilterMode.Bilinear,
                 wrapMode = TextureWrapMode.Clamp
             };
-            overlayPixels = new Color32[walkGrid.Width * walkGrid.Height];
 
-            Shader shader = Shader.Find("Universal Render Pipeline/Unlit");
+            overlayPixels =
+                new Color32[walkGrid.Width * walkGrid.Height];
+
+            Shader shader =
+                Shader.Find("Universal Render Pipeline/Unlit");
+
             if (shader == null)
             {
                 shader = Shader.Find("Unlit/Transparent");
@@ -215,7 +237,9 @@ namespace MiniRTS
                 mainTexture = overlayTexture,
                 renderQueue = (int)RenderQueue.Transparent
             };
+
             ConfigureTransparentMaterial(overlayMaterial);
+
             if (overlayMaterial.HasProperty("_ZTest"))
             {
                 overlayMaterial.SetFloat(
@@ -227,14 +251,32 @@ namespace MiniRTS
                 "FogOfWarOverlay",
                 typeof(MeshFilter),
                 typeof(MeshRenderer));
-            overlayObject.transform.SetParent(transform, false);
-            overlayObject.transform.position = new Vector3(
-                walkGrid.Origin.x + walkGrid.Width * walkGrid.CellSize * 0.5f,
-                BalanceConfig.FogOverlayHeight,
-                walkGrid.Origin.z + walkGrid.Height * walkGrid.CellSize * 0.5f);
 
-            float halfWidth = walkGrid.Width * walkGrid.CellSize * 0.5f;
-            float halfHeight = walkGrid.Height * walkGrid.CellSize * 0.5f;
+            overlayObject.transform.SetParent(
+                transform,
+                false);
+
+            overlayObject.transform.position = new Vector3(
+                walkGrid.Origin.x +
+                    walkGrid.Width *
+                    walkGrid.CellSize *
+                    0.5f,
+                BalanceConfig.FogOverlayHeight,
+                walkGrid.Origin.z +
+                    walkGrid.Height *
+                    walkGrid.CellSize *
+                    0.5f);
+
+            float halfWidth =
+                walkGrid.Width *
+                walkGrid.CellSize *
+                0.5f;
+
+            float halfHeight =
+                walkGrid.Height *
+                walkGrid.CellSize *
+                0.5f;
+
             overlayMesh = new Mesh
             {
                 name = "FogOfWarOverlayMesh",
@@ -252,16 +294,28 @@ namespace MiniRTS
                     new Vector2(1f, 1f),
                     new Vector2(1f, 0f)
                 },
-                triangles = new[] { 0, 1, 2, 0, 2, 3 }
+                triangles = new[]
+                {
+                    0, 1, 2,
+                    0, 2, 3
+                }
             };
+
             overlayMesh.RecalculateNormals();
             overlayMesh.RecalculateBounds();
-            overlayObject.GetComponent<MeshFilter>().sharedMesh = overlayMesh;
+
+            overlayObject.GetComponent<MeshFilter>().sharedMesh =
+                overlayMesh;
 
             MeshRenderer overlayRenderer =
                 overlayObject.GetComponent<MeshRenderer>();
-            overlayRenderer.sharedMaterial = overlayMaterial;
-            overlayRenderer.shadowCastingMode = ShadowCastingMode.Off;
+
+            overlayRenderer.sharedMaterial =
+                overlayMaterial;
+
+            overlayRenderer.shadowCastingMode =
+                ShadowCastingMode.Off;
+
             overlayRenderer.receiveShadows = false;
             overlayRenderer.sortingOrder = 100;
         }
@@ -273,20 +327,24 @@ namespace MiniRTS
                 for (int x = 0; x < walkGrid.Width; x++)
                 {
                     Color32 pixel;
+
                     switch (VisibilityGrid.GetState(x, y))
                     {
                         case FogState.Visible:
                             pixel = VisibleColor;
                             break;
+
                         case FogState.Discovered:
                             pixel = DiscoveredColor;
                             break;
+
                         default:
                             pixel = UndiscoveredColor;
                             break;
                     }
 
-                    overlayPixels[y * walkGrid.Width + x] = pixel;
+                    overlayPixels[
+                        y * walkGrid.Width + x] = pixel;
                 }
             }
 
@@ -297,10 +355,14 @@ namespace MiniRTS
         private void RefreshEnemyVisibility()
         {
             activeEnemyEntityIds.Clear();
-            IReadOnlyList<Unit> units = Unit.ActiveUnits;
+
+            IReadOnlyList<Unit> units =
+                Unit.ActiveUnits;
+
             for (int i = 0; i < units.Count; i++)
             {
                 Unit unit = units[i];
+
                 if (unit == null ||
                     !unit.IsAlive ||
                     unit.OwnerId == BalanceConfig.PlayerOwnerId)
@@ -308,17 +370,23 @@ namespace MiniRTS
                     continue;
                 }
 
-                activeEnemyEntityIds.Add(unit.GetInstanceID());
+                activeEnemyEntityIds.Add(
+                    unit.GetEntityId().GetHashCode());
+
                 SetTargetRenderersVisible(
                     unit,
                     IsVisibleToPlayer(unit));
             }
 
             activeEnemyBuildingIds.Clear();
-            IReadOnlyList<Building> buildings = Building.ActiveBuildings;
+
+            IReadOnlyList<Building> buildings =
+                Building.ActiveBuildings;
+
             for (int i = 0; i < buildings.Count; i++)
             {
                 Building building = buildings[i];
+
                 if (building == null ||
                     !building.IsAlive ||
                     building.OwnerId == BalanceConfig.PlayerOwnerId)
@@ -326,20 +394,35 @@ namespace MiniRTS
                     continue;
                 }
 
-                int instanceId = building.GetInstanceID();
+                int instanceId =
+                    building.GetEntityId().GetHashCode();
+
                 activeEnemyBuildingIds.Add(instanceId);
                 activeEnemyEntityIds.Add(instanceId);
-                FogState state = GetFootprintState(
-                    building.transform.position,
-                    building.Footprint);
-                bool visible = IsVisibleToPlayer(building);
-                SetTargetRenderersVisible(building, visible);
+
+                FogState state =
+                    GetFootprintState(
+                        building.transform.position,
+                        building.Footprint);
+
+                bool visible =
+                    IsVisibleToPlayer(building);
+
+                SetTargetRenderersVisible(
+                    building,
+                    visible);
 
                 if (visible)
                 {
                     EnemyBuildingMemory memory =
-                        GetOrCreateMemory(instanceId, building);
-                    memory.UpdateFrom(building, walkGrid.CellSize);
+                        GetOrCreateMemory(
+                            instanceId,
+                            building);
+
+                    memory.UpdateFrom(
+                        building,
+                        walkGrid.CellSize);
+
                     memory.Ghost.SetActive(false);
                 }
                 else if (buildingMemories.TryGetValue(
@@ -356,6 +439,7 @@ namespace MiniRTS
             }
 
             memoryKeys.Clear();
+
             foreach (int key in buildingMemories.Keys)
             {
                 memoryKeys.Add(key);
@@ -364,15 +448,20 @@ namespace MiniRTS
             for (int i = 0; i < memoryKeys.Count; i++)
             {
                 int key = memoryKeys[i];
+
                 if (activeEnemyBuildingIds.Contains(key))
                 {
                     continue;
                 }
 
-                EnemyBuildingMemory memory = buildingMemories[key];
-                FogState state = GetFootprintState(
-                    memory.WorldPosition,
-                    memory.Footprint);
+                EnemyBuildingMemory memory =
+                    buildingMemories[key];
+
+                FogState state =
+                    GetFootprintState(
+                        memory.WorldPosition,
+                        memory.Footprint);
+
                 if (state == FogState.Visible)
                 {
                     Destroy(memory.Ghost);
@@ -387,6 +476,7 @@ namespace MiniRTS
             }
 
             rendererCacheKeys.Clear();
+
             foreach (int key in rendererCache.Keys)
             {
                 rendererCacheKeys.Add(key);
@@ -395,6 +485,7 @@ namespace MiniRTS
             for (int i = 0; i < rendererCacheKeys.Count; i++)
             {
                 int key = rendererCacheKeys[i];
+
                 if (!activeEnemyEntityIds.Contains(key))
                 {
                     rendererCache.Remove(key);
@@ -407,19 +498,28 @@ namespace MiniRTS
             bool visible)
         {
             Component component = target as Component;
+
             if (component == null)
             {
                 return;
             }
 
-            int instanceId = component.GetInstanceID();
+            // ICombatTarget is implemented by specific MiniRTS components,
+            // while Unity's base Component does not expose GetEntityId().
+            // Use Unity's runtime instance ID here because renderer caching
+            // only requires a stable identifier for the current process.
+            int instanceId = component.GetEntityId().GetHashCode();
+
             if (!rendererCache.TryGetValue(
                     instanceId,
                     out Renderer[] renderers))
             {
                 renderers =
                     component.GetComponentsInChildren<Renderer>(true);
-                rendererCache.Add(instanceId, renderers);
+
+                rendererCache.Add(
+                    instanceId,
+                    renderers);
             }
 
             for (int i = 0; i < renderers.Length; i++)
@@ -444,21 +544,38 @@ namespace MiniRTS
 
             GameObject ghost = new GameObject(
                 $"LastKnown_{building.DisplayName}_{instanceId}");
-            ghost.transform.SetParent(transform, false);
-            ModelVisual ghostVisual = ModelVisualFactory.Create(
-                ModelLibrary.Get(building.Type),
-                ghost.transform);
+
+            ghost.transform.SetParent(
+                transform,
+                false);
+
+            ModelVisual ghostVisual =
+                ModelVisualFactory.Create(
+                    ModelLibrary.Get(building.Type),
+                    ghost.transform);
+
             if (ghostVisual != null)
             {
                 ghostVisual.ApplyTransparentTint(
-                    new Color(0.46f, 0.5f, 0.56f, 0.32f));
+                    new Color(
+                        0.46f,
+                        0.5f,
+                        0.56f,
+                        0.32f));
             }
 
             ghost.SetActive(false);
 
             memory = new EnemyBuildingMemory(ghost);
-            memory.UpdateFrom(building, walkGrid.CellSize);
-            buildingMemories.Add(instanceId, memory);
+
+            memory.UpdateFrom(
+                building,
+                walkGrid.CellSize);
+
+            buildingMemories.Add(
+                instanceId,
+                memory);
+
             return memory;
         }
 
@@ -466,18 +583,24 @@ namespace MiniRTS
             Vector3 worldCenter,
             Vector2Int footprint)
         {
-            Vector2Int minimum = BuildingFootprint.GetMinimumCell(
-                walkGrid,
-                worldCenter,
-                footprint);
-            FogState aggregate = FogState.Undiscovered;
+            Vector2Int minimum =
+                BuildingFootprint.GetMinimumCell(
+                    walkGrid,
+                    worldCenter,
+                    footprint);
+
+            FogState aggregate =
+                FogState.Undiscovered;
+
             for (int x = 0; x < footprint.x; x++)
             {
                 for (int y = 0; y < footprint.y; y++)
                 {
-                    FogState state = VisibilityGrid.GetState(
-                        minimum.x + x,
-                        minimum.y + y);
+                    FogState state =
+                        VisibilityGrid.GetState(
+                            minimum.x + x,
+                            minimum.y + y);
+
                     if (state == FogState.Visible)
                     {
                         return FogState.Visible;
@@ -493,16 +616,21 @@ namespace MiniRTS
             return aggregate;
         }
 
-        private static void ConfigureTransparentMaterial(Material material)
+        private static void ConfigureTransparentMaterial(
+            Material material)
         {
             if (material.HasProperty("_BaseColor"))
             {
-                material.SetColor("_BaseColor", material.color);
+                material.SetColor(
+                    "_BaseColor",
+                    material.color);
             }
 
             if (material.HasProperty("_Surface"))
             {
-                material.SetFloat("_Surface", 1f);
+                material.SetFloat(
+                    "_Surface",
+                    1f);
             }
 
             if (material.HasProperty("_SrcBlend"))
@@ -521,16 +649,23 @@ namespace MiniRTS
 
             if (material.HasProperty("_ZWrite"))
             {
-                material.SetFloat("_ZWrite", 0f);
+                material.SetFloat(
+                    "_ZWrite",
+                    0f);
             }
 
             if (material.HasProperty("_Cull"))
             {
-                material.SetFloat("_Cull", (float)CullMode.Off);
+                material.SetFloat(
+                    "_Cull",
+                    (float)CullMode.Off);
             }
 
-            material.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");
-            material.DisableKeyword("_ALPHATEST_ON");
+            material.EnableKeyword(
+                "_SURFACE_TYPE_TRANSPARENT");
+
+            material.DisableKeyword(
+                "_ALPHATEST_ON");
         }
 
         private sealed class EnemyBuildingMemory
@@ -544,21 +679,34 @@ namespace MiniRTS
                 Ghost = ghost;
             }
 
-            public void UpdateFrom(Building building, float cellSize)
+            public void UpdateFrom(
+                Building building,
+                float cellSize)
             {
                 BuildingDefinition definition =
                     BuildingDefinition.Get(building.Type);
-                WorldPosition = building.transform.position;
-                Footprint = building.Footprint;
-                Ghost.transform.position = new Vector3(
-                    WorldPosition.x,
-                    definition.Height * 0.5f,
-                    WorldPosition.z);
-                Ghost.transform.localScale = new Vector3(
-                    building.Footprint.x * cellSize,
-                    definition.Height,
-                    building.Footprint.y * cellSize);
+
+                WorldPosition =
+                    building.transform.position;
+
+                Footprint =
+                    building.Footprint;
+
+                Ghost.transform.position =
+                    new Vector3(
+                        WorldPosition.x,
+                        definition.Height * 0.5f,
+                        WorldPosition.z);
+
+                Ghost.transform.localScale =
+                    new Vector3(
+                        building.Footprint.x * cellSize,
+                        definition.Height,
+                        building.Footprint.y * cellSize);
             }
         }
     }
 }
+
+#pragma warning restore 0619
+

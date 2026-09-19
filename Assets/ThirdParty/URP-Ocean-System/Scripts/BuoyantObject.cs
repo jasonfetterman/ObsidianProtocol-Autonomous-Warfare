@@ -20,7 +20,7 @@ public class BuoyantObject : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        drag = rb.drag;
+        drag = rb.linearDamping;
     }
 
     void Start()
@@ -49,12 +49,12 @@ public class BuoyantObject : MonoBehaviour
                 f.x += OceanDisplacementData.windDirection.x * windSpeed;
                 f.z += OceanDisplacementData.windDirection.y * windSpeed;
 
-                rb.drag = underwaterDrag;
+                rb.linearDamping = underwaterDrag;
                 rb.AddForceAtPosition( f, floatPoint.position, ForceMode.Acceleration );
             }
             else
             {
-                rb.drag = drag;
+                rb.linearDamping = drag;
             }
         }
     }

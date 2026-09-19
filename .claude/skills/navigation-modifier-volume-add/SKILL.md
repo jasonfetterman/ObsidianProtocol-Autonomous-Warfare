@@ -1,0 +1,284 @@
+---
+name: navigation-modifier-volume-add
+description: Add and configure a `NavMeshModifierVolume` on a GameObject. A modifier volume marks a box-shaped region of space so that any NavMesh baked inside it is assigned a specific area (e.g. a non-walkable or higher-cost zone).
+metadata:
+  generated-by: mcp-plugin-dotnet
+---
+
+# Navigation / Add NavMeshModifierVolume
+
+Add a `NavMeshModifierVolume` to a GameObject. Unlike a NavMeshModifier (which is tied to geometry), a volume affects whatever NavMesh is generated inside its box region.
+
+## Inputs
+
+- `gameObjectRef` — the GameObject to add the volume to (required).
+- `size` — the box size of the volume (default 4,4,4).
+- `center` — the box center offset (default 0,0,0).
+- `area` — the NavMesh area index assigned inside the volume (default 0 = Walkable).
+
+## Behavior
+
+Adds (or reuses) a `NavMeshModifierVolume`, assigns size / center / area, marks the scene dirty, and repaints. Runs on the Unity main thread.
+
+## How to Call
+
+```bash
+unity-mcp-cli run-tool navigation-modifier-volume-add --input '{
+  "gameObjectRef": "string_value",
+  "size": "string_value",
+  "center": "string_value",
+  "area": 0
+}'
+```
+
+> For complex input (multi-line strings, code), save the JSON to a file and use:
+> ```bash
+> unity-mcp-cli run-tool navigation-modifier-volume-add --input-file args.json
+> ```
+>
+> Or pipe via stdin (recommended):
+> ```bash
+> unity-mcp-cli run-tool navigation-modifier-volume-add --input-file - <<'EOF'
+> {"param": "value"}
+> EOF
+> ```
+
+
+### Troubleshooting
+
+If `unity-mcp-cli` is not found, either install it globally (`npm install -g unity-mcp-cli`) or use `npx unity-mcp-cli` instead.
+Read the /unity-initial-setup skill for detailed installation instructions.
+
+## Input
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `gameObjectRef` | `any` | Yes | Reference to the GameObject to add the NavMeshModifierVolume to. |
+| `size` | `any` | No | Box size of the volume. |
+| `center` | `any` | No | Box center offset of the volume. |
+| `area` | `integer` | No | NavMesh area index assigned inside the volume (0 = Walkable). |
+
+### Input JSON Schema
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "gameObjectRef": {
+      "$ref": "#/$defs/AIGD.GameObjectRef"
+    },
+    "size": {
+      "$ref": "#/$defs/UnityEngine.Vector3"
+    },
+    "center": {
+      "$ref": "#/$defs/UnityEngine.Vector3"
+    },
+    "area": {
+      "type": "integer"
+    }
+  },
+  "$defs": {
+    "UnityEngine.EntityId": {
+      "type": "string",
+      "pattern": "^[0-9]+$"
+    },
+    "System.Type": {
+      "type": "string"
+    },
+    "AIGD.GameObjectRef": {
+      "type": "object",
+      "properties": {
+        "instanceID": {
+          "$ref": "#/$defs/UnityEngine.EntityId",
+          "description": "instanceID of the UnityEngine.Object. If it is '0' and 'path', 'name', 'assetPath' and 'assetGuid' is not provided, empty or null, then it will be used as 'null'. Priority: 1 (Recommended)"
+        },
+        "path": {
+          "type": "string",
+          "description": "Path of a GameObject in the hierarchy Sample 'character/hand/finger/particle'. Priority: 2."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of a GameObject in hierarchy. Priority: 3."
+        },
+        "assetType": {
+          "$ref": "#/$defs/System.Type",
+          "description": "Type of the asset."
+        },
+        "assetPath": {
+          "type": "string",
+          "description": "Path to the asset within the project. Starts with 'Assets/'"
+        },
+        "assetGuid": {
+          "type": "string",
+          "description": "Unique identifier for the asset."
+        }
+      },
+      "required": [
+        "instanceID"
+      ],
+      "description": "Find GameObject in opened Prefab or in the active Scene."
+    },
+    "UnityEngine.Vector3": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "z": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "z"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "gameObjectRef"
+  ]
+}
+```
+
+## Output
+
+### Output JSON Schema
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "result": {
+      "$ref": "#/$defs/com.IvanMurzak.Unity.MCP.Editor.API.Tool_Navigation-ModifierVolumeAddResponse"
+    }
+  },
+  "$defs": {
+    "AIGD.GameObjectRef": {
+      "type": "object",
+      "properties": {
+        "instanceID": {
+          "$ref": "#/$defs/UnityEngine.EntityId",
+          "description": "instanceID of the UnityEngine.Object. If it is '0' and 'path', 'name', 'assetPath' and 'assetGuid' is not provided, empty or null, then it will be used as 'null'. Priority: 1 (Recommended)"
+        },
+        "path": {
+          "type": "string",
+          "description": "Path of a GameObject in the hierarchy Sample 'character/hand/finger/particle'. Priority: 2."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of a GameObject in hierarchy. Priority: 3."
+        },
+        "assetType": {
+          "$ref": "#/$defs/System.Type",
+          "description": "Type of the asset."
+        },
+        "assetPath": {
+          "type": "string",
+          "description": "Path to the asset within the project. Starts with 'Assets/'"
+        },
+        "assetGuid": {
+          "type": "string",
+          "description": "Unique identifier for the asset."
+        }
+      },
+      "required": [
+        "instanceID"
+      ],
+      "description": "Find GameObject in opened Prefab or in the active Scene."
+    },
+    "UnityEngine.EntityId": {
+      "type": "string",
+      "pattern": "^[0-9]+$"
+    },
+    "System.Type": {
+      "type": "string"
+    },
+    "AIGD.ComponentRef": {
+      "type": "object",
+      "properties": {
+        "index": {
+          "type": "integer",
+          "description": "Component 'index' attached to a gameObject. The first index is '0' and that is usually Transform or RectTransform. Priority: 2. Default value is -1."
+        },
+        "typeName": {
+          "type": "string",
+          "description": "Component type full name. Sample 'UnityEngine.Transform'. If the gameObject has two components of the same type, the output component is unpredictable. Priority: 3. Default value is null."
+        },
+        "instanceID": {
+          "$ref": "#/$defs/UnityEngine.EntityId",
+          "description": "instanceID of the UnityEngine.Object. If this is '0', then it will be used as 'null'."
+        }
+      },
+      "required": [
+        "index",
+        "instanceID"
+      ],
+      "description": "Component reference. Used to find a Component at GameObject."
+    },
+    "UnityEngine.Vector3": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "z": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "z"
+      ],
+      "additionalProperties": false
+    },
+    "com.IvanMurzak.Unity.MCP.Editor.API.Tool_Navigation-ModifierVolumeAddResponse": {
+      "type": "object",
+      "properties": {
+        "gameObjectRef": {
+          "$ref": "#/$defs/AIGD.GameObjectRef",
+          "description": "Reference to the GameObject hosting the volume."
+        },
+        "volumeRef": {
+          "$ref": "#/$defs/AIGD.ComponentRef",
+          "description": "Reference to the NavMeshModifierVolume component."
+        },
+        "size": {
+          "$ref": "#/$defs/UnityEngine.Vector3",
+          "description": "Resolved box size."
+        },
+        "center": {
+          "$ref": "#/$defs/UnityEngine.Vector3",
+          "description": "Resolved box center."
+        },
+        "area": {
+          "type": "integer",
+          "description": "Resolved area index."
+        },
+        "success": {
+          "type": "boolean",
+          "description": "Whether the operation succeeded."
+        }
+      },
+      "required": [
+        "size",
+        "center",
+        "area",
+        "success"
+      ]
+    }
+  },
+  "required": [
+    "result"
+  ]
+}
+```
+
