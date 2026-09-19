@@ -1,0 +1,44 @@
+﻿using UnityEngine;
+using ObsidianProtocol.Game.Command;
+
+public class CommandIntentManager : MonoBehaviour
+{
+    [SerializeField]
+    private UnitSelectionManager selectionManager;
+
+    public void IssueIntent(IntentType type)
+    {
+        if (selectionManager == null)
+        {
+            Debug.LogWarning("CommandIntentManager: UnitSelectionManager is not assigned.");
+            return;
+        }
+
+        bool issued = false;
+
+        foreach (SelectableUnit unit in selectionManager.SelectedUnits)
+        {
+            if (unit == null)
+                continue;
+
+            SquadIntent squadIntent = unit.GetComponent<SquadIntent>();
+
+            if (squadIntent == null)
+                squadIntent = unit.GetComponentInChildren<SquadIntent>();
+
+            if (squadIntent == null)
+                continue;
+
+            squadIntent.SetIntent(type);
+
+            Debug.Log($"Intent issued: {type} -> {unit.gameObject.name}");
+
+            issued = true;
+        }
+
+        if (!issued)
+        {
+            Debug.Log("No selected unit with SquadIntent found. Cannot issue intent.");
+        }
+    }
+}

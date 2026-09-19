@@ -19,9 +19,18 @@ public class SelectableUnit : MonoBehaviour
 
     public bool IsSelected => isSelected;
 
+    private Color originalColor;
+
     private void Awake()
     {
         unitRenderer = GetComponent<Renderer>();
+
+        if (unitRenderer != null)
+        {
+            originalColor = unitRenderer.material.color;
+            normalColor = originalColor;
+        }
+
         UpdateColor();
     }
 

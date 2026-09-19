@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ObsidianProtocol.UI
 {
@@ -39,7 +39,6 @@ namespace ObsidianProtocol.UI
         // ---------------------------------------------------------
 
         /// <summary>
-        /// Show tooltip without text (legacy support).
         /// </summary>
         public void ShowTooltip()
         {
@@ -57,12 +56,10 @@ namespace ObsidianProtocol.UI
             if (tooltip == null)
                 return;
 
-            // TextMeshPro support
             var tmp = tooltip.GetComponentInChildren<TMPro.TextMeshProUGUI>();
             if (tmp != null)
                 tmp.text = text;
 
-            // Legacy UnityEngine.UI.Text support
             var uiText = tooltip.GetComponentInChildren<UnityEngine.UI.Text>();
             if (uiText != null)
                 uiText.text = text;

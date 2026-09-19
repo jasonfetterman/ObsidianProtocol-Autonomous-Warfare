@@ -1,0 +1,17 @@
+﻿using System;
+using ObsidianProtocol.Game.Command;
+
+[Serializable]
+public class Intent
+{
+    public IntentType Type;
+
+    public Intent()
+    {
+    }
+
+    public Intent(IntentType type)
+    {
+        Type = type;
+    }
+}
