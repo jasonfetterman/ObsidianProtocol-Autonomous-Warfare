@@ -2550,7 +2550,7 @@ Transform:
   m_GameObject: {fileID: 118354358}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20, y: 3.2, z: 24}
+  m_LocalPosition: {x: -20, y: 2.99, z: 31.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12078,7 +12078,7 @@ Transform:
   m_GameObject: {fileID: 545076045}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.56, y: 1, z: -5.19}
+  m_LocalPosition: {x: 4.56, y: 1, z: 5.39}
   m_LocalScale: {x: 2.4, y: 1.5, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14947,7 +14947,7 @@ Transform:
   m_GameObject: {fileID: 716132852}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 11.51}
   m_LocalScale: {x: 2.4, y: 1.5, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18648,7 +18648,7 @@ Transform:
   m_GameObject: {fileID: 856545707}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.39, y: 1, z: 0}
+  m_LocalPosition: {x: 4.39, y: 1, z: 11.6}
   m_LocalScale: {x: 2.4, y: 1.5, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -21569,6 +21569,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectionBoxController
   selectionBoxRect: {fileID: 511827364}
+  battlefieldCamera: {fileID: 1327676252}
+  selectionManager: {fileID: 1247685269}
 --- !u!1 &1012840973
 GameObject:
   m_ObjectHideFlags: 0
@@ -27884,6 +27886,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitMovementManager
   battlefieldCamera: {fileID: 1327676252}
   selectionManager: {fileID: 1247685269}
+  formationSpacing: 4
 --- !u!21 &1288742640
 Material:
   serializedVersion: 8
@@ -39660,7 +39663,7 @@ Transform:
   m_GameObject: {fileID: 2001347532}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -5.24}
+  m_LocalPosition: {x: 0, y: 1, z: 4.97}
   m_LocalScale: {x: 2.4, y: 1.5, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:

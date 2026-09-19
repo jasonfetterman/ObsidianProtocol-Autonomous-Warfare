@@ -6,7 +6,7 @@ public class UnitMovementManager : MonoBehaviour
 {
     [SerializeField] private Camera battlefieldCamera;
     [SerializeField] private UnitSelectionManager selectionManager;
-    [SerializeField] private float formationSpacing = 2f;
+    [SerializeField] private float formationSpacing = 4f;
 
     private void Update()
     {
@@ -19,13 +19,34 @@ public class UnitMovementManager : MonoBehaviour
             {
                 IReadOnlyList<SelectableUnit> selected = selectionManager.SelectedUnits;
 
-                if (selected.Count == 1)
+                if (selected.Count == 0)
                 {
-                    MoveUnit(selected[0], hit.point);
+                    return;
                 }
-                else if (selected.Count > 1)
+
+                List<SelectableUnit> unitsToMove = new List<SelectableUnit>();
+
+                foreach (SelectableUnit unit in selected)
                 {
-                    MoveGroupInFormation(selected, hit.point);
+                    CommandUnit commandUnit = unit.GetComponent<CommandUnit>();
+
+                    if (commandUnit != null)
+                    {
+                        unitsToMove.AddRange(commandUnit.CommandedUnits);
+                    }
+                    else
+                    {
+                        unitsToMove.Add(unit);
+                    }
+                }
+
+                if (unitsToMove.Count == 1)
+                {
+                    MoveUnit(unitsToMove[0], hit.point);
+                }
+                else if (unitsToMove.Count > 1)
+                {
+                    MoveGroupInFormation(unitsToMove, hit.point);
                 }
             }
         }
@@ -40,7 +61,7 @@ public class UnitMovementManager : MonoBehaviour
         }
     }
 
-    private void MoveGroupInFormation(IReadOnlyList<SelectableUnit> units, Vector3 center)
+    private void MoveGroupInFormation(List<SelectableUnit> units, Vector3 center)
     {
         int count = units.Count;
         int columns = Mathf.CeilToInt(Mathf.Sqrt(count));
