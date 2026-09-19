@@ -15,9 +15,7 @@ public class UnitMovementManager : MonoBehaviour
 
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                SelectableUnit selected = selectionManager.SelectedUnit;
-
-                if (selected != null)
+                foreach (SelectableUnit selected in selectionManager.SelectedUnits)
                 {
                     UnitMovement mover = selected.GetComponent<UnitMovement>();
                     if (mover != null)

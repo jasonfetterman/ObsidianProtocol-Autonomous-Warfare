@@ -1,37 +1,84 @@
 using UnityEngine;
 
-public class UITooltipSystem : MonoBehaviour
+namespace ObsidianProtocol.UI
 {
-    public static UITooltipSystem Instance { get; private set; }
-
-    public string CurrentTooltip { get; private set; } = string.Empty;
-
-    private void Awake()
+    /// <summary>
+    /// Central tooltip controller. Handles registration, text assignment, and visibility.
+    /// </summary>
+    public sealed class UITooltipSystem : MonoBehaviour
     {
-        if (Instance != null && Instance != this)
+        public static UITooltipSystem Instance { get; private set; }
+
+        private GameObject tooltip;
+
+        private void Awake()
         {
-            Destroy(gameObject);
-            return;
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this;
         }
 
-        Instance = this;
-    }
+        // ---------------------------------------------------------
+        // REGISTRATION
+        // ---------------------------------------------------------
 
-    public void ShowTooltip(string text)
-    {
-        if (string.IsNullOrEmpty(text))
-            return;
+        public void RegisterTooltip(GameObject t)
+        {
+            tooltip = t;
 
-        CurrentTooltip = text;
-    }
+            if (tooltip != null)
+                tooltip.SetActive(false);
+        }
 
-    public void HideTooltip()
-    {
-        CurrentTooltip = string.Empty;
-    }
+        // ---------------------------------------------------------
+        // CONTROL
+        // ---------------------------------------------------------
 
-    public bool IsVisible()
-    {
-        return !string.IsNullOrEmpty(CurrentTooltip);
+        /// <summary>
+        /// Show tooltip without text (legacy support).
+        /// </summary>
+        public void ShowTooltip()
+        {
+            if (tooltip == null)
+                return;
+
+            tooltip.SetActive(true);
+        }
+
+        /// <summary>
+        /// Show tooltip with text (required by UIOrchestrator).
+        /// </summary>
+        public void ShowTooltip(string text)
+        {
+            if (tooltip == null)
+                return;
+
+            // TextMeshPro support
+            var tmp = tooltip.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+            if (tmp != null)
+                tmp.text = text;
+
+            // Legacy UnityEngine.UI.Text support
+            var uiText = tooltip.GetComponentInChildren<UnityEngine.UI.Text>();
+            if (uiText != null)
+                uiText.text = text;
+
+            tooltip.SetActive(true);
+        }
+
+        /// <summary>
+        /// Hide tooltip.
+        /// </summary>
+        public void HideTooltip()
+        {
+            if (tooltip == null)
+                return;
+
+            tooltip.SetActive(false);
+        }
     }
 }

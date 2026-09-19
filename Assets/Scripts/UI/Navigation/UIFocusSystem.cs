@@ -1,46 +1,49 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class UIFocusSystem : MonoBehaviour
+namespace ObsidianProtocol.UI
 {
-    public static UIFocusSystem Instance { get; private set; }
-
-    private GameObject currentFocusedObject;
-
-    public GameObject CurrentFocusedObject => currentFocusedObject;
-
-    private void Awake()
+    public class UIFocusSystem : MonoBehaviour
     {
-        if (Instance != null && Instance != this)
+        public static UIFocusSystem Instance { get; private set; }
+
+        private GameObject currentFocus;
+
+        private void Awake()
         {
-            Destroy(gameObject);
-            return;
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this;
         }
 
-        Instance = this;
-    }
+        /// <summary>
+        /// Sets focus on a UI element.
+        /// </summary>
+        public void SetFocus(GameObject target)
+        {
+            if (target == null)
+                return;
 
-    public void SetFocus(GameObject target)
-    {
-        if (target == null)
-            return;
+            currentFocus = target;
+        }
 
-        currentFocusedObject = target;
+        /// <summary>
+        /// Clears the current focus.
+        /// </summary>
+        public void ClearFocus()
+        {
+            currentFocus = null;
+        }
 
-        if (EventSystem.current != null)
-            EventSystem.current.SetSelectedGameObject(target);
-    }
-
-    public void ClearFocus()
-    {
-        currentFocusedObject = null;
-
-        if (EventSystem.current != null)
-            EventSystem.current.SetSelectedGameObject(null);
-    }
-
-    public bool HasFocus()
-    {
-        return currentFocusedObject != null;
+        /// <summary>
+        /// Returns the currently focused UI element.
+        /// </summary>
+        public GameObject GetFocus()
+        {
+            return currentFocus;
+        }
     }
 }

@@ -1,0 +1,44 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.5/staging' branch; Version is '6000.5.5f1 (d16e074b49fd) revision 13725191'; Using compiler version '194234433'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26200) Core' Language: 'en' Physical Memory: 15774 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Black Steel Innovati" at "2026-09-17T21:28:52.2019865Z"
+System  architecture: x64
+Process architecture: x64
+Date: 2026-09-17T21:28:52Z
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 21616, path: "C:/ObsidianProtocol-Autonomous-Warfare/Unity Hub/UnityLicensingClient_V1/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.3+d7ffd15
+  Session Id:              087e103cff90413ab38f0ababdea0195
+  Correlation Id:          dd49a240796e660d6a74a39607e3f4f6
+  External correlation Id: 1870770550317074687
+  Machine Id:              o4qE9YDXKv/POKChpyk5Jlp2Zc4=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-Black Steel Innovati" (connect: 0.00s, validation: 0.00s, handshake: 0.05s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Black Steel Innovati-notifications" at "2026-09-17T21:28:52.2508197Z"
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 2475839770632-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.01
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Licensing Background thread has ended after 0.06s
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.5.5f1\Editor\Unity.exe
+-batchmode
+-quit
+-projectPath
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW
+-executeMethod
+ForceWireContinue.Execute
+-logFile
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\ForceWireContinue.log
+Successfully changed project path to: C:\ObsidianProtocol-Autonomous-Warfare\OPAW
+C:/ObsidianProtocol-Autonomous-Warfare/OPAW
+DisplayDialog: Project folder or disk is read only Please move the project folder somewhere readable and writable.
+This should not be called in batch mode.
+Exiting without the bug reporter. Application will terminate with return code 1

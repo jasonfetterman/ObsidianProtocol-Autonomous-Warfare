@@ -1,0 +1,411 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.0/staging' branch; Version is '6000.0.80f1 (2dfd32957da2) revision 3013938'; Using compiler version '193933523'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26200) Core' Language: 'en' Physical Memory: 15774 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+System  architecture: x64
+[Licensing::IpcConnector] Channel LicenseClient-Black Steel Innovati doesn't exist
+Process architecture: x64
+Date: 2026-09-15T08:45:11Z
+[Licensing::Module] Successfully launched the LicensingClient (PId: 28348)
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity 6000.0.80f1\Editor\Unity.exe
+-batchmode
+-quit
+-projectPath
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW
+-executeMethod
+BuildCommanderProfileScene.Build
+-logFile
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\BuildLogs\CommanderProfile_Build.log
+Successfully changed project path to: C:\ObsidianProtocol-Autonomous-Warfare\OPAW
+C:/ObsidianProtocol-Autonomous-Warfare/OPAW
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [19148]  Target information:
+
+Player connection [19148]  * "[IP] 192.168.1.183 [Port] 55504 [Flags] 2 [Guid] 1842010850 [EditorId] 1842010850 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-SJAQRUA) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [19148] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [19148] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Black Steel Innovati" at "2026-09-15T08:45:11.6752369Z"
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 28348, path: "C:/Program Files/Unity 6000.0.80f1/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.17.4+4293ba1
+  Session Id:              b125738f4bad416d941f68e8fd3e72ae
+  Correlation Id:          ec4252dd6fd23c3fe6ab653fc05af338
+  External correlation Id: 8286149731209507306
+  Machine Id:              o4qE9YDXKv/POKChpyk5Jlp2Zc4=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-Black Steel Innovati" (connect: 0.24s, validation: 0.08s, handshake: 0.04s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Black Steel Innovati-notifications" at "2026-09-15T08:45:11.7969869Z"
+[Licensing::Module] Connected to LicensingClient (PId: 28348, launch time: 0.00, total connection time: 0.37s)
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 2475839770632-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Package Manager] Connected to IPC stream "Upm-11992" after 0.3 seconds.
+Library Redirect Path: Library/
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.01
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Licensing Background thread has ended after 0.41s
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 0.59 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.0.80f1 (2dfd32957da2)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity 6000.0.80f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/ObsidianProtocol-Autonomous-Warfare/OPAW/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3050 Ti Laptop GPU (ID=0x25a0)
+    Vendor:   NVIDIA
+    VRAM:     3962 MB
+    Driver:   32.0.16.1088
+Shader 'Custom/Unlit Flat Circle': fallback shader 'Transparent' not found
+Shader 'Custom/FogOfWarCalculation': fallback shader 'Transparent' not found
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity 6000.0.80f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity 6000.0.80f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity 6000.0.80f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56992
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity 6000.0.80f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.002757 seconds.
+- Loaded All Assemblies, in  0.334 seconds
+Native extension for WindowsStandalone target not found
+Package Manager log level set to [2]
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.300 seconds
+Domain Reload Profiling: 631ms
+	BeginReloadAssembly (111ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (32ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (45ms)
+	LoadAllAssembliesAndSetupDomain (133ms)
+		LoadAssemblies (109ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (131ms)
+			TypeCache.Refresh (129ms)
+				TypeCache.ScanAssembly (118ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (300ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (268ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (22ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (50ms)
+			ProcessInitializeOnLoadAttributes (139ms)
+			ProcessInitializeOnLoadMethodAttributes (53ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+Application.AssetDatabase Initial Refresh Start
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 59 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.ai.inference@2.6.1 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.ai.inference@9a123aee5df7)
+    com.unity.ai.navigation@2.0.14 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.ai.navigation@134dd6a3b97b)
+    com.unity.collab-proxy@2.13.3 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.collab-proxy@4f3be89e8675)
+    com.unity.ide.rider@3.0.40 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.ide.rider@e4950c6d131b)
+    com.unity.ide.visualstudio@2.0.28 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.ide.visualstudio@b5edea5f33f4)
+    com.unity.inputsystem@1.19.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.inputsystem@21a28c3a6c83)
+    com.unity.timeline@1.8.13 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.timeline@3a22918286f5)
+    com.unity.visualscripting@1.9.12 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.visualscripting@4edfcc09512f)
+    com.unity.collections@2.6.7 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.collections@31e963071226)
+    com.unity.burst@1.8.29 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.burst@6bb9aca3ef38)
+    com.unity.dt.app-ui@1.3.6 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.dt.app-ui@3bbd9e4c5c92)
+    com.unity.nuget.newtonsoft-json@3.2.2 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.nuget.newtonsoft-json@4dfd81071c64)
+    com.unity.searcher@4.9.3 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.searcher@1e17ce91558d)
+    com.unity.mathematics@1.3.2 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.mathematics@8017b507cc74)
+    com.unity.nuget.mono-cecil@1.11.6 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.nuget.mono-cecil@ecb9724e46ff)
+    com.unity.test-framework.performance@3.5.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.test-framework.performance@8b56083ec0f0)
+  Built-in packages:
+    com.unity.2d.sprite@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.2d.sprite@0eb6ea2c7181)
+    com.unity.multiplayer.center@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.multiplayer.center@f3fb577b3546)
+    com.unity.render-pipelines.universal@17.0.4 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.render-pipelines.universal@9c1decc64651)
+    com.unity.test-framework@1.6.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.test-framework@082c24152fd4)
+    com.unity.ugui@2.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.ugui@4601c9db1b9b)
+    com.unity.modules.accessibility@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.accessibility)
+    com.unity.modules.ai@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.ai)
+    com.unity.modules.androidjni@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.androidjni)
+    com.unity.modules.animation@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.animation)
+    com.unity.modules.assetbundle@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.assetbundle)
+    com.unity.modules.audio@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.audio)
+    com.unity.modules.cloth@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.cloth)
+    com.unity.modules.director@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.director)
+    com.unity.modules.imageconversion@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.imageconversion)
+    com.unity.modules.imgui@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.jsonserialize)
+    com.unity.modules.particlesystem@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.particlesystem)
+    com.unity.modules.physics@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.physics)
+    com.unity.modules.physics2d@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.physics2d)
+    com.unity.modules.screencapture@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.screencapture)
+    com.unity.modules.terrain@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.terrain)
+    com.unity.modules.terrainphysics@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.terrainphysics)
+    com.unity.modules.tilemap@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.tilemap)
+    com.unity.modules.ui@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.ui)
+    com.unity.modules.uielements@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.uielements)
+    com.unity.modules.umbra@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.umbra)
+    com.unity.modules.unityanalytics@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.unityanalytics)
+    com.unity.modules.unitywebrequest@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.unitywebrequest)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.unitywebrequestassetbundle)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.unitywebrequestaudio)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.unitywebrequesttexture)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.unitywebrequestwww)
+    com.unity.modules.vehicles@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.vehicles)
+    com.unity.modules.video@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.video)
+    com.unity.modules.wind@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.wind)
+    com.unity.modules.xr@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.xr)
+    com.unity.modules.subsystems@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.subsystems)
+    com.unity.modules.hierarchycore@1.0.0 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.modules.hierarchycore)
+    com.unity.ext.nunit@2.0.5 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.ext.nunit@031a54704bff)
+    com.unity.render-pipelines.core@17.0.4 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.render-pipelines.core@8e828b9223c8)
+    com.unity.shadergraph@17.0.4 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.shadergraph@14250cfec0ec)
+    com.unity.render-pipelines.universal-config@17.0.3 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.render-pipelines.universal-config@dd206bf35d04)
+    com.unity.rendering.light-transport@1.0.1 (location: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Library\PackageCache\com.unity.rendering.light-transport@9bd588f963c0)
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.02 seconds
+Starting: C:\Program Files\Unity 6000.0.80f1\Editor\Data\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: C:/ObsidianProtocol-Autonomous-Warfare/OPAW
+DisplayProgressbar: Compiling Scripts
+ExitCode: 0 Duration: 0s255ms
+[ 809/1047  0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+*** Tundra build success (0.22 seconds), 1 items updated, 1047 evaluated
+AssetDatabase: script compilation time: 0.694822s
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.939 seconds
+Refreshing native plugins compatible for Editor in 3.02 ms, found 5 plugins.
+Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.PathTracing.Core.WorldRenderPipelineResources, Unity.PathTracing.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderingDebuggerRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.URPReflectionProbeSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.UnifiedRayTracing.RayTracingRenderPipelineResources, Unity.UnifiedRayTracing.Runtime (1 object)
+	UnityEngine.Rendering.Universal.OnTilePostProcessResource, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPTerrainShaderSetting, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTerrainShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 3.10 ms, found 5 plugins.
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  3.599 seconds
+Domain Reload Profiling: 4533ms
+	BeginReloadAssembly (271ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (11ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (139ms)
+	RebuildCommonClasses (30ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (29ms)
+	LoadAllAssembliesAndSetupDomain (594ms)
+		LoadAssemblies (367ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (313ms)
+			TypeCache.Refresh (213ms)
+				TypeCache.ScanAssembly (199ms)
+			BuildScriptInfoCaches (78ms)
+			ResolveRequiredComponents (18ms)
+	FinalizeReload (3599ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (3337ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (13ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (179ms)
+			ProcessInitializeOnLoadAttributes (3019ms)
+			ProcessInitializeOnLoadMethodAttributes (117ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Asset Pipeline Refresh (id=fafac5cc217e60f4387b474b8fc7992f): Total: 5.899 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=4144 ms
+		Asset DB Callback time: managed=26 ms, native=21 ms
+		Scripting: domain reloads=1, domain reload time=939 ms, compile time=696 ms, other=69 ms
+		Project Asset Count: scripts=2850, non-scripts=3361
+		Asset File Changes: new=0, changed=0, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.002ms
+	InvokePackagesCallback: 23.295ms
+	ApplyChangesToAssetFolders: 0.614ms
+	Scan: 107.971ms
+	OnSourceAssetsModified: 0.002ms
+	CategorizeAssetsWithTransientArtifact: 73.256ms
+	ProcessAssetsWithTransientArtifactChanges: 119.309ms
+	CategorizeAssets: 70.129ms
+	ImportOutOfDateAssets: 3616.415ms (2916.537ms without children)
+		CompileScripts: 696.327ms
+		ReloadNativeAssets: 0.029ms
+		UnloadImportedAssets: 1.146ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 1.811ms
+		InitializingProgressBar: 0.000ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
+		OnDemandSchedulerStart: 0.565ms
+	PostProcessAllAssets: 26.378ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.002ms
+	UnloadStreamsBegin: 3.479ms
+	PersistCurrentRevisions: 0.238ms
+	UnloadStreamsEnd: 0.002ms
+	GenerateScriptTypeHashes: 3.978ms
+	Untracked: 1857.726ms
+
+Application.AssetDatabase Initial Refresh End
+Scanning for USB devices : 2.146ms
+Initializing Unity extensions:
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-OPAW
+Unloading 63 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 9630 unused Assets / (21.9 MB). Loaded Objects now: 10380.
+Memory consumption went from 242.0 MB to 220.1 MB.
+Total: 16.099600 ms (FindLiveObjects: 1.061200 ms CreateObjectMapping: 0.684500 ms MarkObjects: 7.493400 ms  DeleteObjects: 6.858800 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 1 unused Assets / (4.9 KB). Loaded Objects now: 10385.
+Memory consumption went from 226.2 MB to 226.2 MB.
+Total: 8.342100 ms (FindLiveObjects: 0.430700 ms CreateObjectMapping: 0.490700 ms MarkObjects: 7.395500 ms  DeleteObjects: 0.024700 ms)
+
+Can't add component 'Transform' to MainCamera because such a component is already added to the game object!
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.GameObject:Internal_AddComponentWithType (System.Type)
+UnityEngine.GameObject:AddComponent (System.Type)
+UnityEngine.GameObject:.ctor (string,System.Type[])
+BuildCommanderProfileScene:CreateCamera () (at Assets/Editor/BuildCommanderProfileScene.cs:164)
+BuildCommanderProfileScene:Build () (at Assets/Editor/BuildCommanderProfileScene.cs:65)
+
+[Assets/Editor/BuildCommanderProfileScene.cs line 164]
+
+Start importing ProjectSettings/EditorBuildSettings.asset using Guid(0000000000000000b000000000000000) (LibraryAssetImporter) -> (artifact id: '68d0357a70441256066d8ba28016fb8d') in 0.0086023 seconds
+Refreshing native plugins compatible for Editor in 3.48 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.59 ms.
+Asset Pipeline Refresh (id=958e0d83a88451c4b872d3b374187eee): Total: 0.406 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+	Summary:
+		Imports: total=1 (actual=1, local cache=0, cache server=0)
+		Asset DB Process Time: managed=2 ms, native=83 ms
+		Asset DB Callback time: managed=243 ms, native=76 ms
+		Scripting: domain reloads=0, domain reload time=0 ms, compile time=0 ms, other=0 ms
+		Project Asset Count: scripts=2850, non-scripts=3361
+		Asset File Changes: new=0, changed=0, moved=0, deleted=0
+		Scan Filter Count: 1
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 0.001ms
+	ApplyChangesToAssetFolders: 0.146ms
+	Scan: 22.309ms
+	OnSourceAssetsModified: 0.000ms
+	CategorizeAssetsWithTransientArtifact: 0.013ms
+	ProcessAssetsWithTransientArtifactChanges: 0.123ms
+	CategorizeAssets: 42.773ms
+	ImportOutOfDateAssets: 13.143ms (0.641ms without children)
+		ImportManagerImport: 10.234ms (1.309ms without children)
+			ImportInProcess: 8.899ms
+			UpdateCategorizedAssets: 0.026ms
+		ReloadNativeAssets: 0.039ms
+		UnloadImportedAssets: 0.226ms
+		ReloadImportedAssets: 0.000ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 1.504ms
+		InitializingProgressBar: 0.000ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
+		OnDemandSchedulerStart: 0.498ms
+	PostProcessAllAssets: 249.087ms
+	Hotreload: 70.394ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.386ms
+	UnloadStreamsBegin: 0.026ms
+	PersistCurrentRevisions: 0.227ms
+	UnloadStreamsEnd: 0.002ms
+	Untracked: 7.489ms
+
+Start importing Assets/Scenes/SCN‑09  COMMANDER PROFILE/[HUD] COMMANDER PROFILE HUD/Player_Commander_Profile.unity using Guid(4f9ed23072e7c744b83e08cc42cccfd6) (DefaultImporter) -> (artifact id: '2f020a11ddaedb066d6e39aac7278bbf') in 0.0014056 seconds
+Refreshing native plugins compatible for Editor in 2.93 ms, found 5 plugins.
+Preloading 1 native plugins for Editor in 0.07 ms.
+Asset Pipeline Refresh (id=e3601a816f955dc43b13c34a2695b87a): Total: 0.053 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=5490be18adbcd0645a5c643950497181): Total: 0.011 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+OBSIDIAN PROTOCOL COMMANDER PROFILE: FULL BUILD COMPLETE - CAMERA + HUD + NAVIGATION + PROFILE DATA
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+BuildCommanderProfileScene:Build () (at Assets/Editor/BuildCommanderProfileScene.cs:94)
+
+(Filename: Assets/Editor/BuildCommanderProfileScene.cs Line: 94)
+
+Batchmode quit successfully invoked - shutting down!
+[Physics::Module] Cleanup current backned.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] LicenseClient-Black Steel Innovati-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-Black Steel Innovati channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+Cleanup mono
+Exiting batchmode successfully now!
+Exiting without the bug reporter. Application will terminate with return code 0

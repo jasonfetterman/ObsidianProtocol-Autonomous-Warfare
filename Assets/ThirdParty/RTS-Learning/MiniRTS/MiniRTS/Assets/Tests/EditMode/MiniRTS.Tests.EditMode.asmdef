@@ -1,21 +1,31 @@
 {
-    "name": "MiniRTS.Tests.EditMode",
-    "rootNamespace": "MiniRTS.Tests.EditMode",
-    "references": [
-        "MiniRTS.Runtime"
-    ],
-    "includePlatforms": [
-        "Editor"
-    ],
-    "excludePlatforms": [],
-    "allowUnsafeCode": false,
-    "overrideReferences": false,
-    "precompiledReferences": [],
-    "autoReferenced": false,
-    "defineConstraints": [],
-    "versionDefines": [],
-    "noEngineReferences": false,
-    "optionalUnityReferences": [
-        "TestAssemblies"
-    ]
+    "name":  "MiniRTS.Tests.EditMode",
+    "rootNamespace":  "MiniRTS.Tests.EditMode",
+    "references":  [
+                       "MiniRTS.Runtime",
+                       "UnityEngine.UI",
+                       "UnityEngine.InputSystem"
+                   ],
+    "includePlatforms":  [
+                             "Editor"
+                         ],
+    "excludePlatforms":  [
+
+                         ],
+    "allowUnsafeCode":  false,
+    "overrideReferences":  false,
+    "precompiledReferences":  [
+
+                              ],
+    "autoReferenced":  false,
+    "defineConstraints":  [
+
+                          ],
+    "versionDefines":  [
+
+                       ],
+    "noEngineReferences":  false,
+    "optionalUnityReferences":  [
+                                    "TestAssemblies"
+                                ]
 }

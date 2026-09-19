@@ -16,11 +16,12 @@ public struct AICommand
         Die,
         CustomActionAtPos,
         CustomActionAtObj,
-        AttackMoveTo, //TODO: implement follow behavior
+        AttackMoveTo,
     }
 
     public enum CustomActions
     {
+        None,
         collectResources,
         dropoffResources,
     }
@@ -30,9 +31,10 @@ public struct AICommand
     public Vector3 destination;
     public InteractableObject target;
     public Vector3 origin;
-    public CustomActions? customAction;
 
-    public AICommand(CommandTypes type, Vector3 position, CustomActions? action = null)
+    public CustomActions customAction;
+
+    public AICommand(CommandTypes type, Vector3 position, CustomActions action = CustomActions.None)
     {
         commandType = type;
         destination = position;
@@ -41,7 +43,7 @@ public struct AICommand
         customAction = action;
     }
 
-    public AICommand(CommandTypes type, InteractableObject targetObject, CustomActions? action = null)
+    public AICommand(CommandTypes type, InteractableObject targetObject, CustomActions action = CustomActions.None)
     {
         commandType = type;
         destination = Vector3.one * float.NaN;
@@ -56,6 +58,6 @@ public struct AICommand
         destination = Vector3.one * float.NaN;
         target = null;
         origin = Vector3.one * float.NaN;
-        customAction = null;
+        customAction = CustomActions.None;
     }
 }

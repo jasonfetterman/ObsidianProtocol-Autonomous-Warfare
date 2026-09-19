@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 namespace ObsidianProtocol.Game.Core
@@ -35,6 +35,11 @@ namespace ObsidianProtocol.Game.Core
             StateChanged?.Invoke(previousState, nextState);
 
             return true;
+        }
+
+        public void ResumeGameplay()
+        {
+            TryChangeState(GameState.Gameplay);
         }
 
         private void OnDestroy()

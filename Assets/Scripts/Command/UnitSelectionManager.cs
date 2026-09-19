@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,17 +7,19 @@ public class UnitSelectionManager : MonoBehaviour
     [SerializeField]
     private Camera battlefieldCamera;
 
-    public SelectableUnit SelectedUnit { get; private set; }
+    private List<SelectableUnit> selectedUnits = new List<SelectableUnit>();
+
+    public IReadOnlyList<SelectableUnit> SelectedUnits => selectedUnits;
 
     private void Update()
     {
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            SelectUnit();
+            TrySingleSelect();
         }
     }
 
-    private void SelectUnit()
+    private void TrySingleSelect()
     {
         Ray ray = battlefieldCamera.ScreenPointToRay(
             Mouse.current.position.ReadValue());
@@ -28,21 +31,30 @@ public class UnitSelectionManager : MonoBehaviour
 
             if (unit != null)
             {
-                if (SelectedUnit != null)
-                {
-                    SelectedUnit.Deselect();
-                }
-
-                SelectedUnit = unit;
-                SelectedUnit.Select();
+                ClearSelection();
+                AddToSelection(unit);
                 return;
             }
         }
 
-        if (SelectedUnit != null)
+        ClearSelection();
+    }
+
+    public void ClearSelection()
+    {
+        foreach (SelectableUnit unit in selectedUnits)
         {
-            SelectedUnit.Deselect();
-            SelectedUnit = null;
+            unit.Deselect();
+        }
+        selectedUnits.Clear();
+    }
+
+    public void AddToSelection(SelectableUnit unit)
+    {
+        if (!selectedUnits.Contains(unit))
+        {
+            selectedUnits.Add(unit);
+            unit.Select();
         }
     }
 }
