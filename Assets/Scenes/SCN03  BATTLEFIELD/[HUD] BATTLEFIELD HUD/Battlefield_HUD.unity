@@ -1637,6 +1637,7 @@ GameObject:
   - component: {fileID: 75813762}
   - component: {fileID: 75813761}
   - component: {fileID: 75813760}
+  - component: {fileID: 75813767}
   m_Layer: 0
   m_Name: '[COMMAND] ARCHIVE'
   m_TagString: Untagged
@@ -1805,6 +1806,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 75813758}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &75813767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75813758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d894bf2ca4d5c794a9cb6c7037a2fef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Command.Autonomy.ArchiveCommandBrain
 --- !u!1 &75999368
 GameObject:
   m_ObjectHideFlags: 0
@@ -4331,7 +4344,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '[DISPLAY] OBJECTIVES 3 / 5'
+  m_Text: OBJECTIVES 3 / 5
 --- !u!222 &165985547
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9667,7 +9680,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '[NOTIFICATION] ALERTS 02'
+  m_Text: ALERTS 02
 --- !u!222 &400848024
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13531,7 +13544,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '[DISPLAY] NETWORK: ONLINE'
+  m_Text: 'NETWORK: ONLINE'
 --- !u!222 &556256864
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16313,7 +16326,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '[DISPLAY] MISSION: OPERATION NIGHTFALL'
+  m_Text: 'MISSION: OPERATION NIGHTFALL'
 --- !u!222 &701722088
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18071,7 +18084,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &768899611
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21083,7 +21096,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &888742108
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21661,7 +21674,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '[DISPLAY] TIME 02:14:36'
+  m_Text: TIME 02:14:36
 --- !u!222 &907610208
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25590,7 +25603,7 @@ GameObject:
   - component: {fileID: 1079037319}
   - component: {fileID: 1079037318}
   m_Layer: 0
-  m_Name: '[DISPLAY] COMMAND INTENT READY'
+  m_Name: COMMAND INTENT READY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25648,7 +25661,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '[DISPLAY] COMMAND INTENT READY'
+  m_Text: COMMAND INTENT READY
 --- !u!222 &1079037319
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28103,7 +28116,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '[DISPLAY] SENSOR COVERAGE 82%'
+  m_Text: SENSOR COVERAGE 82%
 --- !u!222 &1177773831
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -37590,7 +37603,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1686734932
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40798,7 +40811,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1911088056
 RectTransform:
   m_ObjectHideFlags: 0
