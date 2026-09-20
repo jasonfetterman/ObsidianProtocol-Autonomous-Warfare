@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using ObsidianProtocol.Game.Command;
 
 public class CommandIntentManager : MonoBehaviour
@@ -8,48 +8,48 @@ public class CommandIntentManager : MonoBehaviour
 
     public void IssueIntent(IntentType type)
     {
+        Debug.Log("[PLAYER] Intent issued: " + type);
+
         if (selectionManager == null)
         {
-            Debug.LogWarning("CommandIntentManager: UnitSelectionManager is not assigned.");
+            Debug.LogError(
+                "[PLAYER] CommandIntentManager has no Selection Manager.");
+
             return;
         }
 
-        bool issued = false;
+        CommandUnit selectedCommandUnit = null;
 
         foreach (SelectableUnit unit in selectionManager.SelectedUnits)
         {
             if (unit == null)
                 continue;
 
-            SquadIntentController controller =
-                unit.GetComponent<SquadIntentController>();
+            CommandUnit commandUnit =
+                unit.GetComponent<CommandUnit>();
 
-            if (controller == null)
-                controller =
-                    unit.GetComponentInChildren<SquadIntentController>();
-
-            if (controller == null)
-                continue;
-
-            Intent intent = new Intent(
-                type,
-                unit.transform.position
-            );
-
-            controller.SetIntent(intent);
-
-            Debug.Log(
-                $"Intent issued: {type} -> {unit.gameObject.name}"
-            );
-
-            issued = true;
+            if (commandUnit != null)
+            {
+                selectedCommandUnit = commandUnit;
+                break;
+            }
         }
 
-        if (!issued)
+        if (selectedCommandUnit == null)
         {
-            Debug.Log(
-                "No selected unit with SquadIntentController found. Cannot issue intent."
-            );
+            Debug.LogWarning(
+                "[PLAYER] No Command Unit selected. " +
+                "Select ARCHIVE before issuing an intent.");
+
+            return;
         }
+
+        Debug.Log(
+            "[PLAYER] Sending intent " +
+            type +
+            " to " +
+            selectedCommandUnit.gameObject.name);
+
+        selectedCommandUnit.ReceiveIntent(type);
     }
 }
