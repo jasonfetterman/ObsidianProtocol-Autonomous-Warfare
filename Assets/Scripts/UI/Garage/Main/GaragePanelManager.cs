@@ -11,4 +11,12 @@ public class GaragePanelManager : MonoBehaviour
             panel.SetActive(panel == panelToShow);
         }
     }
+
+    public void CloseAllPanels()
+    {
+        foreach (GameObject panel in panels)
+        {
+            panel.SetActive(false);
+        }
+    }
 }
