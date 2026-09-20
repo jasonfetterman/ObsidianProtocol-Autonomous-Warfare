@@ -710,7 +710,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 30503537}
-  - component: {fileID: 30503539}
   - component: {fileID: 30503538}
   - component: {fileID: 30503540}
   m_Layer: 0
@@ -756,18 +755,6 @@ MonoBehaviour:
   reconTarget: {fileID: 0}
   attackTarget: {fileID: 0}
   defendPosition: {fileID: 0}
---- !u!114 &30503539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30503536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02c8972c503caf941af1735a02a8f883, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SquadIntent
 --- !u!195 &30503540
 NavMeshAgent:
   m_ObjectHideFlags: 0

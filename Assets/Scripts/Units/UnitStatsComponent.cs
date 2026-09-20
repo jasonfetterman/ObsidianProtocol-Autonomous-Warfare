@@ -22,6 +22,7 @@ public class UnitStatsComponent : MonoBehaviour
     public UnitStatistics Stats { get; private set; }
     public float CurrentHealth => currentHealth;
 
+    public float MaxHealth => maxHealth;
     private void Awake()
     {
         Stats = new UnitStatistics(unitId);
