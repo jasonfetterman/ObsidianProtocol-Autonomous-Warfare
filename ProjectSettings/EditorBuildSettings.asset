@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: "Assets/Scenes/SCN\u201102  COMMAND CENTER/[HUD] COMMAND CENTER HUD/Command_Center.unity"
     guid: 7283dd3c6babe0d4f907577c96b6f010
   - enabled: 1
-    path: "Assets/Scenes/SCN\u201103  BATTLEFIELD/[HUD] BATTLEFIELD HUD/[HUD] BATTLEFIELD HUD.unity"
+    path: Assets/Scenes/SCN03  BATTLEFIELD/[HUD] BATTLEFIELD HUD/Battlefield_HUD.unity
     guid: 155ca26d6107e0a42ac705229f04688d
   - enabled: 1
     path: Assets/Scenes/SCN-04 GARAGE/GARAGE.unity

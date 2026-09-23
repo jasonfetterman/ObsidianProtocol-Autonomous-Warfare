@@ -64,7 +64,10 @@ public class UnitAutonomy : MonoBehaviour
 
         if (currentTarget != null)
         {
-            float distance = Vector3.Distance(transform.position, currentTarget.position);
+            float distance =
+                Vector3.Distance(
+                    transform.position,
+                    currentTarget.position);
 
             if (distance <= engagementDistance)
             {
@@ -79,25 +82,42 @@ public class UnitAutonomy : MonoBehaviour
             return;
         }
 
-        if (state == AutonomousState.Pursue ||
-            state == AutonomousState.Engage ||
-            state == AutonomousState.Investigate)
+        switch (state)
         {
-            state = AutonomousState.Patrol;
-        }
+            case AutonomousState.Idle:
+                agent.ResetPath();
+                break;
 
-        if (state == AutonomousState.Patrol)
-            Patrol();
+            case AutonomousState.Patrol:
+                Patrol();
+                break;
+
+            case AutonomousState.Investigate:
+                MoveToObjective();
+                break;
+
+            case AutonomousState.Pursue:
+                MoveToObjective();
+                break;
+
+            case AutonomousState.Engage:
+                agent.ResetPath();
+                break;
+
+            case AutonomousState.Retreat:
+                MoveToObjective();
+                break;
+        }
     }
 
     private void FindThreat()
     {
         currentTarget = null;
 
-        Collider[] contacts = Physics.OverlapSphere(
-            transform.position,
-            detectionRadius
-        );
+        Collider[] contacts =
+            Physics.OverlapSphere(
+                transform.position,
+                detectionRadius);
 
         float closestDistance = float.MaxValue;
 
@@ -109,10 +129,10 @@ public class UnitAutonomy : MonoBehaviour
             if (!contact.CompareTag(enemyTag))
                 continue;
 
-            float distance = Vector3.Distance(
-                transform.position,
-                contact.transform.position
-            );
+            float distance =
+                Vector3.Distance(
+                    transform.position,
+                    contact.transform.position);
 
             if (distance < closestDistance)
             {
@@ -130,7 +150,10 @@ public class UnitAutonomy : MonoBehaviour
                 return;
         }
 
-        Vector3 randomPoint = homePosition + Random.insideUnitSphere * patrolRadius;
+        Vector3 randomPoint =
+            homePosition +
+            Random.insideUnitSphere * patrolRadius;
+
         randomPoint.y = homePosition.y;
 
         if (NavMesh.SamplePosition(
@@ -144,6 +167,18 @@ public class UnitAutonomy : MonoBehaviour
         }
     }
 
+    private void MoveToObjective()
+    {
+        if (Vector3.Distance(
+                transform.position,
+                currentDestination) <= stoppingDistance)
+        {
+            return;
+        }
+
+        agent.SetDestination(currentDestination);
+    }
+
     public void SetAutonomousIntent(
         AutonomousState newState,
         Vector3 destination)
@@ -154,6 +189,12 @@ public class UnitAutonomy : MonoBehaviour
 
         if (agent != null && agent.isOnNavMesh)
             agent.SetDestination(destination);
+
+        Debug.Log(
+            "[AUTONOMY] " +
+            gameObject.name +
+            " received ARCHIVE intent: " +
+            newState);
     }
 
     public void SetTarget(Transform target)
@@ -162,6 +203,15 @@ public class UnitAutonomy : MonoBehaviour
 
         if (currentTarget != null)
             state = AutonomousState.Pursue;
+    }
+
+    public void ReleaseCommandControl()
+    {
+        state = AutonomousState.Patrol;
+        currentTarget = null;
+
+        if (agent != null && agent.isOnNavMesh)
+            agent.ResetPath();
     }
 
     public void ClearIntent()
@@ -178,12 +228,12 @@ public class UnitAutonomy : MonoBehaviour
     {
         Gizmos.DrawWireSphere(
             transform.position,
-            detectionRadius
-        );
+            detectionRadius);
 
         Gizmos.DrawWireSphere(
-            Application.isPlaying ? homePosition : transform.position,
-            patrolRadius
-        );
+            Application.isPlaying
+                ? homePosition
+                : transform.position,
+            patrolRadius);
     }
 }
