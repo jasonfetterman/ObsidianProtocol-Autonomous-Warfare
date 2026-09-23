@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using ObsidianProtocol.Game.Command;
@@ -245,6 +245,55 @@ namespace ObsidianProtocol.Game.Command.Autonomy
                     transform.position);
 
             activeOrders.Add(order);
+            DispatchOrderToSubordinates(order);
+        }
+
+        private void DispatchOrderToSubordinates(ArchiveOperationalOrder order)
+        {
+            if (commandUnit == null)
+                return;
+
+            foreach (SelectableUnit unit in commandUnit.CommandedUnits)
+            {
+                if (unit == null)
+                    continue;
+
+                UnitAutonomy autonomy = unit.GetComponent<UnitAutonomy>();
+
+                if (autonomy == null)
+                {
+                    Debug.LogWarning($"[ARCHIVE] No UnitAutonomy on {unit.gameObject.name}.");
+                    continue;
+                }
+
+                UnitAutonomy.AutonomousState state =
+                    UnitAutonomy.AutonomousState.Patrol;
+
+                switch (order.Type)
+                {
+                    case ArchiveOrderType.Advance:
+                        state = UnitAutonomy.AutonomousState.Pursue;
+                        break;
+                    case ArchiveOrderType.Attack:
+                        state = UnitAutonomy.AutonomousState.Engage;
+                        break;
+                    case ArchiveOrderType.Defend:
+                        state = UnitAutonomy.AutonomousState.Idle;
+                        break;
+                    case ArchiveOrderType.Recon:
+                        state = UnitAutonomy.AutonomousState.Investigate;
+                        break;
+                    case ArchiveOrderType.Retreat:
+                        state = UnitAutonomy.AutonomousState.Retreat;
+                        break;
+                    case ArchiveOrderType.Pursue:
+                        state = UnitAutonomy.AutonomousState.Pursue;
+                        break;
+                }
+
+                autonomy.SetAutonomousIntent(state, order.ObjectivePosition);
+                Debug.Log($"[ARCHIVE] ORDER DISPATCHED: {order.Type} -> {unit.gameObject.name}");
+            }
         }
 
         private void PublishOperationalPlan()
@@ -305,3 +354,4 @@ namespace ObsidianProtocol.Game.Command.Autonomy
         }
     }
 }
+

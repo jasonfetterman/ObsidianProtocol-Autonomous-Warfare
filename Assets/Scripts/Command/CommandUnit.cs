@@ -11,10 +11,16 @@ public class CommandUnit : MonoBehaviour
 
     private ArchiveCommandBrain archiveBrain;
 
-    public IReadOnlyList<SelectableUnit> CommandedUnits =>
-        commandedUnits;
+    public IReadOnlyList<SelectableUnit> CommandedUnits => commandedUnits;
 
-    private void Awake()
+    public void RegisterCommandedUnit(SelectableUnit unit)
+    {
+        if (unit == null || commandedUnits.Contains(unit))
+            return;
+
+        commandedUnits.Add(unit);
+    }
+private void Awake()
     {
         archiveBrain = GetComponent<ArchiveCommandBrain>();
     }

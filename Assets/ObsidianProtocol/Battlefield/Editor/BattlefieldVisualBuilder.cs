@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.IO;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -7,10 +8,11 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using ObsidianProtocol.Game.Command.Autonomy;
 
 public static class BattlefieldVisualBuilder
 {
-    private const string ScenePath = "Assets/Scenes/SCN‑03  BATTLEFIELD/[HUD] BATTLEFIELD HUD/[HUD] BATTLEFIELD HUD.unity";
+    private const string ScenePath = "Assets/Scenes/SCN03  BATTLEFIELD/[HUD] BATTLEFIELD HUD/Battlefield_HUD.unity";
 
     private static Font BuiltinFont;
 
@@ -753,6 +755,9 @@ public static class BattlefieldVisualBuilder
     private static void BuildUnitGroups(
         Transform parent)
     {
+        List<SelectableUnit> commandedUnits =
+            new List<SelectableUnit>();
+
         BuildUnitGroup(
             "ALPHA SQUAD",
             new Vector3(
@@ -764,7 +769,8 @@ public static class BattlefieldVisualBuilder
                 0.25f,
                 0.75f,
                 0.85f),
-            parent);
+            parent,
+            commandedUnits);
 
         BuildUnitGroup(
             "BRAVO SQUAD",
@@ -777,7 +783,8 @@ public static class BattlefieldVisualBuilder
                 0.25f,
                 0.75f,
                 0.85f),
-            parent);
+            parent,
+            commandedUnits);
 
         BuildUnitGroup(
             "CONTACT GROUP",
@@ -790,7 +797,12 @@ public static class BattlefieldVisualBuilder
                 0.9f,
                 0.18f,
                 0.18f),
-            parent);
+            parent,
+            commandedUnits);
+
+        BuildArchive(
+            parent,
+            commandedUnits);
     }
 
     private static void BuildUnitGroup(
@@ -798,7 +810,8 @@ public static class BattlefieldVisualBuilder
         Vector3 position,
         int count,
         Color color,
-        Transform parent)
+        Transform parent,
+        List<SelectableUnit> commandedUnits)
     {
         GameObject group =
             new GameObject(
@@ -819,21 +832,38 @@ public static class BattlefieldVisualBuilder
             float z =
                 (i / 2) * 4f;
 
-            Cube(
-                "[UNIT] " + name,
-                new Vector3(
-                    x,
-                    1f,
-                    z),
-                new Vector3(
-                    2.4f,
-                    1.5f,
-                    3f),
-                new Color(
-                    0.055f,
-                    0.065f,
-                    0.065f),
-                group.transform);
+            GameObject unit =
+                Cube(
+                    "[UNIT] " + name,
+                    new Vector3(
+                        x,
+                        1f,
+                        z),
+                    new Vector3(
+                        2.4f,
+                        1.5f,
+                        3f),
+                    new Color(
+                        0.055f,
+                        0.065f,
+                        0.065f),
+                    group.transform);
+
+            SelectableUnit selectable =
+                unit.GetComponent<SelectableUnit>();
+
+            if (selectable == null)
+            {
+                selectable =
+                    unit.AddComponent<SelectableUnit>();
+            }
+
+            if (unit.GetComponent<UnitAutonomy>() == null)
+            {
+                unit.AddComponent<UnitAutonomy>();
+            }
+
+            commandedUnits.Add(selectable);
 
             Cube(
                 "[UNIT] STATUS",
@@ -858,6 +888,77 @@ public static class BattlefieldVisualBuilder
                     0f),
             0.32f,
             color,
+            Quaternion.identity,
+            parent);
+    }
+
+    private static void BuildArchive(
+        Transform parent,
+        List<SelectableUnit> commandedUnits)
+    {
+        GameObject archive =
+            Cube(
+                "[COMMAND] ARCHIVE",
+                new Vector3(
+                    0f,
+                    2f,
+                    48f),
+                new Vector3(
+                    5f,
+                    4f,
+                    5f),
+                new Color(
+                    0.03f,
+                    0.12f,
+                    0.16f),
+                parent);
+
+        archive.AddComponent<SelectableUnit>();
+
+        archive.AddComponent<CommandUnit>();
+
+        archive.AddComponent<ArchiveCommandBrain>();
+
+        if (archive.GetComponent<UnitAutonomy>() == null)
+        {
+            archive.AddComponent<UnitAutonomy>();
+        }
+
+        CommandUnit commandUnit =
+            archive.GetComponent<CommandUnit>();
+
+        foreach (SelectableUnit unit in commandedUnits)
+        {
+            commandUnit.RegisterCommandedUnit(unit);
+        }
+
+        Cube(
+            "[COMMAND] ARCHIVE STATUS",
+            new Vector3(
+                0f,
+                4.25f,
+                50.55f),
+            new Vector3(
+                2.2f,
+                0.12f,
+                0.18f),
+            new Color(
+                0.25f,
+                0.75f,
+                0.85f),
+            parent);
+
+        Sign(
+            "ARCHIVE // COMMAND UNIT",
+            new Vector3(
+                0f,
+                7f,
+                48f),
+            0.42f,
+            new Color(
+                0.5f,
+                0.86f,
+                0.96f),
             Quaternion.identity,
             parent);
     }
@@ -986,6 +1087,7 @@ public static class BattlefieldVisualBuilder
             new GameObject(
                 "BATTLEFIELD CAMERA",
                 typeof(Camera),
+                typeof(RTSCameraController),
                 typeof(AudioListener));
 
         Camera camera =
@@ -1979,6 +2081,8 @@ public static class BattlefieldVisualBuilder
                     470f,
                     280f));
 
+        panel.SetActive(false);
+
         UILabel(
             title,
             panel.transform,
@@ -2100,8 +2204,9 @@ public static class BattlefieldVisualBuilder
         rect.anchoredPosition =
             Vector2.zero;
 
-        Image image =
-            obj.GetComponent<Image>();
+        Image image = obj.GetComponent<Image>();
+
+        image.raycastTarget = false;
 
         image.color =
             new Color(
@@ -2221,8 +2326,9 @@ public static class BattlefieldVisualBuilder
         rect.anchoredPosition =
             Vector2.zero;
 
-        Image image =
-            obj.GetComponent<Image>();
+        Image image = obj.GetComponent<Image>();
+
+        image.raycastTarget = false;
 
         image.color =
             color;
@@ -2572,4 +2678,13 @@ public static class BattlefieldVisualBuilder
                 Vector3.up);
     }
 }
+
+
+
+
+
+
+
+
+
 
