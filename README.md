@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="Assets/Art/Branding/obsidian-protocol-logo.png" alt="Black Steel Innovations — Obsidian Protocol logo" width="280">
+
 
 <br>
 
