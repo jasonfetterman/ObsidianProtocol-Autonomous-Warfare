@@ -172,10 +172,11 @@ clearer, there is work waiting.
 
 ## License
 
-Obsidian Protocol: Autonomous Warfare, including its code, game design, world,
-branding, artwork, and other original content, is proprietary to the project
-owner. Contributions become part of this project. Do not reproduce, redistribute,
-resell, or create a competing game from this repository without written authorization.
+Obsidian Protocol: Autonomous Warfare and all original code, game design, world,
+branding, artwork, and other materials are proprietary to **Black Steel Innovations**.
+See [`LICENSE`](LICENSE) for the full notice. Contributions become part of this
+project. Do not reproduce, redistribute, resell, or create a competing game from
+this repository without written authorization.
 
 <div align="center">
 
