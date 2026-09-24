@@ -1,67 +1,44 @@
 using UnityEngine;
-using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
-namespace ObsidianProtocol.UI
+public class UISelectionSystem : MonoBehaviour
 {
-    public class UISelectionSystem : MonoBehaviour
+    public static UISelectionSystem Instance { get; private set; }
+
+    public GameObject CurrentSelection { get; private set; }
+
+    private void Awake()
     {
-        public static UISelectionSystem Instance { get; private set; }
-
-        private GameObject currentSelection;
-        private readonly Stack<GameObject> selectionHistory = new Stack<GameObject>();
-
-        private void Awake()
+        if (Instance != null && Instance != this)
         {
-            if (Instance != null && Instance != this)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            Instance = this;
+            Destroy(gameObject);
+            return;
         }
 
-        /// <summary>
-        /// Selects a UI element and pushes previous selection to history.
-        /// </summary>
-        public void Select(GameObject target)
-        {
-            if (target == null)
-                return;
+        Instance = this;
+    }
 
-            if (currentSelection != null)
-                selectionHistory.Push(currentSelection);
+    public void Select(GameObject target)
+    {
+        if (target == null)
+            return;
 
-            currentSelection = target;
-        }
+        CurrentSelection = target;
 
-        /// <summary>
-        /// Clears the current selection and history.
-        /// </summary>
-        public void ClearSelection()
-        {
-            currentSelection = null;
-            selectionHistory.Clear();
-        }
+        if (EventSystem.current != null)
+            EventSystem.current.SetSelectedGameObject(target);
+    }
 
-        /// <summary>
-        /// Returns to the previous selection.
-        /// </summary>
-        public bool GoBack()
-        {
-            if (selectionHistory.Count == 0)
-                return false;
+    public void ClearSelection()
+    {
+        CurrentSelection = null;
 
-            currentSelection = selectionHistory.Pop();
-            return true;
-        }
+        if (EventSystem.current != null)
+            EventSystem.current.SetSelectedGameObject(null);
+    }
 
-        /// <summary>
-        /// Returns the currently selected UI element.
-        /// </summary>
-        public GameObject GetCurrentSelection()
-        {
-            return currentSelection;
-        }
+    public bool IsSelected(GameObject target)
+    {
+        return target != null && CurrentSelection == target;
     }
 }

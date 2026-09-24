@@ -12,9 +12,9 @@ public class ProductionTile : MonoBehaviour
     [SerializeField] Color noCollisionColor;
     [SerializeField] Color collisionColor;
 
-    public bool colliding { get; private set; }
+    public bool colliding { get; private set; } 
 
-    void Start()
+	void Start ()
     {
         GetComponent<Renderer>().material.CopyPropertiesFromMaterial(tileMaterial);
         SetColor(noCollisionColor);
@@ -27,9 +27,9 @@ public class ProductionTile : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (collisionLayers == (collisionLayers | (1 << other.gameObject.layer)))
+        if(collisionLayers == (collisionLayers | (1 << other.gameObject.layer)))
         {
-            if (other.gameObject.transform.root.GetEntityId().GetHashCode() != transform.root.GetEntityId().GetHashCode())
+            if(other.gameObject.transform.root.gameObject.GetInstanceID() != transform.root.gameObject.GetInstanceID())
             {
                 SetColor(collisionColor);
                 colliding = true;
@@ -39,7 +39,7 @@ public class ProductionTile : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (collisionLayers == (collisionLayers | (1 << other.gameObject.layer)))
+        if(collisionLayers == (collisionLayers | (1 << other.gameObject.layer)))
         {
             SetColor(noCollisionColor);
             colliding = false;

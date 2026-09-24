@@ -1,49 +1,46 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-namespace ObsidianProtocol.UI
+public class UIFocusSystem : MonoBehaviour
 {
-    public class UIFocusSystem : MonoBehaviour
+    public static UIFocusSystem Instance { get; private set; }
+
+    private GameObject currentFocusedObject;
+
+    public GameObject CurrentFocusedObject => currentFocusedObject;
+
+    private void Awake()
     {
-        public static UIFocusSystem Instance { get; private set; }
-
-        private GameObject currentFocus;
-
-        private void Awake()
+        if (Instance != null && Instance != this)
         {
-            if (Instance != null && Instance != this)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            Instance = this;
+            Destroy(gameObject);
+            return;
         }
 
-        /// <summary>
-        /// Sets focus on a UI element.
-        /// </summary>
-        public void SetFocus(GameObject target)
-        {
-            if (target == null)
-                return;
+        Instance = this;
+    }
 
-            currentFocus = target;
-        }
+    public void SetFocus(GameObject target)
+    {
+        if (target == null)
+            return;
 
-        /// <summary>
-        /// Clears the current focus.
-        /// </summary>
-        public void ClearFocus()
-        {
-            currentFocus = null;
-        }
+        currentFocusedObject = target;
 
-        /// <summary>
-        /// Returns the currently focused UI element.
-        /// </summary>
-        public GameObject GetFocus()
-        {
-            return currentFocus;
-        }
+        if (EventSystem.current != null)
+            EventSystem.current.SetSelectedGameObject(target);
+    }
+
+    public void ClearFocus()
+    {
+        currentFocusedObject = null;
+
+        if (EventSystem.current != null)
+            EventSystem.current.SetSelectedGameObject(null);
+    }
+
+    public bool HasFocus()
+    {
+        return currentFocusedObject != null;
     }
 }

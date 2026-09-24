@@ -1,10 +1,7 @@
 fileFormatVersion: 2
 guid: 9ab7f2ea53ae4e84db26ef9a70e2dc0a
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 204553043660382985
-    second: Copilot_20260821_153253_0
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -56,9 +53,7 @@ TextureImporter:
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationMethod: 0
   spriteTessellationDetail: -1
-  spriteGeometrySubdivision: -1
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -113,29 +108,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Copilot_20260821_153253_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1536
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9032a11d8e7b6d200800000000000000
-      internalID: 204553043660382985
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     customData: 
     physicsShape: []

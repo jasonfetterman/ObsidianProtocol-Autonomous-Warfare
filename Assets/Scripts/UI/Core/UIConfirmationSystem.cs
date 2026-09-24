@@ -1,75 +1,62 @@
-using UnityEngine;
 using System;
-using TMPro;
+using UnityEngine;
 
-namespace ObsidianProtocol.UI
+public class UIConfirmationSystem : MonoBehaviour
 {
-    public class UIConfirmationSystem : MonoBehaviour
+    public static UIConfirmationSystem Instance { get; private set; }
+
+    public bool IsWaitingForConfirmation { get; private set; }
+
+    private Action confirmAction;
+    private Action cancelAction;
+
+    private void Awake()
     {
-        public static UIConfirmationSystem Instance { get; private set; }
-
-        [Header("Confirmation Window Root")]
-        [SerializeField] private GameObject confirmationRoot;
-
-        [Header("Confirmation Text Element")]
-        [SerializeField] private TMP_Text confirmationText;
-
-        private Action onConfirm;
-        private Action onCancel;
-
-        private void Awake()
+        if (Instance != null && Instance != this)
         {
-            if (Instance != null && Instance != this)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            Instance = this;
-
-            if (confirmationRoot != null)
-                confirmationRoot.SetActive(false);
+            Destroy(gameObject);
+            return;
         }
 
-        public void ShowConfirmation(string message, Action confirmCallback, Action cancelCallback)
-        {
-            if (confirmationRoot == null)
-                return;
+        Instance = this;
+    }
 
-            onConfirm = confirmCallback;
-            onCancel = cancelCallback;
+    public void RequestConfirmation(Action onConfirm, Action onCancel = null)
+    {
+        confirmAction = onConfirm;
+        cancelAction = onCancel;
+        IsWaitingForConfirmation = true;
+    }
 
-            if (confirmationText != null)
-                confirmationText.text = message;
+    public void Confirm()
+    {
+        if (!IsWaitingForConfirmation)
+            return;
 
-            confirmationRoot.SetActive(true);
-        }
+        IsWaitingForConfirmation = false;
 
-        public void Confirm()
-        {
-            confirmationRoot.SetActive(false);
+        Action action = confirmAction;
+        ClearCallbacks();
 
-            onConfirm?.Invoke();
-            onConfirm = null;
-            onCancel = null;
-        }
+        action?.Invoke();
+    }
 
-        public void Cancel()
-        {
-            confirmationRoot.SetActive(false);
+    public void Cancel()
+    {
+        if (!IsWaitingForConfirmation)
+            return;
 
-            onCancel?.Invoke();
-            onConfirm = null;
-            onCancel = null;
-        }
+        IsWaitingForConfirmation = false;
 
-        public void Hide()
-        {
-            if (confirmationRoot != null)
-                confirmationRoot.SetActive(false);
+        Action action = cancelAction;
+        ClearCallbacks();
 
-            onConfirm = null;
-            onCancel = null;
-        }
+        action?.Invoke();
+    }
+
+    private void ClearCallbacks()
+    {
+        confirmAction = null;
+        cancelAction = null;
     }
 }

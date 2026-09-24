@@ -1,0 +1,14 @@
+﻿{
+  "parentObject": "CoreSceneRoot",
+  "children": [
+    { "name": "MainMenuRoot" },
+    { "name": "Canvas_MainMenu" },
+    { "name": "Panel_Title" },
+    { "name": "Panel_MainButtons" },
+    { "name": "Button_Play" },
+    { "name": "Button_Settings" },
+    { "name": "Button_Quit" },
+    { "name": "EventSystem" }
+  ],
+  "notes": "Attach MainMenuController.cs to MainMenuRoot under CoreSceneRoot in the Unity editor."
+}

@@ -6,74 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: "Assets/Scenes/SYS\u201104_CORE_SIMULATION/SYS\u201104_SimulationCore/SYS\u201104_SimulationCore.unity"
-    guid: 9002e9d3ddaf0d845b84d42884cf1e4e
-  - enabled: 1
-    path: "Assets/Scenes/SCN\u201101  MAIN MENU/[HUD] MAIN MENU HUD/SCN\u201101  MAIN MENU.unity"
-    guid: 3a119c7292583d54cbbc2cfac953750c
-  - enabled: 1
-    path: "Assets/Scenes/SCN\u201102  COMMAND CENTER/[HUD] COMMAND CENTER HUD/Command_Center.unity"
-    guid: 7283dd3c6babe0d4f907577c96b6f010
-  - enabled: 1
-    path: Assets/Scenes/SCN03  BATTLEFIELD/[HUD] BATTLEFIELD HUD/Battlefield_HUD.unity
-    guid: 155ca26d6107e0a42ac705229f04688d
-  - enabled: 1
-    path: Assets/Scenes/SCN-04 GARAGE/GARAGE.unity
-    guid: 3f475f244d3445647bd12d66122dabd7
-  - enabled: 1
-    path: Assets/Scenes/SCN-05  OPERATIONS/[HUD] OPERATIONS HUD/Operations.unity
-    guid: b93eac5945ad2f943812cdf7d377cfeb
-  - enabled: 1
-    path: Assets/Scenes/SCN-06  RESEARCH LAB/[HUD] RESEARCH HUD/Research_Lab.unity
-    guid: b01cda49ffb28604f9dcc946934516e0
-  - enabled: 1
-    path: Assets/Scenes/SCN-07  FINANCE OFFICE/[HUD] FINANCE HUD/Finance_ HUD.unity
-    guid: 4d948c9be64e71941a9d8893925c4e1c
-  - enabled: 1
-    path: Assets/Scenes/SCN-08  LOGISTICS BAY/[HUD] LOGISTICS HUD/Logistics_Bay.unity
-    guid: 87f5f50662771454c86c56002ebf114c
-  - enabled: 1
-    path: "Assets/Scenes/SCN\u201109  COMMANDER PROFILE/[HUD] COMMANDER PROFILE HUD/Player_Commander_Profile.unity"
-    guid: 4f9ed23072e7c744b83e08cc42cccfd6
-  - enabled: 1
-    path: "Assets/Scenes/SCN\u201110  AFTER ACTION REPORT/[HUD] AFTER ACTION REPORT HUD/After_Action_HUD.unity"
-    guid: a0757e715182ce54883ba1be86234e42
-  - enabled: 1
-    path: "Assets/Scenes/SCN\u201111  BATTLE REPLAY/[HUD] BATTLE REPLAY HUD/Battle_Replay_HUD.unity"
-    guid: 50a2df4ee25c208408087bacecb44443
-  - enabled: 1
-    path: Assets/Scenes/SCN-12 DEPLOYMENT/Deployment.unity
-    guid: 50ba6487def6586439a308a49489c033
-  - enabled: 1
-    path: "Assets/Scenes/SCN\u201113  MULTIPLAYER LOBBY/[HUD] MULTIPLAYER HUD/MultiplayerHUD.unity"
-    guid: 6564703552dbb7548bba107acabab9c1
-  - enabled: 1
-    path: "Assets/Scenes/SCN\u201114  SETTINGS/[HUD] SETTINGS HUD/Settings.unity"
-    guid: 270d5fbd49d3eed438b6238ca7ea02f1
-  - enabled: 1
-    path: "Assets/Scenes/SCN\u201115  EXIT CONFIRMATION/[HUD] EXIT CONFIRMATION HUD/Exit_Confirmation.unity"
-    guid: 601fc29bab91abf47922df0fc2a02a3d
-  - enabled: 1
-    path: Assets/Scenes/SCN-16 MILITARY STORE/Store.unity
-    guid: 3549b28b9582948408616ede3aab768f
-  - enabled: 1
-    path: Assets/Scenes/SCN-17 PERSISTENT MILITARY/Persistent_Military.unity
-    guid: 85ee16ac41c16884288082cb5e23dc0e
-  - enabled: 1
-    path: Assets/Scenes/SCN-18 INTELLIGENCE/Intellegence.unity
-    guid: e2cb6c8f7d643c244838562592c911ae
-  - enabled: 1
-    path: Assets/Scenes/SCN-19 ECONOMY/Economy.unity
-    guid: abadd4bd410daae4e9a0ec3190b73d8f
-  - enabled: 1
-    path: Assets/Scenes/SCN-20 VR COMMAND/VR_Command.unity
-    guid: 6af027198262d1d4f91ec1557dc6acae
-  - enabled: 1
-    path: Assets/Scenes/SCN-21 UNIVERSAL HUD NAVIGATION/UniversalHUDNavigation.unity
-    guid: 19e9bc8cbab6272428cc455d90947716
-  - enabled: 1
-    path: Assets/Scenes/SCN-22 UNIT INSPECTION/Unit_Inspection.unity
-    guid: 6573305f90ca3f346a52a2a07b71fce0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
-    com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_UseUCBPForAssetBundles: 0

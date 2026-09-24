@@ -1,7 +1,4 @@
 ﻿<Solution>
   <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Assembly-CSharp-Editor.csproj" />
-  <Project Path="MiniRTS.Runtime.csproj" />
-  <Project Path="MiniRTS.Editor.csproj" />
-  <Project Path="MiniRTS.Tests.EditMode.csproj" />
 </Solution>
