@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace ObsidianProtocol.Game.Logistics
@@ -339,44 +339,6 @@ namespace ObsidianProtocol.Game.Logistics
             return false;
         }
 
-        public float GetLinkEfficiency(StrategicSupplyLink link)
-        {
-            if (link == null || !link.Active)
-                return 0f;
-
-            if (!nodes.TryGetValue(link.OriginNodeId, out StrategicSupplyNode origin) ||
-                !nodes.TryGetValue(link.DestinationNodeId, out StrategicSupplyNode destination))
-                return 0f;
-
-            if (origin.State == StrategicNodeState.Destroyed ||
-                destination.State == StrategicNodeState.Destroyed ||
-                origin.State == StrategicNodeState.Offline ||
-                destination.State == StrategicNodeState.Offline)
-                return 0f;
-
-            if (origin.State == StrategicNodeState.Compromised ||
-                destination.State == StrategicNodeState.Compromised)
-                return 70f;
-
-            return 100f;
-        }
-
-        public string GetLinkRisk(StrategicSupplyLink link)
-        {
-            float efficiency = GetLinkEfficiency(link);
-
-            if (efficiency <= 0f)
-                return "HIGH";
-
-            if (efficiency < 100f)
-                return "MED";
-
-            return "LOW";
-        }
-        public float GetNetworkEfficiency() { if (links.Count == 0) return 0f; int active = 0; foreach (StrategicSupplyLink link in links.Values) if (link.Active) active++; return (float)active / links.Count * 100f; }
-
-        public string GetNetworkRisk() { foreach (StrategicSupplyLink link in links.Values) { if (!link.Active) return "HIGH"; if (!nodes.TryGetValue(link.OriginNodeId, out StrategicSupplyNode origin) || !nodes.TryGetValue(link.DestinationNodeId, out StrategicSupplyNode destination)) return "HIGH"; if (origin.State == StrategicNodeState.Destroyed || destination.State == StrategicNodeState.Destroyed) return "HIGH"; if (origin.State == StrategicNodeState.Compromised || destination.State == StrategicNodeState.Compromised) return "MED"; } return "LOW"; }
-
         public IReadOnlyCollection<StrategicSupplyNode>
             GetNodes()
         {
@@ -436,6 +398,3 @@ namespace ObsidianProtocol.Game.Logistics
         }
     }
 }
-
-
-

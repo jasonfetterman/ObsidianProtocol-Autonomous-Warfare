@@ -123,7 +123,7 @@ public class Projectile : MonoBehaviour
                 for (int i = 1; i <= resolution; i++)
                 {
                     float simulationTime = i / (float)resolution * (launchData.timeToTarget - (Time.time - launchTime));
-                    Vector3 displacement = rigid.linearVelocity * simulationTime + Physics.gravity * Mathf.Pow(simulationTime, 2f) / 2f;
+                    Vector3 displacement = rigid.velocity * simulationTime + Physics.gravity * Mathf.Pow(simulationTime, 2f) / 2f;
                     Vector3 currentPoint = transform.position + displacement;
                     if (Vector3.Distance(previosPoint, targetPosition) < Vector3.Distance(previosPoint, currentPoint))
                     {
@@ -166,7 +166,7 @@ public class Projectile : MonoBehaviour
 
     private void LaunchWithPhysics()
     {
-        rigid.linearVelocity = CalculateLaunchData().initialVelocity;
+        rigid.velocity = CalculateLaunchData().initialVelocity;
         rigid.isKinematic = false;
         if (projectileRotationMode == ProjectileRotationModes.SpinArroundX)
         {
@@ -193,7 +193,7 @@ public class Projectile : MonoBehaviour
                 switch (projectileFlyMode)
                 {
                     case ProjectileFlyModes.PhysicalArc:
-                        transform.rotation = Quaternion.LookRotation(rigid.linearVelocity.normalized, Vector3.up);
+                        transform.rotation = Quaternion.LookRotation(rigid.velocity.normalized, Vector3.up);
                         break;
                     case ProjectileFlyModes.Tracking:
                         Vector3 distanceVector = maxCurveHeight > 0f ? transform.position - lastPos : targetObject.position - transform.position;

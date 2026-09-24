@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -22,7 +22,7 @@ public class Unit : ClickableObject
     public bool alignToGround;
 
     //references
-    protected UnitAnimation animation;
+    protected new UnitAnimation animation;
     protected MovementNavigation navigation;
     protected ResourceCollector resourceCollector;
 
@@ -78,7 +78,7 @@ public class Unit : ClickableObject
             UnityEditor.Handles.color = Color.red;
             UnityEditor.Handles.DrawLine(transform.position, navigation.destination);
 
-            if (targetOfMovement != null)
+            if (targetOfMovement.HasValue)
             {
                 UnityEditor.Handles.color = Color.yellow;
                 UnityEditor.Handles.DrawLine(transform.position, targetOfMovement.Value);
@@ -123,11 +123,17 @@ public class Unit : ClickableObject
             case AICommand.CommandTypes.Die:
                 return true;
             case AICommand.CommandTypes.CustomActionAtPos:
-
-                return template.original.customActions.Contains(command.customAction) && !command.destination.IsNaN();
+                if (!command.customAction.HasValue)
+                {
+                    throw new System.ArgumentNullException();
+                }
+                return template.original.customActions.Contains(command.customAction.Value) && !command.destination.IsNaN();
             case AICommand.CommandTypes.CustomActionAtObj:
-
-                return template.original.customActions.Contains(command.customAction) && command.target != null && !command.target.attackable.isDead;
+                if (!command.customAction.HasValue)
+                {
+                    throw new System.ArgumentNullException();
+                }
+                return template.original.customActions.Contains(command.customAction.Value) && command.target != null && !command.target.attackable.isDead;
         }
         throw new System.NotImplementedException(string.Concat("Command Type '", command.commandType.ToString(), "' not valid"));
     }
@@ -163,7 +169,7 @@ public class Unit : ClickableObject
                 TransitIntoState(switchState.Value);
             }
         }
-        if (commandRecieved && !commandExecuted && switchState != null)
+        if (commandRecieved && !commandExecuted && switchState.HasValue)
         {
             TransitOutOfState(state);
             TransitIntoState(switchState.Value);
@@ -200,7 +206,7 @@ public class Unit : ClickableObject
             case AICommand.CommandTypes.CustomActionAtPos:
                 targetOfMovement = command.destination;
                 customAction = command.customAction;
-                switch (customAction)
+                switch (customAction.Value)
                 {
                     case AICommand.CustomActions.collectResources:
                         if (SeekNewResourceSource(resourceCollector.storedType, false))
@@ -356,7 +362,7 @@ public class Unit : ClickableObject
                 break;
             case UnitStates.CustomActionAtPos:
                 {
-                    switch (customAction)
+                    switch (customAction.Value)
                     {
                         case AICommand.CustomActions.collectResources:
                             switchState = UnitStates.CustomActionAtObj;
@@ -370,7 +376,7 @@ public class Unit : ClickableObject
 
                     if (targetOfAttack.attackable.isDead)
                     {
-                        switch (customAction)
+                        switch (customAction.Value)
                         {
                             case AICommand.CustomActions.collectResources:
                                 ResourceSource resourceSource = targetOfAttack.GetComponent<ResourceSource>();
@@ -396,7 +402,7 @@ public class Unit : ClickableObject
                     else
                     {
                         ResourceSource resourceSource = targetOfAttack.GetComponent<ResourceSource>();
-                        switch (customAction)
+                        switch (customAction.Value)
                         {
                             case AICommand.CustomActions.collectResources:
                                 if (resourceCollector.isFull)
@@ -445,7 +451,7 @@ public class Unit : ClickableObject
             case UnitStates.CustomActionAtPos:
                 break;
             case UnitStates.CustomActionAtObj:
-                switch (customAction)
+                switch (customAction.Value)
                 {
                     case AICommand.CustomActions.collectResources:
                         AttackAnim(false);
@@ -484,7 +490,7 @@ public class Unit : ClickableObject
             {
                 AttackAnim(false);
 
-                if (state == UnitStates.CustomActionAtObj && customAction == AICommand.CustomActions.collectResources)
+                if (state == UnitStates.CustomActionAtObj && customAction.Value == AICommand.CustomActions.collectResources)
                 {
                     AICommand getBackCollectingCommand = new AICommand(AICommand.CommandTypes.CustomActionAtPos, targetOfMovement.Value, AICommand.CustomActions.collectResources);
                     AddCommand(getBackCollectingCommand);
@@ -756,4 +762,3 @@ public class Unit : ClickableObject
     public List<AICommand> listForEditor { get { return commandList; } }
 #endif
 }
-

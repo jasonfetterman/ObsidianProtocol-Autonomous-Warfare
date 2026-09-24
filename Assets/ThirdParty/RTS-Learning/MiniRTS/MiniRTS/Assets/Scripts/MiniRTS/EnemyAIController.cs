@@ -1,4 +1,3 @@
-#pragma warning disable 0619
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,10 +16,8 @@ namespace MiniRTS
     {
         private readonly List<ResourceNode> nearbyMinerals =
             new List<ResourceNode>();
-        private readonly List<Unit> availableMilitary =
-            new List<Unit>();
-        private readonly HashSet<int> activeWaveUnitIds =
-            new HashSet<int>();
+        private readonly List<Unit> availableMilitary = new List<Unit>();
+        private readonly HashSet<int> activeWaveUnitIds = new HashSet<int>();
 
         private WalkGrid grid;
         private PlayerEconomy economy;
@@ -53,16 +50,12 @@ namespace MiniRTS
         {
             grid = walkGrid ??
                 throw new ArgumentNullException(nameof(walkGrid));
-
             economy = factionEconomy ??
                 throw new ArgumentNullException(nameof(factionEconomy));
-
             headquarters = factionHeadquarters ??
                 throw new ArgumentNullException(nameof(factionHeadquarters));
-
             buildingFactory = createBuilding ??
                 throw new ArgumentNullException(nameof(createBuilding));
-
             if (factionOwnerId == BalanceConfig.PlayerOwnerId)
             {
                 throw new ArgumentOutOfRangeException(nameof(factionOwnerId));
@@ -70,27 +63,19 @@ namespace MiniRTS
 
             ownerId = factionOwnerId;
             random = new System.Random(seed);
-
             homePosition = headquarters.transform.position;
             homePosition.y = 0f;
-
             defenderRallyPoint = FindDefenderRallyPoint();
-
             CacheNearbyMinerals();
-
             if (nearbyMinerals.Count > 0)
             {
-                resourceCursor =
-                    random.Next(nearbyMinerals.Count);
+                resourceCursor = random.Next(nearbyMinerals.Count);
             }
 
             nextThinkTime = Time.time;
             nextWaveTime =
-                Time.time +
-                BalanceConfig.EnemyAIFirstWaveSeconds;
-
+                Time.time + BalanceConfig.EnemyAIFirstWaveSeconds;
             initialized = true;
-
             AssignIdleWorkers();
             UpdateProductionRallyPoints();
         }
@@ -103,24 +88,18 @@ namespace MiniRTS
             }
 
             float currentTime = Time.time;
-
             if (currentTime >= nextThinkTime)
             {
                 nextThinkTime =
-                    currentTime +
-                    BalanceConfig.EnemyAIThinkInterval;
-
+                    currentTime + BalanceConfig.EnemyAIThinkInterval;
                 Think();
             }
 
-            if (!defendingBase &&
-                currentTime >= nextWaveTime)
+            if (!defendingBase && currentTime >= nextWaveTime)
             {
                 LaunchWave();
-
                 nextWaveTime =
-                    currentTime +
-                    BalanceConfig.EnemyAIWaveInterval;
+                    currentTime + BalanceConfig.EnemyAIWaveInterval;
             }
         }
 
@@ -129,13 +108,8 @@ namespace MiniRTS
             ResumeOrphanedConstruction();
             AssignIdleWorkers();
             HandleBaseDefense();
-
-            ExecuteBuildOrder(
-                EnemyAIBuildOrder.Decide(
-                    CaptureSnapshot()));
-
+            ExecuteBuildOrder(EnemyAIBuildOrder.Decide(CaptureSnapshot()));
             UpdateProductionRallyPoints();
-
             if (!defendingBase)
             {
                 RallyUncommittedDefenders();
@@ -145,14 +119,10 @@ namespace MiniRTS
         private EnemyAIEconomySnapshot CaptureSnapshot()
         {
             int workerCount = 0;
-
-            IReadOnlyList<Unit> units =
-                Unit.ActiveUnits;
-
+            IReadOnlyList<Unit> units = Unit.ActiveUnits;
             for (int i = 0; i < units.Count; i++)
             {
                 Unit unit = units[i];
-
                 if (unit != null &&
                     unit.IsAlive &&
                     unit.OwnerId == ownerId &&
@@ -166,14 +136,10 @@ namespace MiniRTS
             bool supplyDepotUnderConstruction = false;
             bool barracksUnderConstruction = false;
             bool barracksCanQueue = false;
-
-            IReadOnlyList<Building> buildings =
-                Building.ActiveBuildings;
-
+            IReadOnlyList<Building> buildings = Building.ActiveBuildings;
             for (int i = 0; i < buildings.Count; i++)
             {
                 Building building = buildings[i];
-
                 if (building == null ||
                     !building.IsAlive ||
                     building.OwnerId != ownerId)
@@ -195,18 +161,11 @@ namespace MiniRTS
                     }
 
                     constructedBarracks++;
-
-                    Barracks barracks =
-                        building as Barracks;
-
+                    Barracks barracks = building as Barracks;
                     ProductionQueue queue =
-                        barracks != null
-                            ? barracks.ProductionQueue
-                            : null;
-
+                        barracks != null ? barracks.ProductionQueue : null;
                     barracksCanQueue |=
-                        queue != null &&
-                        queue.Count < queue.Capacity;
+                        queue != null && queue.Count < queue.Capacity;
                 }
             }
 
@@ -214,19 +173,14 @@ namespace MiniRTS
                 headquarters != null
                     ? headquarters.ProductionQueue
                     : null;
-
             bool headquartersCanQueue =
                 headquarters != null &&
                 headquarters.IsAlive &&
                 headquarters.IsConstructed &&
                 headquartersQueue != null &&
-                headquartersQueue.Count <
-                    headquartersQueue.Capacity;
-
+                headquartersQueue.Count < headquartersQueue.Capacity;
             int queuedWorkers =
-                headquartersQueue != null
-                    ? headquartersQueue.Count
-                    : 0;
+                headquartersQueue != null ? headquartersQueue.Count : 0;
 
             return new EnemyAIEconomySnapshot(
                 economy.Minerals,
@@ -242,8 +196,7 @@ namespace MiniRTS
                 barracksCanQueue);
         }
 
-        private void ExecuteBuildOrder(
-            EnemyAIBuildAction action)
+        private void ExecuteBuildOrder(EnemyAIBuildAction action)
         {
             switch (action)
             {
@@ -254,17 +207,12 @@ namespace MiniRTS
                     }
 
                     break;
-
                 case EnemyAIBuildAction.BuildSupplyDepot:
-                    TryPlaceBuilding(
-                        BuildingType.SupplyDepot);
+                    TryPlaceBuilding(BuildingType.SupplyDepot);
                     break;
-
                 case EnemyAIBuildAction.BuildBarracks:
-                    TryPlaceBuilding(
-                        BuildingType.Barracks);
+                    TryPlaceBuilding(BuildingType.Barracks);
                     break;
-
                 case EnemyAIBuildAction.TrainMarine:
                     TryQueueMarine();
                     break;
@@ -273,19 +221,13 @@ namespace MiniRTS
 
         private bool TryPlaceBuilding(BuildingType type)
         {
-            BuildingDefinition definition =
-                BuildingDefinition.Get(type);
-
-            if (!TryFindBuildPosition(
-                    definition,
-                    out Vector3 position))
+            BuildingDefinition definition = BuildingDefinition.Get(type);
+            if (!TryFindBuildPosition(definition, out Vector3 position))
             {
                 return false;
             }
 
-            WorkerBuilder builder =
-                FindClosestAvailableBuilder(position);
-
+            WorkerBuilder builder = FindClosestAvailableBuilder(position);
             if (builder == null ||
                 !economy.TrySpend(
                     definition.MineralCost,
@@ -294,22 +236,13 @@ namespace MiniRTS
                 return false;
             }
 
-            Building site =
-                buildingFactory(
-                    type,
-                    position,
-                    null);
-
-            if (site != null &&
-                builder.BeginConstruction(site))
+            Building site = buildingFactory(type, position, null);
+            if (site != null && builder.BeginConstruction(site))
             {
                 return true;
             }
 
-            economy.Refund(
-                definition.MineralCost,
-                definition.GasCost);
-
+            economy.Refund(definition.MineralCost, definition.GasCost);
             if (site != null)
             {
                 Destroy(site.gameObject);
@@ -323,49 +256,31 @@ namespace MiniRTS
             out Vector3 position)
         {
             int sampleOffset =
-                random.Next(
-                    BalanceConfig.EnemyAIBuildSearchSamplesPerRing);
-
-            for (
-                int radius =
-                    BalanceConfig.EnemyAIBuildSearchMinimumRadius;
-                radius <=
-                    BalanceConfig.EnemyAIBuildSearchMaximumRadius;
-                radius += 2)
+                random.Next(BalanceConfig.EnemyAIBuildSearchSamplesPerRing);
+            for (int radius = BalanceConfig.EnemyAIBuildSearchMinimumRadius;
+                 radius <= BalanceConfig.EnemyAIBuildSearchMaximumRadius;
+                 radius += 2)
             {
-                for (
-                    int sample = 0;
-                    sample <
-                        BalanceConfig.EnemyAIBuildSearchSamplesPerRing;
-                    sample++)
+                for (int sample = 0;
+                     sample < BalanceConfig.EnemyAIBuildSearchSamplesPerRing;
+                     sample++)
                 {
                     int sampleIndex =
                         (sample + sampleOffset) %
                         BalanceConfig.EnemyAIBuildSearchSamplesPerRing;
-
                     float angle =
-                        sampleIndex *
-                        Mathf.PI *
-                        2f /
+                        sampleIndex * Mathf.PI * 2f /
                         BalanceConfig.EnemyAIBuildSearchSamplesPerRing;
-
-                    Vector3 desired =
-                        homePosition +
-                        new Vector3(
-                            Mathf.Cos(angle) * radius,
-                            0f,
-                            Mathf.Sin(angle) * radius);
-
-                    Vector3 snapped =
-                        BuildingFootprint.SnapToGrid(
-                            grid,
-                            desired,
-                            definition.Footprint);
-
+                    Vector3 desired = homePosition + new Vector3(
+                        Mathf.Cos(angle) * radius,
+                        0f,
+                        Mathf.Sin(angle) * radius);
+                    Vector3 snapped = BuildingFootprint.SnapToGrid(
+                        grid,
+                        desired,
+                        definition.Footprint);
                     snapped.y = 0f;
-
-                    if (BuildingPlacementValidator
-                        .IsFootprintAvailable(
+                    if (BuildingPlacementValidator.IsFootprintAvailable(
                             grid,
                             snapped,
                             definition.Footprint))
@@ -380,20 +295,14 @@ namespace MiniRTS
             return false;
         }
 
-        private WorkerBuilder FindClosestAvailableBuilder(
-            Vector3 position)
+        private WorkerBuilder FindClosestAvailableBuilder(Vector3 position)
         {
             WorkerBuilder closest = null;
-            float closestDistanceSquared =
-                float.MaxValue;
-
-            IReadOnlyList<Unit> units =
-                Unit.ActiveUnits;
-
+            float closestDistanceSquared = float.MaxValue;
+            IReadOnlyList<Unit> units = Unit.ActiveUnits;
             for (int i = 0; i < units.Count; i++)
             {
                 Unit unit = units[i];
-
                 if (unit == null ||
                     !unit.IsAlive ||
                     unit.OwnerId != ownerId ||
@@ -404,28 +313,19 @@ namespace MiniRTS
 
                 WorkerBuilder candidate =
                     unit.GetComponent<WorkerBuilder>();
-
-                if (candidate == null ||
-                    candidate.IsBuilding)
+                if (candidate == null || candidate.IsBuilding)
                 {
                     continue;
                 }
 
                 Vector3 difference =
-                    unit.transform.position -
-                    position;
-
+                    unit.transform.position - position;
                 difference.y = 0f;
-
-                float distanceSquared =
-                    difference.sqrMagnitude;
-
-                if (distanceSquared <
-                    closestDistanceSquared)
+                float distanceSquared = difference.sqrMagnitude;
+                if (distanceSquared < closestDistanceSquared)
                 {
                     closest = candidate;
-                    closestDistanceSquared =
-                        distanceSquared;
+                    closestDistanceSquared = distanceSquared;
                 }
             }
 
@@ -434,13 +334,10 @@ namespace MiniRTS
 
         private void ResumeOrphanedConstruction()
         {
-            IReadOnlyList<Building> buildings =
-                Building.ActiveBuildings;
-
+            IReadOnlyList<Building> buildings = Building.ActiveBuildings;
             for (int i = 0; i < buildings.Count; i++)
             {
                 Building site = buildings[i];
-
                 if (site == null ||
                     !site.IsAlive ||
                     site.IsConstructed ||
@@ -451,9 +348,7 @@ namespace MiniRTS
                 }
 
                 WorkerBuilder builder =
-                    FindClosestAvailableBuilder(
-                        site.transform.position);
-
+                    FindClosestAvailableBuilder(site.transform.position);
                 if (builder != null)
                 {
                     builder.BeginConstruction(site);
@@ -461,16 +356,12 @@ namespace MiniRTS
             }
         }
 
-        private bool HasAssignedBuilder(
-            Building site)
+        private bool HasAssignedBuilder(Building site)
         {
-            IReadOnlyList<Unit> units =
-                Unit.ActiveUnits;
-
+            IReadOnlyList<Unit> units = Unit.ActiveUnits;
             for (int i = 0; i < units.Count; i++)
             {
                 Unit unit = units[i];
-
                 if (unit == null ||
                     !unit.IsAlive ||
                     unit.OwnerId != ownerId ||
@@ -481,9 +372,7 @@ namespace MiniRTS
 
                 WorkerBuilder builder =
                     unit.GetComponent<WorkerBuilder>();
-
-                if (builder != null &&
-                    builder.Target == site)
+                if (builder != null && builder.Target == site)
                 {
                     return true;
                 }
@@ -494,20 +383,15 @@ namespace MiniRTS
 
         private void TryQueueMarine()
         {
-            IReadOnlyList<Building> buildings =
-                Building.ActiveBuildings;
-
+            IReadOnlyList<Building> buildings = Building.ActiveBuildings;
             for (int i = 0; i < buildings.Count; i++)
             {
-                Barracks barracks =
-                    buildings[i] as Barracks;
-
+                Barracks barracks = buildings[i] as Barracks;
                 if (barracks != null &&
                     barracks.IsAlive &&
                     barracks.IsConstructed &&
                     barracks.OwnerId == ownerId &&
-                    barracks.ProductionQueue
-                        .TryQueue(UnitType.Marine))
+                    barracks.ProductionQueue.TryQueue(UnitType.Marine))
                 {
                     return;
                 }
@@ -517,14 +401,10 @@ namespace MiniRTS
         private void CacheNearbyMinerals()
         {
             nearbyMinerals.Clear();
-
-            IReadOnlyList<ResourceNode> nodes =
-                ResourceNode.ActiveNodes;
-
+            IReadOnlyList<ResourceNode> nodes = ResourceNode.ActiveNodes;
             for (int i = 0; i < nodes.Count; i++)
             {
                 ResourceNode node = nodes[i];
-
                 if (node != null &&
                     node.Type == ResourceType.Minerals &&
                     node.IsHarvestable)
@@ -533,17 +413,14 @@ namespace MiniRTS
                 }
             }
 
-            nearbyMinerals.Sort(
-                CompareMineralsByHomeDistance);
-
+            nearbyMinerals.Sort(CompareMineralsByHomeDistance);
             if (nearbyMinerals.Count >
                 BalanceConfig.StartingWorkerCount + 2)
             {
                 nearbyMinerals.RemoveRange(
                     BalanceConfig.StartingWorkerCount + 2,
                     nearbyMinerals.Count -
-                    BalanceConfig.StartingWorkerCount -
-                    2);
+                    BalanceConfig.StartingWorkerCount - 2);
             }
         }
 
@@ -552,27 +429,18 @@ namespace MiniRTS
             ResourceNode right)
         {
             float leftDistance =
-                (left.transform.position -
-                 homePosition).sqrMagnitude;
-
+                (left.transform.position - homePosition).sqrMagnitude;
             float rightDistance =
-                (right.transform.position -
-                 homePosition).sqrMagnitude;
-
-            int comparison =
-                leftDistance.CompareTo(
-                    rightDistance);
-
+                (right.transform.position - homePosition).sqrMagnitude;
+            int comparison = leftDistance.CompareTo(rightDistance);
             return comparison != 0
                 ? comparison
-                : left.GetEntityId().CompareTo(
-                    right.GetEntityId());
+                : left.GetInstanceID().CompareTo(right.GetInstanceID());
         }
 
         private void AssignIdleWorkers()
         {
             RemoveDepletedMinerals();
-
             if (nearbyMinerals.Count == 0)
             {
                 CacheNearbyMinerals();
@@ -583,13 +451,10 @@ namespace MiniRTS
                 return;
             }
 
-            IReadOnlyList<Unit> units =
-                Unit.ActiveUnits;
-
+            IReadOnlyList<Unit> units = Unit.ActiveUnits;
             for (int i = 0; i < units.Count; i++)
             {
                 Unit unit = units[i];
-
                 if (unit == null ||
                     !unit.IsAlive ||
                     unit.OwnerId != ownerId ||
@@ -600,37 +465,26 @@ namespace MiniRTS
 
                 WorkerBuilder builder =
                     unit.GetComponent<WorkerBuilder>();
-
                 WorkerGatherer gatherer =
                     unit.GetComponent<WorkerGatherer>();
-
                 if (gatherer == null ||
-                    (builder != null &&
-                     builder.IsBuilding) ||
+                    (builder != null && builder.IsBuilding) ||
                     gatherer.Phase != GatherPhase.Idle)
                 {
                     continue;
                 }
 
                 ResourceNode target =
-                    nearbyMinerals[
-                        resourceCursor %
-                        nearbyMinerals.Count];
-
+                    nearbyMinerals[resourceCursor % nearbyMinerals.Count];
                 resourceCursor =
-                    (resourceCursor + 1) %
-                    nearbyMinerals.Count;
-
+                    (resourceCursor + 1) % nearbyMinerals.Count;
                 gatherer.BeginGather(target);
             }
         }
 
         private void RemoveDepletedMinerals()
         {
-            for (
-                int i = nearbyMinerals.Count - 1;
-                i >= 0;
-                i--)
+            for (int i = nearbyMinerals.Count - 1; i >= 0; i--)
             {
                 if (nearbyMinerals[i] == null ||
                     !nearbyMinerals[i].IsHarvestable)
@@ -641,8 +495,7 @@ namespace MiniRTS
 
             if (nearbyMinerals.Count > 0)
             {
-                resourceCursor %=
-                    nearbyMinerals.Count;
+                resourceCursor %= nearbyMinerals.Count;
             }
             else
             {
@@ -653,7 +506,6 @@ namespace MiniRTS
         private void HandleBaseDefense()
         {
             Unit threat = FindBaseThreat();
-
             if (threat == null)
             {
                 defendingBase = false;
@@ -667,7 +519,6 @@ namespace MiniRTS
 
             defendingBase = true;
             activeWaveUnitIds.Clear();
-
             IssueAttackMoveToMilitary(
                 threat.transform.position,
                 int.MaxValue,
@@ -677,26 +528,15 @@ namespace MiniRTS
         private Unit FindBaseThreat()
         {
             Unit closestThreat = null;
-            float closestDistanceSquared =
-                float.MaxValue;
-
+            float closestDistanceSquared = float.MaxValue;
             float defenseRadiusSquared =
                 BalanceConfig.EnemyAIBaseDefenseRadius *
                 BalanceConfig.EnemyAIBaseDefenseRadius;
-
-            IReadOnlyList<Unit> units =
-                Unit.ActiveUnits;
-
-            IReadOnlyList<Building> buildings =
-                Building.ActiveBuildings;
-
-            for (
-                int unitIndex = 0;
-                unitIndex < units.Count;
-                unitIndex++)
+            IReadOnlyList<Unit> units = Unit.ActiveUnits;
+            IReadOnlyList<Building> buildings = Building.ActiveBuildings;
+            for (int unitIndex = 0; unitIndex < units.Count; unitIndex++)
             {
                 Unit unit = units[unitIndex];
-
                 if (unit == null ||
                     !unit.IsAlive ||
                     unit.OwnerId == ownerId)
@@ -704,14 +544,11 @@ namespace MiniRTS
                     continue;
                 }
 
-                for (
-                    int buildingIndex = 0;
-                    buildingIndex < buildings.Count;
-                    buildingIndex++)
+                for (int buildingIndex = 0;
+                     buildingIndex < buildings.Count;
+                     buildingIndex++)
                 {
-                    Building building =
-                        buildings[buildingIndex];
-
+                    Building building = buildings[buildingIndex];
                     if (building == null ||
                         !building.IsAlive ||
                         building.OwnerId != ownerId)
@@ -719,21 +556,14 @@ namespace MiniRTS
                         continue;
                     }
 
-                    float distance =
-                        building.DistanceTo(
-                            unit.transform.position);
-
-                    float distanceSquared =
-                        distance * distance;
-
-                    if (distanceSquared <=
-                            defenseRadiusSquared &&
-                        distanceSquared <
-                            closestDistanceSquared)
+                    float distance = building.DistanceTo(
+                        unit.transform.position);
+                    float distanceSquared = distance * distance;
+                    if (distanceSquared <= defenseRadiusSquared &&
+                        distanceSquared < closestDistanceSquared)
                     {
                         closestThreat = unit;
-                        closestDistanceSquared =
-                            distanceSquared;
+                        closestDistanceSquared = distanceSquared;
                     }
                 }
             }
@@ -744,19 +574,12 @@ namespace MiniRTS
         private void LaunchWave()
         {
             activeWaveUnitIds.Clear();
-
-            int availableCount =
-                CollectMilitary();
-
+            int availableCount = CollectMilitary();
             int committedCount =
-                EnemyAIWaveSizing
-                    .CalculateCommittedUnitCount(
-                        waveIndex,
-                        availableCount);
-
-            Vector3 target =
-                FindPlayerBaseTarget();
-
+                EnemyAIWaveSizing.CalculateCommittedUnitCount(
+                    waveIndex,
+                    availableCount);
+            Vector3 target = FindPlayerBaseTarget();
             if (committedCount > 0)
             {
                 IssueAttackMoveToMilitary(
@@ -771,14 +594,10 @@ namespace MiniRTS
         private int CollectMilitary()
         {
             availableMilitary.Clear();
-
-            IReadOnlyList<Unit> units =
-                Unit.ActiveUnits;
-
+            IReadOnlyList<Unit> units = Unit.ActiveUnits;
             for (int i = 0; i < units.Count; i++)
             {
                 Unit unit = units[i];
-
                 if (unit != null &&
                     unit.IsAlive &&
                     unit.OwnerId == ownerId &&
@@ -798,30 +617,21 @@ namespace MiniRTS
             bool recordAsWave)
         {
             int count = CollectMilitary();
-
             if (count == 0)
             {
                 return;
             }
 
-            int commandCount =
-                Math.Min(count, maximumCount);
-
-            int startIndex =
-                random.Next(count);
-
+            int commandCount = Math.Min(count, maximumCount);
+            int startIndex = random.Next(count);
             for (int i = 0; i < commandCount; i++)
             {
                 Unit unit =
-                    availableMilitary[
-                        (startIndex + i) % count];
-
-                if (unit.Combatant
-                    .IssueAttackMove(destination) &&
+                    availableMilitary[(startIndex + i) % count];
+                if (unit.Combatant.IssueAttackMove(destination) &&
                     recordAsWave)
                 {
-                    activeWaveUnitIds.Add(
-                        unit.GetEntityId().GetHashCode());
+                    activeWaveUnitIds.Add(unit.GetInstanceID());
                 }
             }
         }
@@ -829,14 +639,10 @@ namespace MiniRTS
         private Vector3 FindPlayerBaseTarget()
         {
             Building fallback = null;
-
-            IReadOnlyList<Building> buildings =
-                Building.ActiveBuildings;
-
+            IReadOnlyList<Building> buildings = Building.ActiveBuildings;
             for (int i = 0; i < buildings.Count; i++)
             {
                 Building building = buildings[i];
-
                 if (building == null ||
                     !building.IsAlive ||
                     building.OwnerId == ownerId)
@@ -844,8 +650,7 @@ namespace MiniRTS
                     continue;
                 }
 
-                if (building.Type ==
-                    BuildingType.Headquarters)
+                if (building.Type == BuildingType.Headquarters)
                 {
                     return building.transform.position;
                 }
@@ -860,13 +665,9 @@ namespace MiniRTS
 
         private Vector3 FindDefenderRallyPoint()
         {
-            Vector3 towardCenter =
-                -homePosition;
-
+            Vector3 towardCenter = -homePosition;
             towardCenter.y = 0f;
-
-            if (towardCenter.sqrMagnitude >
-                0.001f)
+            if (towardCenter.sqrMagnitude > 0.001f)
             {
                 towardCenter.Normalize();
             }
@@ -875,10 +676,7 @@ namespace MiniRTS
                 homePosition +
                 towardCenter *
                 BalanceConfig.EnemyAIDefenderRallyDistance;
-
-            Vector2Int desiredCell =
-                grid.WorldToCell(desired);
-
+            Vector2Int desiredCell = grid.WorldToCell(desired);
             return grid.TryFindNearestWalkable(
                     desiredCell,
                     BalanceConfig.EnemyAIBuildSearchMaximumRadius,
@@ -889,22 +687,17 @@ namespace MiniRTS
 
         private void UpdateProductionRallyPoints()
         {
-            IReadOnlyList<Building> buildings =
-                Building.ActiveBuildings;
-
+            IReadOnlyList<Building> buildings = Building.ActiveBuildings;
             for (int i = 0; i < buildings.Count; i++)
             {
-                Barracks barracks =
-                    buildings[i] as Barracks;
-
+                Barracks barracks = buildings[i] as Barracks;
                 if (barracks != null &&
                     barracks.IsAlive &&
                     barracks.IsConstructed &&
                     barracks.OwnerId == ownerId)
                 {
-                    barracks.ProductionQueue
-                        .SetRallyPoint(
-                            defenderRallyPoint);
+                    barracks.ProductionQueue.SetRallyPoint(
+                        defenderRallyPoint);
                 }
             }
         }
@@ -914,42 +707,29 @@ namespace MiniRTS
             float leashSquared =
                 BalanceConfig.EnemyAIDefenderLeashRadius *
                 BalanceConfig.EnemyAIDefenderLeashRadius;
-
-            IReadOnlyList<Unit> units =
-                Unit.ActiveUnits;
-
+            IReadOnlyList<Unit> units = Unit.ActiveUnits;
             for (int i = 0; i < units.Count; i++)
             {
                 Unit unit = units[i];
-
                 if (unit == null ||
                     !unit.IsAlive ||
                     unit.OwnerId != ownerId ||
                     unit.Type == UnitType.Worker ||
                     unit.Combatant == null ||
-                    activeWaveUnitIds.Contains(
-                        unit.GetEntityId().GetHashCode()) ||
-                    unit.Combatant.CurrentOrder !=
-                        CombatOrderType.Idle)
+                    activeWaveUnitIds.Contains(unit.GetInstanceID()) ||
+                    unit.Combatant.CurrentOrder != CombatOrderType.Idle)
                 {
                     continue;
                 }
 
                 Vector3 difference =
-                    unit.transform.position -
-                    defenderRallyPoint;
-
+                    unit.transform.position - defenderRallyPoint;
                 difference.y = 0f;
-
-                if (difference.sqrMagnitude >
-                    leashSquared)
+                if (difference.sqrMagnitude > leashSquared)
                 {
-                    unit.Combatant.IssueAttackMove(
-                        defenderRallyPoint);
+                    unit.Combatant.IssueAttackMove(defenderRallyPoint);
                 }
             }
         }
     }
 }
-
-#pragma warning restore 0619

@@ -1,81 +1,37 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-namespace ObsidianProtocol.UI
+public class UITooltipSystem : MonoBehaviour
 {
-    /// <summary>
-    /// Central tooltip controller. Handles registration, text assignment, and visibility.
-    /// </summary>
-    public sealed class UITooltipSystem : MonoBehaviour
+    public static UITooltipSystem Instance { get; private set; }
+
+    public string CurrentTooltip { get; private set; } = string.Empty;
+
+    private void Awake()
     {
-        public static UITooltipSystem Instance { get; private set; }
-
-        private GameObject tooltip;
-
-        private void Awake()
+        if (Instance != null && Instance != this)
         {
-            if (Instance != null && Instance != this)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            Instance = this;
+            Destroy(gameObject);
+            return;
         }
 
-        // ---------------------------------------------------------
-        // REGISTRATION
-        // ---------------------------------------------------------
+        Instance = this;
+    }
 
-        public void RegisterTooltip(GameObject t)
-        {
-            tooltip = t;
+    public void ShowTooltip(string text)
+    {
+        if (string.IsNullOrEmpty(text))
+            return;
 
-            if (tooltip != null)
-                tooltip.SetActive(false);
-        }
+        CurrentTooltip = text;
+    }
 
-        // ---------------------------------------------------------
-        // CONTROL
-        // ---------------------------------------------------------
+    public void HideTooltip()
+    {
+        CurrentTooltip = string.Empty;
+    }
 
-        /// <summary>
-        /// </summary>
-        public void ShowTooltip()
-        {
-            if (tooltip == null)
-                return;
-
-            tooltip.SetActive(true);
-        }
-
-        /// <summary>
-        /// Show tooltip with text (required by UIOrchestrator).
-        /// </summary>
-        public void ShowTooltip(string text)
-        {
-            if (tooltip == null)
-                return;
-
-            var tmp = tooltip.GetComponentInChildren<TMPro.TextMeshProUGUI>();
-            if (tmp != null)
-                tmp.text = text;
-
-            var uiText = tooltip.GetComponentInChildren<UnityEngine.UI.Text>();
-            if (uiText != null)
-                uiText.text = text;
-
-            tooltip.SetActive(true);
-        }
-
-        /// <summary>
-        /// Hide tooltip.
-        /// </summary>
-        public void HideTooltip()
-        {
-            if (tooltip == null)
-                return;
-
-            tooltip.SetActive(false);
-        }
+    public bool IsVisible()
+    {
+        return !string.IsNullOrEmpty(CurrentTooltip);
     }
 }

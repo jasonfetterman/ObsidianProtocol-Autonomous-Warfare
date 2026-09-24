@@ -1,77 +1,45 @@
-﻿using System.Collections.Generic;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SelectedDictionary : MonoBehaviour
 {
-    private Dictionary<int, GameObject> selectedTable =
-        new Dictionary<int, GameObject>();
-
+    private Dictionary<int, GameObject> selectedTable = new Dictionary<int, GameObject>();
     public void addSelected(GameObject go)
     {
-        if (go == null)
-        {
-            return;
-        }
-
-        int id = go.GetEntityId().GetHashCode();
-
-        if (!selectedTable.ContainsKey(id))
+        int id = go.GetInstanceID();
+        if(!(selectedTable.ContainsKey(id)))
         {
             selectedTable.Add(id, go);
-
-            Renderer renderer = go.GetComponent<Renderer>();
-            if (renderer != null)
-            {
-                renderer.material.color = Color.red;
-            }
+            go.GetComponent<Renderer>().material.color = Color.red;
         }
     }
-
     public void removeSelected(GameObject go)
     {
-        if (go == null)
-        {
-            return;
-        }
-
-        int id = go.GetEntityId().GetHashCode();
-
-        if (selectedTable.ContainsKey(id))
+        int id = go.GetInstanceID();
+        if(selectedTable.ContainsKey(id))
         {
             selectedTable.Remove(id);
-
-            Renderer renderer = go.GetComponent<Renderer>();
-            if (renderer != null)
-            {
-                renderer.material.color = Color.white;
-            }
+            go.GetComponent<Renderer>().material.color = Color.white;
         }
     }
-
     public void clearSelected()
     {
-        foreach (KeyValuePair<int, GameObject> entry in selectedTable)
+        foreach(KeyValuePair<int, GameObject> entry in selectedTable)
         {
-            if (entry.Value == null)
-            {
-                continue;
-            }
-
-            Renderer renderer = entry.Value.GetComponent<Renderer>();
-            if (renderer != null)
-            {
-                renderer.material.color = Color.white;
-            }
+            entry.Value.GetComponent<Renderer>().material.color = Color.white;
         }
-
         selectedTable.Clear();
     }
-
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
+        
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
+        
     }
 }

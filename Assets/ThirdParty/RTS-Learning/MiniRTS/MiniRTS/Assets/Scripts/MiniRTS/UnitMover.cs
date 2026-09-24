@@ -1,4 +1,3 @@
-﻿#pragma warning disable 0619
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -82,7 +81,6 @@ namespace MiniRTS
                     ? unit.GroundHeight
                     : BalanceConfig.WorkerGroundHeight,
                 Destination.z);
-
             waypointIndex = waypoints.Count > 1 ? 1 : waypoints.Count;
             return true;
         }
@@ -124,16 +122,13 @@ namespace MiniRTS
             Vector3 pathDirection = toWaypoint.normalized;
             Vector3 steering = pathDirection + CalculateSeparation() *
                 BalanceConfig.LocalAvoidanceStrength;
-
             steering.y = 0f;
-
             if (steering.sqrMagnitude < 0.001f)
             {
                 steering = pathDirection;
             }
 
             steering.Normalize();
-
             float deltaTime = Mathf.Min(Time.deltaTime, 0.1f);
             float step = Mathf.Min(
                 (unit != null
@@ -142,7 +137,6 @@ namespace MiniRTS
                 grid.CellSize * 0.45f);
 
             bool moved = TryMove(position + steering * step);
-
             if (!moved && steering != pathDirection)
             {
                 moved = TryMove(position + pathDirection * step);
@@ -150,9 +144,7 @@ namespace MiniRTS
 
             if (moved && pathDirection.sqrMagnitude > 0.001f)
             {
-                Quaternion targetRotation =
-                    Quaternion.LookRotation(pathDirection, Vector3.up);
-
+                Quaternion targetRotation = Quaternion.LookRotation(pathDirection, Vector3.up);
                 transform.rotation = Quaternion.RotateTowards(
                     transform.rotation,
                     targetRotation,
@@ -166,15 +158,12 @@ namespace MiniRTS
         {
             Vector3 separation = Vector3.zero;
             IReadOnlyList<Unit> units = Unit.ActiveUnits;
-
             float rangeSquared =
-                BalanceConfig.LocalAvoidanceRadius *
-                BalanceConfig.LocalAvoidanceRadius;
+                BalanceConfig.LocalAvoidanceRadius * BalanceConfig.LocalAvoidanceRadius;
 
             for (int i = 0; i < units.Count; i++)
             {
                 Unit other = units[i];
-
                 if (other == null || other == unit)
                 {
                     continue;
@@ -182,9 +171,7 @@ namespace MiniRTS
 
                 Vector3 away = transform.position - other.transform.position;
                 away.y = 0f;
-
                 float distanceSquared = away.sqrMagnitude;
-
                 if (distanceSquared >= rangeSquared)
                 {
                     continue;
@@ -192,26 +179,16 @@ namespace MiniRTS
 
                 if (distanceSquared < 0.0001f)
                 {
-                    int entityId = unit != null
-                        ? unit.GetEntityId()
-                        : unit != null ? unit.GetEntityId() : GetEntityId().GetHashCode();
-
-                    float angle =
-                        Mathf.Abs(entityId.GetHashCode() -
-                                  other.GetEntityId().GetHashCode()) % 360;
-
+                    float angle = Mathf.Abs(GetInstanceID() - other.GetInstanceID()) % 360;
                     away = new Vector3(
                         Mathf.Cos(angle * Mathf.Deg2Rad),
                         0f,
                         Mathf.Sin(angle * Mathf.Deg2Rad));
-
                     distanceSquared = 0.01f;
                 }
 
                 float distance = Mathf.Sqrt(distanceSquared);
-                float weight =
-                    1f - distance / BalanceConfig.LocalAvoidanceRadius;
-
+                float weight = 1f - distance / BalanceConfig.LocalAvoidanceRadius;
                 separation += away / distance * weight;
             }
 
@@ -221,17 +198,12 @@ namespace MiniRTS
         private bool TryMove(Vector3 candidate)
         {
             candidate = grid.ClampWorldPosition(candidate);
-
             candidate.y = unit != null
                 ? unit.GroundHeight
                 : BalanceConfig.WorkerGroundHeight;
 
-            Vector2Int currentCell =
-                grid.WorldToCell(transform.position);
-
-            Vector2Int candidateCell =
-                grid.WorldToCell(candidate);
-
+            Vector2Int currentCell = grid.WorldToCell(transform.position);
+            Vector2Int candidateCell = grid.WorldToCell(candidate);
             if (!grid.IsWalkable(candidateCell))
             {
                 return false;
@@ -239,14 +211,9 @@ namespace MiniRTS
 
             int deltaX = candidateCell.x - currentCell.x;
             int deltaY = candidateCell.y - currentCell.y;
-
             if (deltaX != 0 && deltaY != 0 &&
-                (!grid.IsWalkable(
-                    currentCell.x + deltaX,
-                    currentCell.y) ||
-                 !grid.IsWalkable(
-                    currentCell.x,
-                    currentCell.y + deltaY)))
+                (!grid.IsWalkable(currentCell.x + deltaX, currentCell.y) ||
+                 !grid.IsWalkable(currentCell.x, currentCell.y + deltaY)))
             {
                 return false;
             }
@@ -256,5 +223,3 @@ namespace MiniRTS
         }
     }
 }
-
-#pragma warning restore 0619

@@ -1,36 +1,35 @@
 // Using URP PBR template by @Cyanilux
 // https://www.cyanilux.com/tutorials/urp-shader-code
 
-Shader "PBROceanWater"
-{
-	Properties
-	{
+Shader "PBROceanWater" {
+
+	Properties {
 		[MainTexture][NoScaleOffset] _BaseMap("Main Texture", 2D) = "white" {}
 		[MainColor] _BaseColor("Color", Color) = (1, 1, 1, 1)
 
 		[Space(20)]
-		[Toggle(_SPECULAR_SETUP)] _MetallicSpecToggle("ON: Specular | OFF: Metallic", int) = 0
+		[Toggle(_SPECULAR_SETUP)] _MetallicSpecToggle ("ON: Specular | OFF: Metallic", int) = 0
 		_Metallic("Metallic", Range(0.0, 1.0)) = 0
 		_Smoothness("Smoothness", Range(0.0, 1.0)) = 0.5
 		_SpecColor("Specular Color", Color) = (0.5, 0.5, 0.5, 0.5)
-		[Toggle(_METALLICSPECGLOSSMAP)] _MetallicSpecGlossMapToggle("Metallic/Specular Gloss Map Toggle", int) = 0
+		[Toggle(_METALLICSPECGLOSSMAP)] _MetallicSpecGlossMapToggle ("Metallic/Specular Gloss Map Toggle", int) = 0
 		[NoScaleOffset] _MetallicSpecGlossMap("Metallic/Specular Gloss Map", 2D) = "black" {}
 
 		[Space(20)]
-		[Toggle(_NORMALMAP)] _NormalMapToggle("Use Normal Map", Float) = 0
+		[Toggle(_NORMALMAP)] _NormalMapToggle ("Use Normal Map", Float) = 0
 		_BumpMap("Normal Map", 2D) = "bump" {}
 		_BumpScale("Bump Scale", Float) = 1
-		_NormalStrength("Normal strength", Range(0, 10)) = 1
+        _NormalStrength("Normal strength", Range(0, 10)) = 1
 
 		[Space(20)]
-		[Toggle(_OCCLUSIONMAP)] _OcclusionToggle("Use Occlusion Map", Float) = 0
+		[Toggle(_OCCLUSIONMAP)] _OcclusionToggle ("Use Occlusion Map", Float) = 0
 		[NoScaleOffset] _OcclusionMap("Occlusion Map", 2D) = "bump" {}
 		_OcclusionStrength("Occlusion Strength", Range(0.0, 1.0)) = 1.0
 
 		[Space(20)]
-		[Toggle(_EMISSION)] _Emission("Emission", Float) = 0
+		[Toggle(_EMISSION)] _Emission ("Emission", Float) = 0
 		[HDR] _EmissionColor("Emission Color", Color) = (0,0,0)
-		[NoScaleOffset] _EmissionMap("Emission Map", 2D) = "black" {}
+		[NoScaleOffset]_EmissionMap("Emission Map", 2D) = "black" {}
 
 		[Space(20)]
 		[Toggle(_SPECULARHIGHLIGHTS_OFF)] _SpecularHighlights("Specular Highlights Toggle", int) = 0
@@ -38,11 +37,11 @@ Shader "PBROceanWater"
 		[Toggle(_RECEIVE_SHADOWS_OFF)] _ReceiveShadows("Receive Shadows", int) = 0
 
 		[Space(20)]
-		[NoScaleOffset] _Displacement_1("Displacement 1", 2D) = "white" {}
-		[NoScaleOffset] _Displacement_2("Displacement 2", 2D) = "white" {}
+        [NoScaleOffset] _Displacement_1("Displacement 1", 2D) = "white" {}
+        [NoScaleOffset] _Displacement_2("Displacement 2", 2D) = "white" {}
 
-		[NoScaleOffset] _Derivatives_1("Derivatives 1", 2D) = "white" {}
-		[NoScaleOffset] _Derivatives_2("Derivatives 2", 2D) = "white" {}
+        [NoScaleOffset] _Derivatives_1("Derivatives 1", 2D) = "white" {}
+        [NoScaleOffset] _Derivatives_2("Derivatives 2", 2D) = "white" {}
 
 		[Space(20)]
 		_SeaFoam("Sea foam", 2D) = "white" {}
@@ -52,10 +51,10 @@ Shader "PBROceanWater"
 		[NoScaleOffset] _SeaFoamStrength("Sea foam strength", Range(0, 100)) = 1
 
 		[Space(20)]
-		[NoScaleOffset] _ClearCoatMask("Clear coat mask", 2D) = "white" {}
-		_ClearCoatStrength("Clear coat strength", Range(0, 1)) = 0
-		[NoScaleOffset] _ClearCoatSmoothnessMask("Clear coat smoothness mask", 2D) = "white" {}
-		_ClearCoatSmoothness("Clear coat smoothness", Range(0, 1)) = 0
+        [NoScaleOffset] _ClearCoatMask("Clear coat mask", 2D) = "white" {}
+        _ClearCoatStrength("Clear coat strength", Range(0, 1)) = 0
+        [NoScaleOffset] _ClearCoatSmoothnessMask("Clear coat smoothness mask", 2D) = "white" {}
+        _ClearCoatSmoothness("Clear coat smoothness", Range(0, 1)) = 0
 
 		[Space(20)]
 		_DisplacementScale("Displacement scale", float) = 1
@@ -65,7 +64,7 @@ Shader "PBROceanWater"
 		_DetailFogScale("Detail fog scale", float) = 0
 
 		[Space(20)]
-		[HDR] _SSSColor("Subsurface Scattering Color", Color) = (0,0,0)
+		[HDR] _SSSColor ("Subsurface Scattering Color", Color) = (0,0,0)
 		_SSSDistortion("Subsurface scattering distortion", float) = 1
 		_SSSPower("Subsurface scattering power", float) = 1
 		_SSSScale("Subsurface scattering scale", float) = 1
@@ -73,20 +72,17 @@ Shader "PBROceanWater"
 		_SSSAmbient("Subsurface scattering ambient", float) = 1
 
 		[Space(20)]
-		_WaterFogColor("Underwater Fog Color", Color) = (0, 0, 0)
-		_WaterFogDensity("Water Fog Density", float) = 0
-		_EdgeFoamFactor("Edge Foam Factor", float) = 0
-		_EdgeFoamStrength("Edge Foam Strength", float) = 0
-		_EdgeOutlineThickness("Edge Outline Thickness", float) = 0
-		_EdgeOutlineStrength("Edge Outline Strength", float) = 0
-		_RefractionStrength("Refraction Strength", float) = 0
-		_Translucency("Translucency", float) = 0
+		_WaterFogColor ("Underwater Fog Color", Color) = (0, 0, 0)
+		_WaterFogDensity ("Water Fog Density", float) = 0
+		_EdgeFoamFactor ("Edge Foam Factor", float) = 0
+		_EdgeFoamStrength ("Edge Foam Strength", float) = 0
+		_EdgeOutlineThickness ("Edge Outline Thickness", float) = 0
+		_EdgeOutlineStrength ("Edge Outline Strength", float) = 0
+		_RefractionStrength ("Refraction Strength", float) = 0
+		_Translucency ("Translucency", float) = 0
 	}
-
-	SubShader
-	{
-		Tags
-		{
+	SubShader {
+		Tags {
 			"RenderPipeline"="UniversalPipeline"
 			"RenderType"="Transparent"
 			"Queue"="Transparent"
@@ -94,82 +90,62 @@ Shader "PBROceanWater"
 		}
 
 		HLSLINCLUDE
-
 		#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
 		CBUFFER_START(UnityPerMaterial)
-
 		float4 _BaseMap_ST;
 		float4 _BumpMap_ST;
 		float4 _BaseColor;
 		float4 _EmissionColor;
 		float4 _SpecColor;
-
 		float _Metallic;
 		float _Smoothness;
 		float _OcclusionStrength;
 		float _Cutoff;
 		float _BumpScale;
 		float _NormalStrength;
-
 		float _ClearCoatStrength;
 		float _ClearCoatSmoothness;
-
 		float _DisplacementScale;
 		float _DisplacementFog;
-
 		float4 _FogColor;
 		float _FogScale;
 		float _DetailFogScale;
-
 		float4 _SSSColor;
 		float _SSSDistortion;
 		float _SSSPower;
 		float _SSSScale;
 		float _SSSAttenuation;
 		float _SSSAmbient;
-
 		float _SeaFoamThreshold;
 		float4 _WaterFogColor;
 		float _WaterFogDensity;
-
 		float _EdgeFoamFactor;
 		float _EdgeFoamStrength;
 		float _EdgeOutlineThickness;
 		float _EdgeOutlineStrength;
-
 		float4 _SeaFoam_ST;
 		float _SeaFoamStrength;
-
 		float _RefractionStrength;
 		float _Translucency;
+		
 
 		float4 _CameraDepthTexture_TexelSize;
-
 		CBUFFER_END
-
 		ENDHLSL
 
-
-		// ================================================================
-		// FORWARD LIT
-		// ================================================================
-
-		Pass
-		{
+		Pass {
 			Name "ForwardLit"
 			Tags { "LightMode"="UniversalForward" }
-
 			Blend SrcAlpha OneMinusSrcAlpha
 			ZWrite On
-			Cull Back
+			cull Back
 
 			HLSLPROGRAM
-
 			#pragma vertex LitPassVertex
 			#pragma fragment LitPassFragment
 
-			#define _CLEARCOATMAP
+            #define _CLEARCOATMAP
 
 			#pragma shader_feature_local _NORMALMAP
 			#pragma shader_feature_local_fragment _ALPHATEST_ON
@@ -185,659 +161,219 @@ Shader "PBROceanWater"
 			#pragma shader_feature_local _RECEIVE_SHADOWS_OFF
 
 			#pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
+
 			#pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS
 			#pragma multi_compile_fragment _ _ADDITIONAL_LIGHT_SHADOWS
 			#pragma multi_compile_fragment _ _SHADOWS_SOFT
-			#pragma multi_compile_fragment _ _SCREEN_SPACE_OCCLUSION
-			#pragma multi_compile _ LIGHTMAP_SHADOW_MIXING
-			#pragma multi_compile _ SHADOWS_SHADOWMASK
+			#pragma multi_compile_fragment _ _SCREEN_SPACE_OCCLUSION // v10+ only (for SSAO support)
+			#pragma multi_compile _ LIGHTMAP_SHADOW_MIXING // v10+ only, renamed from "_MIXED_LIGHTING_SUBTRACTIVE"
+			#pragma multi_compile _ SHADOWS_SHADOWMASK // v10+ only
+
 			#pragma multi_compile _ LIGHTMAP_ON
 			#pragma multi_compile _ DIRLIGHTMAP_COMBINED
 
 			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
 
-			struct Attributes
-			{
-				float4 positionOS : POSITION;
-
+			struct Attributes {
+				float4 positionOS	: POSITION;
 				#ifdef _NORMALMAP
-					float4 tangentOS : TANGENT;
+					float4 tangentOS 	: TANGENT;
 				#endif
-
-				float4 normalOS : NORMAL;
-				float2 uv : TEXCOORD0;
-				float2 lightmapUV : TEXCOORD1;
-				float4 color : COLOR;
+				float4 normalOS		: NORMAL;
+				float2 uv		    : TEXCOORD0;
+				float2 lightmapUV	: TEXCOORD1;
+				float4 color		: COLOR;
 			};
 
-			struct Varyings
-			{
-				float4 positionCS : SV_POSITION;
-				float2 uv : TEXCOORD0;
-
+			struct Varyings {
+				float4 positionCS 					: SV_POSITION;
+				float2 uv		    				: TEXCOORD0;
 				DECLARE_LIGHTMAP_OR_SH(lightmapUV, vertexSH, 1);
+				float3 positionWS					: TEXCOORD2;
 
-				float3 positionWS : TEXCOORD2;
-
-				half4 normalWS : TEXCOORD3;
-				half4 tangentWS : TEXCOORD4;
-				half4 bitangentWS : TEXCOORD5;
-
-				half4 fogFactorAndVertexLight : TEXCOORD6;
+				half4 normalWS					: TEXCOORD3;    // xyz: normal, w: viewDir.x
+				half4 tangentWS					: TEXCOORD4;    // xyz: tangent, w: viewDir.y
+				half4 bitangentWS				: TEXCOORD5;    // xyz: bitangent, w: viewDir.z
+				
+				half4 fogFactorAndVertexLight	: TEXCOORD6; // x: fogFactor, yzw: vertex light
 
 				#if defined(REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR)
-					float4 shadowCoord : TEXCOORD7;
+					float4 shadowCoord 				: TEXCOORD7;
 				#endif
-
-				float4 screenPos : TEXCOORD8;
-				half3 viewDir : TEXCOORD9;
-				float4 color : COLOR;
+					float4 screenPos				: TEXCOORD8;
+				half3 viewDir						: TEXCOORD9;
+				float4 color						: COLOR;
 			};
 
 			#include "PBROceanWaterUtility.hlsl"
 
+			Varyings LitPassVertex(Attributes IN) {
+				Varyings OUT;
+				
+				float normalizedDistInv = 1 - saturate( ( 1 / _ProjectionParams.z * _DisplacementFog ) * length( GetWorldSpaceViewDir(  mul( unity_ObjectToWorld, IN.positionOS ) ) ) );
 
-			Varyings LitPassVertex(Attributes IN)
-			{
-				Varyings OUT = (Varyings)0;
-
-				float normalizedDistInv =
-					1 - saturate(
-						(1 / _ProjectionParams.z * _DisplacementFog) *
-						length(
-							GetWorldSpaceViewDir(
-								mul(
-									unity_ObjectToWorld,
-									IN.positionOS
-								)
-							)
-						)
-					);
-
-				float3 displacement =
-					_Displacement_1.SampleLevel(
-						sampler_Displacement_1,
-						IN.uv.xy,
-						0
-					).rgb
-					+
-					_Displacement_2.SampleLevel(
-						sampler_Displacement_2,
-						IN.uv.xy,
-						0
-					).rgb;
-
+				float3 displacement = _Displacement_1.SampleLevel(sampler_Displacement_1, IN.uv.xy, 0).rgb + 
+									  _Displacement_2.SampleLevel(sampler_Displacement_2, IN.uv.xy, 0).rgb;
 				displacement.xz *= _DisplacementScale;
+				IN.positionOS.xyz += mul( unity_ObjectToWorld, float4(displacement, 1.0)).xyz * normalizedDistInv;
 
-				IN.positionOS.xyz +=
-					mul(
-						unity_ObjectToWorld,
-						float4(displacement, 1.0)
-					).xyz *
-					normalizedDistInv;
-
-				VertexPositionInputs positionInputs =
-					GetVertexPositionInputs(
-						IN.positionOS.xyz
-					);
+				VertexPositionInputs positionInputs = GetVertexPositionInputs(IN.positionOS.xyz);
 
 				#ifdef _NORMALMAP
-
-					VertexNormalInputs normalInputs =
-						GetVertexNormalInputs(
-							IN.normalOS.xyz,
-							IN.tangentOS
-						);
-
+					VertexNormalInputs normalInputs = GetVertexNormalInputs(IN.normalOS.xyz, IN.tangentOS);
 				#else
-
-					VertexNormalInputs normalInputs =
-						GetVertexNormalInputs(
-							IN.normalOS.xyz
-						);
-
+					VertexNormalInputs normalInputs = GetVertexNormalInputs(IN.normalOS.xyz);
 				#endif
+				
+				OUT.positionCS = positionInputs.positionCS;
+				OUT.positionWS = positionInputs.positionWS;
+				OUT.screenPos  = ComputeScreenPos(OUT.positionCS);
 
-				OUT.positionCS =
-					positionInputs.positionCS;
+				half3 viewDirWS = GetWorldSpaceViewDir(positionInputs.positionWS);
+				half3 vertexLight = VertexLighting(positionInputs.positionWS, normalInputs.normalWS);
+				
+				OUT.normalWS = half4(normalInputs.normalWS, viewDirWS.x);
+				OUT.tangentWS = half4(normalInputs.tangentWS, viewDirWS.y);
+				OUT.bitangentWS = half4(normalInputs.bitangentWS, viewDirWS.z);
 
-				OUT.positionWS =
-					positionInputs.positionWS;
+				OUTPUT_LIGHTMAP_UV(IN.lightmapUV, unity_LightmapST, OUT.lightmapUV);
+				OUTPUT_SH(OUT.normalWS.xyz, OUT.vertexSH);
 
-				OUT.screenPos =
-					ComputeScreenPos(
-						OUT.positionCS
-					);
-
-				half3 viewDirWS =
-					GetWorldSpaceViewDir(
-						positionInputs.positionWS
-					);
-
-				half3 vertexLight =
-					VertexLighting(
-						positionInputs.positionWS,
-						normalInputs.normalWS
-					);
-
-				OUT.normalWS =
-					half4(
-						normalInputs.normalWS,
-						viewDirWS.x
-					);
-
-				OUT.tangentWS =
-					half4(
-						normalInputs.tangentWS,
-						viewDirWS.y
-					);
-
-				OUT.bitangentWS =
-					half4(
-						normalInputs.bitangentWS,
-						viewDirWS.z
-					);
-
-				OUTPUT_LIGHTMAP_UV(
-					IN.lightmapUV,
-					unity_LightmapST,
-					OUT.lightmapUV
-				);
-
-				OUTPUT_SH(
-					OUT.normalWS.xyz,
-					OUT.vertexSH
-				);
-
-				OUT.fogFactorAndVertexLight =
-					half4(
-						0,
-						vertexLight
-					);
+				OUT.fogFactorAndVertexLight = half4(0, vertexLight);
 
 				#if defined(REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR)
-
-					OUT.shadowCoord =
-						GetShadowCoord(
-							positionInputs
-						);
-
+					OUT.shadowCoord = GetShadowCoord(positionInputs);
 				#endif
 
-				OUT.viewDir =
-					viewDirWS;
-
-				OUT.uv =
-					TRANSFORM_TEX(
-						IN.uv,
-						_BaseMap
-					);
-
-				OUT.color =
-					IN.color;
-
+				OUT.viewDir = viewDirWS;
+				OUT.uv = TRANSFORM_TEX(IN.uv, _BaseMap);
+				OUT.color = IN.color;
 				return OUT;
 			}
+			
+			half4 LitPassFragment(Varyings IN) : SV_Target {
 
+				float viewDist = length( IN.viewDir );
+				float normalizedDistInv = 1 - saturate( ( 1 / _ProjectionParams.z * _DetailFogScale ) * viewDist );
+				float normalizedDist = saturate( ( 1 / _ProjectionParams.z * _FogScale ) * viewDist );
+				float normalizedDistSq = normalizedDist * normalizedDist;
 
-			half4 LitPassFragment(Varyings IN) : SV_Target
-			{
-				float viewDist =
-					length(IN.viewDir);
+				// r: yx g: yz b: xx a: zz
+				float4 derivative = _Derivatives_1.Sample(sampler_Derivatives_1, IN.uv.xy).rgba + 
+									_Derivatives_2.Sample(sampler_Derivatives_1, IN.uv.xy).rgba;
+				float2 slope = float2( derivative.r / ( _DisplacementScale * derivative.b + 1.0 ), derivative.g / ( _DisplacementScale * derivative.a + 1.0) );
+				float3 normal = normalize( float3( -slope.x, 1.0, -slope.y ) ) * _NormalStrength;
+				IN.normalWS.xyz = normal;
+				IN.normalWS.xz *= normalizedDistInv;
 
-				float normalizedDistInv =
-					1 - saturate(
-						(1 / _ProjectionParams.z * _DetailFogScale) *
-						viewDist
-					);
+				float3 tangent = cross( normal, float3(1,0,0) );
+				if ( length(tangent) == 0)
+					tangent = cross( normal, float3(0,1,0) );
 
-				float normalizedDist =
-					saturate(
-						(1 / _ProjectionParams.z * _FogScale) *
-						viewDist
-					);
-
-				float normalizedDistSq =
-					normalizedDist *
-					normalizedDist;
-
-
-				float4 derivative =
-					_Derivatives_1.Sample(
-						sampler_Derivatives_1,
-						IN.uv.xy
-					).rgba
-					+
-					_Derivatives_2.Sample(
-						sampler_Derivatives_2,
-						IN.uv.xy
-					).rgba;
-
-
-				float2 slope =
-					float2(
-						derivative.r /
-						(_DisplacementScale * derivative.b + 1.0),
-
-						derivative.g /
-						(_DisplacementScale * derivative.a + 1.0)
-					);
-
-
-				float3 normal =
-					normalize(
-						float3(
-							-slope.x,
-							1.0,
-							-slope.y
-						)
-					) *
-					_NormalStrength;
-
-				IN.normalWS.xyz =
-					normal;
-
-				IN.normalWS.xz *=
-					normalizedDistInv;
-
-
-				float3 tangent =
-					cross(
-						normal,
-						float3(1,0,0)
-					);
-
-				if (length(tangent) == 0)
-				{
-					tangent =
-						cross(
-							normal,
-							float3(0,1,0)
-						);
-				}
-
-
-				float2 pdxz_y =
-					_Displacement_1.Sample(
-						sampler_Displacement_1,
-						IN.uv.xy
-					).ag
-					+
-					_Displacement_2.Sample(
-						sampler_Displacement_2,
-						IN.uv.xy
-					).ag;
-
+				// last partial derivative & Y-axis displacement for other features
+				float2 pdxz_y = _Displacement_1.Sample(sampler_Displacement_1, IN.uv.xy).ag + _Displacement_2.Sample(sampler_Displacement_2, IN.uv.xy).ag;
 
 				float3 roughness = 0;
 				float3 emissivity = 0;
 
+				// jacobian determinant
+				float jacobian = ( ( _DisplacementScale * derivative.b + 1.0 ) * ( _DisplacementScale * derivative.a + 1.0 ) ) - ( _DisplacementScale * pdxz_y.x  * _DisplacementScale * pdxz_y.x );
 
-				float jacobian =
-					(
-						(_DisplacementScale * derivative.b + 1.0) *
-						(_DisplacementScale * derivative.a + 1.0)
-					)
-					-
-					(
-						_DisplacementScale * pdxz_y.x *
-						_DisplacementScale * pdxz_y.x
-					);
+				// sea foam
+				float2 seaFoamUV = TRANSFORM_TEX(IN.uv.xy, _SeaFoam);
+				float3 seaFoamColor     =		      _SeaFoam.Sample(sampler_SeaFoam, seaFoamUV);
+				//float4 seaFoamNormal    =	 _SeaFoamNormalMap.Sample(sampler_SeaFoam, seaFoamUV);
+				float3 seaFoamRoughness = _SeaFoamRoughnessMap.Sample(sampler_SeaFoam, seaFoamUV);
 
+				float3 seaFoamNormalTS = SampleNormal(seaFoamUV, TEXTURE2D_ARGS(_SeaFoamNormalMap, sampler_SeaFoam), _BumpScale);
+				half3 viewDirWS = half3(IN.normalWS.w, IN.tangentWS.w, IN.bitangentWS.w); // viewDir has been stored in w components of these in vertex shader
+				float3 seaFoamNormalWS = TransformTangentToWorld(seaFoamNormalTS, half3x3(IN.tangentWS.xyz, IN.bitangentWS.xyz, IN.normalWS.xyz));
 
-				float2 seaFoamUV =
-					TRANSFORM_TEX(
-						IN.uv.xy,
-						_SeaFoam
-					);
+				IN.color.rgb    += saturate(_SeaFoamThreshold - jacobian) * seaFoamColor    * _SeaFoamStrength* _SeaFoamStrength * normalizedDistInv;
+				IN.normalWS.rgb += saturate(_SeaFoamThreshold - jacobian) * seaFoamNormalWS * _SeaFoamStrength* _SeaFoamStrength;
+				//roughness	 += jacobian < _SeaFoamThreshold ? lerp( seaFoamRoughness * _SeaFoamStrength, 0, saturate( jacobian ) ) * _SeaFoamStrength : 0;
+				
+				// subsurface scattering approximation; utilizing Y displacement as a "thickness" map
+				half3 SSSlight = normalize( GetMainLight().direction.xyz + normal * _SSSDistortion );
+				half  SSSDot = pow( saturate ( dot( GetWorldSpaceViewDir(IN.positionWS), -SSSlight ) ), _SSSPower ) * _SSSScale;
+				emissivity += saturate( _SSSAttenuation * ( SSSDot * _SSSAmbient ) * pdxz_y.y ) * _SSSColor;
 
-				float3 seaFoamColor =
-					_SeaFoam.Sample(
-						sampler_SeaFoam,
-						seaFoamUV
-					);
-
-				float3 seaFoamRoughness =
-					_SeaFoamRoughnessMap.Sample(
-						sampler_SeaFoamRoughnessMap,
-						seaFoamUV
-					);
-
-				float3 seaFoamNormalTS =
-					SampleNormal(
-						seaFoamUV,
-						TEXTURE2D_ARGS(
-							_SeaFoamNormalMap,
-							sampler_SeaFoamNormalMap
-						),
-						_BumpScale
-					);
-
-				half3 viewDirWS =
-					half3(
-						IN.normalWS.w,
-						IN.tangentWS.w,
-						IN.bitangentWS.w
-					);
-
-				float3 seaFoamNormalWS =
-					TransformTangentToWorld(
-						seaFoamNormalTS,
-						half3x3(
-							IN.tangentWS.xyz,
-							IN.bitangentWS.xyz,
-							IN.normalWS.xyz
-						)
-					);
-
-				IN.color.rgb +=
-					saturate(
-						_SeaFoamThreshold -
-						jacobian
-					)
-					*
-					seaFoamColor
-					*
-					_SeaFoamStrength
-					*
-					_SeaFoamStrength
-					*
-					normalizedDistInv;
-
-				IN.normalWS.rgb +=
-					saturate(
-						_SeaFoamThreshold -
-						jacobian
-					)
-					*
-					seaFoamNormalWS
-					*
-					_SeaFoamStrength
-					*
-					_SeaFoamStrength;
-
-
-				half3 SSSlight =
-					normalize(
-						GetMainLight().direction.xyz +
-						normal *
-						_SSSDistortion
-					);
-
-				half SSSDot =
-					pow(
-						saturate(
-							dot(
-								GetWorldSpaceViewDir(
-									IN.positionWS
-								),
-								-SSSlight
-							)
-						),
-						_SSSPower
-					)
-					*
-					_SSSScale;
-
-				emissivity +=
-					saturate(
-						_SSSAttenuation *
-						(SSSDot * _SSSAmbient) *
-						pdxz_y.y
-					)
-					*
-					_SSSColor;
-
-
-				float2 uvOffset =
-					tangent.xy *
-					_RefractionStrength *
-					float2(
-						0,
-						_CameraDepthTexture_TexelSize.z *
-						abs(
-							_CameraDepthTexture_TexelSize.y
-						)
-					);
-
-				float2 uvScreen =
-					(
-						IN.screenPos.xy +
-						uvOffset
-					)
-					/
-					IN.screenPos.w;
-
-
+				// water depth & translucency
+				float2 uvOffset = tangent.xy * _RefractionStrength * float2( 0, _CameraDepthTexture_TexelSize.z * abs( _CameraDepthTexture_TexelSize.y ) );
+				float2 uvScreen = ( IN.screenPos.xy + uvOffset ) / IN.screenPos.w;
 				#if UNITY_UV_STARTS_AT_TOP
-
-					if (
-						_CameraDepthTexture_TexelSize.y < 0
-					)
-					{
-						uvScreen.y =
-							1 -
-							uvScreen.y;
+					if (_CameraDepthTexture_TexelSize.y < 0) {
+						uvScreen.y = 1 - uvScreen.y;
 					}
-
 				#endif
-
-
-				uvScreen =
-					(
-						floor(
-							uvScreen *
-							_CameraDepthTexture_TexelSize.zw
-						)
-						+
-						0.5
-					)
-					*
-					abs(
-						_CameraDepthTexture_TexelSize.xy
-					);
-
-
-				float backDepth =
-					1.0 /
-					(
-						_ZBufferParams.z *
-						SAMPLE_DEPTH_TEXTURE(
-							_CameraDepthTexture,
-							sampler_CameraDepthTexture,
-							uvScreen
-						)
-						+
-						_ZBufferParams.w
-					);
-
-
-				float surfDepth =
-					UNITY_Z_0_FAR_FROM_CLIPSPACE(
-						IN.screenPos.z
-					);
-
-				float depthDiff =
-					backDepth -
-					surfDepth;
-
-
-				uvOffset *=
-					saturate(
-						depthDiff
-					);
-
-
-				uvScreen =
-					(
-						IN.screenPos.xy +
-						uvOffset
-					)
-					/
-					IN.screenPos.w;
-
-
+				uvScreen = ( floor( uvScreen * _CameraDepthTexture_TexelSize.zw ) + 0.5 ) * abs( _CameraDepthTexture_TexelSize.xy );
+				float  backDepth = 1.0 / ( _ZBufferParams.z * SAMPLE_DEPTH_TEXTURE( _CameraDepthTexture, sampler_CameraDepthTexture, uvScreen ) + _ZBufferParams.w );
+				float  surfDepth = UNITY_Z_0_FAR_FROM_CLIPSPACE( IN.screenPos.z );
+				float  depthDiff = backDepth - surfDepth;
+				
+				uvOffset *= saturate( depthDiff );
+				uvScreen = ( IN.screenPos.xy + uvOffset ) / IN.screenPos.w;
 				#if UNITY_UV_STARTS_AT_TOP
-
-					if (
-						_CameraDepthTexture_TexelSize.y < 0
-					)
-					{
-						uvScreen.y =
-							1 -
-							uvScreen.y;
+					if (_CameraDepthTexture_TexelSize.y < 0) {
+						uvScreen.y = 1 - uvScreen.y;
 					}
-
 				#endif
+				uvScreen = ( floor( uvScreen * _CameraDepthTexture_TexelSize.zw ) + 0.5 ) * abs( _CameraDepthTexture_TexelSize.xy );
+				backDepth = 1.0 / ( _ZBufferParams.z * SAMPLE_DEPTH_TEXTURE( _CameraDepthTexture, sampler_CameraDepthTexture, uvScreen ) + _ZBufferParams.w );
+				depthDiff = backDepth - surfDepth;
 
+				float3 backColor = _CameraOpaqueTexture.Sample( sampler_CameraOpaqueTexture, uvScreen ).rgb ;
+				float  fogFactor = exp2( -_WaterFogDensity * depthDiff );
+				IN.color.rgb *= lerp( _WaterFogColor, backColor, fogFactor ) * _Translucency;
 
-				uvScreen =
-					(
-						floor(
-							uvScreen *
-							_CameraDepthTexture_TexelSize.zw
-						)
-						+
-						0.5
-					)
-					*
-					abs(
-						_CameraDepthTexture_TexelSize.xy
-					);
+				// color at shallow depth
+				IN.color.rgb += fogFactor * _BaseColor * _Translucency;
 
+				//IN.color.rgb += lerp( _EdgeOutlineThickness, seaFoamColor, fogFactor) * _EdgeOutlineStrength;
+				//IN.color.rgb += fogFactor * _EdgeOutlineThickness * seaFoamColor + _EdgeOutlineThickness;
 
-				backDepth =
-					1.0 /
-					(
-						_ZBufferParams.z *
-						SAMPLE_DEPTH_TEXTURE(
-							_CameraDepthTexture,
-							sampler_CameraDepthTexture,
-							uvScreen
-						)
-						+
-						_ZBufferParams.w
-					);
-
-
-				depthDiff =
-					backDepth -
-					surfDepth;
-
-
-				float3 backColor =
-					_CameraOpaqueTexture.Sample(
-						sampler_CameraOpaqueTexture,
-						uvScreen
-					).rgb;
-
-
-				float fogFactor =
-					exp2(
-						-_WaterFogDensity *
-						depthDiff
-					);
-
-
-				IN.color.rgb *=
-					lerp(
-						_WaterFogColor,
-						backColor,
-						fogFactor
-					)
-					*
-					_Translucency;
-
-
-				IN.color.rgb +=
-					fogFactor *
-					_BaseColor.rgb *
-					_Translucency;
-
+				// FOAM WIP
 
 				SurfaceData surfaceData;
+				InitializeSurfaceData(IN, surfaceData, TRANSFORM_TEX(IN.uv, _BumpMap));
 
-				InitializeSurfaceData(
-					IN,
-					surfaceData,
-					TRANSFORM_TEX(
-						IN.uv,
-						_BumpMap
-					)
-				);
+				surfaceData.clearCoatMask = SAMPLE_TEXTURE2D(_ClearCoatMask, sampler_ClearCoatMask, IN.uv.xy).r * _ClearCoatStrength ;
+				surfaceData.clearCoatSmoothness = SAMPLE_TEXTURE2D(_ClearCoatSmoothnessMask, sampler_ClearCoatSmoothnessMask, IN.uv.xy).r * _ClearCoatSmoothness * normalizedDistSq;
+				surfaceData.emission += emissivity;
 
 
-				surfaceData.clearCoatMask =
-					SAMPLE_TEXTURE2D(
-						_ClearCoatMask,
-						sampler_ClearCoatMask,
-						IN.uv.xy
-					).r
-					*
-					_ClearCoatStrength;
 
-
-				surfaceData.clearCoatSmoothness =
-					SAMPLE_TEXTURE2D(
-						_ClearCoatSmoothnessMask,
-						sampler_ClearCoatSmoothnessMask,
-						IN.uv.xy
-					).r
-					*
-					_ClearCoatSmoothness
-					*
-					normalizedDistSq;
-
-
-				surfaceData.emission +=
-					emissivity;
-
+				// WIP
+				//#if _SPECULAR_SETUP
+				//	surfaceData.specular = 0;
+				//#else
+				//	surfaceData.metallic += 0 ;
+				//#endif
+				//surfaceData.smoothness += saturate( 1 - roughness);
 
 				InputData inputData;
+				InitializeInputData(IN, surfaceData.normalTS, inputData);
+				half4 color = UniversalFragmentPBR(inputData, surfaceData);
 
-				InitializeInputData(
-					IN,
-					surfaceData.normalTS,
-					inputData
-				);
-
-
-				half4 color =
-					UniversalFragmentPBR(
-						inputData,
-						surfaceData
-					);
-
-
-				color.rgb +=
-					_FogColor.rgb *
-					normalizedDistSq;
+				// FOG
+				color.rgb += _FogColor * normalizedDistSq;
 
 				color.a = 1;
 
 				return color;
 			}
-
 			ENDHLSL
 		}
 
-
-		// ================================================================
-		// SHADOW CASTER
-		// ================================================================
-
-		Pass
-		{
+		Pass {
 			Name "ShadowCaster"
 			Tags { "LightMode"="ShadowCaster" }
 
 			ZWrite On
 			ZTest LEqual
-			ColorMask 0
 
 			HLSLPROGRAM
 
-			#pragma vertex DisplacedShadowPassVertex
 			#pragma fragment ShadowPassFragment
 
 			#pragma shader_feature_local_fragment _ALPHATEST_ON
@@ -849,58 +385,27 @@ Shader "PBROceanWater"
 			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/SurfaceInput.hlsl"
 			#include "Packages/com.unity.render-pipelines.universal/Shaders/ShadowCasterPass.hlsl"
 
-			TEXTURE2D(_Displacement_1);
-			SamplerState sampler_Displacement_1;
+			#pragma vertex DisplacedShadowPassVertex
 
-			TEXTURE2D(_Displacement_2);
-			SamplerState sampler_Displacement_2;
+			TEXTURE2D(_Displacement_1);		SamplerState sampler_Displacement_1;
+			TEXTURE2D(_Displacement_2);		SamplerState sampler_Displacement_2;
+			
+			Varyings DisplacedShadowPassVertex(Attributes input) {
+				Varyings output = (Varyings)0;
 
-
-			Varyings DisplacedShadowPassVertex(Attributes input)
-			{
-				Varyings output =
-					(Varyings)0;
-
-
-				float3 displacement =
-					_Displacement_1.SampleLevel(
-						sampler_Displacement_1,
-						input.texcoord.xy,
-						0
-					).rgb
-					+
-					_Displacement_2.SampleLevel(
-						sampler_Displacement_2,
-						input.texcoord.xy,
-						0
-					).rgb;
-
-
-				input.positionOS.xyz +=
-					mul(
-						unity_WorldToObject,
-						displacement
-					);
-
-
-				output.positionCS =
-					GetShadowPositionHClip(
-						input
-					);
-
+				float3 displacement = _Displacement_1.SampleLevel(sampler_Displacement_1, input.texcoord.xy, 0).rgb + 
+									  _Displacement_2.SampleLevel(sampler_Displacement_2, input.texcoord.xy, 0).rgb;
+				input.positionOS.xyz +=  mul( unity_WorldToObject, displacement );
+				
+				output.uv = TRANSFORM_TEX(input.texcoord, _BaseMap);
+				output.positionCS = GetShadowPositionHClip(input);
 				return output;
 			}
 
 			ENDHLSL
 		}
 
-
-		// ================================================================
-		// DEPTH NORMALS
-		// ================================================================
-
-		Pass
-		{
+		Pass {
 			Name "DepthNormals"
 			Tags { "LightMode"="DepthNormals" }
 
@@ -908,8 +413,7 @@ Shader "PBROceanWater"
 			ZTest LEqual
 
 			HLSLPROGRAM
-
-			#pragma vertex DisplacedDepthNormalsVertex
+			#pragma vertex DepthNormalsVertex
 			#pragma fragment DepthNormalsFragment
 
 			#pragma shader_feature_local _NORMALMAP
@@ -920,78 +424,34 @@ Shader "PBROceanWater"
 			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/SurfaceInput.hlsl"
 			#include "Packages/com.unity.render-pipelines.universal/Shaders/DepthNormalsPass.hlsl"
 
-			TEXTURE2D(_Displacement_1);
-			SamplerState sampler_Displacement_1;
+			#pragma vertex DisplacedDepthNormalsVertex
+			TEXTURE2D(_Displacement_1);		SamplerState sampler_Displacement_1;
+			TEXTURE2D(_Displacement_2);		SamplerState sampler_Displacement_2;
 
-			TEXTURE2D(_Displacement_2);
-			SamplerState sampler_Displacement_2;
+			Varyings DisplacedDepthNormalsVertex(Attributes input) {
+				Varyings output = (Varyings)0;
 
-
-			Varyings DisplacedDepthNormalsVertex(Attributes input)
-			{
-				Varyings output =
-					(Varyings)0;
-
-
-				float3 displacement =
-					_Displacement_1.SampleLevel(
-						sampler_Displacement_1,
-						input.texcoord.xy,
-						0
-					).rgb
-					+
-					_Displacement_2.SampleLevel(
-						sampler_Displacement_2,
-						input.texcoord.xy,
-						0
-					).rgb;
-
-
-				input.positionOS.xyz +=
-					mul(
-						unity_WorldToObject,
-						displacement
-					);
-
-
-				output.positionCS =
-					TransformObjectToHClip(
-						input.positionOS.xyz
-					);
-
-
-				VertexNormalInputs normalInput =
-					GetVertexNormalInputs(
-						input.normal,
-						input.tangentOS
-					);
-
-
-				output.normalWS =
-					NormalizeNormalPerVertex(
-						normalInput.normalWS
-					);
-
+				float3 displacement = _Displacement_1.SampleLevel(sampler_Displacement_1, input.texcoord.xy, 0).rgb + 
+									  _Displacement_2.SampleLevel(sampler_Displacement_2, input.texcoord.xy, 0).rgb;
+				input.positionOS.xyz +=  mul( unity_WorldToObject, displacement );
+				
+				output.uv = TRANSFORM_TEX(input.texcoord, _BaseMap);
+				output.positionCS = TransformObjectToHClip(input.positionOS.xyz);
+				VertexNormalInputs normalInput = GetVertexNormalInputs(input.normal, input.tangentOS);
+				output.normalWS = NormalizeNormalPerVertex(normalInput.normalWS);
 				return output;
 			}
-
+			
 			ENDHLSL
 		}
 
-
-		// ================================================================
-		// META
-		// ================================================================
-
-		Pass
-		{
+		Pass {
 			Name "Meta"
-			Tags { "LightMode"="Meta" }
+			Tags{"LightMode" = "Meta"}
 
 			Cull Off
 
 			HLSLPROGRAM
-
 			#pragma vertex UniversalVertexMeta
 			#pragma fragment UniversalFragmentMeta
 
@@ -999,271 +459,53 @@ Shader "PBROceanWater"
 			#pragma shader_feature_local_fragment _EMISSION
 			#pragma shader_feature_local_fragment _METALLICSPECGLOSSMAP
 			#pragma shader_feature_local_fragment _ALPHATEST_ON
-			#pragma shader_feature_local_fragment _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+			#pragma shader_feature_local_fragment _ _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
 
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/MetaInput.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
-			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/SurfaceInput.hlsl"
+			#pragma shader_feature_local_fragment _SPECGLOSSMAP
 
-
-			struct MetaAttributes
-			{
-				float4 positionOS : POSITION;
-				float3 normalOS : NORMAL;
-
-				float2 uv0 : TEXCOORD0;
-				float2 uv1 : TEXCOORD1;
-				float2 uv2 : TEXCOORD2;
-
-				float4 color : COLOR;
-
+			struct Attributes {
+				float4 positionOS   : POSITION;
+				float3 normalOS     : NORMAL;
+				float2 uv0          : TEXCOORD0;
+				float2 uv1          : TEXCOORD1;
+				float2 uv2          : TEXCOORD2;
 				#ifdef _TANGENT_TO_WORLD
-					float4 tangentOS : TANGENT;
+					float4 tangentOS     : TANGENT;
 				#endif
+				float4 color		: COLOR;
 			};
 
-
-			struct MetaVaryings
-			{
-				float4 positionCS : SV_POSITION;
-				float2 uv : TEXCOORD0;
-				float4 color : COLOR;
+			struct Varyings {
+				float4 positionCS   : SV_POSITION;
+				float2 uv           : TEXCOORD0;
+				float4 color		: COLOR;
 			};
 
+			#include "PBROceanWaterUtility.hlsl"
+			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/MetaInput.hlsl"
 
-			TEXTURE2D(_MetallicSpecGlossMap);
-			SAMPLER(sampler_MetallicSpecGlossMap);
+			Varyings UniversalVertexMeta(Attributes input) {
+				Varyings output;
 
-
-			half4 MetaSampleMetallicSpecGloss(
-				float2 uv,
-				half albedoAlpha
-			)
-			{
-				half4 specGloss;
-
-
-				#ifdef _METALLICSPECGLOSSMAP
-
-					specGloss =
-						SAMPLE_TEXTURE2D(
-							_MetallicSpecGlossMap,
-							sampler_MetallicSpecGlossMap,
-							uv
-						);
-
-					specGloss.a *=
-						_Smoothness;
-
-				#else
-
-					#if _SPECULAR_SETUP
-
-						specGloss.rgb =
-							_SpecColor.rgb;
-
-					#else
-
-						specGloss.rgb =
-							_Metallic.rrr;
-
-					#endif
-
-
-					#ifdef _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
-
-						specGloss.a =
-							albedoAlpha *
-							_Smoothness;
-
-					#else
-
-						specGloss.a =
-							_Smoothness;
-
-					#endif
-
-				#endif
-
-				return specGloss;
-			}
-
-
-			MetaVaryings UniversalVertexMeta(
-				MetaAttributes input
-			)
-			{
-				MetaVaryings output =
-					(MetaVaryings)0;
-
-
-				output.positionCS =
-					MetaVertexPosition(
-						input.positionOS,
-						input.uv1,
-						input.uv2,
-						unity_LightmapST,
-						unity_DynamicLightmapST
-					);
-
-
-				output.uv =
-					TRANSFORM_TEX(
-						input.uv0,
-						_BaseMap
-					);
-
-
-				output.color =
-					input.color;
-
+				output.positionCS = MetaVertexPosition(input.positionOS, input.uv1, input.uv2, unity_LightmapST, unity_DynamicLightmapST);
+				output.uv = TRANSFORM_TEX(input.uv0, _BaseMap);
+				output.color = input.color;
 				return output;
 			}
 
-
-			half4 UniversalFragmentMeta(
-				MetaVaryings input
-			) : SV_Target
-			{
-				half4 albedoAlpha =
-					SampleAlbedoAlpha(
-						input.uv,
-						TEXTURE2D_ARGS(
-							_BaseMap,
-							sampler_BaseMap
-						)
-					);
-
-
-				SurfaceData surfaceData =
-					(SurfaceData)0;
-
-
-				surfaceData.alpha =
-					Alpha(
-						albedoAlpha.a,
-						_BaseColor,
-						_Cutoff
-					);
-
-
-				surfaceData.albedo =
-					albedoAlpha.rgb *
-					_BaseColor.rgb *
-					input.color.rgb;
-
-
-				#ifdef _NORMALMAP
-
-					surfaceData.normalTS =
-						SampleNormal(
-							input.uv,
-							TEXTURE2D_ARGS(
-								_BumpMap,
-								sampler_BumpMap
-							),
-							_BumpScale
-						);
-
-				#else
-
-					surfaceData.normalTS =
-						half3(
-							0,
-							0,
-							1
-						);
-
-				#endif
-
-
-				#ifdef _EMISSION
-
-					surfaceData.emission =
-						SampleEmission(
-							input.uv,
-							_EmissionColor.rgb,
-							TEXTURE2D_ARGS(
-								_EmissionMap,
-								sampler_EmissionMap
-							)
-						);
-
-				#else
-
-					surfaceData.emission =
-						half3(
-							0,
-							0,
-							0
-						);
-
-				#endif
-
-
-				half4 specGloss =
-					MetaSampleMetallicSpecGloss(
-						input.uv,
-						albedoAlpha.a
-					);
-
-
-				#if _SPECULAR_SETUP
-
-					surfaceData.metallic =
-						1.0h;
-
-					surfaceData.specular =
-						specGloss.rgb;
-
-				#else
-
-					surfaceData.metallic =
-						specGloss.r;
-
-					surfaceData.specular =
-						half3(
-							0.0h,
-							0.0h,
-							0.0h
-						);
-
-				#endif
-
-
-				surfaceData.smoothness =
-					specGloss.a;
-
+			half4 UniversalFragmentMeta(Varyings input) : SV_Target {
+				SurfaceData surfaceData;
+				InitializeSurfaceData(input, surfaceData);
 
 				BRDFData brdfData;
-
-				InitializeBRDFData(
-					surfaceData.albedo,
-					surfaceData.metallic,
-					surfaceData.specular,
-					surfaceData.smoothness,
-					surfaceData.alpha,
-					brdfData
-				);
-
+				InitializeBRDFData(surfaceData.albedo, surfaceData.metallic, surfaceData.specular, surfaceData.smoothness, surfaceData.alpha, brdfData);
 
 				MetaInput metaInput;
+				metaInput.Albedo = brdfData.diffuse + brdfData.specular * brdfData.roughness * 0.5;
+				metaInput.SpecularColor = surfaceData.specular;
+				metaInput.Emission = surfaceData.emission;
 
-
-				metaInput.Albedo =
-					brdfData.diffuse +
-					brdfData.specular *
-					brdfData.roughness *
-					0.5;
-
-
-				metaInput.Emission =
-					surfaceData.emission;
-
-
-				return MetaFragment(
-					metaInput
-				);
+				return MetaFragment(metaInput);
 			}
 
 			ENDHLSL
