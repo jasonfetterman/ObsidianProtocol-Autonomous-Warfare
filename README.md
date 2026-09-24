@@ -1,295 +1,186 @@
-# Obsidian Protocol: Autonomous Warfare
+<div align="center">
 
-> **Command intent. Unleash autonomy. Witness war evolve.**
+<img src="Assets/Art/Branding/obsidian-protocol-logo.png" alt="Black Steel Innovations — Obsidian Protocol logo" width="280">
 
-Obsidian Protocol: Autonomous Warfare is an original commercial military strategy and warfare game being developed
-for players to experience through Steam, online or offline. It is built around a simple idea:
+<br>
+
+<img src="Assets/Art/Concepts/HUD/Main-Menu-Concept.png" alt="Obsidian Protocol command facility concept" width="100%">
+
+# OBSIDIAN PROTOCOL
+### AUTONOMOUS WARFARE
+
+**A strategy game about commanding intent—not clicking faster.**
+
+[![Unity 6](https://img.shields.io/badge/Unity-6000.0.80f1-222c37?logo=unity&logoColor=white)](ProjectSettings/ProjectVersion.txt)
+[![Status: In development](https://img.shields.io/badge/status-in%20development-d28b32)](#where-we-are)
+[![Contributors welcome](https://img.shields.io/badge/contributors-welcome-7c9f5b)](#join-the-operation)
+
+<br>
+
+**[Join the operation](#join-the-operation)** ·
+**[Run the prototype](#run-the-project)** ·
+**[Read the vision](Docs/Design)** ·
+**[Browse the issues](https://github.com/jasonfetterman/ObsidianProtocol-Autonomous-Warfare/issues)**
+
+</div>
+
+---
+
+## The hook
+
+You give a formation a mission. Its commander decides how to pursue it.
+
+Sensors fail. Contacts remain unidentified. A relay goes dark. A damaged vehicle
+breaks formation. Supply routes become targets. The battle that follows is not a
+scripted sequence—it is the consequence of your orders, your doctrine, and what
+your military actually knows.
 
 > **You do not command every move. You command the war.**
 
-Instead of micromanaging every unit, the player establishes objectives, priorities, rules of engagement, formations, doctrines, and operational intent. Autonomous forces interpret those orders according to their capabilities, sensors, communications, role, condition, and understanding of the battlefield.
+Obsidian Protocol is an original military strategy game being built in Unity. It
+combines strategic planning, autonomous forces, imperfect information, logistics,
+and tactical intervention in one continuous command experience.
 
-## Take command of a living war
+## What makes it different?
 
-Build a force. Set the mission. Shape the doctrine. Then watch your military interpret your orders and fight through
-the consequences.
+<table>
+<tr>
+<td width="25%" align="center"><h3>🎖️</h3><b>Intent</b><br><sub>Set objectives, priorities, doctrine, and risk.</sub></td>
+<td width="25%" align="center"><h3>🤖</h3><b>Autonomy</b><br><sub>Commanders and units interpret your orders.</sub></td>
+<td width="25%" align="center"><h3>📡</h3><b>Uncertainty</b><br><sub>Knowledge depends on sensors and comms.</sub></td>
+<td width="25%" align="center"><h3>⚙️</h3><b>Consequences</b><br><sub>Damage, supply, and decisions persist.</sub></td>
+</tr>
+</table>
 
-Obsidian Protocol is for players who want more than a traditional click-heavy RTS. It is a command experience where
-your decisions create the conditions for victory:
-
-- Give a formation a mission instead of directing every vehicle by hand.
-- Build a combined force of ground, air, naval, reconnaissance, command, and experimental systems.
-- Decide what your commanders know, what they prioritize, and what risks they are allowed to take.
-- Break the enemy's sensors and communications before destroying its strength.
-- Keep your military supplied, repaired, informed, and ready for the next operation.
-- Watch battles develop into situations no script could predict.
-
-Your army is not a disposable row of icons. It is a military you build, deploy, protect, and carry forward.
-
-## Open online warfare or play offline
-
-Obsidian Protocol is being designed for a wide-open online experience where players can meet, compete, and command
-their forces across multiplayer warfare. It is also being created to support offline play, giving you a complete
-command experience when you want to play alone, practice, plan, or fight without an internet connection.
-
-Whether you are facing other commanders online or running an operation on your own, the core experience remains the
-same: establish intent, manage information, trust your forces, and adapt when the battlefield changes.
-
-## Steam release
-
-Obsidian Protocol is being created as a complete player-facing game for commercial release on **Steam**. The goal is
-to give players a persistent military to build, command, deploy, and experience across strategic and tactical
-operations, with online multiplayer and offline play available as part of the full game experience.
-
-This page presents the game, its world, systems, art direction, branding, and player experience for its future player
-community. Obsidian Protocol is not a template or starter kit for recreating another game.
-
-## Why Obsidian Protocol
-
-Most strategy games ask you to control more units faster. Obsidian Protocol asks you to become a better commander.
-
-The game combines:
-
-- The scale and decision-making of a strategic war
-- The tension of incomplete information
-- The unpredictability of autonomous forces
-- The satisfaction of building a persistent military
-- The intensity of tactical battlefield decisions
-- The freedom to play online with others or offline on your own
-- The immersion of a physical command facility and optional full VR operations
-
-## VR-enhanced command and direct control
-
-VR is fully supported, but never required. Play the entire game traditionally, or put on a headset when you want
-to step directly into the battlefield.
-
-At any time, you can jump into one of your units and take full control. Pilot a drone, operate a vehicle, observe
-from a reconnaissance platform, or experience the action from inside another machine. When you are ready, jump back
-out and return control to the autonomous command structure without losing the larger battle.
-
-This jump-in, jump-out design lets you move naturally between:
-
-- Strategic command over the whole military
-- Tactical control of a single unit
-- Autonomous operation while your forces continue executing intent
-- Immersive VR observation and direct action
-
-VR is an enhancement for players who want deeper presence, not a requirement for anyone who prefers a screen and
-traditional controls.
-
-## Visual direction
-
-The game's visual language combines dark industrial armor, warm amber systems lighting, autonomous platforms, and
-human command leadership.
-
-<p align="center">
-  <img src="Assets/Art/Concepts/Units/Autonomous/Obsidian-Rover.png" alt="Obsidian autonomous rover concept" width="31%">
-  <img src="Assets/Art/Concepts/Units/Autonomous/Warden-Drone.png" alt="Warden autonomous drone concept" width="31%">
-  <img src="Assets/Art/Concepts/Units/Autonomous/Field-Commander-Updated.png" alt="Obsidian Protocol field commander concept" width="31%">
-</p>
-
-These concept images represent the relationship between autonomous vehicles, reconnaissance systems, and the commander
-directing them.
-
-## The game vision
-
-Obsidian Protocol is designed to make the player feel like a commander rather than a cursor controlling a collection of game pieces.
-
-- **Command intent:** Define what a force must accomplish, including priorities, constraints, and acceptable risk.
-- **Autonomous warfare:** Units, formations, and commanders make decisions within their orders and doctrine.
-- **Imperfect information:** Detection, identification, communications, terrain, weather, and time all shape what a force knows.
-- **Information warfare:** Blind the enemy, disrupt communications, destroy reconnaissance, and exploit gaps in situational awareness.
-- **Persistent military:** Acquire, repair, configure, organize, and deploy a force that carries its history between battles.
-- **Logistics:** Resources, maintenance, manufacturing, preparation, and supply determine how long a force can remain effective.
-- **Multiplayer competition:** Commanders compete through planning, positioning, information, autonomy, logistics, and adaptation.
-- **VR command:** Operate from inside the military facility and interact with battlefield intelligence through an immersive command experience.
-
-## Command intent
-
-Orders can be simple or operationally detailed:
+### A battle is a chain reaction
 
 ```text
-Secure the northern approach.
-Maintain reconnaissance coverage.
-Avoid unnecessary losses.
-Withdraw if communications are lost.
+MISSION
+   ↓
+COMMAND INTENT → DOCTRINE → AUTONOMOUS DECISIONS
+                                      ↓
+                         SENSORS · COMMS · TERRAIN · LOGISTICS
+                                      ↓
+                              AN UNPREDICTABLE BATTLE
 ```
 
-Possible objectives include:
+You can stay above the fight, shaping the whole operation, or take control of a
+single drone, vehicle, or reconnaissance platform when the moment demands it.
+The military keeps moving when you step back out.
 
-**Attack** · **Defend** · **Recon** · **Support** · **Escort** · **Retreat** · **Hold** · **Pursue** · **Flank** · **Suppress** · **Breach** · **Reinforce** · **Recover**
+## The world we are building
 
-The same order can produce different results depending on the force receiving it, the information available, the condition of its equipment, and the situation developing around it.
+<p align="center">
+  <img src="Assets/Art/Concepts/HUD/Tactical-Command-Gameplay.png" alt="Tactical command interface" width="48%">
+  <img src="Assets/Art/Concepts/Maps/Strategic-Map-Phase-08.png" alt="Strategic map concept" width="48%">
+</p>
 
-## A battlefield that evolves
+| Layer | The player does |
+| --- | --- |
+| **Strategic** | Build a persistent force, select objectives, plan deployments, and manage the campaign. |
+| **Operational** | Assign commanders, shape doctrine, route logistics, maintain communications, and adapt to intelligence. |
+| **Tactical** | Direct squads, exploit terrain, react to contact reports, and intervene when autonomy is not enough. |
+| **Personal** | Walk the command facility, inspect the fleet, and jump directly into controllable units. |
 
-Battles are not intended to be predetermined sequences. Systems interact continuously:
+The planned force spans **air, ground, naval, command, logistics, reconnaissance,
+and experimental systems**. Online warfare, offline operations, and optional VR
+command are part of the long-term direction.
 
-1. Sensors detect and classify contacts.
-2. Units share information through command and communications networks.
-3. Commanders interpret orders and available intelligence.
-4. Forces respond to threats, terrain, weather, damage, and changing objectives.
-5. Communications can degrade, information can become stale, and units can become isolated.
+## Where we are
 
-The result is a battlefield capable of producing situations that were not explicitly scripted. A reconnaissance drone may discover an unexpected force, a destroyed relay may fragment a formation, or a damaged vehicle may withdraw instead of continuing an attack.
+**This is an active early-development project, not a finished game.**
 
-## Build a military, not just an army
+The repository already contains a substantial Unity foundation: command and
+selection systems, AI commander frameworks, sensors and intelligence, logistics,
+combat, navigation, construction, Garage/fleet systems, deployment, persistence,
+and multiplayer architecture. Scenes and interfaces are being wired together
+while the underlying simulation continues to evolve.
 
-The project supports a persistent force made up of multiple operational categories:
+That means:
 
-### Air units
+- Some systems are functional prototypes; others are scaffolding or design targets.
+- APIs, folder structure, and gameplay rules may change.
+- A bug report, test scene, UI pass, or well-scoped system improvement can have real impact.
+- Screenshots and concept art show direction, not a promise that every feature is playable today.
 
-Reconnaissance drones, sensor platforms, support aircraft, search-and-rescue systems, relays, surveillance platforms, and specialized autonomous aircraft.
+## Join the operation
 
-### Ground units
+You do **not** need to know the entire codebase to help. Pick a lane:
 
-Combat vehicles, patrol systems, recovery vehicles, logistics platforms, reconnaissance units, heavy machines, and specialized ground systems.
+| If you are a... | You could help with... |
+| --- | --- |
+| **Unity / C# developer** | Runtime systems, editor tooling, scene wiring, save/load, profiling |
+| **AI / simulation designer** | Commander decisions, formations, sensor fusion, emergent behavior |
+| **Gameplay designer** | Orders, doctrine, logistics rules, missions, balance, player feedback |
+| **UI/UX designer** | Tactical HUD, Garage flow, onboarding, accessibility, information clarity |
+| **Artist / technical artist** | Units, facilities, environments, VFX, materials, interface polish |
+| **Tester / player** | Reproduction steps, playtest notes, profiling captures, regression checks |
+| **Writer / world-builder** | Factions, maps, missions, unit identity, documentation |
 
-### Naval units
+### A good first contribution
 
-Surface vessels, reconnaissance platforms, sonar systems, rescue vessels, harbor systems, and specialized naval units.
+1. Browse the [open issues](https://github.com/jasonfetterman/ObsidianProtocol-Autonomous-Warfare/issues).
+2. Look for `good first issue` or `help wanted`, or open a focused issue of your own.
+3. For a larger gameplay or architecture change, discuss the direction before coding.
+4. Make one small, complete change on a feature branch.
+5. Test it in Unity and open a pull request with screenshots or reproduction notes.
 
-### Command units
+Start with [`Docs/Design`](Docs/Design) for the vision, [`Assets/Game`](Assets/Game)
+for runtime systems, and [`Assets/Data`](Assets/Data) for authored definitions.
 
-Strategic coordination, intelligence, communications, and battlefield management platforms.
+## Run the project
 
-### Experimental units
+### Requirements
 
-Restricted and advanced systems built around technologies that can fundamentally change battlefield behavior.
+- [Unity Hub](https://unity.com/download)
+- **Unity `6000.0.80f1`** — see [`ProjectVersion.txt`](ProjectSettings/ProjectVersion.txt)
+- Git
+- Windows is the primary development target
 
-Between battles, the military can be acquired, maintained, repaired, configured, organized, analyzed, and prepared for its next deployment. Ownership is separate from battlefield power: multiplayer operations use a deployment budget so that the decision is not simply to bring everything.
+### Open a scene
 
-## Logistics and operational pressure
+```text
+1. Clone the repository.
+2. Add it to Unity Hub.
+3. Open it with Unity 6000.0.80f1.
+4. Open Assets/Scenes/Core/Core.unity
+   (or MainHUD/MainHUD.unity or PauseMenu/PauseMenu.unity).
+5. Press Play and check the Console.
+```
 
-Military power depends on support. Equipment requires materials, damaged systems require repair, manufacturing requires preparation, and sustained operations create logistical pressure.
+Keep commits focused. Do not commit Unity-generated folders such as `Library/`,
+`Temp/`, or `Logs/`.
 
-The strategic question is not only whether a force can win an engagement, but whether it can continue operating afterward. A commander who wins every fight while destroying the ability to maintain the force may still lose the war.
+## Explore the repository
 
-## The physical military facility
+| Start here | What you will find |
+| --- | --- |
+| [`Docs/Design`](Docs/Design) | Game vision, maps, systems, and reference material |
+| [`Assets/Game`](Assets/Game) | Runtime code organized by gameplay domain |
+| [`Assets/Data`](Assets/Data) | Units, maps, technology, and authored definitions |
+| [`Assets/Scenes`](Assets/Scenes) | Current Unity scenes and playable surfaces |
+| [`Assets/Art/Concepts`](Assets/Art/Concepts) | HUD, facility, map, unit, and world direction |
+| [`Tools/ThirdParty`](Tools/ThirdParty) | Imported learning and reference material |
 
-The Garage is intended to be more than a menu. It is a physical command and maintenance facility where players can:
+## Ready to command?
 
-- Inspect vehicles and aircraft
-- Visit maintenance and fabrication areas
-- Review the fleet
-- Access command systems
-- Prepare deployments
-- Move through specialized operational spaces
+Whether you want to build autonomous AI, design a better command interface,
+create a battlefield, test a logistics rule, or simply make the next playtest
+clearer, there is work waiting.
 
-The goal is for the military to feel like something the player inhabits, not only a set of icons on a screen.
-
-## Full VR command
-
-VR is intended as a complete way to inhabit the military rather than an isolated minigame. The planned command
-experience includes:
-
-- Immersive command-facility navigation
-- Equipment inspection
-- Operational interfaces
-- Battlefield intelligence review
-- Force monitoring
-- Deployment preparation
-- Sensor and information displays
-- Jumping directly into any controllable unit
-- Returning from direct control to autonomous command at any time
-
-## A living player community
-
-The online experience is designed to extend beyond standard matches. Players will be able to take part in special
-events and community activities built around the game's autonomous systems, including:
-
-- Drone pink-slip racing
-- Competitive drone contests
-- Community challenges
-- Special events and leaderboards
-- Giveaways and player rewards
-
-These activities are part of the larger goal: create a living military universe where players can compete, experiment,
-celebrate unusual victories, and build stories together.
-
-## Living-world systems
-
-The battlefield is affected by more than unit statistics. Time of day, weather, visibility, terrain, communications, and environmental conditions influence movement, detection, coordination, and operations.
-
-A reconnaissance plan that works in daylight may fail at night. A communications network that works across open terrain may degrade in difficult environments. The battlefield itself is part of the tactical problem.
-
-## Obsidian Protocol vs. comparable games
-
-This comparison describes the intended design focus of Obsidian Protocol relative to other strategy and warfare
-games. It is a high-level design comparison, not a claim that every listed feature is fully implemented today.
-
-**Legend:** 🟢 Core / strong · 🟡 Partial / limited · 🔴 Absent / not a core system
-
-| Game | Autonomous units | Command intent | AI commanders | Sensors | Fog / uncertainty | Info warfare | Communications | Persistent military | Strategic | Tactical | Logistics | Customization | Massive battles | Multiplayer | VR | Physical facility |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ⚫ Obsidian Protocol | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
-| WARNO | 🟡 | 🔴 | 🔴 | 🟢 | 🟢 | 🟡 | 🟡 | 🔴 | 🟢 | 🟢 | 🟡 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 |
-| Broken Arrow | 🟡 | 🔴 | 🔴 | 🟢 | 🟢 | 🟡 | 🟡 | 🔴 | 🟡 | 🟢 | 🟡 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 |
-| Steel Division 2 | 🟡 | 🔴 | 🟡 | 🟢 | 🟢 | 🟡 | 🟡 | 🔴 | 🟢 | 🟢 | 🟡 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 |
-| Wargame: Red Dragon | 🟡 | 🔴 | 🔴 | 🟢 | 🟢 | 🟡 | 🟡 | 🔴 | 🟢 | 🟢 | 🟡 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 |
-| Regiments | 🟡 | 🔴 | 🟡 | 🟢 | 🟢 | 🟡 | 🟡 | 🔴 | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🟡 | 🔴 | 🔴 |
-| Company of Heroes 3 | 🟡 | 🔴 | 🔴 | 🟡 | 🟢 | 🔴 | 🔴 | 🔴 | 🟡 | 🟢 | 🟡 | 🟡 | 🟡 | 🟢 | 🔴 | 🔴 |
-| Supreme Commander | 🟢 | 🔴 | 🟡 | 🟡 | 🟡 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 |
-| Beyond All Reason | 🟢 | 🔴 | 🟡 | 🟢 | 🟢 | 🟡 | 🟡 | 🔴 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 |
-| Ashes of the Singularity | 🟢 | 🔴 | 🟡 | 🟡 | 🟡 | 🔴 | 🔴 | 🔴 | 🟡 | 🟢 | 🟢 | 🟡 | 🟢 | 🟢 | 🔴 | 🔴 |
-| World in Conflict | 🟡 | 🟡 | 🟡 | 🟢 | 🟢 | 🟡 | 🟡 | 🔴 | 🔴 | 🟢 | 🟡 | 🔴 | 🟢 | 🟢 | 🔴 | 🔴 |
-| Sins of a Solar Empire II | 🟢 | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🔴 | 🔴 |
-| Homeworld 3 | 🟡 | 🟡 | 🟡 | 🟡 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟡 | 🟡 | 🟡 | 🟢 | 🔴 | 🔴 |
-| Deserts of Kharak | 🟡 | 🟡 | 🟡 | 🟡 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟡 | 🟡 | 🟡 | 🟢 | 🔴 | 🔴 |
-| Total War: Warhammer III | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 | 🔴 | 🔴 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🔴 | 🔴 |
-| Dune: Spice Wars | 🟡 | 🟡 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟢 | 🟡 | 🟡 | 🟢 | 🔴 | 🔴 |
-| Age of Empires IV | 🔴 | 🔴 | 🔴 | 🟡 | 🟡 | 🔴 | 🔴 | 🔴 | 🟡 | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🔴 | 🔴 |
-| StarCraft II | 🔴 | 🔴 | 🔴 | 🟡 | 🟢 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🟢 | 🟡 | 🟢 | 🔴 | 🔴 |
-| Command & Conquer | 🔴 | 🔴 | 🔴 | 🟡 | 🟡 | 🔴 | 🔴 | 🔴 | 🔴 | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🔴 | 🔴 |
-| Iron Harvest | 🟡 | 🔴 | 🔴 | 🟡 | 🟡 | 🔴 | 🔴 | 🟡 | 🟡 | 🟢 | 🟡 | 🟢 | 🟡 | 🟢 | 🔴 | 🔴 |
-
-### The most important comparison
-
-| Capability | Obsidian Protocol | Closest comparable |
-| --- | --- | --- |
-| 🧠 Autonomous behavior | 🟢 | 🟡 |
-| 🎖️ Command intent | 🟢 | 🔴 |
-| 👨‍✈️ Autonomous commanders | 🟢 | 🟡 |
-| 👁️ Real sensor model | 🟢 | 🟢 |
-| ❓ Unknown / uncertain contacts | 🟢 | 🟢 |
-| 📡 Communications affecting knowledge | 🟢 | 🟡 |
-| 🛰️ Information warfare | 🟢 | 🟡 |
-| 🏭 Persistent military | 🟢 | 🟡 |
-| 🌎 Persistent consequences | 🟢 | 🟡 |
-| ⚔️ Strategic and tactical warfare | 🟢 | 🟢 |
-| 🚚 Logistics | 🟢 | 🟡 |
-| 💰 Deployment budget | 🟢 | 🟡 |
-| 🤖 Large autonomous formations | 🟢 | 🟢 |
-| 🎮 Traditional unit micromanagement | 🔴 Intentionally not core | 🟢 |
-| 🥽 Full VR command | 🟢 | 🔴 |
-| 🏢 Physical military facility | 🟢 | 🔴 |
-| 💾 Persistent ownership and fleet | 🟢 | 🟡 |
-| 🔥 Emergent battlefield | 🟢 | 🟢 |
-| 🌐 Multiplayer | 🟢 | 🟢 |
-| ⚠️ Meaningful consequences | 🟢 | 🟡 |
-
-### Bottom line
-
-Obsidian Protocol's strongest differentiation is not any single green dot. It is the combination:
-
-> 🧠 Intent → 🎖️ Commanders → 🤖 Autonomous units → 👁️ Sensors → 📡 Communications → ❓ Imperfect information →
-> ⚔️ Emergent battle → 💾 Persistent military → 🏢 Physical facility → 🥽 VR command
-
-That combination is what separates Obsidian Protocol from a conventional RTS. It is a game where you can command an
-entire military, trust autonomous forces to execute your intent, or step into any unit yourself whenever the moment
-demands it.
-
-## Release status
-
-Obsidian Protocol is an upcoming commercial game for Steam. Development is ongoing, and the release date will be
-announced when the game is ready.
+**Bring your specialty. Help us define what it feels like to command a living war.**
 
 ## License
 
-Obsidian Protocol: Autonomous Warfare, including its code, game design, world, branding, artwork, and other original
-content, is proprietary to the project owner. No permission is granted to reproduce, redistribute, resell, or create a
-competing game from this repository without written authorization.
+Obsidian Protocol: Autonomous Warfare, including its code, game design, world,
+branding, artwork, and other original content, is proprietary to the project
+owner. Contributions become part of this project. Do not reproduce, redistribute,
+resell, or create a competing game from this repository without written authorization.
+
+<div align="center">
 
 ---
 
 **Command intent. Unleash autonomy. Witness war evolve.**
+
+</div>
