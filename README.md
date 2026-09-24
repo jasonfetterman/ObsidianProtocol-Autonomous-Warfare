@@ -11,7 +11,7 @@
 
 **A strategy game about commanding intent—not clicking faster.**
 
-[![Unity 6](https://img.shields.io/badge/Unity-6000.0.80f1-222c37?logo=unity&logoColor=white)](ProjectSettings/ProjectVersion.txt)
+[![Unity 6](https://img.shields.io/badge/Unity-6000.6.2f1-222c37?logo=unity&logoColor=white)](ProjectSettings/ProjectVersion.txt)
 [![Status: In development](https://img.shields.io/badge/status-in%20development-d28b32)](#where-we-are)
 [![Contributors welcome](https://img.shields.io/badge/contributors-welcome-7c9f5b)](#join-the-operation)
 
@@ -133,7 +133,7 @@ for runtime systems, and [`Assets/Data`](Assets/Data) for authored definitions.
 ### Requirements
 
 - [Unity Hub](https://unity.com/download)
-- **Unity `6000.0.80f1`** — see [`ProjectVersion.txt`](ProjectSettings/ProjectVersion.txt)
+- **Unity `6000.6.2f1`** — see [`ProjectVersion.txt`](ProjectSettings/ProjectVersion.txt)
 - Git
 - Windows is the primary development target
 
@@ -142,7 +142,7 @@ for runtime systems, and [`Assets/Data`](Assets/Data) for authored definitions.
 ```text
 1. Clone the repository.
 2. Add it to Unity Hub.
-3. Open it with Unity 6000.0.80f1.
+3. Open it with Unity 6000.6.2f1.
 4. Open Assets/Scenes/Core/Core.unity
    (or MainHUD/MainHUD.unity or PauseMenu/PauseMenu.unity).
 5. Press Play and check the Console.
