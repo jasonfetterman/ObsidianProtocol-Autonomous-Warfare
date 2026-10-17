@@ -1,0 +1,300 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Pulse
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-command-pulse
+  displayName: Pulse
+  category: 3
+  role: Command Unit
+  tier: Standard
+  status: ACTIVE
+  physical:
+    lengthMeters: 5
+    widthMeters: 5
+    heightMeters: 5
+    massKg: 5
+    powerSource: Pulse powerSource
+    energyCapacityWh: 5
+    energyConsumptionWhPerMinute: 5
+    endurance: Pulse endurance
+    payloadCapacityKg: 5
+    modules:
+    - Pulse modules
+    navigationSystem: Pulse navigationSystem
+    structuralIntegrityHp: 5
+    armorRating: 50
+    heatSignature: Pulse heatSignature
+    noiseSignature: Pulse noiseSignature
+    topSpeedMetersPerSecond: 5
+    topSpeedDescription: Pulse topSpeedDescription
+    acceleration: Pulse acceleration
+    turningRadius: Pulse turningRadius
+    climbRate: Pulse climbRate
+    stabilityRating: Pulse stabilityRating
+  autonomy:
+    behaviorProfile: Pulse behaviorProfile
+    aggression: 5
+    caution: 5
+    persistence: 5
+    flankingLikelihood: 5
+    retreatThreshold: 5
+    retreatBehaviorDescription: Pulse retreatBehaviorDescription
+    targetPriority: Pulse targetPriority
+    formationDiscipline: Pulse formationDiscipline
+    riskTolerance: 5
+  sensors:
+    visualRangeMeters: 5000
+    visualRangeDescription: Pulse visualRangeDescription
+    thermalRangeMeters: 5000
+    thermalRangeDescription: Pulse thermalRangeDescription
+    acousticRange: Pulse acousticRange
+    radarRange: Pulse radarRange
+    lidarRange: Pulse lidarRange
+    signalDetectionRange: Pulse signalDetectionRange
+  communication:
+    meshRangeKm: 5000
+    meshRangeDescription: Pulse meshRangeDescription
+    relayCapacity: 5
+    commandLinkType: Pulse commandLinkType
+    networkPriority: Pulse networkPriority
+  combat:
+    firepowerRating: 50
+    firepowerDescription: Pulse firepowerDescription
+    accuracy: Pulse accuracy
+    stabilization: Pulse stabilization
+    weaponMounts: Pulse weaponMounts
+    weaponTypes: Pulse weaponTypes
+    suppressionValue: 5
+    trackingStrength: Pulse trackingStrength
+    disruptionStrength: Pulse disruptionStrength
+    breachCapability: Pulse breachCapability
+    countermeasureRating: Pulse countermeasureRating
+    threatLevel: 5
+    engagementDistance: Pulse engagementDistance
+    preferredTerrain: Pulse preferredTerrain
+    preferredTargets: Pulse preferredTargets
+    vulnerabilityProfile: Pulse vulnerabilityProfile
+  squad:
+    squadRole: Pulse squadRole
+    squadSizeContribution: 5
+    formationBehavior: Pulse formationBehavior
+    intentInterpretationRules: Pulse intentInterpretationRules
+    retreatBehavior: Pulse retreatBehavior
+    breachBehavior: Pulse breachBehavior
+    flankingBehavior: Pulse flankingBehavior
+    reinforcementBehavior: Pulse reinforcementBehavior
+    parentCommandUnit: Pulse parentCommandUnit
+    subordinateUnits:
+    - Pulse subordinateUnits
+    relayNodes:
+    - Pulse relayNodes
+    networkDependencies: Pulse networkDependencies
+  vrOperator:
+    operatorSeatType: Pulse operatorSeatType
+    operatorHud: Pulse operatorHud
+    cameraFeeds: Pulse cameraFeeds
+    thermalView: 1
+    lidarView: 1
+    sonarView: 1
+    tacticalOverlay: 1
+    movementControls: Pulse movementControls
+    sensorControls: Pulse sensorControls
+    abilityControls: Pulse abilityControls
+    weaponControls: Pulse weaponControls
+    stabilizationControls: Pulse stabilizationControls
+    operatorAbilities:
+    - Pulse operatorAbilities
+  economy:
+    creditCost: 3000
+    buildCost: Pulse buildCost
+    buildTimeSeconds: 5
+    factoryType: Pulse factoryType
+    techRequirements: Pulse techRequirements
+    maintenanceCost: Pulse maintenanceCost
+    repairTimeSeconds: 5
+    supplyConsumption: Pulse supplyConsumption
+    operationalCost: Pulse operationalCost
+    deploymentRequirements: Pulse deploymentRequirements
+    transportCompatibility: Pulse transportCompatibility
+    launchMethod: Pulse launchMethod
+    deploymentPointsDefined: 1
+    deploymentPoints: 5
+  buildRequirements:
+    commonComponents: []
+    electronics: []
+    power: []
+    rareTradeable: []
+    optionalUpgrades:
+    - Pulse optionalUpgrades
+  environment:
+    terrainAdaptationCoefficients: Pulse terrainAdaptationCoefficients
+    weatherSensitivityIndex: 5
+    visibilityModifiers: Pulse visibilityModifiers
+    signalPropagationCurve: Pulse signalPropagationCurve
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0.8
+    packetLossRate: Pulse packetLossRate
+    encryptionLatencySeconds: 5
+    meshSelfHealingThreshold: Pulse meshSelfHealingThreshold
+    relaySaturationCurve: Pulse relaySaturationCurve
+  cognitive:
+    decisionConfidence: 5
+    threatRecognitionAccuracy: 5
+    adaptiveLearningRatePerMission: 5
+    commandOverrideResistance: 5
+    cooperativeBehaviorIndex: 5
+  behaviorNodes:
+  - behaviorNode: 
+    weight: -0.00000008226931
+    description: 
+  - behaviorNode: 
+    weight: 0
+    description: 
+  - behaviorNode: 
+    weight: 0
+    description: 
+  - behaviorNode: 
+    weight: 0
+    description: 
+  - behaviorNode: 
+    weight: -2.964526e+21
+    description: 
+  missionBehaviors:
+  - missionType: 
+    behaviorFocus: 
+    efficiency: -0.00000008228733
+  - missionType: 
+    behaviorFocus: 
+    efficiency: 0
+  - missionType: 
+    behaviorFocus: 
+    efficiency: 0
+  - missionType: 
+    behaviorFocus: 
+    efficiency: 0
+  - missionType: 
+    behaviorFocus: 
+    efficiency: -0.00000008226931
+  unitSynergies:
+  - partnerUnit: 
+    synergyRating: -0.000000081262726
+    function: 
+  - partnerUnit: 
+    synergyRating: 0
+    function: 
+  - partnerUnit: 
+    synergyRating: 0
+    function: 
+  - partnerUnit: 
+    synergyRating: 0
+    function: 
+  - partnerUnit: 
+    synergyRating: -0.00000008228733
+    function: 
+  damageResponses:
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  upgrades:
+  - upgrade: 
+    effect: 
+    efficiencyGain: -0.00000008129882
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  - upgrade: 
+    effect: 
+    efficiencyGain: -0.000000081280746
+  tactical:
+    formationAdaptability: 5
+    tacticalRoleWeight: 5
+    commandResponseDelaySeconds: 5
+    reinforcementTriggerConditions: Pulse reinforcementTriggerConditions
+    retreatLogicThresholds: Pulse retreatLogicThresholds
+  maintenance:
+    meanTimeBetweenFailuresHours: 5
+    repairCycleSeconds: 5
+    resourceDrainPerHourPercent: 50
+    batteryEfficiencyPercent: 0.8
+    rotorStabilityPercent: 50
+    sensorCalibrationDriftPercentPerHour: 50
+    coolingEfficiencyPercent: 0.8
+    operationalUptimePercent: 50
+    energyRecoveryRatePercent: 50
+    energyRecoveryRatePercentPerIdleMinute: 50
+    componentWearPercentPerHour: 50
+    maintenancePriorityLevel: Pulse maintenancePriorityLevel
+    sparePartDependencyIndex: 5
+    operationalCostPerHour: Pulse operationalCostPerHour
+  threatResponses:
+  - threatType: 
+    reactionTimeSeconds: -1.6962372e-20
+    countermeasureEfficiency: 5.79e-43
+  - threatType: 
+    reactionTimeSeconds: 0
+    countermeasureEfficiency: 0
+  - threatType: 
+    reactionTimeSeconds: 0
+    countermeasureEfficiency: 0
+  - threatType: 
+    reactionTimeSeconds: 0
+    countermeasureEfficiency: 0
+  - threatType: 
+    reactionTimeSeconds: -1.6962605e-20
+    countermeasureEfficiency: 5.79e-43
+  commandNetwork:
+  - node: 
+    loadPercent: -0.00001955549
+    latencySeconds: 5.79e-43
+    status: 
+  - node: 
+    loadPercent: 0
+    latencySeconds: 0
+    status: 
+  - node: 
+    loadPercent: 0
+    latencySeconds: 0
+    status: 
+  - node: 
+    loadPercent: 0
+    latencySeconds: 0
+    status: 
+  - node: 
+    loadPercent: -0.000019550862
+    latencySeconds: 5.79e-43
+    status: 
+  performance:
+    missionSuccessProbability: 0.75
+    averageEngagementDurationMinutes: 5
+    reconDataYieldMbPerMinute: 5
+    communicationUptime: 5
+    threatAvoidanceEfficiency: 0.8

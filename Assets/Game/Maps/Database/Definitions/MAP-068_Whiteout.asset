@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0263df275083eba45b37ab9636c8dcbf, type: 3}
+  m_Name: MAP-068_Whiteout
+  m_EditorClassIdentifier: 
+  mapId: MAP-068
+  displayName: Whiteout
+  environment: Arctic / Snow
+  warfareFocus: Visibility, Thermal Sensors, Navigation
+  executiveSummary: A snow-choked Arctic battlefield built for visibility-degraded combat, thermal-sensor warfare, and hazardous navigation. Features blizzard corridors, ice dunes, frozen ravines, research shelters, buried communications towers, and wind-carved ridges. Emphasizes autonomous navigation under near-zero visibility, thermal-sensor fusion, relay warfare, and logistics under severe Arctic conditions.
+  designGoals:
+  - name: Visibility-Degraded Warfare
+    description: Blizzards, drifting snow, and ice fog reduce sightlines to a few meters. Units rely heavily on thermal sensors and autonomous pathfinding.
+  - name: Thermal-Sensor Dominance
+    description: Heat signatures become the primary detection method. Ice ridges, snow berms, and geothermal vents distort thermal readings, creating deceptive pockets.
+  - name: Autonomy and Hazard Navigation
+    description: Autonomous units choose routes based on wind exposure, ice stability, thermal cover, and sensor clarity. Units avoid whiteout corridors unless strategically necessary.
+  - name: Sensor and Information Warfare
+    description: Blizzards, ice fog, thermal distortion, and magnetic interference degrade sensors. Ridge relay towers restore clarity; destroying them creates blind pockets across the snowfields.
+  - name: Logistics and Resources
+    description: Fuel caches, heated shelters, and research stations provide resupply. Convoys must navigate unstable ice and avoid ambush-prone snow corridors.
+  - name: Deployment and Progress
+    description: Approximately 10000 deployment points. Players choose between thermal-optimized infantry, Arctic drones, or heavy snow-capable armor. Blue deploys from the southwest snowfield camp; Red deploys from the northeast ridge shelter.
+  deployment: 'Budget: approximately 10000 points. Blue: southwest snowfield camp and Arctic staging. Red: northeast ridge shelter and thermal defenses. Neutral forward outpost at (500,950) for drone resupply.'
+  ar:
+    viewingDistance: 4-5 m
+    physicalArea: 10x10 m
+    representedArea: Approximately 1 km2
+    scale: 1:100
+    fov: 53 degrees diagonal
+    resolution: 1920x1080 per eye
+    tracking: Inside-out horizontal-plane tracking; depth mesh if available; minimal real-world occlusion assumed
+    interaction: Phone pointer for pan and zoom; HUD as screen-space widgets
+  coordinateSystem: 1000x1000 grid; approximately 1 unit = 1 m. Origin (0,0) is the southwest corner.
+  keyLocations:
+  - name: Blue HQ - Snowfield Camp
+    coordinate: (0,0)
+    sizeOrElevation: 150x150 m
+    description: Snow berms, heated tents, drone pads, and Arctic staging.
+  - name: Red HQ - Ridge Shelter Command
+    coordinate: (1000,1000)
+    sizeOrElevation: 150x150 m
+    description: Heated bunker with radar mast and thermal relays.
+  - name: Central Whiteout Basin
+    coordinate: (500,450)
+    sizeOrElevation: 300x300 m
+    description: Blizzard epicenter with near-zero visibility, unstable ice, and thermal distortion.
+  - name: Research Shelter Cluster
+    coordinate: (250,800)
+    sizeOrElevation: 120x120 m
+    description: Labs, generators, thermal shelters, and interior combat.
+  - name: Ice Ridge Network
+    coordinate: (800,300)
+    sizeOrElevation: 200x200 m
+    description: Wind-carved ridges, snow tunnels, and flanking routes.
+  - name: Blizzard Corridor
+    coordinate: (0,450) to (400,900)
+    sizeOrElevation: Severe whiteout zone
+    description: Extreme visibility loss and sensor degradation.
+  - name: Frozen Trail Route
+    coordinate: (300,0) to (450,350)
+    sizeOrElevation: Safer but slow route
+    description: Ice cracks and wind exposure.
+  - name: Thermal Relay A
+    coordinate: (650,150)
+    sizeOrElevation: +240 m
+    description: Long-range sensor vantage point with approximately 300 m coverage.
+  - name: Thermal Relay B
+    coordinate: (150,650)
+    sizeOrElevation: +260 m
+    description: Communications relay hub and geothermal control node.
+  - name: Neutral Forward Outpost
+    coordinate: (500,950)
+    sizeOrElevation: Forward resupply zone
+    description: Drone resupply zone.
+  chokepointsAndSightlines:
+  - name: Blizzard Corridor
+    description: Severe visibility loss; ideal for stealth ambushes and thermal deception.
+  - name: Ice Ridge Network
+    description: Interior flanking routes with unpredictable cover due to drifting snow.
+  - name: Whiteout Basin
+    description: Unstable terrain, long-range thermal engagements, and environmental hazards.
+  - name: Frozen Trail Route
+    description: Predictable but safer route, vulnerable to overwatch from ridges.
+  - name: Sightlines
+    description: Thermal Relay A provides approximately 300 m sensor coverage. Blizzards and ice fog create fog-of-war pockets.
+  terrain: Ice ridges, snow dunes, frozen lakes, blizzard corridors, and research shelters.
+  vegetation: None; Arctic tundra only.
+  buildingsAndProps: 'Military: radar dishes, thermal relays, bunkers. Industrial: generators, pipelines, research shelters. Logistics: trucks, crates, fuel drums, and drones.'
+  effects: Snowstorms, ice fog, wind gusts, and thermal distortion.
+  audio: Wind, cracking ice, distant machinery, and radio chatter.
+  lodBudget:
+  - category: Ice Ridges/Terrain
+    count: 3
+    trianglesPerItem: 200000
+    totalTriangles: 600000
+  - category: Shelters/Industrial
+    count: 4
+    trianglesPerItem: 80000
+    totalTriangles: 320000
+  - category: Buildings/Research
+    count: 15
+    trianglesPerItem: 50000
+    totalTriangles: 750000
+  - category: Roads/Paths
+    count: 4
+    trianglesPerItem: 30000
+    totalTriangles: 120000
+  - category: Props
+    count: 50
+    trianglesPerItem: 10000
+    totalTriangles: 500000
+  textureBudget: 2048x2048 terrain/buildings; 1024x1024 props. DXT1/5 compression. Target 100 MB or less.
+  engineAndPlugins: 'Source specification: Unreal ARTemplate and Nreal SDK (XREAL), with ARKit/ARCore enabled. This asset is being added to the existing Unity map database.'
+  rendering: 'Source specification: forward renderer, stationary lights, baked GI, and aggressive culling.'
+  anchors: Single spatial anchor for the entire map.
+  interaction: Phone pointer for pan and zoom; HUD as screen-space widgets.
+  multiplayer: Client-server architecture; offload AI and physics to server.
+  milestones:
+  - name: Month 1 - Prototype Layout
+    description: Block out the whiteout basin, ridge network, research shelters, and test the AR anchor.
+  - name: Month 2 - Core Systems
+    description: Implement navigation mesh, cold-weather autonomy behaviors, and thermal logic.
+  - name: Month 3 - AR Integration
+    description: Implement anchors, plane detection, and basic interactivity.
+  - name: Months 4-5 - Content Fill
+    description: Create final models, textures, lighting, and audio.
+  - name: Months 6-7 - Gameplay and Polish
+    description: Implement objectives, balance, snowstorms, ice fog, and thermal-distortion effects.
+  - name: Month 8 - Testing and QA
+    description: Conduct multiplayer stress tests and sensor validation.
+  testing:
+  - name: Autonomy
+    description: Verify cold-weather navigation, thermal-sensor logic, and hazard avoidance.
+  - name: Communications and Sensors
+    description: Test relay destruction, fog-of-war updates, and line-of-sight checks under blizzard conditions.
+  - name: Performance
+    description: Target at least 60 Hz AR rendering on the target device.
+  - name: QA Checklist
+    description: Test navigation, thermal logic, deployment budget enforcement, anchor drift, and sensor accuracy.

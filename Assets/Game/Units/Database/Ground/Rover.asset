@@ -1,0 +1,234 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Rover
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-ground-rover
+  displayName: Rover
+  category: 1
+  role: Ground Unit
+  tier: Standard
+  status: ACTIVE
+  physical:
+    lengthMeters: 2
+    widthMeters: 2
+    heightMeters: 2
+    massKg: 2
+    powerSource: Rover powerSource
+    energyCapacityWh: 2
+    energyConsumptionWhPerMinute: 2
+    endurance: Rover endurance
+    payloadCapacityKg: 2
+    modules:
+    - Rover modules
+    navigationSystem: Rover navigationSystem
+    structuralIntegrityHp: 2
+    armorRating: 20
+    heatSignature: Rover heatSignature
+    noiseSignature: Rover noiseSignature
+    topSpeedMetersPerSecond: 2
+    topSpeedDescription: Rover topSpeedDescription
+    acceleration: Rover acceleration
+    turningRadius: Rover turningRadius
+    climbRate: Rover climbRate
+    stabilityRating: Rover stabilityRating
+  autonomy:
+    behaviorProfile: Rover behaviorProfile
+    aggression: 2
+    caution: 2
+    persistence: 2
+    flankingLikelihood: 2
+    retreatThreshold: 2
+    retreatBehaviorDescription: Rover retreatBehaviorDescription
+    targetPriority: Rover targetPriority
+    formationDiscipline: Rover formationDiscipline
+    riskTolerance: 2
+  sensors:
+    visualRangeMeters: 2000
+    visualRangeDescription: Rover visualRangeDescription
+    thermalRangeMeters: 2000
+    thermalRangeDescription: Rover thermalRangeDescription
+    acousticRange: Rover acousticRange
+    radarRange: Rover radarRange
+    lidarRange: Rover lidarRange
+    signalDetectionRange: Rover signalDetectionRange
+  communication:
+    meshRangeKm: 2000
+    meshRangeDescription: Rover meshRangeDescription
+    relayCapacity: 2
+    commandLinkType: Rover commandLinkType
+    networkPriority: Rover networkPriority
+  combat:
+    firepowerRating: 20
+    firepowerDescription: Rover firepowerDescription
+    accuracy: Rover accuracy
+    stabilization: Rover stabilization
+    weaponMounts: Rover weaponMounts
+    weaponTypes: Rover weaponTypes
+    suppressionValue: 2
+    trackingStrength: Rover trackingStrength
+    disruptionStrength: Rover disruptionStrength
+    breachCapability: Rover breachCapability
+    countermeasureRating: Rover countermeasureRating
+    threatLevel: 2
+    engagementDistance: Rover engagementDistance
+    preferredTerrain: Rover preferredTerrain
+    preferredTargets: Rover preferredTargets
+    vulnerabilityProfile: Rover vulnerabilityProfile
+  squad:
+    squadRole: Rover squadRole
+    squadSizeContribution: 2
+    formationBehavior: Rover formationBehavior
+    intentInterpretationRules: Rover intentInterpretationRules
+    retreatBehavior: Rover retreatBehavior
+    breachBehavior: Rover breachBehavior
+    flankingBehavior: Rover flankingBehavior
+    reinforcementBehavior: Rover reinforcementBehavior
+    parentCommandUnit: Rover parentCommandUnit
+    subordinateUnits:
+    - Rover subordinateUnits
+    relayNodes:
+    - Rover relayNodes
+    networkDependencies: Rover networkDependencies
+  vrOperator:
+    operatorSeatType: Rover operatorSeatType
+    operatorHud: Rover operatorHud
+    cameraFeeds: Rover cameraFeeds
+    thermalView: 1
+    lidarView: 1
+    sonarView: 1
+    tacticalOverlay: 1
+    movementControls: Rover movementControls
+    sensorControls: Rover sensorControls
+    abilityControls: Rover abilityControls
+    weaponControls: Rover weaponControls
+    stabilizationControls: Rover stabilizationControls
+    operatorAbilities:
+    - Rover operatorAbilities
+  economy:
+    creditCost: 650
+    buildCost: Rover buildCost
+    buildTimeSeconds: 2
+    factoryType: Rover factoryType
+    techRequirements: Rover techRequirements
+    maintenanceCost: Rover maintenanceCost
+    repairTimeSeconds: 2
+    supplyConsumption: Rover supplyConsumption
+    operationalCost: Rover operationalCost
+    deploymentRequirements: Rover deploymentRequirements
+    transportCompatibility: Rover transportCompatibility
+    launchMethod: Rover launchMethod
+    deploymentPointsDefined: 1
+    deploymentPoints: 2
+  buildRequirements:
+    commonComponents: []
+    electronics: []
+    power: []
+    rareTradeable: []
+    optionalUpgrades:
+    - Rover optionalUpgrades
+  environment:
+    terrainAdaptationCoefficients: Rover terrainAdaptationCoefficients
+    weatherSensitivityIndex: 2
+    visibilityModifiers: Rover visibilityModifiers
+    signalPropagationCurve: Rover signalPropagationCurve
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0.8
+    packetLossRate: Rover packetLossRate
+    encryptionLatencySeconds: 2
+    meshSelfHealingThreshold: Rover meshSelfHealingThreshold
+    relaySaturationCurve: Rover relaySaturationCurve
+  cognitive:
+    decisionConfidence: 2
+    threatRecognitionAccuracy: 2
+    adaptiveLearningRatePerMission: 2
+    commandOverrideResistance: 2
+    cooperativeBehaviorIndex: 2
+  behaviorNodes:
+  - behaviorNode: 
+    weight: -0.00000008226931
+    description: 
+  - behaviorNode: 
+    weight: 0
+    description: 
+  missionBehaviors:
+  - missionType: 
+    behaviorFocus: 
+    efficiency: -0.00000008228733
+  - missionType: 
+    behaviorFocus: 
+    efficiency: 0
+  unitSynergies:
+  - partnerUnit: 
+    synergyRating: -0.000000081262726
+    function: 
+  - partnerUnit: 
+    synergyRating: 0
+    function: 
+  damageResponses:
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  upgrades:
+  - upgrade: 
+    effect: 
+    efficiencyGain: -0.00000008129882
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  tactical:
+    formationAdaptability: 2
+    tacticalRoleWeight: 2
+    commandResponseDelaySeconds: 2
+    reinforcementTriggerConditions: Rover reinforcementTriggerConditions
+    retreatLogicThresholds: Rover retreatLogicThresholds
+  maintenance:
+    meanTimeBetweenFailuresHours: 2
+    repairCycleSeconds: 2
+    resourceDrainPerHourPercent: 20
+    batteryEfficiencyPercent: 0.8
+    rotorStabilityPercent: 20
+    sensorCalibrationDriftPercentPerHour: 20
+    coolingEfficiencyPercent: 0.8
+    operationalUptimePercent: 20
+    energyRecoveryRatePercent: 20
+    energyRecoveryRatePercentPerIdleMinute: 20
+    componentWearPercentPerHour: 20
+    maintenancePriorityLevel: Rover maintenancePriorityLevel
+    sparePartDependencyIndex: 2
+    operationalCostPerHour: Rover operationalCostPerHour
+  threatResponses:
+  - threatType: 
+    reactionTimeSeconds: -1.6962372e-20
+    countermeasureEfficiency: 5.79e-43
+  - threatType: 
+    reactionTimeSeconds: 0
+    countermeasureEfficiency: 0
+  commandNetwork:
+  - node: 
+    loadPercent: -0.00001955549
+    latencySeconds: 5.79e-43
+    status: 
+  - node: 
+    loadPercent: 0
+    latencySeconds: 0
+    status: 
+  performance:
+    missionSuccessProbability: 0.75
+    averageEngagementDurationMinutes: 2
+    reconDataYieldMbPerMinute: 2
+    communicationUptime: 2
+    threatAvoidanceEfficiency: 0.8

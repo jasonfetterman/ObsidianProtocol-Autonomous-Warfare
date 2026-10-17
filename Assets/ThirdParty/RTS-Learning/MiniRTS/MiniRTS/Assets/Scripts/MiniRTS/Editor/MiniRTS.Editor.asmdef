@@ -1,18 +1,28 @@
 {
-    "name": "MiniRTS.Editor",
-    "rootNamespace": "MiniRTS.EditorTools",
-    "references": [
-        "MiniRTS.Runtime"
-    ],
-    "includePlatforms": [
-        "Editor"
-    ],
-    "excludePlatforms": [],
-    "allowUnsafeCode": false,
-    "overrideReferences": false,
-    "precompiledReferences": [],
-    "autoReferenced": true,
-    "defineConstraints": [],
-    "versionDefines": [],
-    "noEngineReferences": false
+    "name":  "MiniRTS.Editor",
+    "rootNamespace":  "MiniRTS.EditorTools",
+    "references":  [
+                       "MiniRTS.Runtime",
+                       "UnityEngine.UI",
+                       "UnityEngine.InputSystem"
+                   ],
+    "includePlatforms":  [
+                             "Editor"
+                         ],
+    "excludePlatforms":  [
+
+                         ],
+    "allowUnsafeCode":  false,
+    "overrideReferences":  false,
+    "precompiledReferences":  [
+
+                              ],
+    "autoReferenced":  true,
+    "defineConstraints":  [
+
+                          ],
+    "versionDefines":  [
+
+                       ],
+    "noEngineReferences":  false
 }

@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0263df275083eba45b37ab9636c8dcbf, type: 3}
+  m_Name: MAP-048_Dead_Air
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Maps.MapDefinition
+  mapId: MAP-048
+  displayName: Dead Air
+  environment: Remote Airbase
+  warfareFocus: Air combat / anti-air
+  executiveSummary: Remote airbase battlefield built for air-dominant combat, anti-air warfare, runway control, and autonomous multi-domain coordination across open sky corridors and hardened ground infrastructure. Features long runways, hardened hangars, radar domes, SAM batteries, fuel farms, control towers, perimeter trenches, and desert or tundra flats depending on climate.
+  designGoals:
+  - name: Air Combat Dominance
+    description: Fighters, VTOLs, drones, bombers, and high-altitude recon. Air corridors define movement, strike patterns, and interception routes.
+  - name: Anti-Air Warfare
+    description: SAM sites, radar domes, AA guns, and EW towers create layered air-denial zones.
+  - name: Runway Control & Logistics
+    description: Runways, taxiways, and fuel farms are critical objectives; controlling them determines reinforcement flow and aircraft availability.
+  - name: Autonomous Air-Ground Coordination
+    description: Units choose routes based on altitude, AA coverage, radar clarity, and threat vectors. Ground units suppress AA sites and secure runways.
+  - name: Sensor & Information Warfare
+    description: Altitude distortion, radar interference, jamming, heat plumes, and atmospheric clutter degrade sensors. Relay towers restore clarity.
+  deployment: Fixed deployment budget ~10,000 points. Blue deploys from southwest auxiliary hangar; Red from northeast command runway.
+  ar:
+    viewingDistance: "~4\u20135 m"
+    physicalArea: "10\xD710 m"
+    representedArea: "~1 km\xB2"
+    scale: 1:100
+    fov: "~53\xB0 diagonal"
+    resolution: "1920\xD71080 per eye"
+    tracking: Inside-out horizontal plane tracking; depth mesh if available; minimal real-world occlusion.
+    interaction: Phone pointer for pan/zoom; HUD as screen-space widgets.
+  coordinateSystem: "1000\xD71000 grid; 1 unit \u2248 1 m; origin (0,0) southwest corner."
+  keyLocations:
+  - name: Blue HQ (Auxiliary Hangar Command)
+    coordinate: (0,0)
+    sizeOrElevation: "150\xD7150 m"
+    description: Hangars, drone pads, fuel trucks, AA support units.
+  - name: Red HQ (Primary Command Runway)
+    coordinate: (1000,1000)
+    sizeOrElevation: "150\xD7150 m"
+    description: Control tower, radar mast, hardened AA emplacements.
+  - name: Central Runway Basin
+    coordinate: (500,450)
+    sizeOrElevation: "300\xD7300 m"
+    description: Main runway, taxiways, AA kill-zones, air-ground coordination.
+  - name: Fuel Farm Cluster
+    coordinate: (250,800)
+    sizeOrElevation: "120\xD7120 m"
+    description: Fuel tanks, pumps, generators, interior flanking routes.
+  - name: Radar Dome Ridge
+    coordinate: (800,300)
+    sizeOrElevation: "200\xD7200 m"
+    description: High-ground overwatch, radar coverage, air-corridor control.
+  - name: Air Corridor
+    coordinate: "(0,450 \u2192 400,900)"
+    sizeOrElevation: "\u2014"
+    description: Primary air-combat lane; interception routes, AA traps, jamming pockets.
+  - name: Service Road Route
+    coordinate: "(300,0 \u2192 450,350)"
+    sizeOrElevation: "\u2014"
+    description: Ground-unit movement path; vulnerable to air strikes.
+  - name: Relay Tower A
+    coordinate: (650,150)
+    sizeOrElevation: +240 m
+    description: Long-range radar vantage point.
+  - name: Relay Tower B
+    coordinate: (150,650)
+    sizeOrElevation: +260 m
+    description: Comms relay hub and AA-control node.
+  - name: Neutral Forward Outpost
+    coordinate: (500,950)
+    sizeOrElevation: "\u2014"
+    description: Drone resupply zone.
+  chokepointsAndSightlines:
+  - name: Air Corridor
+    description: Major air-combat lane; controlling it determines air superiority.
+  - name: Radar Dome Ridge
+    description: Extreme long-range sightlines; ideal for AA overwatch and air-corridor control.
+  - name: Runway Basin
+    description: Air-ground engagements; heat plumes and jamming affect accuracy.
+  - name: Service Road Route
+    description: Predictable but safe; vulnerable to air strikes and AA overwatch.
+  terrain: Runways, taxiways, hangars, radar domes, fuel farms, service roads.
+  vegetation: Sparse grass, scrub, or tundra patches depending on climate.
+  buildingsAndProps: 'Military: AA guns, SAM sites, radar dishes, bunkers. Industrial: fuel tanks, generators, pipelines. Logistics: trucks, crates, fuel drums, drones.'
+  effects: Heat plumes, smoke, jamming waves, dust, static bursts.
+  audio: Jet engines, wind, radar hum, radio chatter.
+  lodBudget:
+  - category: Airbase Terrain
+    count: 3
+    trianglesPerItem: 200000
+    totalTriangles: 600000
+  - category: Industrial/Military
+    count: 4
+    trianglesPerItem: 80000
+    totalTriangles: 320000
+  - category: Buildings/Military
+    count: 15
+    trianglesPerItem: 50000
+    totalTriangles: 750000
+  - category: Roads/Paths
+    count: 4
+    trianglesPerItem: 30000
+    totalTriangles: 120000
+  - category: Props
+    count: 50
+    trianglesPerItem: 10000
+    totalTriangles: 500000
+  textureBudget: "2048\xB2 for terrain/buildings; 1024\xB2 for props; DXT1/5; target \u2264100 MB."
+  engineAndPlugins: Unreal ARTemplate + Nreal SDK (XREAL). ARKit/ARCore enabled.
+  rendering: Forward renderer, stationary lights, baked GI, aggressive culling.
+  anchors: Single spatial anchor for entire map.
+  interaction: 
+  multiplayer: Client-server architecture; offload AI/physics to server.
+  milestones:
+  - name: 1. Prototype Layout
+    description: Block-out runway basin, radar ridge, fuel farm, AR anchor test.
+  - name: 2. Core Systems
+    description: NavMesh (ground + air), AA autonomy behaviors, radar logic.
+  - name: 3. AR Integration
+    description: Anchors, plane detection, basic interactivity.
+  - name: 4. Content Fill
+    description: Final models, textures, lighting, audio.
+  - name: 5. Gameplay & Polish
+    description: Objectives, balance, VFX (heat plumes, jamming waves).
+  - name: 6. Testing & QA
+    description: Multiplayer stress test, sensor validation.
+  testing:
+  - name: 
+    description: Verify air-ground coordination, AA-aware routing, hazard avoidance.
+  - name: 
+    description: Test relay destruction, fog-of-war updates, LOS checks under jamming.
+  - name: 
+    description: "\u226560 Hz AR render on target device."
+  - name: 
+    description: Navigation, AA logic, deployment budget enforcement, anchor drift, sensor accuracy.

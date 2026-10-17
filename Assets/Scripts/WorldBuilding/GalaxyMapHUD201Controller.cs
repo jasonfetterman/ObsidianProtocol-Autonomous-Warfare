@@ -1,0 +1,564 @@
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using ObsidianProtocol.Game.Core;
+
+#if TMP_PRESENT
+using TMPro;
+#endif
+
+public class GalaxyMapHUD201Controller : MonoBehaviour
+{
+    private static readonly string[] PlanetNames =
+    {
+        "Acheron", "Virellia", "Karthos", "Solara Prime", "Nox Meridian",
+        "Thalassa IX", "Dravon's Reach", "Erebos Station", "Halcyon Verge",
+        "Myridian Core", "Vantor Helix", "Orpheon Delta", "Cryostria",
+        "Zephyria", "Umbra-7", "Caelus Rift", "Pyrrhos Gate", "Luminara",
+        "Vexilon", "Astryx", "Kairoth", "Nemeris", "Odyssar",
+        "Valtor Prime", "Seraphis", "Kronis-4", "Eon's Cradle",
+        "Virex-Theta", "Solaris Echo", "Obsidian World"
+    };
+
+    private readonly Dictionary<string, Button> buttons =
+        new Dictionary<string, Button>(StringComparer.OrdinalIgnoreCase);
+
+    private readonly Dictionary<string, bool> layerStates =
+        new Dictionary<string, bool>(StringComparer.OrdinalIgnoreCase);
+
+    private RectTransform mapDisplay;
+    private int selectedPlanet = -1;
+    private int lastViewedPlanet = -1;
+    private float mapZoom = 1f;
+
+    private const float MinZoom = 0.75f;
+    private const float MaxZoom = 1.75f;
+    private const float ZoomStep = 0.10f;
+
+    private void Awake()
+    {
+        CacheButtons();
+        CacheMapDisplay();
+        InitializeLayers();
+        BindButtons();
+        InitializeDisplay();
+    }
+
+    private void CacheButtons()
+    {
+        buttons.Clear();
+
+        Button[] allButtons = GetComponentsInChildren<Button>(true);
+
+        foreach (Button button in allButtons)
+        {
+            if (button == null)
+                continue;
+
+            buttons[button.gameObject.name] = button;
+        }
+
+        // Planet buttons live under GALAXY MAP DISPLAY.
+        Transform map = transform.Find("GALAXY MAP DISPLAY");
+
+        if (map != null)
+        {
+            Button[] planetButtons = map.GetComponentsInChildren<Button>(true);
+
+            foreach (Button button in planetButtons)
+            {
+                if (button == null)
+                    continue;
+
+                buttons[button.gameObject.name] = button;
+            }
+        }
+    }
+
+    private void CacheMapDisplay()
+    {
+        Transform map = transform.Find("GALAXY MAP DISPLAY");
+
+        if (map != null)
+            mapDisplay = map as RectTransform;
+    }
+
+    private void InitializeLayers()
+    {
+        layerStates["HUD-201-03A LayerToggle_Galaxy"] = true;
+        layerStates["HUD-201-03B LayerToggle_Sectors"] = true;
+        layerStates["HUD-201-03C LayerToggle_Planets"] = true;
+        layerStates["HUD-201-03D LayerToggle_Factions"] = true;
+        layerStates["HUD-201-03E LayerToggle_WarfareZones"] = true;
+        layerStates["HUD-201-03F LayerToggle_Resources"] = true;
+        layerStates["HUD-201-03G LayerToggle_TradeRoutes"] = true;
+    }
+
+    private void BindButtons()
+    {
+        // Planet selection.
+        for (int i = 1; i <= 30; i++)
+        {
+            string planetName = PlanetNames[i - 1];
+
+            Button planetButton;
+
+            if (buttons.TryGetValue(planetName, out planetButton))
+            {
+                int planetIndex = i;
+
+                planetButton.onClick.RemoveAllListeners();
+                planetButton.onClick.AddListener(() => SelectPlanet(planetIndex));
+            }
+        }
+
+        Bind("HUD-201-02A GalaxyZoomInButton", ZoomIn);
+        Bind("HUD-201-02B GalaxyZoomOutButton", ZoomOut);
+        Bind("HUD-201-02E FilterPanelButton", ToggleFilterPanel);
+
+        Bind("HUD-201-03A LayerToggle_Galaxy",
+            () => ToggleLayer("HUD-201-03A LayerToggle_Galaxy"));
+
+        Bind("HUD-201-03B LayerToggle_Sectors",
+            () => ToggleLayer("HUD-201-03B LayerToggle_Sectors"));
+
+        Bind("HUD-201-03C LayerToggle_Planets",
+            () => ToggleLayer("HUD-201-03C LayerToggle_Planets"));
+
+        Bind("HUD-201-03D LayerToggle_Factions",
+            () => ToggleLayer("HUD-201-03D LayerToggle_Factions"));
+
+        Bind("HUD-201-03E LayerToggle_WarfareZones",
+            () => ToggleLayer("HUD-201-03E LayerToggle_WarfareZones"));
+
+        Bind("HUD-201-03F LayerToggle_Resources",
+            () => ToggleLayer("HUD-201-03F LayerToggle_Resources"));
+
+        Bind("HUD-201-03G LayerToggle_TradeRoutes",
+            () => ToggleLayer("HUD-201-03G LayerToggle_TradeRoutes"));
+
+        Bind("HUD-201-04F ObjectEnterButton", EnterSelectedPlanet);
+
+        Bind("HUD-201-06A JumpToHomeworldButton", JumpToHomeworld);
+        Bind("HUD-201-06B JumpToLastViewedPlanetButton", JumpToLastViewedPlanet);
+        Bind("HUD-201-06C OpenIntelNetworkButton", OpenIntelNetwork);
+        Bind("HUD-201-06D OpenDoctrineManagerButton", OpenDoctrineManager);
+        Bind("HUD-201-06E OpenLogisticsOverviewButton", OpenLogisticsOverview);
+
+        Bind("HUD-201-08A BackButton", GoBack);
+        Bind("HUD-201-08B ExitToCommandCenterButton", ExitToCommandCenter);
+        Bind("HUD-201-08C SettingsButton", OpenSettings);
+        Bind("HUD-201-08D HelpButton", ShowHelp);
+    }
+
+    private void Bind(string objectName, UnityEngine.Events.UnityAction action)
+    {
+        Button button;
+
+        if (!buttons.TryGetValue(objectName, out button))
+        {
+            Debug.LogWarning($"[SCN60] Button not found: {objectName}");
+            return;
+        }
+
+        button.onClick.RemoveAllListeners();
+        button.onClick.AddListener(action);
+    }
+
+    private void InitializeDisplay()
+    {
+        SetText(
+            "HUD-201-01A CurrentGalaxyNameDisplay",
+            "OBSIDIAN GALAXY"
+        );
+
+        SetText(
+            "HUD-201-01B CurrentSectorNameDisplay",
+            "SECTOR 01"
+        );
+
+        SetText(
+            "HUD-201-01E TimeControlPanel/Time",
+            "STABLE"
+        );
+
+        SetText(
+            "HUD-201-01D PlayerResourcesPanel/Resources",
+            "RESOURCES // 84,250"
+        );
+
+        SetText(
+            "HUD-201-04A ObjectNameDisplay",
+            "NO OBJECT SELECTED"
+        );
+
+        SetText(
+            "HUD-201-04B ObjectTypeDisplay/Value",
+            "TYPE // â€”"
+        );
+
+        SetText(
+            "HUD-201-04C ObjectOwnerFactionDisplay/Value",
+            "FACTION // â€”"
+        );
+
+        SetText(
+            "HUD-201-04D ObjectStatusDisplay/Value",
+            "STATUS // SELECT A PLANET"
+        );
+
+        SetText(
+            "HUD-201-04E ObjectThreatLevelDisplay/Value",
+            "THREAT // â€”"
+        );
+
+        SetAlert(
+            "HUD-201-07A StrategicAlertEntry",
+            "STRATEGIC // GALAXY MAP ONLINE"
+        );
+
+        SetAlert(
+            "HUD-201-07B WarfareAlertEntry",
+            "WARFARE // NO ACTIVE MAP ALERT"
+        );
+
+        SetAlert(
+            "HUD-201-07C FactionAlertEntry",
+            "FACTION // NETWORK STABLE"
+        );
+
+        SetAlert(
+            "HUD-201-07D ResourceAlertEntry",
+            "RESOURCE // SUPPLY NETWORK STABLE"
+        );
+    }
+
+    private void SelectPlanet(int planet)
+    {
+        selectedPlanet = planet;
+        lastViewedPlanet = planet;
+
+        SetText(
+            "HUD-201-04A ObjectNameDisplay",
+            PlanetNames[planet - 1]
+        );
+
+        SetText(
+            "HUD-201-04B ObjectTypeDisplay/Value",
+            "TYPE // PLANETARY WORLD"
+        );
+
+        SetText(
+            "HUD-201-04C ObjectOwnerFactionDisplay/Value",
+            GetFactionForPlanet(planet)
+        );
+
+        SetText(
+            "HUD-201-04D ObjectStatusDisplay/Value",
+            "STATUS // AVAILABLE FOR INSPECTION"
+        );
+
+        SetText(
+            "HUD-201-04E ObjectThreatLevelDisplay/Value",
+            GetThreatForPlanet(planet)
+        );
+
+        SetAlert(
+            "HUD-201-07A StrategicAlertEntry",
+            $"STRATEGIC // PL-{planet:00} SELECTED"
+        );
+
+        Debug.Log($"[SCN60] Selected PLANET_PLN-{planet:00}");
+    }
+
+    private string GetFactionForPlanet(int planet)
+    {
+        string[] factions =
+        {
+            "FACTION // OBSIDIAN",
+            "FACTION // ALLIED",
+            "FACTION // NEUTRAL",
+            "FACTION // CONTESTED"
+        };
+
+        return factions[(planet - 1) % factions.Length];
+    }
+
+    private string GetThreatForPlanet(int planet)
+    {
+        int threat = 15 + ((planet * 17) % 80);
+        return $"THREAT // {threat}%";
+    }
+
+    private void ZoomIn()
+    {
+        SetZoom(mapZoom + ZoomStep);
+    }
+
+    private void ZoomOut()
+    {
+        SetZoom(mapZoom - ZoomStep);
+    }
+
+    private void SetZoom(float value)
+    {
+        mapZoom = Mathf.Clamp(value, MinZoom, MaxZoom);
+
+        if (mapDisplay != null)
+            mapDisplay.localScale = Vector3.one * mapZoom;
+
+        SetAlert(
+            "HUD-201-07A StrategicAlertEntry",
+            $"STRATEGIC // MAP ZOOM {Mathf.RoundToInt(mapZoom * 100f)}%"
+        );
+    }
+
+    private void ToggleLayer(string layerName)
+    {
+        bool state;
+
+        if (!layerStates.TryGetValue(layerName, out state))
+            state = true;
+
+        state = !state;
+        layerStates[layerName] = state;
+
+        SetAlert(
+            "HUD-201-07C FactionAlertEntry",
+            $"LAYER // {GetShortLayerName(layerName)} {(state ? "ON" : "OFF")}"
+        );
+
+        Debug.Log($"[SCN60] {layerName} = {state}");
+    }
+
+    private string GetShortLayerName(string layerName)
+    {
+        if (layerName.Contains("Galaxy")) return "GALAXY";
+        if (layerName.Contains("Sectors")) return "SECTORS";
+        if (layerName.Contains("Planets")) return "PLANETS";
+        if (layerName.Contains("Factions")) return "FACTIONS";
+        if (layerName.Contains("Warfare")) return "WARFARE ZONES";
+        if (layerName.Contains("Resources")) return "RESOURCES";
+        if (layerName.Contains("Trade")) return "TRADE ROUTES";
+
+        return "MAP";
+    }
+
+    private void ToggleFilterPanel()
+    {
+        Transform panel = transform.Find("HUD-201-03 MapLayerPanel");
+
+        if (panel != null)
+            panel.gameObject.SetActive(!panel.gameObject.activeSelf);
+
+        SetAlert(
+            "HUD-201-07A StrategicAlertEntry",
+            "STRATEGIC // MAP FILTER UPDATED"
+        );
+    }
+
+    private void EnterSelectedPlanet()
+    {
+        Debug.Log("[SCN60 TEST] ENTER CLICKED");
+        if (selectedPlanet < 1)
+        {
+            SetAlert(
+                "HUD-201-07A StrategicAlertEntry",
+                "STRATEGIC // SELECT A PLANET FIRST"
+            );
+            return;
+        }
+
+        PersistentGameState state = PersistentGameState.Instance;
+        if (state != null)
+            state.SetCurrentPlanet(selectedPlanet);
+
+        LoadSceneSafe("Planet_Overview");
+    }
+
+    private void JumpToHomeworld()
+    {
+        selectedPlanet = 30;
+        lastViewedPlanet = 30;
+        SelectPlanet(30);
+    }
+
+    private void JumpToLastViewedPlanet()
+    {
+        if (lastViewedPlanet < 1)
+        {
+            SetAlert(
+                "HUD-201-07A StrategicAlertEntry",
+                "STRATEGIC // NO PREVIOUS PLANET"
+            );
+            return;
+        }
+
+        SelectPlanet(lastViewedPlanet);
+    }
+
+    private void OpenIntelNetwork()
+    {
+        LoadSceneByKeyword("INTELLIGENCE");
+    }
+
+    private void OpenDoctrineManager()
+    {
+        LoadSceneByKeyword("COMMAND");
+    }
+
+    private void OpenLogisticsOverview()
+    {
+        LoadSceneByKeyword("LOGISTICS");
+    }
+
+    private void GoBack()
+    {
+        if (SceneManager.GetActiveScene().name == "Galaxy_Map")
+        {
+            LoadSceneSafe("SCN59_OBSIDIAN_WORLD");
+            return;
+        }
+
+        SceneManager.LoadScene("SCN59_OBSIDIAN_WORLD");
+    }
+
+    private void ExitToCommandCenter()
+    {
+        LoadSceneByKeyword("COMMAND_CENTER");
+    }
+
+    private void OpenSettings()
+    {
+        LoadSceneByKeyword("SETTINGS");
+    }
+
+    private void ShowHelp()
+    {
+        SetAlert(
+            "HUD-201-07A StrategicAlertEntry",
+            "HELP // SELECT PLANETS TO INSPECT. USE ZOOM AND MAP LAYERS TO NAVIGATE."
+        );
+
+        SetAlert(
+            "HUD-201-07B WarfareAlertEntry",
+            "HELP // ENTER OPENS THE SELECTED PLANET."
+        );
+
+        SetAlert(
+            "HUD-201-07C FactionAlertEntry",
+            "HELP // QUICK ACTIONS PROVIDE GALAXY NAVIGATION."
+        );
+
+        SetAlert(
+            "HUD-201-07D ResourceAlertEntry",
+            "HELP // MAP STATE IS PRESERVED DURING THIS SESSION."
+        );
+    }
+
+    private void LoadSceneByKeyword(string keyword)
+    {
+        for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+        {
+            string path = SceneUtility.GetScenePathByBuildIndex(i);
+
+            if (path.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                SceneManager.LoadScene(path);
+                return;
+            }
+        }
+
+        SetAlert(
+            "HUD-201-07A StrategicAlertEntry",
+            $"NAVIGATION // SCENE NOT IN BUILD SETTINGS: {keyword}"
+        );
+    }
+
+    private void LoadSceneSafe(string sceneName)
+    {
+        for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+        {
+            string path = SceneUtility.GetScenePathByBuildIndex(i);
+
+            if (path.EndsWith("/" + sceneName + ".unity",
+                StringComparison.OrdinalIgnoreCase))
+            {
+                SceneManager.LoadScene(path);
+                return;
+            }
+        }
+
+        SetAlert(
+            "HUD-201-07A StrategicAlertEntry",
+            $"NAVIGATION // {sceneName} NOT IN BUILD SETTINGS"
+        );
+    }
+
+    private void SetAlert(string objectName, string value)
+    {
+        SetText(objectName + "/Value", value);
+        SetText(objectName, value);
+    }
+
+    private void SetText(string path, string value)
+    {
+        Transform target = FindPath(path);
+
+        if (target == null)
+            return;
+
+        Text legacyText = target.GetComponent<Text>();
+
+        if (legacyText != null)
+        {
+            legacyText.text = value;
+            return;
+        }
+
+        Component[] components = target.GetComponents<Component>();
+
+        foreach (Component component in components)
+        {
+            if (component == null)
+                continue;
+
+            Type type = component.GetType();
+
+            if (type.FullName == "TMPro.TMP_Text")
+            {
+                type.GetProperty("text")?.SetValue(component, value);
+                return;
+            }
+        }
+    }
+
+    private Transform FindPath(string path)
+    {
+        string[] parts = path.Split('/');
+
+        Transform current = transform;
+
+        foreach (string part in parts)
+        {
+            if (string.IsNullOrEmpty(part))
+                continue;
+
+            Transform next = current.Find(part);
+
+            if (next == null)
+                return null;
+
+            current = next;
+        }
+
+        return current;
+    }
+}
+
+
+
+
+

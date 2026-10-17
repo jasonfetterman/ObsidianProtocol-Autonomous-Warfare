@@ -1,48 +1,86 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
-public class UINavigationSystem : MonoBehaviour
+namespace ObsidianProtocol.UI
 {
-    public static UINavigationSystem Instance { get; private set; }
-
-    [SerializeField] private GameObject defaultSelection;
-
-    private void Awake()
+    public class UINavigationSystem : MonoBehaviour
     {
-        if (Instance != null && Instance != this)
+        public static UINavigationSystem Instance { get; private set; }
+
+        [Header("Navigation Settings")]
+        [SerializeField] private GameObject defaultSelection;
+
+        private readonly Stack<GameObject> selectionHistory = new Stack<GameObject>();
+        private GameObject currentSelection;
+
+        private void Awake()
         {
-            Destroy(gameObject);
-            return;
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this;
         }
 
-        Instance = this;
-    }
+        /// <summary>
+        /// Sets the default selection used when UI initializes.
+        /// </summary>
+        public void SetDefaultSelection(GameObject target)
+        {
+            defaultSelection = target;
+        }
 
-    public void SetDefaultSelection(GameObject target)
-    {
-        defaultSelection = target;
-    }
+        /// <summary>
+        /// Selects a UI element and pushes previous selection to history.
+        /// </summary>
+        public void Select(GameObject target)
+        {
+            if (target == null)
+                return;
 
-    public void SelectDefault()
-    {
-        if (defaultSelection == null)
-            return;
+            if (currentSelection != null)
+                selectionHistory.Push(currentSelection);
 
-        EventSystem eventSystem = EventSystem.current;
+            currentSelection = target;
+        }
 
-        if (eventSystem == null)
-            return;
+        /// <summary>
+        /// Clears current selection and history.
+        /// </summary>
+        public void ClearSelection()
+        {
+            currentSelection = null;
+            selectionHistory.Clear();
+        }
 
-        eventSystem.SetSelectedGameObject(defaultSelection);
-    }
+        /// <summary>
+        /// Returns to the previous selection.
+        /// </summary>
+        public bool GoBack()
+        {
+            if (selectionHistory.Count == 0)
+                return false;
 
-    public void ClearSelection()
-    {
-        EventSystem eventSystem = EventSystem.current;
+            currentSelection = selectionHistory.Pop();
+            return true;
+        }
 
-        if (eventSystem == null)
-            return;
+        /// <summary>
+        /// Returns the currently selected UI element.
+        /// </summary>
+        public GameObject GetCurrentSelection()
+        {
+            return currentSelection;
+        }
 
-        eventSystem.SetSelectedGameObject(null);
+        /// <summary>
+        /// Returns the default selection.
+        /// </summary>
+        public GameObject GetDefaultSelection()
+        {
+            return defaultSelection;
+        }
     }
 }

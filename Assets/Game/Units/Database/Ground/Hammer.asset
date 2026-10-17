@@ -1,0 +1,234 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Hammer
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-ground-hammer
+  displayName: Hammer
+  category: 1
+  role: Ground Unit
+  tier: Standard
+  status: ACTIVE
+  physical:
+    lengthMeters: 2
+    widthMeters: 2
+    heightMeters: 2
+    massKg: 2
+    powerSource: Hammer powerSource
+    energyCapacityWh: 2
+    energyConsumptionWhPerMinute: 2
+    endurance: Hammer endurance
+    payloadCapacityKg: 2
+    modules:
+    - Hammer modules
+    navigationSystem: Hammer navigationSystem
+    structuralIntegrityHp: 2
+    armorRating: 20
+    heatSignature: Hammer heatSignature
+    noiseSignature: Hammer noiseSignature
+    topSpeedMetersPerSecond: 2
+    topSpeedDescription: Hammer topSpeedDescription
+    acceleration: Hammer acceleration
+    turningRadius: Hammer turningRadius
+    climbRate: Hammer climbRate
+    stabilityRating: Hammer stabilityRating
+  autonomy:
+    behaviorProfile: Hammer behaviorProfile
+    aggression: 2
+    caution: 2
+    persistence: 2
+    flankingLikelihood: 2
+    retreatThreshold: 2
+    retreatBehaviorDescription: Hammer retreatBehaviorDescription
+    targetPriority: Hammer targetPriority
+    formationDiscipline: Hammer formationDiscipline
+    riskTolerance: 2
+  sensors:
+    visualRangeMeters: 2000
+    visualRangeDescription: Hammer visualRangeDescription
+    thermalRangeMeters: 2000
+    thermalRangeDescription: Hammer thermalRangeDescription
+    acousticRange: Hammer acousticRange
+    radarRange: Hammer radarRange
+    lidarRange: Hammer lidarRange
+    signalDetectionRange: Hammer signalDetectionRange
+  communication:
+    meshRangeKm: 2000
+    meshRangeDescription: Hammer meshRangeDescription
+    relayCapacity: 2
+    commandLinkType: Hammer commandLinkType
+    networkPriority: Hammer networkPriority
+  combat:
+    firepowerRating: 20
+    firepowerDescription: Hammer firepowerDescription
+    accuracy: Hammer accuracy
+    stabilization: Hammer stabilization
+    weaponMounts: Hammer weaponMounts
+    weaponTypes: Hammer weaponTypes
+    suppressionValue: 2
+    trackingStrength: Hammer trackingStrength
+    disruptionStrength: Hammer disruptionStrength
+    breachCapability: Hammer breachCapability
+    countermeasureRating: Hammer countermeasureRating
+    threatLevel: 2
+    engagementDistance: Hammer engagementDistance
+    preferredTerrain: Hammer preferredTerrain
+    preferredTargets: Hammer preferredTargets
+    vulnerabilityProfile: Hammer vulnerabilityProfile
+  squad:
+    squadRole: Hammer squadRole
+    squadSizeContribution: 2
+    formationBehavior: Hammer formationBehavior
+    intentInterpretationRules: Hammer intentInterpretationRules
+    retreatBehavior: Hammer retreatBehavior
+    breachBehavior: Hammer breachBehavior
+    flankingBehavior: Hammer flankingBehavior
+    reinforcementBehavior: Hammer reinforcementBehavior
+    parentCommandUnit: Hammer parentCommandUnit
+    subordinateUnits:
+    - Hammer subordinateUnits
+    relayNodes:
+    - Hammer relayNodes
+    networkDependencies: Hammer networkDependencies
+  vrOperator:
+    operatorSeatType: Hammer operatorSeatType
+    operatorHud: Hammer operatorHud
+    cameraFeeds: Hammer cameraFeeds
+    thermalView: 1
+    lidarView: 1
+    sonarView: 1
+    tacticalOverlay: 1
+    movementControls: Hammer movementControls
+    sensorControls: Hammer sensorControls
+    abilityControls: Hammer abilityControls
+    weaponControls: Hammer weaponControls
+    stabilizationControls: Hammer stabilizationControls
+    operatorAbilities:
+    - Hammer operatorAbilities
+  economy:
+    creditCost: 1650
+    buildCost: Hammer buildCost
+    buildTimeSeconds: 2
+    factoryType: Hammer factoryType
+    techRequirements: Hammer techRequirements
+    maintenanceCost: Hammer maintenanceCost
+    repairTimeSeconds: 2
+    supplyConsumption: Hammer supplyConsumption
+    operationalCost: Hammer operationalCost
+    deploymentRequirements: Hammer deploymentRequirements
+    transportCompatibility: Hammer transportCompatibility
+    launchMethod: Hammer launchMethod
+    deploymentPointsDefined: 1
+    deploymentPoints: 2
+  buildRequirements:
+    commonComponents: []
+    electronics: []
+    power: []
+    rareTradeable: []
+    optionalUpgrades:
+    - Hammer optionalUpgrades
+  environment:
+    terrainAdaptationCoefficients: Hammer terrainAdaptationCoefficients
+    weatherSensitivityIndex: 2
+    visibilityModifiers: Hammer visibilityModifiers
+    signalPropagationCurve: Hammer signalPropagationCurve
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0.8
+    packetLossRate: Hammer packetLossRate
+    encryptionLatencySeconds: 2
+    meshSelfHealingThreshold: Hammer meshSelfHealingThreshold
+    relaySaturationCurve: Hammer relaySaturationCurve
+  cognitive:
+    decisionConfidence: 2
+    threatRecognitionAccuracy: 2
+    adaptiveLearningRatePerMission: 2
+    commandOverrideResistance: 2
+    cooperativeBehaviorIndex: 2
+  behaviorNodes:
+  - behaviorNode: 
+    weight: -0.00000008226931
+    description: 
+  - behaviorNode: 
+    weight: 0
+    description: 
+  missionBehaviors:
+  - missionType: 
+    behaviorFocus: 
+    efficiency: -0.00000008228733
+  - missionType: 
+    behaviorFocus: 
+    efficiency: 0
+  unitSynergies:
+  - partnerUnit: 
+    synergyRating: -0.000000081262726
+    function: 
+  - partnerUnit: 
+    synergyRating: 0
+    function: 
+  damageResponses:
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  upgrades:
+  - upgrade: 
+    effect: 
+    efficiencyGain: -0.00000008129882
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  tactical:
+    formationAdaptability: 2
+    tacticalRoleWeight: 2
+    commandResponseDelaySeconds: 2
+    reinforcementTriggerConditions: Hammer reinforcementTriggerConditions
+    retreatLogicThresholds: Hammer retreatLogicThresholds
+  maintenance:
+    meanTimeBetweenFailuresHours: 2
+    repairCycleSeconds: 2
+    resourceDrainPerHourPercent: 20
+    batteryEfficiencyPercent: 0.8
+    rotorStabilityPercent: 20
+    sensorCalibrationDriftPercentPerHour: 20
+    coolingEfficiencyPercent: 0.8
+    operationalUptimePercent: 20
+    energyRecoveryRatePercent: 20
+    energyRecoveryRatePercentPerIdleMinute: 20
+    componentWearPercentPerHour: 20
+    maintenancePriorityLevel: Hammer maintenancePriorityLevel
+    sparePartDependencyIndex: 2
+    operationalCostPerHour: Hammer operationalCostPerHour
+  threatResponses:
+  - threatType: 
+    reactionTimeSeconds: -1.6962372e-20
+    countermeasureEfficiency: 5.79e-43
+  - threatType: 
+    reactionTimeSeconds: 0
+    countermeasureEfficiency: 0
+  commandNetwork:
+  - node: 
+    loadPercent: -0.00001955549
+    latencySeconds: 5.79e-43
+    status: 
+  - node: 
+    loadPercent: 0
+    latencySeconds: 0
+    status: 
+  performance:
+    missionSuccessProbability: 0.75
+    averageEngagementDurationMinutes: 2
+    reconDataYieldMbPerMinute: 2
+    communicationUptime: 2
+    threatAvoidanceEfficiency: 0.8

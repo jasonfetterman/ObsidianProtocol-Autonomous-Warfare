@@ -1,0 +1,212 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Spotter
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-air-spotter
+  displayName: Spotter
+  category: 0
+  role: Air Unit
+  tier: Standard
+  status: ACTIVE
+  physical:
+    lengthMeters: 1
+    widthMeters: 1
+    heightMeters: 1
+    massKg: 1
+    powerSource: Spotter powerSource
+    energyCapacityWh: 1
+    energyConsumptionWhPerMinute: 1
+    endurance: Spotter endurance
+    payloadCapacityKg: 1
+    modules:
+    - Spotter modules
+    navigationSystem: Spotter navigationSystem
+    structuralIntegrityHp: 1
+    armorRating: 10
+    heatSignature: Spotter heatSignature
+    noiseSignature: Spotter noiseSignature
+    topSpeedMetersPerSecond: 1
+    topSpeedDescription: Spotter topSpeedDescription
+    acceleration: Spotter acceleration
+    turningRadius: Spotter turningRadius
+    climbRate: Spotter climbRate
+    stabilityRating: Spotter stabilityRating
+  autonomy:
+    behaviorProfile: Spotter behaviorProfile
+    aggression: 1
+    caution: 1
+    persistence: 1
+    flankingLikelihood: 1
+    retreatThreshold: 1
+    retreatBehaviorDescription: Spotter retreatBehaviorDescription
+    targetPriority: Spotter targetPriority
+    formationDiscipline: Spotter formationDiscipline
+    riskTolerance: 1
+  sensors:
+    visualRangeMeters: 1000
+    visualRangeDescription: Spotter visualRangeDescription
+    thermalRangeMeters: 1000
+    thermalRangeDescription: Spotter thermalRangeDescription
+    acousticRange: Spotter acousticRange
+    radarRange: Spotter radarRange
+    lidarRange: Spotter lidarRange
+    signalDetectionRange: Spotter signalDetectionRange
+  communication:
+    meshRangeKm: 1000
+    meshRangeDescription: Spotter meshRangeDescription
+    relayCapacity: 1
+    commandLinkType: Spotter commandLinkType
+    networkPriority: Spotter networkPriority
+  combat:
+    firepowerRating: 10
+    firepowerDescription: Spotter firepowerDescription
+    accuracy: Spotter accuracy
+    stabilization: Spotter stabilization
+    weaponMounts: Spotter weaponMounts
+    weaponTypes: Spotter weaponTypes
+    suppressionValue: 1
+    trackingStrength: Spotter trackingStrength
+    disruptionStrength: Spotter disruptionStrength
+    breachCapability: Spotter breachCapability
+    countermeasureRating: Spotter countermeasureRating
+    threatLevel: 1
+    engagementDistance: Spotter engagementDistance
+    preferredTerrain: Spotter preferredTerrain
+    preferredTargets: Spotter preferredTargets
+    vulnerabilityProfile: Spotter vulnerabilityProfile
+  squad:
+    squadRole: Spotter squadRole
+    squadSizeContribution: 1
+    formationBehavior: Spotter formationBehavior
+    intentInterpretationRules: Spotter intentInterpretationRules
+    retreatBehavior: Spotter retreatBehavior
+    breachBehavior: Spotter breachBehavior
+    flankingBehavior: Spotter flankingBehavior
+    reinforcementBehavior: Spotter reinforcementBehavior
+    parentCommandUnit: Spotter parentCommandUnit
+    subordinateUnits:
+    - Spotter subordinateUnits
+    relayNodes:
+    - Spotter relayNodes
+    networkDependencies: Spotter networkDependencies
+  vrOperator:
+    operatorSeatType: Spotter operatorSeatType
+    operatorHud: Spotter operatorHud
+    cameraFeeds: Spotter cameraFeeds
+    thermalView: 1
+    lidarView: 1
+    sonarView: 1
+    tacticalOverlay: 1
+    movementControls: Spotter movementControls
+    sensorControls: Spotter sensorControls
+    abilityControls: Spotter abilityControls
+    weaponControls: Spotter weaponControls
+    stabilizationControls: Spotter stabilizationControls
+    operatorAbilities:
+    - Spotter operatorAbilities
+  economy:
+    creditCost: 500
+    buildCost: Spotter buildCost
+    buildTimeSeconds: 1
+    factoryType: Spotter factoryType
+    techRequirements: Spotter techRequirements
+    maintenanceCost: Spotter maintenanceCost
+    repairTimeSeconds: 1
+    supplyConsumption: Spotter supplyConsumption
+    operationalCost: Spotter operationalCost
+    deploymentRequirements: Spotter deploymentRequirements
+    transportCompatibility: Spotter transportCompatibility
+    launchMethod: Spotter launchMethod
+    deploymentPointsDefined: 1
+    deploymentPoints: 1
+  buildRequirements:
+    commonComponents: []
+    electronics: []
+    power: []
+    rareTradeable: []
+    optionalUpgrades:
+    - Spotter optionalUpgrades
+  environment:
+    terrainAdaptationCoefficients: Spotter terrainAdaptationCoefficients
+    weatherSensitivityIndex: 1
+    visibilityModifiers: Spotter visibilityModifiers
+    signalPropagationCurve: Spotter signalPropagationCurve
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0.8
+    packetLossRate: Spotter packetLossRate
+    encryptionLatencySeconds: 1
+    meshSelfHealingThreshold: Spotter meshSelfHealingThreshold
+    relaySaturationCurve: Spotter relaySaturationCurve
+  cognitive:
+    decisionConfidence: 1
+    threatRecognitionAccuracy: 1
+    adaptiveLearningRatePerMission: 1
+    commandOverrideResistance: 1
+    cooperativeBehaviorIndex: 1
+  behaviorNodes:
+  - behaviorNode: 
+    weight: -0.00000008226931
+    description: 
+  missionBehaviors:
+  - missionType: 
+    behaviorFocus: 
+    efficiency: -0.00000008228733
+  unitSynergies:
+  - partnerUnit: 
+    synergyRating: -0.000000081262726
+    function: 
+  damageResponses:
+  - damageType: 
+    effect: 
+    recovery: 
+  upgrades:
+  - upgrade: 
+    effect: 
+    efficiencyGain: -0.00000008129882
+  tactical:
+    formationAdaptability: 1
+    tacticalRoleWeight: 1
+    commandResponseDelaySeconds: 1
+    reinforcementTriggerConditions: Spotter reinforcementTriggerConditions
+    retreatLogicThresholds: Spotter retreatLogicThresholds
+  maintenance:
+    meanTimeBetweenFailuresHours: 1
+    repairCycleSeconds: 1
+    resourceDrainPerHourPercent: 10
+    batteryEfficiencyPercent: 0.8
+    rotorStabilityPercent: 10
+    sensorCalibrationDriftPercentPerHour: 10
+    coolingEfficiencyPercent: 0.8
+    operationalUptimePercent: 10
+    energyRecoveryRatePercent: 10
+    energyRecoveryRatePercentPerIdleMinute: 10
+    componentWearPercentPerHour: 10
+    maintenancePriorityLevel: Spotter maintenancePriorityLevel
+    sparePartDependencyIndex: 1
+    operationalCostPerHour: Spotter operationalCostPerHour
+  threatResponses:
+  - threatType: 
+    reactionTimeSeconds: -1.6962372e-20
+    countermeasureEfficiency: 5.79e-43
+  commandNetwork:
+  - node: 
+    loadPercent: -0.00001955549
+    latencySeconds: 5.79e-43
+    status: 
+  performance:
+    missionSuccessProbability: 0.75
+    averageEngagementDurationMinutes: 1
+    reconDataYieldMbPerMinute: 1
+    communicationUptime: 1
+    threatAvoidanceEfficiency: 0.8

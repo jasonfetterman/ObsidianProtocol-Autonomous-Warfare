@@ -19,9 +19,7 @@ namespace ObsidianProtocol.Game.Core
         public static SaveData Load()
         {
             if (!File.Exists(SavePath))
-            {
                 return new SaveData();
-            }
 
             string json = File.ReadAllText(SavePath);
             return JsonUtility.FromJson<SaveData>(json);
@@ -35,9 +33,7 @@ namespace ObsidianProtocol.Game.Core
         public static void Delete()
         {
             if (File.Exists(SavePath))
-            {
                 File.Delete(SavePath);
-            }
         }
     }
 }

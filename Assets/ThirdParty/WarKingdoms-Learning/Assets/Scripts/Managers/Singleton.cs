@@ -6,7 +6,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T _instance;
 
-    private static object _lock = new object();
+    private static readonly object _lock = new object();
 
     public static T Instance
     {
@@ -24,9 +24,9 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             {
                 if (_instance == null)
                 {
-                    _instance = (T)FindObjectOfType(typeof(T));
+                    _instance = Object.FindAnyObjectByType<T>();
 
-                    if (FindObjectsOfType(typeof(T)).Length > 1)
+                    if (Object.FindObjectsByType<T>().Length > 1)
                     {
                         Debug.LogError("[Singleton] Something went really wrong " +
                             " - there should never be more than 1 singleton!" +
@@ -38,15 +38,11 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                     {
                         GameObject singleton = new GameObject();
                         _instance = singleton.AddComponent<T>();
-                        singleton.name = "(singleton) " + typeof(T).ToString();
+                        singleton.name = "(singleton) " + typeof(T);
 
                         Debug.Log("[Singleton] An instance of " + typeof(T) +
                             " is needed in the scene, so '" + singleton +
                             "' was created.");
-                    }
-                    else
-                    {
-                        //Debug.Log("[Singleton] Using instance already created: " + _instance.gameObject.name);
                     }
                 }
 
@@ -61,23 +57,17 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         {
             return false;
         }
-        // Object exists independent of Scene lifecycle, assume that means it has DontDestroyOnLoad set
+
         if ((_instance.gameObject.hideFlags & HideFlags.DontSave) == HideFlags.DontSave)
         {
             return true;
         }
+
         return false;
     }
 
     private static bool applicationIsQuitting = false;
-    /// <summary>
-    /// When Unity quits, it destroys objects in a random order.
-    /// In principle, a Singleton is only destroyed when application quits.
-    /// If any script calls Instance after it have been destroyed, 
-    ///   it will create a buggy ghost object that will stay on the Editor scene
-    ///   even after stopping playing the Application. Really bad!
-    /// So, this was made to be sure we're not creating that buggy ghost object.
-    /// </summary>
+
     protected virtual void OnDestroy()
     {
         if (IsDontDestroyOnLoad())

@@ -1,0 +1,179 @@
+﻿using System;
+using System.IO;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using ObsidianProtocol.UI;
+
+public static class ObsidianMainMenuSafePatch
+{
+    private const string SceneName = "SCN-01_MainMenu";
+    private const string ControllerName = "MainMenuController";
+
+    [MenuItem("Tools/Obsidian Protocol/Main Menu/SAFE PATCH EXISTING MENU")]
+    public static void PatchExistingMenu()
+    {
+        var scene = EditorSceneManager.GetActiveScene();
+
+        if (!scene.IsValid() || string.IsNullOrEmpty(scene.path))
+        {
+            EditorUtility.DisplayDialog(
+                "Obsidian Protocol",
+                "Open your existing SCN-01_MainMenu scene first.\n\nNothing was changed.",
+                "OK");
+            return;
+        }
+
+        if (!scene.name.Equals(SceneName, StringComparison.OrdinalIgnoreCase))
+        {
+            if (!EditorUtility.DisplayDialog(
+                "Wrong Scene",
+                "The active scene is '" + scene.name + "'.\n\n" +
+                "This patch is intended for " + SceneName + ".\n\nContinue anyway?",
+                "Continue", "Cancel"))
+                return;
+        }
+
+        string backupPath = CreateBackup(scene.path);
+
+        GameObject eventSystem = FindEventSystem();
+        if (eventSystem == null)
+        {
+            eventSystem = new GameObject("EventSystem");
+            Undo.RegisterCreatedObjectUndo(eventSystem, "Create EventSystem");
+            eventSystem.AddComponent<EventSystem>();
+
+            Type inputSystemModule =
+                Type.GetType("UnityEngine.InputSystem.UI.InputSystemUIInputModule, Unity.InputSystem");
+
+            if (inputSystemModule != null)
+                eventSystem.AddComponent(inputSystemModule);
+            else
+                eventSystem.AddComponent<StandaloneInputModule>();
+        }
+
+        GameObject canvas = Find("Canvas_MainMenuHUD");
+        if (canvas != null)
+            EnsureCanvasBasics(canvas);
+
+        GameObject controllerObject = GameObject.Find(ControllerName);
+        if (controllerObject == null)
+        {
+            controllerObject = new GameObject(ControllerName);
+            Undo.RegisterCreatedObjectUndo(controllerObject, "Create MainMenuController");
+        }
+
+        var controller = controllerObject.GetComponent<ObsidianMainMenuController>();
+        if (controller == null)
+            controller = Undo.AddComponent<ObsidianMainMenuController>(controllerObject);
+
+        WireButton("BUTTON_Continue", controller, c => c.Continue());
+        WireButton("BUTTON_Campaign", controller, c => c.Campaign());
+        WireButton("BUTTON_Multiplayer", controller, c => c.Multiplayer());
+        WireButton("BUTTON_Garage", controller, c => c.Garage());
+        WireButton("BUTTON_Store", controller, c => c.Store());
+        WireButton("BUTTON_VROperator", controller, c => c.VROperator());
+        WireButton("BUTTON_Settings", controller, c => c.Settings());
+        WireButton("BUTTON_Credits", controller, c => c.Credits());
+        WireButton("BUTTON_Exit", controller, c => c.Exit());
+        WireButton("BUTTONS_Exit", controller, c => c.Exit());
+
+        GameObject exitPopup = Find("POPUP_ExitConfirmation");
+        if (exitPopup != null)
+        {
+            WireChildButton(exitPopup, "BUTTON_ConfirmExit", () => controller.ConfirmExit());
+            WireChildButton(exitPopup, "BUTTON_CancelExit", () => controller.CancelExit());
+        }
+
+        EditorSceneManager.MarkSceneDirty(scene);
+        EditorSceneManager.SaveScene(scene);
+        Selection.activeGameObject = controllerObject;
+
+        EditorUtility.DisplayDialog(
+            "Safe Patch Complete",
+            "Your EXISTING Main Menu was patched.\n\n" +
+            "No existing GameObjects were deleted, moved, or renamed.\n" +
+            "Backup created before changes:\n\n" + backupPath +
+            "\n\nDestination scene names were NOT guessed.",
+            "OK");
+    }
+
+    private static string CreateBackup(string scenePath)
+    {
+        string dir = Path.GetDirectoryName(scenePath);
+        string file = Path.GetFileNameWithoutExtension(scenePath);
+        string backup = Path.Combine(
+            dir, file + "_BACKUP_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".unity");
+
+        File.Copy(scenePath, backup, false);
+        AssetDatabase.Refresh();
+        return backup.Replace("\\", "/");
+    }
+
+    private static GameObject Find(string objectName)
+    {
+        foreach (GameObject go in Resources.FindObjectsOfTypeAll<GameObject>())
+        {
+            if (go.scene.IsValid() &&
+                go.name.Equals(objectName, StringComparison.OrdinalIgnoreCase))
+                return go;
+        }
+        return null;
+    }
+
+    private static GameObject FindEventSystem()
+    {
+        if (EventSystem.current != null)
+            return EventSystem.current.gameObject;
+
+        foreach (EventSystem e in Resources.FindObjectsOfTypeAll<EventSystem>())
+            if (e.gameObject.scene.IsValid())
+                return e.gameObject;
+
+        return null;
+    }
+
+    private static void EnsureCanvasBasics(GameObject canvasObject)
+    {
+        if (canvasObject.GetComponent<Canvas>() == null)
+            Undo.AddComponent<Canvas>(canvasObject);
+
+        if (canvasObject.GetComponent<GraphicRaycaster>() == null)
+            Undo.AddComponent<GraphicRaycaster>(canvasObject);
+
+        if (canvasObject.GetComponent<CanvasScaler>() == null)
+            Undo.AddComponent<CanvasScaler>(canvasObject);
+    }
+
+    private static void WireButton(
+        string objectName,
+        ObsidianMainMenuController controller,
+        Action<ObsidianMainMenuController> action)
+    {
+        GameObject go = Find(objectName);
+        if (go == null) return;
+
+        Button button = go.GetComponent<Button>();
+        if (button == null) return;
+
+        button.onClick.AddListener(() => action(controller));
+        EditorUtility.SetDirty(button);
+    }
+
+    private static void WireChildButton(
+        GameObject parent,
+        string childName,
+        UnityEngine.Events.UnityAction action)
+    {
+        Transform child = parent.transform.Find(childName);
+        if (child == null) return;
+
+        Button button = child.GetComponent<Button>();
+        if (button == null) return;
+
+        button.onClick.AddListener(action);
+        EditorUtility.SetDirty(button);
+    }
+}

@@ -1,0 +1,256 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Depthwatch
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-sea-depthwatch
+  displayName: Depthwatch
+  category: 2
+  role: Sea Unit
+  tier: Standard
+  status: ACTIVE
+  physical:
+    lengthMeters: 3
+    widthMeters: 3
+    heightMeters: 3
+    massKg: 3
+    powerSource: Depthwatch powerSource
+    energyCapacityWh: 3
+    energyConsumptionWhPerMinute: 3
+    endurance: Depthwatch endurance
+    payloadCapacityKg: 3
+    modules:
+    - Depthwatch modules
+    navigationSystem: Depthwatch navigationSystem
+    structuralIntegrityHp: 3
+    armorRating: 30
+    heatSignature: Depthwatch heatSignature
+    noiseSignature: Depthwatch noiseSignature
+    topSpeedMetersPerSecond: 3
+    topSpeedDescription: Depthwatch topSpeedDescription
+    acceleration: Depthwatch acceleration
+    turningRadius: Depthwatch turningRadius
+    climbRate: Depthwatch climbRate
+    stabilityRating: Depthwatch stabilityRating
+  autonomy:
+    behaviorProfile: Depthwatch behaviorProfile
+    aggression: 3
+    caution: 3
+    persistence: 3
+    flankingLikelihood: 3
+    retreatThreshold: 3
+    retreatBehaviorDescription: Depthwatch retreatBehaviorDescription
+    targetPriority: Depthwatch targetPriority
+    formationDiscipline: Depthwatch formationDiscipline
+    riskTolerance: 3
+  sensors:
+    visualRangeMeters: 3000
+    visualRangeDescription: Depthwatch visualRangeDescription
+    thermalRangeMeters: 3000
+    thermalRangeDescription: Depthwatch thermalRangeDescription
+    acousticRange: Depthwatch acousticRange
+    radarRange: Depthwatch radarRange
+    lidarRange: Depthwatch lidarRange
+    signalDetectionRange: Depthwatch signalDetectionRange
+  communication:
+    meshRangeKm: 3000
+    meshRangeDescription: Depthwatch meshRangeDescription
+    relayCapacity: 3
+    commandLinkType: Depthwatch commandLinkType
+    networkPriority: Depthwatch networkPriority
+  combat:
+    firepowerRating: 30
+    firepowerDescription: Depthwatch firepowerDescription
+    accuracy: Depthwatch accuracy
+    stabilization: Depthwatch stabilization
+    weaponMounts: Depthwatch weaponMounts
+    weaponTypes: Depthwatch weaponTypes
+    suppressionValue: 3
+    trackingStrength: Depthwatch trackingStrength
+    disruptionStrength: Depthwatch disruptionStrength
+    breachCapability: Depthwatch breachCapability
+    countermeasureRating: Depthwatch countermeasureRating
+    threatLevel: 3
+    engagementDistance: Depthwatch engagementDistance
+    preferredTerrain: Depthwatch preferredTerrain
+    preferredTargets: Depthwatch preferredTargets
+    vulnerabilityProfile: Depthwatch vulnerabilityProfile
+  squad:
+    squadRole: Depthwatch squadRole
+    squadSizeContribution: 3
+    formationBehavior: Depthwatch formationBehavior
+    intentInterpretationRules: Depthwatch intentInterpretationRules
+    retreatBehavior: Depthwatch retreatBehavior
+    breachBehavior: Depthwatch breachBehavior
+    flankingBehavior: Depthwatch flankingBehavior
+    reinforcementBehavior: Depthwatch reinforcementBehavior
+    parentCommandUnit: Depthwatch parentCommandUnit
+    subordinateUnits:
+    - Depthwatch subordinateUnits
+    relayNodes:
+    - Depthwatch relayNodes
+    networkDependencies: Depthwatch networkDependencies
+  vrOperator:
+    operatorSeatType: Depthwatch operatorSeatType
+    operatorHud: Depthwatch operatorHud
+    cameraFeeds: Depthwatch cameraFeeds
+    thermalView: 1
+    lidarView: 1
+    sonarView: 1
+    tacticalOverlay: 1
+    movementControls: Depthwatch movementControls
+    sensorControls: Depthwatch sensorControls
+    abilityControls: Depthwatch abilityControls
+    weaponControls: Depthwatch weaponControls
+    stabilizationControls: Depthwatch stabilizationControls
+    operatorAbilities:
+    - Depthwatch operatorAbilities
+  economy:
+    creditCost: 1500
+    buildCost: Depthwatch buildCost
+    buildTimeSeconds: 3
+    factoryType: Depthwatch factoryType
+    techRequirements: Depthwatch techRequirements
+    maintenanceCost: Depthwatch maintenanceCost
+    repairTimeSeconds: 3
+    supplyConsumption: Depthwatch supplyConsumption
+    operationalCost: Depthwatch operationalCost
+    deploymentRequirements: Depthwatch deploymentRequirements
+    transportCompatibility: Depthwatch transportCompatibility
+    launchMethod: Depthwatch launchMethod
+    deploymentPointsDefined: 1
+    deploymentPoints: 3
+  buildRequirements:
+    commonComponents: []
+    electronics: []
+    power: []
+    rareTradeable: []
+    optionalUpgrades:
+    - Depthwatch optionalUpgrades
+  environment:
+    terrainAdaptationCoefficients: Depthwatch terrainAdaptationCoefficients
+    weatherSensitivityIndex: 3
+    visibilityModifiers: Depthwatch visibilityModifiers
+    signalPropagationCurve: Depthwatch signalPropagationCurve
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0.8
+    packetLossRate: Depthwatch packetLossRate
+    encryptionLatencySeconds: 3
+    meshSelfHealingThreshold: Depthwatch meshSelfHealingThreshold
+    relaySaturationCurve: Depthwatch relaySaturationCurve
+  cognitive:
+    decisionConfidence: 3
+    threatRecognitionAccuracy: 3
+    adaptiveLearningRatePerMission: 3
+    commandOverrideResistance: 3
+    cooperativeBehaviorIndex: 3
+  behaviorNodes:
+  - behaviorNode: 
+    weight: -0.00000008226931
+    description: 
+  - behaviorNode: 
+    weight: 0
+    description: 
+  - behaviorNode: 
+    weight: 0
+    description: 
+  missionBehaviors:
+  - missionType: 
+    behaviorFocus: 
+    efficiency: -0.00000008228733
+  - missionType: 
+    behaviorFocus: 
+    efficiency: 0
+  - missionType: 
+    behaviorFocus: 
+    efficiency: 0
+  unitSynergies:
+  - partnerUnit: 
+    synergyRating: -0.000000081262726
+    function: 
+  - partnerUnit: 
+    synergyRating: 0
+    function: 
+  - partnerUnit: 
+    synergyRating: 0
+    function: 
+  damageResponses:
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  upgrades:
+  - upgrade: 
+    effect: 
+    efficiencyGain: -0.00000008129882
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  tactical:
+    formationAdaptability: 3
+    tacticalRoleWeight: 3
+    commandResponseDelaySeconds: 3
+    reinforcementTriggerConditions: Depthwatch reinforcementTriggerConditions
+    retreatLogicThresholds: Depthwatch retreatLogicThresholds
+  maintenance:
+    meanTimeBetweenFailuresHours: 3
+    repairCycleSeconds: 3
+    resourceDrainPerHourPercent: 30
+    batteryEfficiencyPercent: 0.8
+    rotorStabilityPercent: 30
+    sensorCalibrationDriftPercentPerHour: 30
+    coolingEfficiencyPercent: 0.8
+    operationalUptimePercent: 30
+    energyRecoveryRatePercent: 30
+    energyRecoveryRatePercentPerIdleMinute: 30
+    componentWearPercentPerHour: 30
+    maintenancePriorityLevel: Depthwatch maintenancePriorityLevel
+    sparePartDependencyIndex: 3
+    operationalCostPerHour: Depthwatch operationalCostPerHour
+  threatResponses:
+  - threatType: 
+    reactionTimeSeconds: -1.6962372e-20
+    countermeasureEfficiency: 5.79e-43
+  - threatType: 
+    reactionTimeSeconds: 0
+    countermeasureEfficiency: 0
+  - threatType: 
+    reactionTimeSeconds: 0
+    countermeasureEfficiency: 0
+  commandNetwork:
+  - node: 
+    loadPercent: -0.00001955549
+    latencySeconds: 5.79e-43
+    status: 
+  - node: 
+    loadPercent: 0
+    latencySeconds: 0
+    status: 
+  - node: 
+    loadPercent: 0
+    latencySeconds: 0
+    status: 
+  performance:
+    missionSuccessProbability: 0.75
+    averageEngagementDurationMinutes: 3
+    reconDataYieldMbPerMinute: 3
+    communicationUptime: 3
+    threatAvoidanceEfficiency: 0.8

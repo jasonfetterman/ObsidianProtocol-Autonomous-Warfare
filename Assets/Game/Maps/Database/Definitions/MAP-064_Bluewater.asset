@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0263df275083eba45b37ab9636c8dcbf, type: 3}
+  m_Name: MAP-064_Bluewater
+  m_EditorClassIdentifier: 
+  mapId: MAP-064
+  displayName: Bluewater
+  environment: Open Ocean
+  warfareFocus: Primarily Naval Warfare
+  executiveSummary: "Bluewater is a vast open-ocean battlefield built for pure naval warfare, long-range engagements, carrier operations, submarine combat, and autonomous fleet coordination. The terrain is dominated by deep water, rolling swells, scattered reefs, thermal vents, and a few remote support platforms. The map emphasizes Obsidian Protocol\u2019s autonomous naval routing, sensor-fusion across sonar and radar, comms-relay warfare, and logistics under wide-open maritime conditions. In AR (Nreal Light/Air), the map anchors at ~4\u20135 m viewing distance, covering a 10\xD710 m physical area representing ~1 km\xB2 of open ocean. Key features include long-range naval duels, carrier air operations, submarine stealth zones, and strategic control of deep-water lanes."
+  designGoals:
+  - name: Pure Naval Combat
+    description: 'Bluewater prioritizes ship-to-ship warfare: missile duels, torpedo lanes, long-range gunnery, and carrier-based air support. No land combat except on small support platforms.'
+  - name: Carrier & Air Operations
+    description: Aircraft carriers launch drones, VTOLs, and strike craft. Airspace corridors above the ocean define recon, interception, and strike patterns.
+  - name: Submarine Warfare & Stealth
+    description: Thermal vents, deep trenches, and sonar-scatter zones create stealth pockets. Submarines excel in ambushes and long-range torpedo strikes.
+  - name: Autonomy & Fleet Coordination
+    description: Autonomous units coordinate across surface, air, and subsurface domains. Fleets adapt to shifting sonar conditions, radar interference, and missile trajectories.
+  - name: Sensor & Information Warfare
+    description: Sea fog, humidity, thermal distortion, sonar scatter, and magnetic interference degrade sensors. Relay buoys restore clarity. Destroying relays creates blind pockets across the ocean.
+  - name: Logistics & Resources
+    description: Fuel barges, offshore platforms, and carrier decks serve as resupply nodes. Convoys must navigate open water and avoid ambush-prone deep-water lanes.
+  deployment: A fixed deployment budget (~10,000 points) forces players to choose between carrier dominance, submarine superiority, or missile-heavy surface fleets. Blue deploys from the southwest carrier group; Red deploys from the northeast strike flotilla.
+  ar:
+    viewingDistance: "~4\u20135 m"
+    physicalArea: "10\xD710 m"
+    representedArea: "~1 km\xB2"
+    scale: 1:100
+    fov: "~53\xB0 diagonal"
+    resolution: "1920\xD71080 per eye"
+    tracking: Inside-out tracking detects horizontal planes. Depth-mesh (if available) provides limited occlusion.
+    interaction: Virtual objects render over real-world view; assume minimal real-world occlusion.
+  coordinateSystem: "1000\xD71000 grid (1 unit \u2248 1 m). Origin (0,0) = southwest corner."
+  keyLocations:
+  - name: Blue HQ (Carrier Group Bravo)
+    coordinate: (0,0)
+    sizeOrElevation: "150\xD7150 m"
+    description: Carrier deck, drone pads, missile destroyers.
+  - name: Red HQ (Strike Flotilla Command)
+    coordinate: (1000,1000)
+    sizeOrElevation: "150\xD7150 m"
+    description: Cruisers, radar ships, submarine tenders.
+  - name: Central Deep-Water Lane
+    coordinate: (500,450)
+    sizeOrElevation: "350\xD7300 m"
+    description: Long-range naval combat zone; ideal for missile duels.
+  - name: Offshore Support Platform
+    coordinate: (250,800)
+    sizeOrElevation: "120\xD7120 m"
+    description: Fuel barges, repair cranes, resupply docks.
+  - name: Thermal Vent Field
+    coordinate: (800,300)
+    sizeOrElevation: "200\xD7200 m"
+    description: Sonar distortion, submarine stealth routes.
+  - name: Open-Ocean Corridor
+    coordinate: "(0,450 \u2192 400,900)"
+    sizeOrElevation: Primary naval chokepoint
+    description: Long sightlines and minimal cover.
+  - name: Surface Patrol Route
+    coordinate: "(300,0 \u2192 450,350)"
+    sizeOrElevation: Route
+    description: Safer but predictable; vulnerable to submarine ambush.
+  - name: Relay Buoy A
+    coordinate: (650,150)
+    sizeOrElevation: +240 m
+    description: Long-range sensor vantage point.
+  - name: Relay Buoy B
+    coordinate: (150,650)
+    sizeOrElevation: +260 m
+    description: Comms relay hub and sonar control node.
+  - name: Neutral Forward Outpost
+    coordinate: (500,950)
+    sizeOrElevation: Outpost
+    description: Drone resupply zone.
+  chokepointsAndSightlines:
+  - name: Open-Ocean Corridor
+    description: Major naval chokepoint; controlling it determines fleet movement.
+  - name: Thermal Vent Field
+    description: Sonar distortion; ideal for submarine ambushes.
+  - name: Deep-Water Lane
+    description: Long-range missile and gunnery engagements.
+  - name: Surface Patrol Route
+    description: Predictable but safe; vulnerable to subsurface attacks.
+  - name: Sightlines
+    description: Relay Buoy A provides long-range sensor coverage (~400 m). Sea fog and humidity create fog-of-war pockets.
+  terrain: Open ocean, deep-water lanes, thermal vents, offshore platforms.
+  vegetation: "None \u2014 maritime zone only."
+  buildingsAndProps: 'Military: Radar ships, AA guns, sonar arrays, carriers. Industrial: Platforms, cranes, fuel barges. Logistics: Ships, cargo crates, drones.'
+  effects: Sea spray, fog, humidity haze, wave impacts, thermal distortion.
+  audio: Waves, wind, ship engines, sonar pings, radio chatter.
+  lodBudget:
+  - category: Ocean/Terrain
+    count: 3
+    trianglesPerItem: 200000
+    totalTriangles: 600000
+  - category: Naval/Industrial
+    count: 4
+    trianglesPerItem: 80000
+    totalTriangles: 320000
+  - category: Ships/Military
+    count: 15
+    trianglesPerItem: 50000
+    totalTriangles: 750000
+  - category: Platforms/Paths
+    count: 4
+    trianglesPerItem: 30000
+    totalTriangles: 120000
+  - category: Props
+    count: 50
+    trianglesPerItem: 10000
+    totalTriangles: 500000
+  textureBudget: "2048\xB2 for terrain/buildings, 1024\xB2 for props. DXT1/5 compression. Target \u2264100 MB."
+  engineAndPlugins: Unreal ARTemplate + Nreal SDK (XREAL). ARKit/ARCore enabled.
+  rendering: Forward renderer, stationary lights, baked GI, aggressive culling.
+  anchors: Single spatial anchor for entire map.
+  interaction: Phone pointer for pan/zoom; HUD as screen-space widgets.
+  multiplayer: Client-server architecture; offload AI/physics to server.
+  milestones:
+  - name: "Prototype Layout \u2014 Month 1"
+    description: Block-out ocean lanes, platforms, vent field, AR anchor test.
+  - name: "Core Systems \u2014 Month 2"
+    description: NavMesh (sea), naval autonomy, air-sea coordination.
+  - name: "AR Integration \u2014 Month 3"
+    description: Anchors, plane detection, basic interactivity.
+  - name: "Content Fill \u2014 Month 4\u20135"
+    description: Final models, textures, lighting, audio.
+  - name: "Gameplay & Polish \u2014 Month 6\u20137"
+    description: Objectives, balance, VFX (sea spray, fog, thermal distortion).
+  - name: "Testing & QA \u2014 Month 8"
+    description: Multiplayer stress test, sensor validation.
+  testing:
+  - name: Autonomy
+    description: Verify naval routing, air-sea coordination, submarine stealth logic.
+  - name: Comms/Sensors
+    description: Test relay destruction, fog-of-war updates, sonar interference.
+  - name: Performance
+    description: "\u226560 Hz AR render on target device."
+  - name: QA Checklist
+    description: Navigation, naval logic, deployment budget enforcement, anchor drift, sensor accuracy.

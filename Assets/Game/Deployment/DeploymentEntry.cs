@@ -14,6 +14,7 @@ namespace ObsidianProtocol.Game.Deployment
     public sealed class DeploymentEntry
     {
         public string DeploymentId { get; }
+        public string ServiceRecordId { get; }
         public string UnitId { get; }
         public int DeploymentPoints { get; }
         public DeploymentState State { get; private set; }
@@ -22,8 +23,22 @@ namespace ObsidianProtocol.Game.Deployment
             string deploymentId,
             string unitId,
             int deploymentPoints)
+            : this(
+                deploymentId,
+                unitId,
+                deploymentPoints,
+                deploymentId)
+        {
+        }
+
+        public DeploymentEntry(
+            string deploymentId,
+            string unitId,
+            int deploymentPoints,
+            string serviceRecordId)
         {
             DeploymentId = deploymentId ?? string.Empty;
+            ServiceRecordId = serviceRecordId ?? string.Empty;
             UnitId = unitId ?? string.Empty;
             DeploymentPoints = Math.Max(0, deploymentPoints);
             State = DeploymentState.Unavailable;
@@ -31,6 +46,7 @@ namespace ObsidianProtocol.Game.Deployment
 
         public bool Valid =>
             !string.IsNullOrWhiteSpace(DeploymentId) &&
+            !string.IsNullOrWhiteSpace(ServiceRecordId) &&
             !string.IsNullOrWhiteSpace(UnitId) &&
             DeploymentPoints > 0;
 

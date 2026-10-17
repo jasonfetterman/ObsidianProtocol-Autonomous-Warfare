@@ -1,0 +1,291 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0263df275083eba45b37ab9636c8dcbf, type: 3}
+  m_Name: MAP-052_Harbor_Black
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Maps.MapDefinition
+  mapId: MAP-052
+  displayName: Harbor Black
+  environment: Mega Port
+  warfareFocus: Naval + ground + air
+  executiveSummary: Mega-port combined-arms battlefield for naval warfare, ground combat, air superiority, logistics disruption, and autonomous multi-domain coordination.
+  designGoals:
+  - name: Naval + Ground + Air Integration
+    description: 
+  - name: 
+    description: Ships, amphibious forces, armor, drones, and aircraft operate across the same battlespace.
+  - name: 
+    description: 
+  - name: 
+    description: Cargo terminals, refineries, and rail yards act as critical logistics hubs.
+  - name: 
+    description: 
+  - name: 
+    description: Stacked containers create dense cover, ambush lanes, and unpredictable sightlines.
+  - name: 
+    description: 
+  - name: 
+    description: Aircraft, VTOLs, and drones exploit air corridors between cranes and towers.
+  - name: 
+    description: 
+  - name: 
+    description: Routes account for container density, cranes, water depth, and elevated road stability.
+  - name: 
+    description: 
+  - name: 
+    description: Smoke, steam, metallic clutter, water reflection, and relay destruction degrade information.
+  deployment: Fixed deployment budget ~10,000 points. Blue deploys from southwest cargo terminal; Red deploys from northeast refinery command.
+  ar:
+    viewingDistance: "~4\u20135 m"
+    physicalArea: "10\xD710 m"
+    representedArea: "~1 km\xB2"
+    scale: 1:100
+    fov: "~53\xB0 diagonal"
+    resolution: "1920\xD71080 per eye"
+    tracking: Inside-out horizontal plane tracking; depth mesh if available; limited real-world occlusion.
+    interaction: Phone pointer for pan/zoom; HUD as screen-space widgets.
+  coordinateSystem: "1000\xD71000 grid; 1 unit \u2248 1 m; origin (0,0) southwest corner."
+  keyLocations:
+  - name: Blue HQ (Cargo Terminal Command)
+    coordinate: 
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: (0,0)
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: "150\xD7150 m"
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: Cranes, containers, amphibious staging, and drone pads.
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: (1000,1000)
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: "150\xD7150 m"
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: Refinery tower, radar mast, AA, and sensor arrays.
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: (500,450)
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: "300\xD7300 m"
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: Ship berths, drydocks, naval combat, and amphibious landings.
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: (250,800)
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: "120\xD7120 m"
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: Stacked containers, interior corridors, and ambush lanes.
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: (800,300)
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: "200\xD7200 m"
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: High-ground overwatch and air-corridor control.
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: "(0,450 \u2192 400,900)"
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: "\u2014"
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: Primary bridge and water chokepoint.
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: "(300,0 \u2192 450,350)"
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: "\u2014"
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: Predictable service route vulnerable to industrial overwatch.
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: (650,150)
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: +240 m
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: Long-range sensor vantage.
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: (150,650)
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: +260 m
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: Communications and logistics relay.
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: (500,950)
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: "\u2014"
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: Drone resupply zone.
+  chokepointsAndSightlines:
+  - name: Harbor Crossing
+    description: 
+  - name: 
+    description: Major chokepoint where bridge control determines movement.
+  - name: 
+    description: 
+  - name: 
+    description: Dense flanking routes and unpredictable cover enable ambushes.
+  - name: 
+    description: 
+  - name: 
+    description: Naval, ground, and air operations converge; water reflection affects accuracy.
+  - name: 
+    description: 
+  - name: 
+    description: Long-range overwatch and air-ground coordination.
+  - name: 
+    description: 
+  - name: 
+    description: Approximately 350 m coverage; smoke and water reflection create blind areas.
+  terrain: Massive cargo terminals, container yards, ship berths, drydocks, refineries, elevated highways, rail spurs, and fortified control towers.
+  vegetation: Sparse industrial weeds and riverbank grass.
+  buildingsAndProps: 'Military: AA guns, radar, bunkers. Industrial: warehouses, cranes, pipelines, refineries. Logistics: trucks, crates, fuel drums, boats, drones.'
+  effects: Smoke, steam, water spray, sparks, and industrial haze.
+  audio: Machinery, water flow, alarms, and radio chatter.
+  lodBudget:
+  - category: Primary Terrain
+    count: 3
+    trianglesPerItem: 200000
+    totalTriangles: 600000
+  - category: Industrial/Rural
+    count: 4
+    trianglesPerItem: 80000
+    totalTriangles: 320000
+  - category: Buildings
+    count: 15
+    trianglesPerItem: 50000
+    totalTriangles: 750000
+  - category: Roads/Paths
+    count: 4
+    trianglesPerItem: 30000
+    totalTriangles: 120000
+  - category: Props
+    count: 50
+    trianglesPerItem: 10000
+    totalTriangles: 500000
+  textureBudget: "2048\xB2 for terrain/buildings; 1024\xB2 for props; DXT1/5; target \u2264100 MB."
+  engineAndPlugins: Unreal ARTemplate + Nreal SDK (XREAL). ARKit/ARCore enabled.
+  rendering: Forward renderer, stationary lights, baked GI, aggressive culling.
+  anchors: Single spatial anchor for entire map.
+  interaction: Phone pointer for pan/zoom; HUD as screen-space widgets.
+  multiplayer: Client-server architecture; offload AI/physics to server.
+  milestones:
+  - name: 1. Prototype Layout
+    description: Block-out primary terrain, key locations, routes, and AR anchor test.
+  - name: 2. Core Systems
+    description: NavMesh, terrain-aware autonomy, sensor logic, and map-specific behaviors.
+  - name: 3. AR Integration
+    description: Anchors, plane detection, and basic interactivity.
+  - name: 4. Content Fill
+    description: Final models, textures, lighting, audio, and environmental effects.
+  - name: 5. Gameplay & Polish
+    description: Objectives, balance, VFX, logistics, sensors, and deployment integration.
+  - name: 6. Testing & QA
+    description: Multiplayer stress testing, navigation validation, sensor validation, and AR performance.
+  testing:
+  - name: Autonomy
+    description: Verify terrain-aware navigation, map-specific tactical behavior, and hazard avoidance.
+  - name: Sensors
+    description: Test relay destruction, fog-of-war updates, and line-of-sight under environmental occlusion.
+  - name: Performance
+    description: "Target \u226560 Hz AR rendering on the target device."
+  - name: QA
+    description: Navigation, map logic, deployment budget enforcement, anchor drift, and sensor accuracy.

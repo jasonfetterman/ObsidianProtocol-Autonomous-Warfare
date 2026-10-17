@@ -1,0 +1,234 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Hauler
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-ground-hauler
+  displayName: Hauler
+  category: 1
+  role: Ground Unit
+  tier: Standard
+  status: ACTIVE
+  physical:
+    lengthMeters: 2
+    widthMeters: 2
+    heightMeters: 2
+    massKg: 2
+    powerSource: Hauler powerSource
+    energyCapacityWh: 2
+    energyConsumptionWhPerMinute: 2
+    endurance: Hauler endurance
+    payloadCapacityKg: 2
+    modules:
+    - Hauler modules
+    navigationSystem: Hauler navigationSystem
+    structuralIntegrityHp: 2
+    armorRating: 20
+    heatSignature: Hauler heatSignature
+    noiseSignature: Hauler noiseSignature
+    topSpeedMetersPerSecond: 2
+    topSpeedDescription: Hauler topSpeedDescription
+    acceleration: Hauler acceleration
+    turningRadius: Hauler turningRadius
+    climbRate: Hauler climbRate
+    stabilityRating: Hauler stabilityRating
+  autonomy:
+    behaviorProfile: Hauler behaviorProfile
+    aggression: 2
+    caution: 2
+    persistence: 2
+    flankingLikelihood: 2
+    retreatThreshold: 2
+    retreatBehaviorDescription: Hauler retreatBehaviorDescription
+    targetPriority: Hauler targetPriority
+    formationDiscipline: Hauler formationDiscipline
+    riskTolerance: 2
+  sensors:
+    visualRangeMeters: 2000
+    visualRangeDescription: Hauler visualRangeDescription
+    thermalRangeMeters: 2000
+    thermalRangeDescription: Hauler thermalRangeDescription
+    acousticRange: Hauler acousticRange
+    radarRange: Hauler radarRange
+    lidarRange: Hauler lidarRange
+    signalDetectionRange: Hauler signalDetectionRange
+  communication:
+    meshRangeKm: 2000
+    meshRangeDescription: Hauler meshRangeDescription
+    relayCapacity: 2
+    commandLinkType: Hauler commandLinkType
+    networkPriority: Hauler networkPriority
+  combat:
+    firepowerRating: 20
+    firepowerDescription: Hauler firepowerDescription
+    accuracy: Hauler accuracy
+    stabilization: Hauler stabilization
+    weaponMounts: Hauler weaponMounts
+    weaponTypes: Hauler weaponTypes
+    suppressionValue: 2
+    trackingStrength: Hauler trackingStrength
+    disruptionStrength: Hauler disruptionStrength
+    breachCapability: Hauler breachCapability
+    countermeasureRating: Hauler countermeasureRating
+    threatLevel: 2
+    engagementDistance: Hauler engagementDistance
+    preferredTerrain: Hauler preferredTerrain
+    preferredTargets: Hauler preferredTargets
+    vulnerabilityProfile: Hauler vulnerabilityProfile
+  squad:
+    squadRole: Hauler squadRole
+    squadSizeContribution: 2
+    formationBehavior: Hauler formationBehavior
+    intentInterpretationRules: Hauler intentInterpretationRules
+    retreatBehavior: Hauler retreatBehavior
+    breachBehavior: Hauler breachBehavior
+    flankingBehavior: Hauler flankingBehavior
+    reinforcementBehavior: Hauler reinforcementBehavior
+    parentCommandUnit: Hauler parentCommandUnit
+    subordinateUnits:
+    - Hauler subordinateUnits
+    relayNodes:
+    - Hauler relayNodes
+    networkDependencies: Hauler networkDependencies
+  vrOperator:
+    operatorSeatType: Hauler operatorSeatType
+    operatorHud: Hauler operatorHud
+    cameraFeeds: Hauler cameraFeeds
+    thermalView: 1
+    lidarView: 1
+    sonarView: 1
+    tacticalOverlay: 1
+    movementControls: Hauler movementControls
+    sensorControls: Hauler sensorControls
+    abilityControls: Hauler abilityControls
+    weaponControls: Hauler weaponControls
+    stabilizationControls: Hauler stabilizationControls
+    operatorAbilities:
+    - Hauler operatorAbilities
+  economy:
+    creditCost: 1000
+    buildCost: Hauler buildCost
+    buildTimeSeconds: 2
+    factoryType: Hauler factoryType
+    techRequirements: Hauler techRequirements
+    maintenanceCost: Hauler maintenanceCost
+    repairTimeSeconds: 2
+    supplyConsumption: Hauler supplyConsumption
+    operationalCost: Hauler operationalCost
+    deploymentRequirements: Hauler deploymentRequirements
+    transportCompatibility: Hauler transportCompatibility
+    launchMethod: Hauler launchMethod
+    deploymentPointsDefined: 1
+    deploymentPoints: 2
+  buildRequirements:
+    commonComponents: []
+    electronics: []
+    power: []
+    rareTradeable: []
+    optionalUpgrades:
+    - Hauler optionalUpgrades
+  environment:
+    terrainAdaptationCoefficients: Hauler terrainAdaptationCoefficients
+    weatherSensitivityIndex: 2
+    visibilityModifiers: Hauler visibilityModifiers
+    signalPropagationCurve: Hauler signalPropagationCurve
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0.8
+    packetLossRate: Hauler packetLossRate
+    encryptionLatencySeconds: 2
+    meshSelfHealingThreshold: Hauler meshSelfHealingThreshold
+    relaySaturationCurve: Hauler relaySaturationCurve
+  cognitive:
+    decisionConfidence: 2
+    threatRecognitionAccuracy: 2
+    adaptiveLearningRatePerMission: 2
+    commandOverrideResistance: 2
+    cooperativeBehaviorIndex: 2
+  behaviorNodes:
+  - behaviorNode: 
+    weight: -0.00000008226931
+    description: 
+  - behaviorNode: 
+    weight: 0
+    description: 
+  missionBehaviors:
+  - missionType: 
+    behaviorFocus: 
+    efficiency: -0.00000008228733
+  - missionType: 
+    behaviorFocus: 
+    efficiency: 0
+  unitSynergies:
+  - partnerUnit: 
+    synergyRating: -0.000000081262726
+    function: 
+  - partnerUnit: 
+    synergyRating: 0
+    function: 
+  damageResponses:
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  upgrades:
+  - upgrade: 
+    effect: 
+    efficiencyGain: -0.00000008129882
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  tactical:
+    formationAdaptability: 2
+    tacticalRoleWeight: 2
+    commandResponseDelaySeconds: 2
+    reinforcementTriggerConditions: Hauler reinforcementTriggerConditions
+    retreatLogicThresholds: Hauler retreatLogicThresholds
+  maintenance:
+    meanTimeBetweenFailuresHours: 2
+    repairCycleSeconds: 2
+    resourceDrainPerHourPercent: 20
+    batteryEfficiencyPercent: 0.8
+    rotorStabilityPercent: 20
+    sensorCalibrationDriftPercentPerHour: 20
+    coolingEfficiencyPercent: 0.8
+    operationalUptimePercent: 20
+    energyRecoveryRatePercent: 20
+    energyRecoveryRatePercentPerIdleMinute: 20
+    componentWearPercentPerHour: 20
+    maintenancePriorityLevel: Hauler maintenancePriorityLevel
+    sparePartDependencyIndex: 2
+    operationalCostPerHour: Hauler operationalCostPerHour
+  threatResponses:
+  - threatType: 
+    reactionTimeSeconds: -1.6962372e-20
+    countermeasureEfficiency: 5.79e-43
+  - threatType: 
+    reactionTimeSeconds: 0
+    countermeasureEfficiency: 0
+  commandNetwork:
+  - node: 
+    loadPercent: -0.00001955549
+    latencySeconds: 5.79e-43
+    status: 
+  - node: 
+    loadPercent: 0
+    latencySeconds: 0
+    status: 
+  performance:
+    missionSuccessProbability: 0.75
+    averageEngagementDurationMinutes: 2
+    reconDataYieldMbPerMinute: 2
+    communicationUptime: 2
+    threatAvoidanceEfficiency: 0.8

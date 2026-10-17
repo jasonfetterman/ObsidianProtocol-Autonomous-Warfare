@@ -5,7 +5,6 @@ namespace ObsidianProtocol.Game.Command
         Move,
         Attack,
         Defend,
-        Hold,
         Recon,
         Flank,
         Suppress,

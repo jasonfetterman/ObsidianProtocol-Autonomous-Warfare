@@ -1,0 +1,291 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0263df275083eba45b37ab9636c8dcbf, type: 3}
+  m_Name: MAP-055_Broken_Ground
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Maps.MapDefinition
+  mapId: MAP-055
+  displayName: Broken Ground
+  environment: Destroyed Urban
+  warfareFocus: Battlefield aftermath & dynamic terrain
+  executiveSummary: Destroyed-urban battlefield for post-combat operations, dynamic shifting terrain, autonomous hazard navigation, and close-quarters engagements amid ruins.
+  designGoals:
+  - name: Post-Battlefield Urban Combat
+    description: 
+  - name: 
+    description: Devastated urban terrain creates unstable and unpredictable engagements.
+  - name: 
+    description: 
+  - name: 
+    description: Rubble collapses, fires flare, dust shifts, and debris falls during operations.
+  - name: 
+    description: 
+  - name: 
+    description: Interior ruins, alleys, collapsed basements, and broken stairwells support CQC.
+  - name: 
+    description: 
+  - name: 
+    description: Autonomous units reroute around unstable rubble, fire, dust, and structural hazards.
+  - name: 
+    description: 
+  - name: 
+    description: Smoke, dust, heat, metal clutter, and collapsed structures degrade sensors.
+  - name: 
+    description: 
+  - name: 
+    description: Fuel caches, abandoned depots, cratered roads, and makeshift shelters create contested logistics.
+  deployment: Fixed deployment budget ~10,000 points. Blue deploys from southwest collapsed highway; Red deploys from northeast fortified ruin.
+  ar:
+    viewingDistance: "~4\u20135 m"
+    physicalArea: "10\xD710 m"
+    representedArea: "~1 km\xB2"
+    scale: 1:100
+    fov: "~53\xB0 diagonal"
+    resolution: "1920\xD71080 per eye"
+    tracking: Inside-out horizontal plane tracking; depth mesh if available; limited real-world occlusion.
+    interaction: Phone pointer for pan/zoom; HUD as screen-space widgets.
+  coordinateSystem: "1000\xD71000 grid; 1 unit \u2248 1 m; origin (0,0) southwest corner."
+  keyLocations:
+  - name: Blue HQ (Collapsed Highway Gate)
+    coordinate: 
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: (0,0)
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: "150\xD7150 m"
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: Burned vehicles, barricades, drone pads, and rubble staging.
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: (1000,1000)
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: "150\xD7150 m"
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: Reinforced ruin, radar mast, AA, and sensors.
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: (500,450)
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: "300\xD7300 m"
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: Collapsed buildings, shifting rubble, fires, dust, and close-quarters combat.
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: (250,800)
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: "120\xD7120 m"
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: Warehouses, broken machinery, and flanking routes.
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: (800,300)
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: "200\xD7200 m"
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: Unstable high-ground overwatch.
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: "(0,450 \u2192 400,900)"
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: "\u2014"
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: Primary rubble, fire, and falling-debris chokepoint.
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: "(300,0 \u2192 450,350)"
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: "\u2014"
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: Safer but slower route with crater hazards.
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: (650,150)
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: +240 m
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: Long-range sensor vantage.
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: (150,650)
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: +260 m
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: Communications and hazard monitoring.
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: (500,950)
+    sizeOrElevation: 
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: "\u2014"
+    description: 
+  - name: 
+    coordinate: 
+    sizeOrElevation: 
+    description: Drone resupply zone.
+  chokepointsAndSightlines:
+  - name: Collapse Corridor
+    description: 
+  - name: 
+    description: Unpredictable chokepoint with rubble, fire, falling debris, and ambush opportunities.
+  - name: 
+    description: 
+  - name: 
+    description: Unstable elevated route supports flanking and overwatch.
+  - name: 
+    description: 
+  - name: 
+    description: Close-quarters combat is constrained by dust and collapsed structures.
+  - name: 
+    description: 
+  - name: 
+    description: Predictable and safer but vulnerable to overwatch.
+  - name: 
+    description: 
+  - name: 
+    description: Approximately 300 m coverage; smoke and dust create blind pockets.
+  terrain: Collapsed buildings, cratered streets, shattered overpasses, unstable rubble, burned vehicles, broken roads, and fractured utility lines.
+  vegetation: Sparse weeds, dead trees, and overgrowth.
+  buildingsAndProps: 'Military: AA guns, radar, bunkers. Urban: ruins, collapsed towers, vehicles, debris. Logistics: trucks, crates, fuel drums, drones.'
+  effects: Smoke, dust, fire, sparks, falling debris, and structural collapse.
+  audio: Explosions, rubble impacts, machinery, and radio chatter.
+  lodBudget:
+  - category: Primary Terrain
+    count: 3
+    trianglesPerItem: 200000
+    totalTriangles: 600000
+  - category: Industrial/Rural
+    count: 4
+    trianglesPerItem: 80000
+    totalTriangles: 320000
+  - category: Buildings
+    count: 15
+    trianglesPerItem: 50000
+    totalTriangles: 750000
+  - category: Roads/Paths
+    count: 4
+    trianglesPerItem: 30000
+    totalTriangles: 120000
+  - category: Props
+    count: 50
+    trianglesPerItem: 10000
+    totalTriangles: 500000
+  textureBudget: "2048\xB2 for terrain/buildings; 1024\xB2 for props; DXT1/5; target \u2264100 MB."
+  engineAndPlugins: Unreal ARTemplate + Nreal SDK (XREAL). ARKit/ARCore enabled.
+  rendering: Forward renderer, stationary lights, baked GI, aggressive culling.
+  anchors: Single spatial anchor for entire map.
+  interaction: Phone pointer for pan/zoom; HUD as screen-space widgets.
+  multiplayer: Client-server architecture; offload AI/physics to server.
+  milestones:
+  - name: 1. Prototype Layout
+    description: Block-out primary terrain, key locations, routes, and AR anchor test.
+  - name: 2. Core Systems
+    description: NavMesh, terrain-aware autonomy, sensor logic, and map-specific behaviors.
+  - name: 3. AR Integration
+    description: Anchors, plane detection, and basic interactivity.
+  - name: 4. Content Fill
+    description: Final models, textures, lighting, audio, and environmental effects.
+  - name: 5. Gameplay & Polish
+    description: Objectives, balance, VFX, logistics, sensors, and deployment integration.
+  - name: 6. Testing & QA
+    description: Multiplayer stress testing, navigation validation, sensor validation, and AR performance.
+  testing:
+  - name: Autonomy
+    description: Verify terrain-aware navigation, map-specific tactical behavior, and hazard avoidance.
+  - name: Sensors
+    description: Test relay destruction, fog-of-war updates, and line-of-sight under environmental occlusion.
+  - name: Performance
+    description: "Target \u226560 Hz AR rendering on the target device."
+  - name: QA
+    description: Navigation, map logic, deployment budget enforcement, anchor drift, and sensor accuracy.

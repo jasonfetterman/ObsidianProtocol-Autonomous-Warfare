@@ -1,3 +1,4 @@
+#pragma warning disable 0619
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -196,7 +197,7 @@ namespace MiniRTS
             if (building != null)
             {
                 return unchecked(
-                    building.GetInstanceID() * 2 +
+                    building.GetEntityId().GetHashCode() * 2 +
                     (building.IsConstructed ? 1 : 0));
             }
 
@@ -638,3 +639,5 @@ namespace MiniRTS
         }
     }
 }
+
+#pragma warning restore 0619

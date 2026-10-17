@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0263df275083eba45b37ab9636c8dcbf, type: 3}
+  m_Name: MAP-049_Carrier_Group
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Maps.MapDefinition
+  mapId: MAP-049
+  displayName: Carrier Group
+  environment: Ocean / Naval
+  warfareFocus: Fleet warfare
+  executiveSummary: Deep-ocean naval battlefield built for fleet-scale warfare, carrier-based air operations, autonomous maritime coordination, and multi-domain combat across sea, air, and long-range missile envelopes. Features open ocean sectors, shifting waves, carrier decks, destroyer screens, submarine lanes, missile arcs, radar pickets, logistics ships, sensor-fusion under sea clutter and radar interference, comms-relay warfare, and logistics.
+  designGoals:
+  - name: Fleet-Scale Naval Warfare
+    description: 'Coordinated fleets: carriers, destroyers, cruisers, submarines, drones, and aircraft. Engagements occur across massive distances.'
+  - name: Carrier Air Wing Operations
+    description: Fighters, bombers, VTOLs, and recon drones launch from carrier decks. Air superiority determines strike capability and fleet survival.
+  - name: Destroyer Screens & Missile Defense
+    description: Destroyers and cruisers form layered defense rings using AA guns, CIWS, missile interceptors, and EW systems.
+  - name: Submarine Shadow Zones
+    description: Submarines exploit deep-water lanes, thermal layers, and sonar shadows to ambush surface ships or disrupt logistics.
+  - name: Autonomous Maritime Routing
+    description: Autonomous units choose routes based on wave patterns, radar clarity, sonar returns, missile arcs, and threat vectors.
+  - name: Sensor & Information Warfare
+    description: Radar clutter, sea spray, thermal layers, jamming, and EW interference degrade sensors. Relay ships restore clarity; destroying relays creates blind pockets.
+  - name: Logistics & Resources
+    description: Fuel ships, supply vessels, and repair barges serve as resupply nodes. Protecting logistics ships is critical.
+  deployment: Fixed deployment budget ~10,000 points. Blue deploys from southwest carrier strike group; Red from northeast cruiser-led battle group.
+  ar:
+    viewingDistance: "~4\u20135 m"
+    physicalArea: "10\xD710 m"
+    representedArea: "~1 km\xB2"
+    scale: 1:100
+    fov: "~53\xB0 diagonal"
+    resolution: "1920\xD71080 per eye"
+    tracking: Inside-out horizontal plane tracking; depth mesh if available; minimal real-world occlusion.
+    interaction: Phone pointer for pan/zoom; HUD as screen-space widgets.
+  coordinateSystem: "1000\xD71000 grid; 1 unit \u2248 1 m; origin (0,0) southwest corner."
+  keyLocations:
+  - name: Blue HQ (Carrier Strike Group)
+    coordinate: (0,0)
+    sizeOrElevation: "150\xD7150 m"
+    description: Carrier deck, destroyer screen, drone pads, logistics ship.
+  - name: Red HQ (Cruiser Battle Group)
+    coordinate: (1000,1000)
+    sizeOrElevation: "150\xD7150 m"
+    description: Cruiser flagship, radar mast, AA emplacements, missile batteries.
+  - name: Central Ocean Combat Basin
+    coordinate: (500,450)
+    sizeOrElevation: "300\xD7300 m"
+    description: Open ocean, wave patterns, missile arcs, air-sea engagements.
+  - name: Logistics Ship Cluster
+    coordinate: (250,800)
+    sizeOrElevation: "120\xD7120 m"
+    description: Fuel ships, repair barges, interior escort routes.
+  - name: Radar Picket Line
+    coordinate: (800,300)
+    sizeOrElevation: "200\xD7200 m"
+    description: High-range radar ships, EW nodes, air-corridor control.
+  - name: Missile Corridor
+    coordinate: "(0,450 \u2192 400,900)"
+    sizeOrElevation: "\u2014"
+    description: Primary long-range missile lane; interception routes and EW traps.
+  - name: Submarine Shadow Route
+    coordinate: "(300,0 \u2192 450,350)"
+    sizeOrElevation: "\u2014"
+    description: Deep-water thermal layer; stealth submarine movement.
+  - name: Relay Ship A
+    coordinate: (650,150)
+    sizeOrElevation: +240 m
+    description: Long-range radar vantage point.
+  - name: Relay Ship B
+    coordinate: (150,650)
+    sizeOrElevation: +260 m
+    description: Comms relay hub and EW-control node.
+  - name: Neutral Forward Outpost
+    coordinate: (500,950)
+    sizeOrElevation: "\u2014"
+    description: Drone resupply zone.
+  chokepointsAndSightlines:
+  - name: Missile Corridor
+    description: Major engagement lane; controlling it determines long-range strike capability.
+  - name: Radar Picket Line
+    description: Extreme long-range sightlines; ideal for air-sea coordination and EW control.
+  - name: Ocean Combat Basin
+    description: Air-sea engagements distorted by radar clutter and wave interference.
+  - name: Submarine Shadow Route
+    description: Predictable but stealth-heavy; vulnerable to ASW patrols.
+  terrain: Open ocean, wave patterns, carrier decks, destroyers, cruisers, submarines.
+  vegetation: "None \u2014 ocean surface only."
+  buildingsAndProps: 'Military: AA guns, radar dishes, missile launchers, EW towers. Naval: ships, cranes, decks, lifeboats. Logistics: fuel ships, repair barges, drones.'
+  effects: Sea spray, smoke, missile trails, radar waves, static bursts.
+  audio: Waves, engines, radar hum, radio chatter, jet noise.
+  lodBudget:
+  - category: Ocean/Ship Terrain
+    count: 3
+    trianglesPerItem: 200000
+    totalTriangles: 600000
+  - category: Naval/Industrial
+    count: 4
+    trianglesPerItem: 80000
+    totalTriangles: 320000
+  - category: Ships/Military
+    count: 15
+    trianglesPerItem: 50000
+    totalTriangles: 750000
+  - category: Routes/Paths
+    count: 4
+    trianglesPerItem: 30000
+    totalTriangles: 120000
+  - category: Props
+    count: 50
+    trianglesPerItem: 10000
+    totalTriangles: 500000
+  textureBudget: "2048\xB2 for ships/terrain; 1024\xB2 for props; DXT1/5; target \u2264100 MB."
+  engineAndPlugins: Unreal ARTemplate + Nreal SDK (XREAL). ARKit/ARCore enabled.
+  rendering: Forward renderer, stationary lights, baked GI, aggressive culling.
+  anchors: Single spatial anchor for entire map.
+  interaction: 
+  multiplayer: Client-server architecture; offload AI/physics to server.
+  milestones:
+  - name: 1. Prototype Layout
+    description: Block-out ocean basin, ship positions, radar picket line, AR anchor test.
+  - name: 2. Core Systems
+    description: NavMesh (sea + air), missile autonomy behaviors, radar logic.
+  - name: 3. AR Integration
+    description: Anchors, plane detection, basic interactivity.
+  - name: 4. Content Fill
+    description: Final models, textures, lighting, audio.
+  - name: 5. Gameplay & Polish
+    description: Objectives, balance, VFX (missile trails, radar waves).
+  - name: 6. Testing & QA
+    description: Multiplayer stress test, sensor validation.
+  testing:
+  - name: 
+    description: Verify air-sea coordination, missile-aware routing, hazard avoidance.
+  - name: 
+    description: Test relay destruction, fog-of-war updates, LOS checks under EW interference.
+  - name: 
+    description: "\u226560 Hz AR render on target device."
+  - name: 
+    description: Navigation, naval logic, deployment budget enforcement, anchor drift, sensor accuracy.

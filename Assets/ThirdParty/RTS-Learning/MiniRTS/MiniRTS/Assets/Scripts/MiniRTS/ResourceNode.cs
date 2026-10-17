@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace MiniRTS
@@ -30,6 +30,7 @@ namespace MiniRTS
         {
             Nodes.Clear();
         }
+
         public ResourceType Type => resourceType;
         public int Amount => amount;
         public bool RequiresRefinery => requiresRefinery;
@@ -39,6 +40,12 @@ namespace MiniRTS
         public float InteractionRadius => interactionRadius;
         public float HarvestSeconds => BalanceConfig.HarvestSeconds;
         public int CarryCapacity => BalanceConfig.HarvestCarryCapacity;
+
+        /// <summary>
+        /// Returns the runtime entity identifier used by MiniRTS systems.
+        /// Unity instance IDs are unique for the lifetime of the current process.
+        /// </summary>
+        public int GetEntityId() { return base.GetEntityId().GetHashCode(); }
 
         private void OnEnable()
         {

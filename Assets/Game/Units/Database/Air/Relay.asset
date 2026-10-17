@@ -1,0 +1,212 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Relay
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-air-relay
+  displayName: Relay
+  category: 0
+  role: Air Unit
+  tier: Standard
+  status: ACTIVE
+  physical:
+    lengthMeters: 1
+    widthMeters: 1
+    heightMeters: 1
+    massKg: 1
+    powerSource: Relay powerSource
+    energyCapacityWh: 1
+    energyConsumptionWhPerMinute: 1
+    endurance: Relay endurance
+    payloadCapacityKg: 1
+    modules:
+    - Relay modules
+    navigationSystem: Relay navigationSystem
+    structuralIntegrityHp: 1
+    armorRating: 10
+    heatSignature: Relay heatSignature
+    noiseSignature: Relay noiseSignature
+    topSpeedMetersPerSecond: 1
+    topSpeedDescription: Relay topSpeedDescription
+    acceleration: Relay acceleration
+    turningRadius: Relay turningRadius
+    climbRate: Relay climbRate
+    stabilityRating: Relay stabilityRating
+  autonomy:
+    behaviorProfile: Relay behaviorProfile
+    aggression: 1
+    caution: 1
+    persistence: 1
+    flankingLikelihood: 1
+    retreatThreshold: 1
+    retreatBehaviorDescription: Relay retreatBehaviorDescription
+    targetPriority: Relay targetPriority
+    formationDiscipline: Relay formationDiscipline
+    riskTolerance: 1
+  sensors:
+    visualRangeMeters: 1000
+    visualRangeDescription: Relay visualRangeDescription
+    thermalRangeMeters: 1000
+    thermalRangeDescription: Relay thermalRangeDescription
+    acousticRange: Relay acousticRange
+    radarRange: Relay radarRange
+    lidarRange: Relay lidarRange
+    signalDetectionRange: Relay signalDetectionRange
+  communication:
+    meshRangeKm: 1000
+    meshRangeDescription: Relay meshRangeDescription
+    relayCapacity: 1
+    commandLinkType: Relay commandLinkType
+    networkPriority: Relay networkPriority
+  combat:
+    firepowerRating: 10
+    firepowerDescription: Relay firepowerDescription
+    accuracy: Relay accuracy
+    stabilization: Relay stabilization
+    weaponMounts: Relay weaponMounts
+    weaponTypes: Relay weaponTypes
+    suppressionValue: 1
+    trackingStrength: Relay trackingStrength
+    disruptionStrength: Relay disruptionStrength
+    breachCapability: Relay breachCapability
+    countermeasureRating: Relay countermeasureRating
+    threatLevel: 1
+    engagementDistance: Relay engagementDistance
+    preferredTerrain: Relay preferredTerrain
+    preferredTargets: Relay preferredTargets
+    vulnerabilityProfile: Relay vulnerabilityProfile
+  squad:
+    squadRole: Relay squadRole
+    squadSizeContribution: 1
+    formationBehavior: Relay formationBehavior
+    intentInterpretationRules: Relay intentInterpretationRules
+    retreatBehavior: Relay retreatBehavior
+    breachBehavior: Relay breachBehavior
+    flankingBehavior: Relay flankingBehavior
+    reinforcementBehavior: Relay reinforcementBehavior
+    parentCommandUnit: Relay parentCommandUnit
+    subordinateUnits:
+    - Relay subordinateUnits
+    relayNodes:
+    - Relay relayNodes
+    networkDependencies: Relay networkDependencies
+  vrOperator:
+    operatorSeatType: Relay operatorSeatType
+    operatorHud: Relay operatorHud
+    cameraFeeds: Relay cameraFeeds
+    thermalView: 1
+    lidarView: 1
+    sonarView: 1
+    tacticalOverlay: 1
+    movementControls: Relay movementControls
+    sensorControls: Relay sensorControls
+    abilityControls: Relay abilityControls
+    weaponControls: Relay weaponControls
+    stabilizationControls: Relay stabilizationControls
+    operatorAbilities:
+    - Relay operatorAbilities
+  economy:
+    creditCost: 750
+    buildCost: Relay buildCost
+    buildTimeSeconds: 1
+    factoryType: Relay factoryType
+    techRequirements: Relay techRequirements
+    maintenanceCost: Relay maintenanceCost
+    repairTimeSeconds: 1
+    supplyConsumption: Relay supplyConsumption
+    operationalCost: Relay operationalCost
+    deploymentRequirements: Relay deploymentRequirements
+    transportCompatibility: Relay transportCompatibility
+    launchMethod: Relay launchMethod
+    deploymentPointsDefined: 1
+    deploymentPoints: 1
+  buildRequirements:
+    commonComponents: []
+    electronics: []
+    power: []
+    rareTradeable: []
+    optionalUpgrades:
+    - Relay optionalUpgrades
+  environment:
+    terrainAdaptationCoefficients: Relay terrainAdaptationCoefficients
+    weatherSensitivityIndex: 1
+    visibilityModifiers: Relay visibilityModifiers
+    signalPropagationCurve: Relay signalPropagationCurve
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0.8
+    packetLossRate: Relay packetLossRate
+    encryptionLatencySeconds: 1
+    meshSelfHealingThreshold: Relay meshSelfHealingThreshold
+    relaySaturationCurve: Relay relaySaturationCurve
+  cognitive:
+    decisionConfidence: 1
+    threatRecognitionAccuracy: 1
+    adaptiveLearningRatePerMission: 1
+    commandOverrideResistance: 1
+    cooperativeBehaviorIndex: 1
+  behaviorNodes:
+  - behaviorNode: 
+    weight: -0.00000008226931
+    description: 
+  missionBehaviors:
+  - missionType: 
+    behaviorFocus: 
+    efficiency: -0.00000008228733
+  unitSynergies:
+  - partnerUnit: 
+    synergyRating: -0.000000081262726
+    function: 
+  damageResponses:
+  - damageType: 
+    effect: 
+    recovery: 
+  upgrades:
+  - upgrade: 
+    effect: 
+    efficiencyGain: -0.00000008129882
+  tactical:
+    formationAdaptability: 1
+    tacticalRoleWeight: 1
+    commandResponseDelaySeconds: 1
+    reinforcementTriggerConditions: Relay reinforcementTriggerConditions
+    retreatLogicThresholds: Relay retreatLogicThresholds
+  maintenance:
+    meanTimeBetweenFailuresHours: 1
+    repairCycleSeconds: 1
+    resourceDrainPerHourPercent: 10
+    batteryEfficiencyPercent: 0.8
+    rotorStabilityPercent: 10
+    sensorCalibrationDriftPercentPerHour: 10
+    coolingEfficiencyPercent: 0.8
+    operationalUptimePercent: 10
+    energyRecoveryRatePercent: 10
+    energyRecoveryRatePercentPerIdleMinute: 10
+    componentWearPercentPerHour: 10
+    maintenancePriorityLevel: Relay maintenancePriorityLevel
+    sparePartDependencyIndex: 1
+    operationalCostPerHour: Relay operationalCostPerHour
+  threatResponses:
+  - threatType: 
+    reactionTimeSeconds: -1.6962372e-20
+    countermeasureEfficiency: 5.79e-43
+  commandNetwork:
+  - node: 
+    loadPercent: -0.00001955549
+    latencySeconds: 5.79e-43
+    status: 
+  performance:
+    missionSuccessProbability: 0.75
+    averageEngagementDurationMinutes: 1
+    reconDataYieldMbPerMinute: 1
+    communicationUptime: 1
+    threatAvoidanceEfficiency: 0.8
