@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -324,19 +324,29 @@ namespace ObsidianProtocol.Game.Deployment
                 return;
             }
 
+            if (!pointLedger.Allocate(
+                deploymentId,
+                cost,
+                deploymentPoints))
+            {
+                deploymentRoster.Remove(
+                    deploymentBudget,
+                    entry);
+
+                Debug.LogWarning(
+                    "[DEPLOYMENT] POINT LEDGER REJECTED // " +
+                    displayName);
+
+                return;
+            }
+
             ObsidianProtocol.Game.PersistentMilitary.PersistentMilitaryRuntime.AddUnit(
                 serviceRecordId,
-                displayName);
+                displayName,
+                "PLAYER");
 
             deploymentFramework.Register(entry);
             deploymentFramework.SetAvailable(deploymentId);
-
-            deploymentPoints.TrySpend(cost);
-
-            pointLedger.Allocate(
-                deploymentId,
-                cost,
-                deploymentPoints);
 
             stagingSystem.Register(
                 new DeploymentStagingEntry(
@@ -394,8 +404,6 @@ namespace ObsidianProtocol.Game.Deployment
                 deploymentFramework.Remove(
                     deploymentId);
 
-                deploymentPoints.Refund(
-                    entry.DeploymentPoints);
 
                 pointLedger.Release(
                     deploymentId,
@@ -570,6 +578,9 @@ namespace ObsidianProtocol.Game.Deployment
                 selectedOperation,
                 battlefieldEntries);
 
+            ObsidianProtocol.Game.Core.SaveLoadService.Save(
+                new ObsidianProtocol.Game.Core.SaveData());
+
             Debug.Log(
                 "[DEPLOYMENT] BATTLEFIELD CONTEXT HANDOFF COMPLETE // " +
                 battlefieldEntries.Count +
@@ -641,6 +652,8 @@ namespace ObsidianProtocol.Game.Deployment
         {
             string[] scenePaths =
             {
+                "Assets/Scenes/SCN03_BATTLEFIELD_AAA/SCN03_BATTLEFIELD_AAA.unity",
+                "SCN03_BATTLEFIELD_AAA",
                 "Assets/Scenes/SCN03 _BATTLEFIELD/[HUD] BATTLEFIELD HUD/Battlefield_HUD.unity",
                 "Battlefield_HUD"
             };
@@ -856,6 +869,9 @@ namespace ObsidianProtocol.Game.Deployment
         }
     }
 }
+
+
+
 
 
 

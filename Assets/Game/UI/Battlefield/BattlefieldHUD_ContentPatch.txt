@@ -1,0 +1,4 @@
+PATCH TARGET: Assets\Game\UI\Battlefield\BattlefieldAAAHUDController.cs
+GOAL: Populate all 11 existing windows with runtime-generated Unity UI Text.
+PRESERVE: Existing panel names, open/close handlers, and action buttons.
+DATA RULE: Mark seeded intelligence contacts as TEST DATA; never present them as confirmed live contacts.

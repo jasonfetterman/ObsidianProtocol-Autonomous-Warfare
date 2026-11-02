@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using ObsidianProtocol.Game.Core;
 using ObsidianProtocol.Game.Inventory;
 using ObsidianProtocol.Game.Economy;
@@ -33,6 +33,12 @@ namespace ObsidianProtocol.Game.Campaign
             string commanderName,
             string factionId = "")
         {
+            if (CampaignCreated)
+            {
+                Debug.Log("Campaign already created; skipping duplicate initialization.");
+                return true;
+            }
+
             CampaignCreated = false;
 
             CampaignId =
@@ -62,7 +68,8 @@ namespace ObsidianProtocol.Game.Campaign
             state.Initialize(
                 CampaignId,
                 CommanderName,
-                FactionId);
+                FactionId,
+                state.PlayerId);
 
             state.SetCurrentPlanet(30);
             Profile = new PlayerProfile();
@@ -131,6 +138,34 @@ namespace ObsidianProtocol.Game.Campaign
                 $"RESOURCES=0"
             );
 
+                        // Save initial campaign identity and starting funding.
+            try
+            {
+                SaveData initialSave = new SaveData
+                {
+                    CampaignId = CampaignId,
+                    CommanderName = CommanderName,
+                    PlayerId = state.PlayerId,
+                    FactionId = state.FactionId,
+                    CurrentPlanetId = state.CurrentPlanetId,
+                    Funding = 10000,
+            Progression = ProgressionSnapshot.From(runtime.Progression.CurrentData),
+                };
+
+                SaveLoadService.Save(initialSave);
+
+                Debug.Log(
+                    "[CampaignState] INITIAL CAMPAIGN SAVE WRITTEN | " +
+                    "CAMPAIGN=" + CampaignId +
+                    " | PLAYER=" + state.PlayerId);
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError(
+                    "[CampaignState] Initial campaign save failed: " +
+                    ex.Message);
+            }
+
             CampaignCreated = true;
             return true;
         }
@@ -158,6 +193,10 @@ namespace ObsidianProtocol.Game.Campaign
         }
     }
 }
+
+
+
+
 
 
 

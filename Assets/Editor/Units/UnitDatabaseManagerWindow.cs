@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
@@ -23,17 +23,22 @@ public sealed class UnitDatabaseManagerWindow : EditorWindow
 
     private string newUnitName = string.Empty;
     private string newUnitId = string.Empty;
-    private UnitCategory newUnitCategory = UnitCategory.Ground;
+    private UnitCategory newUnitCategory = UnitCategory.GroundUnit;
 
     private static readonly string[] CategoryNames =
     {
         "ALL",
-        "Air",
-        "Ground",
-        "Sea",
-        "Command",
-        "Experimental",
-        "Satellite"
+        "AirUnit",
+        "GroundUnit",
+        "Fighter",
+        "Station",
+        "Satellite",
+        "Naval",
+        "Transport",
+        "Recon",
+        "Shuttle",
+        "Medical",
+        "Exploration"
     };
 
     [MenuItem("Obsidian Protocol/Units/UNIT DATABASE MANAGER")]
@@ -86,7 +91,7 @@ public sealed class UnitDatabaseManagerWindow : EditorWindow
         EditorGUILayout.BeginHorizontal();
 
         EditorGUILayout.LabelField(
-            "OBSIDIAN PROTOCOL — MASTER UNIT DATABASE",
+            "OBSIDIAN PROTOCOL � MASTER UNIT DATABASE",
             EditorStyles.boldLabel);
 
         GUILayout.FlexibleSpace();

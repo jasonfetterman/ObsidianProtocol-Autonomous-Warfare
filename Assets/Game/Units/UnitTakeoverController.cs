@@ -16,7 +16,7 @@ namespace ObsidianProtocol.Game.Units
         [SerializeField] private KeyCode takeoverKey = KeyCode.F;
         [SerializeField] private Vector3 cameraOffset = new Vector3(0f, 4f, -7f);
         [SerializeField] private float mouseSensitivity = 2f;
-        [SerializeField] private float maxLookAngle = 80f;
+        [SerializeField] private float maxLookAngle = 90f;
 
         [Header("Player")]
         [SerializeField] private Camera playerCamera;
@@ -106,12 +106,11 @@ namespace ObsidianProtocol.Game.Units
                 cameraPitch - mouseY,
                 -maxLookAngle,
                 maxLookAngle);
-
-            // Preserve the designer's camera position and base orientation.
-            // Only mouse pitch is applied to the mounted camera.
             unitCamera.transform.localRotation =
                 Quaternion.Euler(cameraPitch, 0f, 0f) *
                 unitCameraBaseLocalRotation;
+
+
         }
 
         private Camera FindUnitCamera(Transform unit)
@@ -281,6 +280,10 @@ namespace ObsidianProtocol.Game.Units
         }
     }
 }
+
+
+
+
 
 
 

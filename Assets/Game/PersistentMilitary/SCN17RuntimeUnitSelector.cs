@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,20 +25,22 @@ namespace ObsidianProtocol.Game.PersistentMilitary
             PersistentMilitaryRuntime.Initialize();
 
             Transform existing = transform.Find(PanelName);
-            if (existing != null)
-            {
-                Destroy(existing.gameObject);
-            }
+            bool createPanel = existing == null;
 
-            GameObject panel = CreateUIObject(
-                PanelName, transform, typeof(Image));
+            GameObject panel = createPanel
+                ? CreateUIObject(PanelName, transform, typeof(Image))
+                : existing.gameObject;
 
             RectTransform panelRect = panel.GetComponent<RectTransform>();
-            panelRect.anchorMin = new Vector2(0f, 0f);
-            panelRect.anchorMax = new Vector2(0f, 0f);
-            panelRect.pivot = new Vector2(0f, 0f);
-            panelRect.anchoredPosition = new Vector2(24f, 24f);
-            panelRect.sizeDelta = new Vector2(360f, 280f);
+
+            if (createPanel)
+            {
+                panelRect.anchorMin = new Vector2(1f, 1f);
+                panelRect.anchorMax = new Vector2(1f, 1f);
+                panelRect.pivot = new Vector2(1f, 1f);
+                panelRect.anchoredPosition = new Vector2(-24f, -24f);
+                panelRect.sizeDelta = new Vector2(300f, 220f);
+            }
 
             panel.GetComponent<Image>().color =
                 new Color(0.035f, 0.055f, 0.075f, 0.96f);
@@ -54,7 +56,7 @@ namespace ObsidianProtocol.Game.PersistentMilitary
             selectionStatus = CreateText(
                 "SELECTION STATUS", panelRect,
                 "Select a unit to view its service record.",
-                11, new Vector2(12f, -37f),
+                18, new Vector2(12f, -37f),
                 new Vector2(336f, 22f));
 
             GameObject scrollObject = CreateUIObject(
@@ -200,10 +202,15 @@ namespace ObsidianProtocol.Game.PersistentMilitary
             if (context != null)
                 selectedId = context.SelectedServiceRecordId;
 
+            int playerUnitCount = 0;
             foreach (MilitaryUnitRecord unit in data.Units)
             {
-                if (unit == null || string.IsNullOrWhiteSpace(unit.UnitId))
+                if (unit == null ||
+                    string.IsNullOrWhiteSpace(unit.UnitId) ||
+                    !string.Equals(unit.OwnerId, "PLAYER", StringComparison.OrdinalIgnoreCase))
                     continue;
+
+                playerUnitCount++;
 
                 string unitId = unit.UnitId;
                 string unitType = string.IsNullOrWhiteSpace(unit.UnitType)
@@ -216,6 +223,9 @@ namespace ObsidianProtocol.Game.PersistentMilitary
 
                 CreateUnitButton(unitId, unitType, selected);
             }
+
+            if (playerUnitCount == 0)
+                CreateRosterMessage("NO PLAYER UNITS FOUND");
 
             if (selectionStatus != null)
             {
@@ -248,18 +258,24 @@ namespace ObsidianProtocol.Game.PersistentMilitary
             element.minHeight = 34f;
             element.preferredHeight = 34f;
 
-            CreateText(
+            TextMeshProUGUI label = CreateText(
                 "UNIT LABEL", rect,
                 unitType + "  |  " + unitId,
-                12, new Vector2(8f, 0f),
-                new Vector2(-16f, 0f));
+                14, Vector2.zero, Vector2.zero);
+
+            RectTransform labelRect = label.rectTransform;
+            labelRect.anchorMin = Vector2.zero;
+            labelRect.anchorMax = Vector2.one;
+            labelRect.pivot = new Vector2(0f, 0.5f);
+            labelRect.offsetMin = new Vector2(8f, 0f);
+            labelRect.offsetMax = new Vector2(-8f, 0f);
         }
 
         private void CreateRosterMessage(string message)
         {
             CreateText(
                 "EMPTY ROSTER MESSAGE", content,
-                message, 12, Vector2.zero,
+                message, 18, Vector2.zero,
                 new Vector2(0f, 30f));
         }
 
@@ -306,3 +322,9 @@ namespace ObsidianProtocol.Game.PersistentMilitary
         }
     }
 }
+
+
+
+
+
+

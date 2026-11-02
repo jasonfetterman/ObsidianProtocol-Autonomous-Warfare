@@ -1,0 +1,197 @@
+﻿using UnityEngine;
+using UnityResources = global::UnityEngine.Resources;
+using UnityEngine.UI;
+using ObsidianProtocol.Game.Intelligence;
+using System;
+using System.Collections.Generic;
+
+namespace ObsidianProtocol.Game.UI.Battlefield
+{
+    [DisallowMultipleComponent]
+    public sealed class BattlefieldWindowContent : MonoBehaviour
+    {
+        private static readonly string[] WindowNames =
+        {
+            "NETWORK STATUS",
+            "OPERATIONAL ORDERS",
+            "BATTLEFIELD LOGISTICS",
+            "SENSOR COVERAGE",
+            "FORMATION MANAGEMENT",
+            "ALERT DETAILS",
+            "DOCTRINE",
+            "CONTACT DETAILS",
+            "COMMAND INTENT",
+            "OBJECTIVES",
+            "FORCE OVERVIEW"
+        };
+
+        private readonly Dictionary<string, Text> labels =
+            new Dictionary<string, Text>(StringComparer.OrdinalIgnoreCase);
+
+        private void Start()
+        {
+            foreach (string name in WindowNames)
+                BuildWindow(name);
+        }
+
+        private void BuildWindow(string name)
+        {
+            GameObject window = FindWindow(name);
+            if (window == null)
+            {
+                Debug.LogWarning("[BATTLEFIELD CONTENT] Window not found: " + name);
+                return;
+            }
+
+            Transform existing = window.transform.Find("[CONTENT] Runtime");
+            if (existing != null)
+                Destroy(existing.gameObject);
+
+            GameObject content = new GameObject(
+                "[CONTENT] Runtime",
+                typeof(RectTransform),
+                typeof(CanvasRenderer),
+                typeof(Text));
+
+            content.transform.SetParent(window.transform, false);
+
+            RectTransform rect = content.GetComponent<RectTransform>();
+            rect.anchorMin = new Vector2(0.06f, 0.08f);
+            rect.anchorMax = new Vector2(0.94f, 0.82f);
+            rect.offsetMin = Vector2.zero;
+            rect.offsetMax = Vector2.zero;
+
+            Text text = content.GetComponent<Text>();
+            text.font = UnityResources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            text.fontSize = 16;
+            text.color = Color.white;
+            text.alignment = TextAnchor.UpperLeft;
+            text.horizontalOverflow = HorizontalWrapMode.Wrap;
+            text.verticalOverflow = VerticalWrapMode.Overflow;
+            text.raycastTarget = false;
+            text.text = GetContent(name);
+
+            labels[name] = text;
+
+            Debug.Log("[BATTLEFIELD CONTENT] Added content to " + name);
+        }
+
+        private GameObject FindWindow(string name)
+        {
+            string expected = "[WINDOW] " + name;
+
+            foreach (Transform item in UnityResources.FindObjectsOfTypeAll<Transform>())
+            {
+                if (!item.gameObject.scene.IsValid())
+                    continue;
+
+                if (item.gameObject.scene != gameObject.scene)
+                    continue;
+
+                if (string.Equals(
+                    item.gameObject.name,
+                    expected,
+                    StringComparison.OrdinalIgnoreCase))
+                    return item.gameObject;
+            }
+
+            return null;
+        }
+
+        private string GetContent(string name)
+        {
+            switch (name)
+            {
+                case "NETWORK STATUS":
+                    return "NETWORK STATUS\n\n" +
+                           "Communications: Runtime connection not verified\n" +
+                           "Network integrity: Not connected\n" +
+                           "Signal degradation: No live reading\n" +
+                           "Link status: Awaiting battlefield network integration";
+
+                case "OPERATIONAL ORDERS":
+                    return "OPERATIONAL ORDERS\n\n" +
+                           "Current operation: Not connected\n" +
+                           "Assigned orders: No live orders available\n" +
+                           "Execution status: Awaiting Operations integration\n" +
+                           "Orders issued here are not yet persisted.";
+
+                case "BATTLEFIELD LOGISTICS":
+                    return "BATTLEFIELD LOGISTICS\n\n" +
+                           "Supply status: Not connected\n" +
+                           "Fuel and ammunition: No live readings\n" +
+                           "Repair requests: Awaiting Logistics integration\n" +
+                           "Resupply tracking is not yet connected.";
+
+                case "SENSOR COVERAGE":
+                    var runtime = IntelligenceRuntime.Instance;
+                    if (runtime == null || runtime.Sensors == null)
+                        return "SENSOR COVERAGE\n\nIntelligence runtime unavailable.";
+
+                    return "SENSOR COVERAGE\n\n" +
+                           "Registered sensors: " + runtime.SensorCount + "\n" +
+                           "Active sensors: " + runtime.ActiveSensorCount + "\n" +
+                           "Coverage map: Visualization not connected";
+case "FORMATION MANAGEMENT":
+                    return "FORMATION MANAGEMENT\n\n" +
+                           "Selected formation: None\n" +
+                           "Formation integrity: No live reading\n" +
+                           "Unit assignments: Awaiting deployment integration\n" +
+                           "Formation commands are not yet persisted.";
+
+                case "ALERT DETAILS":
+                    return "ALERT DETAILS\n\n" +
+                           "Alert feed: Not connected\n" +
+                           "Threat classification: No live reading\n" +
+                           "Priority: Unavailable\n" +
+                           "Alert history: Awaiting Intelligence integration";
+
+                case "DOCTRINE":
+                    return "DOCTRINE\n\n" +
+                           "Active doctrine: Not assigned\n" +
+                           "Engagement rules: Not connected\n" +
+                           "Autonomy policy: Awaiting command integration\n" +
+                           "Doctrine changes are not yet persisted.";
+
+                case "CONTACT DETAILS":
+                    return "CONTACT DETAILS\n\n" +
+                           "Selected contact: None\n" +
+                           "Identification: Unverified\n" +
+                           "Position and bearing: No live reading\n" +
+                           "Contact intelligence is not yet connected.";
+
+                case "COMMAND INTENT":
+                    return "COMMAND INTENT\n\n" +
+                           "Commander intent: Not configured\n" +
+                           "Primary objective: Not assigned\n" +
+                           "Operational constraints: Not connected\n" +
+                           "Intent transmission is not yet persisted.";
+
+                case "OBJECTIVES":
+                    return "OBJECTIVES\n\n" +
+                           "Primary objective: Not assigned\n" +
+                           "Secondary objectives: None loaded\n" +
+                           "Objective progress: No live reading\n" +
+                           "Awaiting Operations integration.";
+
+                case "FORCE OVERVIEW":
+                    return "FORCE OVERVIEW\n\n" +
+                           "Deployed units: No live count available\n" +
+                           "Unit readiness: Not connected\n" +
+                           "Damage and losses: No live reading\n" +
+                           "Awaiting authoritative Fleet and Deployment state.";
+
+                default:
+                    return name + "\n\nNo content configured.";
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+

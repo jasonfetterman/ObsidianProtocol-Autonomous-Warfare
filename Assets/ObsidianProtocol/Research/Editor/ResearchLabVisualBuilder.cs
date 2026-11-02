@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using TMPro;
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -16,13 +16,13 @@ using UnityEngine.InputSystem.UI;
 public class OPAWResearchLabVisualBuilder
 {
     private const string SCENE =
-        "Assets/Scenes/SCN-06  RESEARCH LAB/[HUD] RESEARCH HUD/Reseaarch_Lab.unity";
+        "Assets/Scenes/SCN06_RESEARCH/[HUD] RESEARCH HUD/Research_Lab.unity";
 
     private const float LAB_WIDTH = 70f;
     private const float LAB_DEPTH = 55f;
     private const float LAB_HEIGHT = 15f;
 
-    private Font font;
+    private TMP_FontAsset font;
 
     private Color bg =
         new Color(0.008f, 0.014f, 0.022f, 1f);
@@ -123,7 +123,7 @@ public class OPAWResearchLabVisualBuilder
     private static void EnsureSceneFolder()
     {
         string folder =
-            "Assets/Scenes/SCN-06  RESEARCH LAB";
+            "Assets/Scenes/SCN06_RESEARCH";
 
         string hudFolder =
             folder + "/[HUD] RESEARCH HUD";
@@ -132,7 +132,7 @@ public class OPAWResearchLabVisualBuilder
         {
             AssetDatabase.CreateFolder(
                 "Assets/Scenes",
-                "SCN-06  RESEARCH LAB"
+                "SCN06_RESEARCH"
             );
         }
 
@@ -1166,50 +1166,20 @@ public class OPAWResearchLabVisualBuilder
 
     private void BuildCamera()
     {
-        GameObject obj =
-            new GameObject(
-                "RESEARCH LAB CAMERA"
-            );
+        GameObject obj = new GameObject("RESEARCH LAB CAMERA");
+        researchCamera = obj.AddComponent<Camera>();
+        researchCamera.tag = "MainCamera";
+        researchCamera.enabled = true;
+        researchCamera.clearFlags = CameraClearFlags.SolidColor;
+        researchCamera.backgroundColor = bg;
+        researchCamera.fieldOfView = 68f;
+        researchCamera.nearClipPlane = 0.05f;
+        researchCamera.farClipPlane = 500f;
 
-        researchCamera =
-            obj.AddComponent<Camera>();
-
-        researchCamera.tag =
-            "MainCamera";
-
-        researchCamera.enabled =
-            true;
-
-        researchCamera.clearFlags =
-            CameraClearFlags.SolidColor;
-
-        researchCamera.backgroundColor =
-            bg;
-
-        researchCamera.fieldOfView =
-            68f;
-
-        researchCamera.nearClipPlane =
-            0.05f;
-
-        researchCamera.farClipPlane =
-            500f;
-
-        obj.transform.position =
-            new Vector3(
-                0f,
-                24f,
-                -70f
-            );
-
-        LookAt(
-            obj.transform,
-            new Vector3(
-                0f,
-                4f,
-                4f
-            )
-        );
+        // The lab spans roughly x=-32..32 and z=-27..27.
+        // Start at human eye height inside the room, facing the command core.
+        obj.transform.position = new Vector3(0f, 5f, -18f);
+        LookAt(obj.transform, new Vector3(0f, 4f, 10f));
     }
 
     // =========================================================
@@ -1327,12 +1297,12 @@ public class OPAWResearchLabVisualBuilder
 
     private void BuildHUD()
     {
-        font =
-            Resources.GetBuiltinResource<Font>(
-                "LegacyRuntime.ttf"
-            );
+    font = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>("Assets/TextMesh Pro/Resources/Fonts & Materials/JetBrainsMono-VariableFont_wght SDF.asset");
 
-        GameObject canvasObject =
+    if (font == null)
+        throw new System.InvalidOperationException("Research Lab: JetBrains Mono SDF font asset could not be loaded.");
+
+GameObject canvasObject =
             new GameObject(
                 "RESEARCH HUD"
             );
@@ -1342,6 +1312,8 @@ public class OPAWResearchLabVisualBuilder
 
         canvas.renderMode =
             RenderMode.ScreenSpaceOverlay;
+
+        canvas.pixelPerfect = true;
 
         canvas.sortingOrder =
             100;
@@ -1417,12 +1389,7 @@ public class OPAWResearchLabVisualBuilder
             ),
             Vector2.zero,
             Vector2.zero,
-            new Color(
-                0.005f,
-                0.010f,
-                0.017f,
-                0.86f
-            )
+            new Color(0.005f, 0.010f, 0.017f, 0.18f)
         );
     }
 
@@ -1612,11 +1579,11 @@ public class OPAWResearchLabVisualBuilder
             parent,
             "BRANCH STATUS",
             new Vector2(
-                0.17f,
+                0.18f,
                 0.215f
             ),
             new Vector2(
-                0.22f,
+                0.25f,
                 0.035f
             ),
             13,
@@ -1782,11 +1749,11 @@ public class OPAWResearchLabVisualBuilder
             parent,
             "UNLOCK REQUIREMENTS",
             new Vector2(
-                0.505f,
+                0.49f,
                 0.255f
             ),
             new Vector2(
-                0.31f,
+                0.33f,
                 0.035f
             ),
             13,
@@ -1796,13 +1763,13 @@ public class OPAWResearchLabVisualBuilder
 
         AddText(
             parent,
-            "• MOBILITY II COMPLETE",
+            "â€¢ MOBILITY II COMPLETE",
             new Vector2(
-                0.505f,
+                0.49f,
                 0.215f
             ),
             new Vector2(
-                0.31f,
+                0.33f,
                 0.030f
             ),
             11,
@@ -1812,13 +1779,13 @@ public class OPAWResearchLabVisualBuilder
 
         AddText(
             parent,
-            "• 12,000 RESEARCH POINTS",
+            "â€¢ 12,000 RESEARCH POINTS",
             new Vector2(
-                0.505f,
+                0.49f,
                 0.180f
             ),
             new Vector2(
-                0.31f,
+                0.33f,
                 0.030f
             ),
             11,
@@ -1828,13 +1795,13 @@ public class OPAWResearchLabVisualBuilder
 
         AddText(
             parent,
-            "• ADVANCED PROPULSION",
+            "â€¢ ADVANCED PROPULSION",
             new Vector2(
-                0.505f,
+                0.49f,
                 0.145f
             ),
             new Vector2(
-                0.31f,
+                0.33f,
                 0.030f
             ),
             11,
@@ -1871,7 +1838,7 @@ public class OPAWResearchLabVisualBuilder
             title,
             position,
             new Vector2(
-                0.095f,
+                0.105f,
                 0.080f
             ),
             color
@@ -1906,11 +1873,11 @@ public class OPAWResearchLabVisualBuilder
             parent,
             "ACTIVE RESEARCH",
             new Vector2(
-                0.84f,
+                0.82f,
                 0.825f
             ),
             new Vector2(
-                0.23f,
+                0.24f,
                 0.04f
             ),
             17,
@@ -1922,11 +1889,11 @@ public class OPAWResearchLabVisualBuilder
             parent,
             "AUTONOMOUS MOVEMENT III",
             new Vector2(
-                0.84f,
+                0.82f,
                 0.775f
             ),
             new Vector2(
-                0.23f,
+                0.24f,
                 0.04f
             ),
             14,
@@ -1938,7 +1905,7 @@ public class OPAWResearchLabVisualBuilder
             parent,
             "PROGRESS",
             new Vector2(
-                0.84f,
+                0.82f,
                 0.735f
             ),
             new Vector2(
@@ -1953,7 +1920,7 @@ public class OPAWResearchLabVisualBuilder
         CreateProgressBar(
             parent,
             new Vector2(
-                0.84f,
+                0.82f,
                 0.695f
             ),
             new Vector2(
@@ -1967,7 +1934,7 @@ public class OPAWResearchLabVisualBuilder
             parent,
             "68%",
             new Vector2(
-                0.84f,
+                0.82f,
                 0.660f
             ),
             new Vector2(
@@ -1983,7 +1950,7 @@ public class OPAWResearchLabVisualBuilder
             parent,
             "COMPLETION  03:42:18",
             new Vector2(
-                0.84f,
+                0.82f,
                 0.620f
             ),
             new Vector2(
@@ -2000,7 +1967,7 @@ public class OPAWResearchLabVisualBuilder
             "VIEW DETAILS",
             "VIEW DETAILS",
             new Vector2(
-                0.84f,
+                0.82f,
                 0.575f
             ),
             new Vector2(
@@ -2014,7 +1981,7 @@ public class OPAWResearchLabVisualBuilder
             parent,
             "RESEARCH PROJECTS",
             new Vector2(
-                0.84f,
+                0.82f,
                 0.510f
             ),
             new Vector2(
@@ -2041,7 +2008,7 @@ public class OPAWResearchLabVisualBuilder
                 "PROJECT TAB " + projects[i],
                 projects[i],
                 new Vector2(
-                    0.84f,
+                    0.82f,
                     0.465f -
                     i * 0.040f
                 ),
@@ -2059,11 +2026,11 @@ public class OPAWResearchLabVisualBuilder
             parent,
             "RESEARCH RESOURCES",
             new Vector2(
-                0.84f,
+                0.80f,
                 0.295f
             ),
             new Vector2(
-                0.22f,
+                0.25f,
                 0.035f
             ),
             15,
@@ -2075,11 +2042,11 @@ public class OPAWResearchLabVisualBuilder
             parent,
             "SCIENTISTS       24 / 30",
             new Vector2(
-                0.84f,
+                0.80f,
                 0.255f
             ),
             new Vector2(
-                0.22f,
+                0.25f,
                 0.03f
             ),
             11,
@@ -2091,11 +2058,11 @@ public class OPAWResearchLabVisualBuilder
             parent,
             "FUNDING          84,250",
             new Vector2(
-                0.84f,
+                0.80f,
                 0.220f
             ),
             new Vector2(
-                0.22f,
+                0.25f,
                 0.03f
             ),
             11,
@@ -2107,11 +2074,11 @@ public class OPAWResearchLabVisualBuilder
             parent,
             "MATERIALS        72%",
             new Vector2(
-                0.84f,
+                0.80f,
                 0.185f
             ),
             new Vector2(
-                0.22f,
+                0.25f,
                 0.03f
             ),
             11,
@@ -2123,11 +2090,11 @@ public class OPAWResearchLabVisualBuilder
             parent,
             "ENERGY ALLOCATION  91%",
             new Vector2(
-                0.84f,
+                0.80f,
                 0.150f
             ),
             new Vector2(
-                0.22f,
+                0.25f,
                 0.03f
             ),
             11,
@@ -2139,7 +2106,7 @@ public class OPAWResearchLabVisualBuilder
             parent,
             "AI RESEARCH",
             new Vector2(
-                0.84f,
+                0.82f,
                 0.105f
             ),
             new Vector2(
@@ -2258,120 +2225,86 @@ public class OPAWResearchLabVisualBuilder
         Transform parent
     )
     {
+        GameObject root = new GameObject("RESEARCH CONFIRMATION ROOT", typeof(RectTransform));
+        root.transform.SetParent(parent, false);
+
+        RectTransform rootRect = root.GetComponent<RectTransform>();
+        rootRect.anchorMin = Vector2.zero;
+        rootRect.anchorMax = Vector2.one;
+        rootRect.pivot = new Vector2(0.5f, 0.5f);
+        rootRect.offsetMin = Vector2.zero;
+        rootRect.offsetMax = Vector2.zero;
+
         CreatePanel(
-            parent,
+            root.transform,
             "RESEARCH CONFIRMATION",
-            new Vector2(
-                0.5f,
-                0.5f
-            ),
-            new Vector2(
-                0.36f,
-                0.30f
-            ),
+            new Vector2(0.5f, 0.5f),
+            new Vector2(0.36f, 0.30f),
             Vector2.zero,
             Vector2.zero,
-            new Color(
-                0.008f,
-                0.020f,
-                0.030f,
-                0.98f
-            )
+            new Color(0.008f, 0.020f, 0.030f, 0.98f)
         );
 
         AddText(
-            parent,
+            root.transform,
             "RESEARCH CONFIRMATION",
-            new Vector2(
-                0.5f,
-                0.605f
-            ),
-            new Vector2(
-                0.30f,
-                0.045f
-            ),
+            new Vector2(0.5f, 0.605f),
+            new Vector2(0.30f, 0.045f),
             19,
             cyan,
             TextAnchor.MiddleCenter
         );
 
         AddText(
-            parent,
+            root.transform,
             "START AUTONOMOUS MOVEMENT III?",
-            new Vector2(
-                0.5f,
-                0.555f
-            ),
-            new Vector2(
-                0.30f,
-                0.040f
-            ),
+            new Vector2(0.5f, 0.555f),
+            new Vector2(0.30f, 0.040f),
             14,
             white,
             TextAnchor.MiddleCenter
         );
 
         AddText(
-            parent,
+            root.transform,
             "COST: 12,000 RESEARCH POINTS",
-            new Vector2(
-                0.5f,
-                0.505f
-            ),
-            new Vector2(
-                0.30f,
-                0.035f
-            ),
+            new Vector2(0.5f, 0.505f),
+            new Vector2(0.30f, 0.035f),
             12,
             yellow,
             TextAnchor.MiddleCenter
         );
 
         AddText(
-            parent,
+            root.transform,
             "ESTIMATED TIME: 04:30:00",
-            new Vector2(
-                0.5f,
-                0.465f
-            ),
-            new Vector2(
-                0.30f,
-                0.035f
-            ),
+            new Vector2(0.5f, 0.465f),
+            new Vector2(0.30f, 0.035f),
             12,
             white,
             TextAnchor.MiddleCenter
         );
 
         CreateButton(
-            parent,
+            root.transform,
             "CONFIRM RESEARCH",
             "CONFIRM",
-            new Vector2(
-                0.44f,
-                0.410f
-            ),
-            new Vector2(
-                0.12f,
-                0.045f
-            ),
+            new Vector2(0.44f, 0.410f),
+            new Vector2(0.12f, 0.045f),
             greenMat.color
         );
 
         CreateButton(
-            parent,
+            root.transform,
             "CANCEL RESEARCH",
             "CANCEL",
-            new Vector2(
-                0.56f,
-                0.410f
-            ),
-            new Vector2(
-                0.12f,
-                0.045f
-            ),
+            new Vector2(0.56f, 0.410f),
+            new Vector2(0.12f, 0.045f),
             panelDark
         );
+
+        // The background, labels and buttons all live under this root.
+        root.SetActive(false);
     }
 
     // =========================================================
@@ -2430,8 +2363,23 @@ public class OPAWResearchLabVisualBuilder
 
         return obj;
     }
-
-    private Text AddText(
+    private static TextAlignmentOptions ToTMPAlignment(TextAnchor alignment)
+    {
+        switch (alignment)
+        {
+            case TextAnchor.UpperLeft: return TextAlignmentOptions.TopLeft;
+            case TextAnchor.UpperCenter: return TextAlignmentOptions.Top;
+            case TextAnchor.UpperRight: return TextAlignmentOptions.TopRight;
+            case TextAnchor.MiddleLeft: return TextAlignmentOptions.MidlineLeft;
+            case TextAnchor.MiddleCenter: return TextAlignmentOptions.Center;
+            case TextAnchor.MiddleRight: return TextAlignmentOptions.MidlineRight;
+            case TextAnchor.LowerLeft: return TextAlignmentOptions.BottomLeft;
+            case TextAnchor.LowerCenter: return TextAlignmentOptions.Bottom;
+            case TextAnchor.LowerRight: return TextAlignmentOptions.BottomRight;
+            default: return TextAlignmentOptions.Center;
+        }
+    }
+    private TMP_Text AddText(
         Transform parent,
         string value,
         Vector2 anchor,
@@ -2472,8 +2420,7 @@ public class OPAWResearchLabVisualBuilder
                 size.y * 1080f
             );
 
-        Text text =
-            obj.AddComponent<Text>();
+        TMP_Text text = obj.AddComponent<TextMeshProUGUI>();
 
         text.text =
             value;
@@ -2483,27 +2430,18 @@ public class OPAWResearchLabVisualBuilder
 
         text.fontSize =
             Mathf.Max(
-                8,
+                18,
                 Mathf.RoundToInt(
-                    fontSize * 0.62f
+                    fontSize * 0.90f
                 )
             );
 
         text.color =
             color;
 
-        text.alignment =
-            alignment;
-
-        text.horizontalOverflow =
-            HorizontalWrapMode.Overflow;
-
-        text.verticalOverflow =
-            VerticalWrapMode.Overflow;
-
-        text.resizeTextForBestFit =
-            false;
-
+        text.alignment = ToTMPAlignment(alignment);
+        text.textWrappingMode = TextWrappingModes.NoWrap;
+        text.overflowMode = TextOverflowModes.Overflow;
         return text;
     }
 
@@ -2582,7 +2520,7 @@ public class OPAWResearchLabVisualBuilder
         button.colors =
             colors;
 
-        Text text =
+        TMP_Text text =
             AddText(
                 obj.transform,
                 label,
@@ -2599,8 +2537,9 @@ public class OPAWResearchLabVisualBuilder
                 TextAnchor.MiddleCenter
             );
 
-        text.fontSize =
-            9;
+        text.fontSize = 18;
+
+        button.onClick.AddListener(() => HandleHUDButton(objectName));
 
         return button;
     }
@@ -2647,6 +2586,63 @@ public class OPAWResearchLabVisualBuilder
     }
 
     // =========================================================
+
+    // Centralized, explicit behavior for buttons generated by this builder.
+    private void HandleHUDButton(string buttonName)
+    {
+        if (string.IsNullOrWhiteSpace(buttonName))
+            return;
+
+        if (buttonName.IndexOf("CANCEL RESEARCH", StringComparison.OrdinalIgnoreCase) >= 0)
+        {
+            GameObject dialog = GameObject.Find("RESEARCH CONFIRMATION ROOT");
+            if (dialog != null)
+                dialog.SetActive(false);
+            return;
+        }
+
+        if (buttonName.IndexOf("CONFIRM RESEARCH", StringComparison.OrdinalIgnoreCase) >= 0)
+        {
+            // Do not claim research started: this builder has no transaction endpoint.
+            Debug.LogWarning(
+                "RESEARCH HUD: confirmation clicked, but no research transaction handler is bound. " +
+                "Research was not started."
+            );
+            return;
+        }
+
+        if (buttonName.IndexOf("PROJECT TAB", StringComparison.OrdinalIgnoreCase) >= 0 ||
+            buttonName.IndexOf("MOBILITY", StringComparison.OrdinalIgnoreCase) >= 0 ||
+            buttonName.IndexOf("PROPULSION", StringComparison.OrdinalIgnoreCase) >= 0 ||
+            buttonName.IndexOf("SENSORS", StringComparison.OrdinalIgnoreCase) >= 0 ||
+            buttonName.IndexOf("COMMUNICATIONS", StringComparison.OrdinalIgnoreCase) >= 0 ||
+            buttonName.IndexOf("DEFENSE", StringComparison.OrdinalIgnoreCase) >= 0 ||
+            buttonName.IndexOf("WEAPONS", StringComparison.OrdinalIgnoreCase) >= 0 ||
+            buttonName.IndexOf("LOGISTICS", StringComparison.OrdinalIgnoreCase) >= 0 ||
+            buttonName.Equals("AI", StringComparison.OrdinalIgnoreCase) ||
+            buttonName.IndexOf("EXPERIMENTAL", StringComparison.OrdinalIgnoreCase) >= 0)
+        {
+            GameObject selectedTextObject =
+                GameObject.Find("TEXT SELECT A TECHNOLOGY NODE TO VIEW REQUIREMENTS");
+
+            if (selectedTextObject != null)
+            {
+                TMP_Text selectedText = selectedTextObject.GetComponent<TMP_Text>();
+                if (selectedText != null)
+                    selectedText.text = buttonName + " SELECTED â€” SELECT A TECHNOLOGY NODE TO VIEW REQUIREMENTS";
+            }
+
+            Debug.Log("RESEARCH HUD: selected " + buttonName);
+            return;
+        }
+
+        // Navigation destinations must be connected to their actual systems separately.
+        Debug.LogWarning(
+            "RESEARCH HUD: clicked '" + buttonName +
+            "'. No destination/action is configured for this control yet."
+        );
+    }
+
     // WORLD HELPERS
     // =========================================================
 
@@ -2742,3 +2738,12 @@ public class OPAWResearchLabVisualBuilder
             );
     }
 }
+
+
+
+
+
+
+
+
+

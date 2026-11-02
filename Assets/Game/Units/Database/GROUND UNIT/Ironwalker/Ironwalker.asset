@@ -1,0 +1,268 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Ironwalker
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-ground-ironwalker
+  displayName: Ironwalker
+  category: 1
+  role: Heavy Walker / Mobile Fortification
+  tier: Heavy Assault
+  status: Active
+  storeImage: {fileID: -3096488631845648961, guid: 6567d4696d10c7044a816aa72756050c, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 3.8
+    widthMeters: 2.6
+    heightMeters: 3.4
+    massKg: 2200
+    powerSource: Dual industrial battery + hydraulic drive
+    energyCapacityWh: 8200
+    energyConsumptionWhPerMinute: 2
+    endurance: 3-5 hours
+    payloadCapacityKg: 250
+    modules:
+    - Reinforced walker legs
+    - Shock-dampened chassis
+    navigationSystem: GPS + Walker-Stability AI
+    structuralIntegrityHp: 1600
+    armorRating: 0.85
+    heatSignature: Medium
+    noiseSignature: High
+    topSpeedMetersPerSecond: 8
+    topSpeedDescription: 8 m/s
+    acceleration: Very Low
+    turningRadius: Precise pivot
+    climbRate: Ironwalker climbRate
+    stabilityRating: Maximum
+  autonomy:
+    behaviorProfile: Heavy Assault / Mobile Cover
+    aggression: 0.7
+    caution: 0.5
+    persistence: 1
+    flankingLikelihood: 0
+    retreatThreshold: 0.3
+    retreatBehaviorDescription: Late
+    targetPriority: Hardened targets / fortified positions
+    formationDiscipline: High
+    riskTolerance: 0.8
+  sensors:
+    visualRangeMeters: 1600
+    visualRangeDescription: 1600 m
+    thermalRangeMeters: 700
+    thermalRangeDescription: 700 m
+    acousticRange: Medium
+    radarRange: Short
+    lidarRange: Medium
+    signalDetectionRange: Short
+  communication:
+    meshRangeKm: 4
+    meshRangeDescription: 4 km
+    relayCapacity: 1
+    commandLinkType: Assault Grid
+    networkPriority: High
+  combat:
+    firepowerRating: 0.5
+    firepowerDescription: Medium
+    accuracy: Medium
+    stabilization: Hydraulic walker stabilization
+    weaponMounts: 2
+    weaponTypes: Heavy machine gun / suppression cannon
+    suppressionValue: 0.85
+    trackingStrength: Low
+    disruptionStrength: Medium
+    breachCapability: Medium
+    countermeasureRating: High
+    threatLevel: 7
+    engagementDistance: 200-600 m
+    preferredTerrain: Urban / fortified zones
+    preferredTargets: Heavy infantry / light vehicles
+    vulnerabilityProfile: EMP / concentrated fire
+  squad:
+    squadRole: Heavy Assault / Mobile Cover
+    squadSizeContribution: 4
+    formationBehavior: Front-line anchor
+    intentInterpretationRules: Push forward and absorb fire
+    retreatBehavior: Late
+    breachBehavior: Secondary
+    flankingBehavior: None
+    reinforcementBehavior: Supports assault squads
+    parentCommandUnit: Command Core / Fusion
+    subordinateUnits:
+    - Hammer
+    - Crusher
+    relayNodes:
+    - Relay Node 1
+    networkDependencies: Assault Grid
+  vrOperator:
+    operatorSeatType: Walker Cockpit
+    operatorHud: Assault Overlay
+    cameraFeeds: Optical + weapon cams
+    thermalView: 1
+    lidarView: 1
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Walker stride + pivot
+    sensorControls: Thermal / LiDAR / zoom
+    abilityControls: Brace, Suppress, Stabilize
+    weaponControls: Dual mounts
+    stabilizationControls: Brace / walker stabilization
+    operatorAbilities:
+    - Heavy Suppression
+    - Brace Mode
+    - Mobile Cover Deployment
+    - Threat Marking
+  economy:
+    creditCost: 1800
+    buildCost: 1,200 Metal / 600 Electronics
+    buildTimeSeconds: 180
+    factoryType: Heavy Vehicle Bay
+    techRequirements: Assault Systems I
+    maintenanceCost: High
+    repairTimeSeconds: 45
+    supplyConsumption: High
+    operationalCost: High; 12 Metal / 6 Electronics per hour
+    deploymentRequirements: Heavy walker pad
+    transportCompatibility: Walker racks
+    launchMethod: Walk-out
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Heavy Alloy Plates
+      quantity: 70
+    - component: Reinforced Frame Rods
+      quantity: 36
+    - component: Hydraulic Actuators
+      quantity: 12
+    - component: Armor Panels
+      quantity: 8
+    - component: Walker Leg Assembly
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 32
+    - component: Signal Processors
+      quantity: 20
+    - component: Vehicle Control Chips
+      quantity: 7
+    - component: Assault AI Chips
+      quantity: 4
+    power:
+    - component: Dual Industrial Battery Core
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 3
+    rareTradeable:
+    - component: Shock-Dampened Chassis Core
+      quantity: 1
+    optionalUpgrades:
+    - Reinforced Armor
+    - Stabilized Weapon Mounts
+    - Extended Battery Pack
+    - Anti-Jamming Shielding
+  environment:
+    terrainAdaptationCoefficients: Ironwalker terrainAdaptationCoefficients
+    weatherSensitivityIndex: 2
+    visibilityModifiers: Ironwalker visibilityModifiers
+    signalPropagationCurve: Ironwalker signalPropagationCurve
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0.8
+    packetLossRate: Ironwalker packetLossRate
+    encryptionLatencySeconds: 2
+    meshSelfHealingThreshold: Ironwalker meshSelfHealingThreshold
+    relaySaturationCurve: Ironwalker relaySaturationCurve
+  cognitive:
+    decisionConfidence: 2
+    threatRecognitionAccuracy: 2
+    adaptiveLearningRatePerMission: 2
+    commandOverrideResistance: 2
+    cooperativeBehaviorIndex: 2
+  behaviorNodes:
+  - behaviorNode: 
+    weight: -0.00000008226931
+    description: 
+  - behaviorNode: 
+    weight: 0
+    description: 
+  missionBehaviors:
+  - missionType: 
+    behaviorFocus: 
+    efficiency: -0.00000008228733
+  - missionType: 
+    behaviorFocus: 
+    efficiency: 0
+  unitSynergies:
+  - partnerUnit: 
+    synergyRating: -0.000000081262726
+    function: 
+  - partnerUnit: 
+    synergyRating: 0
+    function: 
+  damageResponses:
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  upgrades:
+  - upgrade: 
+    effect: 
+    efficiencyGain: -0.00000008129882
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  tactical:
+    formationAdaptability: 2
+    tacticalRoleWeight: 2
+    commandResponseDelaySeconds: 2
+    reinforcementTriggerConditions: Ironwalker reinforcementTriggerConditions
+    retreatLogicThresholds: Ironwalker retreatLogicThresholds
+  maintenance:
+    meanTimeBetweenFailuresHours: 2
+    repairCycleSeconds: 2
+    resourceDrainPerHourPercent: 20
+    batteryEfficiencyPercent: 0.8
+    rotorStabilityPercent: 20
+    sensorCalibrationDriftPercentPerHour: 20
+    coolingEfficiencyPercent: 0.8
+    operationalUptimePercent: 20
+    energyRecoveryRatePercent: 20
+    energyRecoveryRatePercentPerIdleMinute: 20
+    componentWearPercentPerHour: 20
+    maintenancePriorityLevel: Ironwalker maintenancePriorityLevel
+    sparePartDependencyIndex: 2
+    operationalCostPerHour: Ironwalker operationalCostPerHour
+  threatResponses:
+  - threatType: 
+    reactionTimeSeconds: -1.6962372e-20
+    countermeasureEfficiency: 5.79e-43
+  - threatType: 
+    reactionTimeSeconds: 0
+    countermeasureEfficiency: 0
+  commandNetwork:
+  - node: 
+    loadPercent: -0.00001955549
+    latencySeconds: 5.79e-43
+    status: 
+  - node: 
+    loadPercent: 0
+    latencySeconds: 0
+    status: 
+  performance:
+    missionSuccessProbability: 0.75
+    averageEngagementDurationMinutes: 2
+    reconDataYieldMbPerMinute: 2
+    communicationUptime: 2
+    threatAvoidanceEfficiency: 0.8

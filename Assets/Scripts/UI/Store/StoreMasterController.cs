@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -89,7 +89,7 @@ namespace ObsidianProtocol.UI.Store
                 RefreshCatalog();
 
                 if (units.Count > 0)
-                    SelectUnit(units[0]);
+                    SelectUnit(units.FirstOrDefault(u => string.Equals(u.DisplayName, "Warden", StringComparison.OrdinalIgnoreCase)) ?? units[0]);
 
                 Canvas.ForceUpdateCanvases();
             }
@@ -112,7 +112,7 @@ namespace ObsidianProtocol.UI.Store
             RefreshCatalog();
 
             if (units.Count > 0)
-                SelectUnit(units[0]);
+                SelectUnit(units.FirstOrDefault(u => string.Equals(u.DisplayName, "Warden", StringComparison.OrdinalIgnoreCase)) ?? units[0]);
 
             Canvas.ForceUpdateCanvases();
 
@@ -281,6 +281,7 @@ namespace ObsidianProtocol.UI.Store
                 commanderMovement.enabled = false;
             storeInterface.SetActive(true);
             storeOpen = true;
+            Canvas.ForceUpdateCanvases();
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             RefreshCredits();
@@ -577,6 +578,8 @@ namespace ObsidianProtocol.UI.Store
             contentRect.offsetMax =
                 Vector2.zero;
 
+            contentRect.sizeDelta = new Vector2(0f, 600f);
+
             scrollComponent.viewport =
                 viewportRect;
 
@@ -867,184 +870,80 @@ namespace ObsidianProtocol.UI.Store
                         ))
                 .ToList();
 
-            int columns = 1;
-            float cardHeight = 150f;
+            RectTransform content = catalogRoot as RectTransform;
+            RectTransform viewport = content.parent as RectTransform;
+
+            float availableWidth = viewport.rect.width;
+            Debug.Log(
+                "[STORE LAYOUT] RootActive=" + (storeInterface != null && storeInterface.activeInHierarchy) +
+                " | CatalogActive=" + (catalogRoot != null && catalogRoot.gameObject.activeInHierarchy) +
+                " | Viewport=" + viewport.rect.width + "x" + viewport.rect.height +
+                " | FilteredUnits=" + filtered.Count +
+                " | Screen=" + Screen.width + "x" + Screen.height);
+            int columns = 3;
             float gap = 12f;
+            float cardHeight = 226f;
+            float cardWidth = Mathf.Max(150f, (availableWidth - gap * (columns - 1)) / columns);
 
-            float width = 1920f * 0.46f;
+            int rows = Mathf.CeilToInt(filtered.Count / (float)columns);
+            content.sizeDelta = new Vector2(0f, Mathf.Max(600f, rows * (cardHeight + gap)));
 
-            float cardWidth = width;
-
-            float contentHeight =
-                Mathf.Max(
-                    600f,
-                    Mathf.Ceil(
-                        filtered.Count /
-                        (float)columns) *
-                    (cardHeight + gap));
-
-            RectTransform content =
-                catalogRoot as RectTransform;
-
-            content.sizeDelta =
-                new Vector2(
-                    0f,
-                    contentHeight);
-
-            for (int i = 0;
-                 i < filtered.Count;
-                 i++)
+            for (int i = 0; i < filtered.Count; i++)
             {
-                UnitDefinition unit =
-                    filtered[i];
-
+                UnitDefinition unit = filtered[i];
                 int row = i / columns;
                 int column = i % columns;
 
-                GameObject card =
-                    CreateUI(
-                        "UNIT_CARD_" +
-                        unit.UnitId,
-                        catalogRoot);
+                GameObject card = CreateUI("UNIT_CARD_" + unit.UnitId, catalogRoot);
+                RectTransform cardRect = card.GetComponent<RectTransform>();
+                cardRect.anchorMin = new Vector2(0f, 1f);
+                cardRect.anchorMax = new Vector2(0f, 1f);
+                cardRect.pivot = new Vector2(0f, 1f);
+                cardRect.sizeDelta = new Vector2(cardWidth, cardHeight);
+                cardRect.anchoredPosition = new Vector2(column * (cardWidth + gap), -row * (cardHeight + gap));
 
-                RectTransform cardRect =
-                    card.GetComponent<RectTransform>();
+                Image cardImage = card.AddComponent<Image>();
+                cardImage.color = panel2;
 
-                cardRect.anchorMin =
-                    new Vector2(0f, 1f);
-
-                cardRect.anchorMax =
-                    new Vector2(0f, 1f);
-
-                cardRect.pivot =
-                    new Vector2(0f, 1f);
-
-                cardRect.sizeDelta =
-                    new Vector2(
-                        cardWidth,
-                        cardHeight);
-
-                cardRect.anchoredPosition =
-                    new Vector2(
-                        column *
-                            (cardWidth + gap),
-                        -row *
-                            (cardHeight + gap));
-
-                Image image =
-                    card.AddComponent<Image>();
-
-                image.color = panel2;
-
-                Outline outline =
-                    card.AddComponent<Outline>();
-
+                Outline outline = card.AddComponent<Outline>();
                 outline.effectColor = line;
-                outline.effectDistance =
-                    new Vector2(1f, 1f);
+                outline.effectDistance = new Vector2(1f, 1f);
 
-                Button button =
-                    card.AddComponent<Button>();
-
-                ColorBlock colors =
-                    button.colors;
-
-                colors.normalColor =
-                    new Color(1f, 1f, 1f, 0f);
-
-                colors.highlightedColor =
-                    new Color(
-                        accent.r,
-                        accent.g,
-                        accent.b,
-                        0.18f);
-
-                colors.pressedColor =
-                    new Color(
-                        accent.r,
-                        accent.g,
-                        accent.b,
-                        0.30f);
-
+                Button button = card.AddComponent<Button>();
+                ColorBlock colors = button.colors;
+                colors.normalColor = Color.white;
+                colors.highlightedColor = new Color(accent.r, accent.g, accent.b, 0.22f);
+                colors.pressedColor = new Color(accent.r, accent.g, accent.b, 0.35f);
                 button.colors = colors;
 
-                TMP_Text name =
-                    Label(
-                        unit.DisplayName,
-                        card.transform,
-                        22,
-                        TextAlignmentOptions.Left);
+                GameObject art = CreateUI("UNIT_IMAGE_PLACEHOLDER", card.transform);
+                RectTransform artRect = art.GetComponent<RectTransform>();
+                Stretch(artRect, 0.06f, 0.43f, 0.94f, 0.94f);
+                Image artImage = art.AddComponent<Image>();
+                artImage.color = background;
 
-                Stretch(
-                    name.rectTransform,
-                    0.04f,
-                    0.48f,
-                    0.96f,
-                    0.88f);
+                TMP_Text artLabel = Label("UNIT VISUAL\nART PENDING", art.transform, 10, TextAlignmentOptions.Center);
+                Stretch(artLabel.rectTransform, 0.05f, 0.05f, 0.95f, 0.95f);
+                artLabel.color = accent;
 
-                TMP_Text category =
-                    Label(
-                        GetCategory(unit),
-                        card.transform,
-                        18,
-                        TextAlignmentOptions.Left);
+                TMP_Text name = Label(unit.DisplayName, card.transform, 13, TextAlignmentOptions.Left);
+                Stretch(name.rectTransform, 0.06f, 0.29f, 0.94f, 0.41f);
 
+                TMP_Text category = Label(GetCategory(unit), card.transform, 9, TextAlignmentOptions.Left);
                 category.color = accent;
+                Stretch(category.rectTransform, 0.06f, 0.20f, 0.94f, 0.29f);
 
-                Stretch(
-                    category.rectTransform,
-                    0.04f,
-                    0.27f,
-                    0.96f,
-                    0.48f);
-
-                TMP_Text price =
-                    Label(
-                        FormatCredits(
-                            unit.Economy.creditCost),
-                        card.transform,
-                        20,
-                        TextAlignmentOptions.Left);
-
+                TMP_Text price = Label(FormatCredits(StoreUnitPricingCatalog.GetPrice(unit)), card.transform, 11, TextAlignmentOptions.Left);
                 price.color = accent;
+                Stretch(price.rectTransform, 0.06f, 0.06f, 0.60f, 0.19f);
 
-                Stretch(
-                    price.rectTransform,
-                    0.04f,
-                    0.05f,
-                    0.55f,
-                    0.27f);
+                bool owned = InventoryRuntime.Has(unit.UnitId);
+                TMP_Text ownership = Label(owned ? "OWNED" : "AVAILABLE", card.transform, 8, TextAlignmentOptions.Right);
+                ownership.color = owned ? good : Color.white;
+                Stretch(ownership.rectTransform, 0.53f, 0.06f, 0.94f, 0.19f);
 
-                bool owned =
-                    InventoryRuntime.Has(
-                        unit.UnitId);
-
-                TMP_Text ownership =
-                    Label(
-                        owned
-                            ? "OWNED"
-                            : "AVAILABLE",
-                        card.transform,
-                        18,
-                        TextAlignmentOptions.Right);
-
-                ownership.color =
-                    owned ? good : Color.white;
-
-                Stretch(
-                    ownership.rectTransform,
-                    0.58f,
-                    0.06f,
-                    0.95f,
-                    0.26f);
-
-                button.onClick.AddListener(
-                    () =>
-                    {
-                        SelectUnit(unit);
-                    });
+                button.onClick.AddListener(() => SelectUnit(unit));
             }
-
             if (catalogScroll != null)
             {
                 catalogScroll.StopMovement();
@@ -1063,7 +962,7 @@ namespace ObsidianProtocol.UI.Store
                 return;
 
             if (unitPreview != null)
-                unitPreview.ShowUnit(unit.UnitId);
+                unitPreview.ShowUnit(unit);
 
             bool owned =
                 InventoryRuntime.Has(
@@ -1080,7 +979,7 @@ namespace ObsidianProtocol.UI.Store
             selectedPrice.text =
                 "PROCUREMENT COST   " +
                 FormatCredits(
-                    unit.Economy.creditCost);
+                    StoreUnitPricingCatalog.GetPrice(unit));
 
             selectedOwnership.text =
                 "OWNERSHIP STATUS   " +
@@ -1150,7 +1049,7 @@ namespace ObsidianProtocol.UI.Store
             }
 
             int price =
-                selectedUnit.Economy.creditCost;
+                StoreUnitPricingCatalog.GetPrice(selectedUnit);
 
             if (price <= 0)
             {
@@ -1226,7 +1125,7 @@ namespace ObsidianProtocol.UI.Store
             if (selectedUnit != null)
                 SelectUnit(selectedUnit);
             else if (units.Count > 0)
-                SelectUnit(units[0]);
+                SelectUnit(units.FirstOrDefault(u => string.Equals(u.DisplayName, "Warden", StringComparison.OrdinalIgnoreCase)) ?? units[0]);
         }
 
         private void RefreshCredits()
@@ -1475,6 +1374,10 @@ namespace ObsidianProtocol.UI.Store
         }
     }
 }
+
+
+
+
 
 
 

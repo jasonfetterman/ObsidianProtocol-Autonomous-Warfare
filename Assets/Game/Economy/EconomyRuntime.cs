@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,7 +32,7 @@ namespace ObsidianProtocol.Game.Economy
         private static string playerId = "PLAYER";
 
         public static bool CampaignActive =>
-            !string.IsNullOrWhiteSpace(campaignId);
+            !string.IsNullOrWhiteSpace(campaignId) && data != null;
 
         public static int Credits =>
             data != null ? Mathf.Max(0, data.Credits) : 0;
@@ -47,6 +47,15 @@ namespace ObsidianProtocol.Game.Economy
         {
             if (string.IsNullOrWhiteSpace(activeCampaignId))
                 return;
+
+            // Preserve existing economy data when initialization is repeated
+            // for the same campaign.
+            if (campaignId == activeCampaignId &&
+                data != null &&
+                data.CampaignId == activeCampaignId)
+            {
+                return;
+            }
 
             campaignId = activeCampaignId;
             playerId = string.IsNullOrWhiteSpace(activePlayerId)

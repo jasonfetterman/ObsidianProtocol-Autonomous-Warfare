@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -199,6 +199,9 @@ private void CacheSceneRoots(Scene scene)
             if (objects.TryGetValue(objectName, out target))
                 return target;
 
+            if (string.Equals(objectName, "SYSTEM STATUS SCREEN", StringComparison.OrdinalIgnoreCase) &&
+                objects.TryGetValue("STATUS", out target))
+                return target;
             // The main-panel name differs from the existing scene object name.
             if (string.Equals(objectName, "UNIT HISTORY", StringComparison.OrdinalIgnoreCase) &&
                 objects.TryGetValue("UNIT RECORD PANEL - UNIT HISTORY", out target))
@@ -1099,6 +1102,7 @@ private void RefreshAll()
         }
     }
 }
+
 
 
 

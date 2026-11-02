@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CommandCenterFullController : MonoBehaviour
 {
@@ -92,5 +93,9 @@ public class CommandCenterFullController : MonoBehaviour
     {
         if (target != null)
             target.SetActive(state);
+    }
+    public void OpenGarageScene()
+    {
+        SceneManager.LoadScene("SCN04_GARAGE");
     }
 }

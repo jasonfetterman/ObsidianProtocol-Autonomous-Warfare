@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using ObsidianProtocol.Game.Logistics;
 using ObsidianProtocol.Game.Economy;
 using ObsidianProtocol.Game.Research;
@@ -6,6 +6,7 @@ using ObsidianProtocol.Game.Operations;
 using ObsidianProtocol.Game.Intelligence;
 using ObsidianProtocol.Game.OpenWorld;
 using ObsidianProtocol.Game.OnlineWorld;
+using ObsidianProtocol.Game.Deployment;
 
 namespace ObsidianProtocol.Game.Core
 {
@@ -24,6 +25,16 @@ namespace ObsidianProtocol.Game.Core
         public MatchHistory MilitaryHistory { get; private set; }
         public SceneNavigation SceneNavigation { get; private set; }
 
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void Bootstrap()
+        {
+            if (Instance != null)
+                return;
+
+            GameObject root = new GameObject("[SYSTEM] GAME BOOTSTRAP");
+            root.AddComponent<GameBootstrap>();
+        }
+
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -39,6 +50,28 @@ namespace ObsidianProtocol.Game.Core
             DontDestroyOnLoad(gameObject);
 
             InitializePersistentGameState();
+
+            if (BattlefieldDeploymentContext.Instance == null)
+            {
+                GameObject deploymentContextObject =
+                    new GameObject("[SYSTEM] BATTLEFIELD DEPLOYMENT CONTEXT");
+
+                deploymentContextObject.AddComponent<BattlefieldDeploymentContext>();
+            }
+
+            if (SaveLoadService.Exists())
+            {
+                try
+                {
+                    SaveLoadService.Load();
+                    Debug.Log("[GameBootstrap] Existing campaign save loaded.");
+                }
+                catch (System.Exception ex)
+                {
+                    Debug.LogError("[GameBootstrap] Campaign load failed: " + ex);
+                }
+            }
+
             InitializeEconomy();
             InitializeFleet();
             InitializeResearch();
@@ -250,10 +283,29 @@ namespace ObsidianProtocol.Game.Core
             SystemsReady =
                 ObsidianRuntimeSystems.Instance.Initialized;
 
+            if (SaveLoadService.Exists())
+            {
+                try
+                {
+                    SaveLoadService.Load();
+                    Debug.Log("[GameBootstrap] Existing campaign save loaded.");
+                }
+                catch (System.Exception ex)
+                {
+                    Debug.LogError("[GameBootstrap] Campaign load failed: " + ex);
+                }
+            }
+
+
             Debug.Log(
                 $"[GameBootstrap] Existing runtime systems ready: {SystemsReady}");
         }
 
+        public void RestoreWorldSimulation(WorldSimulation simulation)
+        {
+            if (simulation != null && simulation.Initialized)
+                WorldSimulation = simulation;
+        }
         private void OnDestroy()
         {
             if (Instance == this)
@@ -261,6 +313,11 @@ namespace ObsidianProtocol.Game.Core
         }
     }
 }
+
+
+
+
+
 
 
 

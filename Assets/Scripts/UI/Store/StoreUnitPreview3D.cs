@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using ObsidianProtocol.Game.Units;
 
 namespace ObsidianProtocol.UI.Store
 {
@@ -8,8 +9,7 @@ namespace ObsidianProtocol.UI.Store
     public sealed class StoreUnitPreview3D : MonoBehaviour,
         IPointerDownHandler, IDragHandler, IScrollHandler
     {
-        private const string WardenUnitId = "obs-air-warden";
-        private const string WardenResourcePath = "StorePreviews/WardenPreview";
+
         private const int PreviewLayer = 30;
 
         private RawImage previewImage;
@@ -89,7 +89,7 @@ namespace ObsidianProtocol.UI.Store
             CreatePreviewCamera();
         }
 
-        public void ShowUnit(string unitId)
+        public void ShowUnit(UnitDefinition unit)
         {
             if (!initialized)
                 Initialize();
@@ -99,23 +99,22 @@ namespace ObsidianProtocol.UI.Store
 
             ClearPreviewModel();
 
-            if (unitId != WardenUnitId)
+            if (unit == null)
+            {
+                SetStatus("SELECT A UNIT");
+                return;
+            }
+
+            GameObject prefab = unit.ModelPrefab;
+
+            if (prefab == null)
             {
                 SetStatus("3D MODEL NOT ASSIGNED\n\nPreview unavailable for this unit.");
                 return;
             }
 
-            GameObject prefab = Resources.Load<GameObject>(WardenResourcePath);
-            if (prefab == null)
-            {
-                SetStatus("WARDEN MODEL NOT FOUND\n\nCheck the StorePreviews resource asset.");
-                Debug.LogError("[STORE PREVIEW] Could not load Resources/" +
-                    WardenResourcePath + ".prefab", this);
-                return;
-            }
-
             previewModel = Instantiate(prefab);
-            previewModel.name = "STORE_PREVIEW_WARDEN";
+            previewModel.name = "STORE_PREVIEW_" + unit.UnitId;
             previewModel.transform.position = Vector3.zero;
             previewModel.transform.rotation = Quaternion.Euler(0f, rotationY, 0f);
 
@@ -124,8 +123,8 @@ namespace ObsidianProtocol.UI.Store
             Renderer[] renderers = previewModel.GetComponentsInChildren<Renderer>(true);
             if (renderers.Length == 0)
             {
-                SetStatus("WARDEN MODEL HAS NO RENDERERS");
-                Debug.LogError("[STORE PREVIEW] Warden prefab contains no renderers.", this);
+                SetStatus("UNIT MODEL HAS NO RENDERERS");
+                Debug.LogError("[STORE PREVIEW] Model has no renderers: " + unit.UnitId, this);
                 ClearPreviewModel();
                 return;
             }
@@ -145,10 +144,10 @@ namespace ObsidianProtocol.UI.Store
             UpdateModelRotation();
             FrameCamera();
 
-            SetStatus("WARDEN  /  3D INSPECTION\nDrag to rotate  |  Scroll to zoom");
-            Debug.Log("[STORE PREVIEW] Warden model loaded. Renderers: " + renderers.Length, this);
+            SetStatus(unit.DisplayName + "  /  3D INSPECTION\nDrag to rotate  |  Scroll to zoom");
+            Debug.Log("[STORE PREVIEW] Model loaded: " + unit.UnitId +
+                ". Renderers: " + renderers.Length, this);
         }
-
         public void OnPointerDown(PointerEventData eventData)
         {
             if (previewModel != null)
@@ -308,4 +307,6 @@ namespace ObsidianProtocol.UI.Store
         }
     }
 }
+
+
 

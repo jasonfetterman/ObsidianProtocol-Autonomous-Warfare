@@ -1,4 +1,4 @@
-%YAML 1.1
+﻿%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDatabase
   units:
   - {fileID: 11400000, guid: ab0b0261b1013084aa70ecfddf15385e, type: 2}
-  - {fileID: 11400000, guid: 465db7e589d95a8489b75eb9f8ef8113, type: 2}
   - {fileID: 11400000, guid: 37a7942f6f38c7e44b911be791ff6df9, type: 2}
   - {fileID: 11400000, guid: 80e1b25cb0864b74c99f38d7d02fbeaf, type: 2}
   - {fileID: 11400000, guid: 7c6a815de007a5848b5b6415b1b0ce37, type: 2}
@@ -85,3 +84,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b42fd369e0071c24b931e659a7057a58, type: 2}
   - {fileID: 11400000, guid: 8c35c03d481f36e468684e095e90d75c, type: 2}
   - {fileID: 11400000, guid: 1aa129481f7ab9542bd0e44d90a6ef7e, type: 2}
+

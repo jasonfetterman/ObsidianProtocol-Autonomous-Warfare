@@ -1,4 +1,4 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine.UI;
 using UnityEngine;
 using ObsidianProtocol.Game.Logistics;
@@ -57,7 +57,7 @@ public sealed class LogisticsHUDController : MonoBehaviour
         {
             TMP_Text rateText = rateTransform.GetComponent<TMP_Text>();
             if (rateText != null)
-                rateText.text = rate > 0 ? "+" + rate.ToString("N0") + "/h" : "—/h";
+                rateText.text = rate > 0 ? "+" + rate.ToString("N0") + "/h" : "â€”/h";
         }
     }
 

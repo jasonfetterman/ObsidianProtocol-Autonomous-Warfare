@@ -1,6 +1,7 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 using ObsidianProtocol.Game.Research;
+using ObsidianProtocol.Game.Technology;
 
 namespace ObsidianProtocol.UI.Research
 {
@@ -13,6 +14,8 @@ namespace ObsidianProtocol.UI.Research
 
         private float fullWidth;
         private bool wasResearching;
+        private bool researchCompleted;
+        private ResearchManager subscribedManager;
 
         private void Awake()
         {
@@ -20,8 +23,54 @@ namespace ObsidianProtocol.UI.Research
                 fullWidth = progressValue.rect.width;
         }
 
+        private void OnEnable()
+        {
+            SubscribeToManager();
+        }
+
+        private void OnDisable()
+        {
+            UnsubscribeFromManager();
+        }
+
+        private void SubscribeToManager()
+        {
+            ResearchManager manager = ResearchManager.Instance;
+
+            if (manager == null || manager == subscribedManager)
+                return;
+
+            UnsubscribeFromManager();
+
+            subscribedManager = manager;
+            subscribedManager.ResearchStarted += OnResearchStarted;
+            subscribedManager.ResearchCompleted += OnResearchCompleted;
+        }
+
+        private void UnsubscribeFromManager()
+        {
+            if (subscribedManager == null)
+                return;
+
+            subscribedManager.ResearchStarted -= OnResearchStarted;
+            subscribedManager.ResearchCompleted -= OnResearchCompleted;
+            subscribedManager = null;
+        }
+
+        private void OnResearchStarted(TechnologyDefinition technology)
+        {
+            researchCompleted = false;
+        }
+
+        private void OnResearchCompleted(TechnologyDefinition technology)
+        {
+            researchCompleted = true;
+        }
+
         private void Update()
         {
+            SubscribeToManager();
+
             ResearchManager manager = ResearchManager.Instance;
 
             if (manager == null)
@@ -30,6 +79,7 @@ namespace ObsidianProtocol.UI.Research
             if (manager.IsResearching && manager.CurrentTechnology != null)
             {
                 wasResearching = true;
+                researchCompleted = false;
 
                 float progress = manager.ResearchProgress;
 
@@ -53,11 +103,10 @@ namespace ObsidianProtocol.UI.Research
 
                 if (completionTime != null)
                 {
-                    float remaining =
-                        Mathf.Max(
-                            0f,
-                            manager.CurrentTechnology.ResearchTimeSeconds -
-                            manager.ResearchElapsed);
+                    float remaining = Mathf.Max(
+                        0f,
+                        manager.CurrentTechnology.ResearchTimeSeconds -
+                        manager.ResearchElapsed);
 
                     completionTime.text =
                         $"{Mathf.CeilToInt(remaining)}s";
@@ -74,14 +123,18 @@ namespace ObsidianProtocol.UI.Research
 
                     progressValue.SetSizeWithCurrentAnchors(
                         RectTransform.Axis.Horizontal,
-                        fullWidth);
+                        researchCompleted ? fullWidth : 0f);
                 }
 
                 if (progressPercent != null)
-                    progressPercent.text = "100%";
+                    progressPercent.text =
+                        researchCompleted ? "100%" : "0%";
 
                 if (completionTime != null)
-                    completionTime.text = "COMPLETE";
+                    completionTime.text =
+                        researchCompleted ? "COMPLETE" : "CANCELLED";
+
+                researchCompleted = false;
             }
         }
     }

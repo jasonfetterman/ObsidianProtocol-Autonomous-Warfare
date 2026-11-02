@@ -8,7 +8,36 @@ namespace ObsidianProtocol.Game.Resources
 
         public int GetAmount(string resourceId)
         {
-            return amounts.TryGetValue(resourceId, out int amount) ? amount : 0;
+            return !string.IsNullOrEmpty(resourceId) &&
+                   amounts.TryGetValue(resourceId, out int amount)
+                ? amount
+                : 0;
+        }
+
+        public IReadOnlyDictionary<string, int> GetAmounts()
+        {
+            return amounts;
+        }
+
+        public void Clear()
+        {
+            amounts.Clear();
+        }
+
+        public void SetAmount(string resourceId, int amount)
+        {
+            if (string.IsNullOrWhiteSpace(resourceId))
+            {
+                return;
+            }
+
+            if (amount <= 0)
+            {
+                amounts.Remove(resourceId);
+                return;
+            }
+
+            amounts[resourceId] = amount;
         }
 
         public void Add(string resourceId, int amount)

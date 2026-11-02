@@ -1,27 +1,24 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GaragePanelManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] panels;
 
-    private readonly Dictionary<string, GameObject> panelMap = new Dictionary<string, GameObject>();
+    private readonly Dictionary<string, GameObject> panelMap =
+        new Dictionary<string, GameObject>();
+
+    private readonly Dictionary<Button, UnityAction> wiredActions =
+        new Dictionary<Button, UnityAction>();
 
     private static readonly string[] PanelNames =
     {
-        "FleetPanel",
-        "StorePanel",
-        "RepairPanel",
-        "CustomizePanel",
-        "EquipmentPanel",
-        "UpgradePanel",
-        "AICorePanel",
-        "FabricationPanel",
-        "StoragePanel",
-        "SalvagePanel",
-        "DeploymentPanel",
-        "CommandCenterPanel"
+        "FleetPanel", "StorePanel", "RepairPanel", "CustomizePanel",
+        "EquipmentPanel", "UpgradePanel", "AICorePanel", "FabricationPanel",
+        "StoragePanel", "SalvagePanel", "DeploymentPanel", "CommandCenterPanel"
     };
 
     private static readonly Dictionary<string, string> ButtonToPanel =
@@ -43,7 +40,20 @@ public class GaragePanelManager : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("[GaragePanelManager] Runtime scene: name=" + gameObject.scene.name + ", path=" + gameObject.scene.path + ", loaded=" + gameObject.scene.isLoaded, this);
+        Debug.Log("[GaragePanelManager DIAG] activeScene=" + SceneManager.GetActiveScene().name +
+                  ", managerSceneValid=" + gameObject.scene.IsValid() +
+                  ", managerSceneLoaded=" + gameObject.scene.isLoaded +
+                  ", root=" + transform.root.name +
+                  ", directChildren=" + transform.childCount +
+                  ", navigationChild=" + (transform.Find("GARAGE_NAVIGATION") != null), this);
         BuildPanelMap();
+        Transform nav = FindRecursive(transform, "GARAGE_NAVIGATION");
+        Debug.Log("[GaragePanelManager NAVDIAG] localFleet=" +
+                  (FindRecursive(transform, "BUTTON_FLEET") != null) +
+                  ", navFound=" + (nav != null) +
+                  ", navChildren=" + (nav != null ? nav.childCount : -1) +
+                  ", sceneCount=" + SceneManager.sceneCount, this);
         WireNavigationButtons();
     }
 
@@ -60,31 +70,34 @@ public class GaragePanelManager : MonoBehaviour
             }
         }
 
-        // Runtime fallback: find any missing named panels in the scene.
         foreach (string panelName in PanelNames)
         {
             if (!panelMap.ContainsKey(panelName))
             {
-                GameObject found = GameObject.Find(panelName);
-
+                GameObject found = FindSceneObject(panelName);
                 if (found != null)
                     panelMap[panelName] = found;
             }
+
+            if (!panelMap.ContainsKey(panelName))
+                Debug.LogError("[GaragePanelManager] PANEL MISSING: " + panelName, this);
         }
+
+        Debug.Log("[GaragePanelManager] Panels resolved: " +
+                  panelMap.Count + " / " + PanelNames.Length, this);
     }
 
     private void WireNavigationButtons()
     {
+        int wiredCount = 0;
+
         foreach (KeyValuePair<string, string> entry in ButtonToPanel)
         {
-            GameObject buttonObject = GameObject.Find(entry.Key);
+            GameObject buttonObject = FindSceneObject(entry.Key);
 
             if (buttonObject == null)
             {
-                Debug.LogWarning(
-                    "[GaragePanelManager] Missing button: " + entry.Key,
-                    this
-                );
+                Debug.LogError("[GaragePanelManager] BUTTON MISSING: " + entry.Key, this);
                 continue;
             }
 
@@ -92,42 +105,85 @@ public class GaragePanelManager : MonoBehaviour
 
             if (button == null)
             {
-                Debug.LogWarning(
-                    "[GaragePanelManager] No Button component on: " + entry.Key,
-                    buttonObject
-                );
+                Debug.LogError("[GaragePanelManager] BUTTON COMPONENT MISSING: " +
+                               entry.Key, buttonObject);
                 continue;
             }
 
-            if (!panelMap.ContainsKey(entry.Value))
+            if (!panelMap.TryGetValue(entry.Value, out GameObject targetPanel) ||
+                targetPanel == null)
             {
-                Debug.LogWarning(
-                    "[GaragePanelManager] Missing panel: " + entry.Value,
-                    this
-                );
+                Debug.LogError("[GaragePanelManager] TARGET PANEL MISSING: " +
+                               entry.Value, buttonObject);
                 continue;
             }
 
-            GameObject targetPanel = panelMap[entry.Value];
+            if (wiredActions.TryGetValue(button, out UnityAction previousAction))
+                button.onClick.RemoveListener(previousAction);
 
-            button.onClick.RemoveListener(
-                delegate { ShowPanel(targetPanel); }
-            );
+            GameObject capturedPanel = targetPanel;
+            UnityAction action = () => ShowPanel(capturedPanel);
 
-            button.onClick.AddListener(
-                delegate { ShowPanel(targetPanel); }
-            );
+            wiredActions[button] = action;
+            button.onClick.AddListener(action);
+            wiredCount++;
+
+            Debug.Log("[GaragePanelManager] WIRED: " + entry.Key +
+                      " -> " + entry.Value, buttonObject);
         }
+
+        Debug.Log("[GaragePanelManager] Navigation wired: " +
+                  wiredCount + " / " + ButtonToPanel.Count, this);
+    }
+
+    private GameObject FindSceneObject(string objectName)
+    {
+        // Search this manager's hierarchy first. The runtime diagnostics
+        // confirm the garage navigation buttons exist here.
+        Transform localFound = FindRecursive(transform, objectName);
+        if (localFound != null)
+            return localFound.gameObject;
+
+        // Fallback: search other loaded scenes.
+        for (int sceneIndex = 0; sceneIndex < SceneManager.sceneCount; sceneIndex++)
+        {
+            Scene scene = SceneManager.GetSceneAt(sceneIndex);
+            if (!scene.IsValid() || !scene.isLoaded)
+                continue;
+
+            foreach (GameObject sceneRoot in scene.GetRootGameObjects())
+            {
+                if (sceneRoot == transform.root.gameObject)
+                    continue;
+
+                Transform found = FindRecursive(sceneRoot.transform, objectName);
+                if (found != null)
+                    return found.gameObject;
+            }
+        }
+
+        return null;
+    }
+    private Transform FindRecursive(Transform parent, string objectName)
+    {
+        if (parent.name == objectName)
+            return parent;
+
+        for (int i = 0; i < parent.childCount; i++)
+        {
+            Transform found = FindRecursive(parent.GetChild(i), objectName);
+            if (found != null)
+                return found;
+        }
+
+        return null;
     }
 
     public void ShowPanel(GameObject panelToShow)
     {
         if (panelToShow == null)
         {
-            Debug.LogWarning(
-                "[GaragePanelManager] ShowPanel received a null panel.",
-                this
-            );
+            Debug.LogError("[GaragePanelManager] Cannot open a null panel.", this);
             return;
         }
 
@@ -138,6 +194,7 @@ public class GaragePanelManager : MonoBehaviour
         }
 
         panelToShow.SetActive(true);
+        Debug.Log("[GaragePanelManager] OPENED: " + panelToShow.name, panelToShow);
     }
 
     public void CloseAllPanels()
@@ -149,3 +206,6 @@ public class GaragePanelManager : MonoBehaviour
         }
     }
 }
+
+
+

@@ -91,6 +91,20 @@ namespace ObsidianProtocol.Game.Inventory
                 return;
             }
 
+            // Prevent repeated initialization from wiping an active campaign.
+            if (string.Equals(
+                    campaignId,
+                    activeCampaignId,
+                    StringComparison.OrdinalIgnoreCase) &&
+                data != null &&
+                string.Equals(
+                    data.CampaignId,
+                    activeCampaignId,
+                    StringComparison.OrdinalIgnoreCase))
+            {
+                return;
+            }
+
             campaignId =
                 activeCampaignId;
             playerId = string.IsNullOrWhiteSpace(activePlayerId)
@@ -479,15 +493,23 @@ namespace ObsidianProtocol.Game.Inventory
                 data = null;
             }
 
-            if (data != null &&
-                data.Items == null)
+            if (data == null ||
+                string.IsNullOrWhiteSpace(data.CampaignId) ||
+                !string.Equals(
+                    data.CampaignId,
+                    campaignId,
+                    StringComparison.OrdinalIgnoreCase))
             {
-                data.Items =
-                    new List<InventoryItem>();
+                data = null;
+                return;
             }
 
-            if (data != null)
-                data.CampaignId = campaignId;
+            if (data.Items == null)
+                data.Items = new List<InventoryItem>();
+
+            playerId = string.IsNullOrWhiteSpace(data.PlayerId)
+                ? "PLAYER"
+                : data.PlayerId.Trim();
         }
 
         public static void Clear()
@@ -560,4 +582,5 @@ namespace ObsidianProtocol.Game.Inventory
         }
     }
 }
+
 

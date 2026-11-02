@@ -1,0 +1,256 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Mesh
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-air-mesh
+  displayName: Mesh
+  category: 0
+  role: High-Capacity Mesh Relay / Network Backbone
+  tier: Advanced Support
+  status: Active
+  storeImage: {fileID: -2131358682116671013, guid: 623fb6f5a75220f44b8e253d02cc8d81, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 2.4
+    widthMeters: 1.8
+    heightMeters: 0.9
+    massKg: 20
+    powerSource: High-efficiency battery
+    energyCapacityWh: 2000
+    energyConsumptionWhPerMinute: 45
+    endurance: "35\u201355 min"
+    payloadCapacityKg: 1
+    modules:
+    - Multi-antenna mesh array
+    navigationSystem: GPS + Mesh Optimization AI
+    structuralIntegrityHp: 115
+    armorRating: 0.15
+    heatSignature: Low
+    noiseSignature: Low
+    topSpeedMetersPerSecond: 19
+    topSpeedDescription: 19 m/s
+    acceleration: Medium
+    turningRadius: Tight
+    climbRate: Medium
+    stabilityRating: High
+  autonomy:
+    behaviorProfile: Mesh Relay / Network Backbone
+    aggression: 0
+    caution: 0.9
+    persistence: 0.9
+    flankingLikelihood: 0
+    retreatThreshold: 0.85
+    retreatBehaviorDescription: Early
+    targetPriority: Network gaps / weak mesh zones
+    formationDiscipline: Very High
+    riskTolerance: 0.1
+  sensors:
+    visualRangeMeters: 900
+    visualRangeDescription: 900 m
+    thermalRangeMeters: 400
+    thermalRangeDescription: 400 m
+    acousticRange: Low
+    radarRange: None
+    lidarRange: None
+    signalDetectionRange: Very High
+  communication:
+    meshRangeKm: 18
+    meshRangeDescription: 18 km
+    relayCapacity: 12
+    commandLinkType: Mesh-Optimized
+    networkPriority: Very High
+  combat:
+    firepowerRating: 0
+    firepowerDescription: Unarmed mesh relay platform
+    accuracy: N/A
+    stabilization: High
+    weaponMounts: None
+    weaponTypes: None
+    suppressionValue: 0
+    trackingStrength: Low
+    disruptionStrength: Medium
+    breachCapability: None
+    countermeasureRating: Medium
+    threatLevel: 2
+    engagementDistance: N/A
+    preferredTerrain: High-altitude mesh corridors
+    preferredTargets: None
+    vulnerabilityProfile: Ballistic / EMP / jamming
+  squad:
+    squadRole: Mesh Relay
+    squadSizeContribution: 1
+    formationBehavior: High-discipline mesh spacing
+    intentInterpretationRules: Maintain coverage, avoid conflict
+    retreatBehavior: Early
+    breachBehavior: None
+    flankingBehavior: None
+    reinforcementBehavior: Supports communication and command squads
+    parentCommandUnit: NexusGrid / Overseer
+    subordinateUnits: []
+    relayNodes:
+    - Relay Node 1
+    - Relay Node 2
+    - Relay Node 3
+    - Relay Node 4
+    - Relay Node 5
+    - Relay Node 6
+    - Relay Node 7
+    - Relay Node 8
+    - Relay Node 9
+    - Relay Node 10
+    - Relay Node 11
+    - Relay Node 12
+    networkDependencies: Warden mesh grid
+  vrOperator:
+    operatorSeatType: Drone View
+    operatorHud: Mesh Relay Overlay
+    cameraFeeds: Optical
+    thermalView: 1
+    lidarView: 0
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Full drone flight
+    sensorControls: Signal scan / relay diagnostics
+    abilityControls: Deploy Relay, Boost Signal, Mesh Stabilize
+    weaponControls: None
+    stabilizationControls: Auto-hover
+    operatorAbilities:
+    - Deploy Relay Node
+    - Boost Signal
+    - Mesh Stabilization
+    - Network Scan
+    - Relay Diagnostics
+  economy:
+    creditCost: 1400
+    buildCost: 160 Metal / 160 Electronics
+    buildTimeSeconds: 55
+    factoryType: Drone Bay
+    techRequirements: Mesh Networking II
+    maintenanceCost: Low
+    repairTimeSeconds: 12
+    supplyConsumption: Low
+    operationalCost: Minimal
+    deploymentRequirements: Standard drone pad
+    transportCompatibility: All aerial racks
+    launchMethod: Vertical takeoff
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Light Alloy Plates
+      quantity: 12
+    - component: Composite Frame Rods
+      quantity: 8
+    - component: Micro-Servo Actuators
+      quantity: 6
+    - component: Stabilizer Fins
+      quantity: 2
+    - component: Mesh Antenna Housing
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 14
+    - component: Signal Processors
+      quantity: 10
+    - component: Drone Control Chips
+      quantity: 4
+    - component: Mesh Routing Chips
+      quantity: 4
+    power:
+    - component: High-Efficiency Battery Pack
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 2
+    rareTradeable:
+    - component: High-Grade Mesh Antenna Array
+      quantity: 1
+    - component: Encrypted Mesh Core
+      quantity: 1
+    optionalUpgrades:
+    - Extended Mesh Range Module
+    - Signal Boost Amplifier
+    - Anti-Jamming Shielding
+    - Silent Rotor Kit
+  environment:
+    terrainAdaptationCoefficients: High-altitude mesh corridors
+    weatherSensitivityIndex: 0
+    visibilityModifiers: Not specified
+    signalPropagationCurve: Mesh-optimized; 18 km mesh range
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0
+    packetLossRate: Not specified
+    encryptionLatencySeconds: 0
+    meshSelfHealingThreshold: Not specified
+    relaySaturationCurve: 12-node relay capacity
+  cognitive:
+    decisionConfidence: 0
+    threatRecognitionAccuracy: 0
+    adaptiveLearningRatePerMission: 0
+    commandOverrideResistance: 0
+    cooperativeBehaviorIndex: 0
+  behaviorNodes:
+  - behaviorNode: Relay Coverage
+    weight: 1
+    description: Maintain mesh coverage and bridge network gaps
+  - behaviorNode: Signal Boost
+    weight: 0.9
+    description: Improve signal strength in weak mesh zones
+  - behaviorNode: Mesh Stabilization
+    weight: 0.9
+    description: Maintain stable mesh connectivity
+  missionBehaviors:
+  - missionType: Network Relay
+    behaviorFocus: Extend and stabilize mesh coverage
+    efficiency: 0.95
+  - missionType: Command Support
+    behaviorFocus: Maintain communication for command squads
+    efficiency: 0.9
+  unitSynergies:
+  - partnerUnit: Warden
+    synergyRating: 0.95
+    function: Extends and stabilizes the Warden mesh grid
+  - partnerUnit: Command units
+    synergyRating: 0.9
+    function: Improves command-network connectivity
+  damageResponses: []
+  upgrades: []
+  tactical:
+    formationAdaptability: 0
+    tacticalRoleWeight: 0
+    commandResponseDelaySeconds: 0
+    reinforcementTriggerConditions: Supports communication and command squads
+    retreatLogicThresholds: Retreat threshold 0.85; very low risk tolerance
+  maintenance:
+    meanTimeBetweenFailuresHours: 0
+    repairCycleSeconds: 0
+    resourceDrainPerHourPercent: 0
+    batteryEfficiencyPercent: 0
+    rotorStabilityPercent: 0
+    sensorCalibrationDriftPercentPerHour: 0
+    coolingEfficiencyPercent: 0
+    operationalUptimePercent: 0
+    energyRecoveryRatePercent: 0
+    energyRecoveryRatePercentPerIdleMinute: 0
+    componentWearPercentPerHour: 0
+    maintenancePriorityLevel: 
+    sparePartDependencyIndex: 0
+    operationalCostPerHour: 
+  threatResponses: []
+  commandNetwork: []
+  performance:
+    missionSuccessProbability: 0
+    averageEngagementDurationMinutes: 0
+    reconDataYieldMbPerMinute: 0
+    communicationUptime: 0
+    threatAvoidanceEfficiency: 0

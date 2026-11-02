@@ -49789,7 +49789,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1473474988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c49394c8531341344af4c118f78e8784, type: 3}
+  m_Script: {fileID: 11500000, guid: 07c9fe41d12aa6744b9cf2e58a3d49e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VRCommandController
   vrCommandHUD: {fileID: 1370631915}
@@ -74414,3 +74414,4 @@ SceneRoots:
   - {fileID: 1370631919}
   - {fileID: 1473474990}
   - {fileID: 164219524}
+

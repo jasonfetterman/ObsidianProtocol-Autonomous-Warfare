@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
 using TMPro;
 using ObsidianProtocol.Game.Research;
+using ObsidianProtocol.Game.Technology;
 
 namespace ObsidianProtocol.UI.Research
 {
@@ -13,18 +14,16 @@ namespace ObsidianProtocol.UI.Research
         [SerializeField] private TMP_Text materialsText;
 
         private float materials;
-        private bool wasResearching;
+        private ResearchManager subscribedManager;
 
         private void Awake()
         {
             materials = PlayerPrefs.GetFloat(
-                MaterialsKey,
-                StartingMaterials);
+                MaterialsKey, StartingMaterials);
 
             if (materialsText == null)
             {
                 GameObject target = GameObject.Find("TEXT MATERIALS");
-
                 if (target != null)
                     materialsText = target.GetComponent<TMP_Text>();
             }
@@ -32,43 +31,55 @@ namespace ObsidianProtocol.UI.Research
             UpdateDisplay();
         }
 
-        private void Update()
+        private void OnEnable()
+        {
+            SubscribeToManager();
+        }
+
+        private void OnDisable()
+        {
+            if (subscribedManager != null)
+                subscribedManager.ResearchCompleted -= OnResearchCompleted;
+
+            subscribedManager = null;
+        }
+
+        private void SubscribeToManager()
         {
             ResearchManager manager = ResearchManager.Instance;
-
-            if (manager == null)
+            if (manager == null || manager == subscribedManager)
                 return;
 
-            if (manager.IsResearching)
-            {
-                wasResearching = true;
-            }
-            else if (wasResearching)
-            {
-                wasResearching = false;
+            if (subscribedManager != null)
+                subscribedManager.ResearchCompleted -= OnResearchCompleted;
 
-                materials = Mathf.Max(
-                    0f,
-                    materials - MaterialsPerResearch);
+            subscribedManager = manager;
+            subscribedManager.ResearchCompleted += OnResearchCompleted;
+        }
 
-                PlayerPrefs.SetFloat(
-                    MaterialsKey,
-                    materials);
+        private void Update()
+        {
+            if (subscribedManager == null)
+                SubscribeToManager();
+        }
 
-                PlayerPrefs.Save();
+        private void OnResearchCompleted(TechnologyDefinition technology)
+        {
+            materials = Mathf.Max(0f, materials - MaterialsPerResearch);
 
-                UpdateDisplay();
+            PlayerPrefs.SetFloat(MaterialsKey, materials);
+            PlayerPrefs.Save();
 
-                Debug.Log(
-                    $"[RESEARCH MATERIALS] Materials remaining: {materials:0}%");
-            }
+            UpdateDisplay();
+
+            Debug.Log(
+                $"[RESEARCH MATERIALS] Research completed: {technology.DisplayName}. Materials remaining: {materials:0}%");
         }
 
         private void UpdateDisplay()
         {
             if (materialsText != null)
-                materialsText.text =
-                    $"MATERIALS {Mathf.RoundToInt(materials)}%";
+                materialsText.text = $"MATERIALS {Mathf.RoundToInt(materials)}%";
         }
     }
 }

@@ -1,9 +1,10 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using ObsidianProtocol.Game.Campaign;
+using ObsidianProtocol.Game.Core;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -168,6 +169,37 @@ private void Start()
 
     public void Store()
     {
+        if (SaveLoadService.Exists())
+        {
+            SaveData save = SaveLoadService.Load();
+
+            if (save != null &&
+                !string.IsNullOrWhiteSpace(save.CampaignId) &&
+                !string.IsNullOrWhiteSpace(save.PlayerId))
+            {
+                ObsidianProtocol.Game.Inventory.InventoryRuntime.Initialize(save.CampaignId);
+                ObsidianProtocol.Game.Economy.EconomyRuntime.Load(save.CampaignId);
+
+                if (!ObsidianProtocol.Game.Economy.EconomyRuntime.CampaignActive)
+                {
+                    ObsidianProtocol.Game.Economy.EconomyRuntime.StartNewCampaign(
+                        save.CampaignId, save.Funding, save.PlayerId);
+                }
+
+                Debug.Log("[STORE] Campaign initialized through MainMenuManager: " + save.CampaignId);
+            }
+            else
+            {
+                Debug.LogError("[STORE] Campaign save is invalid.");
+                return;
+            }
+        }
+        else
+        {
+            Debug.LogWarning("[STORE] No campaign save exists.");
+            return;
+        }
+
         LoadScene("SCN16_STORE");
     }
 
@@ -361,6 +393,8 @@ public class MainMenuButton :
             originalScale;
     }
 }
+
+
 
 
 

@@ -1,0 +1,199 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Sentinal
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-ground-sentinal
+  displayName: Sentinal
+  category: 1
+  role: Static Defense / Automated Turret Platform
+  tier: Security
+  status: Active
+  storeImage: {fileID: -7532644094364270698, guid: 9aaf673642d94db4fbaec4fa3ffd0ec4, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 2.1
+    widthMeters: 2.1
+    heightMeters: 1.4
+    massKg: 650
+    powerSource: High-capacity battery + optional generator
+    energyCapacityWh: 5200
+    energyConsumptionWhPerMinute: 0
+    endurance: "8\u201314 hours (battery) / unlimited (generator)"
+    payloadCapacityKg: 0
+    modules:
+    - Auto-turret
+    - Stabilization base
+    navigationSystem: Stationary (micro-adjust motors only)
+    structuralIntegrityHp: 700
+    armorRating: 0.45
+    heatSignature: Low
+    noiseSignature: Low
+    topSpeedMetersPerSecond: 0
+    topSpeedDescription: N/A (stationary)
+    acceleration: N/A (stationary)
+    turningRadius: Micro-adjust motors only
+    climbRate: 
+    stabilityRating: Maximum
+  autonomy:
+    behaviorProfile: Static Defense / Automated Threat Response
+    aggression: 0.6
+    caution: 0.9
+    persistence: 1
+    flankingLikelihood: 0
+    retreatThreshold: 0
+    retreatBehaviorDescription: None - fixed emplacement
+    targetPriority: Hostile movement in line-of-sight
+    formationDiscipline: Very High
+    riskTolerance: 0.5
+  sensors:
+    visualRangeMeters: 2200
+    visualRangeDescription: 2200 m; nominal detection reliability 96%
+    thermalRangeMeters: 1000
+    thermalRangeDescription: 1000 m; nominal thermal detection reliability 94%
+    acousticRange: Medium
+    radarRange: Short
+    lidarRange: Medium
+    signalDetectionRange: Medium
+  communication:
+    meshRangeKm: 5
+    meshRangeDescription: 5 km; Security Grid range 5 km
+    relayCapacity: 0
+    commandLinkType: Security Grid
+    networkPriority: High
+  combat:
+    firepowerRating: 0.5
+    firepowerDescription: Medium
+    accuracy: High
+    stabilization: Very High
+    weaponMounts: 1 (auto-turret)
+    weaponTypes: Medium machine gun / suppression cannon
+    suppressionValue: 0.5
+    trackingStrength: High
+    disruptionStrength: Medium
+    breachCapability: None
+    countermeasureRating: Medium
+    threatLevel: 6
+    engagementDistance: "300\u2013900 m"
+    preferredTerrain: Defensive positions / choke points
+    preferredTargets: Infantry / light vehicles
+    vulnerabilityProfile: EMP / explosives
+  squad:
+    squadRole: Static Defense
+    squadSizeContribution: 1
+    formationBehavior: Fixed emplacement
+    intentInterpretationRules: Hold position and fire
+    retreatBehavior: None
+    breachBehavior: None
+    flankingBehavior: None
+    reinforcementBehavior: Supports security squads
+    parentCommandUnit: Command Core / Pulse
+    subordinateUnits: []
+    relayNodes: []
+    networkDependencies: Security Grid
+  vrOperator:
+    operatorSeatType: Fixed Turret Control Station
+    operatorHud: Static Defense / Threat Response Overlay
+    cameraFeeds: Optical + thermal + turret camera
+    thermalView: 1
+    lidarView: 1
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Stationary; micro-adjust motors only
+    sensorControls: Optical / thermal / acoustic / radar / LiDAR
+    abilityControls: Zone Lock, Target Marking, Authorized Override
+    weaponControls: Automated turret fire control
+    stabilizationControls: Turret stabilization
+    operatorAbilities:
+    - Automated Threat Response
+    - Defensive Zone Lock
+    - Target Classification
+    - Authorized Command Override
+  economy:
+    creditCost: 650
+    buildCost: Metal / Electronics cost not specified
+    buildTimeSeconds: 0
+    factoryType: Static Defense Fabricator
+    techRequirements: Security Systems I
+    maintenanceCost: Tier I; MTBF 2400 h
+    repairTimeSeconds: 20
+    supplyConsumption: Resource drain 0.30% per hour
+    operationalCost: 5 Metal / 4 Electronics per hour
+    deploymentRequirements: Fixed Emplacement Pad
+    transportCompatibility: Fixed emplacement; transport not specified
+    launchMethod: Fixed emplacement
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents: []
+    electronics: []
+    power: []
+    rareTradeable: []
+    optionalUpgrades:
+    - Reinforced Armor
+    - Extended Battery Pack
+    - Anti-Jamming Shielding
+    - Thermal-Enhanced Optics
+    - Advanced Fire-Control Core
+    - Hardened Turret Stabilizer
+  environment:
+    terrainAdaptationCoefficients: 
+    weatherSensitivityIndex: 0
+    visibilityModifiers: 
+    signalPropagationCurve: 
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0
+    packetLossRate: 
+    encryptionLatencySeconds: 0
+    meshSelfHealingThreshold: 
+    relaySaturationCurve: 
+  cognitive:
+    decisionConfidence: 0
+    threatRecognitionAccuracy: 0
+    adaptiveLearningRatePerMission: 0
+    commandOverrideResistance: 0
+    cooperativeBehaviorIndex: 0
+  behaviorNodes: []
+  missionBehaviors: []
+  unitSynergies: []
+  damageResponses: []
+  upgrades: []
+  tactical:
+    formationAdaptability: 0
+    tacticalRoleWeight: 0
+    commandResponseDelaySeconds: 0
+    reinforcementTriggerConditions: 
+    retreatLogicThresholds: 
+  maintenance:
+    meanTimeBetweenFailuresHours: 0
+    repairCycleSeconds: 0
+    resourceDrainPerHourPercent: 0
+    batteryEfficiencyPercent: 0
+    rotorStabilityPercent: 0
+    sensorCalibrationDriftPercentPerHour: 0
+    coolingEfficiencyPercent: 0
+    operationalUptimePercent: 0
+    energyRecoveryRatePercent: 0
+    energyRecoveryRatePercentPerIdleMinute: 0
+    componentWearPercentPerHour: 0
+    maintenancePriorityLevel: 
+    sparePartDependencyIndex: 0
+    operationalCostPerHour: 
+  threatResponses: []
+  commandNetwork: []
+  performance:
+    missionSuccessProbability: 0
+    averageEngagementDurationMinutes: 0
+    reconDataYieldMbPerMinute: 0
+    communicationUptime: 0
+    threatAvoidanceEfficiency: 0

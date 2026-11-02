@@ -1,0 +1,220 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Surveyor_Mk1
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-sea-surveyor-mk1
+  displayName: Surveyor Mk1
+  category: 8
+  role: Marine Recon / Surface & Shallow-Water Survey
+  tier: Recon
+  status: Active
+  storeImage: {fileID: -7759774536930612273, guid: 51b5dfad850163e48be8dbcdc8170376, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 8
+    widthMeters: 3.5
+    heightMeters: 2.5
+    massKg: 3200
+    powerSource: Marine diesel-electric hybrid
+    energyCapacityWh: 12000
+    energyConsumptionWhPerMinute: 0
+    endurance: "6\u201312 hours"
+    payloadCapacityKg: 200
+    modules:
+    - Forward sonar array
+    - Surface optics
+    - Mapping suite
+    navigationSystem: Marine GPS + Survey AI
+    structuralIntegrityHp: 900
+    armorRating: 0.35
+    heatSignature: Low
+    noiseSignature: Low
+    topSpeedMetersPerSecond: 9
+    topSpeedDescription: 9 m/s
+    acceleration: Medium
+    turningRadius: Tight marine turn
+    climbRate: 
+    stabilityRating: High (surface optimized)
+  autonomy:
+    behaviorProfile: Recon / Mapping / Marine Survey
+    aggression: 0
+    caution: 0.85
+    persistence: 0.9
+    flankingLikelihood: 0
+    retreatThreshold: 0.8
+    retreatBehaviorDescription: Early
+    targetPriority: Marine anomalies / surface movement
+    formationDiscipline: Medium
+    riskTolerance: 0.2
+  sensors:
+    visualRangeMeters: 2200
+    visualRangeDescription: 2200 m
+    thermalRangeMeters: 900
+    thermalRangeDescription: 900 m
+    acousticRange: High
+    radarRange: Short
+    lidarRange: Not specified
+    signalDetectionRange: Medium
+  communication:
+    meshRangeKm: 6
+    meshRangeDescription: 6 km
+    relayCapacity: 1
+    commandLinkType: Marine Recon Grid
+    networkPriority: High
+  combat:
+    firepowerRating: 0
+    firepowerDescription: None
+    accuracy: N/A
+    stabilization: Surface-optimized stabilization
+    weaponMounts: None
+    weaponTypes: None
+    suppressionValue: 0
+    trackingStrength: Medium (sonar only)
+    disruptionStrength: Low
+    breachCapability: None
+    countermeasureRating: Low
+    threatLevel: 2
+    engagementDistance: N/A
+    preferredTerrain: Surface & shallow waters
+    preferredTargets: None
+    vulnerabilityProfile: Ballistic / waves / collision
+  squad:
+    squadRole: Marine Recon / Mapping
+    squadSizeContribution: 1
+    formationBehavior: Loose recon spacing
+    intentInterpretationRules: Identify anomalies & map terrain
+    retreatBehavior: Early
+    breachBehavior: 
+    flankingBehavior: 
+    reinforcementBehavior: Supports recon & naval squads
+    parentCommandUnit: Worldmap / Insight
+    subordinateUnits: []
+    relayNodes:
+    - Relay Node 1
+    networkDependencies: Marine Recon Grid
+  vrOperator:
+    operatorSeatType: Marine Recon Console
+    operatorHud: Marine Survey Overlay
+    cameraFeeds: Optical + sonar visualization
+    thermalView: 1
+    lidarView: 0
+    sonarView: 1
+    tacticalOverlay: 1
+    movementControls: Marine drive
+    sensorControls: Sonar / thermal / zoom
+    abilityControls: Scan / Mark Target / Stabilize
+    weaponControls: N/A - non-combat survey unit
+    stabilizationControls: Surface stabilization
+    operatorAbilities:
+    - Sonar Sweep
+    - Surface Scan
+    - Hazard Detection
+    - Recon Relay
+  economy:
+    creditCost: 760
+    buildCost: 500 Metal / 260 Electronics
+    buildTimeSeconds: 110
+    factoryType: Marine Bay
+    techRequirements: Marine Systems I
+    maintenanceCost: Low
+    repairTimeSeconds: 28
+    supplyConsumption: Low
+    operationalCost: Low
+    deploymentRequirements: Water launch pad
+    transportCompatibility: Marine racks
+    launchMethod: Water drop
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Marine Alloy Plates
+      quantity: 40
+    - component: Reinforced Marine Rods
+      quantity: 20
+    - component: Hydraulic Actuators
+      quantity: 6
+    - component: Sonar Housing
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 20
+    - component: Signal Processors
+      quantity: 14
+    - component: Marine Control Chips
+      quantity: 4
+    - component: Recon AI Chips
+      quantity: 2
+    power:
+    - component: Marine Hybrid Engine Core
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 2
+    rareTradeable:
+    - component: Medium Sonar Module
+      quantity: 1
+    optionalUpgrades:
+    - Silent Propulsion
+    - Extended Battery Pack
+    - Anti-Jamming Shielding
+  environment:
+    terrainAdaptationCoefficients: 
+    weatherSensitivityIndex: 0
+    visibilityModifiers: 
+    signalPropagationCurve: 
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0
+    packetLossRate: 
+    encryptionLatencySeconds: 0
+    meshSelfHealingThreshold: 
+    relaySaturationCurve: 
+  cognitive:
+    decisionConfidence: 0
+    threatRecognitionAccuracy: 0
+    adaptiveLearningRatePerMission: 0
+    commandOverrideResistance: 0
+    cooperativeBehaviorIndex: 0
+  behaviorNodes: []
+  missionBehaviors: []
+  unitSynergies: []
+  damageResponses: []
+  upgrades: []
+  tactical:
+    formationAdaptability: 0
+    tacticalRoleWeight: 0
+    commandResponseDelaySeconds: 0
+    reinforcementTriggerConditions: 
+    retreatLogicThresholds: 
+  maintenance:
+    meanTimeBetweenFailuresHours: 0
+    repairCycleSeconds: 0
+    resourceDrainPerHourPercent: 0
+    batteryEfficiencyPercent: 0
+    rotorStabilityPercent: 0
+    sensorCalibrationDriftPercentPerHour: 0
+    coolingEfficiencyPercent: 0
+    operationalUptimePercent: 0
+    energyRecoveryRatePercent: 0
+    energyRecoveryRatePercentPerIdleMinute: 0
+    componentWearPercentPerHour: 0
+    maintenancePriorityLevel: 
+    sparePartDependencyIndex: 0
+    operationalCostPerHour: 
+  threatResponses: []
+  commandNetwork: []
+  performance:
+    missionSuccessProbability: 0
+    averageEngagementDurationMinutes: 0
+    reconDataYieldMbPerMinute: 0
+    communicationUptime: 0
+    threatAvoidanceEfficiency: 0

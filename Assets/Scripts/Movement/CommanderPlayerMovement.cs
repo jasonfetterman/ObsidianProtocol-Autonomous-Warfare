@@ -1,245 +1,169 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(CharacterController))]
 public class CommanderPlayerMovement : MonoBehaviour
 {
+    [Header("Input")]
+    [SerializeField] private InputActionAsset inputActions;
+
     [Header("Movement")]
-    [SerializeField] private float moveSpeed = 4f;
-    [SerializeField] private float sprintSpeed = 7f;
+    [SerializeField] private float moveSpeed = 6f;
+    [SerializeField] private float sprintSpeed = 8f;
     [SerializeField] private float jumpHeight = 1.5f;
     [SerializeField] private float gravity = -20f;
 
     [Header("Look")]
     [SerializeField] private Transform cameraTransform;
-    [SerializeField] private float mouseSensitivity = 2f;
+    [SerializeField] private float mouseSensitivity = 3f;
     [SerializeField] private float maxLookAngle = 85f;
 
     private CharacterController characterController;
+    private InputAction moveAction;
+    private InputAction lookAction;
+    private InputAction sprintAction;
+    private InputAction jumpAction;
+
     private float verticalVelocity;
     private float cameraPitch;
-    private float debugTimer;
-    private bool firstFrameLogged;
 
     private void Awake()
     {
-        characterController =
-            GetComponent<CharacterController>();
+        characterController = GetComponent<CharacterController>();
 
-        if (characterController == null)
-            characterController =
-                gameObject.AddComponent<CharacterController>();
+        if (inputActions == null)
+        {
+            Debug.LogError("Commander: Input Actions asset is missing.", this);
+            enabled = false;
+            return;
+        }
+
+        InputActionMap playerMap = inputActions.FindActionMap("Player", true);
+
+        moveAction = playerMap.FindAction("Move", true);
+        lookAction = playerMap.FindAction("Look", true);
+        sprintAction = playerMap.FindAction("Sprint", true);
+        jumpAction = playerMap.FindAction("Jump", true);
 
         if (cameraTransform == null)
         {
-            Camera sceneCamera =
-                GetComponentInChildren<Camera>();
+            Camera sceneCamera = GetComponentInChildren<Camera>();
 
             if (sceneCamera != null)
-                cameraTransform =
-                    sceneCamera.transform;
+                cameraTransform = sceneCamera.transform;
         }
 
-        if (cameraTransform != null)
+        if (cameraTransform == null)
         {
-            cameraTransform.localPosition =
-                new Vector3(0f, 5.0f, 0f);
-
-            cameraPitch = 16.35f;
-
-            cameraTransform.localRotation =
-                Quaternion.Euler(
-                    cameraPitch,
-                    0f,
-                    0f);
+            Debug.LogError("Commander: Camera reference is missing.", this);
+            enabled = false;
+            return;
         }
 
-        verticalVelocity = 0f;
+        cameraPitch = cameraTransform.localEulerAngles.x;
 
-        Debug.Log(
-            "[COMMANDER DEBUG] AWAKE PLAYER POSITION = " +
-            transform.position);
+        if (cameraPitch > 180f)
+            cameraPitch -= 360f;
+    }
 
-        Debug.Log(
-            "[COMMANDER DEBUG] AWAKE PLAYER SCALE = " +
-            transform.lossyScale);
+    private void OnEnable()
+    {
+        if (moveAction == null)
+            return;
 
-        Debug.Log(
-            "[COMMANDER DEBUG] CC HEIGHT = " +
-            characterController.height);
+        moveAction.Enable();
+        lookAction.Enable();
+        sprintAction.Enable();
+        jumpAction.Enable();
 
-        Debug.Log(
-            "[COMMANDER DEBUG] CC CENTER = " +
-            characterController.center);
-
-        Debug.Log(
-            "[COMMANDER DEBUG] CC RADIUS = " +
-            characterController.radius);
-
-        if (cameraTransform != null)
-        {
-            Debug.Log(
-                "[COMMANDER DEBUG] AWAKE CAMERA WORLD = " +
-                cameraTransform.position);
-
-            Debug.Log(
-                "[COMMANDER DEBUG] AWAKE CAMERA LOCAL = " +
-                cameraTransform.localPosition);
-        }
-
-        Cursor.lockState =
-            CursorLockMode.Locked;
-
+        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    private void OnDisable()
+    {
+        moveAction?.Disable();
+        lookAction?.Disable();
+        sprintAction?.Disable();
+        jumpAction?.Disable();
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void Update()
     {
+        if (Keyboard.current != null &&
+            Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            bool locked = Cursor.lockState == CursorLockMode.Locked;
+
+            Cursor.lockState = locked
+                ? CursorLockMode.None
+                : CursorLockMode.Locked;
+
+            Cursor.visible = locked;
+        }
+
         HandleLook();
         HandleMovement();
-
-        if (!firstFrameLogged)
-        {
-            firstFrameLogged = true;
-
-            Debug.Log(
-                "[COMMANDER DEBUG] FIRST UPDATE PLAYER = " +
-                transform.position);
-
-            Debug.Log(
-                "[COMMANDER DEBUG] FIRST UPDATE GROUNDED = " +
-                characterController.isGrounded);
-
-            if (cameraTransform != null)
-            {
-                Debug.Log(
-                    "[COMMANDER DEBUG] FIRST UPDATE CAMERA = " +
-                    cameraTransform.position);
-            }
-        }
-
-        debugTimer += Time.deltaTime;
-
-        if (debugTimer >= 1f)
-        {
-            debugTimer = 0f;
-
-            Debug.Log(
-                "[COMMANDER DEBUG] 1 SECOND PLAYER = " +
-                transform.position);
-
-            Debug.Log(
-                "[COMMANDER DEBUG] 1 SECOND GROUNDED = " +
-                characterController.isGrounded);
-
-            Debug.Log(
-                "[COMMANDER DEBUG] VERTICAL VELOCITY = " +
-                verticalVelocity);
-
-            if (cameraTransform != null)
-            {
-                Debug.Log(
-                    "[COMMANDER DEBUG] 1 SECOND CAMERA = " +
-                    cameraTransform.position);
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Cursor.lockState =
-                Cursor.lockState == CursorLockMode.Locked
-                    ? CursorLockMode.None
-                    : CursorLockMode.Locked;
-
-            Cursor.visible =
-                Cursor.lockState != CursorLockMode.Locked;
-        }
     }
 
     private void HandleLook()
     {
-        if (cameraTransform == null)
+        if (cameraTransform == null ||
+            Cursor.lockState != CursorLockMode.Locked)
             return;
 
-        if (Cursor.lockState != CursorLockMode.Locked)
-            return;
-
-        float mouseX =
-            Input.GetAxis("Mouse X") *
-            mouseSensitivity;
-
-        float mouseY =
-            Input.GetAxis("Mouse Y") *
-            mouseSensitivity;
+        Vector2 lookInput = lookAction.ReadValue<Vector2>();
 
         transform.Rotate(
             Vector3.up,
-            mouseX);
+            lookInput.x * mouseSensitivity * 0.02f
+        );
 
-        cameraPitch -= mouseY;
+        cameraPitch -= lookInput.y * mouseSensitivity * 0.02f;
 
-        cameraPitch =
-            Mathf.Clamp(
-                cameraPitch,
-                -maxLookAngle,
-                maxLookAngle);
+        cameraPitch = Mathf.Clamp(
+            cameraPitch,
+            -maxLookAngle,
+            maxLookAngle
+        );
 
         cameraTransform.localRotation =
-            Quaternion.Euler(
-                cameraPitch,
-                0f,
-                0f);
+            Quaternion.Euler(cameraPitch, 0f, 0f);
     }
 
     private void HandleMovement()
     {
-        if (characterController == null)
-            return;
-
-        float horizontal =
-            Input.GetAxisRaw("Horizontal");
-
-        float vertical =
-            Input.GetAxisRaw("Vertical");
+        Vector2 input = moveAction.ReadValue<Vector2>();
 
         Vector3 direction =
-            transform.right * horizontal +
-            transform.forward * vertical;
+            transform.right * input.x +
+            transform.forward * input.y;
 
         if (direction.sqrMagnitude > 1f)
             direction.Normalize();
 
-        float speed =
-            Input.GetKey(KeyCode.LeftShift)
-                ? sprintSpeed
-                : moveSpeed;
+        float speed = sprintAction.IsPressed()
+            ? sprintSpeed
+            : moveSpeed;
 
-        Vector3 movement =
-            direction * speed;
+        Vector3 movement = direction * speed;
 
-        if (characterController.isGrounded &&
-            verticalVelocity < 0f)
-        {
+        if (characterController.isGrounded && verticalVelocity < 0f)
             verticalVelocity = -2f;
-        }
 
-        if (characterController.isGrounded &&
-            Input.GetKeyDown(KeyCode.Space))
+        if (characterController.isGrounded && jumpAction.WasPressedThisFrame())
         {
-            verticalVelocity =
-                Mathf.Sqrt(
-                    jumpHeight *
-                    -2f *
-                    gravity);
+            verticalVelocity = Mathf.Sqrt(
+                jumpHeight * -2f * gravity
+            );
         }
 
-        verticalVelocity +=
-            gravity *
-            Time.deltaTime;
+        verticalVelocity += gravity * Time.deltaTime;
+        movement.y = verticalVelocity;
 
-        movement.y =
-            verticalVelocity;
-
-        characterController.Move(
-            movement *
-            Time.deltaTime);
+        characterController.Move(movement * Time.deltaTime);
     }
 }

@@ -306,6 +306,175 @@ namespace ObsidianProtocol.Game.Logistics
             }
         }
 
+        public ObsidianProtocol.Game.Core.LogisticsSnapshot CaptureSnapshot()
+        {
+            if (!Initialized)
+            {
+                return null;
+            }
+
+            var snapshot =
+                new ObsidianProtocol.Game.Core.LogisticsSnapshot();
+
+            if (Resources != null && Resources.Inventory != null)
+            {
+                foreach (var pair in Resources.Inventory.GetAmounts())
+                {
+                    snapshot.GlobalResources.Add(
+                        new ObsidianProtocol.Game.Core.ResourceAmountEntry
+                        {
+                            Key = pair.Key,
+                            Amount = pair.Value
+                        });
+                }
+            }
+
+            if (Storage != null)
+            {
+                foreach (ResourceStorage storage in Storage.GetStorages())
+                {
+                    if (storage == null)
+                    {
+                        continue;
+                    }
+
+                    var storageSnapshot =
+                        new ObsidianProtocol.Game.Core.StorageInventorySnapshot
+                        {
+                            StorageId = storage.StorageId
+                        };
+
+                    foreach (var pair in storage.Inventory.GetAmounts())
+                    {
+                        storageSnapshot.Amounts.Add(
+                            new ObsidianProtocol.Game.Core.ResourceAmountEntry
+                            {
+                                Key = pair.Key,
+                                Amount = pair.Value
+                            });
+                    }
+
+                    snapshot.Storages.Add(storageSnapshot);
+                }
+            }
+
+            if (Depots != null)
+            {
+                foreach (SupplyDepot depot in Depots.GetDepots())
+                {
+                    if (depot == null)
+                    {
+                        continue;
+                    }
+
+                    var depotSnapshot =
+                        new ObsidianProtocol.Game.Core.DepotInventorySnapshot
+                        {
+                            DepotId = depot.DepotId
+                        };
+
+                    foreach (var pair in depot.GetInventory())
+                    {
+                        depotSnapshot.Amounts.Add(
+                            new ObsidianProtocol.Game.Core.SupplyAmountEntry
+                            {
+                                SupplyType = pair.Key.ToString(),
+                                Amount = pair.Value
+                            });
+                    }
+
+                    snapshot.Depots.Add(depotSnapshot);
+                }
+            }
+
+            return snapshot;
+        }
+
+        public bool RestoreSnapshot(
+            ObsidianProtocol.Game.Core.LogisticsSnapshot snapshot)
+        {
+            if (!Initialized || snapshot == null)
+            {
+                return false;
+            }
+
+            if (Resources != null && Resources.Inventory != null &&
+                snapshot.GlobalResources != null)
+            {
+                Resources.Inventory.Clear();
+
+                foreach (var entry in snapshot.GlobalResources)
+                {
+                    if (entry != null && !string.IsNullOrWhiteSpace(entry.Key))
+                    {
+                        Resources.Inventory.SetAmount(entry.Key, entry.Amount);
+                    }
+                }
+            }
+
+            if (Storage != null && snapshot.Storages != null)
+            {
+                foreach (var storageSnapshot in snapshot.Storages)
+                {
+                    if (storageSnapshot == null ||
+                        string.IsNullOrWhiteSpace(storageSnapshot.StorageId) ||
+                        storageSnapshot.Amounts == null ||
+                        !Storage.TryGetStorage(
+                            storageSnapshot.StorageId,
+                            out ResourceStorage storage))
+                    {
+                        continue;
+                    }
+
+                    storage.Inventory.Clear();
+
+                    foreach (var entry in storageSnapshot.Amounts)
+                    {
+                        if (entry != null && !string.IsNullOrWhiteSpace(entry.Key))
+                        {
+                            storage.Inventory.SetAmount(entry.Key, entry.Amount);
+                        }
+                    }
+                }
+            }
+
+            if (Depots != null && snapshot.Depots != null)
+            {
+                foreach (var depotSnapshot in snapshot.Depots)
+                {
+                    if (depotSnapshot == null ||
+                        string.IsNullOrWhiteSpace(depotSnapshot.DepotId) ||
+                        depotSnapshot.Amounts == null ||
+                        !Depots.TryGetDepot(
+                            depotSnapshot.DepotId,
+                            out SupplyDepot depot))
+                    {
+                        continue;
+                    }
+
+                    depot.ClearInventory();
+
+                    foreach (var entry in depotSnapshot.Amounts)
+                    {
+                        if (entry == null ||
+                            !System.Enum.TryParse(
+                                entry.SupplyType,
+                                true,
+                                out SupplyType supplyType) ||
+                            entry.Amount <= 0f)
+                        {
+                            continue;
+                        }
+
+                        depot.Store(supplyType, entry.Amount);
+                    }
+                }
+            }
+
+            Debug.Log("[LOGISTICS] Campaign inventories restored from save snapshot.");
+            return true;
+        }
+
         private void Update()
         {
             if (!Initialized || Energy == null || Resources == null)

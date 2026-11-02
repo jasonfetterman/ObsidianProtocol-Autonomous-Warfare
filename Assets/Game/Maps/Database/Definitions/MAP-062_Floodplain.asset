@@ -1,4 +1,4 @@
-﻿%YAML 1.1
+%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
@@ -11,49 +11,26 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0263df275083eba45b37ab9636c8dcbf, type: 3}
   m_Name: MAP-062_Floodplain
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   mapId: MAP-062
   displayName: Floodplain
   environment: River / Rural / Dynamic Water & Terrain Conditions
   warfareFocus: Dynamic Water, Amphibious Mobility, Terrain Adaptation
-  executiveSummary: >-
-    Floodplain is a river-rural hybrid battlefield built for dynamic water-level
-    combat, shifting terrain conditions, amphibious mobility, and autonomous
-    environmental adaptation. The terrain features braided rivers, seasonal flood
-    zones, rural farmlands, levees, wooden bridges, irrigation canals, wetlands,
-    and small villages. The map emphasizes autonomous terrain-reactive logic,
-    sensor-fusion under humidity and fog, comms-relay warfare, and logistics under
-    constantly changing river conditions. In AR, the map anchors at approximately
-    4-5 m viewing distance, covering a 10x10 m physical area representing
-    approximately 1 km2 of rural river terrain.
+  executiveSummary: '>- Floodplain is a river-rural hybrid battlefield built for dynamic water-level combat, shifting terrain conditions, amphibious mobility, and autonomous environmental adaptation. The terrain features braided rivers, seasonal flood zones, rural farmlands, levees, wooden bridges, irrigation canals, wetlands, and small villages. The map emphasizes autonomous terrain-reactive logic, sensor-fusion under humidity and fog, comms-relay warfare, and logistics under constantly changing river conditions. In AR, the map anchors at approximately 4-5 m viewing distance, covering a 10x10 m physical area representing approximately 1 km2 of rural river terrain.'
   designGoals:
   - name: Dynamic Water-Level Combat
-    description: >-
-      Floodplain prioritizes combat where water levels rise and fall. Bridges
-      become chokepoints, mudflats appear or vanish, and river channels shift mid-match.
+    description: '>- Floodplain prioritizes combat where water levels rise and fall. Bridges become chokepoints, mudflats appear or vanish, and river channels shift mid-match.'
   - name: Terrain-Reactive Movement
-    description: >-
-      Heavy armor struggles in soft soil; light vehicles excel. Infantry and drones
-      adapt to flooded fields, washed-out roads, and shifting wetlands.
+    description: '>- Heavy armor struggles in soft soil; light vehicles excel. Infantry and drones adapt to flooded fields, washed-out roads, and shifting wetlands.'
   - name: Amphibious & Rural Operations
-    description: >-
-      Players conduct river crossings, canal assaults, and farmland pushes.
-      Rural structures provide cover but collapse under sustained fire.
+    description: '>- Players conduct river crossings, canal assaults, and farmland pushes. Rural structures provide cover but collapse under sustained fire.'
   - name: Autonomy & Environmental Adaptation
-    description: >-
-      Autonomous units choose routes based on water depth, soil stability,
-      vegetation density, and sensor clarity. Units reroute when terrain becomes impassable.
+    description: '>- Autonomous units choose routes based on water depth, soil stability, vegetation density, and sensor clarity. Units reroute when terrain becomes impassable.'
   - name: Sensor & Information Warfare
-    description: >-
-      Fog, humidity, river spray, and vegetation distort sensors. Relay towers
-      on levees restore clarity. Destroying relays creates blind pockets across the floodplain.
+    description: '>- Fog, humidity, river spray, and vegetation distort sensors. Relay towers on levees restore clarity. Destroying relays creates blind pockets across the floodplain.'
   - name: Logistics & Resources
-    description: >-
-      Fuel depots, farm silos, and river docks serve as resupply nodes. Convoys
-      must navigate washed-out roads and avoid ambush-prone wetlands.
-  deployment: >-
-    Fixed deployment budget of approximately 10,000 points. Blue deploys from
-    the southwest river dock; Red deploys from the northeast levee stronghold.
+    description: '>- Fuel depots, farm silos, and river docks serve as resupply nodes. Convoys must navigate washed-out roads and avoid ambush-prone wetlands.'
+  deployment: '>- Fixed deployment budget of approximately 10,000 points. Blue deploys from the southwest river dock; Red deploys from the northeast levee stronghold.'
   ar:
     viewingDistance: 4-5 m
     physicalArea: 10x10 m
@@ -118,9 +95,7 @@ MonoBehaviour:
     description: Long-range sensor coverage of approximately 300 m. Fog and humidity create fog-of-war pockets.
   terrain: Rivers, wetlands, mudflats, levees, rural fields, farmsteads.
   vegetation: Grass, reeds, wetland trees, farmland crops.
-  buildingsAndProps: >-
-    Military: AA guns, radar dishes, bunkers. Rural: barns, silos, houses,
-    bridges. Logistics: trucks, crates, fuel drums, boats, drones.
+  buildingsAndProps: '>-'
   effects: Fog, humidity haze, water spray, mud splashes.
   audio: River flow, insects, machinery, distant artillery, radio chatter.
   lodBudget:
@@ -144,7 +119,7 @@ MonoBehaviour:
     count: 50
     trianglesPerItem: 10000
     totalTriangles: 500000
-  textureBudget: 2048² terrain/buildings, 1024² props, DXT1/5 compression, target <=100 MB.
+  textureBudget: "2048\xB2 terrain/buildings, 1024\xB2 props, DXT1/5 compression, target <=100 MB."
   engineAndPlugins: Unreal ARTemplate + Nreal SDK (XREAL). ARKit/ARCore enabled.
   rendering: Forward renderer, stationary lights, baked GI, aggressive culling.
   anchors: Single spatial anchor for entire map.

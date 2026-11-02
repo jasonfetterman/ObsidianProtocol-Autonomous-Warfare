@@ -1,4 +1,4 @@
-﻿%YAML 1.1
+%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
@@ -11,49 +11,24 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0263df275083eba45b37ab9636c8dcbf, type: 3}
   m_Name: MAP-063_Trenchline
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   mapId: MAP-063
   displayName: Trenchline
   environment: Coastal / Defensive
   warfareFocus: Fortifications & Defensive Operations
-  executiveSummary: >-
-    Trenchline is a fortified coastal battlefield built for defensive warfare,
-    entrenched positions, layered fortifications, and siege-driven coastal
-    operations. The terrain features cliffside bunkers, beach obstacles,
-    trench networks, artillery batteries, hardened pillboxes, coastal roads,
-    and inland fallback lines. The map emphasizes autonomous defensive logic,
-    sensor-network routing, comms-relay warfare, and logistics under sustained
-    siege conditions. In AR, the map anchors at approximately 4-5 m viewing
-    distance, covering a 10x10 m physical area representing approximately
-    1 km2 of coastal defensive terrain.
+  executiveSummary: '>- Trenchline is a fortified coastal battlefield built for defensive warfare, entrenched positions, layered fortifications, and siege-driven coastal operations. The terrain features cliffside bunkers, beach obstacles, trench networks, artillery batteries, hardened pillboxes, coastal roads, and inland fallback lines. The map emphasizes autonomous defensive logic, sensor-network routing, comms-relay warfare, and logistics under sustained siege conditions. In AR, the map anchors at approximately 4-5 m viewing distance, covering a 10x10 m physical area representing approximately 1 km2 of coastal defensive terrain.'
   designGoals:
   - name: Layered Coastal Defense
-    description: >-
-      Trenchline prioritizes multi-ring defense: beach obstacles, trench
-      networks, pillboxes, and inland bunkers. Attackers must breach sequential
-      layers while defenders coordinate autonomous countermeasures.
+    description: '>-'
   - name: Siege & Breach Mechanics
-    description: >-
-      Artillery, naval bombardment, drones, and armored vehicles play major
-      roles. Trenches, bunkers, and pillboxes can be destroyed or partially collapsed.
+    description: '>- Artillery, naval bombardment, drones, and armored vehicles play major roles. Trenches, bunkers, and pillboxes can be destroyed or partially collapsed.'
   - name: Autonomy & Defensive Coordination
-    description: >-
-      Autonomous units prioritize chokepoints, fallback positions, counter-battery
-      fire, and overwatch from cliffs. Units adapt to breached trenches,
-      destroyed bunkers, and shifting defensive priorities.
+    description: '>- Autonomous units prioritize chokepoints, fallback positions, counter-battery fire, and overwatch from cliffs. Units adapt to breached trenches, destroyed bunkers, and shifting defensive priorities.'
   - name: Sensor & Information Warfare
-    description: >-
-      Sea spray, smoke, dust, and cliff occlusion distort sensors. Relay towers
-      on cliffs restore clarity. Destroying relays creates blind pockets across
-      the defensive line.
+    description: '>- Sea spray, smoke, dust, and cliff occlusion distort sensors. Relay towers on cliffs restore clarity. Destroying relays creates blind pockets across the defensive line.'
   - name: Logistics & Resources
-    description: >-
-      Fuel depots, armories, and coastal roads serve as resupply nodes. Convoys
-      must navigate interior routes and avoid ambush-prone breach corridors.
-  deployment: >-
-    Fixed deployment budget of approximately 10,000 points. Blue deploys from
-    the southwest coastal trenchline; Red deploys from the northeast inland
-    command bunker.
+    description: '>- Fuel depots, armories, and coastal roads serve as resupply nodes. Convoys must navigate interior routes and avoid ambush-prone breach corridors.'
+  deployment: '>- Fixed deployment budget of approximately 10,000 points. Blue deploys from the southwest coastal trenchline; Red deploys from the northeast inland command bunker.'
   ar:
     viewingDistance: 4-5 m
     physicalArea: 10x10 m
@@ -118,9 +93,7 @@ MonoBehaviour:
     description: Long-range sensor coverage of approximately 350 m. Sea spray and smoke create fog-of-war pockets.
   terrain: Beaches, cliffs, trenches, bunkers, pillboxes, coastal roads.
   vegetation: Sparse shrubs, grass patches, coastal vegetation.
-  buildingsAndProps: >-
-    Military: AA guns, radar dishes, bunkers, pillboxes. Industrial:
-    generators, pipelines, fuel tanks. Logistics: trucks, crates, fuel drums, drones.
+  buildingsAndProps: '>-'
   effects: Smoke, sparks, dust, explosions, sea spray.
   audio: Artillery, waves, machinery, alarms, radio chatter.
   lodBudget:
@@ -144,7 +117,7 @@ MonoBehaviour:
     count: 50
     trianglesPerItem: 10000
     totalTriangles: 500000
-  textureBudget: 2048² terrain/buildings, 1024² props, DXT1/5 compression, target <=100 MB.
+  textureBudget: "2048\xB2 terrain/buildings, 1024\xB2 props, DXT1/5 compression, target <=100 MB."
   engineAndPlugins: Unreal ARTemplate + Nreal SDK (XREAL). ARKit/ARCore enabled.
   rendering: Forward renderer, stationary lights, baked GI, aggressive culling.
   anchors: Single spatial anchor for entire map.

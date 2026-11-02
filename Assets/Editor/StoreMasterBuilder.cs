@@ -1,4 +1,4 @@
-﻿using UnityEditor;
+using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +7,6 @@ using ObsidianProtocol.UI.Store;
 
 public static class StoreMasterBuilder
 {
-    [MenuItem("Obsidian Protocol/Store/BUILD COMPLETE STORE")]
     public static void Build()
     {
         var scene =

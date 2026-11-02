@@ -1,0 +1,224 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Mule
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-ground-mule
+  displayName: Mule
+  category: 1
+  role: Logistics / Field Transport
+  tier: Support
+  status: Active
+  storeImage: {fileID: -1580201579327368147, guid: d3a076523105a7648aa3123a85595144, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 4.4
+    widthMeters: 2.2
+    heightMeters: 1.9
+    massKg: 1300
+    powerSource: Diesel-electric hybrid
+    energyCapacityWh: 5000
+    energyConsumptionWhPerMinute: 0
+    endurance: 6-12 hours
+    payloadCapacityKg: 800
+    modules:
+    - Cargo bed
+    - Modular rack system
+    navigationSystem: GPS + Logistics AI
+    structuralIntegrityHp: 850
+    armorRating: 0.4
+    heatSignature: Medium
+    noiseSignature: Medium
+    topSpeedMetersPerSecond: 16
+    topSpeedDescription: 16 m/s
+    acceleration: Medium
+    turningRadius: Tight
+    climbRate: 
+    stabilityRating: High
+  autonomy:
+    behaviorProfile: Transport / Supply Delivery
+    aggression: 0
+    caution: 0.9
+    persistence: 1
+    flankingLikelihood: 0
+    retreatThreshold: 0.8
+    retreatBehaviorDescription: Early
+    targetPriority: Supply routes / friendly units
+    formationDiscipline: High
+    riskTolerance: 0.2
+  sensors:
+    visualRangeMeters: 1400
+    visualRangeDescription: 1400 m
+    thermalRangeMeters: 600
+    thermalRangeDescription: 600 m
+    acousticRange: Medium
+    radarRange: None
+    lidarRange: Short
+    signalDetectionRange: Short
+  communication:
+    meshRangeKm: 5
+    meshRangeDescription: 5 km
+    relayCapacity: 1
+    commandLinkType: Logistics Grid
+    networkPriority: High
+  combat:
+    firepowerRating: 0
+    firepowerDescription: None
+    accuracy: N/A
+    stabilization: Cargo stabilization
+    weaponMounts: None
+    weaponTypes: None
+    suppressionValue: 0
+    trackingStrength: None
+    disruptionStrength: Low
+    breachCapability: None
+    countermeasureRating: Low
+    threatLevel: 2
+    engagementDistance: N/A
+    preferredTerrain: Supply routes / safe lanes
+    preferredTargets: None
+    vulnerabilityProfile: Ballistic / explosives
+  squad:
+    squadRole: Logistics / Transport
+    squadSizeContribution: 2
+    formationBehavior: Rear-line spacing
+    intentInterpretationRules: Deliver supplies safely
+    retreatBehavior: Early
+    breachBehavior: None
+    flankingBehavior: None
+    reinforcementBehavior: Supports all squads
+    parentCommandUnit: Command Core / Fusion
+    subordinateUnits:
+    - Hauler
+    - Forge
+    relayNodes:
+    - Relay Node 1
+    networkDependencies: Logistics Grid
+  vrOperator:
+    operatorSeatType: Transport Cockpit
+    operatorHud: Logistics Overlay
+    cameraFeeds: Optical
+    thermalView: 1
+    lidarView: 1
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Full vehicle drive
+    sensorControls: Thermal / LiDAR / zoom
+    abilityControls: Mark Drop Zone, Stabilize, Route Lock
+    weaponControls: 'Cargo controls: Load / unload / secure'
+    stabilizationControls: Cargo stabilization
+    operatorAbilities:
+    - Supply Drop
+    - Cargo Stabilization
+    - Route Optimization
+    - Logistics Relay
+  economy:
+    creditCost: 750
+    buildCost: 500 Metal / 250 Electronics
+    buildTimeSeconds: 100
+    factoryType: Vehicle Bay
+    techRequirements: Logistics Systems I
+    maintenanceCost: Low
+    repairTimeSeconds: 25
+    supplyConsumption: Low
+    operationalCost: Low
+    deploymentRequirements: Vehicle pad
+    transportCompatibility: Heavy racks
+    launchMethod: Drive-out
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Heavy Alloy Plates
+      quantity: 36
+    - component: Reinforced Frame Rods
+      quantity: 18
+    - component: Hydraulic Actuators
+      quantity: 6
+    - component: Armor Panels
+      quantity: 3
+    - component: Cargo Bed Assembly
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 18
+    - component: Signal Processors
+      quantity: 12
+    - component: Vehicle Control Chips
+      quantity: 4
+    - component: Logistics AI Chips
+      quantity: 2
+    power:
+    - component: Hybrid Engine Core
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 2
+    rareTradeable:
+    - component: Cargo Stabilization Module
+      quantity: 1
+    optionalUpgrades:
+    - Reinforced Cargo Bed
+    - Silent Drive Kit
+    - Extended Fuel Tank
+    - Anti-Jamming Shielding
+  environment:
+    terrainAdaptationCoefficients: 
+    weatherSensitivityIndex: 0
+    visibilityModifiers: 
+    signalPropagationCurve: 
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0
+    packetLossRate: 
+    encryptionLatencySeconds: 0
+    meshSelfHealingThreshold: 
+    relaySaturationCurve: 
+  cognitive:
+    decisionConfidence: 0
+    threatRecognitionAccuracy: 0
+    adaptiveLearningRatePerMission: 0
+    commandOverrideResistance: 0
+    cooperativeBehaviorIndex: 0
+  behaviorNodes: []
+  missionBehaviors: []
+  unitSynergies: []
+  damageResponses: []
+  upgrades: []
+  tactical:
+    formationAdaptability: 0
+    tacticalRoleWeight: 0
+    commandResponseDelaySeconds: 0
+    reinforcementTriggerConditions: 
+    retreatLogicThresholds: 
+  maintenance:
+    meanTimeBetweenFailuresHours: 0
+    repairCycleSeconds: 0
+    resourceDrainPerHourPercent: 0
+    batteryEfficiencyPercent: 0
+    rotorStabilityPercent: 0
+    sensorCalibrationDriftPercentPerHour: 0
+    coolingEfficiencyPercent: 0
+    operationalUptimePercent: 0
+    energyRecoveryRatePercent: 0
+    energyRecoveryRatePercentPerIdleMinute: 0
+    componentWearPercentPerHour: 0
+    maintenancePriorityLevel: 
+    sparePartDependencyIndex: 0
+    operationalCostPerHour: 
+  threatResponses: []
+  commandNetwork: []
+  performance:
+    missionSuccessProbability: 0
+    averageEngagementDurationMinutes: 0
+    reconDataYieldMbPerMinute: 0
+    communicationUptime: 0
+    threatAvoidanceEfficiency: 0

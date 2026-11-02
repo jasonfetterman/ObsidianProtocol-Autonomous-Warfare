@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
 public class SCN17FirstPersonWalkController : MonoBehaviour
@@ -29,7 +29,7 @@ public class SCN17FirstPersonWalkController : MonoBehaviour
                 cameraPitch -= 360f;
         }
 
-        SetCursorLock(true);
+        SetCursorLock(false);
     }
 
     private void Update()
@@ -54,7 +54,7 @@ public class SCN17FirstPersonWalkController : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
-        transform.Rotate(Vector3.up * mouseX);
+        characterController.transform.Rotate(Vector3.up * mouseX);
 
         cameraPitch = Mathf.Clamp(
             cameraPitch - mouseY,
@@ -103,3 +103,4 @@ public class SCN17FirstPersonWalkController : MonoBehaviour
         Cursor.visible = true;
     }
 }
+

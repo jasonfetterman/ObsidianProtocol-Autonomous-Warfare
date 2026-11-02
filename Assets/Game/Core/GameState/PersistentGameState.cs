@@ -42,11 +42,14 @@ namespace ObsidianProtocol.Game.Core
         public void Initialize(
             string id,
             string commander,
-            string faction)
+            string faction,
+            string activePlayerId = null)
         {
             campaignId = id;
 
-            if (string.IsNullOrEmpty(playerId))
+            if (!string.IsNullOrWhiteSpace(activePlayerId))
+                playerId = activePlayerId.Trim();
+            else if (string.IsNullOrEmpty(playerId))
                 playerId = System.Guid.NewGuid().ToString("N");
 
             commanderName =
@@ -67,6 +70,40 @@ namespace ObsidianProtocol.Game.Core
             CurrentPlanetId = planetId;
         }
 
+        public void CopyToSaveData(SaveData data)
+        {
+            if (data == null)
+                throw new System.ArgumentNullException(nameof(data));
+
+            if (!IsInitialized)
+                return;
+
+            data.CampaignId = campaignId;
+            data.PlayerId = playerId;
+            data.CommanderName = commanderName;
+            data.FactionId = factionId;
+            data.CurrentPlanetId = CurrentPlanetId;
+        }
+
+        public bool RestoreFromSaveData(SaveData data)
+        {
+            if (data == null ||
+                string.IsNullOrWhiteSpace(data.CampaignId) ||
+                string.IsNullOrWhiteSpace(data.PlayerId) ||
+                data.CurrentPlanetId < 1 ||
+                data.CurrentPlanetId > 30)
+                return false;
+
+            Initialize(
+                data.CampaignId,
+                data.CommanderName,
+                data.FactionId,
+                data.PlayerId);
+
+            SetCurrentPlanet(data.CurrentPlanetId);
+            return IsInitialized;
+        }
+
         public void Clear()
         {
             campaignId = string.Empty;
@@ -82,4 +119,6 @@ namespace ObsidianProtocol.Game.Core
         }
     }
 }
+
+
 

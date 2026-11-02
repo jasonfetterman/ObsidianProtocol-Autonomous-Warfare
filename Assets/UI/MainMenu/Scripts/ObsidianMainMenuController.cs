@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
+
+using ObsidianProtocol.Game.Core;
 using UnityEngine.SceneManagement;
 
 namespace ObsidianProtocol.UI
@@ -47,7 +49,57 @@ namespace ObsidianProtocol.UI
             button.onClick.AddListener(Campaign);
         }
 
-        public void Continue() => LoadScene(continueScene, "CONTINUE");
+        public void Continue()
+        {
+            LoadSavedCampaign("CONTINUE");
+        }
+
+        public void LoadCampaign()
+        {
+            LoadSavedCampaign("LOAD");
+        }
+
+        private void LoadSavedCampaign(string action)
+        {
+            if (!SaveLoadService.Exists())
+            {
+                Debug.LogWarning("[Obsidian Protocol] " + action + " unavailable: no campaign save exists.");
+                return;
+            }
+
+            SaveData save = SaveLoadService.Load();
+
+            if (save == null ||
+                string.IsNullOrWhiteSpace(save.CampaignId) ||
+                string.IsNullOrWhiteSpace(save.PlayerId) ||
+                PersistentGameState.Instance == null ||
+                !PersistentGameState.Instance.IsInitialized)
+            {
+                Debug.LogError("[Obsidian Protocol] " + action + " failed: saved campaign state could not be restored.");
+                return;
+            }
+
+            // Restore campaign-scoped data before entering gameplay.
+        ObsidianProtocol.Game.Economy.EconomyRuntime.Load(save.CampaignId);
+
+        // Recover economy from the campaign save only when its separate
+        // campaign-scoped economy record is missing or invalid.
+        if (!ObsidianProtocol.Game.Economy.EconomyRuntime.CampaignActive)
+        {
+            ObsidianProtocol.Game.Economy.EconomyRuntime.StartNewCampaign(
+                save.CampaignId,
+                save.Funding,
+                save.PlayerId);
+
+            Debug.LogWarning(
+                "[Obsidian Protocol] " + action +
+                ": economy record unavailable; restored starting funding from campaign save.");
+        }
+
+        ObsidianProtocol.Game.Inventory.InventoryRuntime.Initialize(save.CampaignId);
+
+        LoadScene(continueScene, action);
+        }
         public void Campaign()
 {
     GameObject centerMenu =
@@ -119,7 +171,42 @@ namespace ObsidianProtocol.UI
 }
         public void Multiplayer() => LoadScene(multiplayerScene, "MULTIPLAYER");
         public void Garage() => LoadScene(garageScene, "GARAGE");
-        public void Store() => LoadScene(storeScene, "STORE");
+        public void Store()
+        {
+            if (SaveLoadService.Exists())
+            {
+                SaveData save = SaveLoadService.Load();
+
+                if (save != null &&
+                    !string.IsNullOrWhiteSpace(save.CampaignId) &&
+                    !string.IsNullOrWhiteSpace(save.PlayerId))
+                {
+                    ObsidianProtocol.Game.Inventory.InventoryRuntime.Initialize(save.CampaignId);
+
+                    ObsidianProtocol.Game.Economy.EconomyRuntime.Load(save.CampaignId);
+
+                    if (!ObsidianProtocol.Game.Economy.EconomyRuntime.CampaignActive)
+                    {
+                        ObsidianProtocol.Game.Economy.EconomyRuntime.StartNewCampaign(
+                            save.CampaignId,
+                            save.Funding,
+                            save.PlayerId);
+                    }
+
+                    Debug.Log("[STORE] Existing campaign restored: " + save.CampaignId);
+                }
+                else
+                {
+                    Debug.LogError("[STORE] Campaign save is invalid; inventory was not initialized.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("[STORE] No campaign save exists; purchases require a campaign.");
+            }
+
+            LoadScene(storeScene, "STORE");
+        }
         public void VROperator() => LoadScene(vrScene, "VR OPERATOR");
         public void Settings() => LoadScene(settingsScene, "SETTINGS");
 
@@ -201,6 +288,10 @@ namespace ObsidianProtocol.UI
         }
     }
 }
+
+
+
+
 
 
 

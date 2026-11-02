@@ -1,0 +1,245 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Trailblazer
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-air-trailblazer
+  displayName: Trailblazer
+  category: 0
+  role: Forward Recon / Pathfinding
+  tier: Recon
+  status: Active
+  storeImage: {fileID: 2437673009224533713, guid: fecce768a22192342b2cef5deef94cfd, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 2.9
+    widthMeters: 2.1
+    heightMeters: 1
+    massKg: 24
+    powerSource: Mid-endurance battery
+    energyCapacityWh: 2600
+    energyConsumptionWhPerMinute: 42
+    endurance: 45-70 min
+    payloadCapacityKg: 1.4
+    modules:
+    - Pathfinding optics
+    - Terrain-scan suite
+    navigationSystem: GPS + Route-Mapping AI
+    structuralIntegrityHp: 140
+    armorRating: 0.22
+    heatSignature: Low
+    noiseSignature: Low
+    topSpeedMetersPerSecond: 23
+    topSpeedDescription: 23 m/s
+    acceleration: Medium
+    turningRadius: Tight
+    climbRate: High
+    stabilityRating: High
+  autonomy:
+    behaviorProfile: Forward Recon / Route Discovery
+    aggression: 0
+    caution: 0.85
+    persistence: 0.9
+    flankingLikelihood: 0
+    retreatThreshold: 0.9
+    retreatBehaviorDescription: Early
+    targetPriority: Terrain anomalies / movement
+    formationDiscipline: Medium
+    riskTolerance: 0.2
+  sensors:
+    visualRangeMeters: 2400
+    visualRangeDescription: 2400 m
+    thermalRangeMeters: 900
+    thermalRangeDescription: 900 m
+    acousticRange: Low
+    radarRange: None
+    lidarRange: Medium
+    signalDetectionRange: Medium
+  communication:
+    meshRangeKm: 7
+    meshRangeDescription: 7 km
+    relayCapacity: 0
+    commandLinkType: Recon Grid
+    networkPriority: Medium
+  combat:
+    firepowerRating: 0
+    firepowerDescription: Trailblazer firepowerDescription
+    accuracy: N/A
+    stabilization: High
+    weaponMounts: None
+    weaponTypes: None
+    suppressionValue: 0
+    trackingStrength: Medium
+    disruptionStrength: Low
+    breachCapability: None
+    countermeasureRating: Low
+    threatLevel: 2
+    engagementDistance: N/A
+    preferredTerrain: Forward recon lanes
+    preferredTargets: None
+    vulnerabilityProfile: Ballistic / weather
+  squad:
+    squadRole: Pathfinding Recon
+    squadSizeContribution: 1
+    formationBehavior: Forward spacing
+    intentInterpretationRules: Discover safe routes
+    retreatBehavior: Early
+    breachBehavior: None
+    flankingBehavior: None
+    reinforcementBehavior: Supports recon and command squads
+    parentCommandUnit: Insight / Overseer
+    subordinateUnits:
+    - Survey
+    - Terrain
+    - Scout Eye
+    relayNodes: []
+    networkDependencies: Recon Grid
+  vrOperator:
+    operatorSeatType: Recon Drone View
+    operatorHud: Pathfinding Overlay
+    cameraFeeds: Optical
+    thermalView: 1
+    lidarView: 1
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Full drone flight
+    sensorControls: Thermal / LiDAR / zoom
+    abilityControls: Scan, Mark Route, Stabilize
+    weaponControls: None
+    stabilizationControls: Auto-hover
+    operatorAbilities:
+    - Route Scan
+    - Terrain Mapping
+    - Mark Safe Path
+    - Relay Recon Data
+  economy:
+    creditCost: 260
+    buildCost: 150 Metal / 110 Electronics
+    buildTimeSeconds: 50
+    factoryType: Drone Bay
+    techRequirements: Recon Systems II
+    maintenanceCost: Low
+    repairTimeSeconds: 14
+    supplyConsumption: Low
+    operationalCost: Minimal
+    deploymentRequirements: Standard drone pad
+    transportCompatibility: All aerial racks
+    launchMethod: Vertical takeoff
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Light Alloy Plates
+      quantity: 14
+    - component: Composite Frame Rods
+      quantity: 10
+    - component: Micro-Servo Actuators
+      quantity: 4
+    - component: Stabilizer Fins
+      quantity: 2
+    - component: Pathfinding Sensor Housing
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 14
+    - component: Signal Processors
+      quantity: 10
+    - component: Drone Control Chips
+      quantity: 3
+    - component: Recon AI Chips
+      quantity: 2
+    power:
+    - component: Mid-Endurance Battery Pack
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 2
+    rareTradeable:
+    - component: Terrain-Scan Optics Core
+      quantity: 1
+    optionalUpgrades:
+    - Extended Battery Pack
+    - Silent Rotor Kit
+    - High-Density Recon Grid
+  environment:
+    terrainAdaptationCoefficients: Trailblazer terrainAdaptationCoefficients
+    weatherSensitivityIndex: 1
+    visibilityModifiers: Trailblazer visibilityModifiers
+    signalPropagationCurve: Trailblazer signalPropagationCurve
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0.8
+    packetLossRate: Trailblazer packetLossRate
+    encryptionLatencySeconds: 1
+    meshSelfHealingThreshold: Trailblazer meshSelfHealingThreshold
+    relaySaturationCurve: Trailblazer relaySaturationCurve
+  cognitive:
+    decisionConfidence: 1
+    threatRecognitionAccuracy: 1
+    adaptiveLearningRatePerMission: 1
+    commandOverrideResistance: 1
+    cooperativeBehaviorIndex: 1
+  behaviorNodes:
+  - behaviorNode: 
+    weight: -0.00000008226931
+    description: 
+  missionBehaviors:
+  - missionType: 
+    behaviorFocus: 
+    efficiency: -0.00000008228733
+  unitSynergies:
+  - partnerUnit: 
+    synergyRating: -0.000000081262726
+    function: 
+  damageResponses:
+  - damageType: 
+    effect: 
+    recovery: 
+  upgrades:
+  - upgrade: 
+    effect: 
+    efficiencyGain: -0.00000008129882
+  tactical:
+    formationAdaptability: 1
+    tacticalRoleWeight: 1
+    commandResponseDelaySeconds: 1
+    reinforcementTriggerConditions: Trailblazer reinforcementTriggerConditions
+    retreatLogicThresholds: Trailblazer retreatLogicThresholds
+  maintenance:
+    meanTimeBetweenFailuresHours: 1
+    repairCycleSeconds: 1
+    resourceDrainPerHourPercent: 10
+    batteryEfficiencyPercent: 0.8
+    rotorStabilityPercent: 10
+    sensorCalibrationDriftPercentPerHour: 10
+    coolingEfficiencyPercent: 0.8
+    operationalUptimePercent: 10
+    energyRecoveryRatePercent: 10
+    energyRecoveryRatePercentPerIdleMinute: 10
+    componentWearPercentPerHour: 10
+    maintenancePriorityLevel: Trailblazer maintenancePriorityLevel
+    sparePartDependencyIndex: 1
+    operationalCostPerHour: Trailblazer operationalCostPerHour
+  threatResponses:
+  - threatType: 
+    reactionTimeSeconds: -1.6962372e-20
+    countermeasureEfficiency: 5.79e-43
+  commandNetwork:
+  - node: 
+    loadPercent: -0.00001955549
+    latencySeconds: 5.79e-43
+    status: 
+  performance:
+    missionSuccessProbability: 0.75
+    averageEngagementDurationMinutes: 1
+    reconDataYieldMbPerMinute: 1
+    communicationUptime: 1
+    threatAvoidanceEfficiency: 0.8

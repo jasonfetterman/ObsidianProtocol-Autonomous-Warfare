@@ -1,10 +1,13 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class UIAudioFeedbackSystem : MonoBehaviour
+[DisallowMultipleComponent]
+public sealed class UIAudioFeedbackSystem : MonoBehaviour
 {
     public static UIAudioFeedbackSystem Instance { get; private set; }
 
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip clickClip;
+    [SerializeField, Range(0f, 1f)] private float clickVolume = 0.18f;
 
     private void Awake()
     {
@@ -18,6 +21,20 @@ public class UIAudioFeedbackSystem : MonoBehaviour
 
         if (audioSource == null)
             audioSource = GetComponent<AudioSource>();
+
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
+
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 0f;
+    }
+
+    public void PlayClick()
+    {
+        if (audioSource == null || clickClip == null)
+            return;
+
+        audioSource.PlayOneShot(clickClip, clickVolume);
     }
 
     public void Play(AudioClip clip)
@@ -30,9 +47,7 @@ public class UIAudioFeedbackSystem : MonoBehaviour
 
     public void Stop()
     {
-        if (audioSource == null)
-            return;
-
-        audioSource.Stop();
+        if (audioSource != null)
+            audioSource.Stop();
     }
 }

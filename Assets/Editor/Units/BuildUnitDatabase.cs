@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEditor;
 using UnityEngine;
 using ObsidianProtocol.Game.Units;
@@ -50,36 +50,10 @@ public static class BuildUnitDatabase
     [MenuItem("Obsidian Protocol/Units/BUILD ALL UNIT DATABASE")]
     public static void Build()
     {
-        try
-        {
-            EnsureFolder(Root);
-
-            int created = 0;
-            int updated = 0;
-
-            foreach (string entry in Units)
-            {
-                string[] p = entry.Split('|');
-
-                if (BuildUnit(p[0], p[1], p[2]))
-                    created++;
-                else
-                    updated++;
-            }
-
-            BuildDatabase();
-            SyncRuntimeDatabase();
-
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
-
-            Debug.Log(
-                $"UNIT DATABASE COMPLETE â€” {Units.Length} units | Created: {created} | Updated: {updated}");
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("UNIT DATABASE BUILD FAILED: " + e);
-        }
+        Debug.LogError(
+            "[UNIT DATABASE BUILDER DISABLED] " +
+            "The builder must be repaired before it can modify unit assets."
+        );
     }
 
     private static bool BuildUnit(string id, string name, string category)
@@ -123,7 +97,7 @@ public static class BuildUnitDatabase
                         Enum.GetNames(typeof(UnitCategory)),
                         category);
 
-            FillPrimitiveProperties(so, name, category);
+// Generic placeholder population intentionally removed.
         }
 
         so.ApplyModifiedPropertiesWithoutUndo();
@@ -143,7 +117,7 @@ public static class BuildUnitDatabase
 
         SerializedProperty category = so.FindProperty("category");
         if (category != null)
-            category.enumValueIndex = (int)UnitCategory.Air;
+            category.enumValueIndex = (int)UnitCategory.AirUnit;
 
         SetFloat(so, "physical.lengthMeters", 1.2f);
         SetFloat(so, "physical.widthMeters", 0.9f);
@@ -658,91 +632,6 @@ public static class BuildUnitDatabase
             item.FindPropertyRelative("status").stringValue = statuses[i];
         }
     }
-    private static void FillPrimitiveProperties(
-        SerializedObject so,
-        string unitName,
-        string category)
-    {
-        SerializedProperty it = so.GetIterator();
-
-        bool enterChildren = true;
-
-        while (it.NextVisible(enterChildren))
-        {
-            enterChildren = false;
-
-            if (it.propertyType == SerializedPropertyType.String &&
-                it.name != "unitId" &&
-                it.name != "displayName" &&
-                it.name != "role" &&
-                it.name != "tier" &&
-                it.name != "status")
-            {
-                it.stringValue =
-                    unitName + " " + Pretty(it.name);
-            }
-            else if (it.propertyType == SerializedPropertyType.Float)
-            {
-                it.floatValue = DefaultFloat(it.name, category);
-            }
-            else if (it.propertyType == SerializedPropertyType.Integer)
-            {
-                it.intValue = DefaultInt(it.name, category);
-            }
-            else if (it.propertyType == SerializedPropertyType.Boolean)
-            {
-                it.boolValue = true;
-            }
-        }
-    }
-
-    private static float DefaultFloat(string field, string category)
-    {
-        string n = field.ToLowerInvariant();
-
-        if (n.Contains("length")) return 3f;
-        if (n.Contains("width")) return 2f;
-        if (n.Contains("height")) return 1f;
-        if (n.Contains("mass")) return 1000f;
-        if (n.Contains("capacity")) return 1000f;
-        if (n.Contains("range")) return 1000f;
-        if (n.Contains("speed")) return 15f;
-        if (n.Contains("acceleration")) return 5f;
-        if (n.Contains("integrity")) return 1000f;
-        if (n.Contains("armor")) return 0.5f;
-        if (n.Contains("probability")) return 0.75f;
-        if (n.Contains("efficiency")) return 0.8f;
-        if (n.Contains("confidence")) return 0.8f;
-        if (n.Contains("accuracy")) return 0.8f;
-        if (n.Contains("aggression")) return 0.5f;
-        if (n.Contains("caution")) return 0.75f;
-        if (n.Contains("persistence")) return 0.75f;
-        if (n.Contains("threshold")) return 0.5f;
-        if (n.Contains("rating")) return 5f;
-        if (n.Contains("percent")) return 80f;
-        if (n.Contains("latency")) return 0.05f;
-        if (n.Contains("seconds")) return 30f;
-        if (n.Contains("hours")) return 100f;
-
-        return 1f;
-    }
-
-    private static int DefaultInt(string field, string category)
-    {
-        string n = field.ToLowerInvariant();
-
-        if (n.Contains("cost")) return 1000;
-        if (n.Contains("points")) return 1000;
-        if (n.Contains("quantity")) return 10;
-        if (n.Contains("level")) return 1;
-        if (n.Contains("size")) return 1;
-        if (n.Contains("capacity")) return 5;
-        if (n.Contains("threat")) return 5;
-        if (n.Contains("relay")) return 2;
-
-        return 1;
-    }
-
     private static void SetString(
         SerializedObject so,
         string name,
@@ -754,16 +643,7 @@ public static class BuildUnitDatabase
             p.stringValue = value;
     }
 
-    private static string Pretty(string value)
-    {
-        if (string.IsNullOrEmpty(value))
-            return "";
 
-        return value
-            .Replace("_", " ")
-            .Replace("Meters", " Range")
-            .Replace("Seconds", " Time");
-    }
 
     private static void BuildDatabase()
     {
@@ -875,6 +755,8 @@ public static class BuildUnitDatabase
         }
     }
 }
+
+
 
 
 

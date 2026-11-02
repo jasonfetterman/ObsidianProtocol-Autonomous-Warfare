@@ -11,6 +11,7 @@ namespace ObsidianProtocol.Game.PersistentMilitary
     {
         public string UnitId = "";
         public string UnitType = "";
+        public string OwnerId = "";
         public string Status = "ACTIVE";
 
         public int Missions;
@@ -99,6 +100,16 @@ namespace ObsidianProtocol.Game.PersistentMilitary
             Validate();
         }
 
+        public static MilitaryUnitRecord AddUnit(string unitId, string unitType, string ownerId)
+        {
+            MilitaryUnitRecord unit = AddUnit(unitId, unitType);
+            if (unit != null && !string.IsNullOrWhiteSpace(ownerId))
+            {
+                unit.OwnerId = ownerId;
+                Save();
+            }
+            return unit;
+        }
         public static MilitaryUnitRecord AddUnit(
             string unitId,
             string unitType)
@@ -643,6 +654,7 @@ namespace ObsidianProtocol.Game.PersistentMilitary
         }
     }
 }
+
 
 
 

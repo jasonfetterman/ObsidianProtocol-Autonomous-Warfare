@@ -1,0 +1,223 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Crusher
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-ground-crusher
+  displayName: Crusher
+  category: 1
+  role: Heavy Demolition / Terrain Clearing
+  tier: Assault Engineering
+  status: Active
+  storeImage: {fileID: -3958020025147252199, guid: 872a815613038df42a96a7c3b961dacc, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 5.1
+    widthMeters: 2.8
+    heightMeters: 2.3
+    massKg: 2600
+    powerSource: Industrial diesel-electric hybrid
+    energyCapacityWh: 9000
+    energyConsumptionWhPerMinute: 0
+    endurance: "4\u20136 hours"
+    payloadCapacityKg: 500
+    modules:
+    - Dual crushing arms
+    - Reinforced demolition chassis
+    navigationSystem: GPS + Demolition AI
+    structuralIntegrityHp: 1800
+    armorRating: 0.9
+    heatSignature: High
+    noiseSignature: Very High
+    topSpeedMetersPerSecond: 9
+    topSpeedDescription: 9 m/s
+    acceleration: Low
+    turningRadius: Heavy pivot
+    climbRate: 
+    stabilityRating: Maximum
+  autonomy:
+    behaviorProfile: Demolition / Terrain Clearing
+    aggression: 0.7
+    caution: 0.4
+    persistence: 1
+    flankingLikelihood: 0
+    retreatThreshold: 0.3
+    retreatBehaviorDescription: Late; maintain demolition task until retreat threshold is reached
+    targetPriority: Obstacles / structures / debris
+    formationDiscipline: High
+    riskTolerance: 0.8
+  sensors:
+    visualRangeMeters: 1200
+    visualRangeDescription: 1200 m visual range
+    thermalRangeMeters: 600
+    thermalRangeDescription: 600 m thermal range
+    acousticRange: Medium
+    radarRange: None
+    lidarRange: Medium
+    signalDetectionRange: Short
+  communication:
+    meshRangeKm: 4
+    meshRangeDescription: 4 km
+    relayCapacity: 0
+    commandLinkType: Engineering Grid
+    networkPriority: Medium
+  combat:
+    firepowerRating: 0.25
+    firepowerDescription: Low; crushing arms only
+    accuracy: N/A
+    stabilization: High; reinforced demolition stance
+    weaponMounts: None
+    weaponTypes: Hydraulic crushing arms
+    suppressionValue: 0.25
+    trackingStrength: None
+    disruptionStrength: High
+    breachCapability: Very High
+    countermeasureRating: Medium
+    threatLevel: 7
+    engagementDistance: Contact
+    preferredTerrain: Urban rubble / breach zones
+    preferredTargets: Structures / debris / fortifications
+    vulnerabilityProfile: Ballistic / explosives
+  squad:
+    squadRole: Heavy Demolition
+    squadSizeContribution: 4
+    formationBehavior: Front-line demolition spacing
+    intentInterpretationRules: Clear obstacles and open paths
+    retreatBehavior: Late
+    breachBehavior: Primary
+    flankingBehavior: None
+    reinforcementBehavior: Supports assault and engineering squads
+    parentCommandUnit: Command Core / Fusion
+    subordinateUnits:
+    - Hammer
+    - Ironwalker
+    relayNodes: []
+    networkDependencies: Engineering Grid
+  vrOperator:
+    operatorSeatType: Heavy Demolition Cockpit
+    operatorHud: Demolition Overlay
+    cameraFeeds: Optical + arm cams
+    thermalView: 1
+    lidarView: 1
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Heavy vehicle drive
+    sensorControls: Thermal / LiDAR / zoom
+    abilityControls: Crush / lift / break / clear; Demolition Mode / Stabilize / Structural Scan
+    weaponControls: None; hydraulic crushing tools only
+    stabilizationControls: Reinforced demolition stance
+    operatorAbilities:
+    - Hydraulic Crush
+    - Debris Clearing
+    - Structural Weak-Point Scan
+    - Reinforced Stance
+  economy:
+    creditCost: 2000
+    buildCost: 1300 Metal / 700 Electronics
+    buildTimeSeconds: 190
+    factoryType: Heavy Vehicle Bay
+    techRequirements: Engineering Systems II
+    maintenanceCost: High
+    repairTimeSeconds: 48
+    supplyConsumption: High
+    operationalCost: High
+    deploymentRequirements: Heavy vehicle pad
+    transportCompatibility: Heavy racks
+    launchMethod: Drive-out
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Heavy Alloy Plates
+      quantity: 80
+    - component: Reinforced Frame Rods
+      quantity: 40
+    - component: Hydraulic Actuators
+      quantity: 14
+    - component: Armor Panels
+      quantity: 8
+    - component: Crushing Arm Assembly
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 36
+    - component: Signal Processors
+      quantity: 22
+    - component: Vehicle Control Chips
+      quantity: 7
+    - component: Engineering AI Chips
+      quantity: 4
+    power:
+    - component: Industrial Hybrid Engine Core
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 3
+    rareTradeable:
+    - component: Hydraulic Crushing Core
+      quantity: 1
+    optionalUpgrades:
+    - Reinforced Arms
+    - Shock-Dampened Chassis
+    - Extended Fuel Tank
+    - Anti-Jamming Shielding
+  environment:
+    terrainAdaptationCoefficients: 
+    weatherSensitivityIndex: 0
+    visibilityModifiers: 
+    signalPropagationCurve: 
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0
+    packetLossRate: 
+    encryptionLatencySeconds: 0
+    meshSelfHealingThreshold: 
+    relaySaturationCurve: 
+  cognitive:
+    decisionConfidence: 0
+    threatRecognitionAccuracy: 0
+    adaptiveLearningRatePerMission: 0
+    commandOverrideResistance: 0
+    cooperativeBehaviorIndex: 0
+  behaviorNodes: []
+  missionBehaviors: []
+  unitSynergies: []
+  damageResponses: []
+  upgrades: []
+  tactical:
+    formationAdaptability: 0
+    tacticalRoleWeight: 0
+    commandResponseDelaySeconds: 0
+    reinforcementTriggerConditions: 
+    retreatLogicThresholds: 
+  maintenance:
+    meanTimeBetweenFailuresHours: 0
+    repairCycleSeconds: 0
+    resourceDrainPerHourPercent: 0
+    batteryEfficiencyPercent: 0
+    rotorStabilityPercent: 0
+    sensorCalibrationDriftPercentPerHour: 0
+    coolingEfficiencyPercent: 0
+    operationalUptimePercent: 0
+    energyRecoveryRatePercent: 0
+    energyRecoveryRatePercentPerIdleMinute: 0
+    componentWearPercentPerHour: 0
+    maintenancePriorityLevel: 
+    sparePartDependencyIndex: 0
+    operationalCostPerHour: 
+  threatResponses: []
+  commandNetwork: []
+  performance:
+    missionSuccessProbability: 0
+    averageEngagementDurationMinutes: 0
+    reconDataYieldMbPerMinute: 0
+    communicationUptime: 0
+    threatAvoidanceEfficiency: 0

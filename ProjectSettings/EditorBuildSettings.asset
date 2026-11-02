@@ -6,19 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: "Assets/Scenes/SCN01_MAIN_MENU/[HUD] MAIN MENU HUD/SCN\u201101  MAIN MENU.unity"
+    path: "Assets/Scenes/SCN01_MAIN_MENU/MAIN MENU HUD/SCN\u201101  MAIN MENU.unity"
     guid: 3a119c7292583d54cbbc2cfac953750c
   - enabled: 1
-    path: Assets/Scenes/SCN02_COMMAND_CENTER/[HUD] COMMAND CENTER HUD/Command_Center.unity
+    path: Assets/Scenes/SCN02_COMMAND_CENTER/COMMAND CENTER HUD/Command_Center.unity
     guid: 7283dd3c6babe0d4f907577c96b6f010
-  - enabled: 1
-    path: Assets/Scenes/SCN03 _BATTLEFIELD/[HUD] BATTLEFIELD HUD/Battlefield_HUD.unity
-    guid: 155ca26d6107e0a42ac705229f04688d
   - enabled: 1
     path: Assets/Scenes/SCN05_OPERATIONS/[HUD] OPERATIONS HUD/Operations.unity
     guid: b93eac5945ad2f943812cdf7d377cfeb
   - enabled: 1
-    path: Assets/Scenes/SCN06_RESEARCH/[HUD] RESEARCH HUD/Research_Lab.unity
+    path: Assets/Scenes/SCN06_RESEARCH/RESEARCH HUD/Research_Lab.unity
     guid: b01cda49ffb28604f9dcc946934516e0
   - enabled: 1
     path: Assets/Scenes/SCN07_FINANCE/[HUD] FINANCE HUD/Finance_ HUD.unity
@@ -233,6 +230,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SCN30_ACHERON/Blackspire_Continent.unity
     guid: 0e95c68aadad5b84ba2e74f35b836ca1
+  - enabled: 1
+    path: Assets/Scenes/SCN03_BATTLEFIELD_AAA/SCN03_BATTLEFIELD_AAA.unity
+    guid: 0472de175882e6243882727495766e93
+  - enabled: 1
+    path: Assets/Scenes/SCN04_GARAGE/SCN04_GARAGE_ARCHITECTURE_TEST.unity
+    guid: 58d5a8d47ae9e5244a44744c3707f52b
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: aa8a83ffabb26bf4ea34ad4ad9200c1d, type: 2}
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}

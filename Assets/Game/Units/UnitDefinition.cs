@@ -1,18 +1,23 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace ObsidianProtocol.Game.Units
 {
     public enum UnitCategory
-    {
-        Air,
-        Ground,
-        Sea,
-        Command,
-        Experimental,
-        Satellite
-    }
+{
+    AirUnit = 0,
+    GroundUnit = 1,
+    Naval = 2,
+    Station = 3,
+    Exploration = 4,
+    Satellite = 5,
+    Fighter = 6,
+    Transport = 7,
+    Recon = 8,
+    Shuttle = 9,
+    Medical = 10,
+}
 
     [CreateAssetMenu(
         fileName = "UnitDefinition",
@@ -26,6 +31,10 @@ namespace ObsidianProtocol.Game.Units
         [SerializeField] private string role;
         [SerializeField] private string tier;
         [SerializeField] private string status;
+
+        [Header("STORE PRESENTATION")]
+        [SerializeField] private Sprite storeImage;
+        [SerializeField] private GameObject modelPrefab;
 
         [Header("PHYSICAL & TECHNICAL")]
         [SerializeField] private PhysicalTechnical physical = new PhysicalTechnical();
@@ -99,6 +108,8 @@ namespace ObsidianProtocol.Game.Units
         public string Role => role;
         public string Tier => tier;
         public string Status => status;
+        public Sprite StoreImage => storeImage;
+        public GameObject ModelPrefab => modelPrefab;
         public PhysicalTechnical Physical => physical;
         public AutonomyAI Autonomy => autonomy;
         public SensorData Sensors => sensors;
@@ -486,3 +497,6 @@ namespace ObsidianProtocol.Game.Units
         public float threatAvoidanceEfficiency;
     }
 }
+
+
+

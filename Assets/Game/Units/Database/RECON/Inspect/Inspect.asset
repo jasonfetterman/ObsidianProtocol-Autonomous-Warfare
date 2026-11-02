@@ -1,0 +1,382 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Inspect
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-air-inspect
+  displayName: Inspect
+  category: 8
+  role: Structural Inspection / Close-Range Analysis
+  tier: Operational
+  status: Active
+  storeImage: {fileID: 7453632067985395730, guid: 51a680c4b330c8348948a1a60d9a93cb, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 2
+    widthMeters: 1.6
+    heightMeters: 0.8
+    massKg: 16
+    powerSource: Compact battery
+    energyCapacityWh: 1600
+    energyConsumptionWhPerMinute: 35
+    endurance: "30\u201345 min"
+    payloadCapacityKg: 1.2
+    modules:
+    - Inspection camera
+    - Micro-stabilizers
+    navigationSystem: GPS + Close-Range Obstacle Avoidance
+    structuralIntegrityHp: 110
+    armorRating: 0.12
+    heatSignature: Low
+    noiseSignature: Low
+    topSpeedMetersPerSecond: 18
+    topSpeedDescription: 18 m/s
+    acceleration: Medium
+    turningRadius: Very Tight
+    climbRate: Medium
+    stabilityRating: High (for close-range hovering)
+  autonomy:
+    behaviorProfile: Inspection / Analysis
+    aggression: 0
+    caution: 0.9
+    persistence: 0.7
+    flankingLikelihood: 0
+    retreatThreshold: 0.8
+    retreatBehaviorDescription: Early withdrawal from unsafe inspection positions
+    targetPriority: Structural points / anomalies
+    formationDiscipline: Medium
+    riskTolerance: 0
+  sensors:
+    visualRangeMeters: 1600
+    visualRangeDescription: 1600 m
+    thermalRangeMeters: 700
+    thermalRangeDescription: 700 m
+    acousticRange: Low
+    radarRange: None
+    lidarRange: Short-range (close inspection)
+    signalDetectionRange: Low
+  communication:
+    meshRangeKm: 4
+    meshRangeDescription: 4 km
+    relayCapacity: 0
+    commandLinkType: Standard Warden mesh
+    networkPriority: Low
+  combat:
+    firepowerRating: 0
+    firepowerDescription: 
+    accuracy: N/A
+    stabilization: Very High
+    weaponMounts: None
+    weaponTypes: None
+    suppressionValue: 0
+    trackingStrength: Medium
+    disruptionStrength: Low
+    breachCapability: None
+    countermeasureRating: Low
+    threatLevel: 2
+    engagementDistance: N/A
+    preferredTerrain: Close-range hover zones
+    preferredTargets: None
+    vulnerabilityProfile: Ballistic / weather
+  squad:
+    squadRole: Structural Inspection
+    squadSizeContribution: 1
+    formationBehavior: Tight hover patterns
+    intentInterpretationRules: Approach slowly; maintain inspection distance
+    retreatBehavior: Early
+    breachBehavior: None
+    flankingBehavior: None
+    reinforcementBehavior: Supports engineering squads
+    parentCommandUnit: Insight / Command Core
+    subordinateUnits: []
+    relayNodes: []
+    networkDependencies: Standard Warden mesh
+  vrOperator:
+    operatorSeatType: Drone View
+    operatorHud: Inspection Overlay
+    cameraFeeds: High-zoom optical
+    thermalView: 1
+    lidarView: 1
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Full drone flight
+    sensorControls: Zoom / thermal / LiDAR
+    abilityControls: Scan, Mark Structural Weakness
+    weaponControls: None
+    stabilizationControls: Auto-hover, micro-adjust
+    operatorAbilities:
+    - Close-Range Scan
+    - Structural Mark
+    - LiDAR Sweep
+    - Stabilize
+  economy:
+    creditCost: 500
+    buildCost: 140 Metal / 120 Electronics
+    buildTimeSeconds: 45
+    factoryType: Drone Bay
+    techRequirements: Inspection Systems I
+    maintenanceCost: Low
+    repairTimeSeconds: 0
+    supplyConsumption: Low
+    operationalCost: Minimal
+    deploymentRequirements: Standard drone pad
+    transportCompatibility: All aerial racks
+    launchMethod: Vertical takeoff
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Light Alloy Plates
+      quantity: 12
+    - component: Composite Frame Rods
+      quantity: 8
+    - component: Micro-Servo Actuators
+      quantity: 6
+    - component: Stabilizer Fins
+      quantity: 2
+    - component: Inspection Camera Housing
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 10
+    - component: Signal Processors
+      quantity: 6
+    - component: Drone Control Chips
+      quantity: 4
+    - component: LiDAR Micro-Emitters
+      quantity: 2
+    power:
+    - component: Compact Battery Pack
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 2
+    rareTradeable:
+    - component: Precision Inspection Lens
+      quantity: 1
+    - component: Short-Range LiDAR Core
+      quantity: 1
+    optionalUpgrades:
+    - Ultra-Zoom Lens
+    - Thermal Enhancement Module
+    - Silent Rotor Kit
+    - Micro-Hover Stabilization Grid
+    - Precision LiDAR Processor
+  environment:
+    terrainAdaptationCoefficients: Open Air 1.0 / Urban 0.95 / Forest 0.75 / Mountain 0.80 / Desert 0.90 / Snow 0.70 / Water 0.0
+    weatherSensitivityIndex: 0.64
+    visibilityModifiers: Day 1.0 / Night 0.80 / Fog 0.65 / Rain 0.78 / Heavy Storm 0.55
+    signalPropagationCurve: Effective range decreases 0.2% per 10% atmospheric interference
+    modifiers:
+    - condition: High Winds
+      effect: -15% hover stability / -10% LiDAR precision
+    - condition: Heavy Rain
+      effect: -20% optical clarity / -8% inspection accuracy
+    - condition: Fog
+      effect: -25% visual range / +5% thermal effectiveness
+    - condition: Night Operations
+      effect: -20% visual range / +10% thermal effectiveness
+    - condition: Extreme Weather
+      effect: -35% close-range inspection efficiency
+    - condition: Electromagnetic Interference
+      effect: -35% signal integrity
+  network:
+    nodeHandoffEfficiency: 0.94
+    packetLossRate: 1.6% under load
+    encryptionLatencySeconds: 0.1
+    meshSelfHealingThreshold: 1 lost node
+    relaySaturationCurve: Throughput decreases 6% per active node beyond 5
+  cognitive:
+    decisionConfidence: 0.9
+    threatRecognitionAccuracy: 0.94
+    adaptiveLearningRatePerMission: 0.05
+    commandOverrideResistance: 0.08
+    cooperativeBehaviorIndex: 0.93
+  behaviorNodes:
+  - behaviorNode: Inspection Scan
+    weight: 0.95
+    description: Conduct detailed structural inspection
+  - behaviorNode: Anomaly Detection
+    weight: 0.94
+    description: Identify structural irregularities
+  - behaviorNode: LiDAR Analysis
+    weight: 0.96
+    description: Map close-range geometry and surfaces
+  - behaviorNode: Thermal Analysis
+    weight: 0.88
+    description: Identify abnormal thermal signatures
+  - behaviorNode: Structural Classification
+    weight: 0.93
+    description: Classify structural conditions
+  - behaviorNode: Hover Stabilization
+    weight: 0.97
+    description: Maintain precise inspection position
+  - behaviorNode: Approach Control
+    weight: 0.95
+    description: Approach inspection points safely
+  - behaviorNode: Structural Marking
+    weight: 0.92
+    description: Mark weaknesses and anomalies
+  - behaviorNode: Retreat
+    weight: 0.91
+    description: Withdraw when inspection becomes unsafe
+  - behaviorNode: Override Response
+    weight: 0.88
+    description: Accept authorized inspection commands
+  missionBehaviors:
+  - missionType: Close-Range Scan
+    behaviorFocus: Inspection precision
+    efficiency: 0.96
+  - missionType: Structural Analysis
+    behaviorFocus: Classification accuracy
+    efficiency: 0.93
+  - missionType: LiDAR Sweep
+    behaviorFocus: Mapping accuracy
+    efficiency: 0.94
+  - missionType: Thermal Inspection
+    behaviorFocus: Anomaly detection
+    efficiency: 0.88
+  - missionType: Structural Marking
+    behaviorFocus: Marking accuracy
+    efficiency: 0.92
+  - missionType: Hover Inspection
+    behaviorFocus: Stability
+    efficiency: 0.96
+  - missionType: Data Relay
+    behaviorFocus: Transmission integrity
+    efficiency: 0.94
+  - missionType: Emergency Retreat
+    behaviorFocus: Response efficiency
+    efficiency: 0.94
+  unitSynergies:
+  - partnerUnit: Warden
+    synergyRating: 0.8
+    function: Provide aerial reconnaissance support
+  - partnerUnit: Beacon
+    synergyRating: 0.76
+    function: Maintain communications coverage
+  - partnerUnit: Iris
+    synergyRating: 0.88
+    function: Exchange high-resolution imaging data
+  - partnerUnit: Sentinel
+    synergyRating: 0.74
+    function: Provide perimeter security during inspections
+  - partnerUnit: Overseer
+    synergyRating: 0.82
+    function: Receive structural intelligence
+  - partnerUnit: Insight
+    synergyRating: 0.95
+    function: Analyze structural and anomaly data
+  damageResponses:
+  - damageType: Ballistic
+    effect: Sensor degradation and reduced flight stability
+    recovery: Automatic recalibration and repositioning
+  - damageType: EMP
+    effect: Temporary communications loss
+    recovery: Protected recovery and communications reacquisition
+  - damageType: Weather
+    effect: Reduced hover stability
+    recovery: Increase inspection distance
+  - damageType: Optical Sensor
+    effect: Reduced visual analysis
+    recovery: Recalibrate optical sensor
+  - damageType: LiDAR
+    effect: Close-range mapping unavailable
+    recovery: Repair or replace LiDAR assembly
+  - damageType: Rotor
+    effect: Reduced hover precision
+    recovery: Emergency return
+  upgrades:
+  - upgrade: Ultra-Zoom Lens
+    effect: +25% optical magnification; +10% inspection accuracy
+    efficiencyGain: 0.1
+  - upgrade: Thermal Enhancement Module
+    effect: +20% thermal range; +8% anomaly detection
+    efficiencyGain: 0.08
+  - upgrade: Silent Rotor Kit
+    effect: -25% noise signature; +5% stealth efficiency
+    efficiencyGain: 0.05
+  - upgrade: Micro-Hover Stabilization Grid
+    effect: +15% hover precision; +10% LiDAR accuracy
+    efficiencyGain: 0.1
+  - upgrade: Precision LiDAR Processor
+    effect: +15% structural mapping accuracy; +8% processing efficiency
+    efficiencyGain: 0.08
+  tactical:
+    formationAdaptability: 0.76
+    tacticalRoleWeight: 0.72
+    commandResponseDelaySeconds: 0.45
+    reinforcementTriggerConditions: Structural anomaly severity >70% OR Signal Integrity <60%
+    retreatLogicThresholds: Structural Integrity <35% OR Threat Level >4 OR Battery <20%
+  maintenance:
+    meanTimeBetweenFailuresHours: 40
+    repairCycleSeconds: 0
+    resourceDrainPerHourPercent: 0
+    batteryEfficiencyPercent: 92
+    rotorStabilityPercent: 94
+    sensorCalibrationDriftPercentPerHour: 6
+    coolingEfficiencyPercent: 88
+    operationalUptimePercent: 96
+    energyRecoveryRatePercent: 0
+    energyRecoveryRatePercentPerIdleMinute: 7
+    componentWearPercentPerHour: 0.3
+    maintenancePriorityLevel: Tier II
+    sparePartDependencyIndex: 0.49
+    operationalCostPerHour: 4 Metal / 4 Electronics
+  threatResponses:
+  - threatType: Ballistic
+    reactionTimeSeconds: 0.25
+    countermeasureEfficiency: 0.38
+  - threatType: Explosive
+    reactionTimeSeconds: 0.6
+    countermeasureEfficiency: 0.34
+  - threatType: EMP
+    reactionTimeSeconds: 0.9
+    countermeasureEfficiency: 0.31
+  - threatType: Thermal
+    reactionTimeSeconds: 0.35
+    countermeasureEfficiency: 0.45
+  - threatType: Signal Jam
+    reactionTimeSeconds: 0.7
+    countermeasureEfficiency: 0.4
+  - threatType: Weather
+    reactionTimeSeconds: 0.5
+    countermeasureEfficiency: 0.52
+  - threatType: Structural Collapse
+    reactionTimeSeconds: 0.15
+    countermeasureEfficiency: 0.94
+  commandNetwork:
+  - node: Standard Warden Mesh
+    loadPercent: 29
+    latencySeconds: 0.45
+    status: Stable
+  - node: Inspection Data Link
+    loadPercent: 38
+    latencySeconds: 0.2
+    status: Active
+  - node: LiDAR Processing Core
+    loadPercent: 47
+    latencySeconds: 0.14
+    status: Optimal
+  - node: Optical Analysis Core
+    loadPercent: 42
+    latencySeconds: 0.18
+    status: Active
+  - node: Insight / Command Core
+    loadPercent: 35
+    latencySeconds: 0.5
+    status: Active
+  performance:
+    missionSuccessProbability: 0.91
+    averageEngagementDurationMinutes: 7.5
+    reconDataYieldMbPerMinute: 16
+    communicationUptime: 0.96
+    threatAvoidanceEfficiency: 0.92

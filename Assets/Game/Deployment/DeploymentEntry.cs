@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace ObsidianProtocol.Game.Deployment
 {
@@ -72,6 +72,14 @@ namespace ObsidianProtocol.Game.Deployment
         {
             if (State == DeploymentState.Deployed)
                 State = DeploymentState.Withdrawn;
+        }
+
+        public void RestoreState(DeploymentState state)
+        {
+            if (!Enum.IsDefined(typeof(DeploymentState), state))
+                throw new ArgumentOutOfRangeException(nameof(state));
+
+            State = state;
         }
     }
 }

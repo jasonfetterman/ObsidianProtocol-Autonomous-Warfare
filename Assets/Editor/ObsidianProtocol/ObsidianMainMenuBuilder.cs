@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEditor;
@@ -8,7 +8,7 @@ using System.IO;
 public static class ObsidianMainMenuBuilder
 {
     private const string ScenePath =
-        "Assets/UI/MainMenu/Scenes/SCN-01_MainMenu.unity";
+        "Assets/Scenes/SCN01_MAIN_MENU/[HUD] MAIN MENU HUD/SCN01  MAIN MENU.unity";
 
     private const string BackgroundPath =
         "Assets/UI/MainMenu/Art/MainMenu_Background.png";
@@ -861,6 +861,7 @@ public static class ObsidianMainMenuBuilder
             });
     }
 }
+
 
 
 
