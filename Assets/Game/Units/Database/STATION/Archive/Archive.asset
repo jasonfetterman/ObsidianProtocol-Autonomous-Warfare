@@ -1,0 +1,342 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Archive
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-command-archive
+  displayName: Archive
+  category: 3
+  role: Strategic Data Core / Global Intelligence Storage
+  tier: Command
+  status: Active
+  storeImage: {fileID: -2971991394342099061, guid: 7c8c28a864e0eca4984304471e4da19d, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 10
+    widthMeters: 7
+    heightMeters: 5
+    massKg: 18000
+    powerSource: Dual redundant command-grade reactors
+    energyCapacityWh: 120000
+    energyConsumptionWhPerMinute: 5
+    endurance: Continuous
+    payloadCapacityKg: 0
+    modules:
+    - Strategic data vault
+    - Encryption lattice
+    - Multi-node command mesh
+    - Redundant cooling towers
+    navigationSystem: Stationary (anchored command node)
+    structuralIntegrityHp: 4000
+    armorRating: 1.2
+    heatSignature: Medium
+    noiseSignature: Low
+    topSpeedMetersPerSecond: 5
+    topSpeedDescription: "N/A \u2014 stationary command installation"
+    acceleration: Archive acceleration
+    turningRadius: Archive turningRadius
+    climbRate: Archive climbRate
+    stabilityRating: Maximum
+  autonomy:
+    behaviorProfile: Strategic data management / command relay
+    aggression: 0
+    caution: 1
+    persistence: 1
+    flankingLikelihood: 0
+    retreatThreshold: 0
+    retreatBehaviorDescription: "None \u2014 anchored command node; preserve data and transfer services to redundant systems"
+    targetPriority: None (non-combat)
+    formationDiscipline: Maximum
+    riskTolerance: 0.1
+  sensors:
+    visualRangeMeters: 5000
+    visualRangeDescription: Short
+    thermalRangeMeters: 5000
+    thermalRangeDescription: Short
+    acousticRange: Short
+    radarRange: Medium
+    lidarRange: Archive lidarRange
+    signalDetectionRange: Very High
+  communication:
+    meshRangeKm: 5000
+    meshRangeDescription: Global (command-tier)
+    relayCapacity: 8
+    commandLinkType: Strategic Command Mesh
+    networkPriority: Maximum
+  combat:
+    firepowerRating: 0
+    firepowerDescription: "None \u2014 non-combat strategic data core"
+    accuracy: N/A
+    stabilization: N/A
+    weaponMounts: None
+    weaponTypes: None
+    suppressionValue: 0
+    trackingStrength: High (signals only)
+    disruptionStrength: High (data routing)
+    breachCapability: None
+    countermeasureRating: Very High
+    threatLevel: 5
+    engagementDistance: N/A
+    preferredTerrain: Secure command zones
+    preferredTargets: None (non-combat)
+    vulnerabilityProfile: EMP / sabotage
+  squad:
+    squadRole: Strategic Data Core
+    squadSizeContribution: 6
+    formationBehavior: Central command anchor
+    intentInterpretationRules: Store, route, and secure global data
+    retreatBehavior: None
+    breachBehavior: None
+    flankingBehavior: None
+    reinforcementBehavior: Supports all units
+    parentCommandUnit: Command Core
+    subordinateUnits:
+    - Insight
+    - Pulse
+    relayNodes:
+    - Relay Node 1
+    - Relay Node 2
+    - Relay Node 3
+    - Relay Node 4
+    - Relay Node 5
+    - Relay Node 6
+    - Relay Node 7
+    - Relay Node 8
+    networkDependencies: Strategic Command Mesh
+  vrOperator:
+    operatorSeatType: Command Data Console
+    operatorHud: Strategic Data Overlay
+    cameraFeeds: Internal systems only
+    thermalView: 1
+    lidarView: 0
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Stationary anchor installation; no movement controls
+    sensorControls: Data routing / encryption lattice management / mesh node control / system diagnostics
+    abilityControls: Global Data Sync / Mesh Stabilization / Encryption Pulse / Command Relay
+    weaponControls: None
+    stabilizationControls: Mesh health and command-network continuity
+    operatorAbilities:
+    - Global Data Sync
+    - Mesh Stabilization
+    - Encryption Pulse
+    - Command Relay
+  economy:
+    creditCost: 3200
+    buildCost: 2,000 Metal / 1,200 Electronics
+    buildTimeSeconds: 240
+    factoryType: Command Foundry
+    techRequirements: Command Systems I
+    maintenanceCost: High
+    repairTimeSeconds: 70
+    supplyConsumption: Medium
+    operationalCost: Medium
+    deploymentRequirements: Command zone
+    transportCompatibility: Heavy command carriers
+    launchMethod: Anchor-install
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Command Alloy Plates
+      quantity: 120
+    - component: Reinforced Command Rods
+      quantity: 60
+    - component: Hydraulic Actuators
+      quantity: 10
+    - component: Armor Panels
+      quantity: 4
+    - component: Data Vault Assembly
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 40
+    - component: Signal Processors
+      quantity: 30
+    - component: Command Control Chips
+      quantity: 10
+    - component: Command AI Chips
+      quantity: 4
+    power:
+    - component: Command Reactor Core
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 3
+    rareTradeable:
+    - component: Encryption Lattice Module
+      quantity: 1
+    optionalUpgrades:
+    - Reinforced Vault
+    - Quantum Encryption
+    - Anti-Jamming Shielding
+  environment:
+    terrainAdaptationCoefficients: Archive terrainAdaptationCoefficients
+    weatherSensitivityIndex: 5
+    visibilityModifiers: Archive visibilityModifiers
+    signalPropagationCurve: Archive signalPropagationCurve
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0.8
+    packetLossRate: Archive packetLossRate
+    encryptionLatencySeconds: 5
+    meshSelfHealingThreshold: Archive meshSelfHealingThreshold
+    relaySaturationCurve: Archive relaySaturationCurve
+  cognitive:
+    decisionConfidence: 5
+    threatRecognitionAccuracy: 5
+    adaptiveLearningRatePerMission: 5
+    commandOverrideResistance: 5
+    cooperativeBehaviorIndex: 5
+  behaviorNodes:
+  - behaviorNode: 
+    weight: -0.00000008226931
+    description: 
+  - behaviorNode: 
+    weight: 0
+    description: 
+  - behaviorNode: 
+    weight: 0
+    description: 
+  - behaviorNode: 
+    weight: 0
+    description: 
+  - behaviorNode: 
+    weight: -2.964526e+21
+    description: 
+  missionBehaviors:
+  - missionType: 
+    behaviorFocus: 
+    efficiency: -0.00000008228733
+  - missionType: 
+    behaviorFocus: 
+    efficiency: 0
+  - missionType: 
+    behaviorFocus: 
+    efficiency: 0
+  - missionType: 
+    behaviorFocus: 
+    efficiency: 0
+  - missionType: 
+    behaviorFocus: 
+    efficiency: -0.00000008226931
+  unitSynergies:
+  - partnerUnit: 
+    synergyRating: -0.000000081262726
+    function: 
+  - partnerUnit: 
+    synergyRating: 0
+    function: 
+  - partnerUnit: 
+    synergyRating: 0
+    function: 
+  - partnerUnit: 
+    synergyRating: 0
+    function: 
+  - partnerUnit: 
+    synergyRating: -0.00000008228733
+    function: 
+  damageResponses:
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  upgrades:
+  - upgrade: 
+    effect: 
+    efficiencyGain: -0.00000008129882
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  - upgrade: 
+    effect: 
+    efficiencyGain: -0.000000081280746
+  tactical:
+    formationAdaptability: 5
+    tacticalRoleWeight: 5
+    commandResponseDelaySeconds: 5
+    reinforcementTriggerConditions: Archive reinforcementTriggerConditions
+    retreatLogicThresholds: Archive retreatLogicThresholds
+  maintenance:
+    meanTimeBetweenFailuresHours: 5
+    repairCycleSeconds: 5
+    resourceDrainPerHourPercent: 50
+    batteryEfficiencyPercent: 0.8
+    rotorStabilityPercent: 50
+    sensorCalibrationDriftPercentPerHour: 50
+    coolingEfficiencyPercent: 0.8
+    operationalUptimePercent: 50
+    energyRecoveryRatePercent: 50
+    energyRecoveryRatePercentPerIdleMinute: 50
+    componentWearPercentPerHour: 50
+    maintenancePriorityLevel: Archive maintenancePriorityLevel
+    sparePartDependencyIndex: 5
+    operationalCostPerHour: Archive operationalCostPerHour
+  threatResponses:
+  - threatType: 
+    reactionTimeSeconds: -1.6962372e-20
+    countermeasureEfficiency: 5.79e-43
+  - threatType: 
+    reactionTimeSeconds: 0
+    countermeasureEfficiency: 0
+  - threatType: 
+    reactionTimeSeconds: 0
+    countermeasureEfficiency: 0
+  - threatType: 
+    reactionTimeSeconds: 0
+    countermeasureEfficiency: 0
+  - threatType: 
+    reactionTimeSeconds: -1.6962605e-20
+    countermeasureEfficiency: 5.79e-43
+  commandNetwork:
+  - node: 
+    loadPercent: -0.00001955549
+    latencySeconds: 5.79e-43
+    status: 
+  - node: 
+    loadPercent: 0
+    latencySeconds: 0
+    status: 
+  - node: 
+    loadPercent: 0
+    latencySeconds: 0
+    status: 
+  - node: 
+    loadPercent: 0
+    latencySeconds: 0
+    status: 
+  - node: 
+    loadPercent: -0.000019550862
+    latencySeconds: 5.79e-43
+    status: 
+  performance:
+    missionSuccessProbability: 0.75
+    averageEngagementDurationMinutes: 5
+    reconDataYieldMbPerMinute: 5
+    communicationUptime: 5
+    threatAvoidanceEfficiency: 0.8

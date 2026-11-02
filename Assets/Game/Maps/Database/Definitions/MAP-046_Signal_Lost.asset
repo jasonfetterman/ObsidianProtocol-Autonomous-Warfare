@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0263df275083eba45b37ab9636c8dcbf, type: 3}
+  m_Name: MAP-046_Signal_Lost
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Maps.MapDefinition
+  mapId: MAP-046
+  displayName: Signal Lost
+  environment: Remote Facility
+  warfareFocus: Communications degradation & electronic warfare
+  executiveSummary: Remote communications-facility battlefield built for electronic warfare, comms degradation, autonomous counter-EW behavior, and precision operations across isolated terrain. Features satellite dishes, microwave towers, buried fiber lines, hardened relay bunkers, diesel generators, snow-scoured ridges or dry scrub flats, and long-range sensor arrays.
+  designGoals:
+  - name: Communications Degradation Warfare
+    description: Jamming, spoofing, interference, blackout zones, and comms-dependent tactics. Units operate under partial or total signal loss.
+  - name: Electronic Warfare (EW) Dominance
+    description: EW vehicles, drone jammers, signal scramblers, and counter-EW units; relay towers are strategic nodes.
+  - name: Autonomous EW-Aware Routing
+    description: Routes based on signal strength, interference pockets, terrain occlusion, and fallback relay availability.
+  - name: Remote-Facility Combat
+    description: Long-range fire, drone reconnaissance, armored pushes, and stealth infiltration revolve around the communications backbone.
+  - name: Logistics & Resources
+    description: Fuel caches, generator stations, and buried cable hubs serve as resupply nodes.
+  deployment: Fixed deployment budget ~10,000 points. Blue deploys from southwest service-road checkpoint; Red from northeast relay-spire command.
+  ar:
+    viewingDistance: "~4\u20135 m"
+    physicalArea: "10\xD710 m"
+    representedArea: "~1 km\xB2"
+    scale: 1:100
+    fov: "~53\xB0 diagonal"
+    resolution: "1920\xD71080 per eye"
+    tracking: Inside-out horizontal plane tracking; depth mesh if available; minimal real-world occlusion.
+    interaction: Phone pointer for pan/zoom; HUD as screen-space widgets.
+  coordinateSystem: "1000\xD71000 grid; 1 unit \u2248 1 m; origin (0,0) southwest corner."
+  keyLocations:
+  - name: Blue HQ (Service-Road Checkpoint)
+    coordinate: (0,0)
+    sizeOrElevation: "150\xD7150 m"
+    description: Armored vehicles, EW trucks, drone pads.
+  - name: Red HQ (Relay-Spire Command)
+    coordinate: (1000,1000)
+    sizeOrElevation: "150\xD7150 m"
+    description: Elevated bunker with radar mast, EW arrays, AA emplacements.
+  - name: Central Relay Basin
+    coordinate: (500,450)
+    sizeOrElevation: "300\xD7300 m"
+    description: Relay towers, interference pockets, blackout zones, long-range EW duels.
+  - name: Generator Station Cluster
+    coordinate: (250,800)
+    sizeOrElevation: "120\xD7120 m"
+    description: Diesel generators, transformers, interior flanking routes.
+  - name: Sensor Array Ridge
+    coordinate: (800,300)
+    sizeOrElevation: "200\xD7200 m"
+    description: High-ground overwatch, signal triangulation, counter-EW vantage points.
+  - name: Blackout Corridor
+    coordinate: "(0,450 \u2192 400,900)"
+    sizeOrElevation: "\u2014"
+    description: Primary EW chokepoint; jamming fields, interference pockets, false signals.
+  - name: Service Road Route
+    coordinate: "(300,0 \u2192 450,350)"
+    sizeOrElevation: "\u2014"
+    description: Safer but predictable; vulnerable to EW-driven ambushes.
+  - name: Relay Tower A
+    coordinate: (650,150)
+    sizeOrElevation: +240 m
+    description: Long-range sensor vantage point.
+  - name: Relay Tower B
+    coordinate: (150,650)
+    sizeOrElevation: +260 m
+    description: Comms relay hub and EW-control node.
+  - name: Neutral Forward Outpost
+    coordinate: (500,950)
+    sizeOrElevation: "\u2014"
+    description: Drone resupply zone.
+  chokepointsAndSightlines:
+  - name: Blackout Corridor
+    description: Major chokepoint; filled with jamming fields and false signals.
+  - name: Sensor Array Ridge
+    description: Extreme long-range sightlines; ideal for counter-EW and recon triangulation.
+  - name: Relay Basin
+    description: Long-range EW engagements distorted by interference and signal loss.
+  - name: Service Road Route
+    description: Predictable but safe; vulnerable to EW-driven ambushes.
+  terrain: Ridges, flats, relay towers, generator stations, service roads.
+  vegetation: Sparse shrubs, dry grass, or snow patches depending on climate.
+  buildingsAndProps: 'Military: EW trucks, AA guns, radar dishes, bunkers. Industrial: generators, transformers, pipelines, relay towers. Logistics: trucks, crates, fuel drums, drones.'
+  effects: Signal distortion, interference waves, smoke, dust, fog.
+  audio: Wind, generator hum, static bursts, radio chatter.
+  lodBudget:
+  - category: Facility/Ridge Terrain
+    count: 3
+    trianglesPerItem: 200000
+    totalTriangles: 600000
+  - category: Industrial/EW
+    count: 4
+    trianglesPerItem: 80000
+    totalTriangles: 320000
+  - category: Buildings/Military
+    count: 15
+    trianglesPerItem: 50000
+    totalTriangles: 750000
+  - category: Roads/Paths
+    count: 4
+    trianglesPerItem: 30000
+    totalTriangles: 120000
+  - category: Props
+    count: 50
+    trianglesPerItem: 10000
+    totalTriangles: 500000
+  textureBudget: "2048\xB2 for terrain/buildings; 1024\xB2 for props; DXT1/5; target \u2264100 MB."
+  engineAndPlugins: Unreal ARTemplate + Nreal SDK (XREAL). ARKit/ARCore enabled.
+  rendering: Forward renderer, stationary lights, baked GI, aggressive culling.
+  anchors: Single spatial anchor for entire map.
+  interaction: 
+  multiplayer: Client-server architecture; offload AI/physics to server.
+  milestones:
+  - name: 1. Prototype Layout
+    description: Block-out relay basin, ridges, generator stations, AR anchor test.
+  - name: 2. Core Systems
+    description: NavMesh, EW autonomy behaviors, interference logic.
+  - name: 3. AR Integration
+    description: Anchors, plane detection, basic interactivity.
+  - name: 4. Content Fill
+    description: Final models, textures, lighting, audio.
+  - name: 5. Gameplay & Polish
+    description: Objectives, balance, VFX (interference waves, static bursts).
+  - name: 6. Testing & QA
+    description: Multiplayer stress test, sensor validation.
+  testing:
+  - name: 
+    description: Verify EW-aware navigation, interference-zone avoidance, fallback routing.
+  - name: 
+    description: Test relay destruction, fog-of-war updates, LOS checks under jamming.
+  - name: 
+    description: "\u226560 Hz AR render on target device."
+  - name: 
+    description: Navigation, EW logic, deployment budget enforcement, anchor drift, sensor accuracy.

@@ -1,39 +1,82 @@
-using System;
 using UnityEngine;
+using System.Collections.Generic;
 
-public class UIStateSystem : MonoBehaviour
+namespace ObsidianProtocol.UI
 {
-    public static UIStateSystem Instance { get; private set; }
-
-    public string CurrentState { get; private set; } = "None";
-
-    public event Action<string> OnStateChanged;
-
-    private void Awake()
+    public class UIStateSystem : MonoBehaviour
     {
-        if (Instance != null && Instance != this)
+        public static UIStateSystem Instance { get; private set; }
+
+        [Header("Registered States")]
+        [SerializeField] private List<UIState> states = new List<UIState>();
+
+        private readonly Dictionary<string, UIState> lookup = new Dictionary<string, UIState>();
+        private UIState activeState;
+
+        private void Awake()
         {
-            Destroy(gameObject);
-            return;
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this;
+
+            // Build lookup table
+            foreach (var state in states)
+            {
+                if (state != null && !string.IsNullOrEmpty(state.stateId))
+                {
+                    lookup[state.stateId] = state;
+                }
+            }
         }
 
-        Instance = this;
+        /// <summary>
+        /// Sets the active UI state by ID.
+        /// </summary>
+        public void SetState(string stateId)
+        {
+            if (!lookup.TryGetValue(stateId, out var state))
+            {
+                Debug.LogWarning($"[UIStateSystem] State not found: {stateId}");
+                return;
+            }
+
+            // Deactivate previous state
+            if (activeState != null)
+                activeState.SetActive(false);
+
+            // Activate new state
+            activeState = state;
+            activeState.SetActive(true);
+
+            Debug.Log($"[UIStateSystem] Active state: {stateId}");
+        }
+
+        /// <summary>
+        /// Clears the active state.
+        /// </summary>
+        public void ClearState()
+        {
+            if (activeState != null)
+                activeState.SetActive(false);
+
+            activeState = null;
+        }
     }
 
-    public void SetState(string newState)
+    [System.Serializable]
+    public class UIState
     {
-        if (string.IsNullOrEmpty(newState))
-            return;
+        public string stateId;
+        public GameObject root;
 
-        if (CurrentState == newState)
-            return;
-
-        CurrentState = newState;
-        OnStateChanged?.Invoke(CurrentState);
-    }
-
-    public bool IsState(string state)
-    {
-        return CurrentState == state;
+        public void SetActive(bool active)
+        {
+            if (root != null)
+                root.SetActive(active);
+        }
     }
 }

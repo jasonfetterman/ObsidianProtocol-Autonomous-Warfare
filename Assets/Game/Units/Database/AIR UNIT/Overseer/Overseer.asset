@@ -1,0 +1,231 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Overseer
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-air-overseer
+  displayName: Overseer
+  category: 0
+  role: Command-Grade Recon / Multi-Sensor Coordination
+  tier: Command
+  status: Active
+  storeImage: {fileID: 3075050894341514006, guid: 6f6c18eddd7c6884c97f7cdd243b3e58, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 3.4
+    widthMeters: 2.6
+    heightMeters: 1.2
+    massKg: 32
+    powerSource: High-capacity command battery
+    energyCapacityWh: 3000
+    energyConsumptionWhPerMinute: 70
+    endurance: "35\u201350 min"
+    payloadCapacityKg: 3
+    modules:
+    - Multi-sensor command suite
+    navigationSystem: GPS + Command-AI Pathing
+    structuralIntegrityHp: 180
+    armorRating: 0.28
+    heatSignature: Medium
+    noiseSignature: Medium
+    topSpeedMetersPerSecond: 22
+    topSpeedDescription: 22 m/s
+    acceleration: Medium
+    turningRadius: Moderate
+    climbRate: Medium
+    stabilityRating: Very High
+  autonomy:
+    behaviorProfile: Command Recon / Coordination
+    aggression: 0.2
+    caution: 0.7
+    persistence: 0.9
+    flankingLikelihood: 0.2
+    retreatThreshold: 0.6
+    retreatBehaviorDescription: Medium
+    targetPriority: High-value targets
+    formationDiscipline: Very High
+    riskTolerance: 0.5
+  sensors:
+    visualRangeMeters: 2200
+    visualRangeDescription: 2200 m
+    thermalRangeMeters: 1400
+    thermalRangeDescription: 1400 m
+    acousticRange: Medium
+    radarRange: Short-range
+    lidarRange: Medium
+    signalDetectionRange: Very High
+  communication:
+    meshRangeKm: 10
+    meshRangeDescription: 10 km
+    relayCapacity: 4
+    commandLinkType: Command Grid
+    networkPriority: Very High
+  combat:
+    firepowerRating: 0.25
+    firepowerDescription: Low; command-grade deterrent
+    accuracy: Medium
+    stabilization: Very High
+    weaponMounts: 1 (non-lethal deterrent or marker beam)
+    weaponTypes: Marker beam / deterrent pulse
+    suppressionValue: 0.5
+    trackingStrength: Very High
+    disruptionStrength: Medium
+    breachCapability: None
+    countermeasureRating: Medium
+    threatLevel: 5
+    engagementDistance: "200\u2013400 m"
+    preferredTerrain: High-visibility command airspace
+    preferredTargets: High-value targets / command nodes
+    vulnerabilityProfile: Ballistic / EMP / jamming
+  squad:
+    squadRole: Air Command Recon
+    squadSizeContribution: 1
+    formationBehavior: Command-grade spacing
+    intentInterpretationRules: Maintain oversight, coordinate recon units
+    retreatBehavior: Medium
+    breachBehavior: None
+    flankingBehavior: Light
+    reinforcementBehavior: Supports recon, mesh, and targeting squads
+    parentCommandUnit: Command Core
+    subordinateUnits:
+    - Warden
+    - Iris
+    - Locator
+    - Nightguard
+    relayNodes:
+    - Relay Node 1
+    - Relay Node 2
+    - Relay Node 3
+    - Relay Node 4
+    networkDependencies: Command Grid
+  vrOperator:
+    operatorSeatType: Command Drone View
+    operatorHud: Multi-Sensor Command Overlay
+    cameraFeeds: Optical
+    thermalView: 1
+    lidarView: 1
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Full drone flight
+    sensorControls: Multi-sensor switching
+    abilityControls: Mark Target, Command Ping, Scan
+    weaponControls: Marker beam / deterrent pulse
+    stabilizationControls: Auto-hover
+    operatorAbilities:
+    - Command Ping
+    - Multi-Sensor Scan
+    - Target Mark
+    - Squad Coordination
+    - Relay Command Data
+  economy:
+    creditCost: 3200
+    buildCost: 260 Metal / 240 Electronics
+    buildTimeSeconds: 75
+    factoryType: Drone Bay
+    techRequirements: Command Systems I
+    maintenanceCost: Medium
+    repairTimeSeconds: 20
+    supplyConsumption: Medium
+    operationalCost: Moderate
+    deploymentRequirements: Command drone pad
+    transportCompatibility: All aerial racks
+    launchMethod: Vertical takeoff
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Medium Alloy Plates
+      quantity: 18
+    - component: Composite Frame Rods
+      quantity: 12
+    - component: Micro-Servo Actuators
+      quantity: 8
+    - component: Stabilizer Fins
+      quantity: 4
+    - component: Command Sensor Housing
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 18
+    - component: Signal Processors
+      quantity: 12
+    - component: Drone Control Chips
+      quantity: 6
+    - component: Command AI Chips
+      quantity: 4
+    power:
+    - component: High-Capacity Command Battery
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 3
+    rareTradeable:
+    - component: Command-Grade Multi-Sensor Core
+      quantity: 1
+    - component: Encrypted Command Processor
+      quantity: 1
+    optionalUpgrades:
+    - Extended Command Range Module
+    - Anti-Jamming Shielding
+    - Silent Rotor Kit
+    - High-Density Sensor Grid
+  environment:
+    terrainAdaptationCoefficients: 
+    weatherSensitivityIndex: 0
+    visibilityModifiers: 
+    signalPropagationCurve: 
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0
+    packetLossRate: 
+    encryptionLatencySeconds: 0
+    meshSelfHealingThreshold: 
+    relaySaturationCurve: 
+  cognitive:
+    decisionConfidence: 0
+    threatRecognitionAccuracy: 0
+    adaptiveLearningRatePerMission: 0
+    commandOverrideResistance: 0
+    cooperativeBehaviorIndex: 0
+  behaviorNodes: []
+  missionBehaviors: []
+  unitSynergies: []
+  damageResponses: []
+  upgrades: []
+  tactical:
+    formationAdaptability: 0
+    tacticalRoleWeight: 0
+    commandResponseDelaySeconds: 0
+    reinforcementTriggerConditions: 
+    retreatLogicThresholds: 
+  maintenance:
+    meanTimeBetweenFailuresHours: 0
+    repairCycleSeconds: 0
+    resourceDrainPerHourPercent: 0
+    batteryEfficiencyPercent: 0
+    rotorStabilityPercent: 0
+    sensorCalibrationDriftPercentPerHour: 0
+    coolingEfficiencyPercent: 0
+    operationalUptimePercent: 0
+    energyRecoveryRatePercent: 0
+    energyRecoveryRatePercentPerIdleMinute: 0
+    componentWearPercentPerHour: 0
+    maintenancePriorityLevel: 
+    sparePartDependencyIndex: 0
+    operationalCostPerHour: 
+  threatResponses: []
+  commandNetwork: []
+  performance:
+    missionSuccessProbability: 0
+    averageEngagementDurationMinutes: 0
+    reconDataYieldMbPerMinute: 0
+    communicationUptime: 0
+    threatAvoidanceEfficiency: 0

@@ -1,0 +1,368 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Lifeline
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-air-lifeline
+  displayName: Lifeline
+  category: 10
+  role: Emergency Support / Medical Supply / Rapid Response
+  tier: Advanced Support
+  status: Active
+  storeImage: {fileID: -8861312367885148522, guid: 273c837188dd19f4fa904347e13f6db6, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 3.2
+    widthMeters: 2.4
+    heightMeters: 1.2
+    massKg: 30
+    powerSource: High-capacity battery
+    energyCapacityWh: 2600
+    energyConsumptionWhPerMinute: 60
+    endurance: "30\u201345 min; active drain 60 Wh/min; medical delivery 68; thermal search 72; emergency response 80; idle 12; emergency power 15"
+    payloadCapacityKg: 3
+    modules:
+    - Medical supply bay
+    - Stabilization rotors
+    navigationSystem: GPS + Emergency Routing AI
+    structuralIntegrityHp: 150
+    armorRating: 0.22
+    heatSignature: Medium
+    noiseSignature: Medium
+    topSpeedMetersPerSecond: 21
+    topSpeedDescription: 21 m/s
+    acceleration: Medium
+    turningRadius: Moderate
+    climbRate: Medium
+    stabilityRating: Very High (safe medical delivery)
+  autonomy:
+    behaviorProfile: Rescue Support / Medical Delivery
+    aggression: 0
+    caution: 0.9
+    persistence: 0.8
+    flankingLikelihood: 0
+    retreatThreshold: 0.7
+    retreatBehaviorDescription: Return to support if integrity <30%, battery <20%, payload compromised, or rescue corridor impassable.
+    targetPriority: Injured units / emergency zones
+    formationDiscipline: Medium
+    riskTolerance: 0.15
+  sensors:
+    visualRangeMeters: 1400
+    visualRangeDescription: 1400 m
+    thermalRangeMeters: 800
+    thermalRangeDescription: 800 m
+    acousticRange: Low
+    radarRange: None
+    lidarRange: Short-range
+    signalDetectionRange: Medium
+  communication:
+    meshRangeKm: 6
+    meshRangeDescription: 6 km
+    relayCapacity: 0
+    commandLinkType: Rescue Grid / Command Mesh
+    networkPriority: High
+  combat:
+    firepowerRating: 0
+    firepowerDescription: Noncombatant emergency support platform
+    accuracy: N/A
+    stabilization: Very High
+    weaponMounts: None
+    weaponTypes: None
+    suppressionValue: 0
+    trackingStrength: Medium
+    disruptionStrength: Low
+    breachCapability: None
+    countermeasureRating: Low
+    threatLevel: 3
+    engagementDistance: N/A
+    preferredTerrain: Rescue corridors
+    preferredTargets: None; direct combat assignment prohibited
+    vulnerabilityProfile: Ballistic / weather
+  squad:
+    squadRole: Emergency Support
+    squadSizeContribution: 1
+    formationBehavior: Rescue corridor spacing
+    intentInterpretationRules: 'Prioritize medical delivery over speed. Commands: respond to medical emergency; deliver supplies; locate injured unit; search rescue zone; establish rescue corridor; reroute around threat; report casualty status.'
+    retreatBehavior: Medium
+    breachBehavior: None
+    flankingBehavior: None
+    reinforcementBehavior: Supports rescue and logistics squads. Rescue Grid range 6 km; redundant links Rescue Grid / Command Mesh.
+    parentCommandUnit: Rescue / Command Core
+    subordinateUnits: []
+    relayNodes: []
+    networkDependencies: Rescue Grid
+  vrOperator:
+    operatorSeatType: Drone View
+    operatorHud: Medical Overlay; rescue markers / medical zones; direct combat prohibited; autonomous assignment enabled.
+    cameraFeeds: Optical
+    thermalView: 1
+    lidarView: 1
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Full drone flight
+    sensorControls: Thermal / LiDAR / zoom
+    abilityControls: Medical Drop, Scan, Stabilize
+    weaponControls: None
+    stabilizationControls: Auto-hover
+    operatorAbilities:
+    - Medical Payload Drop
+    - Rescue Scan
+    - Thermal Search
+    - Stabilize
+    - Relay Rescue Data
+  economy:
+    creditCost: 1600
+    buildCost: 200 Metal / 220 Electronics
+    buildTimeSeconds: 65
+    factoryType: Drone Bay
+    techRequirements: Rescue Systems I
+    maintenanceCost: Medium
+    repairTimeSeconds: 16
+    supplyConsumption: Medium
+    operationalCost: 7 Metal / 7 Electronics per hour; standard drone bay infrastructure
+    deploymentRequirements: Standard drone pad
+    transportCompatibility: All aerial racks
+    launchMethod: Vertical takeoff
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Medium Alloy Plates
+      quantity: 16
+    - component: Composite Frame Rods
+      quantity: 12
+    - component: Micro-Servo Actuators
+      quantity: 8
+    - component: Stabilizer Fins
+      quantity: 4
+    - component: Medical Payload Bay Housing
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 14
+    - component: Signal Processors
+      quantity: 10
+    - component: Drone Control Chips
+      quantity: 6
+    - component: Rescue AI Chips
+      quantity: 2
+    power:
+    - component: High-Capacity Battery Pack
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 3
+    rareTradeable:
+    - component: Medical Delivery Core
+      quantity: 1
+    - component: Thermal Search Processor
+      quantity: 1
+    optionalUpgrades:
+    - Extended Battery Module
+    - Silent Rotor Kit
+    - High-Capacity Medical Bay
+    - Anti-Jamming Shielding
+    - Thermal Search Enhancement
+    - Emergency Navigation Core
+  environment:
+    terrainAdaptationCoefficients: Open Air 1.00 / Urban 0.95 / Forest 0.85 / Mountain 0.88 / Desert 0.92 / Snow 0.82 / Water 0.65
+    weatherSensitivityIndex: 0.35
+    visibilityModifiers: Day 1.00 / Night 0.85 / Fog 0.75 / Rain 0.80 / Heavy Storm 0.60
+    signalPropagationCurve: Atmospheric interference reduces effective relay efficiency by 0.15% per 10% interference
+    modifiers:
+    - condition: Severe weather
+      effect: Medical delivery efficiency reduced by 25%
+    - condition: Electromagnetic interference
+      effect: External network efficiency reduced by 30%
+    - condition: Rescue route
+      effect: 96% nominal route reliability
+    - condition: Thermal search
+      effect: 94% nominal search reliability
+  network:
+    nodeHandoffEfficiency: 0.97
+    packetLossRate: 1.0% nominal
+    encryptionLatencySeconds: 0.07
+    meshSelfHealingThreshold: 2 lost nodes
+    relaySaturationCurve: Throughput decreases 4% per active relay beyond 8 connected nodes
+  cognitive:
+    decisionConfidence: 0.94
+    threatRecognitionAccuracy: 0.96
+    adaptiveLearningRatePerMission: 0.05
+    commandOverrideResistance: 0.04
+    cooperativeBehaviorIndex: 0.98
+  behaviorNodes:
+  - behaviorNode: Rescue Prioritization
+    weight: 0.98
+    description: Prioritize active medical emergencies
+  - behaviorNode: Medical Routing
+    weight: 0.96
+    description: Generate safe delivery routes
+  - behaviorNode: Casualty Detection
+    weight: 0.93
+    description: Identify injured units and emergencies
+  - behaviorNode: Thermal Search
+    weight: 0.92
+    description: Locate personnel in obscured areas
+  - behaviorNode: Delivery Precision
+    weight: 0.95
+    description: Deliver medical payload accurately
+  - behaviorNode: Emergency Avoidance
+    weight: 0.94
+    description: Avoid active hazards during rescue
+  - behaviorNode: Route Recalculation
+    weight: 0.9
+    description: Recalculate when corridors are blocked
+  - behaviorNode: Survival Priority
+    weight: 0.97
+    description: Preserve aircraft and medical payload
+  - behaviorNode: Operator Override
+    weight: 0.88
+    description: Accept authorized rescue commands
+  missionBehaviors:
+  - missionType: Emergency Detection
+    behaviorFocus: Detect medical emergencies
+    efficiency: 0.96
+  - missionType: Casualty Location
+    behaviorFocus: Locate injured units
+    efficiency: 0.95
+  - missionType: Medical Delivery
+    behaviorFocus: Complete medical payload delivery
+    efficiency: 0.96
+  - missionType: Rescue Route
+    behaviorFocus: Complete rescue routes
+    efficiency: 0.93
+  - missionType: Thermal Search
+    behaviorFocus: Locate casualties using thermal sensors
+    efficiency: 0.94
+  - missionType: Rescue Data Relay
+    behaviorFocus: Transmit rescue data
+    efficiency: 0.97
+  - missionType: Emergency Reroute
+    behaviorFocus: Generate alternate routes
+    efficiency: 0.91
+  unitSynergies:
+  - partnerUnit: Inspect
+    synergyRating: 0.92
+    function: Casualty and damage assessment
+  - partnerUnit: Warden
+    synergyRating: 0.86
+    function: Protected rescue corridor support
+  - partnerUnit: Drop
+    synergyRating: 0.9
+    function: Aerial logistics and medical supply delivery
+  damageResponses:
+  - damageType: Ballistic
+    effect: Medical bay protection reduced by 15%
+    recovery: Return if payload integrity is threatened
+  - damageType: Explosive
+    effect: Stabilization reduced by 20%
+    recovery: Activate emergency hover compensation
+  - damageType: EMP
+    effect: Rescue Grid signal reduced by 45%
+    recovery: Enable autonomous recovery
+  - damageType: Weather
+    effect: Delivery stability reduced by 20%
+    recovery: Reduce route speed
+  - damageType: Jamming
+    effect: Rescue Grid range reduced by 40%
+    recovery: Switch to alternate command mesh
+  - damageType: Sensor damage
+    effect: Thermal/LiDAR confidence reduced
+    recovery: Reduce casualty-search confidence
+  - damageType: Medical payload damage
+    effect: Payload falls below safe threshold
+    recovery: Abort delivery and return to support
+  upgrades:
+  - upgrade: Extended Battery Module
+    effect: +20% endurance; +8% emergency uptime
+    efficiencyGain: 0.2
+  - upgrade: Silent Rotor Kit
+    effect: -25% noise signature; +6% survivability
+    efficiencyGain: 0.06
+  - upgrade: High-Capacity Medical Bay
+    effect: +40% medical payload capacity; +10% delivery flexibility
+    efficiencyGain: 0.4
+  - upgrade: Anti-Jamming Shielding
+    effect: +30% Rescue Grid resilience; +8% uptime
+    efficiencyGain: 0.3
+  - upgrade: Thermal Search Enhancement
+    effect: +20% thermal range; +10% casualty detection accuracy
+    efficiencyGain: 0.2
+  - upgrade: Emergency Navigation Core
+    effect: +15% route prediction; +8% route safety
+    efficiencyGain: 0.15
+  tactical:
+    formationAdaptability: 0.84
+    tacticalRoleWeight: 0.86
+    commandResponseDelaySeconds: 0.35
+    reinforcementTriggerConditions: Active casualty detected or medical support request received
+    retreatLogicThresholds: Integrity <30%; battery <20%; payload compromised; rescue corridor impassable
+  maintenance:
+    meanTimeBetweenFailuresHours: 1300
+    repairCycleSeconds: 16
+    resourceDrainPerHourPercent: 0.4
+    batteryEfficiencyPercent: 92
+    rotorStabilityPercent: 0
+    sensorCalibrationDriftPercentPerHour: 0
+    coolingEfficiencyPercent: 96
+    operationalUptimePercent: 98.5
+    energyRecoveryRatePercent: 0
+    energyRecoveryRatePercentPerIdleMinute: 6
+    componentWearPercentPerHour: 0.0032
+    maintenancePriorityLevel: Tier II
+    sparePartDependencyIndex: 0.6
+    operationalCostPerHour: 7 Metal / 7 Electronics
+  threatResponses:
+  - threatType: Ballistic
+    reactionTimeSeconds: 0.4
+    countermeasureEfficiency: 0.45
+  - threatType: Explosive
+    reactionTimeSeconds: 0.8
+    countermeasureEfficiency: 0.42
+  - threatType: EMP
+    reactionTimeSeconds: 0.2
+    countermeasureEfficiency: 0.4
+  - threatType: Thermal
+    reactionTimeSeconds: 0.4
+    countermeasureEfficiency: 0.55
+  - threatType: Signal jam
+    reactionTimeSeconds: 0.2
+    countermeasureEfficiency: 0.6
+  - threatType: Rescue corridor blockage
+    reactionTimeSeconds: 0.3
+    countermeasureEfficiency: 0.82
+  commandNetwork:
+  - node: Rescue Grid
+    loadPercent: 42
+    latencySeconds: 0.35
+    status: Optimal
+  - node: Medical Routing Core
+    loadPercent: 51
+    latencySeconds: 0.1
+    status: Optimal
+  - node: Emergency Coordination Link
+    loadPercent: 47
+    latencySeconds: 0.25
+    status: Stable
+  - node: Rescue Command Core
+    loadPercent: 44
+    latencySeconds: 0.3
+    status: Active
+  - node: Command Core
+    loadPercent: 39
+    latencySeconds: 0.4
+    status: Active
+  performance:
+    missionSuccessProbability: 0.96
+    averageEngagementDurationMinutes: 3.2
+    reconDataYieldMbPerMinute: 14
+    communicationUptime: 0.985
+    threatAvoidanceEfficiency: 0.91

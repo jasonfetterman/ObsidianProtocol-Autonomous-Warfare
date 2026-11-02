@@ -1,0 +1,1052 @@
+{
+  "schemaVersion": 1,
+  "maps": [
+    {
+      "id": "MAP-049",
+      "name": "Carrier Group",
+      "environment": "Ocean / Naval",
+      "warfareFocus": "Fleet warfare",
+      "executiveSummary": "Deep-ocean naval battlefield built for fleet-scale warfare, carrier-based air operations, autonomous maritime coordination, and multi-domain combat across sea, air, and long-range missile envelopes. Features open ocean sectors, shifting waves, carrier decks, destroyer screens, submarine lanes, missile arcs, radar pickets, logistics ships, sensor-fusion under sea clutter and radar interference, comms-relay warfare, and logistics.",
+      "goals": [
+        {
+          "name": "Fleet-Scale Naval Warfare",
+          "description": "Coordinated fleets: carriers, destroyers, cruisers, submarines, drones, and aircraft. Engagements occur across massive distances."
+        },
+        {
+          "name": "Carrier Air Wing Operations",
+          "description": "Fighters, bombers, VTOLs, and recon drones launch from carrier decks. Air superiority determines strike capability and fleet survival."
+        },
+        {
+          "name": "Destroyer Screens & Missile Defense",
+          "description": "Destroyers and cruisers form layered defense rings using AA guns, CIWS, missile interceptors, and EW systems."
+        },
+        {
+          "name": "Submarine Shadow Zones",
+          "description": "Submarines exploit deep-water lanes, thermal layers, and sonar shadows to ambush surface ships or disrupt logistics."
+        },
+        {
+          "name": "Autonomous Maritime Routing",
+          "description": "Autonomous units choose routes based on wave patterns, radar clarity, sonar returns, missile arcs, and threat vectors."
+        },
+        {
+          "name": "Sensor & Information Warfare",
+          "description": "Radar clutter, sea spray, thermal layers, jamming, and EW interference degrade sensors. Relay ships restore clarity; destroying relays creates blind pockets."
+        },
+        {
+          "name": "Logistics & Resources",
+          "description": "Fuel ships, supply vessels, and repair barges serve as resupply nodes. Protecting logistics ships is critical."
+        }
+      ],
+      "deployment": "Fixed deployment budget ~10,000 points. Blue deploys from southwest carrier strike group; Red from northeast cruiser-led battle group.",
+      "ar": {
+        "viewingDistance": "~4–5 m",
+        "physicalArea": "10×10 m",
+        "representedArea": "~1 km²",
+        "scale": "1:100",
+        "fov": "~53° diagonal",
+        "resolution": "1920×1080 per eye",
+        "tracking": "Inside-out horizontal plane tracking; depth mesh if available; minimal real-world occlusion.",
+        "interaction": "Phone pointer for pan/zoom; HUD as screen-space widgets."
+      },
+      "coordinate": "1000×1000 grid; 1 unit ≈ 1 m; origin (0,0) southwest corner.",
+      "locations": [
+        {
+          "name": "Blue HQ (Carrier Strike Group)",
+          "coordinate": "(0,0)",
+          "sizeOrElevation": "150×150 m",
+          "description": "Carrier deck, destroyer screen, drone pads, logistics ship."
+        },
+        {
+          "name": "Red HQ (Cruiser Battle Group)",
+          "coordinate": "(1000,1000)",
+          "sizeOrElevation": "150×150 m",
+          "description": "Cruiser flagship, radar mast, AA emplacements, missile batteries."
+        },
+        {
+          "name": "Central Ocean Combat Basin",
+          "coordinate": "(500,450)",
+          "sizeOrElevation": "300×300 m",
+          "description": "Open ocean, wave patterns, missile arcs, air-sea engagements."
+        },
+        {
+          "name": "Logistics Ship Cluster",
+          "coordinate": "(250,800)",
+          "sizeOrElevation": "120×120 m",
+          "description": "Fuel ships, repair barges, interior escort routes."
+        },
+        {
+          "name": "Radar Picket Line",
+          "coordinate": "(800,300)",
+          "sizeOrElevation": "200×200 m",
+          "description": "High-range radar ships, EW nodes, air-corridor control."
+        },
+        {
+          "name": "Missile Corridor",
+          "coordinate": "(0,450 → 400,900)",
+          "sizeOrElevation": "—",
+          "description": "Primary long-range missile lane; interception routes and EW traps."
+        },
+        {
+          "name": "Submarine Shadow Route",
+          "coordinate": "(300,0 → 450,350)",
+          "sizeOrElevation": "—",
+          "description": "Deep-water thermal layer; stealth submarine movement."
+        },
+        {
+          "name": "Relay Ship A",
+          "coordinate": "(650,150)",
+          "sizeOrElevation": "+240 m",
+          "description": "Long-range radar vantage point."
+        },
+        {
+          "name": "Relay Ship B",
+          "coordinate": "(150,650)",
+          "sizeOrElevation": "+260 m",
+          "description": "Comms relay hub and EW-control node."
+        },
+        {
+          "name": "Neutral Forward Outpost",
+          "coordinate": "(500,950)",
+          "sizeOrElevation": "—",
+          "description": "Drone resupply zone."
+        }
+      ],
+      "chokepoints": [
+        {
+          "name": "Missile Corridor",
+          "description": "Major engagement lane; controlling it determines long-range strike capability."
+        },
+        {
+          "name": "Radar Picket Line",
+          "description": "Extreme long-range sightlines; ideal for air-sea coordination and EW control."
+        },
+        {
+          "name": "Ocean Combat Basin",
+          "description": "Air-sea engagements distorted by radar clutter and wave interference."
+        },
+        {
+          "name": "Submarine Shadow Route",
+          "description": "Predictable but stealth-heavy; vulnerable to ASW patrols."
+        }
+      ],
+      "terrain": "Open ocean, wave patterns, carrier decks, destroyers, cruisers, submarines.",
+      "vegetation": "None — ocean surface only.",
+      "props": "Military: AA guns, radar dishes, missile launchers, EW towers. Naval: ships, cranes, decks, lifeboats. Logistics: fuel ships, repair barges, drones.",
+      "effects": "Sea spray, smoke, missile trails, radar waves, static bursts.",
+      "audio": "Waves, engines, radar hum, radio chatter, jet noise.",
+      "lod": [
+        {
+          "category": "Ocean/Ship Terrain",
+          "count": 3,
+          "trianglesPerItem": 200000,
+          "totalTriangles": 600000
+        },
+        {
+          "category": "Naval/Industrial",
+          "count": 4,
+          "trianglesPerItem": 80000,
+          "totalTriangles": 320000
+        },
+        {
+          "category": "Ships/Military",
+          "count": 15,
+          "trianglesPerItem": 50000,
+          "totalTriangles": 750000
+        },
+        {
+          "category": "Routes/Paths",
+          "count": 4,
+          "trianglesPerItem": 30000,
+          "totalTriangles": 120000
+        },
+        {
+          "category": "Props",
+          "count": 50,
+          "trianglesPerItem": 10000,
+          "totalTriangles": 500000
+        }
+      ],
+      "texture": "2048² for ships/terrain; 1024² for props; DXT1/5; target ≤100 MB.",
+      "engine": "Unreal ARTemplate + Nreal SDK (XREAL). ARKit/ARCore enabled.",
+      "rendering": "Forward renderer, stationary lights, baked GI, aggressive culling.",
+      "anchors": "Single spatial anchor for entire map.",
+      "multiplayer": "Client-server architecture; offload AI/physics to server.",
+      "milestones": [
+        {
+          "name": "1. Prototype Layout",
+          "description": "Block-out ocean basin, ship positions, radar picket line, AR anchor test."
+        },
+        {
+          "name": "2. Core Systems",
+          "description": "NavMesh (sea + air), missile autonomy behaviors, radar logic."
+        },
+        {
+          "name": "3. AR Integration",
+          "description": "Anchors, plane detection, basic interactivity."
+        },
+        {
+          "name": "4. Content Fill",
+          "description": "Final models, textures, lighting, audio."
+        },
+        {
+          "name": "5. Gameplay & Polish",
+          "description": "Objectives, balance, VFX (missile trails, radar waves)."
+        },
+        {
+          "name": "6. Testing & QA",
+          "description": "Multiplayer stress test, sensor validation."
+        }
+      ],
+      "testing": [
+        {
+          "category": "Autonomy",
+          "description": "Verify air-sea coordination, missile-aware routing, hazard avoidance."
+        },
+        {
+          "category": "Comms/Sensors",
+          "description": "Test relay destruction, fog-of-war updates, LOS checks under EW interference."
+        },
+        {
+          "category": "Performance",
+          "description": "≥60 Hz AR render on target device."
+        },
+        {
+          "category": "QA",
+          "description": "Navigation, naval logic, deployment budget enforcement, anchor drift, sensor accuracy."
+        }
+      ]
+    },
+    {
+      "id": "MAP-048",
+      "name": "Dead Air",
+      "environment": "Remote Airbase",
+      "warfareFocus": "Air combat / anti-air",
+      "executiveSummary": "Remote airbase battlefield built for air-dominant combat, anti-air warfare, runway control, and autonomous multi-domain coordination across open sky corridors and hardened ground infrastructure. Features long runways, hardened hangars, radar domes, SAM batteries, fuel farms, control towers, perimeter trenches, and desert or tundra flats depending on climate.",
+      "goals": [
+        {
+          "name": "Air Combat Dominance",
+          "description": "Fighters, VTOLs, drones, bombers, and high-altitude recon. Air corridors define movement, strike patterns, and interception routes."
+        },
+        {
+          "name": "Anti-Air Warfare",
+          "description": "SAM sites, radar domes, AA guns, and EW towers create layered air-denial zones."
+        },
+        {
+          "name": "Runway Control & Logistics",
+          "description": "Runways, taxiways, and fuel farms are critical objectives; controlling them determines reinforcement flow and aircraft availability."
+        },
+        {
+          "name": "Autonomous Air-Ground Coordination",
+          "description": "Units choose routes based on altitude, AA coverage, radar clarity, and threat vectors. Ground units suppress AA sites and secure runways."
+        },
+        {
+          "name": "Sensor & Information Warfare",
+          "description": "Altitude distortion, radar interference, jamming, heat plumes, and atmospheric clutter degrade sensors. Relay towers restore clarity."
+        }
+      ],
+      "deployment": "Fixed deployment budget ~10,000 points. Blue deploys from southwest auxiliary hangar; Red from northeast command runway.",
+      "ar": {
+        "viewingDistance": "~4–5 m",
+        "physicalArea": "10×10 m",
+        "representedArea": "~1 km²",
+        "scale": "1:100",
+        "fov": "~53° diagonal",
+        "resolution": "1920×1080 per eye",
+        "tracking": "Inside-out horizontal plane tracking; depth mesh if available; minimal real-world occlusion.",
+        "interaction": "Phone pointer for pan/zoom; HUD as screen-space widgets."
+      },
+      "coordinate": "1000×1000 grid; 1 unit ≈ 1 m; origin (0,0) southwest corner.",
+      "locations": [
+        {
+          "name": "Blue HQ (Auxiliary Hangar Command)",
+          "coordinate": "(0,0)",
+          "sizeOrElevation": "150×150 m",
+          "description": "Hangars, drone pads, fuel trucks, AA support units."
+        },
+        {
+          "name": "Red HQ (Primary Command Runway)",
+          "coordinate": "(1000,1000)",
+          "sizeOrElevation": "150×150 m",
+          "description": "Control tower, radar mast, hardened AA emplacements."
+        },
+        {
+          "name": "Central Runway Basin",
+          "coordinate": "(500,450)",
+          "sizeOrElevation": "300×300 m",
+          "description": "Main runway, taxiways, AA kill-zones, air-ground coordination."
+        },
+        {
+          "name": "Fuel Farm Cluster",
+          "coordinate": "(250,800)",
+          "sizeOrElevation": "120×120 m",
+          "description": "Fuel tanks, pumps, generators, interior flanking routes."
+        },
+        {
+          "name": "Radar Dome Ridge",
+          "coordinate": "(800,300)",
+          "sizeOrElevation": "200×200 m",
+          "description": "High-ground overwatch, radar coverage, air-corridor control."
+        },
+        {
+          "name": "Air Corridor",
+          "coordinate": "(0,450 → 400,900)",
+          "sizeOrElevation": "—",
+          "description": "Primary air-combat lane; interception routes, AA traps, jamming pockets."
+        },
+        {
+          "name": "Service Road Route",
+          "coordinate": "(300,0 → 450,350)",
+          "sizeOrElevation": "—",
+          "description": "Ground-unit movement path; vulnerable to air strikes."
+        },
+        {
+          "name": "Relay Tower A",
+          "coordinate": "(650,150)",
+          "sizeOrElevation": "+240 m",
+          "description": "Long-range radar vantage point."
+        },
+        {
+          "name": "Relay Tower B",
+          "coordinate": "(150,650)",
+          "sizeOrElevation": "+260 m",
+          "description": "Comms relay hub and AA-control node."
+        },
+        {
+          "name": "Neutral Forward Outpost",
+          "coordinate": "(500,950)",
+          "sizeOrElevation": "—",
+          "description": "Drone resupply zone."
+        }
+      ],
+      "chokepoints": [
+        {
+          "name": "Air Corridor",
+          "description": "Major air-combat lane; controlling it determines air superiority."
+        },
+        {
+          "name": "Radar Dome Ridge",
+          "description": "Extreme long-range sightlines; ideal for AA overwatch and air-corridor control."
+        },
+        {
+          "name": "Runway Basin",
+          "description": "Air-ground engagements; heat plumes and jamming affect accuracy."
+        },
+        {
+          "name": "Service Road Route",
+          "description": "Predictable but safe; vulnerable to air strikes and AA overwatch."
+        }
+      ],
+      "terrain": "Runways, taxiways, hangars, radar domes, fuel farms, service roads.",
+      "vegetation": "Sparse grass, scrub, or tundra patches depending on climate.",
+      "props": "Military: AA guns, SAM sites, radar dishes, bunkers. Industrial: fuel tanks, generators, pipelines. Logistics: trucks, crates, fuel drums, drones.",
+      "effects": "Heat plumes, smoke, jamming waves, dust, static bursts.",
+      "audio": "Jet engines, wind, radar hum, radio chatter.",
+      "lod": [
+        {
+          "category": "Airbase Terrain",
+          "count": 3,
+          "trianglesPerItem": 200000,
+          "totalTriangles": 600000
+        },
+        {
+          "category": "Industrial/Military",
+          "count": 4,
+          "trianglesPerItem": 80000,
+          "totalTriangles": 320000
+        },
+        {
+          "category": "Buildings/Military",
+          "count": 15,
+          "trianglesPerItem": 50000,
+          "totalTriangles": 750000
+        },
+        {
+          "category": "Roads/Paths",
+          "count": 4,
+          "trianglesPerItem": 30000,
+          "totalTriangles": 120000
+        },
+        {
+          "category": "Props",
+          "count": 50,
+          "trianglesPerItem": 10000,
+          "totalTriangles": 500000
+        }
+      ],
+      "texture": "2048² for terrain/buildings; 1024² for props; DXT1/5; target ≤100 MB.",
+      "engine": "Unreal ARTemplate + Nreal SDK (XREAL). ARKit/ARCore enabled.",
+      "rendering": "Forward renderer, stationary lights, baked GI, aggressive culling.",
+      "anchors": "Single spatial anchor for entire map.",
+      "multiplayer": "Client-server architecture; offload AI/physics to server.",
+      "milestones": [
+        {
+          "name": "1. Prototype Layout",
+          "description": "Block-out runway basin, radar ridge, fuel farm, AR anchor test."
+        },
+        {
+          "name": "2. Core Systems",
+          "description": "NavMesh (ground + air), AA autonomy behaviors, radar logic."
+        },
+        {
+          "name": "3. AR Integration",
+          "description": "Anchors, plane detection, basic interactivity."
+        },
+        {
+          "name": "4. Content Fill",
+          "description": "Final models, textures, lighting, audio."
+        },
+        {
+          "name": "5. Gameplay & Polish",
+          "description": "Objectives, balance, VFX (heat plumes, jamming waves)."
+        },
+        {
+          "name": "6. Testing & QA",
+          "description": "Multiplayer stress test, sensor validation."
+        }
+      ],
+      "testing": [
+        {
+          "category": "Autonomy",
+          "description": "Verify air-ground coordination, AA-aware routing, hazard avoidance."
+        },
+        {
+          "category": "Comms/Sensors",
+          "description": "Test relay destruction, fog-of-war updates, LOS checks under jamming."
+        },
+        {
+          "category": "Performance",
+          "description": "≥60 Hz AR render on target device."
+        },
+        {
+          "category": "QA",
+          "description": "Navigation, AA logic, deployment budget enforcement, anchor drift, sensor accuracy."
+        }
+      ]
+    },
+    {
+      "id": "MAP-047",
+      "name": "Blind Zone",
+      "environment": "Dense Terrain",
+      "warfareFocus": "Sensor denial & information warfare",
+      "executiveSummary": "Dense-terrain electronic-warfare battlefield built for sensor denial, information manipulation, autonomous counter-recon behavior, and close-range tactical deception. Features tangled vegetation, jagged rock formations, narrow ravines, abandoned bunkers, buried cabling, fog pockets, and natural EM-disruptive minerals.",
+      "goals": [
+        {
+          "name": "Sensor Denial Warfare",
+          "description": "Jamming, occlusion, interference, false signatures, and sensor blackout pockets. Units operate under partial or total sensor loss."
+        },
+        {
+          "name": "Information Manipulation & Deception",
+          "description": "EW drones, false-signal emitters, spoof beacons, and decoy units reshape the tactical landscape."
+        },
+        {
+          "name": "Autonomous Counter-EW Routing",
+          "description": "Routes based on signal strength, interference pockets, terrain occlusion, and fallback relay availability; units adapt to misleading data."
+        },
+        {
+          "name": "Dense-Terrain Combat",
+          "description": "Close-range engagements dominate; vegetation, rocks, and fog create stealth zones and unpredictable movement corridors."
+        },
+        {
+          "name": "Logistics & Resources",
+          "description": "Fuel caches, bunker stations, and buried cable hubs serve as resupply nodes; convoys navigate blackout corridors."
+        }
+      ],
+      "deployment": "Fixed deployment budget ~10,000 points. Blue deploys from southwest ravine gate; Red from northeast bunker-spire command.",
+      "ar": {
+        "viewingDistance": "~4–5 m",
+        "physicalArea": "10×10 m",
+        "representedArea": "~1 km²",
+        "scale": "1:100",
+        "fov": "~53° diagonal",
+        "resolution": "1920×1080 per eye",
+        "tracking": "Inside-out horizontal plane tracking; depth mesh if available; minimal real-world occlusion.",
+        "interaction": "Phone pointer for pan/zoom; HUD as screen-space widgets."
+      },
+      "coordinate": "1000×1000 grid; 1 unit ≈ 1 m; origin (0,0) southwest corner.",
+      "locations": [
+        {
+          "name": "Blue HQ (Ravine Gate Command)",
+          "coordinate": "(0,0)",
+          "sizeOrElevation": "150×150 m",
+          "description": "Armored vehicles, EW trucks, drone pads."
+        },
+        {
+          "name": "Red HQ (Bunker-Spire Command)",
+          "coordinate": "(1000,1000)",
+          "sizeOrElevation": "150×150 m",
+          "description": "Elevated bunker with radar mast, EW arrays, AA emplacements."
+        },
+        {
+          "name": "Central Blind Basin",
+          "coordinate": "(500,450)",
+          "sizeOrElevation": "300×300 m",
+          "description": "Dense vegetation, fog pockets, interference zones, close-range EW duels."
+        },
+        {
+          "name": "Cable Hub Cluster",
+          "coordinate": "(250,800)",
+          "sizeOrElevation": "120×120 m",
+          "description": "Buried fiber lines, generators, interior flanking routes."
+        },
+        {
+          "name": "Ridge-Shadow Network",
+          "coordinate": "(800,300)",
+          "sizeOrElevation": "200×200 m",
+          "description": "High-ground overwatch, signal triangulation, counter-EW vantage points."
+        },
+        {
+          "name": "Blackout Corridor",
+          "coordinate": "(0,450 → 400,900)",
+          "sizeOrElevation": "—",
+          "description": "Primary EW chokepoint; jamming fields, interference pockets, false signals."
+        },
+        {
+          "name": "Hidden Trail Route",
+          "coordinate": "(300,0 → 450,350)",
+          "sizeOrElevation": "—",
+          "description": "Safer but slow; rock hazards and vegetation cover."
+        },
+        {
+          "name": "Relay Node A",
+          "coordinate": "(650,150)",
+          "sizeOrElevation": "+240 m",
+          "description": "Long-range sensor vantage point."
+        },
+        {
+          "name": "Relay Node B",
+          "coordinate": "(150,650)",
+          "sizeOrElevation": "+260 m",
+          "description": "Comms relay hub and EW-control node."
+        },
+        {
+          "name": "Neutral Forward Outpost",
+          "coordinate": "(500,950)",
+          "sizeOrElevation": "—",
+          "description": "Drone resupply zone."
+        }
+      ],
+      "chokepoints": [
+        {
+          "name": "Blackout Corridor",
+          "description": "Major chokepoint; filled with jamming fields and false signals."
+        },
+        {
+          "name": "Ridge-Shadow Network",
+          "description": "Extreme long-range sightlines; ideal for counter-EW and recon triangulation."
+        },
+        {
+          "name": "Blind Basin",
+          "description": "Long-range EW engagements distorted by interference and sensor loss."
+        },
+        {
+          "name": "Hidden Trail Route",
+          "description": "Predictable but safe; vulnerable to ridge overwatch."
+        }
+      ],
+      "terrain": "Ridges, ravines, dense vegetation, bunkers, cable hubs.",
+      "vegetation": "Dense trees, shrubs, ferns, underbrush.",
+      "props": "Military: EW trucks, AA guns, radar dishes, bunkers. Industrial: generators, transformers, pipelines, relay nodes. Logistics: trucks, crates, fuel drums, drones.",
+      "effects": "Signal distortion, interference waves, fog, dust, static bursts.",
+      "audio": "Wind, generator hum, static bursts, radio chatter.",
+      "lod": [
+        {
+          "category": "Dense Terrain",
+          "count": 3,
+          "trianglesPerItem": 200000,
+          "totalTriangles": 600000
+        },
+        {
+          "category": "Industrial/EW",
+          "count": 4,
+          "trianglesPerItem": 80000,
+          "totalTriangles": 320000
+        },
+        {
+          "category": "Buildings/Military",
+          "count": 15,
+          "trianglesPerItem": 50000,
+          "totalTriangles": 750000
+        },
+        {
+          "category": "Roads/Paths",
+          "count": 4,
+          "trianglesPerItem": 30000,
+          "totalTriangles": 120000
+        },
+        {
+          "category": "Props",
+          "count": 50,
+          "trianglesPerItem": 10000,
+          "totalTriangles": 500000
+        }
+      ],
+      "texture": "2048² for terrain/buildings; 1024² for props; DXT1/5; target ≤100 MB.",
+      "engine": "Unreal ARTemplate + Nreal SDK (XREAL). ARKit/ARCore enabled.",
+      "rendering": "Forward renderer, stationary lights, baked GI, aggressive culling.",
+      "anchors": "Single spatial anchor for entire map.",
+      "multiplayer": "Client-server architecture; offload AI/physics to server.",
+      "milestones": [
+        {
+          "name": "1. Prototype Layout",
+          "description": "Block-out blind basin, ridges, cable hubs, AR anchor test."
+        },
+        {
+          "name": "2. Core Systems",
+          "description": "NavMesh, EW autonomy behaviors, interference logic."
+        },
+        {
+          "name": "3. AR Integration",
+          "description": "Anchors, plane detection, basic interactivity."
+        },
+        {
+          "name": "4. Content Fill",
+          "description": "Final models, textures, lighting, audio."
+        },
+        {
+          "name": "5. Gameplay & Polish",
+          "description": "Objectives, balance, VFX (interference waves, fog pockets)."
+        },
+        {
+          "name": "6. Testing & QA",
+          "description": "Multiplayer stress test, sensor validation."
+        }
+      ],
+      "testing": [
+        {
+          "category": "Autonomy",
+          "description": "Verify EW-aware navigation, interference-zone avoidance, fallback routing."
+        },
+        {
+          "category": "Comms/Sensors",
+          "description": "Test relay destruction, fog-of-war updates, LOS checks under jamming."
+        },
+        {
+          "category": "Performance",
+          "description": "≥60 Hz AR render on target device."
+        },
+        {
+          "category": "QA",
+          "description": "Navigation, EW logic, deployment budget enforcement, anchor drift, sensor accuracy."
+        }
+      ]
+    },
+    {
+      "id": "MAP-046",
+      "name": "Signal Lost",
+      "environment": "Remote Facility",
+      "warfareFocus": "Communications degradation & electronic warfare",
+      "executiveSummary": "Remote communications-facility battlefield built for electronic warfare, comms degradation, autonomous counter-EW behavior, and precision operations across isolated terrain. Features satellite dishes, microwave towers, buried fiber lines, hardened relay bunkers, diesel generators, snow-scoured ridges or dry scrub flats, and long-range sensor arrays.",
+      "goals": [
+        {
+          "name": "Communications Degradation Warfare",
+          "description": "Jamming, spoofing, interference, blackout zones, and comms-dependent tactics. Units operate under partial or total signal loss."
+        },
+        {
+          "name": "Electronic Warfare (EW) Dominance",
+          "description": "EW vehicles, drone jammers, signal scramblers, and counter-EW units; relay towers are strategic nodes."
+        },
+        {
+          "name": "Autonomous EW-Aware Routing",
+          "description": "Routes based on signal strength, interference pockets, terrain occlusion, and fallback relay availability."
+        },
+        {
+          "name": "Remote-Facility Combat",
+          "description": "Long-range fire, drone reconnaissance, armored pushes, and stealth infiltration revolve around the communications backbone."
+        },
+        {
+          "name": "Logistics & Resources",
+          "description": "Fuel caches, generator stations, and buried cable hubs serve as resupply nodes."
+        }
+      ],
+      "deployment": "Fixed deployment budget ~10,000 points. Blue deploys from southwest service-road checkpoint; Red from northeast relay-spire command.",
+      "ar": {
+        "viewingDistance": "~4–5 m",
+        "physicalArea": "10×10 m",
+        "representedArea": "~1 km²",
+        "scale": "1:100",
+        "fov": "~53° diagonal",
+        "resolution": "1920×1080 per eye",
+        "tracking": "Inside-out horizontal plane tracking; depth mesh if available; minimal real-world occlusion.",
+        "interaction": "Phone pointer for pan/zoom; HUD as screen-space widgets."
+      },
+      "coordinate": "1000×1000 grid; 1 unit ≈ 1 m; origin (0,0) southwest corner.",
+      "locations": [
+        {
+          "name": "Blue HQ (Service-Road Checkpoint)",
+          "coordinate": "(0,0)",
+          "sizeOrElevation": "150×150 m",
+          "description": "Armored vehicles, EW trucks, drone pads."
+        },
+        {
+          "name": "Red HQ (Relay-Spire Command)",
+          "coordinate": "(1000,1000)",
+          "sizeOrElevation": "150×150 m",
+          "description": "Elevated bunker with radar mast, EW arrays, AA emplacements."
+        },
+        {
+          "name": "Central Relay Basin",
+          "coordinate": "(500,450)",
+          "sizeOrElevation": "300×300 m",
+          "description": "Relay towers, interference pockets, blackout zones, long-range EW duels."
+        },
+        {
+          "name": "Generator Station Cluster",
+          "coordinate": "(250,800)",
+          "sizeOrElevation": "120×120 m",
+          "description": "Diesel generators, transformers, interior flanking routes."
+        },
+        {
+          "name": "Sensor Array Ridge",
+          "coordinate": "(800,300)",
+          "sizeOrElevation": "200×200 m",
+          "description": "High-ground overwatch, signal triangulation, counter-EW vantage points."
+        },
+        {
+          "name": "Blackout Corridor",
+          "coordinate": "(0,450 → 400,900)",
+          "sizeOrElevation": "—",
+          "description": "Primary EW chokepoint; jamming fields, interference pockets, false signals."
+        },
+        {
+          "name": "Service Road Route",
+          "coordinate": "(300,0 → 450,350)",
+          "sizeOrElevation": "—",
+          "description": "Safer but predictable; vulnerable to EW-driven ambushes."
+        },
+        {
+          "name": "Relay Tower A",
+          "coordinate": "(650,150)",
+          "sizeOrElevation": "+240 m",
+          "description": "Long-range sensor vantage point."
+        },
+        {
+          "name": "Relay Tower B",
+          "coordinate": "(150,650)",
+          "sizeOrElevation": "+260 m",
+          "description": "Comms relay hub and EW-control node."
+        },
+        {
+          "name": "Neutral Forward Outpost",
+          "coordinate": "(500,950)",
+          "sizeOrElevation": "—",
+          "description": "Drone resupply zone."
+        }
+      ],
+      "chokepoints": [
+        {
+          "name": "Blackout Corridor",
+          "description": "Major chokepoint; filled with jamming fields and false signals."
+        },
+        {
+          "name": "Sensor Array Ridge",
+          "description": "Extreme long-range sightlines; ideal for counter-EW and recon triangulation."
+        },
+        {
+          "name": "Relay Basin",
+          "description": "Long-range EW engagements distorted by interference and signal loss."
+        },
+        {
+          "name": "Service Road Route",
+          "description": "Predictable but safe; vulnerable to EW-driven ambushes."
+        }
+      ],
+      "terrain": "Ridges, flats, relay towers, generator stations, service roads.",
+      "vegetation": "Sparse shrubs, dry grass, or snow patches depending on climate.",
+      "props": "Military: EW trucks, AA guns, radar dishes, bunkers. Industrial: generators, transformers, pipelines, relay towers. Logistics: trucks, crates, fuel drums, drones.",
+      "effects": "Signal distortion, interference waves, smoke, dust, fog.",
+      "audio": "Wind, generator hum, static bursts, radio chatter.",
+      "lod": [
+        {
+          "category": "Facility/Ridge Terrain",
+          "count": 3,
+          "trianglesPerItem": 200000,
+          "totalTriangles": 600000
+        },
+        {
+          "category": "Industrial/EW",
+          "count": 4,
+          "trianglesPerItem": 80000,
+          "totalTriangles": 320000
+        },
+        {
+          "category": "Buildings/Military",
+          "count": 15,
+          "trianglesPerItem": 50000,
+          "totalTriangles": 750000
+        },
+        {
+          "category": "Roads/Paths",
+          "count": 4,
+          "trianglesPerItem": 30000,
+          "totalTriangles": 120000
+        },
+        {
+          "category": "Props",
+          "count": 50,
+          "trianglesPerItem": 10000,
+          "totalTriangles": 500000
+        }
+      ],
+      "texture": "2048² for terrain/buildings; 1024² for props; DXT1/5; target ≤100 MB.",
+      "engine": "Unreal ARTemplate + Nreal SDK (XREAL). ARKit/ARCore enabled.",
+      "rendering": "Forward renderer, stationary lights, baked GI, aggressive culling.",
+      "anchors": "Single spatial anchor for entire map.",
+      "multiplayer": "Client-server architecture; offload AI/physics to server.",
+      "milestones": [
+        {
+          "name": "1. Prototype Layout",
+          "description": "Block-out relay basin, ridges, generator stations, AR anchor test."
+        },
+        {
+          "name": "2. Core Systems",
+          "description": "NavMesh, EW autonomy behaviors, interference logic."
+        },
+        {
+          "name": "3. AR Integration",
+          "description": "Anchors, plane detection, basic interactivity."
+        },
+        {
+          "name": "4. Content Fill",
+          "description": "Final models, textures, lighting, audio."
+        },
+        {
+          "name": "5. Gameplay & Polish",
+          "description": "Objectives, balance, VFX (interference waves, static bursts)."
+        },
+        {
+          "name": "6. Testing & QA",
+          "description": "Multiplayer stress test, sensor validation."
+        }
+      ],
+      "testing": [
+        {
+          "category": "Autonomy",
+          "description": "Verify EW-aware navigation, interference-zone avoidance, fallback routing."
+        },
+        {
+          "category": "Comms/Sensors",
+          "description": "Test relay destruction, fog-of-war updates, LOS checks under jamming."
+        },
+        {
+          "category": "Performance",
+          "description": "≥60 Hz AR render on target device."
+        },
+        {
+          "category": "QA",
+          "description": "Navigation, EW logic, deployment budget enforcement, anchor drift, sensor accuracy."
+        }
+      ]
+    },
+    {
+      "id": "MAP-045",
+      "name": "No Man’s Grid",
+      "environment": "Open Military Range",
+      "warfareFocus": "Pure tactical experimentation",
+      "executiveSummary": "Wide-open military testing range built for pure tactical experimentation, sandbox maneuvering, autonomous behavior testing, and unrestricted combined-arms engagements. Features flat test fields, modular hardpoints, firing lanes, sensor towers, mock urban blocks, drone pads, artillery pits, and configurable obstacle zones.",
+      "goals": [
+        {
+          "name": "Pure Tactical Sandbox",
+          "description": "Designed for experimentation rather than narrative. Every lane, block, and hardpoint exists to test tactics, autonomy, and combined-arms coordination."
+        },
+        {
+          "name": "Maximum Clarity & Predictability",
+          "description": "Flat terrain, clean geometry, and modular obstacles ensure predictable movement and sightlines."
+        },
+        {
+          "name": "Configurable Engagement Zones",
+          "description": "Blank canvas for long-range duels, close-quarters tests, drone recon trials, armor pushes, or mixed-domain experiments."
+        },
+        {
+          "name": "Autonomy & Behavior Testing",
+          "description": "Units choose routes based on cover density, elevation micro-changes, sensor clarity, and threat vectors; no environmental noise."
+        },
+        {
+          "name": "Sensor & Information Warfare",
+          "description": "Minimal clutter means sensors operate at peak efficiency. Relay towers enable controlled degradation tests."
+        },
+        {
+          "name": "Logistics & Resources",
+          "description": "Fuel depots, ammo pits, and modular supply crates serve as resupply nodes; predictable roads test escort logic."
+        }
+      ],
+      "deployment": "Fixed deployment budget ~10,000 points. Blue deploys from southwest staging grid; Red from northeast command block.",
+      "ar": {
+        "viewingDistance": "~4–5 m",
+        "physicalArea": "10×10 m",
+        "representedArea": "~1 km²",
+        "scale": "1:100",
+        "fov": "~53° diagonal",
+        "resolution": "1920×1080 per eye",
+        "tracking": "Inside-out horizontal plane tracking; depth mesh if available; minimal real-world occlusion.",
+        "interaction": "Phone pointer for pan/zoom; HUD as screen-space widgets."
+      },
+      "coordinate": "1000×1000 grid; 1 unit ≈ 1 m; origin (0,0) southwest corner.",
+      "locations": [
+        {
+          "name": "Blue HQ (Staging Grid Alpha)",
+          "coordinate": "(0,0)",
+          "sizeOrElevation": "150×150 m",
+          "description": "Armor pads, drone launch zones, modular supply crates."
+        },
+        {
+          "name": "Red HQ (Command Block Omega)",
+          "coordinate": "(1000,1000)",
+          "sizeOrElevation": "150×150 m",
+          "description": "Control tower, radar mast, AA emplacements."
+        },
+        {
+          "name": "Central Test Basin",
+          "coordinate": "(500,450)",
+          "sizeOrElevation": "300×300 m",
+          "description": "Flat open terrain; maximum sightlines; ideal for long-range tests."
+        },
+        {
+          "name": "Modular Hardpoint Cluster",
+          "coordinate": "(250,800)",
+          "sizeOrElevation": "120×120 m",
+          "description": "Reconfigurable cover blocks, firing positions, interior test routes."
+        },
+        {
+          "name": "Sensor Tower Network",
+          "coordinate": "(800,300)",
+          "sizeOrElevation": "200×200 m",
+          "description": "High-ground vantage points; recon and LOS testing."
+        },
+        {
+          "name": "Experimentation Corridor",
+          "coordinate": "(0,450 → 400,900)",
+          "sizeOrElevation": "—",
+          "description": "Primary sandbox lane; configurable obstacles and firing lanes."
+        },
+        {
+          "name": "Service Road Route",
+          "coordinate": "(300,0 → 450,350)",
+          "sizeOrElevation": "—",
+          "description": "Predictable movement path; convoy and escort tests."
+        },
+        {
+          "name": "Relay Tower A",
+          "coordinate": "(650,150)",
+          "sizeOrElevation": "+240 m",
+          "description": "Long-range sensor vantage point."
+        },
+        {
+          "name": "Relay Tower B",
+          "coordinate": "(150,650)",
+          "sizeOrElevation": "+260 m",
+          "description": "Comms relay hub and controlled sensor-degradation node."
+        },
+        {
+          "name": "Neutral Forward Outpost",
+          "coordinate": "(500,950)",
+          "sizeOrElevation": "—",
+          "description": "Drone resupply zone."
+        }
+      ],
+      "chokepoints": [
+        {
+          "name": "Experimentation Corridor",
+          "description": "Major test lane; ideal for controlled ambush, range, and movement experiments."
+        },
+        {
+          "name": "Sensor Tower Network",
+          "description": "Extreme long-range sightlines; perfect for recon and targeting logic."
+        },
+        {
+          "name": "Test Basin",
+          "description": "Maximum-range engagements; heat shimmer and dust optional via toggled VFX."
+        },
+        {
+          "name": "Service Road Route",
+          "description": "Predictable but safe; ideal for escort and convoy logic."
+        }
+      ],
+      "terrain": "Flat plains, modular obstacles, test blocks, sensor towers.",
+      "vegetation": "Minimal—short grass and sparse shrubs for clarity.",
+      "props": "Military: AA guns, radar dishes, bunkers. Industrial/Test: hardpoints, towers, generators. Logistics: trucks, crates, fuel drums, drones.",
+      "effects": "Optional dust haze, heat shimmer, controlled smoke plumes.",
+      "audio": "Wind, distant machinery, radio chatter, drone hum.",
+      "lod": [
+        {
+          "category": "Plains/Test Terrain",
+          "count": 3,
+          "trianglesPerItem": 200000,
+          "totalTriangles": 600000
+        },
+        {
+          "category": "Industrial/Test Blocks",
+          "count": 4,
+          "trianglesPerItem": 80000,
+          "totalTriangles": 320000
+        },
+        {
+          "category": "Buildings/Military",
+          "count": 15,
+          "trianglesPerItem": 50000,
+          "totalTriangles": 750000
+        },
+        {
+          "category": "Roads/Paths",
+          "count": 4,
+          "trianglesPerItem": 30000,
+          "totalTriangles": 120000
+        },
+        {
+          "category": "Props",
+          "count": 50,
+          "trianglesPerItem": 10000,
+          "totalTriangles": 500000
+        }
+      ],
+      "texture": "2048² for terrain/buildings; 1024² for props; DXT1/5; target ≤100 MB.",
+      "engine": "Unreal ARTemplate + Nreal SDK (XREAL). ARKit/ARCore enabled.",
+      "rendering": "Forward renderer, stationary lights, baked GI, aggressive culling.",
+      "anchors": "Single spatial anchor for entire map.",
+      "multiplayer": "Client-server architecture; offload AI/physics to server.",
+      "milestones": [
+        {
+          "name": "1. Prototype Layout",
+          "description": "Block-out test basin, hardpoints, sensor towers, AR anchor test."
+        },
+        {
+          "name": "2. Core Systems",
+          "description": "NavMesh, sandbox autonomy behaviors, range logic."
+        },
+        {
+          "name": "3. AR Integration",
+          "description": "Anchors, plane detection, basic interactivity."
+        },
+        {
+          "name": "4. Content Fill",
+          "description": "Final models, textures, lighting, audio."
+        },
+        {
+          "name": "5. Gameplay & Polish",
+          "description": "Objectives, balance, VFX (optional dust, heat shimmer)."
+        },
+        {
+          "name": "6. Testing & QA",
+          "description": "Multiplayer stress test, sensor validation."
+        }
+      ],
+      "testing": [
+        {
+          "category": "Autonomy",
+          "description": "Verify sandbox navigation, long-range targeting, hazard-free pathfinding."
+        },
+        {
+          "category": "Comms/Sensors",
+          "description": "Test relay destruction, fog-of-war simulation, LOS checks under controlled conditions."
+        },
+        {
+          "category": "Performance",
+          "description": "≥60 Hz AR render on target device."
+        },
+        {
+          "category": "QA",
+          "description": "Navigation, sandbox logic, deployment budget enforcement, anchor drift, sensor accuracy."
+        }
+      ]
+    }
+  ]
+}

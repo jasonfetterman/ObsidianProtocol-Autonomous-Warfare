@@ -1,188 +1,210 @@
-# Canyon Run
+﻿# Canyon Run
 
-**Canyon / Highway — Mobility, Ambushes, Route Control**
+Canyon Run (Canyon / Highway / Mobility, Ambushes, Route Control)
 
 ## Executive Summary
 
-Canyon Run is a high‑speed canyon‑highway battlefield built for mobility‑focused combat, ambush tactics, route control, and autonomous maneuvering through narrow vertical terrain. The environment features winding canyon highways, cliffside overhangs, collapsed tunnels, dry riverbeds, abandoned checkpoints, and elevated ridgelines.
 
-The map emphasizes Obsidian Protocol’s autonomous route‑selection logic, sensor‑fusion under dust and heat distortion, comms‑relay warfare, and logistics under fast‑moving highway conditions. In AR (Nreal Light/Air), the map anchors at roughly a 4–5 m viewing distance, covering a 10×10 m physical area representing about 1 km² of canyon‑highway terrain.
-
-Key features include ambush corridors, high‑speed traversal lanes, cliffside overwatch, and choke‑controlled mobility warfare.
+Canyon Run is a highâ€‘speed canyonâ€‘highway battlefield built for mobilityâ€‘focused combat, ambush tactics, route control, and autonomous maneuvering through narrow vertical terrain. The environment features winding canyon highways, cliffside overhangs, collapsed tunnels, dry riverbeds, abandoned checkpoints, and elevated ridgelines. The map emphasizes Obsidian Protocolâ€™s autonomous route â€‘selection logic, sensorâ€‘fusion under dust and heat distortion, commsâ€‘relay warfare, and logistics under fastâ€‘moving highway conditions. In AR (Nreal Light/Air), the map anchors at ~4â€“5â€¯m viewing distance, covering a 10Ã—10â€¯m physical area representing ~1â€¯kmÂ² of canyon â€‘highway terrain. Key features include ambush corridors, highâ€‘speed traversal lanes, cliffside overwatch, and chokeâ€‘controlled mobility warfare.
 
 ## Design Goals & Gameplay
 
-### Mobility‑Driven Combat
-Canyon Run prioritizes fast movement, convoy operations, and rapid flanking. Highway lanes allow high‑speed traversal; canyon walls restrict lateral movement.
 
-### Ambush & Route Control
+Mobilityâ€‘Driven Combat
+Canyon Run prioritizes fast movement, convoy operations, and rapid flanking. Highway lanes allow highâ€‘speed traversal; canyon walls restrict lateral movement.
+
+Ambush & Route Control
+
 Narrow passes, blind corners, and cliff overhangs create ideal ambush zones. Controlling key segments of the highway determines reinforcement flow.
 
-### Vertical Overwatch & Canyon Tactics
+Vertical Overwatch & Canyon Tactics
+
 Ridges and cliffs provide overwatch positions for snipers, artillery, and drones. Verticality shapes sightlines and engagement ranges.
 
-### Autonomy & Route‑Selection Logic
+Autonomy & Routeâ€‘Selection Logic
+
 Autonomous units choose between highway lanes, cliffside trails, dry riverbeds, and tunnel bypasses. Units adapt to blocked roads, collapsed tunnels, and shifting ambush threats.
 
-### Sensor & Information Warfare
+Sensor & Information Warfare
+
 Dust storms, heat shimmer, canyon occlusion, and thermal plumes degrade sensors. Relay towers on ridges restore clarity. Destroying relays creates blind pockets across the canyon.
 
-### Logistics & Resources
-Fuel depots, checkpoints, and roadside maintenance yards serve as resupply nodes. Convoys must navigate exposed roads and avoid ambush‑prone canyon passes.
+Logistics & Resources
+Fuel depots, checkpoints, and roadside maintenance yards serve as resupply nodes. Convoys must navigate exposed roads and avoid ambush â€‘prone canyon passes.
 
-### Deployment & Progress
-A fixed deployment budget (~10,000 points) forces players to choose between fast armor, ambush specialists, or long‑range overwatch units.  
-Blue deploys from the southwest canyon highway gate; Red deploys from the northeast ridge‑top command.
+Deployment & Progress
+A fixed deployment budget (~10,000 points) forces players to choose between fast armor, ambush specialists, or longâ€‘range overwatch units. Blue deploys from the southwest canyon highway gate; Red deploys from the northeast ridgeâ€‘top command.
 
 ## Spatial Constraints (Nreal AR)
 
-### Device Capabilities
-Nreal Light/Air: ~53° diagonal FOV, 1920×1080 per‑eye resolution. Optimal viewing distance: ~4–5 m.
 
-### Playable Area & Scaling
-10×10 m physical area ≈ 1 km² canyon‑highway zone (1:100 scale). Designed for tabletop AR.
+## Device Capabilities
 
-### Tracking & Occlusion
-Inside‑out tracking detects horizontal planes. Depth mesh (if available) provides limited occlusion. Virtual objects render over real‑world view; assume minimal real‑world occlusion.
+Nreal Light/Air: ~53Â° diagonal FOV, 1920Ã—1080 perâ€‘eye resolution. Optimal viewing distance ~4â€“5â€¯m.
+
+## Playable Area & Scaling
+
+10Ã—10â€¯m physical area â‰ˆ 1â€¯kmÂ² canyonâ€‘highway zone (1:100 scale). Designed for tabletop AR.
+
+## Tracking & Occlusion
+
+Insideâ€‘out tracking detects horizontal planes. Depthâ€‘mesh (if available) provides limited occlusion. Virtual objects render over realâ€‘world view; assume minimal realâ€‘world occlusion.
 
 ## Layout Overview
 
-### Coordinate System
-1000×1000 grid (1 unit ≈ 1 m). Origin (0,0) = southwest corner.
 
-### Key Locations
-- **Blue HQ (Highway Gate Command)** — (0,0), 150×150 m  
-  Armored vehicles, drone pads, convoy staging.
+## Coordinate System
 
-- **Red HQ (Ridge‑Top Command Spire)** — (1000,1000), 150×150 m  
-  Elevated bunker with radar mast, AA emplacements, long‑range sensors.
 
-- **Central Canyon Highway** — (500,450), 300×300 m  
-  High‑speed traversal zone; long sightlines, ambush corners, dust plumes.
+1000Ã—1000 grid (1 unit â‰ˆ 1â€¯m). Origin (0,0) = southwest corner.
 
-- **Checkpoint Depot** — (250,800), 120×120 m  
-  Barricades, fuel tanks, repair bays, interior flanking routes.
+## Key Locations
 
-- **Ridge Network** — (800,300), 200×200 m  
-  High‑ground overwatch, sniper nests, drone launch pads.
 
-- **Ambush Corridor** — (0,450 → 400,900)  
-  Primary chokepoint; narrow, exposed, ideal for ambushes.
-
-- **Dry Riverbed Route** — (300,0 → 450,350)  
-  Safer but slow; unstable terrain and limited cover.
-
-- **Ridge Relay A** — (650,150), +240 m  
-- **Ridge Relay B** — (150,650), +260 m  
-
-- **Neutral Forward Outpost** — (500,950)
+Blue HQ (Highway Gate Command) â€” (0,0), 150Ã—150â€¯m Armored vehicles, drone pads, convoy staging.
+Red HQ (Ridgeâ€‘Top Command Spire) â€” (1000,1000), 150Ã—150â€¯m Elevated bunker with radar mast, AA emplacements, and longâ€‘range sensors.
+Central Canyon Highway â€” (500,450), 300Ã—300â€¯m Highâ€‘speed traversal zone; long sightlines, ambush corners, dust plumes.
+Checkpoint Depot â€” (250,800), 120Ã—120â€¯m Barricades, fuel tanks, repair bays, interior flanking routes.
+Ridge Network â€” (800,300), 200Ã—200â€¯m Highâ€‘ground overwatch, sniper nests, drone launch pads.
+Ambush Corridor â€” (0,450 â†’ 400,900) Primary chokepoint; narrow, exposed, ideal for ambushes.
+Dry Riverbed Route â€” (300,0 â†’ 450,350) Safer but slow; unstable terrain and limited cover.
+Ridge Relay A â€” (650,150), +240â€¯m Longâ€‘range sensor vantage point.
+Ridge Relay B â€” (150,650), +260â€¯m Comms relay hub and overwatch control node.
+Neutral Forward Outpost â€” (500,950) Drone resupply zone.
 
 ## Chokepoints & Sightlines
 
-### Ambush Corridor
+
+Ambush Corridor
+
 Major chokepoint; controlling it determines convoy movement.
 
-### Ridge Network
-Extreme long‑range sightlines; ideal for overwatch and artillery.
+Ridge Network
+Extreme longâ€‘range sightlines; ideal for overwatch and artillery.
 
-### Canyon Highway
-High‑speed engagements; dust plumes affect accuracy.
+Canyon Highway
+Highâ€‘speed engagements; dust plumes affect accuracy.
 
-### Dry Riverbed Route
+Dry Riverbed Route
+
 Predictable but safe; vulnerable to ridge overwatch.
 
-### Sightlines
-Ridge Relay A provides long‑range sensor coverage (~350 m). Dust storms and heat shimmer create fog‑of‑war pockets.
+## Sightlines
+
+Ridge Relay A provides longâ€‘range sensor coverage (~350â€¯m). Dust storms and heat shimmer create fogâ€‘ofâ€‘war pockets.
 
 ## Deployment Zones
-- **Blue Deployment:** SW highway gate + convoy staging  
-- **Red Deployment:** NE ridge‑top command + AA emplacements  
-- **Neutral Forward Zone:** Outpost at (500,950)
+
+
+Blue Deployment: SW highway gate + convoy staging.
+Red Deployment: NE ridgeâ€‘top command + AA emplacements.
+Neutral Forward Zone: Outpost at (500,950) for drone drops.
 
 ## Assets & Environment
 
-### Terrain
+
+## Terrain
+
+
 Canyons, ridges, highways, dry riverbeds, checkpoints.
 
-### Vegetation
+## Vegetation
+
+
 Sparse shrubs, desert grass, small trees.
 
-### Buildings & Props
-Military: AA guns, radar dishes, bunkers  
-Industrial: Checkpoints, generators, pipelines  
-Logistics: Trucks, crates, fuel drums, drones
+## Buildings & Props
 
-### Effects
+
+Military: AA guns, radar dishes, bunkers. Industrial: Checkpoints, generators, pipelines. Logistics: Trucks, crates, fuel drums, drones.
+
+## Effects
+
+
 Dust storms, heat shimmer, mirage distortion, wind gusts.
 
-### Audio
+## Audio
+
+
 Wind, engines, distant artillery, radio chatter.
 
 ## LOD & Budget
 
-Target total: ~2.29M tris
 
-- Canyon/Ridge Terrain: ~600k  
-- Industrial/Checkpoints: ~320k  
-- Buildings/Military: ~750k  
-- Roads/Paths: ~120k  
-- Props: ~500k  
+Asset CategCooruynt Tri/Item  Total Tris
+600k
+Canyon/Ridge Terr3ain200k     320k
+750k
+Industrial/Checkpo4ints80k    120k
+500k
+Buildings/Military15 50k      ~2.29M
 
-### Textures
-2048² for terrain/buildings  
-1024² for props  
-DXT1/5 compression  
-Target ≤100 MB
+Roads/Paths 4 30k
+
+Props          50 10k
+
+Total â€”            â€”
+
+## Texture Budget
+
+
+2048Â² for terrain/buildings, 1024Â² for props. DXT1/5 compression. Target â‰¤100â€¯MB.
 
 ## Unreal / Nreal Integration
 
-### Engine & Plugins
-Unreal ARTemplate + Nreal SDK (XREAL).  
-Enable ARKit/ARCore for anchors and plane detection.
 
-### Rendering
+## Engine & Plugins
+
+
+Unreal ARTemplate + Nreal SDK (XREAL). ARKit/ARCore enabled.
+
+## Rendering
+
+
 Forward renderer, stationary lights, baked GI, aggressive culling.
 
-### Anchors
+## Anchors
+
+
 Single spatial anchor for entire map.
 
-### Interaction
-Phone pointer for pan/zoom; HUD as screen‑space widgets.
+## Interaction
 
-### Multiplayer
-Client‑server architecture; offload AI/physics to server.
+Phone pointer for pan/zoom; HUD as screenâ€‘space widgets.
+
+## Multiplayer
+
+Clientâ€‘server architecture; offload AI/physics to server.
 
 ## Implementation Plan & Testing
 
-### Milestones
-1. **Month 1 — Prototype Layout**  
-   Block out canyon highway, ridges, checkpoints. AR anchor test.
 
-2. **Month 2 — Core Systems**  
-   NavMesh, mobility autonomy behaviors, ambush logic.
+## Milestones
 
-3. **Month 3 — AR Integration**  
-   Anchors, plane detection, basic interactivity.
+1. Prototype Layout â€” Month 1 Blockâ€‘out canyon highway, ridges, checkpoints, AR anchor test.
+2. Core Systems â€” Month 2 NavMesh, mobility autonomy behaviors, ambush logic.
+3. AR Integration â€” Month 3 Anchors, plane detection, basic interactivity.
+4. Content Fill â€” Month 4â€“5 Final models, textures, lighting, audio.
+5. Gameplay & Polish â€” Month 6â€“7 Objectives, balance, VFX (dust storms, heat shimmer).
+6. Testing & QA â€” Month 8 Multiplayer stress test, sensor validation.
 
-4. **Months 4–5 — Content Fill**  
-   Final models, textures, lighting, audio.
+## Testing Plan
 
-5. **Months 6–7 — Gameplay & Polish**  
-   Objectives, balance, VFX (dust storms, heat shimmer).
 
-6. **Month 8 — Testing & QA**  
-   Multiplayer stress test, sensor validation.
+## Autonomy
 
-### Testing Plan
+Verify mobility routing, ambushâ€‘aware navigation, hazard avoidance.
 
-#### Autonomy
-Verify mobility routing, ambush‑aware navigation, hazard avoidance.
+## Comms/Sensors
 
-#### Comms/Sensors
-Test relay destruction, fog‑of‑war updates, LOS checks under dust and heat distortion.
+Test relay destruction, fogâ€‘ofâ€‘war updates, LOS checks under dust and heat distortion.
 
-#### Performance
-≥60 Hz AR render on target device.
+## Performance
 
-#### QA Checklist
+
+â‰¥60â€¯Hz AR render on target device.
+
+## QA Checklist
+
+
 Navigation, mobility logic, deployment budget enforcement, anchor drift, sensor accuracy.

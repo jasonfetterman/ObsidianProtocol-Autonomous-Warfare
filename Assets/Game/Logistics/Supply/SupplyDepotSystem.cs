@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace ObsidianProtocol.Game.Logistics
@@ -56,6 +56,11 @@ namespace ObsidianProtocol.Game.Logistics
             }
 
             return 0f;
+        }
+
+        public IReadOnlyDictionary<SupplyType, float> GetInventory()
+        {
+            return inventory;
         }
 
         public bool Store(

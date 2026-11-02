@@ -7,5 +7,10 @@ namespace ObsidianProtocol.Game.Units
         [SerializeField] private UnitDefinition definition;
 
         public UnitDefinition Definition => definition;
+
+        public void SetDefinition(UnitDefinition value)
+        {
+            definition = value;
+        }
     }
 }

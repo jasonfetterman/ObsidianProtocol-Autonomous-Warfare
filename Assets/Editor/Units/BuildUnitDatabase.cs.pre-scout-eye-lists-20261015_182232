@@ -1,0 +1,534 @@
+﻿using System;
+using UnityEditor;
+using UnityEngine;
+using ObsidianProtocol.Game.Units;
+
+public static class BuildUnitDatabase
+{
+    private const string Root = "Assets/Game/Units/Database";
+
+    private static readonly string[] Units =
+    {
+        "obs-air-warden|Warden|Air","obs-air-beacon|Beacon|Air","obs-air-drop|Drop|Air",
+        "obs-air-iris|Iris|Air","obs-air-sentinel|Sentinel|Air","obs-air-scout-eye|ScoutEye|Air",
+        "obs-air-inspect|Inspect|Air","obs-air-lidar|Lidar|Air","obs-air-lifeline|Lifeline|Air",
+        "obs-air-link|Link|Air","obs-air-locator|Locator|Air","obs-air-cartographer|Cartographer|Air",
+        "obs-air-mesh|Mesh|Air","obs-air-nightguard|Nightguard|Air","obs-air-overseer|Overseer|Air",
+        "obs-air-insight|Insight|Air","obs-air-pulse|Pulse|Air","obs-air-relay|Relay|Air",
+        "obs-air-sar|SAR|Air","obs-air-scout|Scout|Air","obs-air-nexus-grid|NexusGrid|Air",
+        "obs-air-spotter|Spotter|Air","obs-air-survey|Survey|Air","obs-air-terrain|Terrain|Air",
+        "obs-air-thermal|Thermal|Air","obs-air-trailblazer|Trailblazer|Air","obs-air-tracker|Tracker|Air",
+        "obs-air-vector|Vector|Air","obs-air-watchtower|Watchtower|Air","obs-air-skywatch|Skywatch|Air",
+        "obs-air-horizon|Horizon|Air",
+
+        "obs-ground-bulldog|Bulldog|Ground","obs-ground-forge|Forge|Ground",
+        "obs-ground-hammer|Hammer|Ground","obs-ground-ironwalker|Ironwalker|Ground",
+        "obs-ground-mule|Mule|Ground","obs-ground-patrol|Patrol|Ground",
+        "obs-ground-rescue|Rescue|Ground","obs-ground-scout|Scout|Ground",
+        "obs-ground-sentinel|Sentinel|Ground","obs-ground-rover|Rover|Ground",
+        "obs-ground-crusher|Crusher|Ground","obs-ground-hauler|Hauler|Ground",
+
+        "obs-sea-surveyor-mk1|Surveyor Mk1|Sea","obs-sea-current|Current|Sea",
+        "obs-sea-rescue|Rescue|Sea","obs-sea-scout|Scout|Sea","obs-sea-sonar|Sonar|Sea",
+        "obs-sea-depthwatch|Depthwatch|Sea","obs-sea-harbor|Harbor|Sea","obs-sea-tidebreaker|Tidebreaker|Sea",
+
+        "obs-command-archive|Archive|Command","obs-command-worldmap|Worldmap|Command",
+        "obs-command-core|Command Core|Command","obs-command-fusion|Fusion|Command",
+        "obs-command-nexus|Nexus|Command","obs-command-insight|Insight|Command",
+        "obs-command-pulse|Pulse|Command","obs-command-vectorcore|Vector Core|Command",
+
+        "obs-experimental-echo|Echo|Experimental","obs-experimental-nullpoint|Nullpoint|Experimental",
+        "obs-experimental-specter|Specter|Experimental","obs-experimental-shadowgrid|Shadowgrid|Experimental",
+        "obs-experimental-phantom|Phantom|Experimental","obs-experimental-helix|Helix|Experimental",
+
+        "obs-sat-orbiter|Orbiter|Satellite","obs-sat-skylink|Skylink|Satellite",
+        "obs-sat-astral|Astral|Satellite","obs-sat-starcast|Starcast|Satellite",
+        "obs-sat-cosmos|Cosmos|Satellite","obs-sat-nebula|Nebula|Satellite",
+        "obs-sat-galaxy|Galaxy|Satellite"
+    };
+
+    [MenuItem("Obsidian Protocol/Units/BUILD ALL UNIT DATABASE")]
+    public static void Build()
+    {
+        try
+        {
+            EnsureFolder(Root);
+
+            int created = 0;
+            int updated = 0;
+
+            foreach (string entry in Units)
+            {
+                string[] p = entry.Split('|');
+
+                if (BuildUnit(p[0], p[1], p[2]))
+                    created++;
+                else
+                    updated++;
+            }
+
+            BuildDatabase();
+            SyncRuntimeDatabase();
+
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+
+            Debug.Log(
+                $"UNIT DATABASE COMPLETE â€” {Units.Length} units | Created: {created} | Updated: {updated}");
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("UNIT DATABASE BUILD FAILED: " + e);
+        }
+    }
+
+    private static bool BuildUnit(string id, string name, string category)
+    {
+        string folder = Root + "/" + category;
+        EnsureFolder(folder);
+
+        string safeName = name.Replace(" ", "_");
+        string path = folder + "/" + safeName + ".asset";
+
+        UnitDefinition unit =
+            AssetDatabase.LoadAssetAtPath<UnitDefinition>(path);
+
+        bool created = false;
+
+        if (unit == null)
+        {
+            unit = ScriptableObject.CreateInstance<UnitDefinition>();
+            AssetDatabase.CreateAsset(unit, path);
+            created = true;
+        }
+
+        SerializedObject so = new SerializedObject(unit);
+
+        if (id == "obs-air-scout-eye")
+        {
+            ConfigureScoutEye(so);
+        }
+        else
+        {
+            SetString(so, "unitId", id);
+            SetString(so, "displayName", name);
+            SetString(so, "role", category + " Unit");
+            SetString(so, "tier", "Standard");
+            SetString(so, "status", "ACTIVE");
+
+            SerializedProperty categoryProp = so.FindProperty("category");
+            if (categoryProp != null)
+                categoryProp.enumValueIndex =
+                    Array.IndexOf(
+                        Enum.GetNames(typeof(UnitCategory)),
+                        category);
+
+            FillPrimitiveProperties(so, name, category);
+        }
+
+        so.ApplyModifiedPropertiesWithoutUndo();
+        EditorUtility.SetDirty(unit);
+
+        return created;
+    }
+
+
+    private static void ConfigureScoutEye(SerializedObject so)
+    {
+        SetString(so, "unitId", "obs-air-scout-eye");
+        SetString(so, "displayName", "Scout Eye");
+        SetString(so, "role", "Autonomous Reconnaissance Drone");
+        SetString(so, "tier", "Basic");
+        SetString(so, "status", "ACTIVE");
+
+        SerializedProperty category = so.FindProperty("category");
+        if (category != null)
+            category.enumValueIndex = (int)UnitCategory.Air;
+
+        SetFloat(so, "physical.lengthMeters", 1.2f);
+        SetFloat(so, "physical.widthMeters", 0.9f);
+        SetFloat(so, "physical.heightMeters", 0.5f);
+        SetFloat(so, "physical.massKg", 10f);
+        SetString(so, "physical.powerSource", "Compact Rechargeable Battery");
+        SetFloat(so, "physical.energyCapacityWh", 1200f);
+        SetFloat(so, "physical.energyConsumptionWhPerMinute", 25f);
+        SetString(so, "physical.endurance", "25–40 minutes operational; 48 minutes theoretical at 25 Wh/min");
+        SetFloat(so, "physical.payloadCapacityKg", 0.8f);
+        SetString(so, "physical.navigationSystem", "GPS with Basic Flight Stabilization");
+        SetFloat(so, "physical.structuralIntegrityHp", 80f);
+        SetFloat(so, "physical.armorRating", 0.10f);
+        SetString(so, "physical.heatSignature", "Very Low");
+        SetString(so, "physical.noiseSignature", "Very Low");
+        SetFloat(so, "physical.topSpeedMetersPerSecond", 20f);
+        SetString(so, "physical.topSpeedDescription", "20 m/s (72 km/h)");
+        SetString(so, "physical.acceleration", "High");
+        SetString(so, "physical.turningRadius", "Very Tight");
+        SetString(so, "physical.climbRate", "Medium");
+        SetString(so, "physical.stabilityRating", "Medium");
+
+        SetString(so, "autonomy.behaviorProfile", "Light Recon");
+        SetFloat(so, "autonomy.aggression", 0f);
+        SetFloat(so, "autonomy.caution", 0.9f);
+        SetFloat(so, "autonomy.persistence", 0.5f);
+        SetFloat(so, "autonomy.flankingLikelihood", 0f);
+        SetFloat(so, "autonomy.retreatThreshold", 0.8f);
+        SetString(so, "autonomy.retreatBehaviorDescription", "Prioritize survival; retreat to a safe zone when threatened, damaged, or low on battery.");
+        SetString(so, "autonomy.targetPriority", "Reconnaissance Targets; Visual Contacts; Safe Routes");
+        SetString(so, "autonomy.formationDiscipline", "Medium");
+        SetFloat(so, "autonomy.riskTolerance", 0.1f);
+
+        // Sensors
+        SetFloat(so, "sensors.visualRangeMeters", 1200f);
+        SetString(so, "sensors.visualRangeDescription", "Rapid visual scanning; 1200 m nominal range");
+        SetFloat(so, "sensors.thermalRangeMeters", 400f);
+        SetString(so, "sensors.thermalRangeDescription", "Basic low-resolution thermal observation; 400 m nominal range");
+        SetString(so, "sensors.acousticRange", "Low");
+        SetString(so, "sensors.radarRange", "None");
+        SetString(so, "sensors.lidarRange", "None");
+        SetString(so, "sensors.signalDetectionRange", "Low");
+
+        // Communications
+        SetFloat(so, "communication.meshRangeKm", 4f);
+        SetString(so, "communication.meshRangeDescription", "4 km nominal mesh range; terrain and interference may reduce coverage");
+        SetFloat(so, "communication.relayCapacity", 0f);
+        SetString(so, "communication.commandLinkType", "Standard Warden Mesh");
+        SetString(so, "communication.networkPriority", "Low");
+
+        // Noncombat reconnaissance
+        SetFloat(so, "combat.firepowerRating", 0f);
+        SetString(so, "combat.firepowerDescription", "Unarmed reconnaissance platform; direct combat prohibited");
+        SetFloat(so, "combat.accuracy", 0f);
+        SetString(so, "combat.stabilization", "Medium");
+        SetString(so, "combat.weaponMounts", "None");
+        SetString(so, "combat.weaponTypes", "None");
+        SetFloat(so, "combat.suppressionValue", 0f);
+        SetString(so, "combat.trackingStrength", "Low");
+        SetString(so, "combat.disruptionStrength", "Low");
+        SetString(so, "combat.breachCapability", "None");
+        SetString(so, "combat.countermeasureRating", "Low");
+        SetInt(so, "combat.threatLevel", 1);
+        SetString(so, "combat.engagementDistance", "Not applicable; avoid engagement");
+        SetString(so, "combat.preferredTerrain", "Low-risk airspace; prioritize visibility and safe routes");
+        SetString(so, "combat.preferredTargets", "None; reconnaissance and observation only");
+        SetString(so, "combat.vulnerabilityProfile", "Vulnerable to ballistic damage, adverse weather, rotor damage, EMP, and signal jamming");
+
+        // Override and command policy, recorded in supported squad fields
+        SetString(so, "squad.intentInterpretationRules", "Perform rapid scan; scout assigned area; mark recon target; identify safe route; report visual contact; maintain low-risk observation; return to safe zone. Command authority: Recon. Autonomy tier: I. Override priority: Network > AI > Manual.");
+        SetString(so, "squad.retreatBehavior", "Retreat if integrity falls below 35%, threat level exceeds 3, or battery falls below 20%");
+        SetString(so, "squad.breachBehavior", "Prohibited");
+        SetString(so, "squad.flankingBehavior", "Not applicable; noncombat reconnaissance");
+        SetString(so, "squad.networkDependencies", "Standard Warden Mesh; network command overrides AI; manual control is lowest priority");
+
+        // Economy and deployment
+        SetInt(so, "economy.creditCost", 0);
+        SetString(so, "economy.buildCost", "60 Metal; 40 Electronics");
+        SetFloat(so, "economy.buildTimeSeconds", 25f);
+        SetString(so, "economy.factoryType", "Drone Bay");
+        SetString(so, "economy.techRequirements", "Basic Recon");
+        SetString(so, "economy.maintenanceCost", "Very Low");
+        SetFloat(so, "economy.repairTimeSeconds", 8f);
+        SetString(so, "economy.supplyConsumption", "Very Low");
+        SetString(so, "economy.operationalCost", "2 Metal and 2 Electronics per hour");
+        SetString(so, "economy.deploymentRequirements", "Standard Drone Pad");
+        SetString(so, "economy.transportCompatibility", "All Aerial Racks");
+        SetString(so, "economy.launchMethod", "VTOL");
+        SetBool(so, "economy.deploymentPointsDefined", true);
+        SetInt(so, "economy.deploymentPoints", 100);
+
+        // Environmental response
+        SetString(so, "environment.terrainAdaptationCoefficients", "Open Air 1.00; Urban 0.85; Forest 0.70; Mountain 0.75; Desert 0.90; Snow 0.65; Water 0.00");
+        SetFloat(so, "environment.weatherSensitivityIndex", 0.72f);
+        SetString(so, "environment.visibilityModifiers", "Day 1.00; Night 0.65; Fog 0.50; Rain 0.70; Heavy Storm 0.45");
+        SetString(so, "environment.signalPropagationCurve", "Signal efficiency decreases 0.25% per 10% atmospheric interference");
+
+        // Network dynamics
+        SetFloat(so, "network.nodeHandoffEfficiency", 0.92f);
+        SetString(so, "network.packetLossRate", "2% under load");
+        SetFloat(so, "network.encryptionLatencySeconds", 0.12f);
+        SetString(so, "network.meshSelfHealingThreshold", "1 lost node");
+        SetString(so, "network.relaySaturationCurve", "Throughput decreases 7% per active node beyond 4");
+
+        // Cognitive behavior
+        SetFloat(so, "cognitive.decisionConfidence", 0.82f);
+        SetFloat(so, "cognitive.threatRecognitionAccuracy", 0.84f);
+        SetFloat(so, "cognitive.adaptiveLearningRatePerMission", 0.03f);
+        SetFloat(so, "cognitive.commandOverrideResistance", 0.10f);
+        SetFloat(so, "cognitive.cooperativeBehaviorIndex", 0.88f);
+
+        // Tactical integration
+        SetFloat(so, "tactical.formationAdaptability", 0.72f);
+        SetFloat(so, "tactical.tacticalRoleWeight", 0.68f);
+        SetFloat(so, "tactical.commandResponseDelaySeconds", 0.5f);
+        SetString(so, "tactical.reinforcementTriggerConditions", "Request support or recovery when battery <25% OR signal quality <55%");
+        SetString(so, "tactical.retreatLogicThresholds", "Retreat when integrity <35% OR threat level >3 OR battery <20%");
+
+        // Maintenance analytics (percent fields use 0-100)
+        SetFloat(so, "maintenance.meanTimeBetweenFailuresHours", 100f);
+        SetFloat(so, "maintenance.repairCycleSeconds", 8f);
+        SetFloat(so, "maintenance.resourceDrainPerHourPercent", 2f);
+        SetFloat(so, "maintenance.batteryEfficiencyPercent", 91f);
+        SetFloat(so, "maintenance.rotorStabilityPercent", 89f);
+        SetFloat(so, "maintenance.sensorCalibrationDriftPercentPerHour", 0.8f);
+        SetFloat(so, "maintenance.coolingEfficiencyPercent", 87f);
+        SetFloat(so, "maintenance.operationalUptimePercent", 94f);
+        SetFloat(so, "maintenance.energyRecoveryRatePercent", 8f);
+        SetFloat(so, "maintenance.energyRecoveryRatePercentPerIdleMinute", 8f);
+        SetFloat(so, "maintenance.componentWearPercentPerHour", 0.25f);
+        SetString(so, "maintenance.maintenancePriorityLevel", "Tier III");
+        SetFloat(so, "maintenance.sparePartDependencyIndex", 0.38f);
+        SetString(so, "maintenance.operationalCostPerHour", "2 Metal; 2 Electronics");
+
+        // Performance metrics (probability fields use 0-1)
+        SetFloat(so, "performance.missionSuccessProbability", 0.86f);
+        SetFloat(so, "performance.averageEngagementDurationMinutes", 6f);
+        SetFloat(so, "performance.reconDataYieldMbPerMinute", 10f);
+        SetFloat(so, "performance.communicationUptime", 0.95f);
+        SetFloat(so, "performance.threatAvoidanceEfficiency", 0.91f);
+    }
+
+    private static void SetFloat(SerializedObject so, string propertyPath, float value)
+    {
+        SerializedProperty property = so.FindProperty(propertyPath);
+        if (property != null && property.propertyType == SerializedPropertyType.Float)
+            property.floatValue = value;
+        else
+            Debug.LogWarning("Scout Eye float property not found: " + propertyPath);
+    }
+    private static void SetInt(SerializedObject so, string propertyPath, int value)
+    {
+        SerializedProperty property = so.FindProperty(propertyPath);
+        if (property != null && property.propertyType == SerializedPropertyType.Integer)
+            property.intValue = value;
+        else
+            Debug.LogWarning("Scout Eye integer property not found: " + propertyPath);
+    }
+    private static void SetBool(SerializedObject so, string propertyPath, bool value)
+    {
+        SerializedProperty property = so.FindProperty(propertyPath);
+        if (property != null && property.propertyType == SerializedPropertyType.Boolean)
+            property.boolValue = value;
+        else
+            Debug.LogWarning("Scout Eye boolean property not found: " + propertyPath);
+    }
+    private static void FillPrimitiveProperties(
+        SerializedObject so,
+        string unitName,
+        string category)
+    {
+        SerializedProperty it = so.GetIterator();
+
+        bool enterChildren = true;
+
+        while (it.NextVisible(enterChildren))
+        {
+            enterChildren = false;
+
+            if (it.propertyType == SerializedPropertyType.String &&
+                it.name != "unitId" &&
+                it.name != "displayName" &&
+                it.name != "role" &&
+                it.name != "tier" &&
+                it.name != "status")
+            {
+                it.stringValue =
+                    unitName + " " + Pretty(it.name);
+            }
+            else if (it.propertyType == SerializedPropertyType.Float)
+            {
+                it.floatValue = DefaultFloat(it.name, category);
+            }
+            else if (it.propertyType == SerializedPropertyType.Integer)
+            {
+                it.intValue = DefaultInt(it.name, category);
+            }
+            else if (it.propertyType == SerializedPropertyType.Boolean)
+            {
+                it.boolValue = true;
+            }
+        }
+    }
+
+    private static float DefaultFloat(string field, string category)
+    {
+        string n = field.ToLowerInvariant();
+
+        if (n.Contains("length")) return 3f;
+        if (n.Contains("width")) return 2f;
+        if (n.Contains("height")) return 1f;
+        if (n.Contains("mass")) return 1000f;
+        if (n.Contains("capacity")) return 1000f;
+        if (n.Contains("range")) return 1000f;
+        if (n.Contains("speed")) return 15f;
+        if (n.Contains("acceleration")) return 5f;
+        if (n.Contains("integrity")) return 1000f;
+        if (n.Contains("armor")) return 0.5f;
+        if (n.Contains("probability")) return 0.75f;
+        if (n.Contains("efficiency")) return 0.8f;
+        if (n.Contains("confidence")) return 0.8f;
+        if (n.Contains("accuracy")) return 0.8f;
+        if (n.Contains("aggression")) return 0.5f;
+        if (n.Contains("caution")) return 0.75f;
+        if (n.Contains("persistence")) return 0.75f;
+        if (n.Contains("threshold")) return 0.5f;
+        if (n.Contains("rating")) return 5f;
+        if (n.Contains("percent")) return 80f;
+        if (n.Contains("latency")) return 0.05f;
+        if (n.Contains("seconds")) return 30f;
+        if (n.Contains("hours")) return 100f;
+
+        return 1f;
+    }
+
+    private static int DefaultInt(string field, string category)
+    {
+        string n = field.ToLowerInvariant();
+
+        if (n.Contains("cost")) return 1000;
+        if (n.Contains("points")) return 1000;
+        if (n.Contains("quantity")) return 10;
+        if (n.Contains("level")) return 1;
+        if (n.Contains("size")) return 1;
+        if (n.Contains("capacity")) return 5;
+        if (n.Contains("threat")) return 5;
+        if (n.Contains("relay")) return 2;
+
+        return 1;
+    }
+
+    private static void SetString(
+        SerializedObject so,
+        string name,
+        string value)
+    {
+        SerializedProperty p = so.FindProperty(name);
+
+        if (p != null)
+            p.stringValue = value;
+    }
+
+    private static string Pretty(string value)
+    {
+        if (string.IsNullOrEmpty(value))
+            return "";
+
+        return value
+            .Replace("_", " ")
+            .Replace("Meters", " Range")
+            .Replace("Seconds", " Time");
+    }
+
+    private static void BuildDatabase()
+    {
+        string path = Root + "/UnitDatabase.asset";
+
+        UnitDatabase db =
+            AssetDatabase.LoadAssetAtPath<UnitDatabase>(path);
+
+        if (db == null)
+        {
+            db = ScriptableObject.CreateInstance<UnitDatabase>();
+            AssetDatabase.CreateAsset(db, path);
+        }
+
+        SerializedObject so = new SerializedObject(db);
+        SerializedProperty list = so.FindProperty("units");
+
+        if (list == null)
+            throw new Exception("UnitDatabase.units was not found.");
+
+        list.ClearArray();
+
+        foreach (string entry in Units)
+        {
+            string[] p = entry.Split('|');
+
+            string assetPath =
+                Root + "/" +
+                p[2] + "/" +
+                p[1].Replace(" ", "_") +
+                ".asset";
+
+            UnitDefinition unit =
+                AssetDatabase.LoadAssetAtPath<UnitDefinition>(assetPath);
+
+            if (unit == null)
+                throw new Exception("Missing unit asset: " + assetPath);
+
+            int index = list.arraySize;
+            list.InsertArrayElementAtIndex(index);
+            list.GetArrayElementAtIndex(index).objectReferenceValue = unit;
+        }
+
+        so.ApplyModifiedPropertiesWithoutUndo();
+        EditorUtility.SetDirty(db);
+    }
+
+    private static void SyncRuntimeDatabase()
+    {
+        const string runtimePath = "Assets/Resources/UnitDatabase.asset";
+
+        UnitDatabase source =
+            AssetDatabase.LoadAssetAtPath<UnitDatabase>(
+                Root + "/UnitDatabase.asset");
+
+        UnitDatabase target =
+            AssetDatabase.LoadAssetAtPath<UnitDatabase>(runtimePath);
+
+        if (source == null)
+            throw new Exception("Canonical UnitDatabase.asset was not found.");
+
+        if (target == null)
+            throw new Exception("Runtime UnitDatabase.asset was not found.");
+
+        SerializedObject sourceObject = new SerializedObject(source);
+        SerializedObject targetObject = new SerializedObject(target);
+
+        SerializedProperty sourceUnits = sourceObject.FindProperty("units");
+        SerializedProperty targetUnits = targetObject.FindProperty("units");
+
+        if (sourceUnits == null || targetUnits == null)
+            throw new Exception("UnitDatabase.units was not found during synchronization.");
+
+        targetUnits.arraySize = sourceUnits.arraySize;
+
+        for (int i = 0; i < sourceUnits.arraySize; i++)
+        {
+            targetUnits.GetArrayElementAtIndex(i).objectReferenceValue =
+                sourceUnits.GetArrayElementAtIndex(i).objectReferenceValue;
+        }
+
+        targetObject.ApplyModifiedPropertiesWithoutUndo();
+
+        target.RebuildLookup();
+        EditorUtility.SetDirty(target);
+
+        Debug.Log(
+            "[UNIT DATABASE BUILDER] Runtime database synchronized // " +
+            sourceUnits.arraySize + " units");
+    }
+
+    private static void EnsureFolder(string path)
+    {
+        if (AssetDatabase.IsValidFolder(path))
+            return;
+
+        string[] parts = path.Split('/');
+
+        string current = parts[0];
+
+        for (int i = 1; i < parts.Length; i++)
+        {
+            string next = current + "/" + parts[i];
+
+            if (!AssetDatabase.IsValidFolder(next))
+                AssetDatabase.CreateFolder(current, parts[i]);
+
+            current = next;
+        }
+    }
+}
+
+
+
+
+

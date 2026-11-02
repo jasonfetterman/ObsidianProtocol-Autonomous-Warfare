@@ -1,0 +1,21 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class FinanceGarageNavigation : MonoBehaviour
+{
+    void Start()
+    {
+        GameObject hud = GameObject.Find("FINANCE HUD");
+        if (hud == null) return;
+
+        Transform buttonTransform = hud.transform.Find("FINANCE BOTTOM BAR/BUTTON_GARAGE");
+        if (buttonTransform == null) return;
+
+        Button button = buttonTransform.GetComponent<Button>();
+        if (button == null) return;
+
+        button.onClick.RemoveAllListeners();
+        button.onClick.AddListener(() => SceneManager.LoadScene("SCN04_GARAGE"));
+    }
+}

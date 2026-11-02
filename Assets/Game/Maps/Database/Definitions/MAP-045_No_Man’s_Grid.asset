@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0263df275083eba45b37ab9636c8dcbf, type: 3}
+  m_Name: "MAP-045_No_Man\u2019s_Grid"
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Maps.MapDefinition
+  mapId: MAP-045
+  displayName: "No Man\u2019s Grid"
+  environment: Open Military Range
+  warfareFocus: Pure tactical experimentation
+  executiveSummary: Wide-open military testing range built for pure tactical experimentation, sandbox maneuvering, autonomous behavior testing, and unrestricted combined-arms engagements. Features flat test fields, modular hardpoints, firing lanes, sensor towers, mock urban blocks, drone pads, artillery pits, and configurable obstacle zones.
+  designGoals:
+  - name: Pure Tactical Sandbox
+    description: Designed for experimentation rather than narrative. Every lane, block, and hardpoint exists to test tactics, autonomy, and combined-arms coordination.
+  - name: Maximum Clarity & Predictability
+    description: Flat terrain, clean geometry, and modular obstacles ensure predictable movement and sightlines.
+  - name: Configurable Engagement Zones
+    description: Blank canvas for long-range duels, close-quarters tests, drone recon trials, armor pushes, or mixed-domain experiments.
+  - name: Autonomy & Behavior Testing
+    description: Units choose routes based on cover density, elevation micro-changes, sensor clarity, and threat vectors; no environmental noise.
+  - name: Sensor & Information Warfare
+    description: Minimal clutter means sensors operate at peak efficiency. Relay towers enable controlled degradation tests.
+  - name: Logistics & Resources
+    description: Fuel depots, ammo pits, and modular supply crates serve as resupply nodes; predictable roads test escort logic.
+  deployment: Fixed deployment budget ~10,000 points. Blue deploys from southwest staging grid; Red from northeast command block.
+  ar:
+    viewingDistance: "~4\u20135 m"
+    physicalArea: "10\xD710 m"
+    representedArea: "~1 km\xB2"
+    scale: 1:100
+    fov: "~53\xB0 diagonal"
+    resolution: "1920\xD71080 per eye"
+    tracking: Inside-out horizontal plane tracking; depth mesh if available; minimal real-world occlusion.
+    interaction: Phone pointer for pan/zoom; HUD as screen-space widgets.
+  coordinateSystem: "1000\xD71000 grid; 1 unit \u2248 1 m; origin (0,0) southwest corner."
+  keyLocations:
+  - name: Blue HQ (Staging Grid Alpha)
+    coordinate: (0,0)
+    sizeOrElevation: "150\xD7150 m"
+    description: Armor pads, drone launch zones, modular supply crates.
+  - name: Red HQ (Command Block Omega)
+    coordinate: (1000,1000)
+    sizeOrElevation: "150\xD7150 m"
+    description: Control tower, radar mast, AA emplacements.
+  - name: Central Test Basin
+    coordinate: (500,450)
+    sizeOrElevation: "300\xD7300 m"
+    description: Flat open terrain; maximum sightlines; ideal for long-range tests.
+  - name: Modular Hardpoint Cluster
+    coordinate: (250,800)
+    sizeOrElevation: "120\xD7120 m"
+    description: Reconfigurable cover blocks, firing positions, interior test routes.
+  - name: Sensor Tower Network
+    coordinate: (800,300)
+    sizeOrElevation: "200\xD7200 m"
+    description: High-ground vantage points; recon and LOS testing.
+  - name: Experimentation Corridor
+    coordinate: "(0,450 \u2192 400,900)"
+    sizeOrElevation: "\u2014"
+    description: Primary sandbox lane; configurable obstacles and firing lanes.
+  - name: Service Road Route
+    coordinate: "(300,0 \u2192 450,350)"
+    sizeOrElevation: "\u2014"
+    description: Predictable movement path; convoy and escort tests.
+  - name: Relay Tower A
+    coordinate: (650,150)
+    sizeOrElevation: +240 m
+    description: Long-range sensor vantage point.
+  - name: Relay Tower B
+    coordinate: (150,650)
+    sizeOrElevation: +260 m
+    description: Comms relay hub and controlled sensor-degradation node.
+  - name: Neutral Forward Outpost
+    coordinate: (500,950)
+    sizeOrElevation: "\u2014"
+    description: Drone resupply zone.
+  chokepointsAndSightlines:
+  - name: Experimentation Corridor
+    description: Major test lane; ideal for controlled ambush, range, and movement experiments.
+  - name: Sensor Tower Network
+    description: Extreme long-range sightlines; perfect for recon and targeting logic.
+  - name: Test Basin
+    description: Maximum-range engagements; heat shimmer and dust optional via toggled VFX.
+  - name: Service Road Route
+    description: Predictable but safe; ideal for escort and convoy logic.
+  terrain: Flat plains, modular obstacles, test blocks, sensor towers.
+  vegetation: "Minimal\u2014short grass and sparse shrubs for clarity."
+  buildingsAndProps: 'Military: AA guns, radar dishes, bunkers. Industrial/Test: hardpoints, towers, generators. Logistics: trucks, crates, fuel drums, drones.'
+  effects: Optional dust haze, heat shimmer, controlled smoke plumes.
+  audio: Wind, distant machinery, radio chatter, drone hum.
+  lodBudget:
+  - category: Plains/Test Terrain
+    count: 3
+    trianglesPerItem: 200000
+    totalTriangles: 600000
+  - category: Industrial/Test Blocks
+    count: 4
+    trianglesPerItem: 80000
+    totalTriangles: 320000
+  - category: Buildings/Military
+    count: 15
+    trianglesPerItem: 50000
+    totalTriangles: 750000
+  - category: Roads/Paths
+    count: 4
+    trianglesPerItem: 30000
+    totalTriangles: 120000
+  - category: Props
+    count: 50
+    trianglesPerItem: 10000
+    totalTriangles: 500000
+  textureBudget: "2048\xB2 for terrain/buildings; 1024\xB2 for props; DXT1/5; target \u2264100 MB."
+  engineAndPlugins: Unreal ARTemplate + Nreal SDK (XREAL). ARKit/ARCore enabled.
+  rendering: Forward renderer, stationary lights, baked GI, aggressive culling.
+  anchors: Single spatial anchor for entire map.
+  interaction: 
+  multiplayer: Client-server architecture; offload AI/physics to server.
+  milestones:
+  - name: 1. Prototype Layout
+    description: Block-out test basin, hardpoints, sensor towers, AR anchor test.
+  - name: 2. Core Systems
+    description: NavMesh, sandbox autonomy behaviors, range logic.
+  - name: 3. AR Integration
+    description: Anchors, plane detection, basic interactivity.
+  - name: 4. Content Fill
+    description: Final models, textures, lighting, audio.
+  - name: 5. Gameplay & Polish
+    description: Objectives, balance, VFX (optional dust, heat shimmer).
+  - name: 6. Testing & QA
+    description: Multiplayer stress test, sensor validation.
+  testing:
+  - name: 
+    description: Verify sandbox navigation, long-range targeting, hazard-free pathfinding.
+  - name: 
+    description: Test relay destruction, fog-of-war simulation, LOS checks under controlled conditions.
+  - name: 
+    description: "\u226560 Hz AR render on target device."
+  - name: 
+    description: Navigation, sandbox logic, deployment budget enforcement, anchor drift, sensor accuracy.

@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0263df275083eba45b37ab9636c8dcbf, type: 3}
+  m_Name: MAP-062_Floodplain
+  m_EditorClassIdentifier: 
+  mapId: MAP-062
+  displayName: Floodplain
+  environment: River / Rural / Dynamic Water & Terrain Conditions
+  warfareFocus: Dynamic Water, Amphibious Mobility, Terrain Adaptation
+  executiveSummary: '>- Floodplain is a river-rural hybrid battlefield built for dynamic water-level combat, shifting terrain conditions, amphibious mobility, and autonomous environmental adaptation. The terrain features braided rivers, seasonal flood zones, rural farmlands, levees, wooden bridges, irrigation canals, wetlands, and small villages. The map emphasizes autonomous terrain-reactive logic, sensor-fusion under humidity and fog, comms-relay warfare, and logistics under constantly changing river conditions. In AR, the map anchors at approximately 4-5 m viewing distance, covering a 10x10 m physical area representing approximately 1 km2 of rural river terrain.'
+  designGoals:
+  - name: Dynamic Water-Level Combat
+    description: '>- Floodplain prioritizes combat where water levels rise and fall. Bridges become chokepoints, mudflats appear or vanish, and river channels shift mid-match.'
+  - name: Terrain-Reactive Movement
+    description: '>- Heavy armor struggles in soft soil; light vehicles excel. Infantry and drones adapt to flooded fields, washed-out roads, and shifting wetlands.'
+  - name: Amphibious & Rural Operations
+    description: '>- Players conduct river crossings, canal assaults, and farmland pushes. Rural structures provide cover but collapse under sustained fire.'
+  - name: Autonomy & Environmental Adaptation
+    description: '>- Autonomous units choose routes based on water depth, soil stability, vegetation density, and sensor clarity. Units reroute when terrain becomes impassable.'
+  - name: Sensor & Information Warfare
+    description: '>- Fog, humidity, river spray, and vegetation distort sensors. Relay towers on levees restore clarity. Destroying relays creates blind pockets across the floodplain.'
+  - name: Logistics & Resources
+    description: '>- Fuel depots, farm silos, and river docks serve as resupply nodes. Convoys must navigate washed-out roads and avoid ambush-prone wetlands.'
+  deployment: '>- Fixed deployment budget of approximately 10,000 points. Blue deploys from the southwest river dock; Red deploys from the northeast levee stronghold.'
+  ar:
+    viewingDistance: 4-5 m
+    physicalArea: 10x10 m
+    representedArea: approximately 1 km2
+    scale: 1:100
+    fov: approximately 53 degrees diagonal
+    resolution: 1920x1080 per eye
+    tracking: Inside-out tracking detects horizontal planes.
+    interaction: Depth mesh if available provides limited occlusion; assume minimal real-world occlusion.
+  coordinateSystem: 1000x1000 grid, 1 unit approximately 1 m, origin (0,0) southwest corner
+  keyLocations:
+  - name: Blue HQ (River Dock Command)
+    coordinate: (0,0)
+    sizeOrElevation: 150x150 m
+    description: Boats, amphibious vehicles, cargo crates, rural staging.
+  - name: Red HQ (Levee Stronghold)
+    coordinate: (1000,1000)
+    sizeOrElevation: 150x150 m
+    description: Elevated bunker with radar mast, AA emplacements, and flood-control systems.
+  - name: Central Floodplain Basin
+    coordinate: (500,450)
+    sizeOrElevation: 300x300 m
+    description: Braided rivers, wetlands, mudflats, shifting terrain.
+  - name: Farmstead Depot
+    coordinate: (250,800)
+    sizeOrElevation: 120x120 m
+    description: Barns, silos, fuel tanks, interior flanking routes.
+  - name: Wetland Forest Network
+    coordinate: (800,300)
+    sizeOrElevation: 200x200 m
+    description: Dense vegetation, shallow water, stealth movement.
+  - name: River Crossing Corridor
+    coordinate: (0,450 -> 400,900)
+    sizeOrElevation: Primary amphibious chokepoint
+    description: Bridges, fords, and shifting water levels.
+  - name: Rural Road Route
+    coordinate: (300,0 -> 450,350)
+    sizeOrElevation: Safer land route
+    description: Partial cover and predictable movement.
+  - name: Levee Relay A
+    coordinate: (650,150)
+    sizeOrElevation: +240 m
+    description: Long-range sensor vantage point.
+  - name: Levee Relay B
+    coordinate: (150,650)
+    sizeOrElevation: +260 m
+    description: Comms relay hub and flood-monitoring node.
+  - name: Neutral Forward Outpost
+    coordinate: (500,950)
+    sizeOrElevation: Drone resupply zone
+    description: Neutral forward drone resupply area.
+  chokepointsAndSightlines:
+  - name: River Crossing Corridor
+    description: Major chokepoint; controlling it determines amphibious movement.
+  - name: Floodplain Basin
+    description: Dynamic terrain; long-range engagements shift as water rises.
+  - name: Wetland Forest Network
+    description: Interior flanking routes; stealthy but slow.
+  - name: Rural Road Route
+    description: Predictable but safe; vulnerable to overwatch from levees.
+  - name: Levee Relay A
+    description: Long-range sensor coverage of approximately 300 m. Fog and humidity create fog-of-war pockets.
+  terrain: Rivers, wetlands, mudflats, levees, rural fields, farmsteads.
+  vegetation: Grass, reeds, wetland trees, farmland crops.
+  buildingsAndProps: '>-'
+  effects: Fog, humidity haze, water spray, mud splashes.
+  audio: River flow, insects, machinery, distant artillery, radio chatter.
+  lodBudget:
+  - category: River/Wetland Terrain
+    count: 3
+    trianglesPerItem: 200000
+    totalTriangles: 600000
+  - category: Rural/Industrial
+    count: 4
+    trianglesPerItem: 80000
+    totalTriangles: 320000
+  - category: Buildings/Rural
+    count: 15
+    trianglesPerItem: 50000
+    totalTriangles: 750000
+  - category: Roads/Paths
+    count: 4
+    trianglesPerItem: 30000
+    totalTriangles: 120000
+  - category: Props
+    count: 50
+    trianglesPerItem: 10000
+    totalTriangles: 500000
+  textureBudget: "2048\xB2 terrain/buildings, 1024\xB2 props, DXT1/5 compression, target <=100 MB."
+  engineAndPlugins: Unreal ARTemplate + Nreal SDK (XREAL). ARKit/ARCore enabled.
+  rendering: Forward renderer, stationary lights, baked GI, aggressive culling.
+  anchors: Single spatial anchor for entire map.
+  interaction: Phone pointer for pan/zoom; HUD as screen-space widgets.
+  multiplayer: Client-server architecture; offload AI/physics to server.
+  milestones:
+  - name: Prototype Layout
+    description: Month 1 - Block-out rivers, wetlands, farmsteads, AR anchor test.
+  - name: Core Systems
+    description: Month 2 - NavMesh (land + water), amphibious autonomy, dynamic terrain logic.
+  - name: AR Integration
+    description: Month 3 - Anchors, plane detection, basic interactivity.
+  - name: Content Fill
+    description: Month 4-5 - Final models, textures, lighting, audio.
+  - name: Gameplay & Polish
+    description: Month 6-7 - Objectives, balance, VFX including fog, water spray, and mud.
+  - name: Testing & QA
+    description: Month 8 - Multiplayer stress test, sensor validation.
+  testing:
+  - name: Autonomy
+    description: Verify amphibious routing, dynamic terrain adaptation, hazard avoidance.
+  - name: Comms/Sensors
+    description: Test relay destruction, fog-of-war updates, LOS checks under humidity.
+  - name: Performance
+    description: Maintain at least 60 Hz AR render on target device.
+  - name: QA Checklist
+    description: Navigation, dynamic terrain logic, deployment budget enforcement, anchor drift, sensor accuracy.

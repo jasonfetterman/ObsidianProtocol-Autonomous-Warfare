@@ -6,8 +6,239 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: "Assets/Scenes/SCN01_MAIN_MENU/MAIN MENU HUD/SCN\u201101  MAIN MENU.unity"
+    guid: 3a119c7292583d54cbbc2cfac953750c
+  - enabled: 1
+    path: Assets/Scenes/SCN02_COMMAND_CENTER/COMMAND CENTER HUD/Command_Center.unity
+    guid: 7283dd3c6babe0d4f907577c96b6f010
+  - enabled: 1
+    path: Assets/Scenes/SCN05_OPERATIONS/[HUD] OPERATIONS HUD/Operations.unity
+    guid: b93eac5945ad2f943812cdf7d377cfeb
+  - enabled: 1
+    path: Assets/Scenes/SCN06_RESEARCH/RESEARCH HUD/Research_Lab.unity
+    guid: b01cda49ffb28604f9dcc946934516e0
+  - enabled: 1
+    path: Assets/Scenes/SCN07_FINANCE/[HUD] FINANCE HUD/Finance_ HUD.unity
+    guid: 4d948c9be64e71941a9d8893925c4e1c
+  - enabled: 1
+    path: Assets/Scenes/SCN08_LOGISTICS/[HUD] LOGISTICS HUD/Logistics_Bay.unity
+    guid: 87f5f50662771454c86c56002ebf114c
+  - enabled: 1
+    path: Assets/Scenes/SCN09_COMMANDER_PROFILE/[HUD] COMMANDER PROFILE HUD/Player_Commander_Profile.unity
+    guid: 4f9ed23072e7c744b83e08cc42cccfd6
+  - enabled: 1
+    path: Assets/Scenes/SCN10_AFTER_ACTION_REPORT/[HUD] AFTER ACTION REPORT HUD/After_Action_HUD.unity
+    guid: a0757e715182ce54883ba1be86234e42
+  - enabled: 1
+    path: Assets/Scenes/SCN11_BATTLE_REPLAY/[HUD] BATTLE REPLAY HUD/Battle_Replay_HUD.unity
+    guid: 50a2df4ee25c208408087bacecb44443
+  - enabled: 1
+    path: Assets/Scenes/SCN13_MULTIPLAYER_LOBBY/[HUD] MULTIPLAYER HUD/MultiplayerHUD.unity
+    guid: 6564703552dbb7548bba107acabab9c1
+  - enabled: 1
+    path: Assets/Scenes/SCN14_SETTINGS/[HUD] SETTINGS HUD/Settings.unity
+    guid: 270d5fbd49d3eed438b6238ca7ea02f1
+  - enabled: 1
+    path: Assets/Scenes/SCN15_EXIT_CONFIRMATION/[HUD] EXIT CONFIRMATION HUD/Exit_Confirmation.unity
+    guid: 601fc29bab91abf47922df0fc2a02a3d
+  - enabled: 1
+    path: Assets/Scenes/SCN22_UNIT_INSPECTION/Unit_Inspection.unity
+    guid: 6573305f90ca3f346a52a2a07b71fce0
+  - enabled: 1
+    path: Assets/Scenes/SYS01_AI_AUTONOMY/[HUD] AI  AUTONOMY HUD/AI_Autonomy.unity
+    guid: 6031b6202be12074389b5459465e3688
+  - enabled: 1
+    path: "Assets/Scenes/SYS04_CORE_SIMULATION/SYS\u201104_SimulationCore/SYS\u201104_SimulationCore.unity"
+    guid: 9002e9d3ddaf0d845b84d42884cf1e4e
+  - enabled: 1
+    path: Assets/Scenes/SCN04_GARAGE/SCN04_GARAGE.unity
+    guid: 022204f23cca1eb47ac8070b733cd0c1
+  - enabled: 1
+    path: Assets/Scenes/SCN12_DEPLOYMENT/SCN12_DEPLOYMENT.unity
+    guid: b27f72eeca369464f81aa30916e16481
+  - enabled: 1
+    path: Assets/Scenes/SCN16_STORE/SCN16_STORE.unity
+    guid: 430113339d062514da4b5a3b993d8685
+  - enabled: 1
+    path: Assets/Scenes/SCN17_PERSISTENT_MILITARY/SCN17_PERSISTENT_MILITARY.unity
+    guid: 942595b333018c347838d26b870503f4
+  - enabled: 1
+    path: Assets/Scenes/SCN18_INTELLIGENCE/SCN18_INTELLIGENCE.unity
+    guid: d18e6a57734f4964fb3b079177db6031
+  - enabled: 1
+    path: Assets/Scenes/SCN19_ECONOMY/SCN19_ECONOMY.unity
+    guid: 66ac5a03d413f2f448d542d454fa7a54
+  - enabled: 1
+    path: Assets/Scenes/SCN20_VR_COMMAND/SCN20_VR_COMMAND.unity
+    guid: fe3aab882931f8b428ab0ea963201cb5
+  - enabled: 1
+    path: Assets/Scenes/SCN21_UNIVERSAL_HUD/SCN21_UNIVERSAL_HUD.unity
+    guid: aaa4b983de5f28945ba556ecae58703c
+  - enabled: 1
+    path: Assets/Scenes/SCN22_UNIT_INSPECTION/SCN22_UNIT_INSPECTION.unity
+    guid: a0f39c4c6a32dfe46971f2c09eb7192b
+  - enabled: 1
+    path: Assets/Scenes/SCN30_ACHERON/Acheron.unity
+    guid: 7c01afe4c5e3b194b8aee9e041653729
+  - enabled: 1
+    path: Assets/Scenes/SCN31_VIRELLIA/Virellia.unity
+    guid: 399dc5d845e878a4b80e1df063acd331
+  - enabled: 1
+    path: Assets/Scenes/SCN32_KARTHOS/Karthos.unity
+    guid: d77850cdcd19dbc4887e3186af6198aa
+  - enabled: 1
+    path: Assets/Scenes/SCN33_SOLARA_PRIME/Solara_Prime.unity
+    guid: 29bce8ad8cbfb0741887f5ab00f59f40
+  - enabled: 1
+    path: Assets/Scenes/SCN34_NOX_MERIDIAN/Nox_Meridian.unity
+    guid: 1776c6b644c48574eacb81e5e89d7c6d
+  - enabled: 1
+    path: Assets/Scenes/SCN35_THALASSA_IX/Thalassa_IX.unity
+    guid: 2da01b524ee83f5449cedb0f14363538
+  - enabled: 1
+    path: Assets/Scenes/SCN36_DRAVONS_REACH/Dravons_Reach.unity
+    guid: a28a3ec6b00ebca4fbe11be935cf302f
+  - enabled: 1
+    path: Assets/Scenes/SCN37_EREBOS_STATION/Erebos_Station.unity
+    guid: 2a43f6ec8d4a57943bc1d0467b8536ec
+  - enabled: 1
+    path: Assets/Scenes/SCN38_HALCYON_VERGE/Halcyon_Verge.unity
+    guid: fa4e9cb0f2d2f2247bbbdcb614d0bc00
+  - enabled: 1
+    path: Assets/Scenes/SCN39_MYRIDIAN_CORE/Myridian_Core.unity
+    guid: 634df96d304d7a349975b992258ad169
+  - enabled: 1
+    path: Assets/Scenes/SCN40_VANTOR_HELIX/Vantor_Helix.unity
+    guid: 2f0b0204fccc15a49a37cd1bc48b07a4
+  - enabled: 1
+    path: Assets/Scenes/SCN41_ORPHEON_DELTA/Orpheon_Delta.unity
+    guid: 1cae56c47375e034196bf7bee77e77f8
+  - enabled: 1
+    path: Assets/Scenes/SCN42_CRYOSTRIA/Cryostria.unity
+    guid: 338c2fda48b3d2c42947b3a0b08892aa
+  - enabled: 1
+    path: Assets/Scenes/SCN43_ZEPHYRIA/Zephyria.unity
+    guid: 5c256db2c19dc7e4bae08dde74f6420a
+  - enabled: 1
+    path: Assets/Scenes/SCN44_UMBRA_7/Umbra_7.unity
+    guid: 2bbb9578ccb7c1348bd12abb7a1f1e3d
+  - enabled: 1
+    path: Assets/Scenes/SCN45_CAELUS_RIFT/Caelus_Rift.unity
+    guid: 6f5093c3185076d4dad10e1c99ae8765
+  - enabled: 1
+    path: Assets/Scenes/SCN46_PYRRHOS_GATE/Pyrrhos_Gate.unity
+    guid: 53d34042249ee754ca8b361b72f7f22f
+  - enabled: 1
+    path: Assets/Scenes/SCN47_LUMINARA/Luminara.unity
+    guid: c0963a982b5816647ad5379591df3271
+  - enabled: 1
+    path: Assets/Scenes/SCN48_VEXILON/Vexilon.unity
+    guid: 2fd8beda5833b0f4a8d9d177b7eee155
+  - enabled: 1
+    path: Assets/Scenes/SCN49_ASTRYX/Astryx.unity
+    guid: 47259425c02728049a1582359cf05f78
+  - enabled: 1
+    path: Assets/Scenes/SCN50_KAIROTH/Kairoth.unity
+    guid: eb47b1bce099c974d904ed2086b98408
+  - enabled: 1
+    path: Assets/Scenes/SCN51_NEMERIS/Nemeris.unity
+    guid: a95b1b89719a2f3458bbf1fd06a27809
+  - enabled: 1
+    path: Assets/Scenes/SCN52_ODYSSAR/Odyssar.unity
+    guid: d03fe0b060e63b1409639ae9f5584b90
+  - enabled: 1
+    path: Assets/Scenes/SCN53_VALTOR_PRIME/Valtor_Prime.unity
+    guid: 5900a7ad2f7b9004883504a56b7944a6
+  - enabled: 1
+    path: Assets/Scenes/SCN54_SERAPHIS/Seraphis.unity
+    guid: ea9bc7c226d42bb4288e5a6e8b1537c7
+  - enabled: 1
+    path: Assets/Scenes/SCN55_KRONIS_4/Kronis_4.unity
+    guid: d293d665998779d4681fd64c1243300a
+  - enabled: 1
+    path: Assets/Scenes/SCN56_EONS_CRADLE/Eons_Cradle.unity
+    guid: 36edc57ad9754994ab603280564da85f
+  - enabled: 1
+    path: Assets/Scenes/SCN57_VIREX_THETA/Virex_Theta.unity
+    guid: 9c8f007315f70fd4a9ed997813082b9f
+  - enabled: 1
+    path: Assets/Scenes/SCN58_SOLARIS_ECHO/Solaris_Echo.unity
+    guid: fd653a17530141f47992e3d71e941a94
+  - enabled: 1
+    path: Assets/Scenes/SCN59_OBSIDIAN_WORLD/Obsidian_World.unity
+    guid: 998c922876c70d34f972830728519b20
+  - enabled: 1
+    path: Assets/Scenes/SCN60_GALAXY_MAP/Galaxy_Map.unity
+    guid: 388a1670459464f4d905c2c5bbb20238
+  - enabled: 1
+    path: Assets/Scenes/SCN61_STAR_SYSTEM/Star_System.unity
+    guid: be0bec491baa72d459d86f2e4efdd711
+  - enabled: 1
+    path: Assets/Scenes/SCN62_PLANET_OVERVIEW/Planet_Overview.unity
+    guid: 36e91a6b850ca09448f4744b91a05668
+  - enabled: 1
+    path: Assets/Scenes/SCN63_PLANET_SURFACE_MAP/Planet_Surface_Map.unity
+    guid: db72c64df4d52b74283c41e7515210f3
+  - enabled: 1
+    path: Assets/Scenes/SCN63_PLANET_SURFACE_MAP/SCN64_CONTINENT_MAP/Continent_Map.unity
+    guid: ae6496b413d1b5648a23e51d6ea97737
+  - enabled: 1
+    path: Assets/Scenes/SCN65_REGION_MAP/Region_Map.unity
+    guid: eac3dc176a031994d955c41b4f6fd1d9
+  - enabled: 1
+    path: Assets/Scenes/SCN66_BIOME_MAP/Biome_Map.unity
+    guid: 75ba210708747104bb8135902f339975
+  - enabled: 1
+    path: Assets/Scenes/SCN67_ISLAND_MAP/Island_Map.unity
+    guid: bf7a55ae1142a6c439fb8a7ffba63475
+  - enabled: 1
+    path: Assets/Scenes/SCN68_ENVIRONMENT_PROFILE/Environment_Profile.unity
+    guid: 564dff5916676614b9db74dea1f77a4f
+  - enabled: 1
+    path: Assets/Scenes/SCN69_WARFARE_PROFILE/Warfare_Profile.unity
+    guid: 139d66393ea8c224c9612532014c325a
+  - enabled: 1
+    path: Assets/Scenes/SCN70_FACTION_CONTROL/Faction_Control.unity
+    guid: 9fcf5382c1d565547a9d416f67816b3c
+  - enabled: 1
+    path: Assets/Scenes/SCN72_STRATEGIC_HEATMAP/Strategic_Heatmap.unity
+    guid: 17b582d92ecf8784ca2be65f5984a16b
+  - enabled: 1
+    path: Assets/Scenes/SCN73_RESOURCE_DISTRIBUTION/Resource_Distribution.unity
+    guid: 4be369c71944a9344abb3bfafeff82fb
+  - enabled: 1
+    path: Assets/Scenes/SCN74_LOGISTICS_NETWORK/Logistics_Network.unity
+    guid: 602fb2bdc3054fc489e62cfa210c8aea
+  - enabled: 1
+    path: Assets/Scenes/SCN75_WEATHER_SYSTEM/Weather_System.unity
+    guid: 48b676418871e364099a4eb3b853f972
+  - enabled: 1
+    path: Assets/Scenes/SCN75_ATMOSPHERIC_SIMULATION/Atmospheric_Simulation.unity
+    guid: 680bd6c8f8c79614db095a7eec28b26e
+  - enabled: 1
+    path: Assets/Scenes/SCN76_STORM_CELL_ANALYSIS/Storm_Cell_Analysis.unity
+    guid: dacb21597816f1847b545fb761007319
+  - enabled: 1
+    path: Assets/Scenes/SCN77_CLIMATE_MODEL/Climate_Model.unity
+    guid: 837455a5be52eab4b97a97235574a5dc
+  - enabled: 1
+    path: Assets/Scenes/SCN78_BIOSPHERE/Planetary_Biosphere.unity
+    guid: ab3c30e1f37699d40a072b397ea78556
+  - enabled: 1
+    path: Assets/Scenes/SCN23_CREDITS/Credits.unity
+    guid: 0a9f0fcba96eaa4438a69481a5980876
+  - enabled: 1
+    path: Assets/Scenes/SCN30_ACHERON/Blackspire_Continent.unity
+    guid: 0e95c68aadad5b84ba2e74f35b836ca1
+  - enabled: 1
+    path: Assets/Scenes/SCN03_BATTLEFIELD_AAA/SCN03_BATTLEFIELD_AAA.unity
+    guid: 0472de175882e6243882727495766e93
+  - enabled: 1
+    path: Assets/Scenes/SCN04_GARAGE/SCN04_GARAGE_ARCHITECTURE_TEST.unity
+    guid: 58d5a8d47ae9e5244a44744c3707f52b
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: aa8a83ffabb26bf4ea34ad4ad9200c1d, type: 2}
+    com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  m_UseUCBPForAssetBundles: 0
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: bf2ca1a951d74d54cac70be7f28994c5, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 8ffed9d39e617f54d9ebeba023df59b7, type: 2}

@@ -1,0 +1,266 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Rover
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-ground-rover
+  displayName: Rover
+  category: 4
+  role: Terrain Survey / Mobile Mapping
+  tier: Recon / Engineering Hybrid
+  status: Active
+  storeImage: {fileID: 4886158609036015627, guid: 42228c376f98b304aa1515fc3a8ec970, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 3.7
+    widthMeters: 2
+    heightMeters: 1.6
+    massKg: 820
+    powerSource: Electric-hybrid
+    energyCapacityWh: 5000
+    energyConsumptionWhPerMinute: 42
+    endurance: "5\u20139 hours"
+    payloadCapacityKg: 150
+    modules:
+    - Terrain scanner
+    - Mapping suite
+    - Stabilization cradle
+    navigationSystem: GPS + Survey AI
+    structuralIntegrityHp: 650
+    armorRating: 0.3
+    heatSignature: Low
+    noiseSignature: Low
+    topSpeedMetersPerSecond: 17
+    topSpeedDescription: 17 m/s
+    acceleration: Medium
+    turningRadius: Tight
+    climbRate: Rover climbRate
+    stabilityRating: High
+  autonomy:
+    behaviorProfile: Survey / Mapping / Recon
+    aggression: 0
+    caution: 0.85
+    persistence: 0.9
+    flankingLikelihood: 0
+    retreatThreshold: 0.8
+    retreatBehaviorDescription: Early; withdraw when damage exceeds threshold
+    targetPriority: Terrain anomalies / structural features
+    formationDiscipline: Medium
+    riskTolerance: 0.2
+  sensors:
+    visualRangeMeters: 1800
+    visualRangeDescription: Optical survey range; sensor fusion with thermal, radar, LiDAR and acoustic
+    thermalRangeMeters: 700
+    thermalRangeDescription: 700 m thermal range
+    acousticRange: Medium
+    radarRange: Short
+    lidarRange: Long
+    signalDetectionRange: Medium
+  communication:
+    meshRangeKm: 6
+    meshRangeDescription: 6 km; Recon Grid range 6 km
+    relayCapacity: 1
+    commandLinkType: Recon Grid
+    networkPriority: High
+  combat:
+    firepowerRating: 0
+    firepowerDescription: None; direct combat assignment prohibited
+    accuracy: N/A
+    stabilization: High; automatic survey stabilization
+    weaponMounts: None
+    weaponTypes: None
+    suppressionValue: 0
+    trackingStrength: Medium (terrain only)
+    disruptionStrength: Low
+    breachCapability: None
+    countermeasureRating: Low
+    threatLevel: 2
+    engagementDistance: N/A
+    preferredTerrain: Rough ground / survey lanes
+    preferredTargets: None
+    vulnerabilityProfile: Ballistic / explosives
+  squad:
+    squadRole: Terrain Survey / Recon Support
+    squadSizeContribution: 1
+    formationBehavior: Forward survey spacing
+    intentInterpretationRules: Map terrain and identify hazards; survey sectors, scan resource fields, analyze routes and mark engineering sites
+    retreatBehavior: Early
+    breachBehavior: None
+    flankingBehavior: None
+    reinforcementBehavior: Supports recon and engineering squads
+    parentCommandUnit: Command Core / Fusion
+    subordinateUnits: []
+    relayNodes:
+    - Relay Node 1
+    networkDependencies: Recon Grid; redundant link to Engineering Net
+  vrOperator:
+    operatorSeatType: Survey Cockpit
+    operatorHud: Terrain Mapping Overlay
+    cameraFeeds: Optical
+    thermalView: 1
+    lidarView: 1
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Full vehicle drive
+    sensorControls: LiDAR / thermal / zoom
+    abilityControls: Scan Terrain / Mark Hazard / Stabilize
+    weaponControls: None
+    stabilizationControls: Automatic survey stabilization
+    operatorAbilities:
+    - Terrain Scan
+    - Hazard Detection
+    - Mapping Sweep
+    - Recon Relay
+  economy:
+    creditCost: 490
+    buildCost: 320 Metal / 170 Electronics
+    buildTimeSeconds: 75
+    factoryType: Vehicle Bay
+    techRequirements: Recon Systems II
+    maintenanceCost: Low; MTBF 84 h
+    repairTimeSeconds: 20
+    supplyConsumption: Low
+    operationalCost: Low; 8 Metal / 4 Electronics per hour
+    deploymentRequirements: Vehicle pad
+    transportCompatibility: Light racks
+    launchMethod: Drive-out
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Light Alloy Plates
+      quantity: 26
+    - component: Reinforced Frame Rods
+      quantity: 14
+    - component: Hydraulic Actuators
+      quantity: 4
+    - component: Armor Panels
+      quantity: 2
+    - component: Survey Sensor Housing
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 16
+    - component: Signal Processors
+      quantity: 12
+    - component: Vehicle Control Chips
+      quantity: 3
+    - component: Recon AI Chips
+      quantity: 2
+    power:
+    - component: Hybrid Engine Core
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 2
+    rareTradeable:
+    - component: Long-Range LiDAR Core
+      quantity: 1
+    optionalUpgrades:
+    - Extended Battery Pack
+    - Silent Drive Kit
+    - Anti-Jamming Shielding
+  environment:
+    terrainAdaptationCoefficients: Rover terrainAdaptationCoefficients
+    weatherSensitivityIndex: 2
+    visibilityModifiers: Rover visibilityModifiers
+    signalPropagationCurve: Rover signalPropagationCurve
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0.8
+    packetLossRate: Rover packetLossRate
+    encryptionLatencySeconds: 2
+    meshSelfHealingThreshold: Rover meshSelfHealingThreshold
+    relaySaturationCurve: Rover relaySaturationCurve
+  cognitive:
+    decisionConfidence: 2
+    threatRecognitionAccuracy: 2
+    adaptiveLearningRatePerMission: 2
+    commandOverrideResistance: 2
+    cooperativeBehaviorIndex: 2
+  behaviorNodes:
+  - behaviorNode: 
+    weight: -0.00000008226931
+    description: 
+  - behaviorNode: 
+    weight: 0
+    description: 
+  missionBehaviors:
+  - missionType: 
+    behaviorFocus: 
+    efficiency: -0.00000008228733
+  - missionType: 
+    behaviorFocus: 
+    efficiency: 0
+  unitSynergies:
+  - partnerUnit: 
+    synergyRating: -0.000000081262726
+    function: 
+  - partnerUnit: 
+    synergyRating: 0
+    function: 
+  damageResponses:
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  upgrades:
+  - upgrade: 
+    effect: 
+    efficiencyGain: -0.00000008129882
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  tactical:
+    formationAdaptability: 2
+    tacticalRoleWeight: 2
+    commandResponseDelaySeconds: 2
+    reinforcementTriggerConditions: Rover reinforcementTriggerConditions
+    retreatLogicThresholds: Rover retreatLogicThresholds
+  maintenance:
+    meanTimeBetweenFailuresHours: 2
+    repairCycleSeconds: 2
+    resourceDrainPerHourPercent: 20
+    batteryEfficiencyPercent: 0.8
+    rotorStabilityPercent: 20
+    sensorCalibrationDriftPercentPerHour: 20
+    coolingEfficiencyPercent: 0.8
+    operationalUptimePercent: 20
+    energyRecoveryRatePercent: 20
+    energyRecoveryRatePercentPerIdleMinute: 20
+    componentWearPercentPerHour: 20
+    maintenancePriorityLevel: Rover maintenancePriorityLevel
+    sparePartDependencyIndex: 2
+    operationalCostPerHour: Rover operationalCostPerHour
+  threatResponses:
+  - threatType: 
+    reactionTimeSeconds: -1.6962372e-20
+    countermeasureEfficiency: 5.79e-43
+  - threatType: 
+    reactionTimeSeconds: 0
+    countermeasureEfficiency: 0
+  commandNetwork:
+  - node: 
+    loadPercent: -0.00001955549
+    latencySeconds: 5.79e-43
+    status: 
+  - node: 
+    loadPercent: 0
+    latencySeconds: 0
+    status: 
+  performance:
+    missionSuccessProbability: 0.75
+    averageEngagementDurationMinutes: 2
+    reconDataYieldMbPerMinute: 2
+    communicationUptime: 2
+    threatAvoidanceEfficiency: 0.8

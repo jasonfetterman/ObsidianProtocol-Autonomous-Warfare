@@ -1,62 +1,75 @@
-using System;
 using UnityEngine;
+using System;
+using TMPro;
 
-public class UIConfirmationSystem : MonoBehaviour
+namespace ObsidianProtocol.UI
 {
-    public static UIConfirmationSystem Instance { get; private set; }
-
-    public bool IsWaitingForConfirmation { get; private set; }
-
-    private Action confirmAction;
-    private Action cancelAction;
-
-    private void Awake()
+    public class UIConfirmationSystem : MonoBehaviour
     {
-        if (Instance != null && Instance != this)
+        public static UIConfirmationSystem Instance { get; private set; }
+
+        [Header("Confirmation Window Root")]
+        [SerializeField] private GameObject confirmationRoot;
+
+        [Header("Confirmation Text Element")]
+        [SerializeField] private TMP_Text confirmationText;
+
+        private Action onConfirm;
+        private Action onCancel;
+
+        private void Awake()
         {
-            Destroy(gameObject);
-            return;
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this;
+
+            if (confirmationRoot != null)
+                confirmationRoot.SetActive(false);
         }
 
-        Instance = this;
-    }
+        public void ShowConfirmation(string message, Action confirmCallback, Action cancelCallback)
+        {
+            if (confirmationRoot == null)
+                return;
 
-    public void RequestConfirmation(Action onConfirm, Action onCancel = null)
-    {
-        confirmAction = onConfirm;
-        cancelAction = onCancel;
-        IsWaitingForConfirmation = true;
-    }
+            onConfirm = confirmCallback;
+            onCancel = cancelCallback;
 
-    public void Confirm()
-    {
-        if (!IsWaitingForConfirmation)
-            return;
+            if (confirmationText != null)
+                confirmationText.text = message;
 
-        IsWaitingForConfirmation = false;
+            confirmationRoot.SetActive(true);
+        }
 
-        Action action = confirmAction;
-        ClearCallbacks();
+        public void Confirm()
+        {
+            confirmationRoot.SetActive(false);
 
-        action?.Invoke();
-    }
+            onConfirm?.Invoke();
+            onConfirm = null;
+            onCancel = null;
+        }
 
-    public void Cancel()
-    {
-        if (!IsWaitingForConfirmation)
-            return;
+        public void Cancel()
+        {
+            confirmationRoot.SetActive(false);
 
-        IsWaitingForConfirmation = false;
+            onCancel?.Invoke();
+            onConfirm = null;
+            onCancel = null;
+        }
 
-        Action action = cancelAction;
-        ClearCallbacks();
+        public void Hide()
+        {
+            if (confirmationRoot != null)
+                confirmationRoot.SetActive(false);
 
-        action?.Invoke();
-    }
-
-    private void ClearCallbacks()
-    {
-        confirmAction = null;
-        cancelAction = null;
+            onConfirm = null;
+            onCancel = null;
+        }
     }
 }

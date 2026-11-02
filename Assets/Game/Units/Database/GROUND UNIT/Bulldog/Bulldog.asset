@@ -1,0 +1,224 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Bulldog
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-ground-bulldog
+  displayName: Bulldog
+  category: 1
+  role: Armored Patrol / Perimeter Security
+  tier: Security
+  status: Active
+  storeImage: {fileID: 8159113125469753020, guid: 0d0b5b15ab9c53e4388a4b594b4fd8a5, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 4.2
+    widthMeters: 2.1
+    heightMeters: 1.8
+    massKg: 1200
+    powerSource: Hybrid diesel-electric
+    energyCapacityWh: 5200
+    energyConsumptionWhPerMinute: 0
+    endurance: "6\u201310 hours"
+    payloadCapacityKg: 300
+    modules:
+    - Armor plating
+    - Patrol optics
+    navigationSystem: GPS + Patrol AI
+    structuralIntegrityHp: 900
+    armorRating: 0.65
+    heatSignature: Medium
+    noiseSignature: Medium
+    topSpeedMetersPerSecond: 18
+    topSpeedDescription: 18 m/s
+    acceleration: Low
+    turningRadius: Tight
+    climbRate: 
+    stabilityRating: High
+  autonomy:
+    behaviorProfile: Patrol / Perimeter Defense
+    aggression: 0.4
+    caution: 0.7
+    persistence: 0.8
+    flankingLikelihood: 0
+    retreatThreshold: 0.6
+    retreatBehaviorDescription: Moderate
+    targetPriority: Hostile movement near perimeter
+    formationDiscipline: High
+    riskTolerance: 0.5
+  sensors:
+    visualRangeMeters: 1800
+    visualRangeDescription: 1800 m
+    thermalRangeMeters: 900
+    thermalRangeDescription: 900 m
+    acousticRange: Medium
+    radarRange: Short
+    lidarRange: Short
+    signalDetectionRange: Medium
+  communication:
+    meshRangeKm: 5
+    meshRangeDescription: 5 km
+    relayCapacity: 1
+    commandLinkType: Ground Grid
+    networkPriority: Medium
+  combat:
+    firepowerRating: 0.5
+    firepowerDescription: Medium
+    accuracy: Medium
+    stabilization: Medium
+    weaponMounts: 1
+    weaponTypes: Light turret / suppression gun
+    suppressionValue: 0
+    trackingStrength: Low
+    disruptionStrength: Medium
+    breachCapability: Low
+    countermeasureRating: Medium
+    threatLevel: 5
+    engagementDistance: "300\u2013700 m"
+    preferredTerrain: Perimeter roads / open ground
+    preferredTargets: Light vehicles / infantry
+    vulnerabilityProfile: EMP / heavy weapons
+  squad:
+    squadRole: Patrol Security
+    squadSizeContribution: 2
+    formationBehavior: Perimeter spacing
+    intentInterpretationRules: Maintain patrol route
+    retreatBehavior: Moderate
+    breachBehavior: None
+    flankingBehavior: None
+    reinforcementBehavior: Supports security squads
+    parentCommandUnit: Command Core / Pulse
+    subordinateUnits:
+    - Patrol
+    - Scout
+    relayNodes:
+    - Relay Node 1
+    networkDependencies: Ground Grid
+  vrOperator:
+    operatorSeatType: Armored Vehicle Cockpit
+    operatorHud: Patrol Overlay
+    cameraFeeds: Optical + turret cam
+    thermalView: 1
+    lidarView: 1
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Full vehicle drive
+    sensorControls: Thermal / LiDAR / zoom
+    abilityControls: Mark Threat, Stabilize, Patrol Mode
+    weaponControls: Turret fire / suppression
+    stabilizationControls: 
+    operatorAbilities:
+    - Suppression Burst
+    - Threat Marking
+    - Patrol Route Lock
+    - Relay Ground Data
+  economy:
+    creditCost: 900
+    buildCost: 600 Metal / 300 Electronics
+    buildTimeSeconds: 120
+    factoryType: Vehicle Bay
+    techRequirements: Ground Systems I
+    maintenanceCost: Medium
+    repairTimeSeconds: 30
+    supplyConsumption: Medium
+    operationalCost: Moderate
+    deploymentRequirements: Vehicle pad
+    transportCompatibility: Heavy racks
+    launchMethod: Drive-out
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Heavy Alloy Plates
+      quantity: 40
+    - component: Reinforced Frame Rods
+      quantity: 20
+    - component: Hydraulic Actuators
+      quantity: 6
+    - component: Armor Panels
+      quantity: 4
+    - component: Patrol Sensor Housing
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 20
+    - component: Signal Processors
+      quantity: 14
+    - component: Vehicle Control Chips
+      quantity: 4
+    - component: Security AI Chips
+      quantity: 3
+    power:
+    - component: Hybrid Engine Core
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 2
+    rareTradeable:
+    - component: Turret Stabilization Module
+      quantity: 1
+    optionalUpgrades:
+    - Reinforced Armor
+    - Silent Drive Kit
+    - Extended Patrol Battery
+    - Anti-Jamming Shielding
+  environment:
+    terrainAdaptationCoefficients: 
+    weatherSensitivityIndex: 0
+    visibilityModifiers: 
+    signalPropagationCurve: 
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0
+    packetLossRate: 
+    encryptionLatencySeconds: 0
+    meshSelfHealingThreshold: 
+    relaySaturationCurve: 
+  cognitive:
+    decisionConfidence: 0
+    threatRecognitionAccuracy: 0
+    adaptiveLearningRatePerMission: 0
+    commandOverrideResistance: 0
+    cooperativeBehaviorIndex: 0
+  behaviorNodes: []
+  missionBehaviors: []
+  unitSynergies: []
+  damageResponses: []
+  upgrades: []
+  tactical:
+    formationAdaptability: 0
+    tacticalRoleWeight: 0
+    commandResponseDelaySeconds: 0
+    reinforcementTriggerConditions: 
+    retreatLogicThresholds: 
+  maintenance:
+    meanTimeBetweenFailuresHours: 0
+    repairCycleSeconds: 0
+    resourceDrainPerHourPercent: 0
+    batteryEfficiencyPercent: 0
+    rotorStabilityPercent: 0
+    sensorCalibrationDriftPercentPerHour: 0
+    coolingEfficiencyPercent: 0
+    operationalUptimePercent: 0
+    energyRecoveryRatePercent: 0
+    energyRecoveryRatePercentPerIdleMinute: 0
+    componentWearPercentPerHour: 0
+    maintenancePriorityLevel: 
+    sparePartDependencyIndex: 0
+    operationalCostPerHour: 
+  threatResponses: []
+  commandNetwork: []
+  performance:
+    missionSuccessProbability: 0
+    averageEngagementDurationMinutes: 0
+    reconDataYieldMbPerMinute: 0
+    communicationUptime: 0
+    threatAvoidanceEfficiency: 0

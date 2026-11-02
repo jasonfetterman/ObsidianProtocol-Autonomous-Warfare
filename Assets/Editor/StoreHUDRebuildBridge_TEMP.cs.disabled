@@ -1,0 +1,113 @@
+﻿using System;
+using System.IO;
+using System.Reflection;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+
+[InitializeOnLoad]
+public static class StoreHUDRebuildBridge_TEMP
+{
+    private const string ScenePath = "Assets/Scenes/SCN16_STORE/SCN16_STORE.unity";
+    private const string RunKey = "OPAW_ACTUAL_STORE_HUD_BUILD_20261025_V2";
+
+    static StoreHUDRebuildBridge_TEMP()
+    {
+        EditorApplication.delayCall += Run;
+    }
+
+    private static void Run()
+    {
+        if (SessionState.GetBool(RunKey, false))
+            return;
+
+        SessionState.SetBool(RunKey, true);
+
+        try
+        {
+            var scene = EditorSceneManager.GetActiveScene();
+
+            if (!scene.IsValid() || scene.path != ScenePath)
+            {
+                Debug.LogError("[ACTUAL STORE HUD BUILD FAILED] Open SCN16_STORE first. Active scene: " +
+                    (scene.IsValid() ? scene.path : "<invalid>"));
+                return;
+            }
+
+            Type builderType = null;
+
+            foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                try
+                {
+                    foreach (Type type in assembly.GetTypes())
+                    {
+                        if (type.Name == "ObsidianNewStoreHUDBuilder")
+                        {
+                            builderType = type;
+                            break;
+                        }
+                    }
+                }
+                catch (ReflectionTypeLoadException ex)
+                {
+                    foreach (Type type in ex.Types)
+                    {
+                        if (type != null && type.Name == "ObsidianNewStoreHUDBuilder")
+                        {
+                            builderType = type;
+                            break;
+                        }
+                    }
+                }
+
+                if (builderType != null)
+                    break;
+            }
+
+            if (builderType == null)
+            {
+                Debug.LogError("[ACTUAL STORE HUD BUILD FAILED] ObsidianNewStoreHUDBuilder type not found.");
+                return;
+            }
+
+            MethodInfo method = builderType.GetMethod(
+                "Build",
+                BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static);
+
+            if (method == null)
+            {
+                Debug.LogError("[ACTUAL STORE HUD BUILD FAILED] Static Build method not found.");
+                return;
+            }
+
+            Debug.Log("[ACTUAL STORE HUD BUILD] Invoking " + builderType.FullName + ".Build()");
+            method.Invoke(null, null);
+
+            scene = EditorSceneManager.GetActiveScene();
+
+            if (!scene.IsValid() || scene.path != ScenePath)
+            {
+                Debug.LogError("[ACTUAL STORE HUD BUILD FAILED] Builder changed the active scene.");
+                return;
+            }
+
+            EditorSceneManager.SaveScene(scene);
+
+            GameObject[] roots = scene.GetRootGameObjects();
+            int hudRoots = 0;
+
+            foreach (GameObject root in roots)
+            {
+                if (root.name == "NEW_STORE_HUD_ROOT")
+                    hudRoots++;
+            }
+
+            Debug.Log("[ACTUAL STORE HUD BUILD RESULT] Saved scene. NEW_STORE_HUD_ROOT count: " + hudRoots);
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("[ACTUAL STORE HUD BUILD FAILED] " + ex);
+        }
+    }
+}

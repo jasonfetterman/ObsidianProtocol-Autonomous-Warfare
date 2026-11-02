@@ -1,0 +1,292 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Harbor
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-sea-harbor
+  displayName: Harbor
+  category: 3
+  role: Marine Logistics / Mobile Dock & Support Platform
+  tier: Heavy Support
+  status: Active
+  storeImage: {fileID: 5459420540550089609, guid: 96c0e43e61e427d45a235376d7a8bd52, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 10
+    widthMeters: 4.5
+    heightMeters: 3.5
+    massKg: 6800
+    powerSource: Heavy marine diesel-electric hybrid
+    energyCapacityWh: 22000
+    energyConsumptionWhPerMinute: 90
+    endurance: "12\u201324 hours"
+    payloadCapacityKg: 1200
+    modules:
+    - Mobile dock platform
+    - Cargo lift
+    - Stabilization pontoons
+    - Marine repair suite
+    navigationSystem: Marine GPS + Logistics AI
+    structuralIntegrityHp: 1600
+    armorRating: 0.55
+    heatSignature: Medium
+    noiseSignature: Medium
+    topSpeedMetersPerSecond: 6
+    topSpeedDescription: 6 m/s
+    acceleration: Low
+    turningRadius: Heavy marine turn
+    climbRate: Harbor climbRate
+    stabilityRating: Maximum (platform-grade)
+  autonomy:
+    behaviorProfile: Marine logistics / repair / support
+    aggression: 0
+    caution: 0.9
+    persistence: 1
+    flankingLikelihood: 0
+    retreatThreshold: 0.9
+    retreatBehaviorDescription: Early
+    targetPriority: Friendly units requiring resupply or repair
+    formationDiscipline: High
+    riskTolerance: 0.2
+  sensors:
+    visualRangeMeters: 1800
+    visualRangeDescription: 1800 m
+    thermalRangeMeters: 700
+    thermalRangeDescription: 700 m
+    acousticRange: Medium
+    radarRange: Short
+    lidarRange: Not specified
+    signalDetectionRange: Medium
+  communication:
+    meshRangeKm: 8
+    meshRangeDescription: 8 km
+    relayCapacity: 2
+    commandLinkType: Marine Logistics Grid
+    networkPriority: High
+  combat:
+    firepowerRating: 0
+    firepowerDescription: None
+    accuracy: Not applicable
+    stabilization: Harbor stabilization
+    weaponMounts: None
+    weaponTypes: None
+    suppressionValue: 0
+    trackingStrength: Low
+    disruptionStrength: Low
+    breachCapability: None
+    countermeasureRating: Medium
+    threatLevel: 3
+    engagementDistance: Not applicable
+    preferredTerrain: Calm waters / marine staging zones
+    preferredTargets: Friendly units requiring resupply or repair
+    vulnerabilityProfile: Ballistic / collision / waves
+  squad:
+    squadRole: Heavy Marine Logistics / Repair
+    squadSizeContribution: 3
+    formationBehavior: Rear-line support spacing
+    intentInterpretationRules: Resupply, repair, stabilize
+    retreatBehavior: Early
+    breachBehavior: None
+    flankingBehavior: None
+    reinforcementBehavior: Supports all marine squads
+    parentCommandUnit: Worldmap / Fusion
+    subordinateUnits:
+    - Current
+    - Rescue
+    relayNodes:
+    - Relay Node 1
+    - Relay Node 2
+    networkDependencies: Marine Logistics Grid
+  vrOperator:
+    operatorSeatType: Marine Logistics Console
+    operatorHud: Dock & Repair Overlay
+    cameraFeeds: Optical
+    thermalView: 1
+    lidarView: 0
+    sonarView: 1
+    tacticalOverlay: 1
+    movementControls: Heavy marine drive
+    sensorControls: Thermal / sonar / zoom
+    abilityControls: 'Mark Dock Zone, Stabilize, Route Lock; Cargo: Load / unload / lift; Repair: Marine repair suite'
+    weaponControls: None
+    stabilizationControls: Platform stabilization / stabilization pontoons
+    operatorAbilities:
+    - Marine Repair
+    - Cargo Transfer
+    - Stabilization Pulse
+    - Logistics Relay
+  economy:
+    creditCost: 1380
+    buildCost: 900 Metal / 480 Electronics
+    buildTimeSeconds: 160
+    factoryType: Marine Bay
+    techRequirements: Marine Systems II
+    maintenanceCost: Medium
+    repairTimeSeconds: 40
+    supplyConsumption: Medium
+    operationalCost: Medium
+    deploymentRequirements: Heavy water launch pad
+    transportCompatibility: Heavy marine racks
+    launchMethod: Water drop
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Marine Alloy Plates
+      quantity: 60
+    - component: Reinforced Marine Rods
+      quantity: 30
+    - component: Hydraulic Actuators
+      quantity: 8
+    - component: Armor Panels
+      quantity: 2
+    - component: Dock Platform Assembly
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 28
+    - component: Signal Processors
+      quantity: 18
+    - component: Marine Control Chips
+      quantity: 5
+    - component: Logistics AI Chips
+      quantity: 3
+    power:
+    - component: Heavy Marine Hybrid Engine Core
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 3
+    rareTradeable:
+    - component: Marine Repair Module
+      quantity: 1
+    optionalUpgrades:
+    - Reinforced Hull
+    - Extended Fuel Tank
+    - Anti-Jamming Shielding
+  environment:
+    terrainAdaptationCoefficients: Harbor terrainAdaptationCoefficients
+    weatherSensitivityIndex: 3
+    visibilityModifiers: Harbor visibilityModifiers
+    signalPropagationCurve: Harbor signalPropagationCurve
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0.8
+    packetLossRate: Harbor packetLossRate
+    encryptionLatencySeconds: 3
+    meshSelfHealingThreshold: Harbor meshSelfHealingThreshold
+    relaySaturationCurve: Harbor relaySaturationCurve
+  cognitive:
+    decisionConfidence: 3
+    threatRecognitionAccuracy: 3
+    adaptiveLearningRatePerMission: 3
+    commandOverrideResistance: 3
+    cooperativeBehaviorIndex: 3
+  behaviorNodes:
+  - behaviorNode: 
+    weight: -0.00000008226931
+    description: 
+  - behaviorNode: 
+    weight: 0
+    description: 
+  - behaviorNode: 
+    weight: 0
+    description: 
+  missionBehaviors:
+  - missionType: 
+    behaviorFocus: 
+    efficiency: -0.00000008228733
+  - missionType: 
+    behaviorFocus: 
+    efficiency: 0
+  - missionType: 
+    behaviorFocus: 
+    efficiency: 0
+  unitSynergies:
+  - partnerUnit: 
+    synergyRating: -0.000000081262726
+    function: 
+  - partnerUnit: 
+    synergyRating: 0
+    function: 
+  - partnerUnit: 
+    synergyRating: 0
+    function: 
+  damageResponses:
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  upgrades:
+  - upgrade: 
+    effect: 
+    efficiencyGain: -0.00000008129882
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  tactical:
+    formationAdaptability: 3
+    tacticalRoleWeight: 3
+    commandResponseDelaySeconds: 3
+    reinforcementTriggerConditions: Harbor reinforcementTriggerConditions
+    retreatLogicThresholds: Harbor retreatLogicThresholds
+  maintenance:
+    meanTimeBetweenFailuresHours: 3
+    repairCycleSeconds: 3
+    resourceDrainPerHourPercent: 30
+    batteryEfficiencyPercent: 0.8
+    rotorStabilityPercent: 30
+    sensorCalibrationDriftPercentPerHour: 30
+    coolingEfficiencyPercent: 0.8
+    operationalUptimePercent: 30
+    energyRecoveryRatePercent: 30
+    energyRecoveryRatePercentPerIdleMinute: 30
+    componentWearPercentPerHour: 30
+    maintenancePriorityLevel: Harbor maintenancePriorityLevel
+    sparePartDependencyIndex: 3
+    operationalCostPerHour: Harbor operationalCostPerHour
+  threatResponses:
+  - threatType: 
+    reactionTimeSeconds: -1.6962372e-20
+    countermeasureEfficiency: 5.79e-43
+  - threatType: 
+    reactionTimeSeconds: 0
+    countermeasureEfficiency: 0
+  - threatType: 
+    reactionTimeSeconds: 0
+    countermeasureEfficiency: 0
+  commandNetwork:
+  - node: 
+    loadPercent: -0.00001955549
+    latencySeconds: 5.79e-43
+    status: 
+  - node: 
+    loadPercent: 0
+    latencySeconds: 0
+    status: 
+  - node: 
+    loadPercent: 0
+    latencySeconds: 0
+    status: 
+  performance:
+    missionSuccessProbability: 0.75
+    averageEngagementDurationMinutes: 3
+    reconDataYieldMbPerMinute: 3
+    communicationUptime: 3
+    threatAvoidanceEfficiency: 0.8

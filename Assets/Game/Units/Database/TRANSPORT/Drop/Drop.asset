@@ -1,0 +1,386 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Drop
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-air-drop
+  displayName: Drop
+  category: 7
+  role: Precision Payload Delivery
+  tier: Operational
+  status: Active
+  storeImage: {fileID: 253005588072490991, guid: 5296c649d30d2694cbcb5815958420e6, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 4.5
+    widthMeters: 3.2
+    heightMeters: 1.5
+    massKg: 30
+    powerSource: High-capacity battery
+    energyCapacityWh: 2600
+    energyConsumptionWhPerMinute: 55
+    endurance: "25\u201340 min | Energy curve: idle 12 Wh/min; maximum delivery load 68 Wh/min; emergency power 10 Wh/min; idle recovery 5% per idle minute; battery efficiency 92%; standard high-capacity battery recharge."
+    payloadCapacityKg: 2
+    modules:
+    - Servo drop system
+    navigationSystem: GPS + IMU
+    structuralIntegrityHp: 150
+    armorRating: 0.2
+    heatSignature: Medium
+    noiseSignature: Medium
+    topSpeedMetersPerSecond: 20
+    topSpeedDescription: 20 m/s
+    acceleration: Medium
+    turningRadius: Moderate
+    climbRate: Medium
+    stabilityRating: "High \u2014 optimized for drop accuracy"
+  autonomy:
+    behaviorProfile: Logistics / Delivery
+    aggression: 0
+    caution: 0.7
+    persistence: 0.8
+    flankingLikelihood: 0
+    retreatThreshold: 0.6
+    retreatBehaviorDescription: Withdraw under threat or low battery; abort if delivery safety thresholds are exceeded. | Autonomous operation enabled; delivery-zone recognition 94%; drop prediction accuracy 91%; autonomous recovery enabled; AI sync 98%; command latency 0.5 s; tactical refresh 2 s; strategic refresh 5 s; decision depth Tier II; override priority Network > AI > Manual; command authority Tactical / Logistics; processing Medium; network capacity Standard; signal integrity 95%; relay load 32%.
+    targetPriority: Delivery coordinates
+    formationDiscipline: Medium
+    riskTolerance: 0.2
+  sensors:
+    visualRangeMeters: 1200
+    visualRangeDescription: Delivery-zone identification and navigation; optical sensor
+    thermalRangeMeters: 600
+    thermalRangeDescription: Thermal delivery-zone observation
+    acousticRange: Low
+    radarRange: None
+    lidarRange: None
+    signalDetectionRange: Medium
+  communication:
+    meshRangeKm: 6
+    meshRangeDescription: 6 km mesh
+    relayCapacity: 0
+    commandLinkType: Standard tactical network
+    networkPriority: Medium
+  combat:
+    firepowerRating: 0
+    firepowerDescription: Noncombat aerial logistics platform
+    accuracy: "Payload delivery accuracy: \xB10.5 m"
+    stabilization: High; optimized for precision payload release
+    weaponMounts: None
+    weaponTypes: None
+    suppressionValue: 0
+    trackingStrength: "High \u2014 delivery-zone tracking"
+    disruptionStrength: Low
+    breachCapability: None
+    countermeasureRating: Limited defensive countermeasures
+    threatLevel: 2
+    engagementDistance: "N/A \u2014 direct combat prohibited"
+    preferredTerrain: Open air / delivery corridors
+    preferredTargets: Assigned delivery coordinates and drop zones
+    vulnerabilityProfile: "Ballistic damage, explosives, EMP, signal jamming, thermal stress, cyber intrusion, and severe weather | Drop-zone recognition 94%; payload release reliability 96%; route completion reliability 93%; payload accuracy \xB10.5 m; mission success 90%; average delivery duration 3.8 min."
+  squad:
+    squadRole: Payload Delivery
+    squadSizeContribution: 1
+    formationBehavior: Delivery corridor spacing
+    intentInterpretationRules: Prioritize delivery accuracy and payload preservation over speed.
+    retreatBehavior: Medium; return to recovery point when unsafe
+    breachBehavior: None
+    flankingBehavior: None
+    reinforcementBehavior: Supports logistics squads
+    parentCommandUnit: Command Core / Overseer
+    subordinateUnits: []
+    relayNodes: []
+    networkDependencies: 'Standard Warden mesh | Command hierarchy: Command Core > Overseer > Drop. Autonomous assignment enabled. Persistent unit record; veteran progression enabled; lost if destroyed.'
+  vrOperator:
+    operatorSeatType: Drone View
+    operatorHud: Delivery Overlay
+    cameraFeeds: Optical
+    thermalView: 1
+    lidarView: 0
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Full drone flight
+    sensorControls: Drop-zone targeting
+    abilityControls: Payload Drop / Stabilize
+    weaponControls: None
+    stabilizationControls: Auto-hover / auto-level
+    operatorAbilities:
+    - Precision Drop
+    - Drop-Zone Scan
+    - Stabilize
+    - Delivery Confirmation
+    - Abort Delivery
+    - Return to Base
+  economy:
+    creditCost: 900
+    buildCost: 160 Metal / 140 Electronics
+    buildTimeSeconds: 50
+    factoryType: Drone Bay
+    techRequirements: Logistics I
+    maintenanceCost: Medium
+    repairTimeSeconds: 14
+    supplyConsumption: Medium
+    operationalCost: Moderate; 6 Metal / 5 Electronics per hour
+    deploymentRequirements: Standard drone pad
+    transportCompatibility: All aerial racks
+    launchMethod: Vertical takeoff
+    deploymentPointsDefined: 1
+    deploymentPoints: 1
+  buildRequirements:
+    commonComponents:
+    - component: Medium Alloy Plates
+      quantity: 0
+    - component: Composite Frame Rods
+      quantity: 0
+    - component: Micro-Servo Actuators
+      quantity: 0
+    - component: Stabilizer Fins
+      quantity: 0
+    - component: Payload Drop Bay Housing
+      quantity: 0
+    electronics:
+    - component: Circuit Bundles
+      quantity: 0
+    - component: Signal Processors
+      quantity: 0
+    - component: Drone Control Chips
+      quantity: 0
+    - component: IMU Stabilization Chips
+      quantity: 0
+    power:
+    - component: High-Capacity Battery Pack
+      quantity: 0
+    - component: Power Regulation Nodes
+      quantity: 0
+    rareTradeable:
+    - component: Precision Servo Assembly
+      quantity: 0
+    - component: Encrypted Delivery Core
+      quantity: 0
+    optionalUpgrades:
+    - Extended Battery Module
+    - Silent Rotor Kit
+    - Precision Drop Enhancer
+    - Anti-Wind Stabilization Grid
+  environment:
+    terrainAdaptationCoefficients: Open Air=1; Urban=0.9; Forest=0.7; Mountain=0.75; Desert=0.9; Snow=0.8; Water=0
+    weatherSensitivityIndex: 0.74
+    visibilityModifiers: 'Day=1; Night=0.8; Fog=0.7; Rain=0.75; Heavy Storm=0.55 | Terrain data reliability 88%; severe weather reduces flight stability and delivery precision; environmental priority: maintain delivery accuracy over speed.'
+    signalPropagationCurve: Range decreases 0.25% per 10% humidity increase.
+    modifiers:
+    - condition: High Winds
+      effect: -15% flight stability; -12% delivery precision
+    - condition: Heavy Rain
+      effect: -15% signal range; -10% visual clarity
+    - condition: Fog
+      effect: -20% visual range; +5% thermal range
+    - condition: Night Operations
+      effect: -20% visual range; +10% thermal targeting precision
+    - condition: Electromagnetic Interference
+      effect: -35% signal integrity; -25% command reliability
+    - condition: Extreme Weather
+      effect: -20% delivery accuracy
+  network:
+    nodeHandoffEfficiency: 0.94
+    packetLossRate: 1.5% under load
+    encryptionLatencySeconds: 0.11
+    meshSelfHealingThreshold: 2 lost nodes
+    relaySaturationCurve: Throughput drops 6% per additional node beyond 5.
+  cognitive:
+    decisionConfidence: 0.89
+    threatRecognitionAccuracy: 0.93
+    adaptiveLearningRatePerMission: 0.06
+    commandOverrideResistance: 0.1
+    cooperativeBehaviorIndex: 0.85
+  behaviorNodes:
+  - behaviorNode: 
+    weight: -0.00000008226931
+    description: 
+  - behaviorNode: Navigate Delivery Route
+    weight: 0.92
+    description: Reach assigned delivery coordinates
+  - behaviorNode: Drop-Zone Scan
+    weight: 0.9
+    description: Verify delivery area before release
+  - behaviorNode: Precision Drop
+    weight: 0.95
+    description: Deliver payload within assigned accuracy
+  - behaviorNode: Stabilize
+    weight: 0.94
+    description: Maintain stable flight during payload release
+  - behaviorNode: Delivery Confirmation
+    weight: 0.93
+    description: Confirm successful payload delivery
+  - behaviorNode: Retreat
+    weight: 0.7
+    description: Withdraw under threat or low battery
+  - behaviorNode: Re-Engage
+    weight: 0.6
+    description: Resume delivery operations after recovery
+  - behaviorNode: Assist
+    weight: 0.65
+    description: Support allied logistics operations
+  - behaviorNode: Override Response
+    weight: 0.85
+    description: Accept authorized network commands
+  missionBehaviors:
+  - missionType: 
+    behaviorFocus: 
+    efficiency: -0.00000008228733
+  - missionType: Precision Delivery
+    behaviorFocus: Route completion, drop-zone validation, and payload accuracy
+    efficiency: 0.95
+  - missionType: Resupply
+    behaviorFocus: Deliver payload to assigned logistics destination
+    efficiency: 0.91
+  - missionType: Recovery
+    behaviorFocus: Abort unsafe delivery and return to recovery point
+    efficiency: 0.85
+  unitSynergies:
+  - partnerUnit: 
+    synergyRating: -0.000000081262726
+    function: 
+  - partnerUnit: Beacon
+    synergyRating: 0.93
+    function: Delivery-route communications
+  - partnerUnit: Warden
+    synergyRating: 0.88
+    function: Delivery-zone reconnaissance
+  - partnerUnit: Sentinel
+    synergyRating: 0.84
+    function: Tactical delivery authorization
+  - partnerUnit: Logistics Units
+    synergyRating: 0.91
+    function: Payload destination coordination
+  - partnerUnit: Overseer
+    synergyRating: 0.95
+    function: Mission-level delivery control
+  damageResponses:
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: Ballistic
+    effect: Structural damage / flight degradation
+    recovery: Abort delivery if integrity threshold is reached
+  - damageType: Explosive
+    effect: Flight-system and payload-bay damage
+    recovery: Stabilize and return to recovery point
+  - damageType: EMP
+    effect: Navigation / communications disruption
+    recovery: Switch to local IMU navigation and recovery logic
+  - damageType: Signal Jam
+    effect: Command-link degradation
+    recovery: Continue current route if safe; seek alternate network
+  - damageType: Thermal
+    effect: Battery and electronics stress
+    recovery: Reduce power load and retreat
+  - damageType: Weather
+    effect: Flight stability / precision degradation
+    recovery: Reduce speed and stabilize before delivery
+  - damageType: Cyber Intrusion
+    effect: Command integrity risk
+    recovery: Isolate compromised link and preserve delivery state
+  upgrades:
+  - upgrade: 
+    effect: 
+    efficiencyGain: -0.00000008129882
+  - upgrade: Extended Battery Module
+    effect: +20% endurance; +10% operational uptime
+    efficiencyGain: 0.2
+  - upgrade: Silent Rotor Kit
+    effect: -25% noise signature; +5% threat avoidance
+    efficiencyGain: 0.05
+  - upgrade: Precision Drop Enhancer
+    effect: +20% payload accuracy
+    efficiencyGain: 0.2
+  - upgrade: Anti-Wind Stabilization Grid
+    effect: +15% delivery stability under high winds
+    efficiencyGain: 0.15
+  - upgrade: Reinforced Payload Bay
+    effect: +20% payload-bay structural integrity
+    efficiencyGain: 0.2
+  - upgrade: Advanced Navigation Module
+    effect: +10% route completion reliability
+    efficiencyGain: 0.1
+  tactical:
+    formationAdaptability: 0.8
+    tacticalRoleWeight: 0.76
+    commandResponseDelaySeconds: 0.5
+    reinforcementTriggerConditions: Battery below 25% OR signal loss above 35%
+    retreatLogicThresholds: Structural integrity below 30% OR payload delivered
+  maintenance:
+    meanTimeBetweenFailuresHours: 110
+    repairCycleSeconds: 14
+    resourceDrainPerHourPercent: 0.6
+    batteryEfficiencyPercent: 92
+    rotorStabilityPercent: 94
+    sensorCalibrationDriftPercentPerHour: 0.25
+    coolingEfficiencyPercent: 88
+    operationalUptimePercent: 96
+    energyRecoveryRatePercent: 5
+    energyRecoveryRatePercentPerIdleMinute: 5
+    componentWearPercentPerHour: 0.4
+    maintenancePriorityLevel: Tier II
+    sparePartDependencyIndex: 0.58
+    operationalCostPerHour: 6 Metal / 5 Electronics | Idle energy recovery 5% per idle minute; recharge uses standard high-capacity battery recharge.
+  threatResponses:
+  - threatType: 
+    reactionTimeSeconds: -1.6962372e-20
+    countermeasureEfficiency: 5.79e-43
+  - threatType: Ballistic
+    reactionTimeSeconds: 0.35
+    countermeasureEfficiency: 0.42
+  - threatType: Explosive
+    reactionTimeSeconds: 0.7
+    countermeasureEfficiency: 0.38
+  - threatType: EMP
+    reactionTimeSeconds: 0.9
+    countermeasureEfficiency: 0.3
+  - threatType: Thermal
+    reactionTimeSeconds: 0.4
+    countermeasureEfficiency: 0.5
+  - threatType: Signal Jam
+    reactionTimeSeconds: 0.8
+    countermeasureEfficiency: 0.58
+  - threatType: Severe Weather
+    reactionTimeSeconds: 0.5
+    countermeasureEfficiency: 0.65
+  commandNetwork:
+  - node: 
+    loadPercent: -0.00001955549
+    latencySeconds: 5.79e-43
+    status: 
+  - node: Standard Warden Mesh
+    loadPercent: 32
+    latencySeconds: 0.5
+    status: Stable
+  - node: Logistics Command
+    loadPercent: 44
+    latencySeconds: 0.6
+    status: Active
+  - node: Overseer / Command Core
+    loadPercent: 48
+    latencySeconds: 0.5
+    status: Active
+  - node: Drone Bay Control
+    loadPercent: 41
+    latencySeconds: 0.7
+    status: Stable
+  - node: Delivery Network
+    loadPercent: 37
+    latencySeconds: 0.6
+    status: Operational
+  performance:
+    missionSuccessProbability: 0.9
+    averageEngagementDurationMinutes: 3.8
+    reconDataYieldMbPerMinute: 0
+    communicationUptime: 0.97
+    threatAvoidanceEfficiency: 0.81

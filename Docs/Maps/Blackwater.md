@@ -1,178 +1,215 @@
-# Blackwater
+﻿# Blackwater
 
-**River / Wetlands Battlefield**
+Blackwater (River / Wetlands) Map Design
 
 ## Executive Summary
 
-Blackwater is a dense river‑wetlands battlefield designed for water crossings, naval support, and ambush‑heavy ground combat. The terrain features winding rivers, marshes, flooded forests, unstable wetlands, elevated levees, fishing docks, and military river outposts.
 
-The map emphasizes Obsidian Protocol’s autonomous amphibious tactics, sensor‑limited environments, comms‑relay networks, and logistics under wetland constraints. In AR (Nreal Light/Air), the map anchors at roughly a 4–5 m viewing distance, covering a 10×10 m physical area representing about 1 km² of river territory.
-
-Key features include multi‑route river crossings, swamp ambush zones, naval patrol lanes, elevated levee roads, and hidden infiltration paths.
+Blackwater is a dense riverâ€‘wetlands battlefield designed for water crossings, naval support, and ambushâ€‘heavy ground combat. The terrain features winding rivers, marshes, flooded forests, unstable wetlands, elevated levees, fishing docks, and military river outposts. The map emphasizes Obsidian Protocolâ€™s autonomous amphibious tactics, sensorâ€‘limited environments, commsâ€‘relay networks, and logistics under wetland constraints. In AR (Nreal Light/Air), the map anchors at ~4â€“5â€¯m viewing distance, covering a 10Ã—10â€¯m physical area representing ~1â€¯kmÂ² of river territory. Key features include multiâ€‘route river crossings, swamp ambush zones, naval patrol lanes, elevated levee roads, and hidden infiltration paths.
 
 ## Design Goals & Gameplay
 
-### Amphibious & Wetland Combat
-Blackwater supports coordinated ground pushes, riverine naval patrols, and shallow‑water vehicle crossings. Marsh terrain slows movement and encourages ambushes.
 
-### Autonomy & Ambush Logic
+Amphibious & Wetland Combat
+
+Blackwater supports coordinated ground pushes, riverine naval patrols, and shallowâ€‘water vehicle crossings. Marsh terrain slows movement and encourages ambushes.
+Autonomy & Ambush Logic
+
 Autonomous AI chooses between river crossings, levee routes, swamp infiltration, or dockside flanking. Units adapt to shifting water levels and visibility.
+## Sensor & Information Warfare
 
-### Sensor & Information Warfare
-Fog, humidity, dense vegetation, and water reflections distort sensors. Relay towers on levees restore clarity. Destroying relays creates fog‑of‑war pockets across wetlands and river channels.
 
-### Logistics & Resources
+Fog, humidity, dense vegetation, and water reflections distort sensors. Relay towers on levees restore clarity. Destroying relays creates fogâ€‘ofâ€‘war pockets across wetlands and river channels.
+## Logistics & Resources
+
+
 River docks, fuel depots, and levee checkpoints serve as resupply nodes. Supply convoys must navigate unstable wetland roads and exposed river crossings.
+## Deployment & Progress
 
-### Deployment & Progress
-A fixed deployment budget (~10,000 points) forces players to choose between amphibious units, heavy ground armor, or stealth infantry.  
-Blue deploys from the southwest riverbank; Red deploys from the northeast levee fortress.
+
+A fixed deployment budget (~10,000 points) forces players to choose between amphibious units, heavy ground armor, or stealth infantry. Blue deploys from the southwest riverbank; Red deploys from the northeast levee fortress.
 
 ## Spatial Constraints (Nreal AR)
 
-### Device Capabilities
-Nreal Light/Air: ~53° diagonal FOV, 1920×1080 per‑eye resolution. Optimal viewing distance: ~4–5 m.
 
-### Playable Area & Scaling
-10×10 m physical area ≈ 1 km² wetlands zone (1:100 scale). Designed for tabletop AR.
+## Device Capabilities
 
-### Tracking & Occlusion
-Inside‑out tracking detects horizontal planes. Depth mesh (if available) provides limited occlusion. Virtual objects render over the real‑world view; assume minimal real‑world occlusion.
+
+Nreal Light/Air: ~53Â° diagonal FOV, 1920Ã—1080 perâ€‘eye resolution. Optimal viewing distance ~4â€“5â€¯m.
+## Playable Area & Scaling
+
+
+10Ã—10â€¯m physical area â‰ˆ 1â€¯kmÂ² wetlands zone (1:100 scale). Designed for tabletop AR.
+## Tracking & Occlusion
+
+
+Insideâ€‘out tracking detects horizontal planes. Depthâ€‘mesh (if available) provides limited occlusion. Virtual objects render over realâ€‘world view; assume minimal realâ€‘world occlusion.
 
 ## Layout Overview
 
-### Coordinate System
-1000×1000 grid (1 unit ≈ 1 m). Origin (0,0) = southwest corner.
 
-### Key Locations
-- **Blue HQ (Riverbank Command)** — (0,0), 140×140 m  
-- **Red HQ (Levee Fortress)** — (1000,1000), 140×140 m  
+## Coordinate System
 
-- **Central Wetland Basin** — (500,450), 250×250 m  
-- **Fuel & Logistics Dock** — (250,800), 100×100 m  
-- **Fishing Village Ruins** — (800,300), 150×150 m  
 
-- **Main River Channel** — (0,450 → 400,900)  
-  Deep river with crossings at (150,600) and (350,500).
+1000Ã—1000 grid (1 unit â‰ˆ 1â€¯m). Origin (0,0) = southwest corner.
+## Key Locations
 
-- **Swamp Infiltration Route** — (300,0 → 450,350)  
-  Dense vegetation; ideal for stealth ambushes.
 
-- **Levee Road Network** — (650,150), +260 m  
-  Elevated road with long‑range sightlines.
+Blue HQ (Riverbank Command) â€” (0,0), 140Ã—140â€¯m Amphibious staging zone with patrol boats and light vehicles.
 
-- **Relay Tower Ridge** — (150,650), +240 m  
-  Comms relay tower and sensor hub.
+Red HQ (Levee Fortress) â€” (1000,1000), 140Ã—140â€¯m Fortified elevated base with radar mast and artillery.
 
-- **Neutral Forward Outpost** — (500,950)
+Central Wetland Basin â€” (500,450), 250Ã—250â€¯m Flooded forest, marsh pools, dense vegetation.
+
+Fuel & Logistics Dock â€” (250,800), 100Ã—100â€¯m Fuel tanks, boats, supply crates, pipelines.
+
+Fishing Village Ruins â€” (800,300), 150Ã—150â€¯m Collapsed huts, piers, boats, interior routes.
+
+Main River Channel â€” (0,450 â†’ 400,900) Deep river with two crossings at (150,600) and (350,500).
+
+Swamp Infiltration Route â€” (300,0 â†’ 450,350) Dense vegetation; ideal for stealth ambushes.
+Levee Road Network â€” (650,150), +260â€¯m Elevated road with longâ€‘range sightlines.
+
+Relay Tower Ridge â€” (150,650), +240â€¯m Comms relay tower and sensor hub.
+
+Neutral Forward Outpost â€” (500,950) Drone resupply zone.
 
 ## Chokepoints & Sightlines
 
-### River Crossings
+
+River Crossings
+
 Critical for movement; naval units can support ground forces.
+Swamp Infiltration Route
 
-### Swamp Infiltration Route
 Dense vegetation; perfect for ambushes and stealth.
+Levee Road Network
 
-### Levee Road Network
-Long‑range sightlines; ideal for artillery and recon.
+Longâ€‘range sightlines; ideal for artillery and recon.
+Fishing Village Ruins
 
-### Fishing Village Ruins
-Close‑range combat with interior flanking routes.
+Closeâ€‘range combat with interior flanking routes.
+## Sightlines
 
-### Sightlines
-Relay Tower Ridge provides long‑range sensor coverage (~300 m). Fog and vegetation create fog‑of‑war pockets.
+
+Relay Tower Ridge provides longâ€‘range sensor coverage (~300â€¯m). Fog and vegetation create fogâ€‘ofâ€‘war pockets.
 
 ## Deployment Zones
-- **Blue Deployment:** SW riverbank + amphibious staging  
-- **Red Deployment:** NE levee fortress + artillery positions  
-- **Neutral Forward Zone:** Outpost at (500,950)
+
+
+Blue Deployment: SW riverbank + amphibious staging area.
+
+Red Deployment: NE levee fortress + artillery positions.
+
+Neutral Forward Zone: Outpost at (500,950) for drone drops.
 
 ## Assets & Environment
 
-### Terrain
+
+## Terrain
+
+
 Rivers, marshes, wetlands, levees, flooded forests.
+## Vegetation
 
-### Vegetation
+
 Dense reeds, swamp trees, mangroves, grass patches.
+## Buildings & Props
 
-### Buildings & Props
-Military: Bunkers, watchtowers, radar dishes  
-Industrial: Docks, pipelines, generators, pumps  
-Logistics: Boats, trucks, crates, fuel drums
 
-### Effects
+Military: Bunkers, watchtowers, radar dishes. Industrial: Docks, pipelines, generators, pumps. Logistics: Boats, trucks, crates, fuel drums.
+## Effects
+
+
 Fog, humidity haze, water reflections, smoke plumes.
+## Audio
 
-### Audio
+
 Water movement, insects, distant machinery, radio chatter.
 
 ## LOD & Budget
 
-Target total: ~2.59M tris
 
-- Wetland Trees: ~600k  
-- Marsh/River Meshes: ~320k  
-- Buildings/Industrial: ~750k  
-- Roads/Levees: ~120k  
-- Vegetation: ~300k  
-- Props: ~500k  
+Asset CategCooruynt Tri/Item Total Tris
 
-### Textures
-2048² for terrain/buildings  
-1024² for props  
-DXT1/5 compression  
-Target ≤100 MB
+Wetland Trees 3 200k                600k
+
+Marsh/River Meshe4s 80k             320k
+
+Buildings/Industria1l5 50k          750k
+
+Roads/Levees 4 30k                  120k
+
+Vegetation     150 2k               300k
+
+Props          50 10k               500k
+
+Total       â€”     â€”                 ~2.59M
+
+## Texture Budget
+
+
+2048Â² for terrain/buildings, 1024Â² for props. DXT1/5 compression. Target â‰¤100â€¯MB.
 
 ## Unreal / Nreal Integration
 
-### Engine & Plugins
-Unreal ARTemplate + Nreal SDK (XREAL).  
-Enable ARKit/ARCore for anchors and plane detection.
 
-### Rendering
+## Engine & Plugins
+
+
+Unreal ARTemplate + Nreal SDK (XREAL). ARKit/ARCore enabled.
+## Rendering
+
+
 Forward renderer, stationary lights, baked GI, aggressive culling.
+## Anchors
 
-### Anchors
+
 Single spatial anchor for entire map.
+## Interaction
 
-### Interaction
-Phone pointer for pan/zoom; HUD as screen‑space widgets.
 
-### Multiplayer
-Client‑server architecture; offload AI/physics to server.
+Phone pointer for pan/zoom; HUD as screenâ€‘space widgets.
+## Multiplayer
+
+
+Clientâ€‘server architecture; offload AI/physics to server.
 
 ## Implementation Plan & Testing
 
-### Milestones
-1. **Month 1 — Prototype Layout**  
-   Block out river, wetlands, levees. AR anchor test.
 
-2. **Month 2 — Core Systems**  
-   NavMesh, amphibious pathfinding, autonomy behaviors.
+## Milestones
 
-3. **Month 3 — AR Integration**  
-   Anchors, plane detection, basic interactivity.
 
-4. **Months 4–5 — Content Fill**  
-   Final models, textures, lighting, audio.
+1. Prototype Layout â€” Month 1 Blockâ€‘out river, wetlands, levees, AR anchor test.
 
-5. **Months 6–7 — Gameplay & Polish**  
-   Objectives, balance, VFX (fog, water reflections).
+2. Core Systems â€” Month 2 NavMesh, amphibious pathfinding, autonomy behaviors.
 
-6. **Month 8 — Testing & QA**  
-   Multiplayer stress test, sensor validation.
+3. AR Integration â€” Month 3 Anchors, plane detection, basic interactivity.
 
-### Testing Plan
+4. Content Fill â€” Month 4â€“5 Final models, textures, lighting, audio.
 
-#### Autonomy
+5. Gameplay & Polish â€” Month 6â€“7 Objectives, balance, VFX (fog, water reflections).
+
+6. Testing & QA â€” Month 8 Multiplayer stress test, sensor validation.
+
+## Testing Plan
+
+
+## Autonomy
+
+
 Verify amphibious logic, swamp infiltration, levee pathfinding.
+## Comms/Sensors
 
-#### Comms/Sensors
-Test relay destruction, fog‑of‑war updates, LOS checks.
 
-#### Performance
-≥60 Hz AR render on target device.
+Test relay destruction, fogâ€‘ofâ€‘war updates, LOS checks.
+## Performance
 
-#### QA Checklist
-Navigation, multi‑domain coordination, deployment budget enforcement, anchor drift, sensor accuracy.
+
+â‰¥60â€¯Hz AR render on target device.
+## QA Checklist
+
+
+Navigation, multiâ€‘domain coordination, deployment budget enforcement, anchor drift, sensor accuracy.
+

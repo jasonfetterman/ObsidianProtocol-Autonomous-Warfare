@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace ObsidianProtocol.Game.OnlineWorld
@@ -17,6 +17,15 @@ namespace ObsidianProtocol.Game.OnlineWorld
             string matchId,
             string playerId,
             string result)
+            : this(matchId, playerId, result, DateTime.UtcNow)
+        {
+        }
+
+        public MatchHistoryEntry(
+            string matchId,
+            string playerId,
+            string result,
+            DateTime recordedAtUtc)
         {
             MatchId =
                 matchId ?? string.Empty;
@@ -28,7 +37,9 @@ namespace ObsidianProtocol.Game.OnlineWorld
                 result ?? string.Empty;
 
             RecordedAtUtc =
-                DateTime.UtcNow;
+                recordedAtUtc.Kind == DateTimeKind.Utc
+                    ? recordedAtUtc
+                    : recordedAtUtc.ToUniversalTime();
         }
     }
 
@@ -54,6 +65,23 @@ namespace ObsidianProtocol.Game.OnlineWorld
             history.Clear();
             Initialized = true;
 
+            return true;
+        }
+
+        public bool RestoreEntry(
+            string matchId,
+            string playerId,
+            string result,
+            DateTime recordedAtUtc)
+        {
+            if (!Initialized ||
+                string.IsNullOrWhiteSpace(matchId) ||
+                string.IsNullOrWhiteSpace(playerId) ||
+                string.IsNullOrWhiteSpace(result))
+                return false;
+
+            history.Add(new MatchHistoryEntry(
+                matchId.Trim(), playerId.Trim(), result.Trim(), recordedAtUtc));
             return true;
         }
 

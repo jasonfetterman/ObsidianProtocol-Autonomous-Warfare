@@ -1,0 +1,378 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Lidar
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-air-lidar
+  displayName: LiDAR
+  category: 8
+  role: 3D Terrain Mapping / Structural Scanning
+  tier: Advanced
+  status: Active
+  storeImage: {fileID: 6357126050275900589, guid: 3522a2ff804d7f548a1f27f591a7039b, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 2.8
+    widthMeters: 2.1
+    heightMeters: 1
+    massKg: 28
+    powerSource: High-capacity battery
+    energyCapacityWh: 2600
+    energyConsumptionWhPerMinute: 60
+    endurance: "30\u201345 min"
+    payloadCapacityKg: 2
+    modules:
+    - LiDAR emitter array
+    navigationSystem: GPS + LiDAR-assisted stabilization
+    structuralIntegrityHp: 140
+    armorRating: 0.2
+    heatSignature: Medium
+    noiseSignature: Medium
+    topSpeedMetersPerSecond: 20
+    topSpeedDescription: 20 m/s
+    acceleration: Medium
+    turningRadius: Tight
+    climbRate: Medium
+    stabilityRating: Very High (mapping precision)
+  autonomy:
+    behaviorProfile: Mapping / Survey
+    aggression: 0
+    caution: 0.8
+    persistence: 0.9
+    flankingLikelihood: 0
+    retreatThreshold: 0.7
+    retreatBehaviorDescription: Withdraw when mapping risk exceeds thresholds
+    targetPriority: Terrain features / structures
+    formationDiscipline: High
+    riskTolerance: 0
+  sensors:
+    visualRangeMeters: 1400
+    visualRangeDescription: 1400 m
+    thermalRangeMeters: 600
+    thermalRangeDescription: 600 m
+    acousticRange: Low
+    radarRange: None
+    lidarRange: 2000 m (high-resolution)
+    signalDetectionRange: Medium
+  communication:
+    meshRangeKm: 6
+    meshRangeDescription: 6 km
+    relayCapacity: 0
+    commandLinkType: Mapping Grid / Command Mesh
+    networkPriority: High
+  combat:
+    firepowerRating: 0
+    firepowerDescription: 
+    accuracy: N/A
+    stabilization: Very High
+    weaponMounts: None
+    weaponTypes: None
+    suppressionValue: 0
+    trackingStrength: Medium
+    disruptionStrength: Low
+    breachCapability: None
+    countermeasureRating: Low
+    threatLevel: 3
+    engagementDistance: N/A
+    preferredTerrain: Mapping corridors / open air
+    preferredTargets: None
+    vulnerabilityProfile: Ballistic / weather
+  squad:
+    squadRole: 3D Mapping
+    squadSizeContribution: 1
+    formationBehavior: Grid-pattern scanning
+    intentInterpretationRules: Maintain mapping altitude and coverage
+    retreatBehavior: Medium
+    breachBehavior: None
+    flankingBehavior: None
+    reinforcementBehavior: Supports recon and engineering squads
+    parentCommandUnit: Cartographer / Insight
+    subordinateUnits: []
+    relayNodes: []
+    networkDependencies: Mapping Grid
+  vrOperator:
+    operatorSeatType: Drone View
+    operatorHud: LiDAR Grid Overlay
+    cameraFeeds: Optical
+    thermalView: 1
+    lidarView: 1
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Full drone flight
+    sensorControls: LiDAR sweep / density adjustment
+    abilityControls: Scan, Map Terrain, Structural Sweep
+    weaponControls: None
+    stabilizationControls: Auto-hover, mapping-lock
+    operatorAbilities:
+    - LiDAR Sweep
+    - Terrain Mesh Generation
+    - Structural Scan
+    - Mark Terrain Features
+  economy:
+    creditCost: 1100
+    buildCost: 220 Metal / 200 Electronics
+    buildTimeSeconds: 70
+    factoryType: Drone Bay
+    techRequirements: Mapping Systems I
+    maintenanceCost: Medium
+    repairTimeSeconds: 18
+    supplyConsumption: Medium
+    operationalCost: Moderate
+    deploymentRequirements: Standard drone pad
+    transportCompatibility: All aerial racks
+    launchMethod: Vertical takeoff
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Medium Alloy Plates
+      quantity: 16
+    - component: Composite Frame Rods
+      quantity: 12
+    - component: Micro-Servo Actuators
+      quantity: 8
+    - component: Stabilizer Fins
+      quantity: 4
+    - component: LiDAR Emitter Housing
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 16
+    - component: Signal Processors
+      quantity: 12
+    - component: Drone Control Chips
+      quantity: 6
+    - component: LiDAR Processing Chips
+      quantity: 4
+    power:
+    - component: High-Capacity Battery Pack
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 3
+    rareTradeable:
+    - component: High-Resolution LiDAR Core
+      quantity: 1
+    - component: Mapping Grid Microprocessor
+      quantity: 1
+    optionalUpgrades:
+    - Extended LiDAR Range Module
+    - High-Density Scan Grid
+    - Anti-Jamming Shielding
+    - Silent Rotor Kit
+    - Terrain Processing Core
+    - Adaptive Scan Stabilizer
+  environment:
+    terrainAdaptationCoefficients: Open Air 1.00 / Urban 0.95 / Forest 0.90 / Mountain 0.95 / Desert 0.92 / Snow 0.85 / Water 0.60
+    weatherSensitivityIndex: 0.35
+    visibilityModifiers: Day 1.00 / Night 0.85 / Fog 0.70 / Rain 0.78 / Heavy Storm 0.60
+    signalPropagationCurve: Effective relay efficiency decreases 0.15% per 10% atmospheric interference
+    modifiers:
+    - condition: Severe Weather
+      effect: -25% LiDAR mapping efficiency
+    - condition: Electromagnetic Interference
+      effect: -30% external network efficiency
+    - condition: Ballistic Damage
+      effect: LiDAR housing scan accuracy -12%; recalibrate in 35 seconds
+    - condition: Explosive Damage
+      effect: Stabilization -20%; flight compensation in 25 seconds
+    - condition: EMP
+      effect: Mapping Grid signal -45%; reboot in 75 seconds
+    - condition: Weather Damage
+      effect: Scan efficiency -20%; automatically adjust scan density
+    - condition: Jamming
+      effect: Mapping Grid range -40%; enable alternate command mesh
+    - condition: Sensor Damage
+      effect: Reduce LiDAR accuracy and terrain confidence
+  network:
+    nodeHandoffEfficiency: 0.97
+    packetLossRate: 1.0% nominal
+    encryptionLatencySeconds: 0.07
+    meshSelfHealingThreshold: 2 lost nodes
+    relaySaturationCurve: Throughput decreases 4% per active relay beyond 8 connected nodes
+  cognitive:
+    decisionConfidence: 0.94
+    threatRecognitionAccuracy: 0.98
+    adaptiveLearningRatePerMission: 0.05
+    commandOverrideResistance: 0.05
+    cooperativeBehaviorIndex: 0.97
+  behaviorNodes:
+  - behaviorNode: Terrain Mapping
+    weight: 0.98
+    description: Generate continuous 3D terrain data
+  - behaviorNode: LiDAR Scanning
+    weight: 0.99
+    description: Perform high-resolution terrain sweeps
+  - behaviorNode: Structural Analysis
+    weight: 0.94
+    description: Identify structural geometry and anomalies
+  - behaviorNode: Terrain Classification
+    weight: 0.93
+    description: Classify terrain and obstacles
+  - behaviorNode: Coverage Optimization
+    weight: 0.95
+    description: Maintain complete mapping coverage
+  - behaviorNode: Scan Density Control
+    weight: 0.91
+    description: Adjust scan density to mission needs
+  - behaviorNode: Feature Marking
+    weight: 0.92
+    description: Mark important terrain features
+  - behaviorNode: Route Adaptation
+    weight: 0.88
+    description: Adjust flight path around terrain
+  - behaviorNode: Retreat Logic
+    weight: 0.7
+    description: Withdraw when mapping risk exceeds threshold
+  - behaviorNode: Operator Override
+    weight: 0.85
+    description: Accept authorized mapping commands
+  missionBehaviors:
+  - missionType: Terrain Sweep Completion
+    behaviorFocus: Completion
+    efficiency: 0.95
+  - missionType: Structural Scan Completion
+    behaviorFocus: Completion
+    efficiency: 0.92
+  - missionType: Terrain Feature Marking
+    behaviorFocus: Marking accuracy
+    efficiency: 0.94
+  - missionType: Route Obstacle Identification
+    behaviorFocus: Obstacle identification
+    efficiency: 0.93
+  - missionType: Mapping Data Relay
+    behaviorFocus: Transmission integrity
+    efficiency: 0.97
+  - missionType: Emergency Safe-Route Generation
+    behaviorFocus: Safe-route generation
+    efficiency: 0.89
+  unitSynergies:
+  - partnerUnit: Warden
+    synergyRating: 0.9
+    function: Supply aerial reconnaissance context
+  - partnerUnit: Inspect
+    synergyRating: 0.94
+    function: Combine terrain mesh and structural inspection
+  - partnerUnit: Iris
+    synergyRating: 0.88
+    function: Correlate imaging with 3D mapping
+  damageResponses:
+  - damageType: Ballistic
+    effect: LiDAR housing scan accuracy reduced by 12%
+    recovery: Recalibrate in 35 seconds
+  - damageType: Explosive
+    effect: Stabilization reduced by 20%
+    recovery: Flight compensation in 25 seconds
+  - damageType: EMP
+    effect: Mapping Grid signal reduced by 45%
+    recovery: Reboot in 75 seconds
+  - damageType: Weather
+    effect: Scan efficiency reduced by 20%
+    recovery: Automatically adjust scan density
+  - damageType: Jamming
+    effect: Mapping Grid range reduced by 40%
+    recovery: Switch to alternate command mesh
+  - damageType: Sensor Damage
+    effect: LiDAR accuracy and terrain confidence reduced
+    recovery: Repair or recalibrate sensor
+  - damageType: Structural Hazard
+    effect: Unsafe geometry detected
+    recovery: Mark hazard and update terrain mesh
+  upgrades:
+  - upgrade: Extended LiDAR Range Module
+    effect: +25% scan range; +8% terrain coverage
+    efficiencyGain: 0.08
+  - upgrade: High-Density Scan Grid
+    effect: +20% point density; +10% structural scan
+    efficiencyGain: 0.1
+  - upgrade: Anti-Jamming Shielding
+    effect: +30% mapping-link resilience; +8% uptime
+    efficiencyGain: 0.08
+  - upgrade: Silent Rotor Kit
+    effect: -25% noise signature; +7% covert survey
+    efficiencyGain: 0.07
+  - upgrade: Terrain Processing Core
+    effect: +15% terrain classification; +8% processing
+    efficiencyGain: 0.08
+  - upgrade: Adaptive Scan Stabilizer
+    effect: +20% mapping stability; +6% scan accuracy
+    efficiencyGain: 0.06
+  tactical:
+    formationAdaptability: 0.91
+    tacticalRoleWeight: 0.82
+    commandResponseDelaySeconds: 0.35
+    reinforcementTriggerConditions: Mapping coverage loss >25% OR scan quality <70%
+    retreatLogicThresholds: Terrain integrity risk >30% OR battery <20%
+  maintenance:
+    meanTimeBetweenFailuresHours: 1200
+    repairCycleSeconds: 18
+    resourceDrainPerHourPercent: 0.42
+    batteryEfficiencyPercent: 92
+    rotorStabilityPercent: 96
+    sensorCalibrationDriftPercentPerHour: 0.35
+    coolingEfficiencyPercent: 90
+    operationalUptimePercent: 98.5
+    energyRecoveryRatePercent: 0
+    energyRecoveryRatePercentPerIdleMinute: 0
+    componentWearPercentPerHour: 0
+    maintenancePriorityLevel: Tier II
+    sparePartDependencyIndex: 0.61
+    operationalCostPerHour: 7 Metal / 6 Electronics
+  threatResponses:
+  - threatType: Ballistic
+    reactionTimeSeconds: 0.4
+    countermeasureEfficiency: 0.45
+  - threatType: Explosive
+    reactionTimeSeconds: 0.8
+    countermeasureEfficiency: 0.4
+  - threatType: EMP
+    reactionTimeSeconds: 0.2
+    countermeasureEfficiency: 0.38
+  - threatType: Thermal
+    reactionTimeSeconds: 0.4
+    countermeasureEfficiency: 0.52
+  - threatType: Signal Jam
+    reactionTimeSeconds: 0.2
+    countermeasureEfficiency: 0.58
+  - threatType: Structural Hazard
+    reactionTimeSeconds: 0.3
+    countermeasureEfficiency: 0.78
+  commandNetwork:
+  - node: Mapping Grid
+    loadPercent: 44
+    latencySeconds: 0.35
+    status: Optimal
+  - node: LiDAR Processing Core
+    loadPercent: 57
+    latencySeconds: 0.09
+    status: Optimal
+  - node: Terrain Mesh Processor
+    loadPercent: 49
+    latencySeconds: 0.12
+    status: Stable
+  - node: Cartographer Link
+    loadPercent: 46
+    latencySeconds: 0.3
+    status: Active
+  - node: Insight Link
+    loadPercent: 42
+    latencySeconds: 0.35
+    status: Active
+  - node: Command Core
+    loadPercent: 39
+    latencySeconds: 0.4
+    status: Active
+  performance:
+    missionSuccessProbability: 0.98
+    averageEngagementDurationMinutes: 4.5
+    reconDataYieldMbPerMinute: 32
+    communicationUptime: 0.985
+    threatAvoidanceEfficiency: 0.86

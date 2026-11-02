@@ -1,0 +1,1290 @@
+=== BATTLEFIELD HUD AUDIT ===
+SCENE: Assets/Scenes/SCN03 _BATTLEFIELD/[HUD] BATTLEFIELD HUD/Battlefield_HUD.unity
+
+10. BATTLEFIELD COMMAND | ACTIVE=True
+  COMPONENT: Transform
+  [PHYSICAL] BATTLEFIELD | ACTIVE=True
+    COMPONENT: Transform
+    [TERRAIN] BATTLEFIELD GROUND | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] X | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] X | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] X | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] X | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] X | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] X | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] X | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] X | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] X | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] X | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] X | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] X | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] X | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] X | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] X | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] Z | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] Z | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] Z | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] Z | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] Z | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] Z | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] Z | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] Z | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] Z | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] Z | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] Z | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] Z | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [TACTICAL GRID] Z | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [SECTOR] ALPHA | ACTIVE=True
+      COMPONENT: Transform
+      [SECTOR] FOUNDATION | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [SECTOR] BARRIER | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [SECTOR] BARRIER | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [SECTOR] BARRIER | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [SECTOR] COVER | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [SECTOR] COVER | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [SECTOR] COVER | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+    [SECTOR] BRAVO | ACTIVE=True
+      COMPONENT: Transform
+      [SECTOR] FOUNDATION | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [SECTOR] BARRIER | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [SECTOR] BARRIER | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [SECTOR] BARRIER | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [SECTOR] COVER | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [SECTOR] COVER | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [SECTOR] COVER | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+    [SECTOR] CHARLIE | ACTIVE=True
+      COMPONENT: Transform
+      [SECTOR] FOUNDATION | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [SECTOR] BARRIER | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [SECTOR] BARRIER | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [SECTOR] BARRIER | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [SECTOR] COVER | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [SECTOR] COVER | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [SECTOR] COVER | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+    [SECTOR] DELTA | ACTIVE=True
+      COMPONENT: Transform
+      [SECTOR] FOUNDATION | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [SECTOR] BARRIER | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [SECTOR] BARRIER | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [SECTOR] BARRIER | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [SECTOR] COVER | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [SECTOR] COVER | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [SECTOR] COVER | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+    [FORTIFICATION] | ACTIVE=True
+      COMPONENT: Transform
+      [FORTIFICATION] CORE | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [FORTIFICATION] TOP | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [FORTIFICATION] SENSOR | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: CapsuleCollider
+        COMPONENT: MeshRenderer
+    [FORTIFICATION] | ACTIVE=True
+      COMPONENT: Transform
+      [FORTIFICATION] CORE | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [FORTIFICATION] TOP | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [FORTIFICATION] SENSOR | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: CapsuleCollider
+        COMPONENT: MeshRenderer
+    [FORTIFICATION] | ACTIVE=True
+      COMPONENT: Transform
+      [FORTIFICATION] CORE | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [FORTIFICATION] TOP | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [FORTIFICATION] SENSOR | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: CapsuleCollider
+        COMPONENT: MeshRenderer
+    [FORTIFICATION] | ACTIVE=True
+      COMPONENT: Transform
+      [FORTIFICATION] CORE | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [FORTIFICATION] TOP | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: BoxCollider
+        COMPONENT: MeshRenderer
+      [FORTIFICATION] SENSOR | ACTIVE=True
+        COMPONENT: Transform
+        COMPONENT: MeshFilter
+        COMPONENT: CapsuleCollider
+        COMPONENT: MeshRenderer
+    [ROAD] NORTH SOUTH | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [ROAD] EAST WEST | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [MARKER] COMMAND | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: CapsuleCollider
+      COMPONENT: MeshRenderer
+    [SIGN] COMMAND | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshRenderer
+      COMPONENT: TextMesh
+    [MARKER] OBJECTIVE A | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: CapsuleCollider
+      COMPONENT: MeshRenderer
+    [SIGN] OBJECTIVE A | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshRenderer
+      COMPONENT: TextMesh
+    [MARKER] OBJECTIVE B | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: CapsuleCollider
+      COMPONENT: MeshRenderer
+    [SIGN] OBJECTIVE B | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshRenderer
+      COMPONENT: TextMesh
+    [MARKER] HOSTILE CONTACT | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: CapsuleCollider
+      COMPONENT: MeshRenderer
+    [SIGN] HOSTILE CONTACT | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshRenderer
+      COMPONENT: TextMesh
+    [SIGN] BATTLEFIELD COMMAND | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshRenderer
+      COMPONENT: TextMesh
+    [SIGN] SECTOR ALPHA | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshRenderer
+      COMPONENT: TextMesh
+    [SIGN] SECTOR BRAVO | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshRenderer
+      COMPONENT: TextMesh
+  [PHYSICAL] FIELD COMMAND CENTER | ACTIVE=True
+    COMPONENT: Transform
+    [COMMAND] PLATFORM | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [COMMAND] OPERATIONS WALL | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [COMMAND] CONSOLE | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [COMMAND] DISPLAY | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [COMMAND] CONSOLE | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [COMMAND] DISPLAY | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [COMMAND] CONSOLE | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [COMMAND] DISPLAY | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [COMMAND] CONSOLE | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [COMMAND] DISPLAY | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [COMMAND] CONSOLE | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [COMMAND] DISPLAY | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [SIGN] FIELD COMMAND | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshRenderer
+      COMPONENT: TextMesh
+    [SIGN] COMMAND INTENT // AUTONOMOUS EXECUTION | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshRenderer
+      COMPONENT: TextMesh
+  [PHYSICAL] TACTICAL DISPLAY ARRAY | ACTIVE=True
+    COMPONENT: Transform
+    [TACTICAL DISPLAY] MASTER MAP | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [MAP DISPLAY] VERTICAL | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [MAP DISPLAY] VERTICAL | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [MAP DISPLAY] VERTICAL | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [MAP DISPLAY] VERTICAL | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [MAP DISPLAY] VERTICAL | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [MAP DISPLAY] HORIZONTAL | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [MAP DISPLAY] HORIZONTAL | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [MAP DISPLAY] HORIZONTAL | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [DISPLAY MARKER] | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: CapsuleCollider
+      COMPONENT: MeshRenderer
+    [DISPLAY MARKER] | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: CapsuleCollider
+      COMPONENT: MeshRenderer
+    [DISPLAY MARKER] | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: CapsuleCollider
+      COMPONENT: MeshRenderer
+    [SIGN] LIVE TACTICAL FEED | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshRenderer
+      COMPONENT: TextMesh
+  [FORCE] ALPHA SQUAD | ACTIVE=True
+    COMPONENT: Transform
+    [UNIT] ALPHA SQUAD | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+      COMPONENT: NavMeshAgent
+      COMPONENT: UnitAutonomy
+    [UNIT] STATUS | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [UNIT] ALPHA SQUAD | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+      COMPONENT: NavMeshAgent
+      COMPONENT: UnitAutonomy
+    [UNIT] STATUS | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [UNIT] ALPHA SQUAD | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+      COMPONENT: NavMeshAgent
+      COMPONENT: UnitAutonomy
+    [UNIT] STATUS | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [UNIT] ALPHA SQUAD | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+      COMPONENT: NavMeshAgent
+      COMPONENT: UnitAutonomy
+    [UNIT] STATUS | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+  [SIGN] ALPHA SQUAD | ACTIVE=True
+    COMPONENT: Transform
+    COMPONENT: MeshRenderer
+    COMPONENT: TextMesh
+  [FORCE] BRAVO SQUAD | ACTIVE=True
+    COMPONENT: Transform
+    [UNIT] BRAVO SQUAD | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+      COMPONENT: NavMeshAgent
+      COMPONENT: UnitAutonomy
+    [UNIT] STATUS | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [UNIT] BRAVO SQUAD | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+      COMPONENT: NavMeshAgent
+      COMPONENT: UnitAutonomy
+    [UNIT] STATUS | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [UNIT] BRAVO SQUAD | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+      COMPONENT: NavMeshAgent
+      COMPONENT: UnitAutonomy
+    [UNIT] STATUS | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [UNIT] BRAVO SQUAD | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+      COMPONENT: NavMeshAgent
+      COMPONENT: UnitAutonomy
+    [UNIT] STATUS | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+  [SIGN] BRAVO SQUAD | ACTIVE=True
+    COMPONENT: Transform
+    COMPONENT: MeshRenderer
+    COMPONENT: TextMesh
+  [FORCE] CONTACT GROUP | ACTIVE=True
+    COMPONENT: Transform
+    [UNIT] CONTACT GROUP | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+      COMPONENT: NavMeshAgent
+      COMPONENT: UnitAutonomy
+    [UNIT] STATUS | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [UNIT] CONTACT GROUP | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+      COMPONENT: NavMeshAgent
+      COMPONENT: UnitAutonomy
+    [UNIT] STATUS | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+    [UNIT] CONTACT GROUP | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+      COMPONENT: NavMeshAgent
+      COMPONENT: UnitAutonomy
+    [UNIT] STATUS | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: MeshFilter
+      COMPONENT: BoxCollider
+      COMPONENT: MeshRenderer
+  [SIGN] CONTACT GROUP | ACTIVE=True
+    COMPONENT: Transform
+    COMPONENT: MeshRenderer
+    COMPONENT: TextMesh
+  [SYSTEM] BATTLEFIELD LIGHTING | ACTIVE=True
+    COMPONENT: Transform
+    [LIGHT] MOON / COMMAND | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: Light
+      COMPONENT: UniversalAdditionalLightData
+    [LIGHT] POINT | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: Light
+      COMPONENT: UniversalAdditionalLightData
+    [LIGHT] POINT | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: Light
+      COMPONENT: UniversalAdditionalLightData
+    [LIGHT] POINT | ACTIVE=True
+      COMPONENT: Transform
+      COMPONENT: Light
+      COMPONENT: UniversalAdditionalLightData
+BATTLEFIELD CAMERA | ACTIVE=True
+  COMPONENT: Transform
+  COMPONENT: Camera
+  COMPONENT: RTSCameraController
+  COMPONENT: AudioListener
+EVENT SYSTEM | ACTIVE=True
+  COMPONENT: Transform
+  COMPONENT: EventSystem
+  COMPONENT: InputSystemUIInputModule
+[HUD] BATTLEFIELD HUD | ACTIVE=True
+  COMPONENT: RectTransform
+  COMPONENT: Canvas
+  COMPONENT: CanvasScaler
+  COMPONENT: GraphicRaycaster
+  [PANEL] TOP BAR | ACTIVE=True
+    COMPONENT: RectTransform
+    COMPONENT: CanvasRenderer
+    COMPONENT: Image
+    [DISPLAY] MISSION: OPERATION NIGHTFALL | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+    [DISPLAY] TIME 02:14:36 | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+    [DISPLAY] OBJECTIVES 3 / 5 | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+    [NOTIFICATION] ALERTS 02 | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+    [DISPLAY] NETWORK: ONLINE | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+    [BUTTON] PAUSE | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] PAUSE | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+  [PANEL] LEFT COMMAND PANEL | ACTIVE=True
+    COMPONENT: RectTransform
+    COMPONENT: CanvasRenderer
+    COMPONENT: Image
+    [BUTTON] COMMAND | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] COMMAND | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+    [BUTTON] OBJECTIVES | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] OBJECTIVES | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+    [BUTTON] FORCES | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] FORCES | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+    [BUTTON] FORMATION | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] FORMATION | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+    [BUTTON] DOCTRINE | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] DOCTRINE | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+    [BUTTON] ORDERS | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] ORDERS | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+    [DISPLAY] COMMAND INTENT READY | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+  [PANEL] CENTER TACTICAL PANEL | ACTIVE=True
+    COMPONENT: RectTransform
+    COMPONENT: CanvasRenderer
+    COMPONENT: Image
+    [MAP] TACTICAL MAP | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      [MAP GRID] V | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Image
+      [MAP GRID] V | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Image
+      [MAP GRID] V | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Image
+      [MAP GRID] V | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Image
+      [MAP GRID] V | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Image
+      [MAP GRID] V | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Image
+      [MAP GRID] V | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Image
+      [MAP GRID] H | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Image
+      [MAP GRID] H | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Image
+      [MAP GRID] H | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Image
+      [MAP GRID] H | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Image
+      [MAP GRID] H | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Image
+      [MAP GRID] H | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Image
+      [MAP MARKER] A | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Image
+        A | ACTIVE=True
+          COMPONENT: RectTransform
+          COMPONENT: CanvasRenderer
+          COMPONENT: Text
+      [MAP MARKER] B | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Image
+        B | ACTIVE=True
+          COMPONENT: RectTransform
+          COMPONENT: CanvasRenderer
+          COMPONENT: Text
+      [MAP MARKER] C | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Image
+        C | ACTIVE=True
+          COMPONENT: RectTransform
+          COMPONENT: CanvasRenderer
+          COMPONENT: Text
+    [BUTTON] SELECT CONTACT | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] SELECT CONTACT | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+    [BUTTON] SELECT UNIT | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] SELECT UNIT | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+    [BUTTON] SELECT FORMATION | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] SELECT FORMATION | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+  [PANEL] RIGHT INFORMATION PANEL | ACTIVE=True
+    COMPONENT: RectTransform
+    COMPONENT: CanvasRenderer
+    COMPONENT: Image
+    [BUTTON] INTELLIGENCE | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] INTELLIGENCE | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+    [BUTTON] COMMUNICATIONS | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] COMMUNICATIONS | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+    [BUTTON] SENSORS | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] SENSORS | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+    [BUTTON] LOGISTICS | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] LOGISTICS | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+    [BUTTON] ALERTS | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] ALERTS | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+    [DISPLAY] SENSOR COVERAGE 82% | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+  [PANEL] BOTTOM COMMAND BAR | ACTIVE=True
+    COMPONENT: RectTransform
+    COMPONENT: CanvasRenderer
+    COMPONENT: Image
+    [BUTTON] MAP | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] MAP | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+    [BUTTON] UNITS | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] UNITS | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+    [BUTTON] COMMAND | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] COMMAND | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+    [BUTTON] OBJECTIVES | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] OBJECTIVES | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+    [BUTTON] CAMERAS | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] CAMERAS | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+    [BUTTON] PAUSE | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] PAUSE | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+  [HUD] UNIT TACTICAL DETAILS | ACTIVE=False
+    COMPONENT: RectTransform
+    COMPONENT: CanvasRenderer
+    COMPONENT: Image
+    UNIT TACTICAL DETAILS | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+    WARDEN-01 // AUTONOMOUS RECON | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+    STATUS: OPERATIONAL | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+    CONDITION  98% | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+    OBJECTIVE: HOLD SECTOR ALPHA | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+    [BUTTON] CHANGE OBJECTIVE | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] CHANGE OBJECTIVE | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+    [BUTTON] WITHDRAW | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] WITHDRAW | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+  [MENU] PAUSE MENU | ACTIVE=False
+    COMPONENT: RectTransform
+    COMPONENT: CanvasRenderer
+    COMPONENT: Image
+    PAUSE MENU | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+    [BUTTON] RESUME | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] RESUME | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+    [BUTTON] SETTINGS | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] SETTINGS | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+    [BUTTON] EXIT | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Image
+      COMPONENT: Button
+      [LABEL] EXIT OPERATION | ACTIVE=True
+        COMPONENT: RectTransform
+        COMPONENT: CanvasRenderer
+        COMPONENT: Text
+  [WINDOW] COMMAND INTENT | ACTIVE=False
+    COMPONENT: RectTransform
+    COMPONENT: CanvasRenderer
+    COMPONENT: Image
+    COMMAND INTENT | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+    DEFINE OBJECTIVE / PRIORITY / ROE / AUTONOMY | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+  [WINDOW] OBJECTIVE PANEL | ACTIVE=False
+    COMPONENT: RectTransform
+    COMPONENT: CanvasRenderer
+    COMPONENT: Image
+    OBJECTIVES | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+    PRIMARY / SECONDARY / PRIORITY | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+  [WINDOW] FORCE OVERVIEW | ACTIVE=False
+    COMPONENT: RectTransform
+    COMPONENT: CanvasRenderer
+    COMPONENT: Image
+    FORCE OVERVIEW | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+    12 UNITS ACTIVE / 4 RESERVE / 2 DAMAGED | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+  [WINDOW] FORMATION MANAGEMENT | ACTIVE=False
+    COMPONENT: RectTransform
+    COMPONENT: CanvasRenderer
+    COMPONENT: Image
+    FORMATION MANAGEMENT | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+    LINE / COLUMN / WEDGE / SCREEN | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+  [WINDOW] DOCTRINE | ACTIVE=False
+    COMPONENT: RectTransform
+    COMPONENT: CanvasRenderer
+    COMPONENT: Image
+    DOCTRINE | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+    AGGRESSIVE / BALANCED / CONSERVATIVE | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+  [WINDOW] OPERATIONAL ORDERS | ACTIVE=False
+    COMPONENT: RectTransform
+    COMPONENT: CanvasRenderer
+    COMPONENT: Image
+    OPERATIONAL ORDERS | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+    MOVE / HOLD / ATTACK / DEFEND / RECON | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+  [WINDOW] CONTACT DETAILS | ACTIVE=False
+    COMPONENT: RectTransform
+    COMPONENT: CanvasRenderer
+    COMPONENT: Image
+    CONTACT DETAILS | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+    UNKNOWN / SUSPECTED / IDENTIFIED / TRACKED | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+  [WINDOW] NETWORK HUD | ACTIVE=False
+    COMPONENT: RectTransform
+    COMPONENT: CanvasRenderer
+    COMPONENT: Image
+    NETWORK | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+    SIGNAL 96% / RELAYS 8 / DATA LINKS 14 | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+  [WINDOW] SENSOR COVERAGE | ACTIVE=False
+    COMPONENT: RectTransform
+    COMPONENT: CanvasRenderer
+    COMPONENT: Image
+    SENSOR COVERAGE | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+    ACTIVE RANGE 12.4 KM / COVERAGE 82% | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+  [WINDOW] BATTLEFIELD LOGISTICS | ACTIVE=False
+    COMPONENT: RectTransform
+    COMPONENT: CanvasRenderer
+    COMPONENT: Image
+    BATTLEFIELD LOGISTICS | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+    FUEL 84% / AMMO 91% / SUPPLY 76% | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+  [WINDOW] ALERT DETAILS | ACTIVE=False
+    COMPONENT: RectTransform
+    COMPONENT: CanvasRenderer
+    COMPONENT: Image
+    ALERT DETAILS | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+    2 ACTIVE ALERTS / 1 PRIORITY THREAT | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+  [MENU] CAMERA CONTROLS | ACTIVE=False
+    COMPONENT: RectTransform
+    COMPONENT: CanvasRenderer
+    COMPONENT: Image
+    CAMERA CONTROLS | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+    TACTICAL / COMMAND / UNIT / CONTACT | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text
+  [DISPLAY] BATTLEFIELD STATUS | ACTIVE=True
+    COMPONENT: RectTransform
+    COMPONENT: CanvasRenderer
+    COMPONENT: Image
+    DEPLOYMENT READY // 12 UNITS ASSIGNED // BATTLE BUDGET 10,000 DP | ACTIVE=True
+      COMPONENT: RectTransform
+      COMPONENT: CanvasRenderer
+      COMPONENT: Text

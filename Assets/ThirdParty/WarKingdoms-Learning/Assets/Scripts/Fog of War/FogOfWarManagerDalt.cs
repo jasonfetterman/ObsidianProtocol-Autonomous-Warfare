@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -165,7 +165,7 @@ public class FogOfWarManagerDalt : MonoBehaviour
         }
     }
 
-    public Dictionary<int, GridTreeCell> trees = new Dictionary<int, GridTreeCell>();
+    [System.NonSerialized] public Dictionary<int, GridTreeCell> trees = new Dictionary<int, GridTreeCell>();
 
     void Start()
     {

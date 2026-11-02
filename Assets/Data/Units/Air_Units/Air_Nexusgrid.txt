@@ -1,170 +1,248 @@
-✈️AIR UNIT #22 — NEXUSGRID
+﻿ORBITAL SPACE STATION #22 — NEXUSGRID
 
 ID:
 obs-air-nexusgrid
-Role: High‑Tier Network Coordination / Strategic Mesh Anchor
-Tier: Command Infrastructure
+Role: Strategic Orbital Command and Communications Station
+Category: Air
+Tier: Strategic Command Infrastructure
 Status: Active
+Classification: Persistent orbital infrastructure
 
-⚫ PHYSICAL & TECHNICAL
+PHYSICAL & TECHNICAL
 
-Length: 3.8 m
-Width: 2.9 m
-Height: 1.4 m
-Mass: 38 kg
-Power Source: Command‑grade mesh battery
-Energy Capacity: 3400 Wh
-Energy Consumption: 80 Wh/min
-Endurance: 35–55 min
-Payload Capacity: 4.0 kg
-Modules: Multi‑node mesh anchor array
-Navigation System: GPS + Network Optimization AI
-Structural Integrity: 200 HP
-Armor Rating: 0.32
-Heat Signature: Medium
-Noise Signature: Medium
-Top Speed: 20 m/s
-Acceleration: Medium
-Turning Radius: Moderate
-Climb Rate: Medium
-Stability Rating: Very High
+Length: 34 m
+Width: 26 m
+Height: 14 m
+Bounding Volume: 12,376 m³
+Maximum Projected Footprint: 884 m²
+Mass: 1,200,000 kg (1,200 metric tonnes; preliminary design estimate)
+Structure: Modular pressurized hull with reinforced central truss
+Power Source: Solar photovoltaic arrays with rechargeable battery storage
+Installed Electrical Generation: 250 kW peak (design target)
+Energy Storage: 2,000 kWh usable (design target)
+Average Electrical Load: 80 kW (design target)
+Full-Load Equivalent Storage Duration: 25 hours (2,000 kWh / 80 kW)
+Propulsion: Electric orbital station-keeping thrusters
+Attitude Control: Reaction wheels with thruster desaturation
+Navigation: Star trackers, inertial navigation, GNSS where available, orbital tracking
+Structural Integrity: 10,000 HP (gameplay rating; balance value)
+Armor Rating: 0.55 (gameplay rating; balance value)
+Thermal Control: Radiators, heat pipes, active thermal regulation
+Acoustic Signature: Not applicable in vacuum; internal vibration monitoring
+Crew Capacity: 24 personnel (design assumption)
+Emergency Occupancy: 36 personnel (short-duration design assumption)
+Endurance: Long-duration orbital operation with consumables and maintenance resupply
+Payload Capacity: 20,000 kg external payload (design assumption)
+Primary Modules: Command center, communications array, sensor deck, life-support module, power module, docking interfaces, maintenance bay
 
-⚫ AUTONOMY & AI BEHAVIOR
+AUTONOMY & AI BEHAVIOR
 
-Behavior Profile: Strategic Network Coordination
-Aggression: 0.0
-Caution: 0.9
+Behavior Profile: Strategic Orbital Network Coordination
+Aggression: 0.0
+Caution: 0.95
 Persistence: 1.0
 Flanking Likelihood: 0.0
-Retreat Threshold: 0.9
-Target Priority: Mesh gaps / command nodes
-Formation Discipline: Extremely High
-Risk Tolerance: Very Low
+Retreat Threshold: 0.0 (station does not perform tactical retreat)
+Target Priority: Network outages, command-link failures, orbital hazards, unauthorized approach
+Formation Discipline: Fixed orbital station-keeping and coordinated network scheduling
+Risk Tolerance: 0.05
+Autonomous Functions: Station-keeping, power management, thermal regulation, fault isolation, network routing, collision avoidance
+Human Override: Authorized command personnel
+Emergency Mode: Isolate damaged modules, preserve life support, maintain emergency communications
 
-Sensors
+SENSORS & TRACKING
 
-Visual Range: 1200 m
-Thermal Range: 500 m
-Acoustic Range: Low
-Radar Range: None
-LiDAR Range: None
-Signal Detection Range: Extremely High
+Optical Observation Range: Mission- and sensor-dependent; not specified
+Thermal Observation Range: Mission- and sensor-dependent; not specified
+Radar: Orbital tracking radar (design assumption)
+Lidar: Docking and proximity measurement (design assumption)
+Star Trackers: Installed
+Inertial Navigation: Installed
+Signal Detection: Wideband communications monitoring (design assumption)
+Space Situational Awareness: Cooperative tracking and collision-warning integration
+Sensor Ranges: Must be defined by the selected sensor hardware and mission profile
 
-Communication
+COMMUNICATIONS & NETWORK
 
-Mesh Range: 22 km
-Relay Capacity: 16 nodes
-Command Link Type: NexusGrid Protocol
+Primary Role: Strategic communications hub and orbital mesh anchor
+Relay Capacity: 16 network nodes
+Network Range: Coverage depends on antenna gain, frequency, orbital geometry, and receiving equipment; no fixed range assigned
+Command Link: NexusGrid Protocol
 Network Priority: Maximum
+Antenna Systems: Steerable high-gain antenna plus redundant omnidirectional links
+Data Routing: Encrypted, redundant mesh routing
+Network Resilience: Store-and-forward communications, redundant links, automatic rerouting
+Encryption: Encrypted command and telemetry links
+Communications Redundancy: Independent primary and emergency communications paths
 
-⚫ COMBAT & THREAT MODEL
+DEFENSE, SAFETY & THREAT MODEL
 
 Firepower Rating: 0
-Accuracy: N/A
-Stabilization: Very High
 Weapon Mounts: None
 Weapon Types: None
 Suppression Value: 0
-Tracking Strength: Medium
-Disruption Strength: High
+Tracking Strength: High (gameplay rating)
+Disruption Strength: Communications denial detection and network recovery only
 Breach Capability: None
-Countermeasure Rating: High
+Countermeasures: Redundant systems, compartment isolation, debris monitoring, secure access control
+Threat Level: 4 (gameplay rating)
+Engagement Distance: Not applicable; unarmed station
+Operating Environment: Earth orbit; exact orbital altitude and inclination not yet specified
+Primary Hazards: Orbital debris, micrometeoroids, radiation, thermal cycling, pressure loss, power-system failure, cyber intrusion
+Vulnerability Profile: Hull penetration, radiation exposure, power loss, communications jamming, cyberattack, propulsion failure
+Protection Systems: Whipple-style debris shielding in critical areas (design assumption), radiation shelters, fire detection, pressure-leak isolation
+Crew Safety: Emergency pressure compartments, refuge area, emergency oxygen, fire suppression, evacuation interfaces
 
-Threat Modeling
-Threat Level: 4
-Engagement Distance: N/A
-Preferred Terrain: High‑altitude mesh corridors
-Preferred Targets: None
-Vulnerability Profile: Ballistic / EMP / jamming
+SQUAD & COMMAND INTEGRATION
 
-⚫ SQUAD & COMMAND INTEGRATION
-
-Squad Role: Strategic Mesh Anchor
-Squad Size Contribution: 1
-Formation Behavior: High‑discipline mesh lattice
-Intent Interpretation Rules: Maintain network stability above all
-Retreat Behavior: Very Early
+Squad Role: Strategic Orbital Command and Mesh Anchor
+Squad Size Contribution: 1 strategic infrastructure unit
+Formation Behavior: Fixed orbital station-keeping
+Intent Interpretation Rules: Preserve crew safety, station integrity, and network availability
+Retreat Behavior: No tactical retreat; enter safe mode or evacuate if necessary
 Breach Behavior: None
 Flanking Behavior: None
-Reinforcement Behavior: Supports command, mesh, and recon squads
+Reinforcement Behavior: Supports command, communications, reconnaissance, and relay units
 
-Command Hierarchy
+COMMAND HIERARCHY
 
 Parent Command Unit: Command Core
 Subordinate Units: Mesh, Relay, Link
-Relay Nodes: 16
-Network Dependencies: NexusGrid Protocol
+Relay Nodes: 16-node capacity
+Network Dependencies: NexusGrid Protocol, authorized command network, orbital tracking data
+Command Continuity: Redundant command processors and emergency control mode
 
-⚫ VR OPERATOR MODE
+CREW & VR OPERATIONS
 
-Operator Seat Type: Command Drone View
-Operator HUD: NexusGrid Network Overlay
-Camera Feeds: Optical
-Thermal View: Yes
-LiDAR View: No
-Radar View: No
-Tactical Overlay: Mesh lattice visualization
+Operator Environment: Orbital Station Operations Center
+Operator HUD: NexusGrid Station and Network Overview
+Camera Feeds: External optical, internal engineering, docking cameras
+Thermal View: Yes, where equipped
+Lidar View: Yes, where equipped
+Radar View: Yes, where equipped
+Tactical Overlay: Orbital track display, network topology, station health, power and thermal status
 
-Operator Controls
+OPERATOR CONTROLS
 
-Movement Controls: Full drone flight
-Sensor Controls: Signal scan / mesh diagnostics
-Ability Controls: Deploy Anchor, Boost Mesh, Stabilize Network
+Movement Controls: Station attitude and orbital station-keeping commands; thruster firing requires safety authorization
+Sensor Controls: Sensor tasking, orbital tracking, docking and network diagnostics
+Ability Controls: Reroute Mesh, Boost Relay Priority, Isolate Damaged Module, Emergency Power Conservation
 Weapon Controls: None
-Stabilization Controls: Auto‑hover
+Stabilization Controls: Reaction-wheel attitude control with thruster backup
 
-Operator Abilities
+OPERATOR ABILITIES
 
-Deploy Mesh Anchor
-Boost Mesh
-Network Stabilization
-Mesh Diagnostics
-Relay Command Data
+Reroute Communications Mesh
+Boost Relay Priority
+Stabilize Network
+Isolate Damaged Module
+Emergency Power Conservation
+Run Station Diagnostics
+Manage Docking Operations
+Coordinate Orbital Traffic
 
-⚫ ECONOMY & LOGISTICS
+LIFE SUPPORT & HABITABILITY
 
-Build Cost: 240 Metal / 260 Electronics
-Build Time: 75 sec
-Factory Type: Drone Bay
-Tech Requirements: Mesh Networking III
-Maintenance Cost: Medium
-Repair Time: 20 sec
-Supply Consumption: Medium
-Operational Cost: Moderate
-Deployment Requirements: Command drone pad
-Transport Compatibility: All aerial racks
-Launch Method: Vertical takeoff
+Atmosphere: Pressurized, monitored cabin atmosphere
+Oxygen Supply: Regenerative oxygen generation with emergency reserves (design assumption)
+Carbon Dioxide Removal: Regenerative scrubbers (design assumption)
+Water: Recovery and recycling system (design assumption)
+Waste Management: Closed-loop collection and processing (design assumption)
+Food Storage: Mission-duration dependent; resupply plan required
+Radiation Protection: Shielded refuge area and radiation monitoring
+Fire Safety: Detection, compartment isolation, and suppression
+Crew Capacity: 24 normal / 36 emergency occupancy
+Consumables Endurance: Not established until crew loads, recycling efficiency, and resupply interval are specified
 
-🔧 BUILD REQUIREMENTS (PLAYER COLLECTION SYSTEM)
+ECONOMY & LOGISTICS
+
+Build Cost: 18,000 Metal / 14,000 Electronics / 6,000 Advanced Components (provisional game-balance values)
+Build Time: 21,600 sec (6 hours of in-game construction time; balance value)
+Factory Type: Orbital Construction Facility
+Tech Requirements: Orbital Infrastructure III, Advanced Power Systems III, NexusGrid Protocol
+Maintenance Cost: High
+Repair Time: 3,600 sec baseline repair cycle (gameplay value; damage dependent)
+Supply Consumption: High
+Operational Cost: High
+Deployment Requirements: Orbital construction capability and validated launch/deployment architecture
+Transport Compatibility: Modular orbital cargo transports and docking vehicles
+Launch Method: Multi-launch assembly or orbital fabrication
+Servicing: Robotic maintenance interfaces and crew-accessible service bays
+Resupply: Dedicated cargo docking interface
+Deployment Points: Not specified
+
+BUILD REQUIREMENTS — PLAYER COLLECTION SYSTEM
 
 Common Components
 
-18× Medium Alloy Plates
-12× Composite Frame Rods
-8× Micro‑Servo Actuators
-4× Stabilizer Fins
-1× Mesh Anchor Housing
+120× Structural Alloy Panels
+48× Reinforced Truss Sections
+36× Pressurized Hull Modules
+24× Radiation Shielding Assemblies
+12× Docking Interface Assemblies
+8× Thermal Radiator Panels
+6× External Equipment Platforms
+4× Robotic Maintenance Arms
 
 Electronics
 
-20× Circuit Bundles
-14× Signal Processors
-6× Drone Control Chips
-6× Mesh AI Chips
-Power
+40× Flight-Critical Computer Modules
+32× Encrypted Communications Processors
+24× Network Routing Assemblies
+16× Orbital Tracking Sensor Packages
+12× Redundant Data Bus Assemblies
+8× Docking Navigation Systems
+8× Fault Detection and Isolation Controllers
 
-1× Command‑Grade Mesh Battery
-3× Power Regulation Nodes
+Power
+
+250 kW Solar Array Assembly (design target)
+2,000 kWh Battery Storage Assembly (design target)
+8× Power Regulation and Distribution Units
+4× Emergency Power Controllers
+4× Independent Critical-Load Power Buses
+
+Life Support
+
+4× Atmosphere Processing Assemblies
+4× Carbon Dioxide Removal Assemblies
+3× Water Recovery Assemblies
+2× Emergency Oxygen Reserve Modules
+2× Waste Processing Assemblies
+1× Crew Refuge and Radiation Shelter Module
+
+Propulsion & Attitude Control
+
+8× Electric Station-Keeping Thruster Assemblies
+4× Reaction Wheel Assemblies
+4× Propellant Feed and Control Units
+2× Redundant Navigation and Attitude Control Packages
 
 Rare / Tradeable
 
 1× NexusGrid Core
-1× Encrypted Mesh Processor
+2× Encrypted Mesh Processor Assemblies
+1× Orbital Command Integration Module
+1× Station Certification Package
 
-Optional Upgrades
+OPTIONAL UPGRADES
 
-Extended Mesh Range Module
-Anti‑Jamming Shielding
-Silent Rotor Kit
-High‑Density Mesh Grid
-
+Extended Communications Antenna
+Additional Relay Processing Rack
+Enhanced Debris Shielding
+Expanded Battery Storage
+Additional Solar Array Wing
+Improved Radiation Shelter
+Additional Docking Port
+Advanced Robotic Maintenance System
+Enhanced Cybersecurity Module
+Extended Life-Support Recycling
+Emergency Propulsion Redundancy
+
+DESIGN DATA NOTES
+
+Confirmed specification: 34 m × 26 m × 14 m.
+Calculated bounding volume: 12,376 m³.
+Calculated maximum projected footprint: 884 m².
+The 1,200-tonne mass, 250 kW generation, 2,000 kWh storage, 80 kW average load, crew capacities, payload, construction requirements, and gameplay ratings are provisional design assumptions, not engineering-validated values.
+Actual orbital altitude, orbit, delta-v budget, shielding thickness, propulsion performance, radiator area, launch mass, crew consumables, and sensor ranges require detailed mission and engineering design.

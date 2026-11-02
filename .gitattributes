@@ -1,0 +1,12 @@
+Assets/Art/Units/Ground/**/*.png filter=lfs diff=lfs merge=lfs -text
+Assets/Art/Units/Ground/**/*.jpg filter=lfs diff=lfs merge=lfs -text
+Assets/Art/Textures/**/*.png filter=lfs diff=lfs merge=lfs -text
+Assets/Art/Textures/**/*.jpg filter=lfs diff=lfs merge=lfs -text
+Assets/Art/Models/**/*.fbx filter=lfs diff=lfs merge=lfs -text
+Assets/Art/Models/**/*.png filter=lfs diff=lfs merge=lfs -text
+Assets/Art/Models/**/*.tif filter=lfs diff=lfs merge=lfs -text
+Assets/Art/Textures/**/*.tif filter=lfs diff=lfs merge=lfs -text
+Assets/Art/Models/**/*.jpg filter=lfs diff=lfs merge=lfs -text
+Assets/Art/Units/Ground/**/*.fbx filter=lfs diff=lfs merge=lfs -text
+Assets/Art/Images/Clown[[:space:]]Syndicate/Meshy_AI_Harlequin_War_Machine_1018053250_texture_fbx/Meshy_AI_Harlequin_War_Machine_1018053250_texture_fbx/Meshy_AI_Harlequin_War_Machine_1018053250_texture.fbx filter=lfs diff=lfs merge=lfs -text
+Assets/Scenes/SCN01_MAIN_MENU/MAIN[[:space:]]MENU[[:space:]]HUD/MAIN_BUILDING.fbx filter=lfs diff=lfs merge=lfs -text

@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace MiniRTS
@@ -46,6 +46,13 @@ namespace MiniRTS
         public Color FactionColor { get; private set; }
         public UnitMover Mover => mover != null ? mover : mover = GetComponent<UnitMover>();
         public Combatant Combatant { get; private set; }
+
+        /// <summary>
+        /// Returns the runtime entity identifier used by MiniRTS systems.
+        /// Unity instance IDs are unique for the lifetime of the current process.
+        /// </summary>
+        public int GetEntityId() { return base.GetEntityId().GetHashCode(); }
+
         public Vector3 CombatTargetPosition
         {
             get
@@ -56,6 +63,7 @@ namespace MiniRTS
                     : transform.position;
             }
         }
+
         public Vector3 HealthBarWorldPosition
         {
             get
@@ -64,6 +72,7 @@ namespace MiniRTS
                 float height = bodyCollider != null
                     ? bodyCollider.bounds.max.y
                     : transform.position.y + GroundHeight;
+
                 return new Vector3(
                     transform.position.x,
                     height + 0.35f,
@@ -111,10 +120,12 @@ namespace MiniRTS
             mover = GetComponent<UnitMover>();
             economy = factionEconomy;
             ownsSupplyReservation = supplyAlreadyReserved;
+
             UnitDefinition definition = UnitDefinition.Get(Type);
             MaxHitPoints = definition.HitPoints;
             HitPoints = MaxHitPoints;
             initialized = true;
+
             PositionSelectionMarker();
 
             modelVisual = GetComponentInChildren<ModelVisual>(true);
@@ -124,6 +135,7 @@ namespace MiniRTS
             }
 
             SetSelected(false);
+
             WorldHealthBar healthBar = gameObject.AddComponent<WorldHealthBar>();
             healthBar.Initialize(this);
         }
@@ -148,6 +160,7 @@ namespace MiniRTS
             }
 
             HitPoints = CombatMath.ApplyDamage(HitPoints, damage);
+
             if (HitPoints > 0)
             {
                 return;
@@ -156,6 +169,7 @@ namespace MiniRTS
             isDead = true;
             IsSelected = false;
             Units.Remove(this);
+
             if (mover != null)
             {
                 mover.Stop();
@@ -165,12 +179,14 @@ namespace MiniRTS
                 CombatTargetPosition,
                 transform.localScale,
                 FactionColor);
+
             Destroy(gameObject);
         }
 
         public void SetSelected(bool selected)
         {
             IsSelected = selected;
+
             if (selectionMarker != null)
             {
                 selectionMarker.SetActive(selected);
@@ -193,11 +209,14 @@ namespace MiniRTS
             }
 
             float verticalScale = Mathf.Max(0.01f, transform.localScale.y);
+
             selectionMarker.transform.localPosition = new Vector3(
                 0f,
                 -GroundHeight / verticalScale + 0.025f / verticalScale,
                 0f);
+
             float ringScale = ModelLibrary.Get(Type).SelectionRingScale;
+
             selectionMarker.transform.localScale =
                 new Vector3(ringScale, 1f, ringScale);
         }

@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0263df275083eba45b37ab9636c8dcbf, type: 3}
+  m_Name: MAP-063_Trenchline
+  m_EditorClassIdentifier: 
+  mapId: MAP-063
+  displayName: Trenchline
+  environment: Coastal / Defensive
+  warfareFocus: Fortifications & Defensive Operations
+  executiveSummary: '>- Trenchline is a fortified coastal battlefield built for defensive warfare, entrenched positions, layered fortifications, and siege-driven coastal operations. The terrain features cliffside bunkers, beach obstacles, trench networks, artillery batteries, hardened pillboxes, coastal roads, and inland fallback lines. The map emphasizes autonomous defensive logic, sensor-network routing, comms-relay warfare, and logistics under sustained siege conditions. In AR, the map anchors at approximately 4-5 m viewing distance, covering a 10x10 m physical area representing approximately 1 km2 of coastal defensive terrain.'
+  designGoals:
+  - name: Layered Coastal Defense
+    description: '>-'
+  - name: Siege & Breach Mechanics
+    description: '>- Artillery, naval bombardment, drones, and armored vehicles play major roles. Trenches, bunkers, and pillboxes can be destroyed or partially collapsed.'
+  - name: Autonomy & Defensive Coordination
+    description: '>- Autonomous units prioritize chokepoints, fallback positions, counter-battery fire, and overwatch from cliffs. Units adapt to breached trenches, destroyed bunkers, and shifting defensive priorities.'
+  - name: Sensor & Information Warfare
+    description: '>- Sea spray, smoke, dust, and cliff occlusion distort sensors. Relay towers on cliffs restore clarity. Destroying relays creates blind pockets across the defensive line.'
+  - name: Logistics & Resources
+    description: '>- Fuel depots, armories, and coastal roads serve as resupply nodes. Convoys must navigate interior routes and avoid ambush-prone breach corridors.'
+  deployment: '>- Fixed deployment budget of approximately 10,000 points. Blue deploys from the southwest coastal trenchline; Red deploys from the northeast inland command bunker.'
+  ar:
+    viewingDistance: 4-5 m
+    physicalArea: 10x10 m
+    representedArea: approximately 1 km2
+    scale: 1:100
+    fov: approximately 53 degrees diagonal
+    resolution: 1920x1080 per eye
+    tracking: Inside-out tracking detects horizontal planes.
+    interaction: Depth mesh if available provides limited occlusion; assume minimal real-world occlusion.
+  coordinateSystem: 1000x1000 grid, 1 unit approximately 1 m, origin (0,0) southwest corner
+  keyLocations:
+  - name: Blue HQ (Coastal Trench Command)
+    coordinate: (0,0)
+    sizeOrElevation: 150x150 m
+    description: Trenches, sandbags, pillboxes, armored staging.
+  - name: Red HQ (Inland Command Bunker)
+    coordinate: (1000,1000)
+    sizeOrElevation: 150x150 m
+    description: Hardened bunker with radar mast, AA emplacements, and artillery.
+  - name: Central Trench Network
+    coordinate: (500,450)
+    sizeOrElevation: 300x300 m
+    description: Primary defensive zone; trenches, firing ports, bunkers.
+  - name: Coastal Battery & Depot
+    coordinate: (250,800)
+    sizeOrElevation: 120x120 m
+    description: Artillery guns, fuel tanks, repair bays.
+  - name: Cliffside Overwatch Line
+    coordinate: (800,300)
+    sizeOrElevation: 200x200 m
+    description: High-ground overwatch; ideal for sensors and long-range fire.
+  - name: Beach Landing Corridor
+    coordinate: (0,450 -> 400,900)
+    sizeOrElevation: Primary amphibious chokepoint
+    description: Layered defenses and obstacles.
+  - name: Inland Road Route
+    coordinate: (300,0 -> 450,350)
+    sizeOrElevation: Safer interior path
+    description: Partial cover.
+  - name: Cliff Relay A
+    coordinate: (650,150)
+    sizeOrElevation: +240 m
+    description: Long-range sensor vantage point.
+  - name: Cliff Relay B
+    coordinate: (150,650)
+    sizeOrElevation: +260 m
+    description: Comms relay hub and counter-battery node.
+  - name: Neutral Forward Outpost
+    coordinate: (500,950)
+    sizeOrElevation: Drone resupply zone
+    description: Neutral forward drone resupply area.
+  chokepointsAndSightlines:
+  - name: Beach Landing Corridor
+    description: Primary chokepoint; attackers must breach obstacles and pillboxes.
+  - name: Central Trench Network
+    description: Interior flanking routes; extremely strong defensive positions.
+  - name: Cliffside Overwatch
+    description: Long-range sightlines; ideal for artillery and sensors.
+  - name: Inland Road Route
+    description: Predictable but safe; vulnerable to overwatch from cliffs.
+  - name: Cliff Relay A
+    description: Long-range sensor coverage of approximately 350 m. Sea spray and smoke create fog-of-war pockets.
+  terrain: Beaches, cliffs, trenches, bunkers, pillboxes, coastal roads.
+  vegetation: Sparse shrubs, grass patches, coastal vegetation.
+  buildingsAndProps: '>-'
+  effects: Smoke, sparks, dust, explosions, sea spray.
+  audio: Artillery, waves, machinery, alarms, radio chatter.
+  lodBudget:
+  - category: Trenches/Bunkers
+    count: 3
+    trianglesPerItem: 200000
+    totalTriangles: 600000
+  - category: Cliff/Industrial
+    count: 4
+    trianglesPerItem: 80000
+    totalTriangles: 320000
+  - category: Buildings/Military
+    count: 15
+    trianglesPerItem: 50000
+    totalTriangles: 750000
+  - category: Roads/Paths
+    count: 4
+    trianglesPerItem: 30000
+    totalTriangles: 120000
+  - category: Props
+    count: 50
+    trianglesPerItem: 10000
+    totalTriangles: 500000
+  textureBudget: "2048\xB2 terrain/buildings, 1024\xB2 props, DXT1/5 compression, target <=100 MB."
+  engineAndPlugins: Unreal ARTemplate + Nreal SDK (XREAL). ARKit/ARCore enabled.
+  rendering: Forward renderer, stationary lights, baked GI, aggressive culling.
+  anchors: Single spatial anchor for entire map.
+  interaction: Phone pointer for pan/zoom; HUD as screen-space widgets.
+  multiplayer: Client-server architecture; offload AI/physics to server.
+  milestones:
+  - name: Prototype Layout
+    description: Month 1 - Block-out trenches, cliffs, beach corridor, AR anchor test.
+  - name: Core Systems
+    description: Month 2 - NavMesh, defensive autonomy behaviors, siege logic.
+  - name: AR Integration
+    description: Month 3 - Anchors, plane detection, basic interactivity.
+  - name: Content Fill
+    description: Month 4-5 - Final models, textures, lighting, audio.
+  - name: Gameplay & Polish
+    description: Month 6-7 - Objectives, balance, VFX including smoke, sparks, and explosions.
+  - name: Testing & QA
+    description: Month 8 - Multiplayer stress test, sensor validation.
+  testing:
+  - name: Autonomy
+    description: Verify defensive logic, fallback behavior, breach-zone navigation.
+  - name: Comms/Sensors
+    description: Test relay destruction, fog-of-war updates, LOS checks.
+  - name: Performance
+    description: Maintain at least 60 Hz AR render on target device.
+  - name: QA Checklist
+    description: Navigation, siege logic, deployment budget enforcement, anchor drift, sensor accuracy.

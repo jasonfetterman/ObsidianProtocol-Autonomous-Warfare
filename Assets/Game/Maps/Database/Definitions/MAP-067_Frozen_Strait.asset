@@ -1,0 +1,151 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0263df275083eba45b37ab9636c8dcbf, type: 3}
+  m_Name: MAP-067_Frozen_Strait
+  m_EditorClassIdentifier: 
+  mapId: MAP-067
+  displayName: Frozen Strait
+  environment: Arctic
+  warfareFocus: Naval + Air + Ice Operations
+  executiveSummary: Frozen Strait is a hybrid Arctic naval battlefield built for naval warfare, air operations, ice-field maneuvering, and autonomous multi-domain coordination. The terrain features fractured sea ice, narrow straits, iceberg clusters, frozen channels, coastal cliffs, submarine vents, and forward Arctic stations. The map emphasizes autonomous naval routing, air-sea coordination, sensor fusion under Arctic interference, and logistics under unstable ice conditions.
+  designGoals:
+  - name: Naval Warfare in Ice-Choked Waters
+    description: Ship-to-ship combat, torpedo lanes, ice-breaker routes, and hull-hazard navigation. Ice floes create dynamic cover and movement obstacles.
+  - name: Air Operations and Reconnaissance
+    description: VTOL aircraft, drones, and long-range recon planes operate above the strait. Airspace corridors between cliffs and icebergs define movement and targeting.
+  - name: Ice-Field Maneuvering
+    description: Ground units traverse frozen channels, ice ridges, and unstable floes. Heavy armor risks breaking ice; light units excel in mobility.
+  - name: Autonomy and Multi-Domain Coordination
+    description: Autonomous units coordinate naval, air, and ice-field forces simultaneously. Units adapt to shifting ice patterns, fog pockets, and sonar interference.
+  - name: Sensor and Information Warfare
+    description: Sea fog, ice mist, thermal distortion, sonar scatter, and magnetic interference degrade sensors. Relay towers on cliffs restore clarity. Destroying relays creates blind pockets across the strait.
+  - name: Logistics and Resources
+    description: Fuel caches, coastal stations, and submarine vents serve as resupply nodes. Convoys must navigate ice-breaker routes and avoid ambush-prone channels.
+  - name: Deployment and Progress
+    description: A fixed deployment budget of approximately 10000 points forces players to choose between naval dominance, air superiority, or ice-field mobility. Blue deploys from the southwest coastal station; Red deploys from the northeast cliffside command.
+  deployment: 'Deployment budget: approximately 10000 points. Blue deployment: southwest coastal station with naval staging. Red deployment: northeast cliffside command spire with AA emplacements. Neutral forward zone: outpost at (500,950) for drone resupply.'
+  ar:
+    viewingDistance: 4-5 m
+    physicalArea: 10x10 m
+    representedArea: Approximately 1 km2
+    scale: 1:100
+    fov: 53 degrees diagonal
+    resolution: 1920x1080 per eye
+    tracking: Inside-out horizontal-plane tracking; depth mesh if available
+    interaction: Phone pointer for pan and zoom; HUD as screen-space widgets
+  coordinateSystem: 1000x1000 grid; approximately 1 unit = 1 m. Origin (0,0) is the southwest corner.
+  keyLocations:
+  - name: Blue HQ - Coastal Station Bravo
+    coordinate: (0,0)
+    sizeOrElevation: 150x150 m
+    description: Docks, fuel tanks, drone pads, and Arctic staging.
+  - name: Red HQ - Cliffside Command Spire
+    coordinate: (1000,1000)
+    sizeOrElevation: 150x150 m
+    description: Heated bunker with radar mast, AA emplacements, and sonar arrays.
+  - name: Central Frozen Strait
+    coordinate: (500,450)
+    sizeOrElevation: 350x250 m
+    description: Fractured ice, open-water lanes, iceberg clusters, and the naval combat zone.
+  - name: Submarine Vent Field
+    coordinate: (250,800)
+    sizeOrElevation: 120x120 m
+    description: Thermal vents, sonar distortion, and underwater hazards.
+  - name: Ice Ridge Network
+    coordinate: (800,300)
+    sizeOrElevation: 200x200 m
+    description: Wind-carved ridges, frozen tunnels, and flanking routes.
+  - name: Ice-Breaker Channel
+    coordinate: (0,450) to (400,900)
+    sizeOrElevation: Primary naval chokepoint
+    description: Narrow, hazardous channel that is constantly shifting.
+  - name: Frozen Shore Route
+    coordinate: (300,0) to (450,350)
+    sizeOrElevation: Ground route
+    description: Safer ground route with partial cover.
+  - name: Cliff Relay A
+    coordinate: (650,150)
+    sizeOrElevation: +240 m
+    description: Long-range sensor vantage point; approximately 350 m sensor coverage.
+  - name: Cliff Relay B
+    coordinate: (150,650)
+    sizeOrElevation: +260 m
+    description: Communications relay hub and sonar control node.
+  - name: Neutral Forward Outpost
+    coordinate: (500,950)
+    sizeOrElevation: Forward resupply zone
+    description: Drone resupply zone.
+  chokepointsAndSightlines:
+  - name: Ice-Breaker Channel
+    description: Major naval chokepoint; controlling it determines sea movement.
+  - name: Submarine Vent Field
+    description: Thermal distortion disrupts sonar; ideal for submarine ambushes.
+  - name: Frozen Strait Center
+    description: Long-range naval and air engagements with dynamic ice cover.
+  - name: Ice Ridge Network
+    description: Interior flanking routes with unpredictable cover due to drifting snow and ice.
+  - name: Sightlines
+    description: Cliff Relay A provides approximately 350 m long-range sensor coverage. Sea fog and ice mist create fog-of-war pockets.
+  terrain: Ice floes, frozen channels, cliffs, submarine vents, and coastal stations.
+  vegetation: None; Arctic maritime zone.
+  buildingsAndProps: 'Military: AA guns, radar dishes, sonar arrays, bunkers. Industrial: generators, pipelines, docks. Logistics: ships, cargo crates, fuel drums, and drones.'
+  effects: Sea fog, ice mist, snowstorms, thermal distortion, and wave spray.
+  audio: Wind, cracking ice, ship engines, sonar pings, and radio chatter.
+  lodBudget:
+  - category: Ice/Terrain
+    count: 3
+    trianglesPerItem: 200000
+    totalTriangles: 600000
+  - category: Naval/Industrial
+    count: 4
+    trianglesPerItem: 80000
+    totalTriangles: 320000
+  - category: Buildings/Military
+    count: 15
+    trianglesPerItem: 50000
+    totalTriangles: 750000
+  - category: Roads/Paths
+    count: 4
+    trianglesPerItem: 30000
+    totalTriangles: 120000
+  - category: Props
+    count: 50
+    trianglesPerItem: 10000
+    totalTriangles: 500000
+  textureBudget: 2048x2048 for terrain and buildings; 1024x1024 for props. DXT1/5 compression. Target 100 MB or less.
+  engineAndPlugins: 'Source specification: Unreal ARTemplate and Nreal SDK (XREAL); ARKit/ARCore enabled. This project is being added to the existing Unity map database; engine integration requires separate compatibility review.'
+  rendering: Forward renderer, stationary lights, baked global illumination, and aggressive culling (source specification).
+  anchors: Single spatial anchor for the entire map.
+  interaction: Phone pointer for pan and zoom; HUD as screen-space widgets.
+  multiplayer: Client-server architecture; offload AI and physics to server.
+  milestones:
+  - name: Month 1 - Prototype Layout
+    description: Block out the strait, ice ridges, submarine vents, and test the AR anchor.
+  - name: Month 2 - Core Systems
+    description: Implement navigation meshes for ice and land, naval autonomy, and air-sea coordination.
+  - name: Month 3 - AR Integration
+    description: Implement anchors, plane detection, and basic interactivity.
+  - name: Months 4-5 - Content Fill
+    description: Create final models, textures, lighting, and audio.
+  - name: Months 6-7 - Gameplay and Polish
+    description: Implement objectives, balancing, and visual effects for sea fog, ice mist, and thermal distortion.
+  - name: Month 8 - Testing and QA
+    description: Multiplayer stress testing and sensor validation.
+  testing:
+  - name: Autonomy
+    description: Verify naval routing, air-sea coordination, and ice-field navigation.
+  - name: Communications and Sensors
+    description: Test relay destruction, fog-of-war updates, and sonar interference.
+  - name: Performance
+    description: Target at least 60 Hz AR rendering on the target device.
+  - name: QA Checklist
+    description: Test navigation, naval logic, deployment budget enforcement, anchor drift, and sensor accuracy.
