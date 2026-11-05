@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CommandCenterFullController : MonoBehaviour
@@ -97,5 +97,10 @@ public class CommandCenterFullController : MonoBehaviour
     public void OpenGarageScene()
     {
         SceneManager.LoadScene("SCN04_GARAGE");
+    }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("SCN‑01  MAIN MENU");
     }
 }
