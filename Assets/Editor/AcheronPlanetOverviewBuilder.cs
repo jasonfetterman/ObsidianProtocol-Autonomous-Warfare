@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -82,7 +82,7 @@ public static class AcheronPlanetOverviewBuilder
         if(!controller)
             controller=hud.AddComponent<AcheronPlanetOverviewController>();
 
-        controller.info=info;
+        controller.information=info;
         controller.location=location;
 
         Wire("JumpToPlanetOverviewButton",controller,"ShowOverview");
@@ -172,19 +172,3 @@ public static class AcheronPlanetOverviewBuilder
     }
 }
 
-public class AcheronPlanetOverviewController : MonoBehaviour
-{
-    public GameObject info;
-    public GameObject location;
-
-    public void ShowOverview()
-    {
-        if(info)info.SetActive(true);
-        if(location)location.SetActive(true);
-    }
-
-    public void CloseOverview()
-    {
-        gameObject.SetActive(false);
-    }
-}

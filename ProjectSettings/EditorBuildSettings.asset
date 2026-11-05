@@ -42,9 +42,6 @@ EditorBuildSettings:
     path: Assets/Scenes/SCN15_EXIT_CONFIRMATION/[HUD] EXIT CONFIRMATION HUD/Exit_Confirmation.unity
     guid: 601fc29bab91abf47922df0fc2a02a3d
   - enabled: 1
-    path: Assets/Scenes/SCN22_UNIT_INSPECTION/Unit_Inspection.unity
-    guid: 6573305f90ca3f346a52a2a07b71fce0
-  - enabled: 1
     path: Assets/Scenes/SYS01_AI_AUTONOMY/[HUD] AI  AUTONOMY HUD/AI_Autonomy.unity
     guid: 6031b6202be12074389b5459465e3688
   - enabled: 1
@@ -180,7 +177,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SCN63_PLANET_SURFACE_MAP/Planet_Surface_Map.unity
     guid: db72c64df4d52b74283c41e7515210f3
   - enabled: 1
-    path: Assets/Scenes/SCN63_PLANET_SURFACE_MAP/SCN64_CONTINENT_MAP/Continent_Map.unity
+    path: Assets/Scenes/SCN64_CONTINENT_MAP/Continent_Map.unity
     guid: ae6496b413d1b5648a23e51d6ea97737
   - enabled: 1
     path: Assets/Scenes/SCN65_REGION_MAP/Region_Map.unity
@@ -234,11 +231,10 @@ EditorBuildSettings:
     path: Assets/Scenes/SCN03_BATTLEFIELD_AAA/SCN03_BATTLEFIELD_AAA.unity
     guid: 0472de175882e6243882727495766e93
   - enabled: 1
+    path: Assets/Scenes/SCN_LOGO_RENDER.unity
+    guid: dc2cb60f6b1c18a4b9b35be8ede06be3
+  - enabled: 1
     path: Assets/Scenes/SCN04_GARAGE/SCN04_GARAGE_ARCHITECTURE_TEST.unity
     guid: 58d5a8d47ae9e5244a44744c3707f52b
   m_configObjects:
-    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: aa8a83ffabb26bf4ea34ad4ad9200c1d, type: 2}
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
-    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: bf2ca1a951d74d54cac70be7f28994c5, type: 2}
-    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 8ffed9d39e617f54d9ebeba023df59b7, type: 2}
