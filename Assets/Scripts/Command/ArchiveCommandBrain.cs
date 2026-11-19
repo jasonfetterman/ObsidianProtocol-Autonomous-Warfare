@@ -1,16 +1,11 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using ObsidianProtocol.Game.Command;
 
 namespace ObsidianProtocol.Game.Command.Autonomy
 {
-    /// <summary>
-    /// ARCHIVE autonomous command brain.
-    ///
-    /// Receives player intent and is responsible for turning that intent
-    /// into a complete operational plan.
-    /// </summary>
     [RequireComponent(typeof(CommandUnit))]
     public sealed class ArchiveCommandBrain : MonoBehaviour
     {
@@ -20,7 +15,6 @@ namespace ObsidianProtocol.Game.Command.Autonomy
             new List<ArchiveOperationalOrder>();
 
         public bool Operational { get; private set; }
-
         public IntentType LastPlayerIntent { get; private set; }
 
         public IReadOnlyList<ArchiveOperationalOrder> ActiveOrders =>
@@ -29,12 +23,9 @@ namespace ObsidianProtocol.Game.Command.Autonomy
         private void Awake()
         {
             commandUnit = GetComponent<CommandUnit>();
-
             Operational = false;
 
-            Debug.Log(
-                "[ARCHIVE] Brain initialized: " +
-                gameObject.name);
+            Debug.Log("[ARCHIVE] Brain initialized: " + gameObject.name);
         }
 
         private void Start()
@@ -45,40 +36,26 @@ namespace ObsidianProtocol.Game.Command.Autonomy
         public void Activate()
         {
             Operational = true;
-
-            Debug.Log(
-                "[ARCHIVE] ONLINE: " +
-                gameObject.name);
+            Debug.Log("[ARCHIVE] ONLINE: " + gameObject.name);
         }
 
         public void Deactivate()
         {
             Operational = false;
-
-            Debug.Log(
-                "[ARCHIVE] OFFLINE: " +
-                gameObject.name);
+            Debug.Log("[ARCHIVE] OFFLINE: " + gameObject.name);
         }
 
-        /// <summary>
-        /// Receives the player's high-level intent.
-        /// ARCHIVE decides what operational actions are required.
-        /// </summary>
         public void ReceiveIntent(IntentType intent)
         {
             if (!Operational)
             {
-                Debug.LogWarning(
-                    "[ARCHIVE] Intent rejected because ARCHIVE is offline.");
-
+                Debug.LogWarning("[ARCHIVE] Intent rejected: ARCHIVE offline.");
                 return;
             }
 
             LastPlayerIntent = intent;
 
-            Debug.Log(
-                "[ARCHIVE] PLAYER INTENT RECEIVED: " +
-                intent);
+            Debug.Log("[ARCHIVE] PLAYER INTENT RECEIVED: " + intent);
 
             AnalyzeIntent(intent);
         }
@@ -87,155 +64,70 @@ namespace ObsidianProtocol.Game.Command.Autonomy
         {
             activeOrders.Clear();
 
-            Debug.Log(
-                "[ARCHIVE] Analyzing intent: " +
-                intent);
+            ArchiveOrderType orderType;
 
             switch (intent)
             {
                 case IntentType.Move:
-                    BuildMovePlan();
+                    orderType = ArchiveOrderType.Advance;
                     break;
 
                 case IntentType.Attack:
-                    BuildAttackPlan();
+                    orderType = ArchiveOrderType.Attack;
                     break;
 
                 case IntentType.Defend:
-                    BuildDefendPlan();
+                    orderType = ArchiveOrderType.Defend;
+                    break;
+
+                case IntentType.Hold:
+                    orderType = ArchiveOrderType.Hold;
+                    break;
+
+                case IntentType.Capture:
+                    orderType = ArchiveOrderType.Capture;
                     break;
 
                 case IntentType.Recon:
-                    BuildReconPlan();
-                    break;
-
-                case IntentType.Flank:
-                    BuildFlankPlan();
-                    break;
-
-                case IntentType.Suppress:
-                    BuildSuppressPlan();
-                    break;
-
-                case IntentType.Breach:
-                    BuildBreachPlan();
-                    break;
-
-                case IntentType.Pursue:
-                    BuildPursuitPlan();
-                    break;
-
-                case IntentType.Retreat:
-                    BuildRetreatPlan();
+                    orderType = ArchiveOrderType.Recon;
                     break;
 
                 case IntentType.Reinforce:
-                    BuildReinforcementPlan();
+                    orderType = ArchiveOrderType.Reinforce;
+                    break;
+
+                case IntentType.Retreat:
+                    orderType = ArchiveOrderType.Retreat;
+                    break;
+
+                // Retained legacy intents.
+                case IntentType.Flank:
+                    orderType = ArchiveOrderType.Flank;
+                    break;
+
+                case IntentType.Suppress:
+                    orderType = ArchiveOrderType.Suppress;
+                    break;
+
+                case IntentType.Breach:
+                    orderType = ArchiveOrderType.Breach;
+                    break;
+
+                case IntentType.Pursue:
+                    orderType = ArchiveOrderType.Pursue;
                     break;
 
                 default:
                     Debug.LogWarning(
-                        "[ARCHIVE] No planning doctrine exists for: " +
-                        intent);
-                    break;
+                        "[ARCHIVE] Unsupported intent: " + intent);
+                    return;
             }
 
+            AddOrder(orderType, "ARCHIVE " + intent + " operational plan");
             PublishOperationalPlan();
         }
 
-        private void BuildMovePlan()
-        {
-            Debug.Log("[ARCHIVE] Building MOVEMENT plan.");
-
-            AddOrder(
-                ArchiveOrderType.Advance,
-                "ARCHIVE movement plan");
-        }
-
-        private void BuildAttackPlan()
-        {
-            Debug.Log("[ARCHIVE] Building ATTACK plan.");
-
-            AddOrder(
-                ArchiveOrderType.Attack,
-                "ARCHIVE attack plan");
-        }
-
-        private void BuildDefendPlan()
-        {
-            Debug.Log("[ARCHIVE] Building DEFENSE plan.");
-
-            AddOrder(
-                ArchiveOrderType.Defend,
-                "ARCHIVE defensive plan");
-        }
-
-        private void BuildReconPlan()
-        {
-            Debug.Log("[ARCHIVE] Building RECONNAISSANCE plan.");
-
-            AddOrder(
-                ArchiveOrderType.Recon,
-                "ARCHIVE reconnaissance plan");
-        }
-
-        private void BuildFlankPlan()
-        {
-            Debug.Log("[ARCHIVE] Building FLANK plan.");
-
-            AddOrder(
-                ArchiveOrderType.Flank,
-                "ARCHIVE flanking plan");
-        }
-
-        private void BuildSuppressPlan()
-        {
-            Debug.Log("[ARCHIVE] Building SUPPRESSION plan.");
-
-            AddOrder(
-                ArchiveOrderType.Suppress,
-                "ARCHIVE suppression plan");
-        }
-
-        private void BuildBreachPlan()
-        {
-            Debug.Log("[ARCHIVE] Building BREACH plan.");
-
-            AddOrder(
-                ArchiveOrderType.Breach,
-                "ARCHIVE breach plan");
-        }
-
-        private void BuildPursuitPlan()
-        {
-            Debug.Log("[ARCHIVE] Building PURSUIT plan.");
-
-            AddOrder(
-                ArchiveOrderType.Pursue,
-                "ARCHIVE pursuit plan");
-        }
-
-        private void BuildRetreatPlan()
-        {
-            Debug.Log("[ARCHIVE] Building RETREAT plan.");
-
-            AddOrder(
-                ArchiveOrderType.Retreat,
-                "ARCHIVE withdrawal plan");
-        }
-
-        private void BuildReinforcementPlan()
-        {
-            Debug.Log("[ARCHIVE] Building REINFORCEMENT plan.");
-
-            AddOrder(
-                ArchiveOrderType.Reinforce,
-                "ARCHIVE reinforcement plan");
-        }
-
-        private void AddOrder(
-            ArchiveOrderType type,
-            string reason)
+        private void AddOrder(ArchiveOrderType type, string reason)
         {
             ArchiveOperationalOrder order =
                 new ArchiveOperationalOrder(
@@ -248,7 +140,8 @@ namespace ObsidianProtocol.Game.Command.Autonomy
             DispatchOrderToSubordinates(order);
         }
 
-        private void DispatchOrderToSubordinates(ArchiveOperationalOrder order)
+        private void DispatchOrderToSubordinates(
+            ArchiveOperationalOrder order)
         {
             if (commandUnit == null)
                 return;
@@ -262,37 +155,54 @@ namespace ObsidianProtocol.Game.Command.Autonomy
 
                 if (autonomy == null)
                 {
-                    Debug.LogWarning($"[ARCHIVE] No UnitAutonomy on {unit.gameObject.name}.");
+                    Debug.LogWarning(
+                        "[ARCHIVE] No UnitAutonomy on " + unit.gameObject.name);
                     continue;
                 }
 
-                UnitAutonomy.AutonomousState state =
-                    UnitAutonomy.AutonomousState.Patrol;
+                UnitAutonomy.AutonomousState state;
 
                 switch (order.Type)
                 {
                     case ArchiveOrderType.Advance:
+                    case ArchiveOrderType.Pursue:
+                    case ArchiveOrderType.Flank:
+                    case ArchiveOrderType.Breach:
                         state = UnitAutonomy.AutonomousState.Pursue;
                         break;
+
                     case ArchiveOrderType.Attack:
+                    case ArchiveOrderType.Suppress:
                         state = UnitAutonomy.AutonomousState.Engage;
                         break;
+
                     case ArchiveOrderType.Defend:
+                    case ArchiveOrderType.Hold:
                         state = UnitAutonomy.AutonomousState.Idle;
                         break;
+
                     case ArchiveOrderType.Recon:
+                    case ArchiveOrderType.Capture:
+                    case ArchiveOrderType.Reinforce:
                         state = UnitAutonomy.AutonomousState.Investigate;
                         break;
+
                     case ArchiveOrderType.Retreat:
                         state = UnitAutonomy.AutonomousState.Retreat;
                         break;
-                    case ArchiveOrderType.Pursue:
-                        state = UnitAutonomy.AutonomousState.Pursue;
+
+                    default:
+                        state = UnitAutonomy.AutonomousState.Patrol;
                         break;
                 }
 
-                autonomy.SetAutonomousIntent(state, order.ObjectivePosition);
-                Debug.Log($"[ARCHIVE] ORDER DISPATCHED: {order.Type} -> {unit.gameObject.name}");
+                autonomy.SetAutonomousIntent(
+                    state,
+                    order.ObjectivePosition);
+
+                Debug.Log(
+                    "[ARCHIVE] ORDER DISPATCHED: " +
+                    order.Type + " -> " + unit.gameObject.name);
             }
         }
 
@@ -300,16 +210,13 @@ namespace ObsidianProtocol.Game.Command.Autonomy
         {
             Debug.Log(
                 "[ARCHIVE] OPERATIONAL PLAN CREATED: " +
-                activeOrders.Count +
-                " order(s).");
+                activeOrders.Count + " order(s).");
 
             foreach (ArchiveOperationalOrder order in activeOrders)
             {
                 Debug.Log(
                     "[ARCHIVE] ORDER: " +
-                    order.Type +
-                    " | " +
-                    order.Reason);
+                    order.Type + " | " + order.Reason);
             }
         }
     }
@@ -325,19 +232,17 @@ namespace ObsidianProtocol.Game.Command.Autonomy
         Breach,
         Pursue,
         Retreat,
-        Reinforce
+        Reinforce,
+        Hold,
+        Capture
     }
 
     public sealed class ArchiveOperationalOrder
     {
         public string OrderId { get; }
-
         public ArchiveOrderType Type { get; }
-
         public string Reason { get; }
-
         public Vector3 ObjectivePosition { get; }
-
         public DateTime CreatedAt { get; }
 
         public ArchiveOperationalOrder(
@@ -354,4 +259,3 @@ namespace ObsidianProtocol.Game.Command.Autonomy
         }
     }
 }
-

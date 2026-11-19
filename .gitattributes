@@ -28,3 +28,26 @@ Assets/Scenes/SCN01_MAIN_MENU/MAIN[[:space:]]MENU[[:space:]]HUD/MAIN_BUILDING.fb
 *.ogg filter=lfs diff=lfs merge=lfs -text
 Assets/WorldCreatorBridge/Demo/Demo_URP/Demo_URP_0_0.asset filter=lfs diff=lfs merge=lfs -text
 Assets/WorldCreatorBridge/Demo/Demo_HDRP/Demo_HDRP_0_0.asset filter=lfs diff=lfs merge=lfs -text
+
+# Preserve legacy regular Git assets that match the global LFS extensions.
+Assets/Game/Units/Database/EXPLORATION/**/*.fbx -filter -diff -merge -text
+Assets/Scenes/SCN04_GARAGE/3D[[:space:]]units/**/*.fbx -filter -diff -merge -text
+Assets/Game/Units/Database/AIR[[:space:]]UNIT/Rescue/**/*.png -filter -diff -merge -text
+Assets/Game/Units/Database/EXPLORATION/**/*.png -filter -diff -merge -text
+Assets/Game/Units/Database/FIGHTER/**/*.png -filter -diff -merge -text
+Assets/Game/Units/Database/MEDICAL/**/*.png -filter -diff -merge -text
+Assets/Game/Units/Database/NAVAL/**/*.png -filter -diff -merge -text
+Assets/Game/Units/Database/RECON/**/*.png -filter -diff -merge -text
+Assets/Game/Units/Database/SATELLITE/Cartographer/**/*.png -filter -diff -merge -text
+Assets/Game/Units/Database/SATELLITE/Insight/**/*.png -filter -diff -merge -text
+Assets/Game/Units/Database/SATELLITE/Link/**/*.png -filter -diff -merge -text
+Assets/Game/Units/Database/SATELLITE/Relay/**/*.png -filter -diff -merge -text
+Assets/Game/Units/Database/SATELLITE/Thermal/**/*.png -filter -diff -merge -text
+Assets/Game/Units/Database/SATELLITE/Tracker/**/*.png -filter -diff -merge -text
+Assets/Game/Units/Database/SATELLITE/Worldmap/**/*.png -filter -diff -merge -text
+Assets/Game/Units/Database/STATION/**/*.png -filter -diff -merge -text
+Assets/Game/Units/Database/TRANSPORT/**/*.png -filter -diff -merge -text
+Assets/Scenes/SCN01_MAIN_MENU/**/*.png -filter -diff -merge -text
+Assets/Scenes/SCN04_GARAGE/3D[[:space:]]units/**/*.png -filter -diff -merge -text
+Assets/Scenes/SCN16_STORE/**/*.png -filter -diff -merge -text
+Assets/Scenes/SCN30_ACHERON/**/*.png -filter -diff -merge -text
