@@ -1,0 +1,36 @@
+#pragma kernel AO_ROUGHNESS
+#pragma kernel AO
+#pragma kernel ROUGHNESS
+#pragma kernel ALBEDO_ROUGHNESS
+
+int _Res;
+
+Texture2D<float4> _AlbedoTex;
+Texture2D<float> _RoughnessTex;
+Texture2D<float> _AOTex;
+RWStructuredBuffer<float4> _OutBuffer;
+
+[numthreads(8,8,1)]
+void AO_ROUGHNESS (uint3 id : SV_DispatchThreadID)
+{
+    _OutBuffer[id.x + id.y * _Res] = float4(0, _AOTex[id.xy].r, 1, 1 - _RoughnessTex[id.xy].r);
+}
+
+[numthreads(8,8,1)]
+void AO (uint3 id : SV_DispatchThreadID)
+{
+    _OutBuffer[id.x + id.y * _Res] = float4(0, _AOTex[id.xy], 1, 0);
+}
+
+[numthreads(8,8,1)]
+void ROUGHNESS (uint3 id : SV_DispatchThreadID)
+{
+    _OutBuffer[id.x + id.y * _Res] = float4(0, 1, 1, 1 - _RoughnessTex[id.xy].r);
+}
+
+[numthreads(8,8,1)]
+void ALBEDO_ROUGHNESS (uint3 id : SV_DispatchThreadID)
+{
+    _OutBuffer[id.x + id.y * _Res] = float4(_AlbedoTex[id.xy].rgb, 1 - _RoughnessTex[id.xy].r);
+}
+

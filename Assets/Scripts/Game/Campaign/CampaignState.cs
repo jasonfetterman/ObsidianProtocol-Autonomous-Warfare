@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using ObsidianProtocol.Game.Core;
 using ObsidianProtocol.Game.Inventory;
@@ -16,6 +17,7 @@ namespace ObsidianProtocol.Game.Campaign
 
         public CampaignResources Resources { get; private set; }
         public PlayerProfile Profile { get; private set; }
+        public CampaignObjectives Objectives { get; private set; }
 
         private void Awake()
         {
@@ -29,7 +31,7 @@ namespace ObsidianProtocol.Game.Campaign
             DontDestroyOnLoad(gameObject);
         }
 
-                public bool CreateNewCampaign(
+        public bool CreateNewCampaign(
             string commanderName,
             string factionId = "")
         {
@@ -41,17 +43,13 @@ namespace ObsidianProtocol.Game.Campaign
 
             CampaignCreated = false;
 
-            CampaignId =
-                System.Guid.NewGuid().ToString("N");
+            CampaignId = System.Guid.NewGuid().ToString("N");
 
             if (string.IsNullOrWhiteSpace(commanderName))
                 commanderName = "COMMANDER";
 
-            CommanderName =
-                commanderName.Trim();
-
-            FactionId =
-                factionId ?? string.Empty;
+            CommanderName = commanderName.Trim();
+            FactionId = factionId ?? string.Empty;
 
             PersistentGameState state =
                 PersistentGameState.Instance;
@@ -72,7 +70,9 @@ namespace ObsidianProtocol.Game.Campaign
                 state.PlayerId);
 
             state.SetCurrentPlanet(30);
+
             Profile = new PlayerProfile();
+
             Profile.Initialize(
                 state.PlayerId,
                 state.CommanderName,
@@ -128,6 +128,9 @@ namespace ObsidianProtocol.Game.Campaign
 
             InitializeStartingResources();
 
+            Objectives = new CampaignObjectives();
+            Objectives.Initialize();
+
             Debug.Log(
                 $"[CampaignState] NEW CAMPAIGN CREATED | " +
                 $"ID={CampaignId} | " +
@@ -135,10 +138,8 @@ namespace ObsidianProtocol.Game.Campaign
                 $"FACTION={FactionId} | " +
                 $"INVENTORY=EMPTY | " +
                 $"CREDITS=10000 | " +
-                $"RESOURCES=0"
-            );
+                $"RESOURCES=0");
 
-                        // Save initial campaign identity and starting funding.
             try
             {
                 SaveData initialSave = new SaveData
@@ -149,7 +150,8 @@ namespace ObsidianProtocol.Game.Campaign
                     FactionId = state.FactionId,
                     CurrentPlanetId = state.CurrentPlanetId,
                     Funding = 10000,
-            Progression = ProgressionSnapshot.From(runtime.Progression.CurrentData),
+                    Progression = ProgressionSnapshot.From(
+                        runtime.Progression.CurrentData),
                 };
 
                 SaveLoadService.Save(initialSave);
@@ -172,8 +174,7 @@ namespace ObsidianProtocol.Game.Campaign
 
         private void InitializeStartingResources()
         {
-            Resources =
-                new CampaignResources();
+            Resources = new CampaignResources();
 
             Resources.Initialize();
 
@@ -193,11 +194,3 @@ namespace ObsidianProtocol.Game.Campaign
         }
     }
 }
-
-
-
-
-
-
-
-

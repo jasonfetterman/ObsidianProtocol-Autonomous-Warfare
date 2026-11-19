@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8cd887b48e3306b48ac2b6d02a1c2ec4
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 8574412962073106934
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 151796
+  packageName: World Creator Bridge for Unity
+  packageVersion: 2.0
+  assetPath: Assets/WorldCreatorBridge/Demo/Demo_HDRP/Sand_wc_3.terrainlayer
+  uploadId: 872382

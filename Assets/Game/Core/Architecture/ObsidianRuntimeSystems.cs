@@ -28,9 +28,6 @@ namespace ObsidianProtocol.Game.Core
         public WorldMappingSystem WorldMap { get; private set; }
 
         public ResearchManager Research { get; private set; }
-
-        public FundingManager Funding { get; private set; }
-
         public ProgressionPersistence Progression { get; private set; }
 
         public bool Initialized { get; private set; }
@@ -87,10 +84,6 @@ namespace ObsidianProtocol.Game.Core
 
             Progression =
                 new ProgressionPersistence();
-
-            Funding =
-                FindAnyObjectByType<FundingManager>();
-
             Research =
                 FindAnyObjectByType<ResearchManager>();
 

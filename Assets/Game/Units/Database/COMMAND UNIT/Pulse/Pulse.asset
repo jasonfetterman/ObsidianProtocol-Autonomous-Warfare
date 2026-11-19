@@ -1,0 +1,326 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Pulse
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-command-pulse
+  displayName: Pulse
+  category: 3
+  role: Tactical Signal Hub / Real-Time Mesh Stabilizer
+  tier: Command
+  status: Active
+  storeImage: {fileID: 4871313469217614376, guid: ba626d805736d7b40bc8a2560a5462f7, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 3.2
+    widthMeters: 2.4
+    heightMeters: 2.8
+    massKg: 1850
+    powerSource: Hybrid microreactor with redundant capacitor banks
+    energyCapacityWh: 24000
+    energyConsumptionWhPerMinute: 18
+    endurance: 72 hours continuous command-network operation
+    payloadCapacityKg: 420
+    modules:
+    - Multi-band signal relay array
+    - Encrypted command processor
+    - Adaptive mesh antenna cluster
+    - Hardened power conditioning unit
+    navigationSystem: Inertial navigation with GNSS-denied dead reckoning
+    structuralIntegrityHp: 2200
+    armorRating: 42
+    heatSignature: Low, actively managed thermal profile
+    noiseSignature: Minimal acoustic signature
+    topSpeedMetersPerSecond: 18
+    topSpeedDescription: 18 m/s on prepared ground; optimized for command support
+    acceleration: 0 to 10 m/s in 4.8 seconds
+    turningRadius: 6.5 meters
+    climbRate: Ground platform; traverses grades up to 35 degrees
+    stabilityRating: High; stabilized command platform
+  autonomy:
+    behaviorProfile: Defensive command coordination and adaptive signal management
+    aggression: 0.15
+    caution: 0.9
+    persistence: 0.95
+    flankingLikelihood: 0.05
+    retreatThreshold: 0.35
+    retreatBehaviorDescription: Relocates to a protected position when network integrity or platform survivability is threatened
+    targetPriority: Signal disruptors, hostile command relays, and threats to allied communications
+    formationDiscipline: Maintains protected central or rear command position
+    riskTolerance: 0.2
+  sensors:
+    visualRangeMeters: 5000
+    visualRangeDescription: Long-range electro-optical surveillance for local situational awareness
+    thermalRangeMeters: 3500
+    thermalRangeDescription: Thermal detection for threat and equipment monitoring
+    acousticRange: Directional acoustic monitoring within 1200 meters
+    radarRange: Compact ground radar with 4000 meter nominal detection range
+    lidarRange: Short-range terrain and obstruction mapping within 800 meters
+    signalDetectionRange: Passive RF detection and classification within 12000 meters
+  communication:
+    meshRangeKm: 85
+    meshRangeDescription: Extended encrypted tactical mesh coverage with relay chaining
+    relayCapacity: 64
+    commandLinkType: Encrypted multi-band adaptive mesh
+    networkPriority: Command backbone; high-priority traffic routing
+  combat:
+    firepowerRating: 12
+    firepowerDescription: Limited defensive capability; not designed for frontline engagement
+    accuracy: Defensive targeting support for attached security units
+    stabilization: Active platform stabilization for communication and sensor systems
+    weaponMounts: Optional light defensive remote station
+    weaponTypes: Light defensive systems only
+    suppressionValue: 8
+    trackingStrength: High signal and hostile emitter tracking
+    disruptionStrength: High electronic interference coordination
+    breachCapability: None
+    countermeasureRating: Adaptive electronic countermeasures and signal hardening
+    threatLevel: 2
+    engagementDistance: Self-defense only; relies on allied combat units
+    preferredTerrain: Elevated protected positions with broad communications coverage
+    preferredTargets: Hostile jammers, relay nodes, and electronic warfare emitters
+    vulnerabilityProfile: Vulnerable to concentrated kinetic attack and sustained electronic warfare
+  squad:
+    squadRole: Tactical communications and command coordination hub
+    squadSizeContribution: 12
+    formationBehavior: Protected central support position behind frontline elements
+    intentInterpretationRules: Prioritizes commander orders, network integrity, and allied unit coordination
+    retreatBehavior: Withdraws under escort when platform integrity or signal security falls below threshold
+    breachBehavior: Does not lead breach operations
+    flankingBehavior: Coordinates allied flanking elements through synchronized command updates
+    reinforcementBehavior: Prioritizes reinforcement requests from disconnected or isolated allied groups
+    parentCommandUnit: Overseer
+    subordinateUnits:
+    - Beacon
+    - Relay
+    - Skywatch
+    relayNodes:
+    - Standard Warden Mesh
+    - Logistics Command
+    - Tactical Relay Network
+    networkDependencies: Requires protected power supply and at least one authenticated command link
+  vrOperator:
+    operatorSeatType: Tactical command workstation
+    operatorHud: Unified mesh topology, allied unit status, signal health, and command routing
+    cameraFeeds: Local electro-optical, thermal, and attached-unit camera feeds
+    thermalView: 1
+    lidarView: 1
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Protected platform movement and relocation controls
+    sensorControls: Sensor selection, scan scheduling, and emitter classification
+    abilityControls: Mesh rerouting, signal reinforcement, and network recovery
+    weaponControls: Defensive station authorization only
+    stabilizationControls: Antenna stabilization and platform leveling
+    operatorAbilities:
+    - Emergency mesh reroute
+    - Allied network synchronization
+    - Signal integrity diagnostic
+    - Command relay prioritization
+    - Communications blackout recovery
+  economy:
+    creditCost: 18500
+    buildCost: 120 Metal, 85 Electronics, 30 Rare Components
+    buildTimeSeconds: 240
+    factoryType: Command Systems Fabricator
+    techRequirements: Tactical Network Systems and Advanced Communications
+    maintenanceCost: 18 credits per operational hour
+    repairTimeSeconds: 90
+    supplyConsumption: 4 Electronics and 2 Energy Cells per operational cycle
+    operationalCost: 18 credits per hour at standard network load
+    deploymentRequirements: Protected command position and authenticated tactical network access
+    transportCompatibility: Heavy ground transport and dedicated command carrier
+    launchMethod: Ground deployment
+    deploymentPointsDefined: 1
+    deploymentPoints: 12
+  buildRequirements:
+    commonComponents:
+    - component: Reinforced composite chassis
+      quantity: 12
+    - component: Hardened suspension assembly
+      quantity: 4
+    electronics:
+    - component: Encrypted communications processor
+      quantity: 6
+    - component: Multi-band transceiver
+      quantity: 8
+    - component: Signal analysis module
+      quantity: 4
+    power:
+    - component: Compact microreactor
+      quantity: 1
+    - component: Capacitor bank
+      quantity: 4
+    rareTradeable:
+    - component: Quantum encryption core
+      quantity: 1
+    - component: Adaptive antenna array
+      quantity: 2
+    optionalUpgrades:
+    - Extended relay antenna
+    - Hardened electronic warfare shielding
+    - Auxiliary power module
+  environment:
+    terrainAdaptationCoefficients: Optimized for stable ground and elevated deployment sites
+    weatherSensitivityIndex: 0.25
+    visibilityModifiers: Optical performance reduced by smoke, dust, and heavy precipitation
+    signalPropagationCurve: Adaptive frequency selection compensates for terrain obstruction and atmospheric interference
+    modifiers:
+    - condition: Dense urban interference
+      effect: Reduces direct signal range; mesh relay routing compensates
+    - condition: Severe weather
+      effect: Antenna output is adjusted to preserve link stability
+    - condition: Electromagnetic interference
+      effect: Activates frequency hopping and encrypted fallback channels
+  network:
+    nodeHandoffEfficiency: 0.96
+    packetLossRate: 0.02 percent under nominal conditions
+    encryptionLatencySeconds: 0.08
+    meshSelfHealingThreshold: 0.75 network availability
+    relaySaturationCurve: Adaptive load balancing above 70 percent capacity
+  cognitive:
+    decisionConfidence: 0.96
+    threatRecognitionAccuracy: 0.91
+    adaptiveLearningRatePerMission: 0.08
+    commandOverrideResistance: 0.95
+    cooperativeBehaviorIndex: 0.98
+  behaviorNodes:
+  - behaviorNode: Monitor Network Integrity
+    weight: 1
+    description: Continuously evaluates signal quality, node availability, and network stability
+  - behaviorNode: Prioritize Command Traffic
+    weight: 0.98
+    description: Routes high-priority command messages ahead of routine telemetry
+  - behaviorNode: Adaptive Mesh Routing
+    weight: 0.97
+    description: Selects alternate routes when links become degraded or unavailable
+  - behaviorNode: Detect Signal Disruption
+    weight: 0.95
+    description: Identifies jamming, interference, and hostile emitter activity
+  - behaviorNode: Coordinate Allied Units
+    weight: 0.94
+    description: Maintains synchronized tactical updates across connected allied units
+  - behaviorNode: Protected Relocation
+    weight: 0.75
+    description: Repositions when exposure or network vulnerability exceeds acceptable limits
+  - behaviorNode: Restore Communications
+    weight: 0.96
+    description: Re-establishes authenticated links after interruptions
+  - behaviorNode: Emergency Relay
+    weight: 0.9
+    description: Provides temporary routing around failed command network nodes
+  missionBehaviors:
+  - missionType: Network Coordination
+    behaviorFocus: Maintain tactical data exchange and command synchronization
+    efficiency: 0.98
+  - missionType: Electronic Warfare Support
+    behaviorFocus: Detect interference and coordinate allied countermeasures
+    efficiency: 0.94
+  - missionType: Communications Recovery
+    behaviorFocus: Restore disconnected network segments and reroute command traffic
+    efficiency: 0.97
+  - missionType: Battlefield Command
+    behaviorFocus: Distribute orders and maintain a shared tactical picture
+    efficiency: 0.96
+  unitSynergies:
+  - partnerUnit: Overseer
+    synergyRating: 0.98
+    function: Extends command reach and provides resilient tactical communications
+  - partnerUnit: Beacon
+    synergyRating: 0.94
+    function: Supports forward signal relays and local network coverage
+  - partnerUnit: Skywatch
+    synergyRating: 0.9
+    function: Routes aerial reconnaissance data to command elements
+  - partnerUnit: Sentinel
+    synergyRating: 0.88
+    function: Provides secure command updates to defensive formations
+  damageResponses:
+  - damageType: Communications subsystem damage
+    effect: Isolates affected transceiver and redistributes network traffic
+    recovery: Switches to redundant radio paths and requests maintenance
+  - damageType: Power subsystem damage
+    effect: Enters reduced-power communications mode
+    recovery: Prioritizes command traffic until auxiliary power is restored
+  - damageType: Mobility damage
+    effect: Suspends relocation and stabilizes the command platform
+    recovery: Requests allied recovery and continues static relay operation
+  upgrades:
+  - upgrade: Extended Range Antenna
+    effect: Increases mesh relay coverage and improves long-distance link stability
+    efficiencyGain: 0.12
+  - upgrade: Hardened Encryption Core
+    effect: Improves resistance to hostile signal interception and spoofing
+    efficiencyGain: 0.1
+  - upgrade: Auxiliary Power Bank
+    effect: Extends operation during power disruption
+    efficiencyGain: 0.15
+  tactical:
+    formationAdaptability: 0.92
+    tacticalRoleWeight: 0.98
+    commandResponseDelaySeconds: 0.08
+    reinforcementTriggerConditions: Requests reinforcement when command position is threatened or allied connectivity falls below threshold
+    retreatLogicThresholds: Relocate when structural integrity falls below 35 percent or network security is compromised
+  maintenance:
+    meanTimeBetweenFailuresHours: 720
+    repairCycleSeconds: 90
+    resourceDrainPerHourPercent: 1.2
+    batteryEfficiencyPercent: 96
+    rotorStabilityPercent: 100
+    sensorCalibrationDriftPercentPerHour: 0.02
+    coolingEfficiencyPercent: 94
+    operationalUptimePercent: 99
+    energyRecoveryRatePercent: 92
+    energyRecoveryRatePercentPerIdleMinute: 1.5
+    componentWearPercentPerHour: 0.08
+    maintenancePriorityLevel: High
+    sparePartDependencyIndex: 0.3
+    operationalCostPerHour: 18 credits
+  threatResponses:
+  - threatType: Signal Jamming
+    reactionTimeSeconds: 0.2
+    countermeasureEfficiency: 0.95
+  - threatType: Electronic Attack
+    reactionTimeSeconds: 0.35
+    countermeasureEfficiency: 0.9
+  - threatType: Kinetic Attack
+    reactionTimeSeconds: 0.5
+    countermeasureEfficiency: 0.3
+  - threatType: Cyber Intrusion
+    reactionTimeSeconds: 0.1
+    countermeasureEfficiency: 0.98
+  - threatType: Severe Weather
+    reactionTimeSeconds: 1
+    countermeasureEfficiency: 0.8
+  commandNetwork:
+  - node: Standard Warden Mesh
+    loadPercent: 32
+    latencySeconds: 0.5
+    status: Stable
+  - node: Logistics Command
+    loadPercent: 44
+    latencySeconds: 0.6
+    status: Active
+  - node: Overseer Command Core
+    loadPercent: 48
+    latencySeconds: 0.5
+    status: Active
+  - node: Drone Bay Control
+    loadPercent: 41
+    latencySeconds: 0.7
+    status: Stable
+  performance:
+    missionSuccessProbability: 0.96
+    averageEngagementDurationMinutes: 0
+    reconDataYieldMbPerMinute: 18
+    communicationUptime: 0.99
+    threatAvoidanceEfficiency: 0.9

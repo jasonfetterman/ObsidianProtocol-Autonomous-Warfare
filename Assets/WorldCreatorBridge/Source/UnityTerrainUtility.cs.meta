@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 29d73f9fa80e45dcac05a04f79048b37
+timeCreated: 1646732377
+AssetOrigin:
+  serializedVersion: 1
+  productId: 151796
+  packageName: World Creator Bridge for Unity
+  packageVersion: 2.0
+  assetPath: Assets/WorldCreatorBridge/Source/UnityTerrainUtility.cs
+  uploadId: 872382

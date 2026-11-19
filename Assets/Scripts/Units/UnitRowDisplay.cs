@@ -1,50 +1,54 @@
 using UnityEngine;
 using TMPro;
+using ObsidianProtocol.Game.Garage;
 
 public class UnitRowDisplay : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI unitNameText;
     [SerializeField] private TextMeshProUGUI unitStatusText;
 
-    public void SetUnit(UnitStatsComponent stats)
+    public void SetFleetData(
+        string unitName,
+        FleetUnitStatus status)
     {
-        if (stats == null)
-        {
+        if (unitNameText != null)
+            unitNameText.text = unitName;
+
+        SetFleetStatus(status);
+    }
+
+    private void SetFleetStatus(FleetUnitStatus status)
+    {
+        if (unitStatusText == null)
             return;
-        }
 
-        unitNameText.text = stats.gameObject.name;
-
-        string status = stats.CurrentHealth <= 0f
-            ? "Destroyed"
-            : stats.CurrentHealth < stats.MaxHealth
-                ? "Damaged"
-                : "Ready";
-
-        SetStatusTextAndColor(status);
-    }
-
-    public void SetSampleData(string name, string status)
-    {
-        unitNameText.text = name;
-        SetStatusTextAndColor(status);
-    }
-
-    private void SetStatusTextAndColor(string status)
-    {
-        unitStatusText.text = status;
+        unitStatusText.text = status.ToString().ToUpperInvariant();
 
         switch (status)
         {
-            case "Ready":
+            case FleetUnitStatus.Operational:
                 unitStatusText.color = new Color(0.3f, 1f, 0.5f);
                 break;
-            case "Damaged":
-                unitStatusText.color = new Color(1f, 0.65f, 0.2f);
+
+            case FleetUnitStatus.Stored:
+                unitStatusText.color = Color.white;
                 break;
-            case "Destroyed":
-                unitStatusText.color = new Color(1f, 0.3f, 0.3f);
+
+            case FleetUnitStatus.Repairing:
+            case FleetUnitStatus.Upgrading:
+            case FleetUnitStatus.Fabricating:
+                unitStatusText.color = new Color(1f, 0.75f, 0.25f);
                 break;
+
+            case FleetUnitStatus.Deployed:
+                unitStatusText.color = new Color(0.3f, 0.75f, 1f);
+                break;
+
+            case FleetUnitStatus.Salvaging:
+            case FleetUnitStatus.Disabled:
+                unitStatusText.color = new Color(1f, 0.35f, 0.35f);
+                break;
+
             default:
                 unitStatusText.color = Color.white;
                 break;

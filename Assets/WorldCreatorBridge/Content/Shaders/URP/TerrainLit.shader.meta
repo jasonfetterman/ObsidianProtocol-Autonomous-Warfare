@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 92a7e3b011312ac41a2dbf36aeafc3c6
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 151796
+  packageName: World Creator Bridge for Unity
+  packageVersion: 2.0
+  assetPath: Assets/WorldCreatorBridge/Content/Shaders/URP/TerrainLit.shader
+  uploadId: 872382

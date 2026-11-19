@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 namespace ObsidianProtocol.UI.Menus
@@ -21,15 +22,12 @@ namespace ObsidianProtocol.UI.Menus
         {
             WireNavigation();
             WireControls();
-
             ShowGameplay();
 
             Debug.Log("[SETTINGS] Settings HUD initialized.");
         }
 
-        // =========================================================
         // NAVIGATION
-        // =========================================================
 
         private void WireNavigation()
         {
@@ -45,7 +43,6 @@ namespace ObsidianProtocol.UI.Menus
 
             WireButton("BACK", GoBack);
             WireButton("PREVIOUS", GoBack);
-
             WireButton("CLOSE_CUSTOMIZATION", CloseCustomization);
         }
 
@@ -63,9 +60,7 @@ namespace ObsidianProtocol.UI.Menus
             button.onClick.AddListener(action);
         }
 
-        // =========================================================
         // CATEGORY PANELS
-        // =========================================================
 
         public void ShowGameplay()
         {
@@ -102,9 +97,7 @@ namespace ObsidianProtocol.UI.Menus
             }
             else
             {
-                Debug.LogWarning(
-                    "[SETTINGS] VR_Command is not available in Build Settings."
-                );
+                Debug.LogWarning("[SETTINGS] VR_Command is not available in Build Settings.");
             }
         }
 
@@ -180,9 +173,7 @@ namespace ObsidianProtocol.UI.Menus
             Debug.Log("[SETTINGS] Active panel: " + targetPanelName);
         }
 
-        // =========================================================
         // ACTIVE INDICATOR
-        // =========================================================
 
         private void MoveActiveIndicator(string buttonName)
         {
@@ -192,37 +183,27 @@ namespace ObsidianProtocol.UI.Menus
             if (buttonObject == null || indicator == null)
                 return;
 
-            RectTransform buttonRect =
-                buttonObject.GetComponent<RectTransform>();
-
-            RectTransform indicatorRect =
-                indicator.GetComponent<RectTransform>();
+            RectTransform buttonRect = buttonObject.GetComponent<RectTransform>();
+            RectTransform indicatorRect = indicator.GetComponent<RectTransform>();
 
             if (buttonRect == null || indicatorRect == null)
                 return;
 
-            indicator.transform.SetParent(
-                buttonObject.transform,
-                false
-            );
-
+            indicator.transform.SetParent(buttonObject.transform, false);
             indicator.transform.SetAsFirstSibling();
 
             indicatorRect.anchorMin = new Vector2(0f, 0f);
             indicatorRect.anchorMax = new Vector2(0f, 1f);
             indicatorRect.pivot = new Vector2(0f, 0.5f);
-
             indicatorRect.anchoredPosition = Vector2.zero;
-            indicatorRect.sizeDelta =
-                new Vector2(
-                    indicatorRect.sizeDelta.x,
-                    0f
-                );
+
+            indicatorRect.sizeDelta = new Vector2(
+                indicatorRect.sizeDelta.x,
+                0f
+            );
         }
 
-        // =========================================================
         // CONTROLS
-        // =========================================================
 
         private void WireControls()
         {
@@ -249,27 +230,17 @@ namespace ObsidianProtocol.UI.Menus
 
             if (objectRoot == null)
             {
-                Debug.LogWarning(
-                    "[SETTINGS] Slider object not found: " + objectName
-                );
+                Debug.LogWarning("[SETTINGS] Slider object not found: " + objectName);
                 return;
             }
 
-            Slider slider =
-                objectRoot.GetComponentInChildren<Slider>(true);
+            Slider slider = objectRoot.GetComponentInChildren<Slider>(true);
 
             if (slider == null)
             {
-                Debug.LogWarning(
-                    "[SETTINGS] No Slider component found under: " +
-                    objectName
-                );
+                Debug.LogWarning("[SETTINGS] No Slider component found under: " + objectName);
                 return;
             }
-
-            slider.onValueChanged.RemoveListener(
-                delegate { UpdateSliderLabel(objectRoot, slider); }
-            );
 
             slider.onValueChanged.AddListener(
                 value => UpdateSliderLabel(objectRoot, slider)
@@ -278,49 +249,46 @@ namespace ObsidianProtocol.UI.Menus
             UpdateSliderLabel(objectRoot, slider);
         }
 
-        private void UpdateSliderLabel(
-            GameObject objectRoot,
-            Slider slider
-        )
+        private void UpdateSliderLabel(GameObject objectRoot, Slider slider)
         {
-            Text valueText = null;
+            string displayValue = slider.maxValue <= 1.01f
+                ? Mathf.RoundToInt(slider.value * 100f) + "%"
+                : slider.value.ToString("0.0");
 
-            Transform valueTransform =
-                objectRoot.transform.Find("VALUE");
+            Transform valueTransform = objectRoot.transform.Find("VALUE");
 
-            if (valueTransform != null)
-                valueText =
-                    valueTransform.GetComponent<Text>();
+            TMP_Text tmpText = valueTransform != null
+                ? valueTransform.GetComponent<TMP_Text>()
+                : null;
 
-            if (valueText == null)
+            if (tmpText == null)
             {
-                Text[] texts =
-                    objectRoot.GetComponentsInChildren<Text>(true);
-
-                if (texts.Length > 0)
-                    valueText = texts[texts.Length - 1];
+                TMP_Text[] tmpTexts = objectRoot.GetComponentsInChildren<TMP_Text>(true);
+                if (tmpTexts.Length > 0)
+                    tmpText = tmpTexts[tmpTexts.Length - 1];
             }
 
-            if (valueText == null)
+            if (tmpText != null)
+            {
+                tmpText.text = displayValue;
                 return;
-
-            float value = slider.value;
-
-            if (slider.maxValue <= 1.01f)
-            {
-                valueText.text =
-                    Mathf.RoundToInt(value * 100f) + "%";
             }
-            else
+
+            Text legacyText = valueTransform != null
+                ? valueTransform.GetComponent<Text>()
+                : null;
+
+            if (legacyText == null)
             {
-                valueText.text =
-                    value.ToString("0.0");
+                Text[] texts = objectRoot.GetComponentsInChildren<Text>(true);
+                if (texts.Length > 0)
+                    legacyText = texts[texts.Length - 1];
             }
+
+            if (legacyText != null)
+                legacyText.text = displayValue;
         }
-
-        // =========================================================
         // APPLY
-        // =========================================================
 
         public void ApplyAudio()
         {
@@ -347,9 +315,7 @@ namespace ObsidianProtocol.UI.Menus
             Debug.Log("[SETTINGS] Interface settings applied.");
         }
 
-        // =========================================================
         // EXIT
-        // =========================================================
 
         public void GoBack()
         {
@@ -364,14 +330,11 @@ namespace ObsidianProtocol.UI.Menus
             SceneManager.LoadScene(0);
         }
 
-        // =========================================================
         // FINDERS
-        // =========================================================
 
         private GameObject FindObject(string objectName)
         {
-            Transform[] transforms =
-                GetComponentsInChildren<Transform>(true);
+            Transform[] transforms = GetComponentsInChildren<Transform>(true);
 
             foreach (Transform transform in transforms)
             {
@@ -398,4 +361,3 @@ namespace ObsidianProtocol.UI.Menus
         }
     }
 }
-

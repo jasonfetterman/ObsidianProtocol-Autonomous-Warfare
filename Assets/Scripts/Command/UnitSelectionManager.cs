@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
@@ -13,6 +13,8 @@ public class UnitSelectionManager : MonoBehaviour
 
     public IReadOnlyList<SelectableUnit> SelectedUnits =>
         selectedUnits;
+
+    public event System.Action<IReadOnlyList<SelectableUnit>> SelectionChanged;
 
     private void Update()
     {
@@ -69,6 +71,7 @@ public class UnitSelectionManager : MonoBehaviour
         }
 
         selectedUnits.Clear();
+        SelectionChanged?.Invoke(selectedUnits);
         var context = ObsidianProtocol.Game.Deployment.BattlefieldDeploymentContext.Instance;
         if (context != null)
             context.SetSelectedServiceRecord(string.Empty);
@@ -86,3 +89,5 @@ public class UnitSelectionManager : MonoBehaviour
         }
     }
 }
+
+

@@ -1,12 +1,14 @@
+
+using System.Collections.Generic;
 using System.IO;
 using ObsidianProtocol.Game.OnlineWorld;
 using ObsidianProtocol.Game.OpenWorld;
 using ObsidianProtocol.Game.Core;
-
 using ObsidianProtocol.Game.Progression;
 using ObsidianProtocol.Game.Garage;
 using ObsidianProtocol.Game.Research;
 using ObsidianProtocol.Game.Deployment;
+using ObsidianProtocol.Game.Intelligence;
 using UnityEngine;
 
 namespace ObsidianProtocol.Game.Core
@@ -27,8 +29,8 @@ namespace ObsidianProtocol.Game.Core
             if (state != null && state.IsInitialized)
                 state.CopyToSaveData(data);
 
-            // PROGRESSION_SNAPSHOT_SYNC: capture the active campaign progression.
             ObsidianRuntimeSystems runtime = ObsidianRuntimeSystems.Instance;
+
             if (runtime != null &&
                 runtime.Initialized &&
                 runtime.Progression != null &&
@@ -45,22 +47,23 @@ namespace ObsidianProtocol.Game.Core
                 ObsidianProtocol.Game.Logistics.LogisticsRuntime.Instance;
 
             if (logistics != null && logistics.Initialized)
-            {
                 data.Logistics = logistics.CaptureSnapshot();
-            }
 
             ResearchManager research = ResearchManager.Instance;
             if (research != null)
-            {
                 data.Research = research.CaptureSnapshot();
-            }
 
-            if (runtime != null && runtime.Initialized && runtime.FleetManagement != null)
+            if (runtime != null &&
+                runtime.Initialized &&
+                runtime.FleetManagement != null)
             {
                 FleetSnapshot fleetSnapshot = new FleetSnapshot();
-                foreach (ObsidianProtocol.Game.Garage.FleetUnit unit in runtime.FleetManagement.GetFleet())
+
+                foreach (FleetUnit unit in runtime.FleetManagement.GetFleet())
                 {
-                    if (unit == null) continue;
+                    if (unit == null)
+                        continue;
+
                     fleetSnapshot.Units.Add(new FleetUnitSnapshot
                     {
                         OwnershipId = unit.OwnershipId,
@@ -69,9 +72,12 @@ namespace ObsidianProtocol.Game.Core
                         GarageSlotId = unit.GarageSlotId
                     });
                 }
+
                 data.Fleet = fleetSnapshot;
             }
-            ObsidianProtocol.Game.Core.GameBootstrap bootstrap = ObsidianProtocol.Game.Core.GameBootstrap.Instance;
+
+            GameBootstrap bootstrap = GameBootstrap.Instance;
+
             if (bootstrap != null)
             {
                 if (bootstrap.WorldSimulation != null &&
@@ -95,7 +101,9 @@ namespace ObsidianProtocol.Game.Core
                     foreach (MatchHistoryEntry entry in
                         bootstrap.MilitaryHistory.GetHistory())
                     {
-                        if (entry == null) continue;
+                        if (entry == null)
+                            continue;
+
                         historySnapshot.Entries.Add(
                             new MilitaryHistoryEntrySnapshot
                             {
@@ -109,13 +117,105 @@ namespace ObsidianProtocol.Game.Core
                     data.MilitaryHistory = historySnapshot;
                 }
             }
+
+            CaptureArchiveMemory(data);
+
             ObsidianProtocol.Game.Economy.EconomyRuntime.Save();
 
             if (BattlefieldDeploymentContext.Instance != null)
-                data.Operations = BattlefieldDeploymentContext.Instance.CaptureSnapshot();
+                data.Operations =
+                    BattlefieldDeploymentContext.Instance.CaptureSnapshot();
 
             string json = JsonUtility.ToJson(data, true);
             File.WriteAllText(SavePath, json);
+        }
+
+        private static void CaptureArchiveMemory(SaveData data)
+        {
+            IntelligenceRuntime intelligence =
+                IntelligenceRuntime.Instance;
+
+            if (intelligence == null ||
+                intelligence.ArchiveMemory == null)
+                return;
+
+            ArchiveMemorySnapshot snapshot =
+                new ArchiveMemorySnapshot();
+
+            foreach (ArchiveMemoryRecord record in
+                intelligence.ArchiveMemory.Records)
+            {
+                if (record == null)
+                    continue;
+
+                snapshot.Entries.Add(
+                    new ArchiveMemoryEntrySnapshot
+                    {
+                        RecordId = record.RecordId,
+                        RecordType = record.RecordType,
+                        Source = record.Source,
+                        Subject = record.Subject,
+                        Details = record.Details,
+                        Outcome = record.Outcome,
+                        RecordedAtUtcTicks = record.RecordedAtUtcTicks,
+                        Confidence = record.Confidence
+                    });
+            }
+
+            data.ArchiveMemory = snapshot;
+
+            Debug.Log(
+                "[ARCHIVE] Memory snapshot captured. Records=" +
+                snapshot.Entries.Count);
+        }
+
+        private static void RestoreArchiveMemory(SaveData data)
+        {
+            if (data == null || data.ArchiveMemory == null)
+                return;
+
+            IntelligenceRuntime intelligence =
+                IntelligenceRuntime.Instance;
+
+            if (intelligence == null ||
+                intelligence.ArchiveMemory == null)
+            {
+                Debug.LogWarning(
+                    "[ARCHIVE] Memory restore deferred: intelligence runtime unavailable.");
+                return;
+            }
+
+            List<ArchiveMemoryRecord> restoredRecords =
+                new List<ArchiveMemoryRecord>();
+
+            if (data.ArchiveMemory.Entries != null)
+            {
+                foreach (ArchiveMemoryEntrySnapshot entry in
+                    data.ArchiveMemory.Entries)
+                {
+                    if (entry == null)
+                        continue;
+
+                    restoredRecords.Add(
+                        new ArchiveMemoryRecord
+                        {
+                            RecordId = entry.RecordId,
+                            RecordType = entry.RecordType,
+                            Source = entry.Source,
+                            Subject = entry.Subject,
+                            Details = entry.Details,
+                            Outcome = entry.Outcome,
+                            RecordedAtUtcTicks = entry.RecordedAtUtcTicks,
+                            Confidence = Mathf.Clamp01(entry.Confidence)
+                        });
+                }
+            }
+
+            intelligence.ArchiveMemory.RestoreRecords(restoredRecords);
+
+            Debug.Log(
+                "[ARCHIVE] Memory restored. Records=" +
+                restoredRecords.Count);
         }
 
         public static bool SaveFleetSnapshot()
@@ -126,23 +226,27 @@ namespace ObsidianProtocol.Game.Core
 
                 if (state == null || !state.IsInitialized)
                 {
-                    Debug.LogWarning("[SaveLoadService] Fleet save skipped: campaign state is unavailable.");
+                    Debug.LogWarning(
+                        "[SaveLoadService] Fleet save skipped: campaign state is unavailable.");
                     return false;
                 }
 
-                ObsidianRuntimeSystems runtime = ObsidianRuntimeSystems.Instance;
+                ObsidianRuntimeSystems runtime =
+                    ObsidianRuntimeSystems.Instance;
 
                 if (runtime == null ||
                     !runtime.Initialized ||
                     runtime.FleetManagement == null)
                 {
-                    Debug.LogWarning("[SaveLoadService] Fleet save skipped: fleet management is unavailable.");
+                    Debug.LogWarning(
+                        "[SaveLoadService] Fleet save skipped: fleet management is unavailable.");
                     return false;
                 }
 
                 if (!File.Exists(SavePath))
                 {
-                    Debug.LogWarning("[SaveLoadService] Fleet save skipped: campaign save file does not exist.");
+                    Debug.LogWarning(
+                        "[SaveLoadService] Fleet save skipped: campaign save file does not exist.");
                     return false;
                 }
 
@@ -159,7 +263,8 @@ namespace ObsidianProtocol.Game.Core
                     data.CampaignId != state.CampaignId ||
                     data.PlayerId != state.PlayerId)
                 {
-                    Debug.LogWarning("[SaveLoadService] Fleet save skipped: campaign or player identity mismatch.");
+                    Debug.LogWarning(
+                        "[SaveLoadService] Fleet save skipped: campaign or player identity mismatch.");
                     return false;
                 }
 
@@ -170,9 +275,7 @@ namespace ObsidianProtocol.Game.Core
                     if (unit == null ||
                         string.IsNullOrWhiteSpace(unit.OwnershipId) ||
                         string.IsNullOrWhiteSpace(unit.UnitId))
-                    {
                         continue;
-                    }
 
                     snapshot.Units.Add(new FleetUnitSnapshot
                     {
@@ -185,19 +288,27 @@ namespace ObsidianProtocol.Game.Core
 
                 data.Fleet = snapshot;
 
-                File.WriteAllText(SavePath, JsonUtility.ToJson(data, true));
+                File.WriteAllText(
+                    SavePath,
+                    JsonUtility.ToJson(data, true));
 
-                Debug.Log("[SaveLoadService] Fleet snapshot saved. Units=" +
-                    snapshot.Units.Count + " | Campaign=" + data.CampaignId);
+                Debug.Log(
+                    "[SaveLoadService] Fleet snapshot saved. Units=" +
+                    snapshot.Units.Count +
+                    " | Campaign=" +
+                    data.CampaignId);
 
                 return true;
             }
             catch (System.Exception ex)
             {
-                Debug.LogError("[SaveLoadService] Fleet snapshot save failed: " + ex.Message);
+                Debug.LogError(
+                    "[SaveLoadService] Fleet snapshot save failed: " +
+                    ex.Message);
                 return false;
             }
         }
+
         public static bool SaveResearchSnapshot(ResearchSnapshot snapshot)
         {
             if (snapshot == null || !File.Exists(SavePath))
@@ -211,8 +322,11 @@ namespace ObsidianProtocol.Game.Core
                 if (data == null)
                     return false;
 
-                PersistentGameState state = PersistentGameState.Instance;
-                if (state != null && state.IsInitialized &&
+                PersistentGameState state =
+                    PersistentGameState.Instance;
+
+                if (state != null &&
+                    state.IsInitialized &&
                     (data.CampaignId != state.CampaignId ||
                      data.PlayerId != state.PlayerId))
                 {
@@ -222,17 +336,22 @@ namespace ObsidianProtocol.Game.Core
                 }
 
                 data.Research = snapshot;
-                File.WriteAllText(SavePath, JsonUtility.ToJson(data, true));
+
+                File.WriteAllText(
+                    SavePath,
+                    JsonUtility.ToJson(data, true));
 
                 return true;
             }
             catch (System.Exception ex)
             {
                 Debug.LogError(
-                    "[SaveLoadService] Research snapshot save failed: " + ex.Message);
+                    "[SaveLoadService] Research snapshot save failed: " +
+                    ex.Message);
                 return false;
             }
         }
+
         public static SaveData Load()
         {
             if (!File.Exists(SavePath))
@@ -244,48 +363,84 @@ namespace ObsidianProtocol.Game.Core
             if (data == null)
                 return new SaveData();
 
-            PersistentGameState state = PersistentGameState.Instance;
+            PersistentGameState state =
+                PersistentGameState.Instance;
 
             if (state == null &&
                 !string.IsNullOrWhiteSpace(data.CampaignId) &&
                 !string.IsNullOrWhiteSpace(data.PlayerId))
             {
-                GameObject stateObject = new GameObject("PersistentGameState");
+                GameObject stateObject =
+                    new GameObject("PersistentGameState");
+
                 state = stateObject.AddComponent<PersistentGameState>();
             }
 
-            if (state != null && state.IsInitialized &&
-                !string.IsNullOrWhiteSpace(data.CampaignId))
-            {
-                ObsidianProtocol.Game.Economy.EconomyRuntime.Load(data.CampaignId);
-            }
-            if (state != null && !state.RestoreFromSaveData(data))
-                Debug.LogWarning("[SaveLoadService] Save loaded, but campaign identity or planet data was invalid.");
+            bool stateRestored = false;
 
-            // Restore saved fleet only when a fleet snapshot exists.
-            if (data.Fleet != null && data.Fleet.Units != null && state != null && state.IsInitialized && state.CampaignId == data.CampaignId && state.PlayerId == data.PlayerId && data.CurrentPlanetId >= 1 && data.CurrentPlanetId <= 30)
+            if (state != null)
             {
-                ObsidianRuntimeSystems fleetRuntime = ObsidianRuntimeSystems.Instance;
-                if (fleetRuntime != null && fleetRuntime.Initialized && fleetRuntime.FleetManagement != null)
+                stateRestored = state.RestoreFromSaveData(data);
+
+                if (!stateRestored)
+                {
+                    Debug.LogWarning(
+                        "[SaveLoadService] Save loaded, but campaign identity or planet data was invalid.");
+                }
+            }
+
+            if (stateRestored)
+            {
+                ObsidianProtocol.Game.Economy.EconomyRuntime.Load(
+                    data.CampaignId);
+            }
+
+            if (data.Fleet != null &&
+                data.Fleet.Units != null &&
+                state != null &&
+                state.IsInitialized &&
+                state.CampaignId == data.CampaignId &&
+                state.PlayerId == data.PlayerId &&
+                data.CurrentPlanetId >= 1 &&
+                data.CurrentPlanetId <= 30)
+            {
+                ObsidianRuntimeSystems fleetRuntime =
+                    ObsidianRuntimeSystems.Instance;
+
+                if (fleetRuntime != null &&
+                    fleetRuntime.Initialized &&
+                    fleetRuntime.FleetManagement != null)
                 {
                     fleetRuntime.FleetManagement.Clear();
-                    foreach (FleetUnitSnapshot savedUnit in data.Fleet.Units)
+
+                    foreach (FleetUnitSnapshot savedUnit in
+                        data.Fleet.Units)
                     {
-                        if (savedUnit == null || string.IsNullOrWhiteSpace(savedUnit.OwnershipId) || string.IsNullOrWhiteSpace(savedUnit.UnitId))
+                        if (savedUnit == null ||
+                            string.IsNullOrWhiteSpace(savedUnit.OwnershipId) ||
+                            string.IsNullOrWhiteSpace(savedUnit.UnitId))
                             continue;
-                        FleetUnit unit = new FleetUnit(savedUnit.OwnershipId, savedUnit.UnitId);
+
+                        FleetUnit unit = new FleetUnit(
+                            savedUnit.OwnershipId,
+                            savedUnit.UnitId);
+
                         unit.SetStatus(savedUnit.Status);
                         unit.AssignSlot(savedUnit.GarageSlotId);
+
                         fleetRuntime.FleetManagement.Register(unit);
                     }
                 }
                 else
                 {
-                    Debug.LogWarning("[SaveLoadService] Fleet snapshot found, but fleet management is not initialized; restore deferred.");
+                    Debug.LogWarning(
+                        "[SaveLoadService] Fleet snapshot found, but fleet management is not initialized; restore deferred.");
                 }
             }
-            // PROGRESSION_SNAPSHOT_SYNC: restore only matching campaign-player progression.
-            ObsidianRuntimeSystems runtime = ObsidianRuntimeSystems.Instance;
+
+            ObsidianRuntimeSystems runtime =
+                ObsidianRuntimeSystems.Instance;
+
             if (runtime != null &&
                 runtime.Initialized &&
                 runtime.Progression != null &&
@@ -305,11 +460,13 @@ namespace ObsidianProtocol.Game.Core
                 }
                 else
                 {
-                    Debug.LogWarning("[SaveLoadService] Progression restore skipped: saved player identity did not match.");
+                    Debug.LogWarning(
+                        "[SaveLoadService] Progression restore skipped: saved player identity did not match.");
                 }
             }
 
             ResearchManager research = ResearchManager.Instance;
+
             if (data.Research != null)
             {
                 if (research != null)
@@ -339,7 +496,8 @@ namespace ObsidianProtocol.Game.Core
                 }
             }
 
-            ObsidianProtocol.Game.Core.GameBootstrap bootstrap = ObsidianProtocol.Game.Core.GameBootstrap.Instance;
+            GameBootstrap bootstrap = GameBootstrap.Instance;
+
             if (bootstrap != null)
             {
                 if (data.WorldSimulation != null &&
@@ -352,15 +510,22 @@ namespace ObsidianProtocol.Game.Core
                         typeof(WorldSimulationState),
                         data.WorldSimulation.State))
                 {
-                    WorldSimulation savedWorld = new WorldSimulation();
-                    if (savedWorld.Initialize(data.WorldSimulation.TickInterval))
+                    WorldSimulation savedWorld =
+                        new WorldSimulation();
+
+                    if (savedWorld.Initialize(
+                        data.WorldSimulation.TickInterval))
                     {
-                        savedWorld.SetTick(data.WorldSimulation.CurrentTick);
+                        savedWorld.SetTick(
+                            data.WorldSimulation.CurrentTick);
+
                         WorldSimulationState savedState =
                             (WorldSimulationState)data.WorldSimulation.State;
 
                         if (savedState == WorldSimulationState.Running)
+                        {
                             savedWorld.Start();
+                        }
                         else if (savedState == WorldSimulationState.Paused)
                         {
                             savedWorld.Start();
@@ -368,7 +533,9 @@ namespace ObsidianProtocol.Game.Core
                         }
 
                         bootstrap.RestoreWorldSimulation(savedWorld);
-                        Debug.Log("[SaveLoadService] World simulation snapshot restored.");
+
+                        Debug.Log(
+                            "[SaveLoadService] World simulation snapshot restored.");
                     }
                 }
 
@@ -403,12 +570,21 @@ namespace ObsidianProtocol.Game.Core
                         bootstrap.MilitaryHistory.MatchCount);
                 }
             }
+
+            RestoreArchiveMemory(data);
+
             if (data.Operations != null)
             {
                 if (BattlefieldDeploymentContext.Instance != null)
-                    BattlefieldDeploymentContext.Instance.RestoreSnapshot(data.Operations);
+                {
+                    BattlefieldDeploymentContext.Instance.RestoreSnapshot(
+                        data.Operations);
+                }
                 else
-                    Debug.LogError("[SaveLoadService] Deployment context missing; operations not restored.");
+                {
+                    Debug.LogError(
+                        "[SaveLoadService] Deployment context missing; operations not restored.");
+                }
             }
 
             return data;
@@ -426,9 +602,3 @@ namespace ObsidianProtocol.Game.Core
         }
     }
 }
-
-
-
-
-
-

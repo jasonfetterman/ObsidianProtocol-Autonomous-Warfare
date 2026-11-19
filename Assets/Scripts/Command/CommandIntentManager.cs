@@ -26,36 +26,21 @@ public class CommandIntentManager : MonoBehaviour
             CommandUnit commandUnit =
                 unit.GetComponent<CommandUnit>();
 
-            if (commandUnit != null)
-            {
-                Debug.Log(
-                    "[PLAYER] Sending intent " +
-                    type +
-                    " to ARCHIVE command unit " +
-                    commandUnit.gameObject.name);
+            if (commandUnit == null)
+                continue;
 
-                commandUnit.ReceiveIntent(type);
-                return;
-            }
+            Debug.Log(
+                "[PLAYER] Sending intent " +
+                type +
+                " to command unit " +
+                commandUnit.gameObject.name);
 
-            WardenCommandReceiver wardenReceiver =
-                unit.GetComponent<WardenCommandReceiver>();
-
-            if (wardenReceiver != null)
-            {
-                Debug.Log(
-                    "[PLAYER] Sending intent " +
-                    type +
-                    " to WARDEN " +
-                    wardenReceiver.gameObject.name);
-
-                wardenReceiver.ReceiveIntent(type);
-                return;
-            }
+            commandUnit.ReceiveIntent(type);
+            return;
         }
 
         Debug.LogWarning(
-            "[PLAYER] No commandable unit selected. " +
-            "Select ARCHIVE or a deployed WARDEN.");
+            "[PLAYER] No command unit selected. " +
+            "Select an authorized command unit to issue orders.");
     }
 }

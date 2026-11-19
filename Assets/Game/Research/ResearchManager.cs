@@ -181,50 +181,48 @@ namespace ObsidianProtocol.Game.Research
                 technology.TechnologyId);
         }
 
-        public bool StartResearch(
-            TechnologyDefinition technology)
-        {
-            if (technology == null ||
-                !technology.IsValid() ||
-                researching)
-            {
-                return false;
-            }
+        public bool StartResearch(TechnologyDefinition technology)
+{
+    if (technology == null ||
+        !technology.IsValid() ||
+        researching)
+    {
+        return false;
+    }
 
-            if (IsUnlocked(technology))
-                return false;
+    if (IsUnlocked(technology))
+        return false;
 
-            if (!PrerequisitesComplete(technology))
-                return false;
+    if (!PrerequisitesComplete(technology))
+        return false;
 
-            FundingManager funding = FundingManager.Instance;
+    if (!EconomyRuntime.CampaignActive ||
+        !EconomyRuntime.SpendCredits(technology.ResearchCost))
+    {
+        Debug.LogWarning(
+            "[RESEARCH] Cannot start research: campaign funding unavailable or insufficient.");
 
-            if (funding == null ||
-                !funding.TrySpend(technology.ResearchCost))
-            {
-                Debug.LogWarning(
-                    "[RESEARCH] Cannot start research: funding unavailable or insufficient.");
-                return false;
-            }
+        return false;
+    }
 
-            Debug.Log(
-                $"[RESEARCH] Funding paid: {technology.ResearchCost:N0}.");
+    Debug.Log(
+        $"[RESEARCH] Campaign credits paid: {technology.ResearchCost:N0}.");
 
-            currentTechnology = technology;
-            researchElapsed = 0f;
-            researching = true;
+    currentTechnology = technology;
+    researchElapsed = 0f;
+    researching = true;
 
-            saveCheckpointElapsed = 0f;
-            SaveResearchCheckpoint();
+    saveCheckpointElapsed = 0f;
+    SaveResearchCheckpoint();
 
-            ResearchStarted?.Invoke(
-                currentTechnology);
+    ResearchStarted?.Invoke(currentTechnology);
 
-            Debug.Log(
-                $"[RESEARCH] Started: {technology.DisplayName}");
+    Debug.Log(
+        $"[RESEARCH] Started: {technology.DisplayName}");
 
-            return true;
-        }
+    return true;
+}
+
 
         public bool CancelResearch()
         {

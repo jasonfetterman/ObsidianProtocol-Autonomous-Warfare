@@ -1,0 +1,76 @@
+using UnityEngine;
+using UnityEngine.UI;
+using ObsidianProtocol.UI.Store;
+
+public class CommandCenterDashboardNavigation : MonoBehaviour
+{
+    [System.Serializable]
+    public class Department
+    {
+        public string buttonName;
+        public GameObject panel;
+    }
+
+    public Department[] departments;
+    public GameObject overview;
+
+    private void Awake()
+    {
+        foreach (var department in departments)
+        {
+            if (department == null) continue;
+
+            var button = FindButton(transform, department.buttonName);
+            if (button == null) continue;
+
+            var target = department.panel;
+            button.onClick.AddListener(() => OpenDepartment(target));
+        }
+    }
+
+    public void OpenOverview()
+    {
+        foreach (var department in departments)
+            if (department != null && department.panel != null)
+                department.panel.SetActive(false);
+
+        if (overview != null)
+            overview.SetActive(true);
+    }
+
+    public void CloseCommandPanel()
+    {
+        OpenOverview();
+    }
+
+    private void OpenDepartment(GameObject target)
+    {
+        if (target == null) return;
+
+        if (overview != null)
+            overview.SetActive(false);
+
+        foreach (var department in departments)
+        {
+            if (department == null || department.panel == null) continue;
+
+            bool opening = department.panel == target;
+
+            if (!opening && department.panel.activeSelf)
+                department.panel.GetComponent<StoreMasterController>()?.CloseStore();
+
+            department.panel.SetActive(opening);
+        }
+
+        target.GetComponent<StoreMasterController>()?.OpenStore();
+    }
+
+    private Button FindButton(Transform parent, string objectName)
+    {
+        foreach (var button in parent.GetComponentsInChildren<Button>(true))
+            if (button.gameObject.name == objectName)
+                return button;
+
+        return null;
+    }
+}

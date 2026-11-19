@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -161,6 +161,23 @@ namespace ObsidianProtocol.Game.PersistentMilitary
             return null;
         }
 
+        public static bool RemoveUnit(string unitId)
+        {
+            InitializeIfNeeded();
+
+            if (string.IsNullOrWhiteSpace(unitId))
+                return false;
+
+            MilitaryUnitRecord unit = GetUnit(unitId);
+
+            if (unit == null)
+                return false;
+
+            data.Units.Remove(unit);
+            Save();
+
+            return true;
+        }
         public static void RecordOperation(
             string unitId,
             string operation,

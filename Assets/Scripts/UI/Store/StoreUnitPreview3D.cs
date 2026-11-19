@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using ObsidianProtocol.Game.Units;
@@ -13,7 +13,6 @@ namespace ObsidianProtocol.UI.Store
         private const int PreviewLayer = 30;
 
         private RawImage previewImage;
-        private Text statusText;
         private Camera previewCamera;
         private RenderTexture renderTexture;
         private GameObject previewModel;
@@ -63,28 +62,6 @@ namespace ObsidianProtocol.UI.Store
             previewImage.raycastTarget = true;
             previewImage.color = Color.white;
 
-            GameObject statusObject = new GameObject(
-                "PREVIEW_STATUS",
-                typeof(RectTransform),
-                typeof(CanvasRenderer),
-                typeof(Text));
-
-            statusObject.transform.SetParent(transform, false);
-            RectTransform statusRect = statusObject.GetComponent<RectTransform>();
-            statusRect.anchorMin = new Vector2(0.05f, 0.40f);
-            statusRect.anchorMax = new Vector2(0.95f, 0.60f);
-            statusRect.offsetMin = Vector2.zero;
-            statusRect.offsetMax = Vector2.zero;
-
-            statusText = statusObject.GetComponent<Text>();
-            statusText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-            statusText.fontSize = 20;
-            statusText.alignment = TextAnchor.MiddleCenter;
-            statusText.color = new Color(0.82f, 0.85f, 0.89f, 1f);
-            statusText.horizontalOverflow = HorizontalWrapMode.Wrap;
-            statusText.verticalOverflow = VerticalWrapMode.Overflow;
-            statusText.raycastTarget = false;
-            statusText.text = "SELECT A UNIT";
 
             CreatePreviewCamera();
         }
@@ -99,19 +76,11 @@ namespace ObsidianProtocol.UI.Store
 
             ClearPreviewModel();
 
-            if (unit == null)
-            {
-                SetStatus("SELECT A UNIT");
-                return;
-            }
+            if (unit == null) return;
 
             GameObject prefab = unit.ModelPrefab;
 
-            if (prefab == null)
-            {
-                SetStatus("3D MODEL NOT ASSIGNED\n\nPreview unavailable for this unit.");
-                return;
-            }
+            if (prefab == null) return;
 
             previewModel = Instantiate(prefab);
             previewModel.name = "STORE_PREVIEW_" + unit.UnitId;
@@ -123,7 +92,6 @@ namespace ObsidianProtocol.UI.Store
             Renderer[] renderers = previewModel.GetComponentsInChildren<Renderer>(true);
             if (renderers.Length == 0)
             {
-                SetStatus("UNIT MODEL HAS NO RENDERERS");
                 Debug.LogError("[STORE PREVIEW] Model has no renderers: " + unit.UnitId, this);
                 ClearPreviewModel();
                 return;
@@ -144,7 +112,6 @@ namespace ObsidianProtocol.UI.Store
             UpdateModelRotation();
             FrameCamera();
 
-            SetStatus(unit.DisplayName + "  /  3D INSPECTION\nDrag to rotate  |  Scroll to zoom");
             Debug.Log("[STORE PREVIEW] Model loaded: " + unit.UnitId +
                 ". Renderers: " + renderers.Length, this);
         }
@@ -240,11 +207,6 @@ namespace ObsidianProtocol.UI.Store
             previewCamera.transform.LookAt(target + Vector3.up * modelRadius * 0.08f);
         }
 
-        private void SetStatus(string message)
-        {
-            if (statusText != null)
-                statusText.text = message;
-        }
 
         private static void SetLayerRecursively(GameObject root, int layer)
         {

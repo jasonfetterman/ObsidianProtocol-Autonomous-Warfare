@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using ObsidianProtocol.Game.Progression;
@@ -23,6 +24,27 @@ namespace ObsidianProtocol.Game.Core
         public WorldSimulationSnapshot WorldSimulation;
         public MilitaryHistorySnapshot MilitaryHistory;
         public OperationsSnapshot Operations;
+        public ArchiveMemorySnapshot ArchiveMemory;
+    }
+
+    [Serializable]
+    public sealed class ArchiveMemorySnapshot
+    {
+        public List<ArchiveMemoryEntrySnapshot> Entries =
+            new List<ArchiveMemoryEntrySnapshot>();
+    }
+
+    [Serializable]
+    public sealed class ArchiveMemoryEntrySnapshot
+    {
+        public string RecordId;
+        public string RecordType;
+        public string Source;
+        public string Subject;
+        public string Details;
+        public string Outcome;
+        public long RecordedAtUtcTicks;
+        public float Confidence;
     }
 
     [Serializable]
@@ -37,7 +59,8 @@ namespace ObsidianProtocol.Game.Core
     [Serializable]
     public sealed class MilitaryHistorySnapshot
     {
-        public List<MilitaryHistoryEntrySnapshot> Entries = new List<MilitaryHistoryEntrySnapshot>();
+        public List<MilitaryHistoryEntrySnapshot> Entries =
+            new List<MilitaryHistoryEntrySnapshot>();
     }
 
     [Serializable]
@@ -54,7 +77,11 @@ namespace ObsidianProtocol.Game.Core
     {
         public string OperationId;
         public string SelectedServiceRecordId;
-        public List<DeploymentEntrySnapshot> Entries = new List<DeploymentEntrySnapshot>();
+        public bool ReinforcementsAllowed;
+        public int MaximumReinforcementPoints;
+        public int UsedReinforcementPoints;
+        public List<DeploymentEntrySnapshot> Entries =
+            new List<DeploymentEntrySnapshot>();
     }
 
     [Serializable]
@@ -66,9 +93,12 @@ namespace ObsidianProtocol.Game.Core
         public int DeploymentPoints;
         public int State;
     }
+
+    [Serializable]
     public sealed class FleetSnapshot
     {
-        public List<FleetUnitSnapshot> Units = new List<FleetUnitSnapshot>();
+        public List<FleetUnitSnapshot> Units =
+            new List<FleetUnitSnapshot>();
     }
 
     [Serializable]
@@ -79,10 +109,13 @@ namespace ObsidianProtocol.Game.Core
         public FleetUnitStatus Status;
         public string GarageSlotId;
     }
+
     [Serializable]
     public sealed class ResearchSnapshot
     {
-        public List<string> UnlockedTechnologyIds = new List<string>();
+        public List<string> UnlockedTechnologyIds =
+            new List<string>();
+
         public string CurrentTechnologyId;
         public float ResearchElapsed;
         public bool IsResearching;
@@ -158,15 +191,29 @@ namespace ObsidianProtocol.Game.Core
         public int AILevel = 1;
         public long AIExperience;
 
-        public List<ProgressionIntEntry> TechnologyLevels = new List<ProgressionIntEntry>();
-        public List<ProgressionIntEntry> FacilityLevels = new List<ProgressionIntEntry>();
-        public List<ProgressionBoolEntry> UnitUnlocks = new List<ProgressionBoolEntry>();
-        public List<ProgressionBoolEntry> EquipmentUnlocks = new List<ProgressionBoolEntry>();
-        public List<ProgressionBoolEntry> ExperimentalUnlocks = new List<ProgressionBoolEntry>();
-        public List<ProgressionIntEntry> Reputation = new List<ProgressionIntEntry>();
-        public List<string> Achievements = new List<string>();
+        public List<ProgressionIntEntry> TechnologyLevels =
+            new List<ProgressionIntEntry>();
 
-        public static ProgressionSnapshot From(ProgressionSaveData source)
+        public List<ProgressionIntEntry> FacilityLevels =
+            new List<ProgressionIntEntry>();
+
+        public List<ProgressionBoolEntry> UnitUnlocks =
+            new List<ProgressionBoolEntry>();
+
+        public List<ProgressionBoolEntry> EquipmentUnlocks =
+            new List<ProgressionBoolEntry>();
+
+        public List<ProgressionBoolEntry> ExperimentalUnlocks =
+            new List<ProgressionBoolEntry>();
+
+        public List<ProgressionIntEntry> Reputation =
+            new List<ProgressionIntEntry>();
+
+        public List<string> Achievements =
+            new List<string>();
+
+        public static ProgressionSnapshot From(
+            ProgressionSaveData source)
         {
             if (source == null)
                 return null;
@@ -186,27 +233,57 @@ namespace ObsidianProtocol.Game.Core
 
             if (source.TechnologyLevels != null)
                 foreach (var pair in source.TechnologyLevels)
-                    snapshot.TechnologyLevels.Add(new ProgressionIntEntry { Key = pair.Key, Value = pair.Value });
+                    snapshot.TechnologyLevels.Add(
+                        new ProgressionIntEntry
+                        {
+                            Key = pair.Key,
+                            Value = pair.Value
+                        });
 
             if (source.FacilityLevels != null)
                 foreach (var pair in source.FacilityLevels)
-                    snapshot.FacilityLevels.Add(new ProgressionIntEntry { Key = pair.Key, Value = pair.Value });
+                    snapshot.FacilityLevels.Add(
+                        new ProgressionIntEntry
+                        {
+                            Key = pair.Key,
+                            Value = pair.Value
+                        });
 
             if (source.UnitUnlocks != null)
                 foreach (var pair in source.UnitUnlocks)
-                    snapshot.UnitUnlocks.Add(new ProgressionBoolEntry { Key = pair.Key, Value = pair.Value });
+                    snapshot.UnitUnlocks.Add(
+                        new ProgressionBoolEntry
+                        {
+                            Key = pair.Key,
+                            Value = pair.Value
+                        });
 
             if (source.EquipmentUnlocks != null)
                 foreach (var pair in source.EquipmentUnlocks)
-                    snapshot.EquipmentUnlocks.Add(new ProgressionBoolEntry { Key = pair.Key, Value = pair.Value });
+                    snapshot.EquipmentUnlocks.Add(
+                        new ProgressionBoolEntry
+                        {
+                            Key = pair.Key,
+                            Value = pair.Value
+                        });
 
             if (source.ExperimentalUnlocks != null)
                 foreach (var pair in source.ExperimentalUnlocks)
-                    snapshot.ExperimentalUnlocks.Add(new ProgressionBoolEntry { Key = pair.Key, Value = pair.Value });
+                    snapshot.ExperimentalUnlocks.Add(
+                        new ProgressionBoolEntry
+                        {
+                            Key = pair.Key,
+                            Value = pair.Value
+                        });
 
             if (source.Reputation != null)
                 foreach (var pair in source.Reputation)
-                    snapshot.Reputation.Add(new ProgressionIntEntry { Key = pair.Key, Value = pair.Value });
+                    snapshot.Reputation.Add(
+                        new ProgressionIntEntry
+                        {
+                            Key = pair.Key,
+                            Value = pair.Value
+                        });
 
             if (source.Achievements != null)
                 snapshot.Achievements.AddRange(source.Achievements);
@@ -231,33 +308,45 @@ namespace ObsidianProtocol.Game.Core
 
             if (TechnologyLevels != null)
                 foreach (var entry in TechnologyLevels)
-                    if (entry != null && !string.IsNullOrWhiteSpace(entry.Key))
-                        result.TechnologyLevels[entry.Key] = entry.Value;
+                    if (entry != null &&
+                        !string.IsNullOrWhiteSpace(entry.Key))
+                        result.TechnologyLevels[entry.Key] =
+                            entry.Value;
 
             if (FacilityLevels != null)
                 foreach (var entry in FacilityLevels)
-                    if (entry != null && !string.IsNullOrWhiteSpace(entry.Key))
-                        result.FacilityLevels[entry.Key] = entry.Value;
+                    if (entry != null &&
+                        !string.IsNullOrWhiteSpace(entry.Key))
+                        result.FacilityLevels[entry.Key] =
+                            entry.Value;
 
             if (UnitUnlocks != null)
                 foreach (var entry in UnitUnlocks)
-                    if (entry != null && !string.IsNullOrWhiteSpace(entry.Key))
-                        result.UnitUnlocks[entry.Key] = entry.Value;
+                    if (entry != null &&
+                        !string.IsNullOrWhiteSpace(entry.Key))
+                        result.UnitUnlocks[entry.Key] =
+                            entry.Value;
 
             if (EquipmentUnlocks != null)
                 foreach (var entry in EquipmentUnlocks)
-                    if (entry != null && !string.IsNullOrWhiteSpace(entry.Key))
-                        result.EquipmentUnlocks[entry.Key] = entry.Value;
+                    if (entry != null &&
+                        !string.IsNullOrWhiteSpace(entry.Key))
+                        result.EquipmentUnlocks[entry.Key] =
+                            entry.Value;
 
             if (ExperimentalUnlocks != null)
                 foreach (var entry in ExperimentalUnlocks)
-                    if (entry != null && !string.IsNullOrWhiteSpace(entry.Key))
-                        result.ExperimentalUnlocks[entry.Key] = entry.Value;
+                    if (entry != null &&
+                        !string.IsNullOrWhiteSpace(entry.Key))
+                        result.ExperimentalUnlocks[entry.Key] =
+                            entry.Value;
 
             if (Reputation != null)
                 foreach (var entry in Reputation)
-                    if (entry != null && !string.IsNullOrWhiteSpace(entry.Key))
-                        result.Reputation[entry.Key] = entry.Value;
+                    if (entry != null &&
+                        !string.IsNullOrWhiteSpace(entry.Key))
+                        result.Reputation[entry.Key] =
+                            entry.Value;
 
             if (Achievements != null)
                 result.Achievements.AddRange(Achievements);

@@ -19,7 +19,7 @@ MonoBehaviour:
   tier: Security
   status: Active
   storeImage: {fileID: 8159113125469753020, guid: 0d0b5b15ab9c53e4388a4b594b4fd8a5, type: 3}
-  modelPrefab: {fileID: 0}
+  modelPrefab: {fileID: 7333847683377972858, guid: 5ce901b5cbb2d3144b8c65a19e21bd5f, type: 3}
   physical:
     lengthMeters: 4.2
     widthMeters: 2.1

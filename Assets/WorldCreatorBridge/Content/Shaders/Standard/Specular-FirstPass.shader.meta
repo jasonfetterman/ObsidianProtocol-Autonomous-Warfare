@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 74585e5d0e5cd15489c42384ec1fcfe1
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 151796
+  packageName: World Creator Bridge for Unity
+  packageVersion: 2.0
+  assetPath: Assets/WorldCreatorBridge/Content/Shaders/Standard/Specular-FirstPass.shader
+  uploadId: 872382

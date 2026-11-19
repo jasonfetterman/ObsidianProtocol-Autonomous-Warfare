@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace ObsidianProtocol.Game.Deployment
@@ -64,6 +64,14 @@ namespace ObsidianProtocol.Game.Deployment
         {
             if (State != DeploymentStagingState.Deployed)
                 State = DeploymentStagingState.Unstaged;
+        }
+
+        public void RestoreState(DeploymentStagingState state)
+        {
+            if (!Enum.IsDefined(typeof(DeploymentStagingState), state))
+                throw new ArgumentOutOfRangeException(nameof(state));
+
+            State = state;
         }
     }
 

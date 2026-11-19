@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 92529f8584c82d845a642ca2fe8d18d6
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 151796
+  packageName: World Creator Bridge for Unity
+  packageVersion: 2.0
+  assetPath: Assets/WorldCreatorBridge/Content/Shaders/Standard/Specular-AddPass.shader
+  uploadId: 872382

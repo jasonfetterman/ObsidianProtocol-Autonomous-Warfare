@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using ObsidianProtocol.Game.CommandUnits;
 
@@ -19,6 +20,7 @@ namespace ObsidianProtocol.Game.Intelligence
         public NetworkRelaySystem Network { get; private set; }
         public IntelligenceSharingSystem Sharing { get; private set; }
         public IntelligencePersistenceSystem Persistence { get; private set; }
+        public ArchiveMemorySystem ArchiveMemory { get; private set; }
         public LostContactBehaviorSystem LostContact { get; private set; }
         public ReconnaissanceSystem Reconnaissance { get; private set; }
         public EnemyDetectionSystem EnemyDetection { get; private set; }
@@ -71,6 +73,7 @@ namespace ObsidianProtocol.Game.Intelligence
             Network = new NetworkRelaySystem();
             Sharing = new IntelligenceSharingSystem();
             Persistence = new IntelligencePersistenceSystem();
+            ArchiveMemory = new ArchiveMemorySystem();
             LostContact = new LostContactBehaviorSystem();
             Reconnaissance = new ReconnaissanceSystem();
             EnemyDetection = new EnemyDetectionSystem();
@@ -80,6 +83,7 @@ namespace ObsidianProtocol.Game.Intelligence
             ThermalDetection = new ThermalDetectionSystem();
             VisualDetection = new VisualDetectionSystem();
             Processing = new IntelligenceProcessingSystem();
+
             SurveillanceFeeds = new IntelligenceSurveillanceFeed();
             SurveillanceFeeds.RegisterFeed("FEED-A", "SENSOR-ARRAY-A");
             SurveillanceFeeds.RegisterFeed("FEED-B", "SENSOR-ARRAY-B");
@@ -87,6 +91,7 @@ namespace ObsidianProtocol.Game.Intelligence
             SurveillanceFeeds.ActivateFeed("FEED-A");
             SurveillanceFeeds.ActivateFeed("FEED-B");
             SurveillanceFeeds.ActivateFeed("FEED-C");
+
             Network.RegisterRelay(1, 50f);
             Network.RegisterRelay(2, 50f);
             Network.ActivateRelay(1);
@@ -112,6 +117,8 @@ namespace ObsidianProtocol.Game.Intelligence
 
             Debug.Log(
                 $"[INTELLIGENCE] Runtime initialized. Sensors: {SensorCount}, Active: {ActiveSensorCount}");
+
+            Debug.Log("[ARCHIVE] Operational memory initialized.");
         }
 
         private void InitializeTestContacts()
@@ -133,7 +140,9 @@ namespace ObsidianProtocol.Game.Intelligence
                 1001,
                 TargetClassification.Unknown);
 
-            Detection.ReportDetection("SENSOR-ARRAY-A", 1001,
+            Detection.ReportDetection(
+                "SENSOR-ARRAY-A",
+                1001,
                 12.4f,
                 DetectionConfidence.High);
 
@@ -170,15 +179,3 @@ namespace ObsidianProtocol.Game.Intelligence
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-

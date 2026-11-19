@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using ObsidianProtocol.Game.Core;
 using ObsidianProtocol.Game.Economy;
 using ObsidianProtocol.Game.Inventory;
 using ObsidianProtocol.Game.Runtime;
@@ -28,6 +29,7 @@ namespace ObsidianProtocol.UI.Store
         private TMP_Text detailOperations;
         private TMP_Text detailStatus;
         private TMP_Text detailDescription;
+        private Image detailArtwork;
 
         private Button purchaseButton;
 
@@ -58,7 +60,40 @@ namespace ObsidianProtocol.UI.Store
 
         private void Awake()
         {
+            RestoreCampaign();
             BuildStore();
+        }
+
+        private void RestoreCampaign()
+        {
+            if (!SaveLoadService.Exists())
+            {
+                Debug.LogWarning("[STORE] No campaign save exists. Purchases are unavailable.");
+                return;
+            }
+
+            SaveData save = SaveLoadService.Load();
+
+            if (save == null ||
+                string.IsNullOrWhiteSpace(save.CampaignId) ||
+                string.IsNullOrWhiteSpace(save.PlayerId))
+            {
+                Debug.LogError("[STORE] Campaign save is invalid. Purchases are unavailable.");
+                return;
+            }
+
+            InventoryRuntime.Initialize(save.CampaignId);
+            EconomyRuntime.Load(save.CampaignId);
+
+            if (!EconomyRuntime.CampaignActive)
+            {
+                EconomyRuntime.StartNewCampaign(
+                    save.CampaignId,
+                    save.Funding,
+                    save.PlayerId);
+            }
+
+            Debug.Log("[STORE] Existing campaign restored: " + save.CampaignId);
         }
 
         private void BuildStore()
@@ -72,7 +107,7 @@ namespace ObsidianProtocol.UI.Store
                 return;
 
             Transform storePanel =
-                canvas.transform.Find("StorePanel");
+                transform;
 
             if (storePanel == null)
             {
@@ -189,308 +224,189 @@ namespace ObsidianProtocol.UI.Store
 
         private void BuildCategoryRail()
         {
-            RectTransform rail =
-                Panel(
-                    "CATEGORY_RAIL",
-                    root,
-                    new Vector2(0.015f, 0.105f),
-                    new Vector2(0.155f, 0.885f),
-                    new Color(0.020f, 0.032f, 0.040f, 1f));
+            RectTransform rail = Panel("CATEGORY_NAVIGATION", root,
+                new Vector2(0.015f, 0.835f), new Vector2(0.985f, 0.895f),
+                new Color(.008f,.022f,.038f,1f));
 
-            TMP_Text heading =
-                Label(
-                    rail,
-                    "HEADING",
-                    "PROCUREMENT",
-                    12f,
-                    TextAlignmentOptions.Left);
-
-            SetRect(
-                heading.rectTransform,
-                0.10f,
-                0.93f,
-                0.90f,
-                0.985f);
-
-            RectTransform buttons =
-                Rect(
-                    "BUTTONS",
-                    rail,
-                    new Vector2(0.07f, 0.08f),
-                    new Vector2(0.93f, 0.91f));
-
-            VerticalLayoutGroup layout =
-                buttons.gameObject.AddComponent<VerticalLayoutGroup>();
-
+            HorizontalLayoutGroup layout = rail.gameObject.AddComponent<HorizontalLayoutGroup>();
+            layout.padding = new RectOffset(8,8,3,3);
             layout.spacing = 8f;
-            layout.padding =
-                new RectOffset(0, 0, 4, 4);
-
+            layout.childAlignment = TextAnchor.MiddleCenter;
             layout.childControlWidth = true;
             layout.childControlHeight = true;
             layout.childForceExpandWidth = true;
-            layout.childForceExpandHeight = false;
+            layout.childForceExpandHeight = true;
+
+            categoryButtons.Clear();
 
             foreach (string category in Categories)
             {
-                Button button =
-                    MakeButton(
-                        buttons,
-                        category,
-                        11f,
-                        42f);
+                GameObject tile = new GameObject(category,
+                    typeof(RectTransform), typeof(Image), typeof(Button), typeof(Outline));
+                tile.transform.SetParent(rail, false);
 
+                Image image = tile.GetComponent<Image>();
+                image.sprite = GetStoreChamferSprite();
+                image.type = Image.Type.Sliced;
+                image.color = new Color(.025f,.075f,.11f,.98f);
+
+                Outline outline = tile.GetComponent<Outline>();
+                outline.effectColor = new Color(0f,.72f,1f,1f);
+                outline.effectDistance = new Vector2(1.2f,1.2f);
+
+                Button button = tile.GetComponent<Button>();
+                button.targetGraphic = image;
                 categoryButtons[category] = button;
 
-                string captured = category;
+                LayoutElement element = tile.AddComponent<LayoutElement>();
+                element.flexibleWidth = 1f;
+                element.minWidth = 70f;
 
-                button.onClick.AddListener(
-                    () =>
-                    {
-                        selectedCategory = captured;
-                        RefreshCategories();
-                        RefreshCatalog();
-                    });
+                TMP_Text heading = Label(tile.transform, "CATEGORY", category,
+                    10f, TextAlignmentOptions.Center);
+                heading.fontStyle = FontStyles.Bold;
+                heading.color = new Color(0f,.75f,1f,1f);
+                SetRect(heading.rectTransform,.04f,.48f,.96f,.92f);
+
+                int count = category == "ALL" ? unitDefinitions.Count :
+                    unitDefinitions.Count(x => Category(x.DefinitionId) == category);
+
+                TMP_Text total = Label(tile.transform, "COUNT", count.ToString("D2"),
+                    20f, TextAlignmentOptions.Center);
+                total.fontStyle = FontStyles.Bold;
+                total.color = new Color(.82f,.91f,1f,1f);
+                SetRect(total.rectTransform,.04f,.04f,.96f,.57f);
+
+                string captured = category;
+                button.onClick.AddListener(() =>
+                {
+                    selectedCategory = captured;
+                    RefreshCategories();
+                    RefreshCatalog();
+                });
             }
+
+            RefreshCategories();
         }
 
         private void BuildCatalog()
         {
-            RectTransform panel =
-                Panel(
-                    "CATALOG_PANEL",
-                    root,
-                    new Vector2(0.17f, 0.105f),
-                    new Vector2(0.655f, 0.885f),
-                    new Color(0.020f, 0.032f, 0.040f, 1f));
+            RectTransform panel = Panel(
+                "FULL_WIDTH_UNIT_CATALOG", root,
+                new Vector2(0.015f, 0.325f),
+                new Vector2(0.985f, 0.825f),
+                new Color(0.014f, 0.025f, 0.033f, 1f));
 
-            TMP_Text title =
-                Label(
-                    panel,
-                    "TITLE",
-                    "AVAILABLE UNITS",
-                    16f,
-                    TextAlignmentOptions.Left);
+            TMP_Text title = Label(
+                panel, "TITLE", "AVAILABLE MILITARY ASSETS",
+                15f, TextAlignmentOptions.Left);
+            title.fontStyle = FontStyles.Bold;
+            SetRect(title.rectTransform, 0.018f, 0.925f, 0.55f, 0.99f);
 
-            SetRect(
-                title.rectTransform,
-                0.035f,
-                0.935f,
-                0.55f,
-                0.985f);
+            catalogStatus = Label(
+                panel, "STATUS", "", 10f, TextAlignmentOptions.Right);
+            SetRect(catalogStatus.rectTransform, 0.72f, 0.925f, 0.98f, 0.99f);
 
-            catalogStatus =
-                Label(
-                    panel,
-                    "STATUS",
-                    "",
-                    9f,
-                    TextAlignmentOptions.Right);
+            RectTransform viewport = Rect(
+                "CATALOG_VIEWPORT", panel,
+                new Vector2(0.012f, 0.025f),
+                new Vector2(0.988f, 0.90f));
 
-            SetRect(
-                catalogStatus.rectTransform,
-                0.55f,
-                0.935f,
-                0.965f,
-                0.985f);
-
-            RectTransform viewport =
-                Rect(
-                    "VIEWPORT",
-                    panel,
-                    new Vector2(0.025f, 0.025f),
-                    new Vector2(0.975f, 0.915f));
-
-            Image viewportImage =
-                viewport.gameObject.AddComponent<Image>();
-
-            viewportImage.color =
-                new Color(0f, 0f, 0f, 0.01f);
-
-            Mask mask =
-                viewport.gameObject.AddComponent<Mask>();
-
+            Image viewportImage = viewport.gameObject.AddComponent<Image>();
+            viewportImage.color = new Color(0f, 0f, 0f, 0.01f);
+            Mask mask = viewport.gameObject.AddComponent<Mask>();
             mask.showMaskGraphic = false;
 
-            ScrollRect scroll =
-                panel.gameObject.AddComponent<ScrollRect>();
+            cardContainer = Rect(
+                "CATALOG_CONTENT", viewport,
+                new Vector2(0f, 1f),
+                new Vector2(1f, 1f));
+            cardContainer.pivot = new Vector2(0.5f, 1f);
 
+            VerticalLayoutGroup layout = cardContainer.gameObject.AddComponent<VerticalLayoutGroup>();
+layout.spacing = 8f;
+layout.padding = new RectOffset(8, 8, 8, 8);
+layout.childAlignment = TextAnchor.UpperCenter;
+layout.childControlWidth = true;
+layout.childControlHeight = false;
+layout.childForceExpandWidth = true;
+layout.childForceExpandHeight = false;
+
+            ContentSizeFitter fitter = cardContainer.gameObject.AddComponent<ContentSizeFitter>();
+            fitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+
+            ScrollRect scroll = panel.gameObject.AddComponent<ScrollRect>();
             scroll.viewport = viewport;
+            scroll.content = cardContainer;
             scroll.horizontal = false;
             scroll.vertical = true;
-            scroll.movementType =
-                ScrollRect.MovementType.Clamped;
-
-            cardContainer =
-                Rect(
-                    "CARD_CONTAINER",
-                    viewport,
-                    new Vector2(0f, 1f),
-                    new Vector2(1f, 1f));
-
-            cardContainer.pivot =
-                new Vector2(0.5f, 1f);
-
-            GridLayoutGroup grid =
-                cardContainer.gameObject.AddComponent<GridLayoutGroup>();
-
-            grid.cellSize =
-                new Vector2(245f, 132f);
-
-            grid.spacing =
-                new Vector2(10f, 10f);
-
-            grid.padding =
-                new RectOffset(5, 5, 5, 5);
-
-            grid.constraint =
-                GridLayoutGroup.Constraint.FixedColumnCount;
-
-            grid.constraintCount = 2;
-
-            ContentSizeFitter fitter =
-                cardContainer.gameObject.AddComponent<ContentSizeFitter>();
-
-            fitter.verticalFit =
-                ContentSizeFitter.FitMode.PreferredSize;
-
-            scroll.content = cardContainer;
+            scroll.movementType = ScrollRect.MovementType.Clamped;
+            scroll.scrollSensitivity = 35f;
         }
 
         private void BuildDetails()
         {
-            RectTransform panel =
-                Panel(
-                    "DETAIL_PANEL",
-                    root,
-                    new Vector2(0.67f, 0.105f),
-                    new Vector2(0.985f, 0.885f),
-                    new Color(0.025f, 0.040f, 0.048f, 1f));
+            RectTransform panel = Panel(
+                "UNIT_INSPECTION_DOCK", root,
+                new Vector2(0.015f, 0.075f),
+                new Vector2(0.985f, 0.31f),
+                new Color(0.022f, 0.038f, 0.047f, 1f));
 
-            TMP_Text heading =
-                Label(
-                    panel,
-                    "HEADING",
-                    "UNIT INSPECTION",
-                    16f,
-                    TextAlignmentOptions.Left);
+            detailArtwork = null;
+            GameObject artworkObject = new GameObject(
+                "SELECTED_UNIT_ARTWORK",
+                typeof(RectTransform), typeof(Image));
+            artworkObject.transform.SetParent(panel, false);
+            detailArtwork = artworkObject.GetComponent<Image>();
+            detailArtwork.preserveAspect = true;
+            detailArtwork.color = new Color(0.035f, 0.065f, 0.075f, 1f);
+            detailArtwork.raycastTarget = false;
+            SetRect(detailArtwork.rectTransform, 0.015f, 0.08f, 0.19f, 0.92f);
 
-            SetRect(
-                heading.rectTransform,
-                0.055f,
-                0.93f,
-                0.945f,
-                0.985f);
+            TMP_Text heading = Label(
+                panel, "INSPECTION_HEADING", "SELECTED ASSET",
+                9f, TextAlignmentOptions.Left);
+            heading.color = new Color(0.25f, 0.78f, 0.86f, 1f);
+            SetRect(heading.rectTransform, 0.215f, 0.84f, 0.56f, 0.97f);
 
-            detailName =
-                Label(
-                    panel,
-                    "NAME",
-                    "SELECT UNIT",
-                    22f,
-                    TextAlignmentOptions.Left);
+            detailName = Label(
+                panel, "NAME", "SELECT UNIT",
+                20f, TextAlignmentOptions.Left);
+            detailName.fontStyle = FontStyles.Bold;
+            SetRect(detailName.rectTransform, 0.215f, 0.68f, 0.58f, 0.85f);
 
-            SetRect(
-                detailName.rectTransform,
-                0.055f,
-                0.825f,
-                0.945f,
-                0.905f);
+            detailDescription = Label(
+                panel, "DESCRIPTION",
+                "Select an asset to inspect procurement specifications and ownership.",
+                9f, TextAlignmentOptions.Left);
+            detailDescription.alignment = TextAlignmentOptions.TopLeft;
+            detailDescription.overflowMode = TextOverflowModes.Ellipsis;
+            SetRect(detailDescription.rectTransform, 0.215f, 0.12f, 0.58f, 0.63f);
 
-            detailCategory =
-                DetailLine(
-                    panel,
-                    "CATEGORY",
-                    "",
-                    0.765f);
+            detailCategory = DetailLine(panel, "CATEGORY", "", 0.79f);
+            SetRect(detailCategory.rectTransform, 0.62f, 0.78f, 0.79f, 0.94f);
 
-            detailPrice =
-                DetailLine(
-                    panel,
-                    "PRICE",
-                    "",
-                    0.695f);
+            detailPrice = DetailLine(panel, "PRICE", "", 0.55f);
+            SetRect(detailPrice.rectTransform, 0.62f, 0.54f, 0.79f, 0.70f);
 
-            detailStatus =
-                DetailLine(
-                    panel,
-                    "STATUS",
-                    "",
-                    0.625f);
+            detailStatus = DetailLine(panel, "STATUS", "", 0.31f);
+            SetRect(detailStatus.rectTransform, 0.62f, 0.30f, 0.79f, 0.46f);
 
-            detailDeployment =
-                DetailLine(
-                    panel,
-                    "DEPLOYMENT",
-                    "",
-                    0.555f);
+            detailDeployment = DetailLine(panel, "DEPLOYMENT", "", 0.79f);
+            SetRect(detailDeployment.rectTransform, 0.80f, 0.78f, 0.985f, 0.94f);
 
-            detailMaintenance =
-                DetailLine(
-                    panel,
-                    "MAINTENANCE",
-                    "",
-                    0.485f);
+            detailMaintenance = DetailLine(panel, "MAINTENANCE", "", 0.55f);
+            SetRect(detailMaintenance.rectTransform, 0.80f, 0.54f, 0.985f, 0.70f);
 
-            detailOperations =
-                DetailLine(
-                    panel,
-                    "OPERATIONS",
-                    "",
-                    0.415f);
+            detailOperations = DetailLine(panel, "OPERATIONS", "", 0.31f);
+            SetRect(detailOperations.rectTransform, 0.80f, 0.30f, 0.985f, 0.46f);
 
-            TMP_Text descriptionHeader =
-                Label(
-                    panel,
-                    "DESCRIPTION_HEADER",
-                    "PROCUREMENT NOTES",
-                    10f,
-                    TextAlignmentOptions.Left);
-
-            SetRect(
-                descriptionHeader.rectTransform,
-                0.055f,
-                0.325f,
-                0.945f,
-                0.365f);
-
-            detailDescription =
-                Label(
-                    panel,
-                    "DESCRIPTION",
-                    "Select a unit to review specifications and procurement status.",
-                    10f,
-                    TextAlignmentOptions.Left);
-
-            SetRect(
-                detailDescription.rectTransform,
-                0.055f,
-                0.16f,
-                0.945f,
-                0.32f);
-
-            detailDescription.alignment =
-                TextAlignmentOptions.TopLeft;
-
-            detailDescription.overflowMode =
-                TextOverflowModes.Ellipsis;
-
-            purchaseButton =
-                MakeButton(
-                    panel,
-                    "PURCHASE UNIT",
-                    12f,
-                    46f);
-
+            purchaseButton = MakeButton(
+                panel, "AUTHORIZE PROCUREMENT", 10f, 38f);
             SetRect(
                 purchaseButton.GetComponent<RectTransform>(),
-                0.055f,
-                0.055f,
-                0.945f,
-                0.13f);
-
-            purchaseButton.onClick.AddListener(
-                OpenConfirmation);
+                0.62f, 0.07f, 0.985f, 0.23f);
+            purchaseButton.onClick.AddListener(OpenConfirmation);
         }
 
         private TMP_Text DetailLine(
@@ -519,28 +435,17 @@ namespace ObsidianProtocol.UI.Store
 
         private void BuildBottomBar()
         {
-            RectTransform bar =
-                Panel(
-                    "BOTTOM_BAR",
-                    root,
-                    new Vector2(0f, 0f),
-                    new Vector2(1f, 0.075f),
-                    new Color(0.018f, 0.029f, 0.036f, 1f));
+            RectTransform bar = Panel(
+                "SYSTEM_STATUS_BAR", root,
+                new Vector2(0f, 0f),
+                new Vector2(1f, 0.055f),
+                new Color(0.010f, 0.018f, 0.024f, 1f));
 
-            TMP_Text text =
-                Label(
-                    bar,
-                    "RULE",
-                    "OWNERSHIP ≠ BATTLEFIELD POWER    •    DEPLOYMENT BUDGET REMAINS SEPARATE",
-                    10f,
-                    TextAlignmentOptions.Center);
-
-            SetRect(
-                text.rectTransform,
-                0.02f,
-                0.20f,
-                0.98f,
-                0.80f);
+            TMP_Text text = Label(
+                bar, "SYSTEM_STATUS",
+                "OBSIDIAN PROTOCOL     //     PROCUREMENT NETWORK     //     OWNERSHIP AND DEPLOYMENT ARE SEPARATE SYSTEMS",
+                9f, TextAlignmentOptions.Center);
+            SetRect(text.rectTransform, 0.02f, 0.15f, 0.98f, 0.85f);
         }
 
         private void BuildConfirmation()
@@ -667,12 +572,30 @@ namespace ObsidianProtocol.UI.Store
 
         private void RefreshCategories()
         {
-            foreach (
-                KeyValuePair<string, Button> item
-                in categoryButtons)
+            foreach (KeyValuePair<string, Button> item in categoryButtons)
             {
-                item.Value.interactable =
-                    item.Key != selectedCategory;
+                bool selected = item.Key == selectedCategory;
+                item.Value.interactable = !selected;
+
+                Image image = item.Value.GetComponent<Image>();
+                if (image != null)
+                    image.color = selected
+                        ? new Color(.025f,.105f,.12f,1f)
+                        : new Color(.025f,.075f,.11f,.98f);
+
+                Outline outline = item.Value.GetComponent<Outline>();
+                if (outline != null)
+                    outline.effectColor = selected
+                        ? new Color(0f,.85f,1f,1f)
+                        : new Color(0f,.72f,1f,1f);
+
+                TMP_Text total = item.Value.transform.Find("COUNT")?.GetComponent<TMP_Text>();
+                if (total != null)
+                {
+                    int count = item.Key == "ALL" ? unitDefinitions.Count :
+                        unitDefinitions.Count(x => Category(x.DefinitionId) == item.Key);
+                    total.text = count.ToString("D2");
+                }
             }
         }
 
@@ -721,138 +644,253 @@ namespace ObsidianProtocol.UI.Store
             }
         }
 
-        private void CreateCard(
-            InventoryItemDefinition definition)
+        private static Sprite GetStoreChamferSprite()
         {
-            GameObject card =
-                new GameObject(
-                    "CARD_" +
-                    definition.DefinitionId,
-                    typeof(RectTransform),
-                    typeof(Image));
+            const int size = 64;
+            Texture2D texture = new Texture2D(size, size, TextureFormat.RGBA32, false);
+            texture.filterMode = FilterMode.Bilinear;
+            for (int y = 0; y < size; y++)
+            for (int x = 0; x < size; x++)
+            {
+                bool inside = x+y >= 13 && (size-1-x)+y >= 13 &&
+                    x+(size-1-y) >= 13 && (size-1-x)+(size-1-y) >= 13;
+                texture.SetPixel(x, y, inside ? Color.white : Color.clear);
+            }
+            texture.Apply();
+            return Sprite.Create(texture, new Rect(0,0,size,size),
+                new Vector2(.5f,.5f), 100, 0, SpriteMeshType.FullRect,
+                new Vector4(14,14,14,14));
+        }
+        private void CreateCard(InventoryItemDefinition definition)
+        {
+            UnitDefinition unit = UnitDatabaseRuntime.Get(definition.DefinitionId);
+            bool owned = InventoryRuntime.Has(definition.DefinitionId);
+            bool selected = selectedId == definition.DefinitionId;
 
-            card.transform.SetParent(
-                cardContainer,
-                false);
+            GameObject card = new GameObject(
+                "CARD_" + definition.DefinitionId,
+                typeof(RectTransform),
+                typeof(Image),
+                typeof(Button),
+                typeof(Outline));
 
-            Image image =
-                card.GetComponent<Image>();
+            card.transform.SetParent(cardContainer, false);
 
-            image.color =
-                new Color(
-                    0.035f,
-                    0.055f,
-                    0.065f,
-                    1f);
+            Image background = card.GetComponent<Image>();
+            background.sprite = GetStoreChamferSprite();
+            background.type = Image.Type.Sliced;
+            background.color = selected
+                ? new Color(0.035f, 0.105f, 0.145f, 1f)
+                : new Color(0.025f, 0.075f, 0.11f, 0.98f);
 
-            RectTransform rect =
-                card.GetComponent<RectTransform>();
+            Button cardButton = card.GetComponent<Button>();
+            cardButton.targetGraphic = background;
+            cardButton.transition = Selectable.Transition.ColorTint;
 
-            TMP_Text name =
-                Label(
-                    card.transform,
-                    "NAME",
-                    definition.DisplayName,
-                    14f,
-                    TextAlignmentOptions.Left);
+            ColorBlock cardColors = cardButton.colors;
+            cardColors.normalColor = Color.white;
+            cardColors.highlightedColor = new Color(0.42f, 0.95f, 1f, 1f);
+            cardColors.pressedColor = new Color(0.18f, 0.75f, 0.85f, 1f);
+            cardColors.selectedColor = new Color(0.35f, 0.9f, 1f, 1f);
+            cardColors.fadeDuration = 0.08f;
+            cardButton.colors = cardColors;
 
-            SetRect(
-                name.rectTransform,
-                0.06f,
-                0.68f,
-                0.94f,
-                0.88f);
+            Outline outline = card.GetComponent<Outline>();
+            outline.effectColor = selected
+                ? new Color(0.05f, 0.9f, 1f, 0.95f)
+                : new Color(0f, 0.72f, 1f, 1f);
+            outline.effectDistance = new Vector2(1.5f, -1.5f);
 
-            TMP_Text category =
-                Label(
-                    card.transform,
-                    "CATEGORY",
-                    Category(definition.DefinitionId),
-                    9f,
-                    TextAlignmentOptions.Left);
+            RectTransform rect = card.GetComponent<RectTransform>();
+            rect.sizeDelta = new Vector2(0f, 112f);
 
-            SetRect(
-                category.rectTransform,
-                0.06f,
-                0.55f,
-                0.94f,
-                0.66f);
+            GameObject artObject = new GameObject(
+                "UNIT_ARTWORK",
+                typeof(RectTransform),
+                typeof(Image));
+            artObject.transform.SetParent(card.transform, false);
 
-            UnitDefinition unit =
-                UnitDatabaseRuntime.Get(
-                    definition.DefinitionId);
+            Image art = artObject.GetComponent<Image>();
+            art.sprite = unit != null ? unit.StoreImage : null;
+            art.preserveAspect = true;
+            art.color = art.sprite != null ? Color.white : new Color(0.035f, 0.065f, 0.075f, 1f);
+            SetRect(art.rectTransform, 0.015f, 0.08f, 0.22f, 0.92f);
 
-            int price =
-                unit != null
-                    ? Convert.ToInt32(
-                        unit.Economy.creditCost)
-                    : 0;
+            TMP_Text name = Label(
+                card.transform, "NAME", definition.DisplayName,
+                14f, TextAlignmentOptions.Left);
+            name.fontStyle = FontStyles.Bold;
+            name.color = new Color(0.88f, 0.97f, 1f, 1f);
+            SetRect(name.rectTransform, 0.245f, 0.48f, 0.64f, 0.88f);
 
-            TMP_Text priceText =
-                Label(
-                    card.transform,
-                    "PRICE",
-                    price.ToString("N0") +
-                    " C",
-                    12f,
-                    TextAlignmentOptions.Left);
+            TMP_Text category = Label(
+                card.transform, "CATEGORY",
+                Category(definition.DefinitionId).ToUpperInvariant(),
+                9f, TextAlignmentOptions.Left);
+            category.color = new Color(0.25f, 0.78f, 0.86f, 1f);
+            SetRect(category.rectTransform, 0.245f, 0.12f, 0.64f, 0.42f);
 
-            SetRect(
-                priceText.rectTransform,
-                0.06f,
-                0.35f,
-                0.50f,
-                0.52f);
+            TMP_Text state = Label(
+                card.transform, "STATE",
+                owned ? "OWNED" : "AVAILABLE",
+                8f, TextAlignmentOptions.Right);
+            state.color = owned
+                ? new Color(0.35f, 0.9f, 0.65f, 1f)
+                : new Color(0.35f, 0.78f, 0.9f, 1f);
+            SetRect(state.rectTransform, 0.68f, 0.62f, 0.96f, 0.88f);
 
-            bool owned =
-                InventoryRuntime.Has(
-                    definition.DefinitionId);
+            int price = unit != null
+                ? Convert.ToInt32(unit.Economy.creditCost)
+                : 0;
 
-            TMP_Text state =
-                Label(
-                    card.transform,
-                    "STATE",
-                    owned
-                        ? "OWNED"
-                        : "AVAILABLE",
-                    9f,
-                    TextAlignmentOptions.Left);
+            TMP_Text priceText = Label(
+                card.transform, "PRICE",
+                price.ToString("N0") + " CR",
+                12f, TextAlignmentOptions.Left);
+            priceText.fontStyle = FontStyles.Bold;
+            priceText.color = new Color(0.88f, 0.95f, 0.97f, 1f);
+            SetRect(priceText.rectTransform, 0.68f, 0.32f, 0.96f, 0.56f);
 
-            SetRect(
-                state.rectTransform,
-                0.06f,
-                0.20f,
-                0.45f,
-                0.32f);
-
-            Button inspect =
-                MakeButton(
-                    card.transform,
-                    owned
-                        ? "INSPECT"
-                        : "SELECT",
-                    10f,
-                    32f);
-
+            Button inspect = MakeButton(
+                card.transform,
+                owned ? "INSPECT" : "SELECT",
+                9f,
+                28f);
             SetRect(
                 inspect.GetComponent<RectTransform>(),
-                0.55f,
-                0.10f,
-                0.94f,
-                0.30f);
+                0.68f, 0.08f, 0.96f, 0.26f);
 
-            string id =
-                definition.DefinitionId;
+            string id = definition.DefinitionId;
+            UnityEngine.Events.UnityAction selectUnit = () =>
+            {
+                selectedId = id;
+                RefreshDetails();
+                RefreshCatalog();
+            };
 
-            inspect.onClick.AddListener(
-                () =>
-                {
-                    selectedId = id;
-                    RefreshDetails();
-                });
+            cardButton.onClick.AddListener(selectUnit);
+            inspect.onClick.AddListener(selectUnit);
+            cardButton.onClick.AddListener(
+                () => UIAudioFeedbackSystem.Instance?.PlayClick());
+        }
+        private static string FormatEconomyValue(object value)
+    {
+        if (value == null) return "0";
+
+        string raw = Convert.ToString(
+            value,
+            System.Globalization.CultureInfo.InvariantCulture);
+
+        decimal number;
+        if (decimal.TryParse(raw,
+            System.Globalization.NumberStyles.Any,
+            System.Globalization.CultureInfo.InvariantCulture,
+            out number))
+            return number.ToString("N0");
+
+        if (string.IsNullOrWhiteSpace(raw)) return "0";
+        return raw;
+    }
+            private static string BuildUnitDescription(UnitDefinition unit)
+        {
+            if (unit == null)
+                return "UNIT DATABASE RECORD UNAVAILABLE.";
+
+            var sections = new System.Collections.Generic.List<string>();
+
+            AddBriefingSection(sections, "OPERATIONAL ROLE",
+                JoinBriefing(unit.Role, unit.Tier, unit.Status));
+
+            if (unit.Physical != null)
+                AddBriefingSection(sections, "PLATFORM & MOBILITY",
+                    JoinBriefing(unit.Physical.powerSource,
+                        unit.Physical.topSpeedDescription,
+                        unit.Physical.endurance,
+                        unit.Physical.navigationSystem,
+                        unit.Physical.payloadCapacityKg > 0f
+                            ? "Payload capacity: " + unit.Physical.payloadCapacityKg.ToString("0.##") + " kg"
+                            : null));
+
+            if (unit.Sensors != null)
+                AddBriefingSection(sections, "SENSOR & RECONNAISSANCE SYSTEMS",
+                    JoinBriefing(unit.Sensors.visualRangeDescription,
+                        unit.Sensors.thermalRangeDescription,
+                        unit.Sensors.acousticRange,
+                        unit.Sensors.radarRange,
+                        unit.Sensors.lidarRange,
+                        unit.Sensors.signalDetectionRange));
+
+            if (unit.Communication != null)
+                AddBriefingSection(sections, "NETWORK & COMMUNICATIONS",
+                    JoinBriefing(unit.Communication.meshRangeDescription,
+                        unit.Communication.commandLinkType,
+                        unit.Communication.networkPriority));
+
+            if (unit.Combat != null)
+                AddBriefingSection(sections, "THREAT & ENGAGEMENT PROFILE",
+                    JoinBriefing(unit.Combat.firepowerDescription,
+                        unit.Combat.weaponTypes,
+                        unit.Combat.engagementDistance,
+                        unit.Combat.preferredTargets,
+                        unit.Combat.preferredTerrain,
+                        unit.Combat.vulnerabilityProfile));
+
+            if (unit.Autonomy != null)
+                AddBriefingSection(sections, "AUTONOMOUS BEHAVIOR",
+                    JoinBriefing(unit.Autonomy.behaviorProfile,
+                        unit.Autonomy.targetPriority,
+                        unit.Autonomy.formationDiscipline,
+                        unit.Autonomy.retreatBehaviorDescription));
+
+            if (unit.MissionBehaviors != null && unit.MissionBehaviors.Count > 0)
+            {
+                var missions = new System.Collections.Generic.List<string>();
+                foreach (MissionBehavior item in unit.MissionBehaviors)
+                    if (item != null)
+                    {
+                        string entry = JoinBriefing(item.missionType, item.behaviorFocus);
+                        if (!string.IsNullOrWhiteSpace(entry))
+                            missions.Add("- " + entry);
+                    }
+                AddBriefingSection(sections, "MISSION DOCTRINE", string.Join("\n", missions));
+            }
+
+            if (unit.BehaviorNodes != null && unit.BehaviorNodes.Count > 0)
+            {
+                var behaviors = new System.Collections.Generic.List<string>();
+                foreach (BehaviorNode item in unit.BehaviorNodes)
+                    if (item != null)
+                    {
+                        string entry = JoinBriefing(item.behaviorNode, item.description);
+                        if (!string.IsNullOrWhiteSpace(entry))
+                            behaviors.Add("- " + entry);
+                    }
+                AddBriefingSection(sections, "EXECUTION PROFILE", string.Join("\n", behaviors));
+            }
+
+            return sections.Count > 0
+                ? string.Join("\n\n", sections)
+                : "No operational briefing data is populated for this asset.";
         }
 
-        private void RefreshDetails()
+        private static string JoinBriefing(params string[] values)
+        {
+            var parts = new System.Collections.Generic.List<string>();
+            foreach (string value in values)
+                if (!string.IsNullOrWhiteSpace(value))
+                    parts.Add(value.Trim());
+            return string.Join("  |  ", parts);
+        }
+
+        private static void AddBriefingSection(
+            System.Collections.Generic.List<string> sections,
+            string heading,
+            string content)
+        {
+            if (!string.IsNullOrWhiteSpace(content))
+                sections.Add(heading + "\n" + content.Trim());
+        }
+private void RefreshDetails()
         {
             if (detailName == null)
                 return;
@@ -925,25 +963,15 @@ namespace ObsidianProtocol.UI.Store
 
             detailMaintenance.text =
                 "MAINTENANCE    " +
-                Convert.ToInt32(
-                    unit != null
-                        ? unit.Economy.maintenanceCost
-                        : 0) +
+                FormatEconomyValue(unit != null ? unit.Economy.maintenanceCost : 0) +
                 " / CYCLE";
 
             detailOperations.text =
                 "OPERATIONS     " +
-                Convert.ToInt32(
-                    unit != null
-                        ? unit.Economy.operationalCost
-                        : 0) +
+                FormatEconomyValue(unit != null ? unit.Economy.operationalCost : 0) +
                 " / OPERATION";
 
-            detailDescription.text =
-                "PROCUREMENT ACCESS\n\n" +
-                "Ownership places this unit in the persistent military inventory. " +
-                "Battlefield deployment remains governed by mission requirements, " +
-                "command doctrine, logistics and the active Deployment Budget.";
+            detailDescription.text = BuildUnitDescription(unit);
 
             purchaseButton.interactable =
                 !owned &&
@@ -1011,66 +1039,21 @@ namespace ObsidianProtocol.UI.Store
                 confirmation.SetActive(false);
         }
 
-        private string Category(string id)
+                private static string Category(string id)
         {
-            string value =
-                id.ToUpperInvariant();
+            if (string.IsNullOrWhiteSpace(id))
+                return "UNCLASSIFIED";
 
-            if (
-                value.Contains("ARCHIVE") ||
-                value.Contains("COMMAND") ||
-                value.Contains("FUSION") ||
-                value.Contains("INSIGHT") ||
-                value.Contains("NEXUS") ||
-                value.Contains("PULSE") ||
-                value.Contains("VECTOR") ||
-                value.Contains("WORLDMAP"))
-                return "COMMAND";
+            id = id.Trim().ToLowerInvariant();
 
-            if (
-                value.Contains("WARDEN") ||
-                value.Contains("BEACON") ||
-                value.Contains("DROP") ||
-                value.Contains("IRIS") ||
-                value.Contains("LIDAR") ||
-                value.Contains("WATCHTOWER"))
-                return "AIR";
+            if (id.StartsWith("obs-air-")) return "AIR";
+            if (id.StartsWith("obs-ground-")) return "GROUND";
+            if (id.StartsWith("obs-sea-")) return "SEA";
+            if (id.StartsWith("obs-command-")) return "COMMAND";
+            if (id.StartsWith("obs-experimental-")) return "EXPERIMENTAL";
+            if (id.StartsWith("obs-sat-")) return "SATELLITE";
 
-            if (
-                value.Contains("BULLDOG") ||
-                value.Contains("FORGE") ||
-                value.Contains("HAMMER") ||
-                value.Contains("IRONWALKER") ||
-                value.Contains("MULE") ||
-                value.Contains("PATROL") ||
-                value.Contains("ROVER") ||
-                value.Contains("CRUSHER") ||
-                value.Contains("HAULER"))
-                return "GROUND";
-
-            if (
-                value.Contains("SURVEYOR") ||
-                value.Contains("CURRENT") ||
-                value.Contains("RESCUE") ||
-                value.Contains("SONAR") ||
-                value.Contains("HARBOR") ||
-                value.Contains("TIDEBREAKER") ||
-                value.Contains("DEPTHWATCH"))
-                return "SEA";
-
-            if (
-                value.Contains("ECHO") ||
-                value.Contains("HELIX") ||
-                value.Contains("NULLPOINT") ||
-                value.Contains("PHANTOM") ||
-                value.Contains("SHADOWGRID") ||
-                value.Contains("SPECTER"))
-                return "EXPERIMENTAL";
-
-            if (value.Contains("SATELLITE"))
-                return "SATELLITE";
-
-            return "OTHER";
+            return "UNCLASSIFIED";
         }
 
         private RectTransform Panel(
@@ -1192,6 +1175,8 @@ namespace ObsidianProtocol.UI.Store
                     1f);
 
             button.colors = colors;
+            button.onClick.AddListener(
+                () => UIAudioFeedbackSystem.Instance?.PlayClick());
 
             TMP_Text label =
                 Label(

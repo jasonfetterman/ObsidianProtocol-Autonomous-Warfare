@@ -12,7 +12,22 @@ UserSettings/
 .idea/
 *.csproj
 *.sln
+*.slnx
 
 # OS junk
 .DS_Store
 Thumbs.db
+
+# Local editor output, diagnostics, and recovery snapshots
+*.log
+*.bak*
+**/*[Bb][Aa][Cc][Kk][Uu][Pp]*/
+**/*[Aa][Rr][Cc][Hh][Ii][Vv][Ee]*/
+**/_Recovery*/
+**/_HierarchyInspection/
+**/_UnitInventory/
+**/BuildLogs/
+**/ProfilerCaptures/
+Storage/
+.claude/
+.mcp.json

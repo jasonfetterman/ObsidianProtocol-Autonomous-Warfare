@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 3c1ec7289abb81042a2bc09557fcf38e
+ComputeShaderImporter:
+  externalObjects: {}
+  currentAPIMask: 4
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 151796
+  packageName: World Creator Bridge for Unity
+  packageVersion: 2.0
+  assetPath: Assets/WorldCreatorBridge/Content/Shaders/Compute/MaskMap.compute
+  uploadId: 872382

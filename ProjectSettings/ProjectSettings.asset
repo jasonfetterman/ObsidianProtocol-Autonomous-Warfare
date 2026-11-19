@@ -848,7 +848,7 @@ PlayerSettings:
     PS5: UNITY_MCP_READY;UNITY_MCP_DEPS_6
     QNX: UNITY_MCP_READY;UNITY_MCP_DEPS_6
     Server: UNITY_MCP_READY;UNITY_MCP_DEPS_6
-    Standalone: SENTIS_ANALYTICS_ENABLED;APP_UI_EDITOR_ONLY;USE_INPUT_SYSTEM_POSE_CONTROL;USE_STICK_CONTROL_THUMBSTICKS;UNITY_MCP_READY;UNITY_MCP_DEPS_6
+    Standalone: SENTIS_ANALYTICS_ENABLED;APP_UI_EDITOR_ONLY;USE_INPUT_SYSTEM_POSE_CONTROL;USE_STICK_CONTROL_THUMBSTICKS;UNITY_MCP_READY;UNITY_MCP_DEPS_6;LEVELPLAY_DEPENDENCIES_INSTALLED
     VisionOS: UNITY_MCP_READY;UNITY_MCP_DEPS_6
     WebGL: UNITY_MCP_READY;UNITY_MCP_DEPS_6
     Windows Store Apps: USE_INPUT_SYSTEM_POSE_CONTROL;USE_STICK_CONTROL_THUMBSTICKS;UNITY_MCP_READY;UNITY_MCP_DEPS_6
@@ -932,7 +932,8 @@ PlayerSettings:
   XboxOneXTitleMemory: 8
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Purchasing: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -955,11 +956,11 @@ PlayerSettings:
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
   enableDirectStorage: 0
-  cloudProjectId: 
+  cloudProjectId: 64f3d4f0-a6ee-4309-8bb9-97f66a29a0c6
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: OPAW
+  organizationId: twitch3d
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

@@ -189,22 +189,13 @@ MonoBehaviour:
     cooperativeBehaviorIndex: 2
   behaviorNodes:
   - behaviorNode: 
-    weight: -0.00000008226931
-    description: 
-  - behaviorNode: 
     weight: 0
     description: 
   missionBehaviors:
   - missionType: 
     behaviorFocus: 
-    efficiency: -0.00000008228733
-  - missionType: 
-    behaviorFocus: 
     efficiency: 0
   unitSynergies:
-  - partnerUnit: 
-    synergyRating: -0.000000081262726
-    function: 
   - partnerUnit: 
     synergyRating: 0
     function: 
@@ -216,9 +207,6 @@ MonoBehaviour:
     effect: 
     recovery: 
   upgrades:
-  - upgrade: 
-    effect: 
-    efficiencyGain: -0.00000008129882
   - upgrade: 
     effect: 
     efficiencyGain: 0
@@ -245,16 +233,9 @@ MonoBehaviour:
     operationalCostPerHour: Hauler operationalCostPerHour
   threatResponses:
   - threatType: 
-    reactionTimeSeconds: -1.6962372e-20
-    countermeasureEfficiency: 5.79e-43
-  - threatType: 
     reactionTimeSeconds: 0
     countermeasureEfficiency: 0
   commandNetwork:
-  - node: 
-    loadPercent: -0.00001955549
-    latencySeconds: 5.79e-43
-    status: 
   - node: 
     loadPercent: 0
     latencySeconds: 0

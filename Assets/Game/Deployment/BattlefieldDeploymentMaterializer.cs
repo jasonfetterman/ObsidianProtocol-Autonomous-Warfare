@@ -1,18 +1,16 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using ObsidianProtocol.Game.Runtime;
 using ObsidianProtocol.Game.Units;
+using ObsidianProtocol.Game.PersistentMilitary;
 
 namespace ObsidianProtocol.Game.Deployment
 {
     public sealed class BattlefieldDeploymentMaterializer : MonoBehaviour
     {
-        private const string AreaName =
-            "[SYSTEM] PLAYER DEPLOYMENT AREA";
-
-        private const string RuntimeRootName =
-            "[RUNTIME] DEPLOYED UNITS";
+        private const string AreaName = "[SYSTEM] PLAYER DEPLOYMENT AREA";
+        private const string RuntimeRootName = "[RUNTIME] DEPLOYED UNITS";
 
         private void Start()
         {
@@ -26,8 +24,7 @@ namespace ObsidianProtocol.Game.Deployment
 
             if (context == null)
             {
-                Debug.LogWarning(
-                    "[BATTLEFIELD DEPLOYMENT] NO DEPLOYMENT CONTEXT.");
+                Debug.LogWarning("[BATTLEFIELD DEPLOYMENT] NO DEPLOYMENT CONTEXT.");
                 return;
             }
 
@@ -35,25 +32,18 @@ namespace ObsidianProtocol.Game.Deployment
 
             if (area == null)
             {
-                Debug.LogError(
-                    "[BATTLEFIELD DEPLOYMENT] DEPLOYMENT AREA NOT FOUND.");
+                Debug.LogError("[BATTLEFIELD DEPLOYMENT] DEPLOYMENT AREA NOT FOUND.");
                 return;
             }
 
-            GameObject root = GameObject.Find(RuntimeRootName);
-
-            if (root == null)
-                root = new GameObject(RuntimeRootName);
-
+            GameObject root = GetRuntimeRoot();
             ClearRuntimeUnits(root);
 
-            IReadOnlyList<DeploymentEntry> entries =
-                context.DeployedEntries;
+            IReadOnlyList<DeploymentEntry> entries = context.DeployedEntries;
 
             if (entries == null || entries.Count == 0)
             {
-                Debug.LogWarning(
-                    "[BATTLEFIELD DEPLOYMENT] NO DEPLOYED UNITS.");
+                Debug.LogWarning("[BATTLEFIELD DEPLOYMENT] NO DEPLOYED UNITS.");
                 return;
             }
 
@@ -61,107 +51,261 @@ namespace ObsidianProtocol.Game.Deployment
 
             for (int i = 0; i < entries.Count; i++)
             {
-                DeploymentEntry entry = entries[i];
-
-                if (entry == null)
-                    continue;
-
-                UnitDefinition definition =
-                    UnitDatabaseRuntime.Get(entry.UnitId);
-
-                if (definition == null)
-                {
-                    Debug.LogError(
-                        "[BATTLEFIELD DEPLOYMENT] UNIT DEFINITION NOT FOUND: " +
-                        entry.UnitId);
-                    continue;
-                }
-
-                Vector3 spawnPosition =
-                    area.transform.position +
-                    new Vector3(i * 3f, 0f, 0f);
-
-                if (NavMesh.SamplePosition(
-                    spawnPosition,
-                    out NavMeshHit hit,
-                    20f,
-                    NavMesh.AllAreas))
-                {
-                    spawnPosition =
-                        hit.position +
-                        new Vector3(0f, 1.2f, 0f);
-                }
-
-                GameObject unitObject =
-                    GameObject.CreatePrimitive(
-                        PrimitiveType.Capsule);
-
-                unitObject.name =
-                    "[UNIT] " +
-                    definition.DisplayName +
-                    " // " +
-                    entry.DeploymentId;
-
-                unitObject.transform.SetParent(root.transform);
-                unitObject.transform.position = spawnPosition;
-                unitObject.transform.localScale =
-                    new Vector3(1.2f, 1.2f, 1.2f);
-
-                UnitInstance instance =
-                    unitObject.AddComponent<UnitInstance>();
-                    instance.SetDefinition(definition);
-
-            ObsidianProtocol.Game.PersistentMilitary.MilitaryUnitIdentity identity =
-                unitObject.AddComponent<ObsidianProtocol.Game.PersistentMilitary.MilitaryUnitIdentity>();
-            identity.Initialize(entry.ServiceRecordId, entry.UnitId);
-
-                ObsidianProtocol.Game.Core.EntityId entityId =
-                    unitObject.AddComponent<
-                        ObsidianProtocol.Game.Core.EntityId>();
-
-                SelectableUnit selectable =
-                    unitObject.AddComponent<SelectableUnit>();
-
-                NavMeshAgent agent =
-                    unitObject.AddComponent<NavMeshAgent>();
-
-                UnitAutonomy autonomy =
-                    unitObject.AddComponent<UnitAutonomy>();
-
-                WardenCommandReceiver commandReceiver =
-                    unitObject.AddComponent<WardenCommandReceiver>();
-
-                agent.speed =
-                    Mathf.Max(
-                        1f,
-                        definition.Physical.topSpeedMetersPerSecond);
-
-                Debug.Log(
-                    "[BATTLEFIELD DEPLOYMENT] MATERIALIZED // " +
-                    definition.DisplayName +
-                    " // UNIT=" +
-                    entry.UnitId +
-                    " // DEPLOYMENT=" +
-                    entry.DeploymentId);
-
-                Debug.Log(
-                    "[BATTLEFIELD DEPLOYMENT] COMMAND RECEIVER ATTACHED // " +
-                    unitObject.name);
-
-                created++;
+                if (SpawnEntry(entries[i], area, root, i) != null)
+                    created++;
             }
 
             Debug.Log(
                 "[BATTLEFIELD DEPLOYMENT] MATERIALIZATION COMPLETE // " +
-                created +
-                " UNITS // OPERATION=" +
-                context.OperationId);
+                created + " UNITS // OPERATION=" + context.OperationId);
+        }
+
+        public bool MaterializeEntries(IEnumerable<DeploymentEntry> entries)
+        {
+            if (entries == null)
+                return false;
+
+            GameObject area = GameObject.Find(AreaName);
+
+            if (area == null)
+            {
+                Debug.LogError("[BATTLEFIELD DEPLOYMENT] DEPLOYMENT AREA NOT FOUND.");
+                return false;
+            }
+
+            GameObject root = GetRuntimeRoot();
+            List<GameObject> spawnedUnits = new List<GameObject>();
+            int spawnIndex = root.transform.childCount;
+
+            try
+            {
+                foreach (DeploymentEntry entry in entries)
+                {
+                    if (entry == null || !entry.Valid)
+                    {
+                        RollbackSpawnedUnits(spawnedUnits);
+                        return false;
+                    }
+
+                    if (HasDeployment(entry.DeploymentId, root))
+                        continue;
+
+                    GameObject spawned = SpawnEntry(
+                        entry,
+                        area,
+                        root,
+                        spawnIndex);
+
+                    if (spawned == null)
+                    {
+                        RollbackSpawnedUnits(spawnedUnits);
+                        return false;
+                    }
+
+                    spawnedUnits.Add(spawned);
+                    spawnIndex++;
+                }
+
+                Debug.Log(
+                    "[BATTLEFIELD DEPLOYMENT] REINFORCEMENTS MATERIALIZED // " +
+                    spawnedUnits.Count + " NEW UNITS.");
+
+                return true;
+            }
+            catch (System.Exception exception)
+            {
+                RollbackSpawnedUnits(spawnedUnits);
+                Debug.LogError(
+                    "[BATTLEFIELD DEPLOYMENT] REINFORCEMENT BATCH EXCEPTION // " +
+                    exception);
+                return false;
+            }
+        }
+
+        private static void RollbackSpawnedUnits(
+            List<GameObject> spawnedUnits)
+        {
+            foreach (GameObject unit in spawnedUnits)
+            {
+                if (unit != null)
+                    Destroy(unit);
+            }
+
+            Debug.LogWarning(
+                "[BATTLEFIELD DEPLOYMENT] REINFORCEMENT SPAWN ROLLBACK // " +
+                spawnedUnits.Count + " UNITS");
+        }
+        private static GameObject GetRuntimeRoot()
+        {
+            GameObject root = GameObject.Find(RuntimeRootName);
+
+            if (root == null)
+                root = new GameObject(RuntimeRootName);
+
+            return root;
+        }
+
+        private static GameObject SpawnEntry(
+            DeploymentEntry entry,
+            GameObject area,
+            GameObject root,
+            int spawnIndex)
+        {
+            if (entry == null || !entry.Valid)
+                return null;
+
+            UnitDefinition definition =
+                UnitDatabaseRuntime.Get(entry.UnitId);
+
+            if (definition == null)
+            {
+                Debug.LogError(
+                    "[BATTLEFIELD DEPLOYMENT] UNIT DEFINITION NOT FOUND: " +
+                    entry.UnitId);
+                return null;
+            }
+
+            if (definition.ModelPrefab == null)
+            {
+                Debug.LogError(
+                    "[BATTLEFIELD DEPLOYMENT] MODEL PREFAB NOT ASSIGNED: " +
+                    definition.DisplayName + " // " + entry.UnitId);
+                return null;
+            }
+
+            bool isGroundUnit =
+                definition.Category == UnitCategory.Ground;
+
+            Vector3 spawnPosition =
+                area.transform.position +
+                new Vector3(spawnIndex * 3f, 0f, 0f);
+
+            bool foundNavMesh = NavMesh.SamplePosition(
+                spawnPosition,
+                out NavMeshHit hit,
+                20f,
+                NavMesh.AllAreas);
+
+            if (foundNavMesh)
+            {
+                spawnPosition = hit.position;
+
+                if (!isGroundUnit)
+                    spawnPosition += new Vector3(0f, 1.2f, 0f);
+            }
+
+            GameObject unitObject = null;
+            try
+            {
+                unitObject = new GameObject(
+                "[UNIT] " + definition.DisplayName + " // " +
+                entry.DeploymentId);
+
+            unitObject.transform.SetParent(root.transform);
+            unitObject.transform.position = spawnPosition;
+
+            GameObject visual = Instantiate(
+                definition.ModelPrefab,
+                unitObject.transform);
+
+            visual.name = "[MODEL] " + definition.DisplayName;
+            visual.transform.localPosition = Vector3.zero;
+            visual.transform.localRotation = Quaternion.identity;
+
+            CapsuleCollider unitCollider =
+                unitObject.AddComponent<CapsuleCollider>();
+
+            unitCollider.center = new Vector3(0f, 1.2f, 0f);
+            unitCollider.radius = 0.6f;
+            unitCollider.height = 2.4f;
+
+            UnitInstance instance =
+                unitObject.AddComponent<UnitInstance>();
+            instance.SetDefinition(definition);
+
+            MilitaryUnitIdentity identity =
+                unitObject.AddComponent<MilitaryUnitIdentity>();
+
+            identity.Initialize(
+                entry.DeploymentId,
+                entry.ServiceRecordId,
+                entry.UnitId);
+
+            BattlefieldMinimapUnit minimapUnit =
+                unitObject.AddComponent<BattlefieldMinimapUnit>();
+            minimapUnit.SetFriendly(true);
+
+            unitObject.AddComponent<ObsidianProtocol.Game.Core.EntityId>();
+            unitObject.AddComponent<SelectableUnit>();
+
+            NavMeshAgent agent = unitObject.AddComponent<NavMeshAgent>();
+            agent.speed = Mathf.Max(
+                1f,
+                definition.Physical.topSpeedMetersPerSecond);
+
+            unitObject.AddComponent<UnitAutonomy>();
+            unitObject.AddComponent<WardenCommandReceiver>();
+
+            if (isGroundUnit)
+            {
+                agent.baseOffset = 0f;
+                agent.radius = 0.6f;
+                agent.height = 2.4f;
+                agent.stoppingDistance = 1f;
+                agent.acceleration = 20f;
+                agent.angularSpeed = 360f;
+
+                unitObject.AddComponent<UnitMovement>();
+
+                Debug.Log(
+                    "[BATTLEFIELD MOVEMENT] GROUND NAVIGATION ENABLED // " +
+                    definition.DisplayName);
+            }
+
+            Debug.Log(
+                "[BATTLEFIELD DEPLOYMENT] MODEL SPAWNED // " +
+                definition.DisplayName +
+                " // UNIT=" + entry.UnitId +
+                " // DEPLOYMENT=" + entry.DeploymentId);
+
+            return unitObject;
+            }
+            catch (System.Exception exception)
+            {
+                if (unitObject != null)
+                    Destroy(unitObject);
+
+                Debug.LogError(
+                    "[BATTLEFIELD DEPLOYMENT] REINFORCEMENT SPAWN EXCEPTION // " +
+                    entry.UnitId + " // " + exception);
+
+                return null;
+            }
+        }
+
+        private static bool HasDeployment(
+            string deploymentId,
+            GameObject root)
+        {
+            if (string.IsNullOrWhiteSpace(deploymentId))
+                return false;
+
+            MilitaryUnitIdentity[] identities =
+                root.GetComponentsInChildren<MilitaryUnitIdentity>(true);
+
+            foreach (MilitaryUnitIdentity identity in identities)
+            {
+                if (identity != null &&
+                    identity.DeploymentId == deploymentId)
+                    return true;
+            }
+
+            return false;
         }
 
         private static void ClearRuntimeUnits(GameObject root)
         {
-            List<GameObject> children =
-                new List<GameObject>();
+            List<GameObject> children = new List<GameObject>();
 
             for (int i = 0; i < root.transform.childCount; i++)
                 children.Add(root.transform.GetChild(i).gameObject);
@@ -171,4 +315,3 @@ namespace ObsidianProtocol.Game.Deployment
         }
     }
 }
-

@@ -232,15 +232,8 @@ MonoBehaviour:
     maintenancePriorityLevel: Horizon maintenancePriorityLevel
     sparePartDependencyIndex: 1
     operationalCostPerHour: Horizon operationalCostPerHour
-  threatResponses:
-  - threatType: 
-    reactionTimeSeconds: -1.6962372e-20
-    countermeasureEfficiency: 5.79e-43
-  commandNetwork:
-  - node: 
-    loadPercent: -0.00001955549
-    latencySeconds: 5.79e-43
-    status: 
+  threatResponses: []
+  commandNetwork: []
   performance:
     missionSuccessProbability: 0.75
     averageEngagementDurationMinutes: 1

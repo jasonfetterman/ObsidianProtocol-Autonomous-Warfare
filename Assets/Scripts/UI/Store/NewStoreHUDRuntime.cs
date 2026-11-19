@@ -330,17 +330,18 @@ public sealed class NewStoreHUDRuntime : MonoBehaviour
     private void ConfigureCategoryButtons()
     {
         ConfigureAllAssetsButton("CATEGORY_0", "ALL ASSETS");
-        ConfigureCategoryButton("CATEGORY_1", "AIR UNIT", UnitCategory.AirUnit);
-        ConfigureCategoryButton("CATEGORY_2", "GROUND UNIT", UnitCategory.GroundUnit);
-        ConfigureCategoryButton("CATEGORY_3", "FIGHTER", UnitCategory.Fighter);
-        ConfigureCategoryButton("CATEGORY_4", "STATION", UnitCategory.Station);
-        ConfigureCategoryButton("CATEGORY_5", "SATELLITE", UnitCategory.Satellite);
-        ConfigureCategoryButton("CATEGORY_6", "NAVAL", UnitCategory.Naval);
-        ConfigureCategoryButton("CATEGORY_7", "TRANSPORT", UnitCategory.Transport);
-        ConfigureCategoryButton("CATEGORY_8", "RECON", UnitCategory.Recon);
-        ConfigureCategoryButton("CATEGORY_9", "SHUTTLE", UnitCategory.Shuttle);
-        ConfigureCategoryButton("CATEGORY_10", "MEDICAL", UnitCategory.Medical);
-        ConfigureCategoryButton("CATEGORY_11", "EXPLORATION", UnitCategory.Exploration);
+        ConfigureCategoryButton("CATEGORY_1", "AIR", UnitCategory.Air);
+        ConfigureCategoryButton("CATEGORY_2", "GROUND", UnitCategory.Ground);
+        ConfigureCategoryButton("CATEGORY_3", "SEA", UnitCategory.Sea);
+        ConfigureCategoryButton("CATEGORY_4", "COMMAND", UnitCategory.Command);
+        ConfigureCategoryButton("CATEGORY_5", "EXPERIMENTAL", UnitCategory.Experimental);
+        ConfigureCategoryButton("CATEGORY_6", "SATELLITE", UnitCategory.Satellite);
+
+        DisableCategoryButton("CATEGORY_7");
+        DisableCategoryButton("CATEGORY_8");
+        DisableCategoryButton("CATEGORY_9");
+        DisableCategoryButton("CATEGORY_10");
+        DisableCategoryButton("CATEGORY_11");
     }
 
     private void ConfigureAllAssetsButton(string objectName, string label)

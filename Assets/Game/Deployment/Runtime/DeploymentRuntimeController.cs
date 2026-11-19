@@ -4,35 +4,21 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using ObsidianProtocol.Game.Runtime;
+using ObsidianProtocol.Game.Units;
 
 namespace ObsidianProtocol.Game.Deployment
 {
     public class DeploymentRuntimeController : MonoBehaviour
     {
-        private const int MAX_DP = 10000;
-
-        private readonly Dictionary<string, int> unitCosts =
-            new Dictionary<string, int>
-            {
-                { "WARDEN", 1200 },
-                { "BEACON", 850 },
-                { "BULLDOG", 1400 },
-                { "FORGE", 1700 },
-                { "SENTINEL", 1100 }
-            };
-
-        private readonly Dictionary<string, string> unitIds =
-            new Dictionary<string, string>
-            {
-                { "WARDEN", "obs-air-warden" },
-                { "BEACON", "obs-air-beacon" },
-                { "BULLDOG", "obs-ground-bulldog" },
-                { "FORGE", "obs-ground-forge" },
-                { "SENTINEL", "obs-air-sentinel" }
-            };
+        private DeploymentRulesConfiguration rulesConfiguration;
+        private DeploymentMode deploymentMode = DeploymentMode.Unconfigured;
 
         private DeploymentBudget deploymentBudget;
         private BattleBudget battleBudget;
+        private ReinforcementBudget reinforcementBudget;
+        private OfflineDeploymentRules offlineRules;
+        private MultiplayerDeploymentRules multiplayerRules;
         private DeploymentPointPool deploymentPoints;
         private DeploymentPointLedger pointLedger;
         private DeploymentFramework deploymentFramework;
@@ -108,20 +94,89 @@ namespace ObsidianProtocol.Game.Deployment
             BindButtons();
             UpdateDisplays();
 
-            Debug.Log(
-                "[DEPLOYMENT] REAL DEPLOYMENT RUNTIME INITIALIZED // 10,000 DP");
+            Debug.Log("[DEPLOYMENT] RUNTIME INITIALIZED // MODE=" + deploymentMode);
         }
 
         private void InitializeDeploymentSystems()
         {
-            deploymentBudget =
-                new DeploymentBudget(MAX_DP);
+            rulesConfiguration =
+                UnityEngine.Resources.Load<DeploymentRulesConfiguration>(
+                    "DeploymentRulesConfiguration");
 
-            battleBudget =
-                new BattleBudget(MAX_DP);
+            if (rulesConfiguration == null)
+            {
+                Debug.LogError("[DEPLOYMENT] RULES CONFIGURATION ASSET NOT FOUND");
+                deploymentMode = DeploymentMode.Unconfigured;
+            }
+            else
+            {
+                deploymentMode = rulesConfiguration.Mode;
+            }
+
+            deploymentBudget = null;
+            battleBudget = null;
+            offlineRules = null;
+            multiplayerRules = null;
+            reinforcementBudget = null;
+
+            int maximumDeploymentPoints = 0;
+
+            if (rulesConfiguration != null &&
+                deploymentMode == DeploymentMode.Offline &&
+                rulesConfiguration.IsConfigured)
+            {
+                deploymentBudget =
+                    new DeploymentBudget(
+                        rulesConfiguration.OfflineDeploymentBudget);
+
+                maximumDeploymentPoints =
+                    rulesConfiguration.OfflineMaximumDeploymentPoints;
+
+                offlineRules = new OfflineDeploymentRules(
+                    rulesConfiguration.OfflineDeploymentBudget,
+                    rulesConfiguration.OfflineMaximumDeploymentPoints);
+
+                offlineRules.SetAllowReinforcements(
+                    rulesConfiguration.OfflineAllowReinforcements);
+
+                reinforcementBudget = new ReinforcementBudget();
+                reinforcementBudget.SetMaximum(
+                    rulesConfiguration.OfflineMaximumReinforcementPoints);
+            }
+            else if (rulesConfiguration != null &&
+                     deploymentMode == DeploymentMode.Multiplayer &&
+                     rulesConfiguration.IsConfigured)
+            {
+                battleBudget =
+                    new BattleBudget(
+                        rulesConfiguration.MultiplayerBattleBudget);
+
+                maximumDeploymentPoints =
+                    rulesConfiguration.MultiplayerMaximumDeploymentPoints;
+
+                multiplayerRules =
+                    new MultiplayerDeploymentRules(
+                        rulesConfiguration.MultiplayerBattleBudget,
+                        rulesConfiguration.MultiplayerMaximumDeploymentPoints,
+                        rulesConfiguration.MultiplayerMaximumReinforcementPoints);
+
+                multiplayerRules.SetAllowReinforcements(rulesConfiguration.MultiplayerAllowReinforcements);
+
+                reinforcementBudget =
+                    new ReinforcementBudget();
+
+                reinforcementBudget.SetMaximum(
+                    multiplayerRules.MaximumReinforcementPoints);
+            }
+            else
+            {
+                deploymentMode = DeploymentMode.Unconfigured;
+                Debug.LogError(
+                    "[DEPLOYMENT] BUDGET CONFIGURATION INVALID OR UNCONFIGURED // DEPLOYMENT DISABLED");
+            }
 
             deploymentPoints =
-                new DeploymentPointPool(MAX_DP);
+                new DeploymentPointPool(maximumDeploymentPoints);
 
             pointLedger =
                 new DeploymentPointLedger();
@@ -160,18 +215,32 @@ namespace ObsidianProtocol.Game.Deployment
                     zoneSystem,
                     costRegistry);
         }
-
         private void RegisterUnitCosts()
         {
-            foreach (KeyValuePair<string, int> pair in unitCosts)
+            if (!UnitDatabaseRuntime.EnsureInitialized() ||
+                UnitDatabaseRuntime.Database == null)
             {
-                if (!unitIds.ContainsKey(pair.Key))
+                Debug.LogError("[DEPLOYMENT] UNIT DATABASE UNAVAILABLE");
+                return;
+            }
+
+            foreach (UnitDefinition definition in UnitDatabaseRuntime.Database.Units)
+            {
+                if (definition == null ||
+                    string.IsNullOrWhiteSpace(definition.UnitId))
+                    continue;
+
+                EconomyLogistics economy = definition.Economy;
+
+                if (economy == null ||
+                    !economy.deploymentPointsDefined ||
+                    economy.deploymentPoints <= 0)
                     continue;
 
                 costRegistry.Register(
                     new UnitDeploymentCost(
-                        unitIds[pair.Key],
-                        pair.Value));
+                        definition.UnitId,
+                        economy.deploymentPoints));
             }
         }
 
@@ -205,27 +274,7 @@ namespace ObsidianProtocol.Game.Deployment
                 "[BUTTON] FINAL REVIEW",
                 () => OpenWindow("[WINDOW] FINAL REVIEW"));
 
-            BindButton(
-                "[BUTTON] WARDEN",
-                () => AddUnit("WARDEN"));
-
-            BindButton(
-                "[BUTTON] BEACON",
-                () => AddUnit("BEACON"));
-
-            BindButton(
-                "[BUTTON] BULLDOG",
-                () => AddUnit("BULLDOG"));
-
-            BindButton(
-                "[BUTTON] FORGE",
-                () => AddUnit("FORGE"));
-
-            BindButton(
-                "[BUTTON] SENTINEL",
-                () => AddUnit("SENTINEL"));
-
-            BindButton(
+BindButton(
                 "[BUTTON] ADD UNIT",
                 AddFirstAffordableUnit);
 
@@ -282,61 +331,93 @@ namespace ObsidianProtocol.Game.Deployment
                 OpenUnitInspection);
         }
 
-        private void AddUnit(string displayName)
+        private void AddUnit(string unitId)
         {
-            if (!unitCosts.ContainsKey(displayName))
+            if (!UnitDatabaseRuntime.EnsureInitialized())
                 return;
 
-            int cost = unitCosts[displayName];
+            UnitDefinition definition = UnitDatabaseRuntime.Get(unitId);
 
-            if (!deploymentBudget.CanSpend(cost))
+            if (definition == null)
             {
-                Debug.LogWarning(
-                    "[DEPLOYMENT] INSUFFICIENT DP // " +
-                    displayName);
+                Debug.LogWarning("[DEPLOYMENT] UNIT NOT FOUND IN DATABASE // " + unitId);
                 return;
             }
 
-            string unitId = unitIds[displayName];
+            EconomyLogistics economy = definition.Economy;
 
-            string deploymentId =
-                "deployment-" +
-                Guid.NewGuid().ToString("N");
-
-            string serviceRecordId =
-                "unit-" +
-                Guid.NewGuid().ToString("N");
-
-            DeploymentEntry entry =
-                new DeploymentEntry(
-                    deploymentId,
-                    unitId,
-                    cost,
-                    serviceRecordId);
-
-            if (!deploymentRoster.TryAdd(
-                deploymentBudget,
-                entry))
+            if (economy == null ||
+                !economy.deploymentPointsDefined ||
+                economy.deploymentPoints <= 0)
             {
-                Debug.LogWarning(
-                    "[DEPLOYMENT] ROSTER REJECTED // " +
-                    displayName);
+                Debug.LogWarning("[DEPLOYMENT] UNIT HAS NO CONFIGURED DEPLOYMENT POINTS // " + unitId);
                 return;
             }
 
-            if (!pointLedger.Allocate(
+            int cost = economy.deploymentPoints;
+            string displayName = string.IsNullOrWhiteSpace(definition.DisplayName)
+                ? definition.UnitId
+                : definition.DisplayName;
+
+            if (!costRegistry.TryGetCost(unitId, out int registeredCost) ||
+                registeredCost != cost)
+            {
+                Debug.LogWarning("[DEPLOYMENT] UNIT COST REGISTRY MISMATCH // " + unitId);
+                return;
+            }
+
+            bool budgetAllowsUnit = false;
+
+            if (deploymentMode == DeploymentMode.Offline &&
+                deploymentBudget != null)
+            {
+                budgetAllowsUnit = deploymentBudget.CanSpend(cost);
+            }
+            else if (deploymentMode == DeploymentMode.Multiplayer &&
+                     battleBudget != null)
+            {
+                budgetAllowsUnit =
+                    battleBudget.CanCommit(pointLedger.TotalAllocated + cost);
+            }
+
+            if (!budgetAllowsUnit)
+            {
+                Debug.LogWarning("[DEPLOYMENT] INSUFFICIENT OR UNCONFIGURED BUDGET // " + displayName);
+                return;
+            }
+
+            string deploymentId = "deployment-" + Guid.NewGuid().ToString("N");
+            string serviceRecordId = "unit-" + Guid.NewGuid().ToString("N");
+
+            DeploymentEntry entry = new DeploymentEntry(
                 deploymentId,
+                unitId,
                 cost,
-                deploymentPoints))
+                serviceRecordId);
+
+            bool rosterAccepted =
+                deploymentMode == DeploymentMode.Offline
+                    ? deploymentRoster.TryAdd(deploymentBudget, entry)
+                    : deploymentMode == DeploymentMode.Multiplayer &&
+                      deploymentRoster.TryAdd(entry);
+
+            if (!rosterAccepted)
             {
-                deploymentRoster.Remove(
-                    deploymentBudget,
-                    entry);
+                Debug.LogWarning("[DEPLOYMENT] ROSTER REJECTED // " + displayName);
+                return;
+            }
 
-                Debug.LogWarning(
-                    "[DEPLOYMENT] POINT LEDGER REJECTED // " +
-                    displayName);
+            if (!pointLedger.Allocate(deploymentId, cost, deploymentPoints))
+            {
+                if (deploymentMode == DeploymentMode.Offline)
+                    if (deploymentMode == DeploymentMode.Offline)
+                    deploymentRoster.Remove(deploymentBudget, entry);
+                else
+                    deploymentRoster.Remove(entry);
+                else
+                    deploymentRoster.Remove(entry);
 
+                Debug.LogWarning("[DEPLOYMENT] POINT LEDGER REJECTED // " + displayName);
                 return;
             }
 
@@ -355,31 +436,57 @@ namespace ObsidianProtocol.Game.Deployment
 
             selectedUnits.Add(displayName);
             selectedDeploymentIds.Add(deploymentId);
-
             armyComposition.AddUnit(unitId);
 
             UpdateDisplays();
 
-            Debug.Log(
-                "[DEPLOYMENT] ADDED // " +
-                displayName +
-                " // " +
-                cost +
-                " DP");
+            Debug.Log("[DEPLOYMENT] ADDED // " + displayName + " // " + cost + " DP");
         }
-
         private void AddFirstAffordableUnit()
         {
-            foreach (KeyValuePair<string, int> pair in unitCosts)
+            if (!UnitDatabaseRuntime.EnsureInitialized() ||
+                UnitDatabaseRuntime.Database == null)
+                return;
+
+            foreach (UnitDefinition definition in UnitDatabaseRuntime.Database.Units)
             {
-                if (deploymentBudget.CanSpend(pair.Value))
+                if (definition == null ||
+                    string.IsNullOrWhiteSpace(definition.UnitId))
+                    continue;
+
+                EconomyLogistics economy = definition.Economy;
+
+                if (economy == null ||
+                    !economy.deploymentPointsDefined ||
+                    economy.deploymentPoints <= 0)
+                    continue;
+
+                int cost = economy.deploymentPoints;
+                bool affordable = false;
+
+                if (deploymentMode == DeploymentMode.Offline &&
+                    deploymentBudget != null)
                 {
-                    AddUnit(pair.Key);
+                    affordable = deploymentBudget.CanSpend(cost);
+                }
+                else if (deploymentMode == DeploymentMode.Multiplayer &&
+                         battleBudget != null)
+                {
+                    affordable =
+                        battleBudget.CanCommit(pointLedger.TotalAllocated + cost);
+                }
+
+                if (affordable &&
+                    deploymentPoints != null &&
+                    deploymentPoints.CanSpend(cost))
+                {
+                    AddUnit(definition.UnitId);
                     return;
                 }
             }
-        }
 
+            Debug.LogWarning("[DEPLOYMENT] NO CONFIGURED AFFORDABLE UNITS FOUND");
+        }
         private void RemoveLastUnit()
         {
             if (selectedDeploymentIds.Count == 0)
@@ -397,9 +504,10 @@ namespace ObsidianProtocol.Game.Deployment
                 deploymentId,
                 out entry))
             {
-                deploymentRoster.Remove(
-                    deploymentBudget,
-                    entry);
+                if (deploymentMode == DeploymentMode.Offline)
+                    deploymentRoster.Remove(deploymentBudget, entry);
+                else
+                    deploymentRoster.Remove(entry);
 
                 deploymentFramework.Remove(
                     deploymentId);
@@ -448,8 +556,10 @@ namespace ObsidianProtocol.Game.Deployment
                 }
             }
 
-            deploymentRoster.Clear(
-                deploymentBudget);
+            if (deploymentMode == DeploymentMode.Offline)
+                deploymentRoster.Clear(deploymentBudget);
+            else
+                deploymentRoster.Clear();
 
             pointLedger.Clear(
                 deploymentPoints);
@@ -466,39 +576,63 @@ namespace ObsidianProtocol.Game.Deployment
             UpdateDisplays();
 
             Debug.Log(
-                "[DEPLOYMENT] FORCE CLEARED // 10,000 DP");
+                "[DEPLOYMENT] FORCE CLEARED // MODE=" + deploymentMode);
         }
 
         private void Deploy()
         {
             if (operationSelectionController != null)
-            {
-                selectedOperation =
-                    operationSelectionController.GetSelectedOperation();
-            }
-
-            Debug.Log(
-                "[DEPLOYMENT] DEPLOYMENT OPERATION // " +
-                selectedOperation);
+                selectedOperation = operationSelectionController.GetSelectedOperation();
 
             if (selectedDeploymentIds.Count == 0)
             {
-                Debug.LogWarning(
-                    "[DEPLOYMENT] CANNOT DEPLOY // FORCE EMPTY");
+                Debug.LogWarning("[DEPLOYMENT] CANNOT DEPLOY // FORCE EMPTY");
                 return;
             }
 
-            foreach (string deploymentId
-                     in selectedDeploymentIds)
+            if (deploymentMode == DeploymentMode.Unconfigured ||
+                pointLedger == null ||
+                deploymentFramework == null ||
+                stagingSystem == null ||
+                validator == null)
             {
-                DeploymentEntry entry;
+                Debug.LogError("[DEPLOYMENT] CANNOT DEPLOY // SYSTEMS UNCONFIGURED");
+                return;
+            }
 
+            int totalDeploymentPoints = pointLedger.TotalAllocated;
+
+            if (totalDeploymentPoints <= 0)
+            {
+                Debug.LogError("[DEPLOYMENT] CANNOT DEPLOY // INVALID POINT ALLOCATION");
+                return;
+            }
+
+            if (deploymentMode == DeploymentMode.Multiplayer &&
+                (battleBudget == null ||
+                 !battleBudget.CanCommit(totalDeploymentPoints)))
+            {
+                Debug.LogWarning("[DEPLOYMENT] CANNOT DEPLOY // INSUFFICIENT BATTLE BUDGET");
+                return;
+            }
+
+            List<DeploymentEntry> battlefieldEntries =
+                new List<DeploymentEntry>();
+
+            Dictionary<string, DeploymentState> originalEntryStates =
+                new Dictionary<string, DeploymentState>();
+
+            Dictionary<string, DeploymentStagingState> originalStagingStates =
+                new Dictionary<string, DeploymentStagingState>();
+
+            foreach (string deploymentId in selectedDeploymentIds)
+            {
                 if (!deploymentFramework.TryGet(
-                    deploymentId,
-                    out entry))
+                        deploymentId,
+                        out DeploymentEntry entry) ||
+                    entry == null)
                 {
-                    Debug.LogError(
-                        "[DEPLOYMENT] VALIDATION FAILED // ENTRY MISSING");
+                    Debug.LogError("[DEPLOYMENT] VALIDATION FAILED // ENTRY MISSING");
                     return;
                 }
 
@@ -507,35 +641,92 @@ namespace ObsidianProtocol.Game.Deployment
                         deploymentId,
                         "PLAYER_DEPLOYMENT",
                         entry.UnitId,
-                        battleBudget,
-                        deploymentPoints);
+                        pointLedger);
 
                 if (!result.Valid)
                 {
                     Debug.LogWarning(
-                        "[DEPLOYMENT] VALIDATION FAILED // " +
-                        result.Failure);
+                        "[DEPLOYMENT] VALIDATION FAILED // " + result.Failure);
                     return;
                 }
 
-                deploymentFramework.Stage(
-                    deploymentId);
+                if (!stagingSystem.TryGet(
+                        deploymentId,
+                        out DeploymentStagingEntry stagingEntry) ||
+                    stagingEntry == null ||
+                    !stagingEntry.Valid)
+                {
+                    Debug.LogError("[DEPLOYMENT] VALIDATION FAILED // STAGING ENTRY MISSING");
+                    return;
+                }
 
-                stagingSystem.Stage(
-                    deploymentId);
+                if (entry.State != DeploymentState.Available ||
+                    stagingEntry.State != DeploymentStagingState.Unstaged)
+                {
+                    Debug.LogError(
+                        "[DEPLOYMENT] VALIDATION FAILED // INVALID INITIAL STATE // " +
+                        deploymentId);
+                    return;
+                }
 
-                stagingSystem.MarkReady(
-                    deploymentId);
+                originalEntryStates.Add(deploymentId, entry.State);
+                originalStagingStates.Add(deploymentId, stagingEntry.State);
+                battlefieldEntries.Add(entry);
             }
 
-            foreach (string deploymentId
-                     in selectedDeploymentIds)
+            foreach (string deploymentId in selectedDeploymentIds)
             {
-                deploymentFramework.Deploy(
-                    deploymentId);
+                if (!deploymentFramework.Stage(deploymentId) ||
+                    !stagingSystem.Stage(deploymentId) ||
+                    !stagingSystem.MarkReady(deploymentId))
+                {
+                    RestoreDeploymentSnapshot(
+                        originalEntryStates,
+                        originalStagingStates,
+                        false,
+                        0);
 
-                stagingSystem.Deploy(
-                    deploymentId);
+                    Debug.LogError(
+                        "[DEPLOYMENT] STAGING FAILED // " + deploymentId);
+                    return;
+                }
+            }
+
+            bool multiplayerBudgetCommitted = false;
+
+            if (deploymentMode == DeploymentMode.Multiplayer)
+            {
+                multiplayerBudgetCommitted =
+                    battleBudget.TryCommit(totalDeploymentPoints);
+
+                if (!multiplayerBudgetCommitted)
+                {
+                    RestoreDeploymentSnapshot(
+                        originalEntryStates,
+                        originalStagingStates,
+                        false,
+                        0);
+
+                    Debug.LogError("[DEPLOYMENT] BATTLE BUDGET COMMIT FAILED");
+                    return;
+                }
+            }
+
+            foreach (string deploymentId in selectedDeploymentIds)
+            {
+                if (!deploymentFramework.Deploy(deploymentId) ||
+                    !stagingSystem.Deploy(deploymentId))
+                {
+                    RestoreDeploymentSnapshot(
+                        originalEntryStates,
+                        originalStagingStates,
+                        multiplayerBudgetCommitted,
+                        totalDeploymentPoints);
+
+                    Debug.LogError(
+                        "[DEPLOYMENT] DEPLOYMENT FAILED // " + deploymentId);
+                    return;
+                }
             }
 
             Debug.Log(
@@ -544,10 +735,8 @@ namespace ObsidianProtocol.Game.Deployment
                 " UNITS // OPERATION=" +
                 selectedOperation);
 
-        
-
-            ObsidianProtocol.Game.Deployment.BattlefieldDeploymentContext context =
-                ObsidianProtocol.Game.Deployment.BattlefieldDeploymentContext.Instance;
+            BattlefieldDeploymentContext context =
+                BattlefieldDeploymentContext.Instance;
 
             if (context == null)
             {
@@ -555,28 +744,29 @@ namespace ObsidianProtocol.Game.Deployment
                     new GameObject("[SYSTEM] BATTLEFIELD DEPLOYMENT CONTEXT");
 
                 context =
-                    contextObject.AddComponent<
-                        ObsidianProtocol.Game.Deployment.BattlefieldDeploymentContext>();
-            }
-
-            List<DeploymentEntry> battlefieldEntries =
-                new List<DeploymentEntry>();
-
-            foreach (string deploymentId in selectedDeploymentIds)
-            {
-                DeploymentEntry battlefieldEntry;
-
-                if (deploymentFramework.TryGet(
-                    deploymentId,
-                    out battlefieldEntry))
-                {
-                    battlefieldEntries.Add(battlefieldEntry);
-                }
+                    contextObject.AddComponent<BattlefieldDeploymentContext>();
             }
 
             context.SetDeployment(
                 selectedOperation,
                 battlefieldEntries);
+
+            bool reinforcementsAllowed =
+                deploymentMode == DeploymentMode.Offline && offlineRules != null
+                    ? offlineRules.AllowReinforcements
+                    : deploymentMode == DeploymentMode.Multiplayer && multiplayerRules != null &&
+                      multiplayerRules.AllowReinforcements;
+
+            int maximumReinforcementPoints =
+                deploymentMode == DeploymentMode.Offline && offlineRules != null
+                    ? rulesConfiguration.OfflineMaximumReinforcementPoints
+                    : deploymentMode == DeploymentMode.Multiplayer && multiplayerRules != null
+                        ? multiplayerRules.MaximumReinforcementPoints
+                        : 0;
+
+            context.ConfigureReinforcements(
+                reinforcementsAllowed,
+                maximumReinforcementPoints);
 
             ObsidianProtocol.Game.Core.SaveLoadService.Save(
                 new ObsidianProtocol.Game.Core.SaveData());
@@ -585,9 +775,46 @@ namespace ObsidianProtocol.Game.Deployment
                 "[DEPLOYMENT] BATTLEFIELD CONTEXT HANDOFF COMPLETE // " +
                 battlefieldEntries.Count +
                 " UNITS");
-    TryOpenBattlefield();
+
+            TryOpenBattlefield();
         }
 
+        private void RestoreDeploymentSnapshot(
+            Dictionary<string, DeploymentState> entryStates,
+            Dictionary<string, DeploymentStagingState> stagingStates,
+            bool releaseMultiplayerBudget,
+            int committedPoints)
+        {
+            foreach (KeyValuePair<string, DeploymentState> snapshot in entryStates)
+            {
+                if (deploymentFramework.TryGet(
+                        snapshot.Key,
+                        out DeploymentEntry entry) &&
+                    entry != null)
+                {
+                    entry.RestoreState(snapshot.Value);
+                }
+
+                if (stagingSystem.TryGet(
+                        snapshot.Key,
+                        out DeploymentStagingEntry stagingEntry) &&
+                    stagingEntry != null &&
+                    stagingStates.TryGetValue(
+                        snapshot.Key,
+                        out DeploymentStagingState stagingState))
+                {
+                    stagingEntry.RestoreState(stagingState);
+                }
+            }
+
+            if (releaseMultiplayerBudget &&
+                battleBudget != null &&
+                !battleBudget.Release(committedPoints))
+            {
+                Debug.LogError(
+                    "[DEPLOYMENT] ROLLBACK FAILED // BATTLE BUDGET RELEASE");
+            }
+        }
         public string GetSelectedOperation()
         {
             return selectedOperation;
@@ -807,39 +1034,36 @@ namespace ObsidianProtocol.Game.Deployment
 
         private void UpdateDisplays()
         {
-            int remaining =
-                deploymentBudget != null
-                    ? deploymentBudget.RemainingPoints
-                    : MAX_DP;
+            int remaining = 0;
+            int maximum = 0;
 
-            SetText(
-                "[STAT] 10,000 / 10,000",
+            if (deploymentMode == DeploymentMode.Offline &&
+                deploymentBudget != null)
+            {
+                remaining = deploymentBudget.RemainingPoints;
+                maximum = deploymentBudget.MaximumPoints;
+            }
+            else if (deploymentMode == DeploymentMode.Multiplayer &&
+                     battleBudget != null)
+            {
+                remaining = battleBudget.RemainingBudget;
+                maximum = battleBudget.StartingBudget;
+            }
+
+            string budgetDisplay =
                 remaining.ToString("N0") +
                 " / " +
-                MAX_DP.ToString("N0"));
+                maximum.ToString("N0");
+
+            SetText("[STAT] 10,000 / 10,000", budgetDisplay);
 
             SetText(
                 "REMAINING BUDGET",
-                remaining.ToString("N0") +
-                " DP");
+                remaining.ToString("N0") + " DP");
 
             SetText(
                 "BUDGET SUMMARY",
-                remaining.ToString("N0") +
-                " DP REMAINING");
-
-            SetText(
-                "UNIT COUNT // 0",
-                "UNIT COUNT // " +
-                selectedUnits.Count);
-
-            SetText(
-                "UNIT COST VALUE",
-                selectedUnits.Count > 0
-                    ? unitCosts[selectedUnits[
-                        selectedUnits.Count - 1]]
-                        .ToString("N0") + " DP"
-                    : "0 DP");
+                remaining.ToString("N0") + " DP REMAINING");
         }
 
         private void SetText(
@@ -869,6 +1093,21 @@ namespace ObsidianProtocol.Game.Deployment
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
