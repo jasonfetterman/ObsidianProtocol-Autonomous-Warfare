@@ -1,0 +1,168 @@
+﻿using System;
+using System.IO;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Video;
+
+public static class RebuildCheckoutBackWallScreen
+{
+    private const string ScenePath =
+        "Assets/Scenes/SCN16_STORE/SCN16_STORE.unity";
+    private const string VideoPath =
+        "Assets/Video/ObsidianProtocol_StoreScreen_Sample.mp4";
+    private const string MaterialPath =
+        "Assets/Materials/StoreVideoScreens/CHECKOUT_BACK_WALL_DIRECT_VIDEO.mat";
+
+    [MenuItem("Obsidian Protocol/Store/REBUILD CHECKOUT BACK WALL SCREEN")]
+    private static void Rebuild()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+
+        if (scene.path != ScenePath)
+        {
+            EditorUtility.DisplayDialog(
+                "Checkout Screen",
+                "Open SCN16_STORE before rebuilding.",
+                "OK");
+            return;
+        }
+
+        GameObject checkout = GameObject.Find("Checkout back wall feature");
+        if (checkout == null)
+        {
+            EditorUtility.DisplayDialog(
+                "Checkout Screen",
+                "Checkout back wall feature not found.",
+                "OK");
+            return;
+        }
+
+        Transform surface = null;
+        foreach (Transform item in checkout.GetComponentsInChildren<Transform>(true))
+        {
+            if (item.name == "Video Surface")
+            {
+                surface = item;
+                break;
+            }
+        }
+
+        if (surface == null)
+        {
+            EditorUtility.DisplayDialog(
+                "Checkout Screen",
+                "Video Surface not found beneath checkout.",
+                "OK");
+            return;
+        }
+
+        string absoluteVideoPath = Path.GetFullPath(VideoPath);
+        if (!File.Exists(absoluteVideoPath))
+        {
+            EditorUtility.DisplayDialog(
+                "Checkout Screen",
+                "Video file missing:\n" + absoluteVideoPath,
+                "OK");
+            return;
+        }
+
+        Shader shader = Shader.Find("Universal Render Pipeline/Unlit");
+        if (shader == null)
+            shader = Shader.Find("Unlit/Texture");
+
+        if (shader == null)
+        {
+            EditorUtility.DisplayDialog(
+                "Checkout Screen",
+                "Could not find a compatible unlit shader.",
+                "OK");
+            return;
+        }
+
+        Material material =
+            AssetDatabase.LoadAssetAtPath<Material>(MaterialPath);
+
+        if (material == null)
+        {
+            material = new Material(shader);
+            AssetDatabase.CreateAsset(material, MaterialPath);
+        }
+        else
+        {
+            material.shader = shader;
+        }
+
+        material.color = Color.white;
+        EditorUtility.SetDirty(material);
+
+        GameObject screen = surface.gameObject;
+
+        MeshFilter filter = screen.GetComponent<MeshFilter>();
+        if (filter == null)
+            filter = Undo.AddComponent<MeshFilter>(screen);
+
+        MeshRenderer renderer = screen.GetComponent<MeshRenderer>();
+        if (renderer == null)
+            renderer = Undo.AddComponent<MeshRenderer>(screen);
+
+        GameObject temp = GameObject.CreatePrimitive(PrimitiveType.Quad);
+        Mesh quad = temp.GetComponent<MeshFilter>().sharedMesh;
+        DestroyImmediate(temp);
+
+        Undo.RecordObject(filter, "Rebuild checkout screen mesh");
+        Undo.RecordObject(renderer, "Rebuild checkout screen renderer");
+
+        filter.sharedMesh = quad;
+        renderer.sharedMaterial = material;
+        renderer.enabled = true;
+        screen.SetActive(true);
+
+        foreach (VideoPlayer duplicate in screen.GetComponents<VideoPlayer>())
+        {
+            Undo.RecordObject(duplicate, "Disable duplicate checkout player");
+            duplicate.Stop();
+            duplicate.enabled = false;
+        }
+
+        VideoPlayer player = checkout.GetComponent<VideoPlayer>();
+        if (player == null)
+            player = Undo.AddComponent<VideoPlayer>(checkout);
+
+        Undo.RecordObject(player, "Configure checkout video");
+
+        player.Stop();
+        player.source = VideoSource.Url;
+        player.url = new Uri(absoluteVideoPath).AbsoluteUri;
+        player.clip = null;
+        player.renderMode = VideoRenderMode.MaterialOverride;
+        player.targetTexture = null;
+        player.targetMaterialRenderer = renderer;
+        player.targetMaterialProperty =
+            material.HasProperty("_BaseMap") ? "_BaseMap" : "_MainTex";
+        player.playOnAwake = true;
+        player.isLooping = true;
+        player.waitForFirstFrame = true;
+        player.audioOutputMode = VideoAudioOutputMode.None;
+        player.enabled = true;
+
+        EditorUtility.SetDirty(filter);
+        EditorUtility.SetDirty(renderer);
+        EditorUtility.SetDirty(player);
+        EditorSceneManager.MarkSceneDirty(scene);
+        AssetDatabase.SaveAssets();
+        EditorSceneManager.SaveScene(scene);
+
+        Selection.activeGameObject = screen;
+
+        Debug.Log(
+            "[CHECKOUT SCREEN REBUILT] Direct URL playback configured: " +
+            player.url);
+
+        EditorUtility.DisplayDialog(
+            "Checkout Screen Rebuilt",
+            "The checkout display now uses the existing MP4 directly, without a VideoClip asset lookup or RenderTexture. The scene has been saved.",
+            "OK");
+    }
+}

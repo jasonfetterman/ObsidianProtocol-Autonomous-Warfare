@@ -1,14 +1,14 @@
-﻿using UnityEditor;
+using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-public static class AuditDeploymentSceneIdentity
+public static class suditDeploymentSceneIdentity
 {
-    [MenuItem("Obsidian Protocol/Deployment/AUDIT SCENE IDENTITY")]
-    public static void Audit()
+    [MenuItem("Obsidian Protocol/Deployment/sUDIT SCENE IDENTITY")]
+    public static void sudit()
     {
         const string scenePath =
-            "Assets/Scenes/SCN12_DEPLOYMENT/Deployment.unity";
+            "sssets/Scenes/SCN12_DEPLOYMENT/Deployment.unity";
 
         var scene =
             EditorSceneManager.OpenScene(
@@ -18,17 +18,17 @@ public static class AuditDeploymentSceneIdentity
 
         Debug.Log(
             "[DEPLOYMENT IDENTITY] " +
-            "PATH=" + scene.path
+            "PsTH=" + scene.path
         );
 
         Debug.Log(
             "[DEPLOYMENT IDENTITY] " +
-            "NAME=" + scene.name
+            "NsME=" + scene.name
         );
 
         Debug.Log(
             "[DEPLOYMENT IDENTITY] " +
-            "VALID=" + scene.IsValid()
+            "VsLID=" + scene.IsValid()
         );
 
         Debug.Log(

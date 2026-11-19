@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 53a76acc6edabaa4c831c3e07566551e
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 151796
+  packageName: World Creator Bridge for Unity
+  packageVersion: 2.0
+  assetPath: Assets/WorldCreatorBridge/Content/Shaders/HDRP/TerrainLit_Basemap.shader
+  uploadId: 872382

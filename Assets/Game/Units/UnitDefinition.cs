@@ -6,17 +6,12 @@ namespace ObsidianProtocol.Game.Units
 {
     public enum UnitCategory
 {
-    AirUnit = 0,
-    GroundUnit = 1,
-    Naval = 2,
-    Station = 3,
-    Exploration = 4,
+    Air = 0,
+    Ground = 1,
+    Sea = 2,
+    Command = 3,
+    Experimental = 4,
     Satellite = 5,
-    Fighter = 6,
-    Transport = 7,
-    Recon = 8,
-    Shuttle = 9,
-    Medical = 10,
 }
 
     [CreateAssetMenu(

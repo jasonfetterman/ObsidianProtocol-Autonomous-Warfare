@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 518c1d86f64a6654eb9d50acb0523d4f
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 151796
+  packageName: World Creator Bridge for Unity
+  packageVersion: 2.0
+  assetPath: Assets/WorldCreatorBridge/Content/Shaders/Standard/Standard-AddPass.shader
+  uploadId: 872382

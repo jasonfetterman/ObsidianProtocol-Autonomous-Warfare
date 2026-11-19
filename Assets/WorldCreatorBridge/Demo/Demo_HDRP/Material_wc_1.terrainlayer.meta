@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 13922cb6709385f4a94749c985eb71bb
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 8574412962073106934
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 151796
+  packageName: World Creator Bridge for Unity
+  packageVersion: 2.0
+  assetPath: Assets/WorldCreatorBridge/Demo/Demo_HDRP/Material_wc_1.terrainlayer
+  uploadId: 872382

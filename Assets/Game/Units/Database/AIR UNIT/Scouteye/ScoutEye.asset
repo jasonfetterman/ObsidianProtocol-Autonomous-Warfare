@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
   unitId: obs-air-scouteye
   displayName: Scout Eye
-  category: 8
+  category: 0
   role: Lightweight Recon / Rapid Visual Scan
   tier: Basic
   status: Active

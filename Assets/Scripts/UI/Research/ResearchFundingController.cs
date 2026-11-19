@@ -1,4 +1,4 @@
-﻿using TMPro;
+using TMPro;
 using UnityEngine;
 using ObsidianProtocol.Game.Economy;
 
@@ -6,25 +6,47 @@ namespace ObsidianProtocol.UI.Research
 {
     public sealed class ResearchFundingController : MonoBehaviour
     {
-        private void Update()
+        private TMP_Text[] fundingDisplays;
+        private int lastDisplayedCredits = -1;
+
+        private void Awake()
         {
-            FundingManager funding = FundingManager.Instance;
-
-            if (funding == null)
-                return;
-
-            UpdateAllFundingDisplays(funding.CurrentFunding);
+            RefreshFundingDisplays();
         }
 
-        private void UpdateAllFundingDisplays(int amount)
+        private void Update()
         {
-            TMP_Text[] allTexts =
-                FindObjectsByType<TMP_Text>(
-                    FindObjectsInactive.Include,
-                    FindObjectsSortMode.None);
+            if (!EconomyRuntime.CampaignActive)
+                return;
 
-            foreach (TMP_Text text in allTexts)
+            int credits = EconomyRuntime.Credits;
+
+            if (credits == lastDisplayedCredits)
+                return;
+
+            lastDisplayedCredits = credits;
+            UpdateFundingDisplays(credits);
+        }
+
+        private void RefreshFundingDisplays()
+        {
+            fundingDisplays = FindObjectsByType<TMP_Text>(
+                FindObjectsInactive.Include,
+                FindObjectsSortMode.None);
+
+            lastDisplayedCredits = -1;
+        }
+
+        private void UpdateFundingDisplays(int amount)
+        {
+            if (fundingDisplays == null)
+                RefreshFundingDisplays();
+
+            foreach (TMP_Text text in fundingDisplays)
             {
+                if (text == null)
+                    continue;
+
                 string objectName =
                     text.gameObject.name.ToUpperInvariant();
 

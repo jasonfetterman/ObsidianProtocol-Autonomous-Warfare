@@ -184,26 +184,14 @@ MonoBehaviour:
     adaptiveLearningRatePerMission: 1
     commandOverrideResistance: 1
     cooperativeBehaviorIndex: 1
-  behaviorNodes:
-  - behaviorNode: 
-    weight: -0.00000008226931
-    description: 
-  missionBehaviors:
-  - missionType: 
-    behaviorFocus: 
-    efficiency: -0.00000008228733
-  unitSynergies:
-  - partnerUnit: 
-    synergyRating: -0.000000081262726
-    function: 
+  behaviorNodes: []
+  missionBehaviors: []
+  unitSynergies: []
   damageResponses:
   - damageType: 
     effect: 
     recovery: 
-  upgrades:
-  - upgrade: 
-    effect: 
-    efficiencyGain: -0.00000008129882
+  upgrades: []
   tactical:
     formationAdaptability: 1
     tacticalRoleWeight: 1
@@ -225,15 +213,8 @@ MonoBehaviour:
     maintenancePriorityLevel: Spotter maintenancePriorityLevel
     sparePartDependencyIndex: 1
     operationalCostPerHour: Spotter operationalCostPerHour
-  threatResponses:
-  - threatType: 
-    reactionTimeSeconds: -1.6962372e-20
-    countermeasureEfficiency: 5.79e-43
-  commandNetwork:
-  - node: 
-    loadPercent: -0.00001955549
-    latencySeconds: 5.79e-43
-    status: 
+  threatResponses: []
+  commandNetwork: []
   performance:
     missionSuccessProbability: 0.75
     averageEngagementDurationMinutes: 1

@@ -1,4 +1,4 @@
-﻿using UnityEditor;
+using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
@@ -8,7 +8,7 @@ public static class BuildBattlefieldDeploymentArea
     public static void Build()
     {
         const string scenePath =
-            "Assets/Scenes/SCN03 _BATTLEFIELD/[HUD] BATTLEFIELD HUD/Battlefield_HUD.unity";
+            "Assets/Scenes/SCN03_BATTLEFIELD_AAA/SCN03_BATTLEFIELD_AAA.unity";
 
         var scene = EditorSceneManager.OpenScene(
             scenePath,

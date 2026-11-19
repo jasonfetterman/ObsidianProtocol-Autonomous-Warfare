@@ -23,7 +23,7 @@ public sealed class UnitDatabaseManagerWindow : EditorWindow
 
     private string newUnitName = string.Empty;
     private string newUnitId = string.Empty;
-    private UnitCategory newUnitCategory = UnitCategory.GroundUnit;
+    private UnitCategory newUnitCategory = UnitCategory.Ground;
 
     private static readonly string[] CategoryNames =
     {
@@ -695,3 +695,4 @@ public sealed class UnitDatabaseManagerWindow : EditorWindow
         return value.Trim();
     }
 }
+

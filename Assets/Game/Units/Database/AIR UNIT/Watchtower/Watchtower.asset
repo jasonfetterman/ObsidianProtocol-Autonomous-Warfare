@@ -1,0 +1,229 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Watchtower
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-air-watchtower
+  displayName: Watchtower
+  category: 0
+  role: High-Altitude Overwatch / Strategic Visibility
+  tier: Advanced Recon
+  status: Active
+  storeImage: {fileID: -4059628515182006427, guid: 4c7e3386376e3c440937d4ad24289b3a, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 3.8
+    widthMeters: 2.9
+    heightMeters: 1.3
+    massKg: 36
+    powerSource: Long-endurance battery
+    energyCapacityWh: 4000
+    energyConsumptionWhPerMinute: 55
+    endurance: 70-100 min
+    payloadCapacityKg: 2.2
+    modules:
+    - Long-range optics
+    - Atmospheric stabilization suite
+    navigationSystem: GPS + Overwatch AI
+    structuralIntegrityHp: 200
+    armorRating: 0.34
+    heatSignature: Low
+    noiseSignature: Low
+    topSpeedMetersPerSecond: 20
+    topSpeedDescription: 20 m/s
+    acceleration: Medium
+    turningRadius: Moderate
+    climbRate: Extremely High
+    stabilityRating: Maximum
+  autonomy:
+    behaviorProfile: High-Altitude Overwatch / Persistent Visibility
+    aggression: 0
+    caution: 0.95
+    persistence: 1
+    flankingLikelihood: 0
+    retreatThreshold: 0.95
+    retreatBehaviorDescription: Very Early
+    targetPriority: Long-range visibility targets
+    formationDiscipline: Very High
+    riskTolerance: 0.1
+  sensors:
+    visualRangeMeters: 3500
+    visualRangeDescription: 3500 m
+    thermalRangeMeters: 1500
+    thermalRangeDescription: 1500 m
+    acousticRange: Low
+    radarRange: Medium
+    lidarRange: Medium
+    signalDetectionRange: 12 km
+  communication:
+    meshRangeKm: 12
+    meshRangeDescription: 12 km
+    relayCapacity: 3
+    commandLinkType: Recon Grid
+    networkPriority: High
+  combat:
+    firepowerRating: 0
+    firepowerDescription: 
+    accuracy: N/A
+    stabilization: Extremely High
+    weaponMounts: None
+    weaponTypes: None
+    suppressionValue: 0
+    trackingStrength: High
+    disruptionStrength: Medium
+    breachCapability: None
+    countermeasureRating: High
+    threatLevel: 4
+    engagementDistance: N/A
+    preferredTerrain: High-altitude overwatch lanes
+    preferredTargets: None
+    vulnerabilityProfile: Ballistic / EMP / jamming
+  squad:
+    squadRole: High-Altitude Overwatch
+    squadSizeContribution: 1
+    formationBehavior: High-altitude spacing
+    intentInterpretationRules: Maintain persistent visibility
+    retreatBehavior: Very Early
+    breachBehavior: None
+    flankingBehavior: None
+    reinforcementBehavior: Supports recon and command squads
+    parentCommandUnit: Insight / Overseer
+    subordinateUnits:
+    - Horizon
+    - Skywatch
+    - Trailblazer
+    relayNodes:
+    - Relay Node 1
+    - Relay Node 2
+    - Relay Node 3
+    networkDependencies: Recon Grid
+  vrOperator:
+    operatorSeatType: Overwatch Drone View
+    operatorHud: Strategic Visibility Overlay
+    cameraFeeds: Optical
+    thermalView: 1
+    lidarView: 1
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: High-altitude flight
+    sensorControls: Thermal / LiDAR / radar / zoom
+    abilityControls: Strategic Scan, Mark Target, Stabilize
+    weaponControls: None
+    stabilizationControls: High-altitude auto-hover
+    operatorAbilities:
+    - Strategic Overwatch
+    - Long-Range Scan
+    - Predictive Movement Analysis
+    - Relay Recon Data
+  economy:
+    creditCost: 600
+    buildCost: 300 Metal / 300 Electronics
+    buildTimeSeconds: 90
+    factoryType: Drone Bay
+    techRequirements: Recon Systems III
+    maintenanceCost: Medium
+    repairTimeSeconds: 22
+    supplyConsumption: Medium
+    operationalCost: Moderate
+    deploymentRequirements: High-altitude drone pad
+    transportCompatibility: All aerial racks
+    launchMethod: Vertical takeoff
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Medium Alloy Plates
+      quantity: 20
+    - component: Composite Frame Rods
+      quantity: 14
+    - component: Micro-Servo Actuators
+      quantity: 6
+    - component: Stabilizer Fins
+      quantity: 3
+    - component: Overwatch Sensor Housing
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 22
+    - component: Signal Processors
+      quantity: 16
+    - component: Drone Control Chips
+      quantity: 5
+    - component: Command-Recon AI Chips
+      quantity: 4
+    power:
+    - component: Long-Endurance Battery Pack
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 3
+    rareTradeable:
+    - component: Long-Range Optics Core
+      quantity: 1
+    - component: Atmospheric Stability Processor
+      quantity: 1
+    optionalUpgrades:
+    - Extended Altitude Module
+    - Anti-Jamming Shielding
+    - Silent Rotor Kit
+    - Ultra-Long-Range Sensor Grid
+  environment:
+    terrainAdaptationCoefficients: 
+    weatherSensitivityIndex: 0
+    visibilityModifiers: 
+    signalPropagationCurve: 
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0
+    packetLossRate: 
+    encryptionLatencySeconds: 0
+    meshSelfHealingThreshold: 
+    relaySaturationCurve: 
+  cognitive:
+    decisionConfidence: 0
+    threatRecognitionAccuracy: 0
+    adaptiveLearningRatePerMission: 0
+    commandOverrideResistance: 0
+    cooperativeBehaviorIndex: 0
+  behaviorNodes: []
+  missionBehaviors: []
+  unitSynergies: []
+  damageResponses: []
+  upgrades: []
+  tactical:
+    formationAdaptability: 0
+    tacticalRoleWeight: 0
+    commandResponseDelaySeconds: 0
+    reinforcementTriggerConditions: 
+    retreatLogicThresholds: 
+  maintenance:
+    meanTimeBetweenFailuresHours: 0
+    repairCycleSeconds: 0
+    resourceDrainPerHourPercent: 0
+    batteryEfficiencyPercent: 0
+    rotorStabilityPercent: 0
+    sensorCalibrationDriftPercentPerHour: 0
+    coolingEfficiencyPercent: 0
+    operationalUptimePercent: 0
+    energyRecoveryRatePercent: 0
+    energyRecoveryRatePercentPerIdleMinute: 0
+    componentWearPercentPerHour: 0
+    maintenancePriorityLevel: 
+    sparePartDependencyIndex: 0
+    operationalCostPerHour: 
+  threatResponses: []
+  commandNetwork: []
+  performance:
+    missionSuccessProbability: 0
+    averageEngagementDurationMinutes: 0
+    reconDataYieldMbPerMinute: 0
+    communicationUptime: 0
+    threatAvoidanceEfficiency: 0

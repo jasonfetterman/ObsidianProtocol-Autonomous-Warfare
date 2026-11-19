@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 225b067bc66043eba328d08055ef6f85
+timeCreated: 1646663268
+AssetOrigin:
+  serializedVersion: 1
+  productId: 151796
+  packageName: World Creator Bridge for Unity
+  packageVersion: 2.0
+  assetPath: Assets/WorldCreatorBridge/Source/BridgeEditor.cs
+  uploadId: 872382

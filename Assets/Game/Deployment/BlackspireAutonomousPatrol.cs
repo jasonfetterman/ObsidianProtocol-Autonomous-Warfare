@@ -1,0 +1,354 @@
+using UnityEngine;
+
+namespace ObsidianProtocol.Game.Deployment
+{
+    [DisallowMultipleComponent]
+    public sealed class BlackspireAutonomousPatrol : MonoBehaviour
+    {
+        [SerializeField] private MeshCollider terrain;
+        [SerializeField] private bool airborne;
+        [SerializeField] private float altitude = 30f;
+        [SerializeField] private float roamRadius = 20f;
+        [SerializeField] private float moveSpeed = 2.5f;
+        public float MoveSpeed => moveSpeed;
+        public bool IsAirborne => airborne;
+        public bool HasDestination => hasDestination;
+
+        public bool TrySetReturnDestination(Vector3 target)
+        {
+            if (!initialized || !TryGetGroundHeight(target, out float groundY))
+                return false;
+
+            if (!airborne && !GroundPathIsClear(transform.position, target))
+                return false;
+
+            destination = new Vector3(
+                target.x,
+                airborne ? groundY + altitude - bottomOffset : groundY - bottomOffset,
+                target.z);
+
+            hasDestination = true;
+            waitTimer = 0f;
+            return true;
+        }
+        [SerializeField] private float turnSpeed = 120f;
+        [SerializeField] private float arrivalDistance = 2f;
+
+        private Vector3 patrolOrigin;
+        private Vector3 destination;
+        private float bottomOffset;
+        private float waitTimer;
+        private bool hasDestination;
+        private bool initialized;
+        private System.Random random;
+        private Quaternion initialRotation;
+        private Vector3 initialForward;
+        private readonly Transform[] wheelTransforms = new Transform[4];
+        private readonly float[] wheelRadii = new float[4];
+
+
+
+        public void Configure(
+            MeshCollider terrainCollider,
+            bool isAirborne,
+            float flightAltitude,
+            float patrolRadius,
+            float speed,
+            float rotationSpeed)
+        {
+            terrain = terrainCollider;
+            airborne = isAirborne;
+            altitude = flightAltitude;
+            roamRadius = patrolRadius;
+            moveSpeed = speed;
+            turnSpeed = rotationSpeed;
+
+            patrolOrigin = transform.position;
+            initialized = false;
+
+            UnityEditor.EditorUtility.SetDirty(this);
+        }
+
+        private void Awake()
+        {
+            Initialize();
+        }
+
+        private void Initialize()
+        {
+            if (initialized)
+                return;
+
+            if (terrain == null)
+            {
+                GameObject terrainObject =
+                    GameObject.Find("MAP001_BLACKSPIRE_EXPANSE_TERRAIN");
+
+                if (terrainObject != null)
+                    terrain = terrainObject.GetComponent<MeshCollider>();
+            }
+
+            if (terrain == null || !terrain.enabled)
+            {
+                Debug.LogError("[BLACKSPIRE PATROL] Terrain collider unavailable: " + name, this);
+                enabled = false;
+                return;
+            }
+
+            Renderer[] renderers = GetComponentsInChildren<Renderer>(true);
+
+            if (renderers.Length == 0)
+            {
+                Debug.LogError("[BLACKSPIRE PATROL] No renderers found: " + name, this);
+                enabled = false;
+                return;
+            }
+
+            Bounds bounds = renderers[0].bounds;
+
+            foreach (Renderer renderer in renderers)
+                bounds.Encapsulate(renderer.bounds);
+
+            bottomOffset = bounds.min.y - transform.position.y;
+            initialRotation = transform.rotation;
+            initialForward = Vector3.ProjectOnPlane(transform.up, Vector3.up).normalized;
+            if (initialForward.sqrMagnitude < 0.001f)
+                initialForward = Vector3.forward;
+            InitializeWheels();
+            patrolOrigin = transform.position;
+            random = new System.Random(name.GetHashCode());
+            initialized = true;
+
+            Debug.Log(
+                "[BLACKSPIRE PATROL] ACTIVE | " + name +
+                " | Type: " + (airborne ? "AIR" : "GROUND") +
+                " | Speed: " + moveSpeed +
+                " | Patrol radius: " + roamRadius,
+                this);
+        }
+
+        private void Update()
+        {
+            if (!initialized)
+            {
+                Initialize();
+                if (!initialized)
+                    return;
+            }
+
+            if (waitTimer > 0f)
+            {
+                waitTimer -= Time.deltaTime;
+                return;
+            }
+
+            if (!hasDestination)
+            {
+                ChooseDestination();
+                return;
+            }
+
+            MoveTowardDestination();
+        }
+
+        private void ChooseDestination()
+        {
+            for (int attempt = 0; attempt < 30; attempt++)
+            {
+                float angle = (float)random.NextDouble() * Mathf.PI * 2f;
+                float radius = Mathf.Lerp(
+                    roamRadius * 0.35f,
+                    roamRadius,
+                    (float)random.NextDouble());
+
+                Vector3 candidate = patrolOrigin + new Vector3(
+                    Mathf.Cos(angle) * radius,
+                    0f,
+                    Mathf.Sin(angle) * radius);
+
+                if (!TryGetGroundHeight(candidate, out float groundY))
+                    continue;
+
+                if (!airborne && !GroundPathIsClear(transform.position, candidate))
+                    continue;
+
+                destination = new Vector3(
+                    candidate.x,
+                    airborne
+                        ? groundY + altitude - bottomOffset
+                        : groundY - bottomOffset,
+                    candidate.z);
+
+                hasDestination = true;
+                return;
+            }
+
+            waitTimer = 1f;
+        }
+
+        private void MoveTowardDestination()
+        {
+            Vector3 current = transform.position;
+            Vector3 horizontalTarget = new Vector3(
+                destination.x,
+                current.y,
+                destination.z);
+
+            Vector3 direction = horizontalTarget - current;
+            float distance = direction.magnitude;
+
+            if (distance <= arrivalDistance)
+            {
+                hasDestination = false;
+                waitTimer = Mathf.Lerp(
+                    0.6f,
+                    2f,
+                    (float)random.NextDouble());
+                return;
+            }
+
+            direction.Normalize();
+
+            if (direction.sqrMagnitude > 0.001f)
+            {
+                Quaternion yawRotation =
+                    Quaternion.FromToRotation(initialForward, direction);
+
+                Quaternion desiredRotation = Quaternion.AngleAxis(90f, Vector3.up) * yawRotation * initialRotation;
+
+                if (name.Contains("IRON_HOUND"))
+                    desiredRotation = Quaternion.AngleAxis(90f, Vector3.up) * desiredRotation;
+
+                transform.rotation = Quaternion.RotateTowards(
+                    transform.rotation,
+                    desiredRotation,
+                    turnSpeed * Time.deltaTime);
+            }
+
+            float travel = Mathf.Min(
+                moveSpeed * Time.deltaTime,
+                distance);
+
+            RotateWheels(travel);
+
+            Vector3 next = current + direction * travel;
+
+            if (!TryGetGroundHeight(next, out float groundY))
+            {
+                hasDestination = false;
+                waitTimer = 0.5f;
+                return;
+            }
+
+            next.y = airborne
+                ? groundY + altitude - bottomOffset
+                : groundY - bottomOffset;
+
+            transform.position = next;
+        }
+
+        private void InitializeWheels()
+        {
+            if (airborne)
+                return;
+
+            string[] wheelNames =
+            {
+                "Wheel_FL",
+                "Wheel_FR",
+                "Wheel_RL",
+                "Wheel_RR"
+            };
+
+            Transform[] children = GetComponentsInChildren<Transform>(true);
+
+            for (int i = 0; i < wheelNames.Length; i++)
+            {
+                foreach (Transform child in children)
+                {
+                    if (child.name != wheelNames[i])
+                        continue;
+
+                    MeshFilter meshFilter = child.GetComponentInChildren<MeshFilter>(true);
+
+                    if (meshFilter == null || meshFilter.sharedMesh == null)
+                        break;
+
+                    Bounds bounds = meshFilter.sharedMesh.bounds;
+                    Vector3 scale = meshFilter.transform.lossyScale;
+
+                    float radiusX = bounds.extents.x * Mathf.Abs(scale.x);
+                    float radiusY = bounds.extents.y * Mathf.Abs(scale.y);
+
+                    wheelRadii[i] = Mathf.Max(radiusX, radiusY);
+                    wheelTransforms[i] = child;
+                    break;
+                }
+            }
+        }
+
+        private void RotateWheels(float distanceTravelled)
+        {
+            if (airborne || distanceTravelled <= 0f)
+                return;
+
+            for (int i = 0; i < wheelTransforms.Length; i++)
+            {
+                if (wheelTransforms[i] == null || wheelRadii[i] <= 0.001f)
+                    continue;
+
+                float rotationDegrees =
+                    distanceTravelled / wheelRadii[i] * Mathf.Rad2Deg;
+
+                wheelTransforms[i].localRotation *=
+                    Quaternion.AngleAxis(rotationDegrees, Vector3.forward);
+            }
+        }
+        private bool TryGetGroundHeight(Vector3 position, out float groundY)
+        {
+            Ray ray = new Ray(
+                new Vector3(position.x, 500f, position.z),
+                Vector3.down);
+
+            if (terrain.Raycast(ray, out RaycastHit hit, 1000f) && (airborne || Vector3.Angle(hit.normal, Vector3.up) <= 18f))
+            {
+                groundY = hit.point.y;
+                return true;
+            }
+
+            groundY = 0f;
+            return false;
+        }
+
+        private bool GroundPathIsClear(Vector3 start, Vector3 end)
+        {
+            Vector2 a = new Vector2(start.x, start.z);
+            Vector2 b = new Vector2(end.x, end.z);
+
+            float distance = Vector2.Distance(a, b);
+            int samples = Mathf.Max(2, Mathf.CeilToInt(distance / 2f));
+
+            for (int i = 1; i <= samples; i++)
+            {
+                Vector2 point = Vector2.Lerp(a, b, (float)i / samples);
+
+                if (!TryGetGroundHeight(
+                    new Vector3(point.x, 0f, point.y),
+                    out _))
+                    return false;
+            }
+
+            return true;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+

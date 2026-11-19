@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e3d353b1d95223c49a2acb109d8299c0
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 151796
+  packageName: World Creator Bridge for Unity
+  packageVersion: 2.0
+  assetPath: Assets/WorldCreatorBridge/Demo/Demo_URP.unity
+  uploadId: 872382

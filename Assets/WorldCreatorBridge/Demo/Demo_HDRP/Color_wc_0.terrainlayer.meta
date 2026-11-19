@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ee0d276fdf7c7ac4f82ad6969e9e3c0c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 8574412962073106934
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 151796
+  packageName: World Creator Bridge for Unity
+  packageVersion: 2.0
+  assetPath: Assets/WorldCreatorBridge/Demo/Demo_HDRP/Color_wc_0.terrainlayer
+  uploadId: 872382

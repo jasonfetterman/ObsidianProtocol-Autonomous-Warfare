@@ -1,0 +1,227 @@
+using UnityEngine;
+
+namespace ObsidianProtocol.Game.Units
+{
+    public interface IUnitManualControl
+    {
+        void EnterManualControl(Transform controller);
+        void ExitManualControl();
+    }
+
+    public sealed class UnitTakeoverController : MonoBehaviour
+    {
+        [Header("Takeover")]
+        [SerializeField] private float interactionDistance = 3f;
+        [SerializeField] private KeyCode takeoverKey = KeyCode.F;
+        [SerializeField] private Vector3 cameraOffset = new Vector3(0f, 1.5f, -3f);
+        [SerializeField] private float mouseSensitivity = 2f;
+        [SerializeField] private float maxLookAngle = 80f;
+
+        [Header("Player")]
+        [SerializeField] private Camera playerCamera;
+
+        private SCN17FirstPersonWalkController walking;
+        private CharacterController character;
+        private Transform originalCameraParent;
+        private Vector3 originalCameraPosition;
+        private Quaternion originalCameraRotation;
+        private Transform controlledUnit;
+        private UnitAutonomy controlledAutonomy;
+        private IUnitManualControl activeDriver;
+        private bool takingOver;
+        private float cameraPitch;
+
+        public bool IsTakingOver => takingOver;
+        public Transform ControlledUnit => controlledUnit;
+        public Vector3 CameraOffset
+        {
+            get => cameraOffset;
+            set => cameraOffset = value;
+        }
+        public Quaternion CameraRotationOffset
+        {
+            get => cameraRotationOffset;
+            set => cameraRotationOffset = value;
+        }
+
+        [SerializeField] private Quaternion cameraRotationOffset = Quaternion.identity;
+
+        private void Awake()
+        {
+            walking = GetComponent<SCN17FirstPersonWalkController>();
+            character = GetComponent<CharacterController>();
+
+            if (playerCamera == null && walking != null)
+                playerCamera = walking.playerCamera;
+
+            if (playerCamera != null)
+            {
+                originalCameraParent = playerCamera.transform.parent;
+                originalCameraPosition = playerCamera.transform.localPosition;
+                originalCameraRotation = playerCamera.transform.localRotation;
+            }
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(takeoverKey))
+            {
+                if (takingOver)
+                    ExitTakeover();
+                else
+                    TryEnterTakeover();
+            }
+
+            if (takingOver && controlledUnit != null && playerCamera != null)
+            {
+                playerCamera.transform.localPosition = cameraOffset;
+                HandleTakeoverLook();
+            }
+        }
+
+        private void LateUpdate()
+        {
+            if (!takingOver || controlledUnit == null || playerCamera == null) return;
+            playerCamera.transform.localPosition = cameraOffset;
+            HandleTakeoverLook();
+        }
+
+        private void HandleTakeoverLook()
+        {
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+
+            controlledUnit.Rotate(Vector3.up, mouseX, Space.World);
+
+            cameraPitch = Mathf.Clamp(
+                cameraPitch - mouseY,
+                -maxLookAngle,
+                maxLookAngle);
+
+            playerCamera.transform.localRotation =
+                Quaternion.Euler(cameraPitch, 0f, 0f) * cameraRotationOffset;
+        }
+
+        private void TryEnterTakeover()
+        {
+            if (playerCamera == null)
+                return;
+
+            Collider[] nearby = Physics.OverlapSphere(
+                transform.position,
+                interactionDistance);
+
+            float closestDistance = float.MaxValue;
+            Transform bestUnit = null;
+            UnitAutonomy bestAutonomy = null;
+            IUnitManualControl bestDriver = null;
+
+            foreach (Collider hit in nearby)
+            {
+                if (hit.transform.root == transform.root)
+                    continue;
+
+                MonoBehaviour[] behaviours =
+                    hit.GetComponentsInParent<MonoBehaviour>();
+
+                foreach (MonoBehaviour behaviour in behaviours)
+                {
+                    if (!(behaviour is IUnitManualControl driver))
+                        continue;
+
+                    Transform candidate = behaviour.transform;
+
+                    if (candidate == transform ||
+                        candidate.IsChildOf(transform))
+                        continue;
+
+                    float distance = Vector3.Distance(
+                        transform.position,
+                        candidate.position);
+
+                    if (distance >= closestDistance)
+                        continue;
+
+                    closestDistance = distance;
+                    bestUnit = candidate;
+                    bestDriver = driver;
+                    bestAutonomy = candidate.GetComponent<UnitAutonomy>();
+
+                    break;
+                }
+            }
+
+            if (bestUnit == null || bestDriver == null)
+            {
+                Debug.Log("[UNIT TAKEOVER] No compatible unit in range.");
+                return;
+            }
+
+            controlledUnit = bestUnit;
+            controlledAutonomy = bestAutonomy;
+            activeDriver = bestDriver;
+
+            if (controlledAutonomy != null)
+                controlledAutonomy.SetManualControlActive(true);
+
+            activeDriver.EnterManualControl(transform);
+            takingOver = true;
+
+            playerCamera.transform.SetParent(controlledUnit, false);
+            playerCamera.transform.localPosition = cameraOffset;
+            playerCamera.transform.localRotation = Quaternion.identity;
+            cameraPitch = 0f;
+
+            if (character != null)
+                character.enabled = false;
+
+            if (walking != null)
+                walking.enabled = false;
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
+            Debug.Log("[UNIT TAKEOVER] Entered: " + controlledUnit.name);
+        }
+        public void ExitTakeover()
+        {
+            if (!takingOver)
+                return;
+
+            if (activeDriver != null)
+                activeDriver.ExitManualControl();
+
+            if (controlledAutonomy != null)
+                controlledAutonomy.SetManualControlActive(false);
+
+            if (playerCamera != null)
+            {
+                playerCamera.transform.SetParent(originalCameraParent, false);
+                playerCamera.transform.localPosition = originalCameraPosition;
+                playerCamera.transform.localRotation = originalCameraRotation;
+            }
+
+            if (character != null)
+                character.enabled = true;
+
+            if (walking != null)
+                walking.enabled = true;
+
+            controlledUnit = null;
+            controlledAutonomy = null;
+            activeDriver = null;
+            takingOver = false;
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
+            Debug.Log("[UNIT TAKEOVER] Returned to player.");
+        }
+
+        private void OnDisable()
+        {
+            if (takingOver)
+                ExitTakeover();
+        }
+    }
+}

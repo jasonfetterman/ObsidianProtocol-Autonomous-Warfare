@@ -1,4 +1,4 @@
-﻿using UnityEditor;
+using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using ObsidianProtocol.Game.Deployment;
@@ -9,7 +9,7 @@ public static class BuildBattlefieldDeploymentMaterializer
     public static void Build()
     {
         const string scenePath =
-            "Assets/Scenes/SCN03 _BATTLEFIELD/[HUD] BATTLEFIELD HUD/Battlefield_HUD.unity";
+            "Assets/Scenes/SCN03_BATTLEFIELD_AAA/SCN03_BATTLEFIELD_AAA.unity";
 
         var scene = EditorSceneManager.OpenScene(
             scenePath,
@@ -33,9 +33,17 @@ public static class BuildBattlefieldDeploymentMaterializer
                 root.AddComponent<BattlefieldDeploymentMaterializer>();
         }
 
+        BattlefieldReinforcementService reinforcementService =
+            root.GetComponent<BattlefieldReinforcementService>();
+
+        if (reinforcementService == null)
+        {
+            root.AddComponent<BattlefieldReinforcementService>();
+        }
+
         EditorSceneManager.SaveScene(scene);
 
         Debug.Log(
-            "[BATTLEFIELD DEPLOYMENT] MATERIALIZER WIRED.");
+            "[BATTLEFIELD DEPLOYMENT] MATERIALIZER AND REINFORCEMENT SERVICE WIRED.");
     }
 }

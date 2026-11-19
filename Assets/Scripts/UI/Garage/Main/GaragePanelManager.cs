@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
@@ -197,15 +197,29 @@ public class GaragePanelManager : MonoBehaviour
         Debug.Log("[GaragePanelManager] OPENED: " + panelToShow.name, panelToShow);
     }
 
+    public void ShowPanel(string panelName)
+    {
+        if (!panelMap.TryGetValue(panelName, out GameObject target) || target == null)
+        {
+            Debug.LogError("[GaragePanelManager] PANEL NOT FOUND: " + panelName, this);
+            return;
+        }
+
+        ShowPanel(target);
+    }
     public void CloseAllPanels()
     {
         foreach (GameObject panel in panelMap.Values)
         {
             if (panel != null)
                 panel.SetActive(false);
-        }
+        
+        FirstPersonController player = FindFirstObjectByType<FirstPersonController>();
+        if (player != null) player.enabled = true;
+    }
     }
 }
+
 
 
 

@@ -1,5 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using ObsidianProtocol.UI.Store;
 
 public class CommandCenterFullController : MonoBehaviour
 {
@@ -26,7 +27,26 @@ public class CommandCenterFullController : MonoBehaviour
 
     public void OpenFleet()
     {
+        Debug.Log("[FLEET] OpenFleet invoked.");
+
+        if (FleetPanel == null)
+        {
+            Debug.LogError("[FLEET] FleetPanel reference is missing.");
+            return;
+        }
+
         Open(FleetPanel);
+        Debug.Log("[FLEET] Activated panel: " + FleetPanel.name);
+
+        FleetPanelManager manager = FleetPanel.GetComponent<FleetPanelManager>();
+        if (manager == null)
+        {
+            Debug.Log("[FLEET] Adding FleetPanelManager.");
+            manager = FleetPanel.AddComponent<FleetPanelManager>();
+        }
+
+        manager.RefreshList();
+        Debug.Log("[FLEET] RefreshList completed.");
     }
 
     public void OpenDeploy()
@@ -62,6 +82,8 @@ public class CommandCenterFullController : MonoBehaviour
     public void OpenStore()
     {
         Open(StorePanel);
+        if (StorePanel != null)
+            StorePanel.GetComponent<StoreMasterController>()?.OpenStore();
     }
 
     public void EmergencyRecall()
@@ -71,6 +93,8 @@ public class CommandCenterFullController : MonoBehaviour
 
     public void CloseAll()
     {
+        if (StorePanel != null && StorePanel.activeSelf)
+            StorePanel.GetComponent<StoreMasterController>()?.CloseStore();
         Set(CommandPanel, false);
         Set(OperationsPanel, false);
         Set(FleetPanel, false);

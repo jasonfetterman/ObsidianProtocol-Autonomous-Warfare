@@ -14,6 +14,50 @@ namespace ObsidianProtocol.Game.Deployment
         public IReadOnlyList<DeploymentEntry> DeployedEntries => deployedEntries;
         public string OperationId { get; private set; }
 
+        public bool ReinforcementsAllowed { get; private set; }
+        public int MaximumReinforcementPoints { get; private set; }
+        public int UsedReinforcementPoints { get; private set; }
+        public int RemainingReinforcementPoints =>
+            Mathf.Max(0, MaximumReinforcementPoints - UsedReinforcementPoints);
+
+        public void ConfigureReinforcements(bool allowed, int maximumPoints)
+        {
+            ReinforcementsAllowed = allowed;
+            MaximumReinforcementPoints = allowed ? Mathf.Max(0, maximumPoints) : 0;
+            UsedReinforcementPoints = 0;
+
+            Debug.Log(
+                "[BATTLEFIELD CONTEXT] REINFORCEMENTS CONFIGURED // ALLOWED=" +
+                ReinforcementsAllowed +
+                " // MAX=" +
+                MaximumReinforcementPoints);
+        }
+
+        public bool CanSpendReinforcementPoints(int points)
+        {
+            return ReinforcementsAllowed &&
+                   points > 0 &&
+                   points <= RemainingReinforcementPoints;
+        }
+
+        public bool TrySpendReinforcementPoints(int points)
+        {
+            if (!CanSpendReinforcementPoints(points))
+                return false;
+
+            UsedReinforcementPoints += points;
+            return true;
+        }
+
+        public bool RefundReinforcementPoints(int points)
+        {
+            if (points <= 0 || points > UsedReinforcementPoints)
+                return false;
+
+            UsedReinforcementPoints -= points;
+            return true;
+        }
+
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -60,12 +104,82 @@ namespace ObsidianProtocol.Game.Deployment
         }
 
 
+        public bool AddReinforcements(
+            IEnumerable<DeploymentEntry> entries)
+        {
+            if (entries == null)
+                return false;
+
+            List<DeploymentEntry> additions =
+                new List<DeploymentEntry>();
+
+            HashSet<string> existingIds =
+                new HashSet<string>();
+
+            foreach (DeploymentEntry existing in deployedEntries)
+            {
+                if (existing != null)
+                    existingIds.Add(existing.DeploymentId);
+            }
+
+            foreach (DeploymentEntry entry in entries)
+            {
+                if (entry == null ||
+                    !entry.Valid ||
+                    string.IsNullOrWhiteSpace(entry.DeploymentId) ||
+                    !existingIds.Add(entry.DeploymentId))
+                {
+                    Debug.LogWarning(
+                        "[BATTLEFIELD CONTEXT] REINFORCEMENT REJECTED // INVALID OR DUPLICATE ENTRY");
+                    return false;
+                }
+
+                additions.Add(entry);
+            }
+
+            if (additions.Count == 0)
+                return false;
+
+            deployedEntries.AddRange(additions);
+
+            Debug.Log(
+                "[BATTLEFIELD CONTEXT] REINFORCEMENTS ADDED // " +
+                additions.Count +
+                " UNITS // TOTAL=" +
+                deployedEntries.Count);
+
+            return true;
+        }
+        public bool RemoveReinforcements(IEnumerable<string> deploymentIds)
+        {
+            if (deploymentIds == null)
+                return false;
+
+            HashSet<string> ids = new HashSet<string>();
+
+            foreach (string deploymentId in deploymentIds)
+            {
+                if (!string.IsNullOrWhiteSpace(deploymentId))
+                    ids.Add(deploymentId);
+            }
+
+            if (ids.Count == 0)
+                return false;
+
+            int removed = deployedEntries.RemoveAll(
+                entry => entry != null && ids.Contains(entry.DeploymentId));
+
+            return removed > 0;
+        }
         public OperationsSnapshot CaptureSnapshot()
         {
             OperationsSnapshot snapshot = new OperationsSnapshot
             {
                 OperationId = OperationId ?? string.Empty,
-                SelectedServiceRecordId = SelectedServiceRecordId ?? string.Empty
+                SelectedServiceRecordId = SelectedServiceRecordId ?? string.Empty,
+                ReinforcementsAllowed = ReinforcementsAllowed,
+                MaximumReinforcementPoints = MaximumReinforcementPoints,
+                UsedReinforcementPoints = UsedReinforcementPoints
             };
 
             foreach (DeploymentEntry entry in deployedEntries)
@@ -94,11 +208,17 @@ namespace ObsidianProtocol.Game.Deployment
             {
                 OperationId = string.Empty;
                 SelectedServiceRecordId = string.Empty;
+                ReinforcementsAllowed = false;
+                MaximumReinforcementPoints = 0;
+                UsedReinforcementPoints = 0;
                 return;
             }
 
             OperationId = snapshot.OperationId ?? string.Empty;
             SelectedServiceRecordId = snapshot.SelectedServiceRecordId ?? string.Empty;
+            ReinforcementsAllowed = snapshot.ReinforcementsAllowed;
+            MaximumReinforcementPoints = Mathf.Max(0, snapshot.MaximumReinforcementPoints);
+            UsedReinforcementPoints = Mathf.Clamp(snapshot.UsedReinforcementPoints, 0, MaximumReinforcementPoints);
 
             if (snapshot.Entries == null)
                 return;
@@ -148,3 +268,5 @@ namespace ObsidianProtocol.Game.Deployment
         }
     }
 }
+
+

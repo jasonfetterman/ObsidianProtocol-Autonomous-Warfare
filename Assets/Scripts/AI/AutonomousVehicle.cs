@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.AI;
 using ObsidianProtocol.Game.Command;
 
@@ -107,7 +107,12 @@ public class AutonomousVehicle : MonoBehaviour
             return;
 
         agent.isStopped = false;
-        agent.SetDestination(intent.Position);
+
+        if (!agent.hasPath ||
+            (agent.destination - intent.Position).sqrMagnitude > 0.25f)
+        {
+            agent.SetDestination(intent.Position);
+        }
     }
 
     private void Attack(Intent intent)
@@ -134,7 +139,12 @@ public class AutonomousVehicle : MonoBehaviour
             return;
 
         agent.isStopped = false;
-        agent.SetDestination(intent.Position);
+
+        if (!agent.hasPath ||
+            (agent.destination - intent.Position).sqrMagnitude > 0.25f)
+        {
+            agent.SetDestination(intent.Position);
+        }
     }
 
     private void Flank(Intent intent)
@@ -175,7 +185,12 @@ public class AutonomousVehicle : MonoBehaviour
             return;
 
         agent.isStopped = false;
-        agent.SetDestination(intent.Position);
+
+        if (!agent.hasPath ||
+            (agent.destination - intent.Position).sqrMagnitude > 0.25f)
+        {
+            agent.SetDestination(intent.Position);
+        }
     }
 
     private void Pursue(Intent intent)
@@ -208,6 +223,12 @@ public class AutonomousVehicle : MonoBehaviour
             return;
 
         agent.isStopped = false;
-        agent.SetDestination(intent.Position);
+
+        if (!agent.hasPath ||
+            (agent.destination - intent.Position).sqrMagnitude > 0.25f)
+        {
+            agent.SetDestination(intent.Position);
+        }
     }
 }
+

@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using TMPro;
 using UnityEngine.EventSystems;
 using ObsidianProtocol.Game.Economy;
 using ObsidianProtocol.Game.Runtime;
@@ -17,22 +19,23 @@ namespace ObsidianProtocol.Game.Store.UI
         private readonly List<UnitDefinition> units = new List<UnitDefinition>();
 
         private GameObject storeRoot;
-        private Text creditsText;
-        private Text statusText;
-        private Text selectedNameText;
-        private Text selectedCategoryText;
-        private Text selectedPriceText;
-        private Text selectedDescriptionText;
+        private TextMeshProUGUI creditsText;
+        private Image selectedImage;
+        private TextMeshProUGUI statusText;
+        private TextMeshProUGUI selectedNameText;
+        private TextMeshProUGUI selectedCategoryText;
+        private TextMeshProUGUI selectedPriceText;
+        private TextMeshProUGUI selectedDescriptionText;
         private Button purchaseButton;
         private Transform listContent;
         private UnitDefinition selectedUnit;
-        private Font font;
+        private string selectedCategoryFilter = "ALL";
+        private readonly List<GameObject> categoryTiles = new List<GameObject>();
         // Automatic runtime Store creation disabled.
         // SCN16_STORE uses the scene-based StoreMasterController.
 
         private void Awake()
         {
-            font = UnityEngine.Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             BuildInterface();
             RefreshCatalog();
             SetStatus("STORE ONLINE  |  Press F8 to open or close");
@@ -47,7 +50,7 @@ namespace ObsidianProtocol.Game.Store.UI
             if (creditsText != null)
                 creditsText.text = EconomyRuntime.CampaignActive
                     ? "CAMPAIGN CREDITS   " + EconomyRuntime.Credits.ToString("N0")
-                    : "CAMPAIGN CREDITS   —";
+                    : "CAMPAIGN CREDITS   â€”";
 
             if (purchaseButton != null)
             {
@@ -61,13 +64,10 @@ namespace ObsidianProtocol.Game.Store.UI
 
         private void BuildInterface()
         {
-            var canvasObject = new GameObject(
+            GameObject canvasObject = new GameObject(
                 "NewStoreCanvas",
-                typeof(RectTransform),
-                typeof(Canvas),
-                typeof(CanvasScaler),
-                typeof(GraphicRaycaster));
-
+                typeof(RectTransform), typeof(Canvas),
+                typeof(CanvasScaler), typeof(GraphicRaycaster));
             canvasObject.transform.SetParent(transform, false);
 
             Canvas canvas = canvasObject.GetComponent<Canvas>();
@@ -81,111 +81,96 @@ namespace ObsidianProtocol.Game.Store.UI
 
             if (FindObjectOfType<EventSystem>() == null)
             {
-                var eventObject = new GameObject(
+                GameObject eventObject = new GameObject(
                     "NewStoreEventSystem",
-                    typeof(EventSystem),
-                    typeof(StandaloneInputModule));
+                    typeof(EventSystem), typeof(StandaloneInputModule));
                 eventObject.transform.SetParent(transform, false);
             }
 
-            storeRoot = Panel(
-                canvasObject.transform, "StoreRoot",
-                new Color(0.025f, 0.04f, 0.055f, 0.97f),
+            Color bg = new Color(.008f,.022f,.038f,1f);
+            Color panel = new Color(.015f,.045f,.072f,.98f);
+            Color cyan = new Color(0f,.65f,1f,1f);
+            Color white = new Color(.82f,.91f,1f,1f);
+            Color muted = new Color(.35f,.53f,.68f,1f);
+            Color green = new Color(.1f,1f,.42f,1f);
+
+            storeRoot = Panel(canvasObject.transform, "StoreRoot", bg,
                 Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
 
-            Panel(
-                storeRoot.transform, "TopAccent",
-                new Color(0.83f, 0.48f, 0.13f, 1f),
-                new Vector2(0, 0.925f), new Vector2(1, 0.932f),
+            Panel(storeRoot.transform, "CommandHeader", panel,
+                new Vector2(.025f,.835f), new Vector2(.975f,.98f),
+                Vector2.zero, Vector2.zero);
+
+            Panel(storeRoot.transform, "TopAccent", cyan,
+                new Vector2(.025f,.83f), new Vector2(.975f,.835f),
                 Vector2.zero, Vector2.zero);
 
             MakeText(storeRoot.transform, "Eyebrow",
-                "OBSIDIAN PROTOCOL  /  QUARTERMASTER",
-                15, new Color(0.87f, 0.57f, 0.24f, 1f),
-                new Vector2(0.045f, 0.94f), new Vector2(0.7f, 0.99f),
+                "OBSIDIAN PROTOCOL  //  QUARTERMASTER DIVISION",
+                13, cyan, new Vector2(.045f,.925f), new Vector2(.65f,.97f),
                 TextAnchor.MiddleLeft);
 
             MakeText(storeRoot.transform, "Title",
                 "UNIT ACQUISITION",
-                34, Color.white,
-                new Vector2(0.045f, 0.86f), new Vector2(0.55f, 0.94f),
+                32, white, new Vector2(.045f,.86f), new Vector2(.65f,.93f),
                 TextAnchor.MiddleLeft);
 
             creditsText = MakeText(storeRoot.transform, "Credits",
-                "CAMPAIGN CREDITS   —",
-                20, new Color(0.55f, 0.88f, 0.67f, 1f),
-                new Vector2(0.65f, 0.89f), new Vector2(0.94f, 0.95f),
+                "CAMPAIGN CREDITS  --",
+                18, green, new Vector2(.68f,.89f), new Vector2(.86f,.95f),
                 TextAnchor.MiddleRight);
 
-            Button closeButton = MakeButton(
-                storeRoot.transform, "CloseStore", "CLOSE  [F8]",
-                new Vector2(0.82f, 0.935f), new Vector2(0.96f, 0.985f),
-                new Color(0.2f, 0.23f, 0.25f, 1f), () =>
+            MakeButton(storeRoot.transform, "CloseStore", "CLOSE  [F8]",
+                new Vector2(.875f,.89f), new Vector2(.955f,.95f),
+                new Color(.025f,.12f,.18f,1f), () =>
                 {
                     storeRoot.SetActive(false);
                 });
 
-            MakeText(storeRoot.transform, "CatalogHeading",
-                "AVAILABLE UNITS",
-                19, new Color(0.83f, 0.87f, 0.89f, 1f),
-                new Vector2(0.045f, 0.79f), new Vector2(0.45f, 0.84f),
-                TextAnchor.MiddleLeft);
-
-            MakeText(storeRoot.transform, "CatalogHint",
-                "SELECT A UNIT TO REVIEW ITS ACQUISITION COST",
-                12, new Color(0.52f, 0.59f, 0.63f, 1f),
-                new Vector2(0.045f, 0.755f), new Vector2(0.5f, 0.79f),
-                TextAnchor.MiddleLeft);
-
-            Panel(
-                storeRoot.transform, "CatalogFrame",
-                new Color(0.07f, 0.095f, 0.11f, 1f),
-                new Vector2(0.04f, 0.18f), new Vector2(0.49f, 0.75f),
+            // Fleet-matched asset panel: same bounds and hierarchy.
+            Panel(storeRoot.transform, "ASSET_PANEL", panel,
+                new Vector2(.025f,.105f), new Vector2(.665f,.645f),
                 Vector2.zero, Vector2.zero);
 
-            GameObject scrollObject = new GameObject(
-                "UnitCatalogScroll",
-                typeof(RectTransform), typeof(Image), typeof(ScrollRect));
+            MakeText(storeRoot.transform, "ASSET_TITLE",
+                "ACQUISITION CATALOGUE",
+                22, white, new Vector2(.04f,.59f), new Vector2(.42f,.635f),
+                TextAnchor.MiddleLeft);
 
-            scrollObject.transform.SetParent(storeRoot.transform, false);
-            RectTransform scrollRect = scrollObject.GetComponent<RectTransform>();
-            scrollRect.anchorMin = new Vector2(0.045f, 0.185f);
-            scrollRect.anchorMax = new Vector2(0.485f, 0.745f);
-            scrollRect.offsetMin = new Vector2(6, 6);
-            scrollRect.offsetMax = new Vector2(-6, -6);
-
-            Image scrollBackground = scrollObject.GetComponent<Image>();
-            scrollBackground.color = new Color(0.045f, 0.065f, 0.078f, 1f);
+            MakeText(storeRoot.transform, "ASSET_COUNT",
+                "AVAILABLE ASSETS  //  SELECT TO INSPECT",
+                11, muted, new Vector2(.39f,.595f), new Vector2(.645f,.63f),
+                TextAnchor.MiddleRight);
 
             GameObject viewport = new GameObject(
-                "Viewport",
+                "ASSET_VIEWPORT",
                 typeof(RectTransform), typeof(Image), typeof(Mask));
+            viewport.transform.SetParent(storeRoot.transform, false);
 
-            viewport.transform.SetParent(scrollObject.transform, false);
             RectTransform viewportRect = viewport.GetComponent<RectTransform>();
-            viewportRect.anchorMin = Vector2.zero;
-            viewportRect.anchorMax = Vector2.one;
+            viewportRect.anchorMin = new Vector2(.035f,.125f);
+            viewportRect.anchorMax = new Vector2(.655f,.575f);
             viewportRect.offsetMin = Vector2.zero;
             viewportRect.offsetMax = Vector2.zero;
-            viewport.GetComponent<Image>().color = Color.white;
+            viewport.GetComponent<Image>().color = bg;
             viewport.GetComponent<Mask>().showMaskGraphic = false;
 
             GameObject content = new GameObject(
-                "UnitListContent",
+                "ASSET_LIST",
                 typeof(RectTransform), typeof(VerticalLayoutGroup),
                 typeof(ContentSizeFitter));
-
             content.transform.SetParent(viewport.transform, false);
+
             RectTransform contentRect = content.GetComponent<RectTransform>();
-            contentRect.anchorMin = new Vector2(0, 1);
-            contentRect.anchorMax = new Vector2(1, 1);
-            contentRect.pivot = new Vector2(0.5f, 1);
+            contentRect.anchorMin = new Vector2(0,1);
+            contentRect.anchorMax = new Vector2(1,1);
+            contentRect.pivot = new Vector2(.5f,1);
             contentRect.anchoredPosition = Vector2.zero;
-            contentRect.sizeDelta = new Vector2(0, 0);
+            contentRect.sizeDelta = Vector2.zero;
 
             VerticalLayoutGroup layout = content.GetComponent<VerticalLayoutGroup>();
-            layout.padding = new RectOffset(8, 8, 8, 8);
-            layout.spacing = 6;
+            layout.padding = new RectOffset(8,8,8,8);
+            layout.spacing = 8;
             layout.childControlWidth = true;
             layout.childControlHeight = true;
             layout.childForceExpandWidth = true;
@@ -194,67 +179,92 @@ namespace ObsidianProtocol.Game.Store.UI
             ContentSizeFitter fitter = content.GetComponent<ContentSizeFitter>();
             fitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
 
-            ScrollRect scroll = scrollObject.GetComponent<ScrollRect>();
-            scroll.viewport = viewportRect;
+            ScrollRect scroll = viewport.AddComponent<ScrollRect>();
             scroll.content = contentRect;
+            scroll.viewport = viewportRect;
             scroll.horizontal = false;
             scroll.vertical = true;
+            scroll.movementType = ScrollRect.MovementType.Clamped;
             listContent = content.transform;
 
-            Panel(
-                storeRoot.transform, "DetailsFrame",
-                new Color(0.07f, 0.095f, 0.11f, 1f),
-                new Vector2(0.515f, 0.18f), new Vector2(0.96f, 0.75f),
+            // Fleet-matched right-side inspection panel.
+            Panel(storeRoot.transform, "UNIT_DOSSIER_PANEL", panel,
+                new Vector2(.68f,.105f), new Vector2(.975f,.765f),
                 Vector2.zero, Vector2.zero);
 
-            MakeText(storeRoot.transform, "DetailsHeading",
+            MakeText(storeRoot.transform, "DossierHeading",
                 "UNIT DOSSIER",
-                19, new Color(0.83f, 0.87f, 0.89f, 1f),
-                new Vector2(0.54f, 0.68f), new Vector2(0.92f, 0.73f),
+                20, white, new Vector2(.705f,.715f), new Vector2(.95f,.76f),
                 TextAnchor.MiddleLeft);
+
+            MakeText(storeRoot.transform, "DossierSubheading",
+                "ASSET INTELLIGENCE  //  ACQUISITION REVIEW",
+                10, muted, new Vector2(.705f,.685f), new Vector2(.95f,.715f),
+                TextAnchor.MiddleLeft);
+
+            Panel(storeRoot.transform, "ArtworkFrame",
+                new Color(.005f,.025f,.045f,1f),
+                new Vector2(.735f,.485f), new Vector2(.945f,.675f),
+                Vector2.zero, Vector2.zero);
+
+            GameObject artworkObject = new GameObject(
+                "SelectedUnitArtwork",
+                typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
+            artworkObject.transform.SetParent(storeRoot.transform, false);
+
+            RectTransform artworkRect = artworkObject.GetComponent<RectTransform>();
+            artworkRect.anchorMin = new Vector2(.745f,.495f);
+            artworkRect.anchorMax = new Vector2(.935f,.665f);
+            artworkRect.offsetMin = Vector2.zero;
+            artworkRect.offsetMax = Vector2.zero;
+
+            selectedImage = artworkObject.GetComponent<Image>();
+            selectedImage.preserveAspect = true;
+            selectedImage.raycastTarget = false;
+
+            Panel(storeRoot.transform, "DossierDivider", cyan,
+                new Vector2(.705f,.465f), new Vector2(.95f,.468f),
+                Vector2.zero, Vector2.zero);
 
             selectedNameText = MakeText(storeRoot.transform, "SelectedUnitName",
                 "NO UNIT SELECTED",
-                28, Color.white,
-                new Vector2(0.54f, 0.59f), new Vector2(0.92f, 0.67f),
+                23, white, new Vector2(.705f,.405f), new Vector2(.95f,.455f),
                 TextAnchor.MiddleLeft);
 
             selectedCategoryText = MakeText(storeRoot.transform, "SelectedCategory",
-                "CATEGORY  —",
-                15, new Color(0.82f, 0.57f, 0.27f, 1f),
-                new Vector2(0.54f, 0.54f), new Vector2(0.92f, 0.59f),
+                "CATEGORY  --",
+                12, cyan, new Vector2(.705f,.36f), new Vector2(.95f,.4f),
                 TextAnchor.MiddleLeft);
 
             selectedPriceText = MakeText(storeRoot.transform, "SelectedPrice",
-                "ACQUISITION COST  —",
-                20, new Color(0.55f, 0.88f, 0.67f, 1f),
-                new Vector2(0.54f, 0.47f), new Vector2(0.92f, 0.53f),
+                "ACQUISITION COST  --",
+                16, green, new Vector2(.705f,.305f), new Vector2(.95f,.35f),
                 TextAnchor.MiddleLeft);
 
             selectedDescriptionText = MakeText(storeRoot.transform, "UnitDescription",
-                "Select an available unit from the catalog to review its details.",
-                15, new Color(0.68f, 0.73f, 0.76f, 1f),
-                new Vector2(0.54f, 0.32f), new Vector2(0.92f, 0.46f),
+                "Select an available asset to review its operational details and acquisition information.",
+                13, muted, new Vector2(.705f,.18f), new Vector2(.95f,.29f),
                 TextAnchor.UpperLeft);
 
             purchaseButton = MakeButton(
                 storeRoot.transform, "PurchaseUnitButton", "ACQUIRE UNIT",
-                new Vector2(0.54f, 0.205f), new Vector2(0.92f, 0.285f),
-                new Color(0.55f, 0.31f, 0.1f, 1f), PurchaseSelectedUnit);
+                new Vector2(.705f,.12f), new Vector2(.95f,.17f),
+                cyan, PurchaseSelectedUnit);
+
+            Panel(storeRoot.transform, "StatusBar", panel,
+                new Vector2(.025f,.045f), new Vector2(.975f,.09f),
+                Vector2.zero, Vector2.zero);
 
             statusText = MakeText(storeRoot.transform, "StoreStatus",
-                "STORE INITIALIZING",
-                14, new Color(0.65f, 0.72f, 0.75f, 1f),
-                new Vector2(0.045f, 0.09f), new Vector2(0.92f, 0.15f),
+                "ACQUISITION SYSTEM INITIALIZING",
+                12, muted, new Vector2(.04f,.048f), new Vector2(.95f,.087f),
                 TextAnchor.MiddleLeft);
 
             MakeText(storeRoot.transform, "Footer",
-                "OPAW  /  LOGISTICS COMMAND  /  ACQUISITION SYSTEM",
-                11, new Color(0.37f, 0.44f, 0.48f, 1f),
-                new Vector2(0.045f, 0.025f), new Vector2(0.8f, 0.07f),
+                "OPAW  //  LOGISTICS COMMAND  //  AUTHORIZED ACQUISITIONS",
+                10, muted, new Vector2(.045f,.012f), new Vector2(.8f,.035f),
                 TextAnchor.MiddleLeft);
         }
-
         private GameObject Panel(
             Transform parent, string name, Color color,
             Vector2 anchorMin, Vector2 anchorMax,
@@ -262,23 +272,36 @@ namespace ObsidianProtocol.Game.Store.UI
         {
             GameObject obj = new GameObject(name, typeof(RectTransform), typeof(Image));
             obj.transform.SetParent(parent, false);
+            obj.transform.SetAsFirstSibling();
+
             RectTransform rect = obj.GetComponent<RectTransform>();
             rect.anchorMin = anchorMin;
             rect.anchorMax = anchorMax;
             rect.offsetMin = offsetMin;
             rect.offsetMax = offsetMax;
-            obj.GetComponent<Image>().color = color;
+
+            Image image = obj.GetComponent<Image>();
+            image.color = color;
+            image.sprite = GetChamferSprite();
+            image.type = Image.Type.Sliced;
+
+            if (name != "TopAccent")
+            {
+                Outline outline = obj.AddComponent<Outline>();
+                outline.effectColor = new Color(0f, 0.65f, 1f, 0.75f);
+                outline.effectDistance = new Vector2(1.2f, 1.2f);
+            }
+
             return obj;
         }
-
-        private Text MakeText(
+        private TextMeshProUGUI MakeText(
             Transform parent, string name, string value, int size,
             Color color, Vector2 anchorMin, Vector2 anchorMax, TextAnchor alignment)
         {
             GameObject obj = new GameObject(
-                name, typeof(RectTransform), typeof(CanvasRenderer), typeof(Text));
-
+                name, typeof(RectTransform), typeof(CanvasRenderer), typeof(TextMeshProUGUI));
             obj.transform.SetParent(parent, false);
+            obj.transform.SetAsFirstSibling();
 
             RectTransform rect = obj.GetComponent<RectTransform>();
             rect.anchorMin = anchorMin;
@@ -286,17 +309,25 @@ namespace ObsidianProtocol.Game.Store.UI
             rect.offsetMin = Vector2.zero;
             rect.offsetMax = Vector2.zero;
 
-            Text text = obj.GetComponent<Text>();
-            text.font = font;
+            TextMeshProUGUI text = obj.GetComponent<TextMeshProUGUI>();
             text.text = value;
             text.fontSize = size;
             text.color = color;
-            text.alignment = alignment;
-            text.horizontalOverflow = HorizontalWrapMode.Wrap;
-            text.verticalOverflow = VerticalWrapMode.Overflow;
+            text.enableAutoSizing = true;
+            text.fontSizeMin = Mathf.Max(10, size - 3);
+            text.fontSizeMax = size;
+            text.alignment = alignment == TextAnchor.MiddleCenter
+                ? TextAlignmentOptions.Center
+                : alignment == TextAnchor.MiddleRight
+                    ? TextAlignmentOptions.MidlineRight
+                    : alignment == TextAnchor.UpperLeft
+                        ? TextAlignmentOptions.TopLeft
+                        : TextAlignmentOptions.MidlineLeft;
+            text.textWrappingMode = name == "UnitDescription"
+                ? TextWrappingModes.Normal
+                : TextWrappingModes.NoWrap;
             return text;
         }
-
         private Button MakeButton(
             Transform parent, string name, string label,
             Vector2 anchorMin, Vector2 anchorMax, Color color,
@@ -307,6 +338,7 @@ namespace ObsidianProtocol.Game.Store.UI
                 typeof(Image), typeof(Button));
 
             obj.transform.SetParent(parent, false);
+            obj.transform.SetAsFirstSibling();
 
             RectTransform rect = obj.GetComponent<RectTransform>();
             rect.anchorMin = anchorMin;
@@ -316,17 +348,23 @@ namespace ObsidianProtocol.Game.Store.UI
 
             Image image = obj.GetComponent<Image>();
             image.color = color;
+            image.sprite = GetChamferSprite();
+            image.type = Image.Type.Sliced;
+
+            Outline outline = obj.AddComponent<Outline>();
+            outline.effectColor = new Color(0f, 0.65f, 1f, 0.9f);
+            outline.effectDistance = new Vector2(1.5f, 1.5f);
 
             Button button = obj.GetComponent<Button>();
             button.targetGraphic = image;
             button.onClick.AddListener(action);
 
-            MakeText(obj.transform, "Label", label, 16, Color.white,
+            MakeText(obj.transform, "Label", label, 16,
+                new Color(0.82f, 0.91f, 1f, 1f),
                 Vector2.zero, Vector2.one, TextAnchor.MiddleCenter);
 
             return button;
         }
-
         private void RefreshCatalog()
         {
             units.Clear();
@@ -354,47 +392,179 @@ namespace ObsidianProtocol.Game.Store.UI
                     continue;
 
                 units.Add(unit);
-                CreateUnitCard(unit);
             }
 
+            BuildCategoryStrip();
+            RebuildCatalog();
             SetStatus("CATALOG READY  /  " + units.Count + " purchasable units");
+        }
+
+        private void BuildCategoryStrip()
+        {
+            string[] names = { "AIR", "GROUND", "SEA", "SATELLITE", "COMMAND", "EXPERIMENTAL" };
+            float gap = .008f;
+            float width = (.65f - gap * 5f) / 6f;
+
+            foreach (GameObject tile in categoryTiles)
+                if (tile != null) Destroy(tile);
+            categoryTiles.Clear();
+
+            for (int i = 0; i < names.Length; i++)
+            {
+                string category = names[i];
+                int count = 0;
+                foreach (UnitDefinition unit in units)
+                    if (unit.Category.ToString().ToUpperInvariant() == category) count++;
+
+                float x = .025f + i * (width + gap);
+                GameObject tile = Panel(storeRoot.transform, "CATEGORY_" + category,
+                    new Color(.015f,.045f,.072f,.98f),
+                    new Vector2(x,.665f), new Vector2(x+width,.765f),
+                    Vector2.zero, Vector2.zero);
+                categoryTiles.Add(tile);
+
+                Button button = tile.AddComponent<Button>();
+                button.transition = Selectable.Transition.None;
+                button.onClick.AddListener(() => SetCategoryFilter(category));
+
+                MakeText(tile.transform, "CATEGORY_NAME", category + " UNITS",
+                    12, new Color(0f,.72f,1f,1f),
+                    new Vector2(.03f,.58f), new Vector2(.97f,.91f),
+                    TextAnchor.MiddleCenter);
+                MakeText(tile.transform, "CATEGORY_COUNT", count.ToString("00"),
+                    25, new Color(.82f,.91f,1f,1f),
+                    new Vector2(.03f,.08f), new Vector2(.97f,.62f),
+                    TextAnchor.MiddleCenter);
+            }
+        }
+
+        private void SetCategoryFilter(string category)
+        {
+            selectedCategoryFilter = category;
+            RebuildCatalog();
+            SetStatus("CATALOG FILTER  /  " + category + " UNITS");
+        }
+
+        private void RebuildCatalog()
+        {
+            if (listContent == null) return;
+            for (int i = listContent.childCount - 1; i >= 0; i--)
+                Destroy(listContent.GetChild(i).gameObject);
+
+            int shown = 0;
+            foreach (UnitDefinition unit in units)
+            {
+                if (selectedCategoryFilter != "ALL" &&
+                    unit.Category.ToString().ToUpperInvariant() != selectedCategoryFilter)
+                    continue;
+                CreateUnitCard(unit);
+                shown++;
+            }
+
+            if (shown == 0)
+                MakeText(listContent, "EMPTY_CATALOG", "NO AVAILABLE UNITS IN THIS CATEGORY",
+                    18, new Color(.35f,.53f,.68f,1f),
+                    new Vector2(.05f,.4f), new Vector2(.95f,.6f),
+                    TextAnchor.MiddleCenter);
         }
 
         private void CreateUnitCard(UnitDefinition unit)
         {
             GameObject card = new GameObject(
-                "UnitCard_" + unit.UnitId,
+                "ASSET_ROW_" + unit.UnitId,
                 typeof(RectTransform), typeof(Image), typeof(Button), typeof(LayoutElement));
-
             card.transform.SetParent(listContent, false);
-            card.GetComponent<LayoutElement>().preferredHeight = 72;
-            card.GetComponent<LayoutElement>().minHeight = 72;
+
+            LayoutElement element = card.GetComponent<LayoutElement>();
+            element.preferredHeight = 112;
+            element.minHeight = 112;
 
             Image image = card.GetComponent<Image>();
-            image.color = new Color(0.11f, 0.145f, 0.16f, 1f);
+            image.color = new Color(.025f,.075f,.11f,.98f);
+            image.sprite = GetChamferSprite();
+            image.type = Image.Type.Sliced;
+
+            Outline outline = card.AddComponent<Outline>();
+            outline.effectColor = new Color(0f,.72f,1f,1f);
+            outline.effectDistance = new Vector2(2.5f,2.5f);
+            outline.useGraphicAlpha = true;
 
             Button button = card.GetComponent<Button>();
             button.targetGraphic = image;
-
-            string displayName = unit.DisplayName;
-            int cost = unit.Economy.creditCost;
-
-            MakeText(card.transform, "UnitName", displayName,
-                17, Color.white,
-                new Vector2(0.04f, 0.42f), new Vector2(0.96f, 0.94f),
-                TextAnchor.MiddleLeft);
-
-            MakeText(card.transform, "UnitCost", cost.ToString("N0") + " CREDITS",
-                12, new Color(0.55f, 0.88f, 0.67f, 1f),
-                new Vector2(0.04f, 0.06f), new Vector2(0.96f, 0.42f),
-                TextAnchor.MiddleLeft);
-
+            button.transition = Selectable.Transition.None;
             button.onClick.AddListener(() => SelectUnit(unit));
+
+            GameObject accent = new GameObject("ACCENT",
+                typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
+            accent.transform.SetParent(card.transform, false);
+            RectTransform accentRect = accent.GetComponent<RectTransform>();
+            accentRect.anchorMin = new Vector2(0,0);
+            accentRect.anchorMax = new Vector2(.008f,1);
+            accentRect.offsetMin = Vector2.zero;
+            accentRect.offsetMax = Vector2.zero;
+            accent.GetComponent<Image>().color = new Color(0f,.65f,1f,1f);
+            accent.GetComponent<Image>().raycastTarget = false;
+
+            GameObject artObject = new GameObject("UNIT_ART",
+                typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
+            artObject.transform.SetParent(card.transform, false);
+            RectTransform artRect = artObject.GetComponent<RectTransform>();
+            artRect.anchorMin = new Vector2(.015f,.08f);
+            artRect.anchorMax = new Vector2(.22f,.92f);
+            artRect.offsetMin = Vector2.zero;
+            artRect.offsetMax = Vector2.zero;
+
+            Image art = artObject.GetComponent<Image>();
+            art.sprite = unit.StoreImage;
+            art.preserveAspect = true;
+            art.color = Color.white;
+            art.raycastTarget = false;
+
+            string category = unit.Category.ToString().ToUpperInvariant();
+            MakeText(card.transform, "UNIT_EMBLEM", CategoryEmblem(category),
+                22, new Color(0f,.72f,1f,1f),
+                new Vector2(.18f,.68f), new Vector2(.235f,.96f),
+                TextAnchor.MiddleCenter);
+            MakeText(card.transform, "UNIT_NAME", unit.DisplayName.ToUpperInvariant(),
+                19, new Color(.82f,.91f,1f,1f),
+                new Vector2(.245f,.48f), new Vector2(.66f,.88f),
+                TextAnchor.MiddleLeft);
+            MakeText(card.transform, "UNIT_CLASS",
+                category + "  //  " + unit.UnitId,
+                12, new Color(.35f,.53f,.68f,1f),
+                new Vector2(.245f,.12f), new Vector2(.66f,.5f),
+                TextAnchor.MiddleLeft);
+            MakeText(card.transform, "ACQUISITION_PRICE",
+                unit.Economy.creditCost.ToString("N0") + " CREDITS",
+                14, new Color(.1f,1f,.42f,1f),
+                new Vector2(.68f,.25f), new Vector2(.96f,.72f),
+                TextAnchor.MiddleRight);
+            MakeText(card.transform, "SALE_LABEL", "AVAILABLE",
+                10, new Color(.35f,.53f,.68f,1f),
+                new Vector2(.68f,.08f), new Vector2(.96f,.3f),
+                TextAnchor.MiddleRight);
         }
 
+        private static string CategoryEmblem(string category)
+        {
+            switch (category)
+            {
+                case "AIR": return "\u2708";
+                case "GROUND": return "\u2694";
+                case "SEA": return "\u2693";
+                case "SATELLITE": return "\u25c9";
+                case "COMMAND": return "\u2b21";
+                case "EXPERIMENTAL": return "\u2725";
+                default: return "\u25c7";
+            }
+        }
         private void SelectUnit(UnitDefinition unit)
         {
             selectedUnit = unit;
+            selectedImage.sprite = unit.StoreImage;
+            selectedImage.color = unit.StoreImage != null ? Color.white : new Color(0.01f,0.035f,0.055f,1f);
+
+
 
             selectedNameText.text = unit.DisplayName.ToUpperInvariant();
             selectedCategoryText.text =
@@ -437,6 +607,29 @@ namespace ObsidianProtocol.Game.Store.UI
             }
         }
 
+        private static Sprite chamferSprite;
+
+        private static Sprite GetChamferSprite()
+        {
+            if (chamferSprite != null) return chamferSprite;
+            const int size = 64;
+            Texture2D texture = new Texture2D(size,size,TextureFormat.RGBA32,false);
+            texture.filterMode = FilterMode.Bilinear;
+            Color32 clear = new Color32(255,255,255,0);
+            Color32 solid = new Color32(255,255,255,255);
+            for (int y=0;y<size;y++)
+            for (int x=0;x<size;x++)
+            {
+                bool inside = x+y>=13 && (size-1-x)+y>=13 &&
+                    x+(size-1-y)>=13 && (size-1-x)+(size-1-y)>=13;
+                texture.SetPixel(x,y,inside ? solid : clear);
+            }
+            texture.Apply();
+            chamferSprite = Sprite.Create(texture,new Rect(0,0,size,size),
+                new Vector2(.5f,.5f),100,0,SpriteMeshType.FullRect,new Vector4(14,14,14,14));
+            chamferSprite.name = "OPAW_STORE_CHAMFER";
+            return chamferSprite;
+        }
         private void SetStatus(string message)
         {
             if (statusText != null)

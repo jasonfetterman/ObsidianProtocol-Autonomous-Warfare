@@ -1,5 +1,7 @@
+
 using UnityEngine;
 using UnityEngine.AI;
+using ObsidianProtocol.Game.Command.Objectives;
 
 public class UnitMovement : MonoBehaviour
 {
@@ -10,8 +12,21 @@ public class UnitMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
+    private void Update()
+    {
+        if (agent == null || agent.pathPending)
+            return;
+
+        if (agent.hasPath &&
+            agent.remainingDistance <= agent.stoppingDistance)
+        {
+            ObjectiveSystem.ActiveInstance.CheckMoveObjectives(this);
+        }
+    }
+
     public void MoveTo(Vector3 destination)
     {
-        agent.SetDestination(destination);
+        if (agent != null)
+            agent.SetDestination(destination);
     }
 }

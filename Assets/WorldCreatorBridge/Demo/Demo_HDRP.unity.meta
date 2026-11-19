@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ccb5986ba88f04d4193cf856353f62e2
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 151796
+  packageName: World Creator Bridge for Unity
+  packageVersion: 2.0
+  assetPath: Assets/WorldCreatorBridge/Demo/Demo_HDRP.unity
+  uploadId: 872382

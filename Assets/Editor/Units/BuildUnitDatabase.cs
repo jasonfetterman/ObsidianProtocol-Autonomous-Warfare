@@ -24,7 +24,7 @@ public static class BuildUnitDatabase
         "obs-ground-bulldog|Bulldog|Ground","obs-ground-forge|Forge|Ground",
         "obs-ground-hammer|Hammer|Ground","obs-ground-ironwalker|Ironwalker|Ground",
         "obs-ground-mule|Mule|Ground","obs-ground-patrol|Patrol|Ground",
-        "obs-ground-rescue|Rescue|Ground","obs-ground-scout|Scout|Ground",
+        "obs-ground-scout|Scout|Ground",
         "obs-ground-sentinel|Sentinel|Ground","obs-ground-rover|Rover|Ground",
         "obs-ground-crusher|Crusher|Ground","obs-ground-hauler|Hauler|Ground",
 
@@ -117,7 +117,7 @@ public static class BuildUnitDatabase
 
         SerializedProperty category = so.FindProperty("category");
         if (category != null)
-            category.enumValueIndex = (int)UnitCategory.AirUnit;
+            category.enumValueIndex = (int)UnitCategory.Air;
 
         SetFloat(so, "physical.lengthMeters", 1.2f);
         SetFloat(so, "physical.widthMeters", 0.9f);
@@ -755,6 +755,7 @@ public static class BuildUnitDatabase
         }
     }
 }
+
 
 
 

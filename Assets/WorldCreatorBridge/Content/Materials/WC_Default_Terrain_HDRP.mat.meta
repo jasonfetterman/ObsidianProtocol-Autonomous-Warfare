@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e0b280c4a142490438788456a86fc73a
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 151796
+  packageName: World Creator Bridge for Unity
+  packageVersion: 2.0
+  assetPath: Assets/WorldCreatorBridge/Content/Materials/WC_Default_Terrain_HDRP.mat
+  uploadId: 872382

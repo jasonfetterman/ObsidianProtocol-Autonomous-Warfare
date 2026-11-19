@@ -1,4 +1,4 @@
-using ObsidianProtocol.Game.Modding;
+﻿using ObsidianProtocol.Game.Modding;
 using ObsidianProtocol.Game.Runtime;
 
 namespace ObsidianProtocol.Game.Units
@@ -19,10 +19,15 @@ namespace ObsidianProtocol.Game.Units
                 if (unit == null || string.IsNullOrWhiteSpace(unit.UnitId))
                     continue;
 
+                float productionTime = unit.Economy != null
+                    ? unit.Economy.buildTimeSeconds
+                    : 0f;
+
                 if (framework.CreateUnit(
                     unit.UnitId,
                     unit.DisplayName,
-                    unit.Category.ToString()))
+                    unit.Category.ToString(),
+                    productionTime))
                 {
                     added++;
                 }

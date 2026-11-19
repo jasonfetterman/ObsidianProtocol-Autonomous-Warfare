@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -97,17 +97,17 @@ namespace ObsidianProtocol.UI.Store
 
         private void Start()
         {
-            Debug.Log("[STORE] START ENTERED");
+            EnsureInitialized();
+        }
+
+        private void EnsureInitialized()
+        {
+            if (interfaceBuilt && storeInterface != null)
+                return;
 
             EnsureCanvas();
-            Debug.Log("[STORE] CANVAS READY");
-
             LoadUnits();
-            Debug.Log("[STORE] UNITS LOADED = " + units.Count);
-
             BuildInterface();
-            Debug.Log("[STORE] INTERFACE BUILT");
-
             RefreshCredits();
             RefreshCatalog();
 
@@ -115,11 +115,7 @@ namespace ObsidianProtocol.UI.Store
                 SelectUnit(units.FirstOrDefault(u => string.Equals(u.DisplayName, "Warden", StringComparison.OrdinalIgnoreCase)) ?? units[0]);
 
             Canvas.ForceUpdateCanvases();
-
-            Debug.Log(
-                "[STORE] MASTER INTERFACE ACTIVE | " +
-                "UNITS=" + units.Count +
-                " | CANVAS=SCREEN_SPACE_OVERLAY");
+            Debug.Log("[STORE] INITIALIZED | UNITS=" + units.Count);
         }
 
         private void EnsureCanvas()
@@ -268,6 +264,7 @@ namespace ObsidianProtocol.UI.Store
 
         public void OpenStore()
         {
+            EnsureInitialized();
             if (storeInterface == null)
                 storeInterface = transform.Find("STORE_MASTER_INTERFACE")?.gameObject;
             if (storeInterface == null)
@@ -951,6 +948,32 @@ namespace ObsidianProtocol.UI.Store
             }
 
             Canvas.ForceUpdateCanvases();
+            if (catalogRoot.childCount >= filtered.Count && filtered.Count > 0)
+            {
+                Transform first = catalogRoot.GetChild(catalogRoot.childCount - filtered.Count);
+                Image img = first.GetComponent<Image>();
+                TMP_Text txt = first.GetComponentInChildren<TMP_Text>(true);
+                CanvasRenderer cr = first.GetComponent<CanvasRenderer>();
+                Canvas rootCanvas = GetComponent<Canvas>();
+                Canvas ancestorCanvas = first.GetComponentInParent<Canvas>();
+                Canvas cardCanvas = img != null ? img.canvas : null;
+                Canvas textCanvas = txt != null ? txt.canvas : null;
+                var registeredGraphics = rootCanvas != null
+                    ? GraphicRegistry.GetGraphicsForCanvas(rootCanvas)
+                    : null;
+                bool imageRegistered = registeredGraphics != null && img != null && registeredGraphics.Contains(img);
+                bool textRegistered = registeredGraphics != null && txt != null && registeredGraphics.Contains(txt);
+                Debug.Log("[STORE CARD CANVAS] Root=" + (rootCanvas != null ? rootCanvas.name : "NONE") +
+                    " | Ancestor=" + (ancestorCanvas != null ? ancestorCanvas.name : "NONE") +
+                    " | ImageCanvas=" + (cardCanvas != null ? cardCanvas.name : "NONE") +
+                    " | TextCanvas=" + (textCanvas != null ? textCanvas.name : "NONE") +
+                    " | CanvasEnabled=" + (rootCanvas != null && rootCanvas.enabled) +
+                    " | ImageRegistered=" + imageRegistered +
+                    " | TextRegistered=" + textRegistered +
+                    " | ImageDepth=" + (img != null ? img.depth : -1) + " | ImageRendererDepth=" + (img != null ? img.canvasRenderer.absoluteDepth : -1) + " | ImageMaterials=" + (img != null ? img.canvasRenderer.materialCount : -1) + " | ImageAlpha=" + (img != null ? img.canvasRenderer.GetAlpha() : -1f) +
+                    " | TextDepth=" + (txt != null ? txt.depth : -1) + " | TextRendererDepth=" + (txt != null ? txt.canvasRenderer.absoluteDepth : -1) + " | TextMaterials=" + (txt != null ? txt.canvasRenderer.materialCount : -1) + " | TextAlpha=" + (txt != null ? txt.canvasRenderer.GetAlpha() : -1f) +
+                    " | Active=" + first.gameObject.activeInHierarchy);
+            }
         }
 
         private void SelectUnit(

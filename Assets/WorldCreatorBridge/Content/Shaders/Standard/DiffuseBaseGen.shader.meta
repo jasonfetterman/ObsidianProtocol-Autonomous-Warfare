@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: fcfaf1114641e5e4281db4cca8d7d0b1
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 151796
+  packageName: World Creator Bridge for Unity
+  packageVersion: 2.0
+  assetPath: Assets/WorldCreatorBridge/Content/Shaders/Standard/DiffuseBaseGen.shader
+  uploadId: 872382

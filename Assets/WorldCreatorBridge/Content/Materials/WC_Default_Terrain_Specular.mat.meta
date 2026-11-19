@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c717119b254326f4a816a0ff956dea87
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 151796
+  packageName: World Creator Bridge for Unity
+  packageVersion: 2.0
+  assetPath: Assets/WorldCreatorBridge/Content/Materials/WC_Default_Terrain_Specular.mat
+  uploadId: 872382

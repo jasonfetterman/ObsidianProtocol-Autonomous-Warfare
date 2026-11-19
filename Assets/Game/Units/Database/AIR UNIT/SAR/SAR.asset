@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
   unitId: obs-air-sar
   displayName: SAR
-  category: 4
+  category: 0
   role: Search & Rescue / Survival Extraction
   tier: Advanced Support
   status: Active

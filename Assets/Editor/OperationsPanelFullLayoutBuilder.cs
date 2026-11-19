@@ -1,4 +1,4 @@
-﻿using UnityEditor;
+using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
@@ -202,6 +202,39 @@ public static class OperationsPanelFullLayoutBuilder
         Debug.Log("[OPERATIONS] CLEAN FULL LAYOUT BUILT.");
     }
 
+    private static Sprite chamferSprite;
+
+    private static Sprite GetChamferSprite()
+    {
+        if (chamferSprite != null) return chamferSprite;
+
+        const int size = 64;
+        Texture2D texture = new Texture2D(size, size, TextureFormat.RGBA32, false);
+        texture.filterMode = FilterMode.Bilinear;
+
+        Color32 clear = new Color32(255, 255, 255, 0);
+        Color32 solid = new Color32(255, 255, 255, 255);
+
+        for (int y = 0; y < size; y++)
+        for (int x = 0; x < size; x++)
+        {
+            bool inside = x + y >= 13 &&
+                (size - 1 - x) + y >= 13 &&
+                x + (size - 1 - y) >= 13 &&
+                (size - 1 - x) + (size - 1 - y) >= 13;
+
+            texture.SetPixel(x, y, inside ? solid : clear);
+        }
+
+        texture.Apply();
+        chamferSprite = Sprite.Create(
+            texture, new Rect(0, 0, size, size),
+            new Vector2(.5f, .5f), 100, 0,
+            SpriteMeshType.FullRect, new Vector4(14, 14, 14, 14));
+
+        chamferSprite.name = "OPAW_CHAMFERED_UI_SPRITE";
+        return chamferSprite;
+    }
     private static GameObject CreateCard(
         Transform parent,
         string name,
@@ -222,7 +255,12 @@ public static class OperationsPanelFullLayoutBuilder
         );
 
         Image image = card.AddComponent<Image>();
-        image.color = new Color(.025f, .035f, .045f, .97f);
+        image.sprite = GetChamferSprite();
+        image.type = Image.Type.Sliced;
+        image.color = new Color(.025f, .075f, .11f, .98f);
+        Outline outline = card.AddComponent<Outline>();
+        outline.effectColor = new Color(0, .72f, 1, 1);
+        outline.effectDistance = new Vector2(1.2f, 1.2f);
 
         CreateText(
             "TITLE",
@@ -322,7 +360,12 @@ public static class OperationsPanelFullLayoutBuilder
         );
 
         Image image = button.AddComponent<Image>();
-        image.color = new Color(.07f, .10f, .13f, 1f);
+        image.sprite = GetChamferSprite();
+        image.type = Image.Type.Sliced;
+        image.color = new Color(.035f, .105f, .145f, 1f);
+        Outline outline = button.AddComponent<Outline>();
+        outline.effectColor = new Color(0, .72f, 1, 1);
+        outline.effectDistance = new Vector2(1.5f, 1.5f);
 
         button.AddComponent<Button>();
 

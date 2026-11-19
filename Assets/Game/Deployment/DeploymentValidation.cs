@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ObsidianProtocol.Game.Deployment
+﻿namespace ObsidianProtocol.Game.Deployment
 {
     public enum DeploymentValidationFailure
     {
@@ -36,9 +34,7 @@ namespace ObsidianProtocol.Game.Deployment
         public static DeploymentValidationResult Failed(
             DeploymentValidationFailure failure)
         {
-            return new DeploymentValidationResult(
-                false,
-                failure);
+            return new DeploymentValidationResult(false, failure);
         }
     }
 
@@ -53,26 +49,21 @@ namespace ObsidianProtocol.Game.Deployment
             DeploymentZoneSystem zoneSystem,
             UnitDeploymentCostRegistry costRegistry)
         {
-            this.deploymentFramework =
-                deploymentFramework;
-
-            this.zoneSystem =
-                zoneSystem;
-
-            this.costRegistry =
-                costRegistry;
+            this.deploymentFramework = deploymentFramework;
+            this.zoneSystem = zoneSystem;
+            this.costRegistry = costRegistry;
         }
 
         public DeploymentValidationResult Validate(
             string deploymentId,
             string zoneId,
             string unitId,
-            BattleBudget battleBudget,
-            DeploymentPointPool pointPool)
+            DeploymentPointLedger pointLedger)
         {
             if (deploymentFramework == null ||
                 zoneSystem == null ||
-                costRegistry == null)
+                costRegistry == null ||
+                pointLedger == null)
             {
                 return DeploymentValidationResult.Failed(
                     DeploymentValidationFailure.InvalidEntry);
@@ -82,7 +73,8 @@ namespace ObsidianProtocol.Game.Deployment
                     deploymentId,
                     out DeploymentEntry entry) ||
                 entry == null ||
-                !entry.Valid)
+                !entry.Valid ||
+                entry.UnitId != unitId)
             {
                 return DeploymentValidationResult.Failed(
                     DeploymentValidationFailure.InvalidEntry);
@@ -111,21 +103,17 @@ namespace ObsidianProtocol.Game.Deployment
 
             if (!costRegistry.TryGetCost(
                     unitId,
-                    out int deploymentCost))
+                    out int deploymentCost) ||
+                deploymentCost != entry.DeploymentPoints)
             {
                 return DeploymentValidationResult.Failed(
                     DeploymentValidationFailure.InvalidEntry);
             }
 
-            if (battleBudget == null ||
-                !battleBudget.CanCommit(deploymentCost))
-            {
-                return DeploymentValidationResult.Failed(
-                    DeploymentValidationFailure.InsufficientBudget);
-            }
-
-            if (pointPool == null ||
-                !pointPool.CanSpend(deploymentCost))
+            if (!pointLedger.TryGetAllocation(
+                    deploymentId,
+                    out int allocatedPoints) ||
+                allocatedPoints != deploymentCost)
             {
                 return DeploymentValidationResult.Failed(
                     DeploymentValidationFailure.InsufficientDeploymentPoints);

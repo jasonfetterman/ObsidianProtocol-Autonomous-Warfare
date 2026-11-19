@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 88138cfe9a990c74a9c73986a7c78126
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 151796
+  packageName: World Creator Bridge for Unity
+  packageVersion: 2.0
+  assetPath: Assets/WorldCreatorBridge/Content/Shaders/HDRP/TerrainLit_Splatmap.hlsl
+  uploadId: 872382
