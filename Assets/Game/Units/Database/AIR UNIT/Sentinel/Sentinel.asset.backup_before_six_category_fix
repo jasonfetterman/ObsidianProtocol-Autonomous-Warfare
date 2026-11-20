@@ -1,0 +1,374 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Sentinel
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-air-sentinel
+  displayName: Sentinel
+  category: 0
+  role: Aerial Perimeter Defense / Security Patrol
+  tier: Operational
+  status: Active
+  storeImage: {fileID: 6304659403349811268, guid: 50a2214aa4e1f6145a724e47c2c4a53f, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 3.5
+    widthMeters: 2.5
+    heightMeters: 1.1
+    massKg: 26
+    powerSource: High-density battery
+    energyCapacityWh: 2300
+    energyConsumptionWhPerMinute: 55
+    endurance: 40 min; active patrol 55 Wh/min; tracking/suppression 62 Wh/min; maximum sensor load 70 Wh/min; idle 11 Wh/min; emergency power 15 Wh/min; idle recovery 6% per minute; recharge approximately 9 min
+    payloadCapacityKg: 2.5
+    modules:
+    - Tracking sensors
+    - Tracking Sensor Array
+    - Non-Lethal Deterrent / Spotlight Mount
+    navigationSystem: GPS + AI Defense Grid
+    structuralIntegrityHp: 160
+    armorRating: 0.25
+    heatSignature: Medium
+    noiseSignature: Medium
+    topSpeedMetersPerSecond: 23
+    topSpeedDescription: 23 m/s
+    acceleration: Medium
+    turningRadius: Moderate
+    climbRate: Medium
+    stabilityRating: High
+  autonomy:
+    behaviorProfile: Security / Patrol
+    aggression: 0.4
+    caution: 0.6
+    persistence: 0.7
+    flankingLikelihood: 0.2
+    retreatThreshold: 0.5
+    retreatBehaviorDescription: Sentinel retreatBehaviorDescription
+    targetPriority: Hostile signatures; hostile drones; intruders
+    formationDiscipline: Medium
+    riskTolerance: 0.5
+  sensors:
+    visualRangeMeters: 1500
+    visualRangeDescription: Perimeter surveillance; terrain data reliability 94%; nominal threat detection reliability 95%; threat detection accuracy 94%; target tracking accuracy 92%
+    thermalRangeMeters: 900
+    thermalRangeDescription: Thermal effectiveness increases 5% in fog and 10% at night
+    acousticRange: Medium
+    radarRange: None
+    lidarRange: None
+    signalDetectionRange: Medium
+  communication:
+    meshRangeKm: 6
+    meshRangeDescription: 6 km defense grid range
+    relayCapacity: 0
+    commandLinkType: Defense Grid; redundant Standard Warden mesh
+    networkPriority: High
+  combat:
+    firepowerRating: 0
+    firepowerDescription: Low; authorized non-lethal deterrence only
+    accuracy: Medium
+    stabilization: High; high winds reduce stability 10% and tracking efficiency 8%
+    weaponMounts: 1 (non-lethal deterrent or spotlight)
+    weaponTypes: Tracking beam / deterrent pulse
+    suppressionValue: 0.5
+    trackingStrength: High
+    disruptionStrength: Medium
+    breachCapability: None
+    countermeasureRating: Medium
+    threatLevel: 4
+    engagementDistance: "200\u2013400 m"
+    preferredTerrain: Perimeter airspace / protected facilities
+    preferredTargets: Hostile drones / intruders
+    vulnerabilityProfile: 'Ballistic / EMP; weather and sensor damage degrade detection and tracking Visual identity: Warden-series aerial platform; armored perimeter-defense drone; dedicated tracking and threat-detection array; integrated non-lethal deterrent / spotlight; high-stability patrol flight control.'
+  squad:
+    squadRole: Airspace Security
+    squadSizeContribution: 1
+    formationBehavior: Patrol loops
+    intentInterpretationRules: 'Maintain perimeter and intercept threats; establish airspace perimeter; patrol assigned zone; detect hostile signatures; track intruders; intercept threats; apply authorized non-lethal deterrence; relay defense alerts Override priority: Defense Grid > Network > AI > Manual. Command authority Tactical. Command latency 0.35 s; relay load 44%; signal integrity 96%; AI sync 98%; tactical refresh 2 s; autonomous decision depth Tier II; processing High; network capacity Medium.'
+    retreatBehavior: Medium
+    breachBehavior: None
+    flankingBehavior: Light
+    reinforcementBehavior: Supports defense squads
+    parentCommandUnit: Command Core / Sentinel (Ground)
+    subordinateUnits: []
+    relayNodes: []
+    networkDependencies: Defense Grid; Standard Warden mesh fallback
+  vrOperator:
+    operatorSeatType: Drone View
+    operatorHud: Defense Grid Overlay; threat markers and patrol routes
+    cameraFeeds: Optical
+    thermalView: 1
+    lidarView: 0
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Full drone flight
+    sensorControls: Thermal / tracking / spotlight
+    abilityControls: Mark Target / Suppress / Spotlight
+    weaponControls: Authorized non-lethal deterrent
+    stabilizationControls: Auto-hover
+    operatorAbilities:
+    - Threat Mark
+    - Suppression Pulse
+    - Spotlight Tracking
+    - Relay Defense Data
+  economy:
+    creditCost: 2000
+    buildCost: 200 Metal / 180 Electronics
+    buildTimeSeconds: 60
+    factoryType: Drone Bay
+    techRequirements: Defense Grid I
+    maintenanceCost: Medium; 6 Metal / 6 Electronics per hour
+    repairTimeSeconds: 16
+    supplyConsumption: Medium
+    operationalCost: Moderate; 6 Metal / 6 Electronics per hour
+    deploymentRequirements: 'Standard drone pad Player collection: constructible; Defense Grid I research; Drone Bay factory; standard drone pad; all aerial racks; vertical takeoff. Collection-system storage, repair and upgrade metadata are not separate fields in this UnitDefinition schema.'
+    transportCompatibility: All aerial racks
+    launchMethod: Vertical takeoff
+    deploymentPointsDefined: 1
+    deploymentPoints: 1
+  buildRequirements:
+    commonComponents:
+    - component: Medium Alloy Plates
+      quantity: 16
+    - component: Composite Frame Rods
+      quantity: 12
+    - component: Micro-Servo Actuators
+      quantity: 8
+    - component: Stabilizer Fins
+      quantity: 4
+    - component: Tracking Sensor Array
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 14
+    - component: Signal Processors
+      quantity: 10
+    - component: Drone Control Chips
+      quantity: 6
+    - component: Defense Grid AI Chips
+      quantity: 2
+    power:
+    - component: High-Density Battery Pack
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 3
+    rareTradeable:
+    - component: Threat-Detection Core
+      quantity: 1
+    - component: Non-Lethal Deterrent Module
+      quantity: 1
+    optionalUpgrades:
+    - Enhanced Spotlight
+    - Anti-Jamming Shielding
+    - Extended Patrol Range Module
+    - Thermal Boost Lens
+    - Defense Grid Processor
+  environment:
+    terrainAdaptationCoefficients: Open Air 1.0 / Urban 0.95 / Forest 0.80 / Mountain 0.85 / Desert 0.95 / Snow 0.75 / Water 0.0
+    weatherSensitivityIndex: 0.58
+    visibilityModifiers: Day 1.0 / Night 0.85 / Fog 0.72 / Rain 0.82 / Heavy Storm 0.65
+    signalPropagationCurve: Effective network range decreases 0.2% per 10% atmospheric interference; severe weather reduces patrol detection efficiency 20%; EMI reduces defense-grid efficiency 30%; terrain data reliability 94%; nominal threat detection reliability 95% Threat detection reliability 95%; severe weather patrol detection efficiency -20%; EMI defense-grid efficiency -30%.
+    modifiers:
+    - condition: High Winds
+      effect: Stability -10%; tracking efficiency -8%
+    - condition: Heavy Rain
+      effect: Visual range -15%; tracking accuracy -8%
+    - condition: Fog
+      effect: Visual range -25%; thermal effectiveness +5%
+    - condition: Night Operations
+      effect: Visual range -15%; thermal effectiveness +10%
+    - condition: Extreme Weather
+      effect: Patrol efficiency -25%
+    - condition: Electromagnetic Interference
+      effect: Signal integrity -30%; defense-grid efficiency -30%
+  network:
+    nodeHandoffEfficiency: 0.97
+    packetLossRate: 1.1% under load
+    encryptionLatencySeconds: 0.07
+    meshSelfHealingThreshold: 1 lost node
+    relaySaturationCurve: Throughput decreases 4% per additional active node beyond 8; defense grid range 6 km; relay capacity 0; high network priority
+  cognitive:
+    decisionConfidence: 0.91
+    threatRecognitionAccuracy: 0.93
+    adaptiveLearningRatePerMission: 0.04
+    commandOverrideResistance: 0.05
+    cooperativeBehaviorIndex: 0.91
+  behaviorNodes:
+  - behaviorNode: Patrol
+    weight: 0.92
+    description: Maintain assigned perimeter patrol route
+  - behaviorNode: Threat Detection
+    weight: 0.95
+    description: Identify hostile signatures
+  - behaviorNode: Threat Tracking
+    weight: 0.94
+    description: Maintain continuous hostile tracking
+  - behaviorNode: Intercept
+    weight: 0.88
+    description: Move toward verified perimeter threats
+  - behaviorNode: Suppression
+    weight: 0.82
+    description: Apply authorized non-lethal deterrence
+  - behaviorNode: Spotlight Tracking
+    weight: 0.9
+    description: Illuminate and track intruders
+  - behaviorNode: Target Classification
+    weight: 0.91
+    description: Distinguish hostile signatures from authorized traffic
+  - behaviorNode: Threat Avoidance
+    weight: 0.79
+    description: Avoid unnecessary exposure
+  - behaviorNode: Retreat
+    weight: 0.68
+    description: Withdraw when survivability thresholds are reached
+  - behaviorNode: Override Response
+    weight: 0.91
+    description: Accept authorized defense-grid commands
+  missionBehaviors:
+  - missionType: Perimeter Patrol
+    behaviorFocus: Coverage efficiency 93%
+    efficiency: 0.93
+  - missionType: Threat Detection
+    behaviorFocus: Detection accuracy 94%
+    efficiency: 0.94
+  - missionType: Threat Tracking
+    behaviorFocus: Tracking accuracy 92%
+    efficiency: 0.92
+  - missionType: Intercept
+    behaviorFocus: Response efficiency 89%
+    efficiency: 0.89
+  - missionType: Deterrence
+    behaviorFocus: Suppression effectiveness 86%
+    efficiency: 0.86
+  - missionType: Spotlight Tracking
+    behaviorFocus: Identification efficiency 94%
+    efficiency: 0.94
+  - missionType: Defense Relay
+    behaviorFocus: Transmission integrity 97%
+    efficiency: 0.97
+  unitSynergies:
+  - partnerUnit: Warden
+    synergyRating: 0.88
+    function: Provide aerial reconnaissance support
+  - partnerUnit: Beacon
+    synergyRating: 0.9
+    function: Maintain mesh connectivity
+  - partnerUnit: Iris
+    synergyRating: 0.94
+    function: Provide high-resolution target identification
+  - partnerUnit: Drop
+    synergyRating: 0.78
+    function: Confirm delivery corridors after perimeter clearance
+  - partnerUnit: Overseer
+    synergyRating: 0.92
+    function: Receive and distribute threat intelligence
+  - partnerUnit: Insight
+    synergyRating: 0.89
+    function: Integrate perimeter threat data into intelligence
+  damageResponses:
+  - damageType: Ballistic
+    effect: Tracking degradation -12%
+    recovery: Automatic recalibration; reposition outside direct exposure while maintaining hostile tracking
+  - damageType: EMP
+    effect: Defense-grid connection loss
+    recovery: Protected communications recovery; preserve patrol state
+  - damageType: Weather
+    effect: Patrol stability -15%
+    recovery: Automatic flight compensation
+  - damageType: Sensor
+    effect: Reduced detection and tracking
+    recovery: Recalibrate sensors; continue tracking where possible
+  - damageType: Deterrent Module
+    effect: Suppression unavailable
+    recovery: Maintain tracking and relay
+  - damageType: Rotor
+    effect: Reduced stability
+    recovery: Emergency return behavior
+  upgrades:
+  - upgrade: Enhanced Spotlight
+    effect: +30% illumination range; +10% target tracking efficiency
+    efficiencyGain: 0.1
+  - upgrade: Anti-Jamming Shielding
+    effect: +20% signal integrity under interference
+    efficiencyGain: 0.2
+  - upgrade: Extended Patrol Range Module
+    effect: +25% patrol radius; +10% endurance
+    efficiencyGain: 0.1
+  - upgrade: Thermal Boost Lens
+    effect: +20% thermal range; +8% hostile detection accuracy
+    efficiencyGain: 0.08
+  - upgrade: Defense Grid Processor
+    effect: +12% threat classification accuracy; +8% response efficiency
+    efficiencyGain: 0.08
+  tactical:
+    formationAdaptability: 0.84
+    tacticalRoleWeight: 0.86
+    commandResponseDelaySeconds: 0.35
+    reinforcementTriggerConditions: 'Threat Level >5 OR Perimeter Breach Detected; strategic priority High; assignments: perimeter defense, hostile-drone interception, airspace security, threat tracking; authorized non-lethal deterrence only; direct micromanagement optional; autonomous assignment enabled'
+    retreatLogicThresholds: Structural Integrity <30% OR Battery <20% OR Defense Grid Signal <40%; retreat when survivability thresholds are reached
+  maintenance:
+    meanTimeBetweenFailuresHours: 1
+    repairCycleSeconds: 16
+    resourceDrainPerHourPercent: 10
+    batteryEfficiencyPercent: 93
+    rotorStabilityPercent: 95
+    sensorCalibrationDriftPercentPerHour: 10
+    coolingEfficiencyPercent: 90
+    operationalUptimePercent: 96
+    energyRecoveryRatePercent: 6
+    energyRecoveryRatePercentPerIdleMinute: 6
+    componentWearPercentPerHour: 0.35
+    maintenancePriorityLevel: Tier II
+    sparePartDependencyIndex: 0.57
+    operationalCostPerHour: 6 Metal / 6 Electronics; tracking sensor stability 95%; defense processor efficiency 94%
+  threatResponses:
+  - threatType: Ballistic
+    reactionTimeSeconds: 0.3
+    countermeasureEfficiency: 0.52
+  - threatType: Explosive
+    reactionTimeSeconds: 0.7
+    countermeasureEfficiency: 0.46
+  - threatType: EMP
+    reactionTimeSeconds: 0.8
+    countermeasureEfficiency: 0.43
+  - threatType: Thermal
+    reactionTimeSeconds: 0.4
+    countermeasureEfficiency: 0.55
+  - threatType: Signal Jam
+    reactionTimeSeconds: 0.7
+    countermeasureEfficiency: 0.51
+  commandNetwork:
+  - node: Defense Grid
+    loadPercent: 44
+    latencySeconds: 0.35
+    status: Optimal
+  - node: Tracking Sensor Network
+    loadPercent: 48
+    latencySeconds: 0.2
+    status: Active
+  - node: Threat Processing Core
+    loadPercent: 53
+    latencySeconds: 0.14
+    status: Optimal
+  - node: Deterrence Control Link
+    loadPercent: 39
+    latencySeconds: 0.18
+    status: Stable
+  - node: Command Core / Ground Sentinel
+    loadPercent: 47
+    latencySeconds: 0.4
+    status: Active
+  performance:
+    missionSuccessProbability: 0.91
+    averageEngagementDurationMinutes: 18
+    reconDataYieldMbPerMinute: 1
+    communicationUptime: 0.98
+    threatAvoidanceEfficiency: 0.82

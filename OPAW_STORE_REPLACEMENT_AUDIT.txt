@@ -1,0 +1,289 @@
+﻿OPAW AAA STORE REPLACEMENT AUDIT
+Generated: 2026-10-24 20:18:23
+Project: C:\ObsidianProtocol-Autonomous-Warfare\OPAW
+READ-ONLY: No scene or source files were changed.
+
+========================================================================
+1. STORE SCENE
+========================================================================
+Scene: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\SCN16_STORE.unity
+Size: 2345336 bytes
+Last modified: 10/16/2026 18:42:29
+
+========================================================================
+2. STORE SOURCE FILES
+========================================================================
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\DoctrineControlHoloRestore.cs | 1463 bytes | Modified 9/30/2026 8:54:36 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\DoctrineRestoreTransforms.cs | 1185 bytes | Modified 9/30/2026 9:27:54 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\RestoreCommanderStartPosition.cs | 1193 bytes | Modified 9/29/2026 9:46:15 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\RestoreIntelligenceHUDLayout.cs | 4594 bytes | Modified 9/22/2026 8:07:32 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\RestoreIntelligenceSensorsNetwork.cs | 2423 bytes | Modified 9/22/2026 8:22:51 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\SCN16StorePlayerSetup.cs | 2068 bytes | Modified 10/16/2026 4:25:42 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreBloomCameraFix.cs | 1334 bytes | Modified 10/12/2026 9:36:28 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreCameraBuilder.cs | 2064 bytes | Modified 10/2/2026 5:46:25 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreCategoryHeaderRepair.cs | 2740 bytes | Modified 10/12/2026 9:27:04 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreCategoryNeonColors.cs | 3729 bytes | Modified 10/12/2026 8:43:35 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreHUDFix.cs | 2330 bytes | Modified 10/2/2026 6:46:05 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreHUDRestore.cs | 1285 bytes | Modified 10/2/2026 5:48:25 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreHUDSceneFix.cs | 2757 bytes | Modified 10/2/2026 6:49:14 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreLocalBloomSetup.cs | 2272 bytes | Modified 10/12/2026 9:38:25 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreMasterBuilder.cs | 3914 bytes | Modified 10/24/2026 6:32:18 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreNeonFrameGlow.cs | 5727 bytes | Modified 10/12/2026 12:32:54 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreNeonHeaderMaterialSetup.cs | 4266 bytes | Modified 10/12/2026 9:39:48 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreNeonHeightFix.cs | 1999 bytes | Modified 10/12/2026 12:28:54 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreNeonWordMover.cs | 3101 bytes | Modified 10/12/2026 12:27:17 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StorePhysicalBuilder.cs | 11820 bytes | Modified 10/2/2026 5:44:36 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StorePinkMaterialRepair.cs | 2456 bytes | Modified 10/15/2026 10:52:16 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreRaiseAndGlowHeaders.cs | 4856 bytes | Modified 10/12/2026 9:24:48 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreRebuildBuilder.cs | 1099 bytes | Modified 10/2/2026 5:14:11 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreRootVideoPlayerRepair.cs | 6616 bytes | Modified 10/12/2026 2:52:49 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreRuntimeBuilder.cs | 804 bytes | Modified 10/2/2026 3:45:45 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreScreenInterfaceBuilder.cs | 8689 bytes | Modified 10/12/2026 8:51:33 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreScreenInterfaceCorrection.cs | 3522 bytes | Modified 10/12/2026 8:55:23 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreScreenTextCorrection.cs | 3764 bytes | Modified 10/12/2026 9:00:43 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreSixScreenCleanup.cs | 2774 bytes | Modified 10/12/2026 12:24:46 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreTotalReset.cs | 1796 bytes | Modified 10/2/2026 5:31:26 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreVideoPlaybackRepair.cs | 8671 bytes | Modified 10/12/2026 1:34:06 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreVideoScreenSetup.cs | 7378 bytes | Modified 10/12/2026 12:48:39 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreWallLayoutCorrection.cs | 6303 bytes | Modified 10/12/2026 8:38:09 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreWallTextDirectionFix.cs | 2325 bytes | Modified 10/12/2026 8:40:39 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\ContentCompletion\ContentCompletionStore.cs | 1497 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceStoreNavigation.cs | 618 bytes | Modified 10/10/2026 5:38:52 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Polish\StorePolish.cs | 2120 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Release\StorePreparation.cs | 3838 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\MilitaryStore.cs | 4237 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UI\StoreFrontController.cs | 6951 bytes | Modified 10/24/2026 8:08:44 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UI\StoreRuntimeBuilder.cs | 17932 bytes | Modified 10/24/2026 8:12:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UI\StoreUIState.cs | 2224 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UI\StoreUnitCatalogBuilder.cs | 2113 bytes | Modified 10/24/2026 7:58:37 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\VR\VRStore.cs | 4834 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\ObsidianProtocol\Garage\Scripts\GarageStoreItem.cs | 746 bytes | Modified 9/13/2026 9:58:25 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\ObsidianProtocol\MilitaryStore\Editor\MilitaryStoreSceneFixer.cs | 8288 bytes | Modified 9/14/2026 11:36:51 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\ObsidianProtocol\MilitaryStore\Editor\MilitaryStoreVisualBuilder.cs | 76845 bytes | Modified 9/14/2026 11:41:03 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Editor\ObsidianStore26Builder.cs | 3858 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\MainMenu\UIMainMenuStore.cs | 702 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Popups\System\Network\POP028_ConnectionRestored.cs | 377 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\QA\GameModes\QA016_StoreTest.cs | 523 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Categories\STORE003_Units.cs | 346 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Categories\STORE004_Equipment.cs | 354 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Categories\STORE005_Materials.cs | 354 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Categories\STORE006_Cosmetics.cs | 354 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Categories\STORE007_GarageSlots.cs | 359 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Categories\STORE008_ConvenienceItems.cs | 369 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Categories\STORE009_CampaignResources.cs | 371 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Categories\STORE010_FabricationMaterials.cs | 377 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Categories\STORE011_Credits.cs | 350 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Inventory\STORE018_Inventory.cs | 354 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Main\STORE001_StoreHome.cs | 355 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Main\STORE002_Featured.cs | 352 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Ownership\STORE016_OwnershipStatus.cs | 367 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Ownership\STORE017_UnlockRequirements.cs | 373 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Purchasing\STORE012_ItemDetails.cs | 359 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Purchasing\STORE013_PurchaseConfirmation.cs | 377 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Purchasing\STORE014_PurchaseSuccess.cs | 367 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Purchasing\STORE015_PurchaseFailure.cs | 367 bytes | Modified 8/23/2026 12:13:04 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs | 41119 bytes | Modified 10/24/2026 7:22:40 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs | 34087 bytes | Modified 10/11/2026 3:50:51 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreTerminalInteraction.cs | 2229 bytes | Modified 10/16/2026 4:22:00 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreUnitPreview3D.cs | 10977 bytes | Modified 10/11/2026 6:28:09 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\ThirdParty\RTS-Learning\MiniRTS\MiniRTS\Assets\Scripts\MiniRTS\ControlGroupStore.cs | 1766 bytes | Modified 9/8/2026 9:38:54 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\ThirdParty\RTS-Learning\MiniRTS\MiniRTS\Assets\Tests\EditMode\ControlGroupStoreTests.cs | 1420 bytes | Modified 9/8/2026 9:38:54 AM
+
+========================================================================
+3. BUILDER AND REBUILD REFERENCES
+========================================================================
+
+========================================================================
+4. EXISTING BUILDER BACKUPS
+========================================================================
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\CheckoutBackWallVideoRuntimeFix.cs.bak | 6320 bytes | Modified 10/12/2026 10:54:48 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\RebuildCheckoutBackWallScreen.cs.bak | 6063 bytes | Modified 10/12/2026 11:08:44 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\RebuildCheckoutBackWallScreen.cs.before-direct-texture-load.bak | 5640 bytes | Modified 10/12/2026 11:18:05 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\RebuildCheckoutBackWallScreen.cs.before-hierarchy-fix.bak | 3905 bytes | Modified 10/12/2026 11:16:14 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\RebuildCheckoutBackWallScreen.cs.before-loaded-object-search.bak | 6962 bytes | Modified 10/13/2026 9:15:50 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\RebuildCheckoutBackWallScreen.cs.before-rendertexture-fix.bak | 5441 bytes | Modified 10/12/2026 11:12:42 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\RebuildCheckoutBackWallScreen.cs.before-scene-object-lookup-fix.bak | 5899 bytes | Modified 10/13/2026 4:37:34 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\RebuildCheckoutBackWallScreen.cs.before-texture-guid-fix.bak | 4749 bytes | Modified 10/12/2026 11:17:16 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\RebuildCheckoutBackWallScreenFresh.cs.failed-version.bak | 8400 bytes | Modified 10/13/2026 9:23:09 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\SCN16StorePlayerSetup.cs.bak | 2065 bytes | Modified 10/12/2026 10:21:58 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\SetupHarlequinTakeover.cs.before-collider-removal.bak | 5181 bytes | Modified 10/18/2026 5:43:16 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\SetupHarlequinTakeover.cs.before-scene-camera.bak | 5181 bytes | Modified 10/18/2026 5:43:16 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before_store_menu_cleanup_20261024_182811.bak | 54011 bytes | Modified 10/12/2026 11:59:42 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before_store_menu_cleanup_20261024_182811.bak.meta | 155 bytes | Modified 10/24/2026 6:29:08 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-8-window-6-screen-layout.bak | 44413 bytes | Modified 10/12/2026 11:54:38 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-8-window-6-screen-layout.bak.meta | 155 bytes | Modified 10/12/2026 11:59:57 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-collision-fix.bak | 17354 bytes | Modified 10/12/2026 8:07:49 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-collision-fix.bak.meta | 155 bytes | Modified 10/12/2026 11:14:32 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-display-relocation.bak | 34250 bytes | Modified 10/12/2026 11:41:11 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-display-relocation.bak.meta | 155 bytes | Modified 10/12/2026 11:51:42 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-duplicate-variable-fix.bak | 34733 bytes | Modified 10/12/2026 11:39:27 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-duplicate-variable-fix.bak.meta | 155 bytes | Modified 10/12/2026 11:40:24 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-exterior-floor.bak | 20676 bytes | Modified 10/12/2026 11:27:56 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-exterior-floor.bak.meta | 155 bytes | Modified 10/12/2026 11:31:51 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-final-material-fix.bak | 34340 bytes | Modified 10/12/2026 11:40:18 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-final-material-fix.bak.meta | 155 bytes | Modified 10/12/2026 11:41:25 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-full-collider-repair.bak | 19784 bytes | Modified 10/12/2026 11:21:57 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-full-collider-repair.bak.meta | 155 bytes | Modified 10/12/2026 11:28:43 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-live-collider-repair.bak | 17760 bytes | Modified 10/12/2026 11:14:05 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-live-collider-repair.bak.meta | 155 bytes | Modified 10/12/2026 11:18:26 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-material-lookup-fix.bak | 33752 bytes | Modified 10/12/2026 11:37:40 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-material-lookup-fix.bak.meta | 155 bytes | Modified 10/12/2026 11:39:38 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-rear-screen-neon.bak | 38556 bytes | Modified 10/12/2026 11:51:25 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-rear-screen-neon.bak.meta | 155 bytes | Modified 10/12/2026 11:56:13 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-repair-method-replacement.bak | 20029 bytes | Modified 10/12/2026 11:20:51 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-repair-method-replacement.bak.meta | 155 bytes | Modified 10/12/2026 11:23:55 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-solid-collider-fix.bak | 19708 bytes | Modified 10/12/2026 11:17:58 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-solid-collider-fix.bak.meta | 155 bytes | Modified 10/12/2026 11:23:55 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-window-screen-repair.bak | 21900 bytes | Modified 10/12/2026 11:31:33 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs.before-window-screen-repair.bak.meta | 155 bytes | Modified 10/12/2026 11:37:53 AM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreMasterBuilder.cs | 3914 bytes | Modified 10/24/2026 6:32:18 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreMasterBuilder.cs.before_menu_cleanup_20261024_183218.bak | 3980 bytes | Modified 10/2/2026 5:33:30 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreMasterBuilder.cs.before_menu_cleanup_20261024_183218.bak.meta | 155 bytes | Modified 10/24/2026 6:32:39 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreMasterBuilder.cs.meta | 59 bytes | Modified 10/2/2026 5:33:33 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StorePhysicalBuilder.cs.bak | 11820 bytes | Modified 10/2/2026 5:44:36 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\UnitCameras\InstallUnitMountedCameras.cs.before-camera-repair-20261015_231814.bak | 3734 bytes | Modified 10/15/2026 10:59:51 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\UnitTakeoverSceneAudit.cs.bak | 2144 bytes | Modified 10/15/2026 8:27:40 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\WorldBuilding\PlanetOverviewHUD203Builder.cs.bak | 22867 bytes | Modified 9/26/2026 9:41:09 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\WorldBuilding\PlanetOverviewHUD203SafeUpgrade.cs.pre_coordinated_layout_20261013_220500.bak | 14040 bytes | Modified 10/13/2026 9:59:06 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\WorldBuilding\PlanetOverviewHUD203SafeUpgrade.cs.pre_layout_call_20261013_220728.bak | 21752 bytes | Modified 10/13/2026 10:05:02 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\WorldBuilding\PlanetOverviewHUD203SafeUpgrade.cs.pre_selector_layout_20261013_215048.bak | 14035 bytes | Modified 10/13/2026 9:40:59 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\WorldBuilding\PlanetOverviewHUD203SafeUpgrade.cs.pre_status_layout_20261013_215712.bak | 14036 bytes | Modified 10/13/2026 9:51:52 PM
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\WorldBuilding\PlanetOverviewHUD203SafeUpgrade.cs.pre_top_selector_20261013_215906.bak | 14039 bytes | Modified 10/13/2026 9:57:13 PM
+
+========================================================================
+5. UNIT CATALOG AND PLACEHOLDER REFERENCES
+========================================================================
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:106: Debug.Log("[STORE] UNITS LOADED = " + units.Count);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:897: GameObject card = CreateUI("UNIT_CARD_" + unit.UnitId, catalogRoot);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:919: GameObject art = CreateUI("UNIT_IMAGE_PLACEHOLDER", card.transform);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:925: TMP_Text artLabel = Label("UNIT VISUAL\nART PENDING", art.transform, 10, TextAlignmentOptions.Center);
+
+========================================================================
+6. EXISTING STORE IMAGE ASSETS
+========================================================================
+Matching store/unit-related image files: 121
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Concepts\Buildings\Command-Unit-Design-Sheet.png | 460245 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Concepts\HUD\Unit information\Unit-Information-Window-Phase-09.png | 2169092 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Concepts\Units\08640593-3fa5-4cc6-bd53-0a5221386f68.png | 2294868 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Concepts\Units\5debe92b-2aaa-487f-a53b-b1aa012f55c5.png | 3385905 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Concepts\Units\all.png | 2442853 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Concepts\Units\Autonomous\Field-Commander-Updated.png | 2645877 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Concepts\Units\Autonomous\Obsidian-Rover.png | 1523380 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Concepts\Units\Autonomous\Warden-Drone.png | 1322937 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Concepts\Units\c4c2d7da-4762-40e7-9b8e-4956f695e57d.png | 2381885 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Concepts\Units\e8d2a1ff-5803-4098-90c2-10dceb2c3be5.png | 2229717 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Concepts\Units\f7eeeff6-29c2-473d-a453-8d3d3c6b8d4e.png | 2245699 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Concepts\Units\image.png | 346777 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Images\Command Unit Insight.png | 1540871 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Models\Units\NPC\Clown Syndicate\Command_Center\Meshy_AI_Crimson_Clown_Citadel_1018015431_texture.png | 23170451 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Models\Units\NPC\Clown Syndicate\Command_Center\Meshy_AI_Crimson_Clown_Citadel_1018015431_texture_metallic.png | 140071 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Models\Units\NPC\Clown Syndicate\Command_Center\Meshy_AI_Crimson_Clown_Citadel_1018015431_texture_normal.png | 20526298 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Models\Units\NPC\Clown Syndicate\Command_Center\Meshy_AI_Crimson_Clown_Citadel_1018015431_texture_roughness.png | 1797645 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Models\Units\NPC\Clown Syndicate\Ground_Recon_Drone\Meshy_AI_Jester_Hound_Recon_Dr_1018002755_texture.png | 74838884 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Models\Units\NPC\Clown Syndicate\Ground_Recon_Drone\Meshy_AI_Jester_Hound_Recon_Dr_1018002755_texture_metallic.png | 8337730 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Models\Units\NPC\Clown Syndicate\Ground_Recon_Drone\Meshy_AI_Jester_Hound_Recon_Dr_1018002755_texture_normal.png | 16856169 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Models\Units\NPC\Clown Syndicate\Ground_Recon_Drone\Meshy_AI_Jester_Hound_Recon_Dr_1018002755_texture_roughness.png | 6720226 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Models\Units\NPC\Clown Syndicate\Scout\Meshy_AI_Crimson_Fang_Armored__1018005720_texture.png | 5877193 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Models\Units\NPC\Clown Syndicate\Scout\Meshy_AI_Crimson_Fang_Armored__1018005720_texture_metallic.png | 39148 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Models\Units\NPC\Clown Syndicate\Scout\Meshy_AI_Crimson_Fang_Armored__1018005720_texture_normal.png | 5227689 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Models\Units\NPC\Clown Syndicate\Scout\Meshy_AI_Crimson_Fang_Armored__1018005720_texture_roughness.png | 1822630 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Models\Units\NPC\Clown Syndicate\Troop_Transport\Meshy_AI_Clown_Armored_Vehicle_1018010208_texture.png | 5699934 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Models\Units\NPC\Clown Syndicate\Troop_Transport\Meshy_AI_Clown_Armored_Vehicle_1018010208_texture_metallic.png | 25501 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Models\Units\NPC\Clown Syndicate\Troop_Transport\Meshy_AI_Clown_Armored_Vehicle_1018010208_texture_normal.png | 5251420 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Models\Units\NPC\Clown Syndicate\Troop_Transport\Meshy_AI_Clown_Armored_Vehicle_1018010208_texture_roughness.png | 1904163 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Models\Units\NPC\The_Dread_Machine\Neural_Cathedral\High_Detail\Meshy_AI_Neural_Cathedral_Rese_1018022652_texture.png | 5592502 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Models\Units\NPC\The_Dread_Machine\Neural_Cathedral\High_Detail\Meshy_AI_Neural_Cathedral_Rese_1018022652_texture_metallic.png | 30290 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Models\Units\NPC\The_Dread_Machine\Neural_Cathedral\High_Detail\Meshy_AI_Neural_Cathedral_Rese_1018022652_texture_normal.png | 4812211 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Models\Units\NPC\The_Dread_Machine\Neural_Cathedral\High_Detail\Meshy_AI_Neural_Cathedral_Rese_1018022652_texture_roughness.png | 1561337 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Models\Units\NPC\The_Dread_Machine\Neural_Cathedral\Smart_Topology\Meshy_AI_Neural_Cathedral_Rese_1018025553_texture_fbx\Meshy_AI_Neural_Cathedral_Rese_1018025553_texture_fbx\Meshy_AI_Neural_Cathedral_Rese_1018025553_texture.png | 4611160 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Models\Units\NPC\The_Dread_Machine\Neural_Cathedral\Smart_Topology\Meshy_AI_Neural_Cathedral_Rese_1018025553_texture_fbx\Meshy_AI_Neural_Cathedral_Rese_1018025553_texture_fbx\Meshy_AI_Neural_Cathedral_Rese_1018025553_texture_metallic.png | 23957 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Models\Units\NPC\The_Dread_Machine\Neural_Cathedral\Smart_Topology\Meshy_AI_Neural_Cathedral_Rese_1018025553_texture_fbx\Meshy_AI_Neural_Cathedral_Rese_1018025553_texture_fbx\Meshy_AI_Neural_Cathedral_Rese_1018025553_texture_normal.png | 4740970 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Models\Units\NPC\The_Dread_Machine\Neural_Cathedral\Smart_Topology\Meshy_AI_Neural_Cathedral_Rese_1018025553_texture_fbx\Meshy_AI_Neural_Cathedral_Rese_1018025553_texture_fbx\Meshy_AI_Neural_Cathedral_Rese_1018025553_texture_roughness.png | 1471504 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Art\Objects\unit_commands_button1.png | 41687 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN04_GARAGE\3D units\Warden.png | 5065041 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN04_GARAGE\3D units\Warden_metallic.png | 1521057 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN04_GARAGE\3D units\Warden_normal.png | 4524248 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN04_GARAGE\3D units\Warden_roughness.png | 1648117 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Armored Bulldozer.png | 1132726 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Armored Grader.png | 1178985 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Armored Loader.png | 1043707 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Astral.png | 1011149 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\AUTONOMOUS DOCKING PLATFORM.png | 1087808 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\beacon.png | 1014002 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Boat Launcher.png | 1016832 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Boat Recovery Trailer.png | 1068838 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Bridge Deployment Vehicle.png | 1155737 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Cargo Carrier.png | 1147728 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Cartographer.png | 1001635 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Command Unit Insight.png | 1540871 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Container Transport Vehicle.png | 980231 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Cosmos.png | 1326043 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Counter Jammer.png | 1368533 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Crusher.png | 1023566 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Drone Carrier.png | 1146713 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Drop.png | 1000572 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Electric Batery Transport Vehicle.png | 1044363 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\electric power and charging barge.png | 1018683 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Energy Transport Vehicle.png | 1178559 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Equipment Transport Trailer.png | 896948 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Galaxy.png | 1255373 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Hammer.png | 1136063 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Hauler.png | 1129918 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Heavy Cargo Forklift.png | 1085127 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Heavy Equipment Trailer.png | 1038075 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Heavy Marine Transporter.png | 847473 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Heavy Recovery Crane.png | 1143180 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Heavy Recovery Vehicle.png | 1023462 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Heavy Tractor Vehicle.png | 1074704 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Insight.png | 1424675 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Inspect.png | 873705 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Iris.png | 1233807 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Ironwalker.png | 1583691 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Jammer.png | 1145991 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Lidar.png | 1090772 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\LifeLine.png | 1044818 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Link.png | 1129888 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Locator.png | 1269798 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Marine Crane.png | 1348519 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Marine Transport Trailer.png | 1108896 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Meshy_AI_2c43c0da870789a831a1030b34fbfd50b153e3937b0b8ad6efe676306fdae688.png | 1056242 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Meshy_AI_554f5b10e7ac6d978a1110e7816c1bff92dcf6e826d6e6ec1282e8a30b8eae0c.png | 1087808 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Meshy_AI_844dd6b93ed667f26fdde009f5b778397a9073933bd50997693a07b11522224d.png | 1018683 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Meshy_AI_f04a7f2994925ab203bcffce89450bc2be402e18f539bbd5dd1b9bec0f0b0471.png | 1449141 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Meshy_AI_image_08c56f01-5763-4358-a8fd-73349af1754f_0.png | 1322937 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Meshy_AI_image_b08b907f-9fee-4de5-8f9d-4b991795f4a9_0.png | 1523380 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\mobile communications relay vehicle.png | 1107303 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Mobile Dock.png | 1123965 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Mobile Fabrication Workshop.png | 1076867 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Mobile Heavy Crane.png | 1071708 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Mobile Power Vehicle.png | 1150833 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\mobile radar vehicle.png | 1320145 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Mobile Repair Vevicle.png | 1021878 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\mobile sensor mast vehicle.png | 1145068 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Mobile Workshop Trailer.png | 1102602 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Mule.png | 1126545 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Nebula.png | 1458829 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Orbiter.png | 1037716 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Patrol.png | 1108585 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Pulse.png | 1148492 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Rescue.png | 1434511 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Robotic Crane.png | 1269327 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Rover.png | 1147823 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\satellite communications tower.png | 1056242 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\ScoutEye.png | 743269 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\scrap and recovery collector.png | 1202986 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Sentinel.png | 885405 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Skylink.png | 1329866 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Sonar.png | 1043579 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Starcast.png | 1576816 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Surveyor MK1.png | 1309472 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Tidebreaker.png | 1378497 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Tracked Excavator.png | 1089958 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Universal Utility Trailer.png | 1075566 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\VectorCore.png | 1229311 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images\Worldmap.png | 1444694 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Materials\Exterior_Sign.png | 2670353 bytes
+
+========================================================================
+7. AUDIT REPORT
+========================================================================

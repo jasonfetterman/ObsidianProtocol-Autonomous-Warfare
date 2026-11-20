@@ -1,0 +1,269 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Rescue
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-ground-rescue
+  displayName: Rescue
+  category: 0
+  role: Emergency Extraction / Battlefield Recovery
+  tier: Support
+  status: Active
+  storeImage: {fileID: 9054931853598093163, guid: 97ba69cf4f330a047b6639a5b941925d, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 4.3
+    widthMeters: 2.2
+    heightMeters: 1.8
+    massKg: 1250
+    powerSource: Diesel-electric hybrid
+    energyCapacityWh: 4800
+    energyConsumptionWhPerMinute: 2
+    endurance: "5\u20139 hours"
+    payloadCapacityKg: 300
+    modules:
+    - Medical bay
+    - Extraction winch
+    - Stabilization cradle
+    navigationSystem: GPS + Rescue AI
+    structuralIntegrityHp: 800
+    armorRating: 0.38
+    heatSignature: Medium
+    noiseSignature: Medium
+    topSpeedMetersPerSecond: 18
+    topSpeedDescription: 18 m/s
+    acceleration: Medium
+    turningRadius: Tight
+    climbRate: Rescue climbRate
+    stabilityRating: Very High
+  autonomy:
+    behaviorProfile: Emergency Response / Extraction
+    aggression: 0
+    caution: 0.95
+    persistence: 1
+    flankingLikelihood: 0
+    retreatThreshold: 0.9
+    retreatBehaviorDescription: Early
+    targetPriority: Downed units / critical injuries
+    formationDiscipline: High
+    riskTolerance: 0.15
+  sensors:
+    visualRangeMeters: 1500
+    visualRangeDescription: 1500 m
+    thermalRangeMeters: 800
+    thermalRangeDescription: 800 m
+    acousticRange: Medium
+    radarRange: None
+    lidarRange: Short
+    signalDetectionRange: Short
+  communication:
+    meshRangeKm: 6
+    meshRangeDescription: 6 km
+    relayCapacity: 1
+    commandLinkType: Support Grid
+    networkPriority: High
+  combat:
+    firepowerRating: 0
+    firepowerDescription: None
+    accuracy: N/A
+    stabilization: Medical stabilization cradle
+    weaponMounts: None
+    weaponTypes: None
+    suppressionValue: 0
+    trackingStrength: None
+    disruptionStrength: Low
+    breachCapability: None
+    countermeasureRating: Medium
+    threatLevel: 3
+    engagementDistance: N/A
+    preferredTerrain: Safe lanes / extraction corridors
+    preferredTargets: Downed allies
+    vulnerabilityProfile: Ballistic / explosives
+  squad:
+    squadRole: Emergency Extraction
+    squadSizeContribution: 2
+    formationBehavior: Rear-line support spacing
+    intentInterpretationRules: Recover and stabilize allies
+    retreatBehavior: Early
+    breachBehavior: None
+    flankingBehavior: None
+    reinforcementBehavior: Supports all squads
+    parentCommandUnit: Command Core / Fusion
+    subordinateUnits:
+    - Scout
+    - Mule
+    relayNodes:
+    - Relay Node 1
+    networkDependencies: Support Grid
+  vrOperator:
+    operatorSeatType: Rescue Cockpit
+    operatorHud: Medical & Extraction Overlay
+    cameraFeeds: Optical + winch cam
+    thermalView: 1
+    lidarView: 1
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Full vehicle drive
+    sensorControls: Thermal / LiDAR / zoom
+    abilityControls: Stabilize, Extract, Mark Safe Zone
+    weaponControls: N/A - rescue and extraction equipment only
+    stabilizationControls: Stabilization cradle controls
+    operatorAbilities:
+    - Emergency Extraction
+    - Stabilization Pulse
+    - Rapid Recovery
+    - Support Relay
+  economy:
+    creditCost: 710
+    buildCost: 450 Metal / 260 Electronics
+    buildTimeSeconds: 90
+    factoryType: Vehicle Bay
+    techRequirements: Support Systems I
+    maintenanceCost: Low
+    repairTimeSeconds: 22
+    supplyConsumption: Low
+    operationalCost: Low
+    deploymentRequirements: Vehicle pad
+    transportCompatibility: Light racks
+    launchMethod: Drive-out
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Light Alloy Plates
+      quantity: 32
+    - component: Reinforced Frame Rods
+      quantity: 16
+    - component: Hydraulic Actuators
+      quantity: 5
+    - component: Armor Panels
+      quantity: 2
+    - component: Extraction Cradle Assembly
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 16
+    - component: Signal Processors
+      quantity: 12
+    - component: Vehicle Control Chips
+      quantity: 4
+    - component: Support AI Chips
+      quantity: 2
+    power:
+    - component: Hybrid Engine Core
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 2
+    rareTradeable:
+    - component: Medical Stabilization Module
+      quantity: 1
+    optionalUpgrades:
+    - Reinforced Cradle
+    - Silent Drive Kit
+    - Extended Fuel Tank
+    - Anti-Jamming Shielding
+  environment:
+    terrainAdaptationCoefficients: Rescue terrainAdaptationCoefficients
+    weatherSensitivityIndex: 2
+    visibilityModifiers: Rescue visibilityModifiers
+    signalPropagationCurve: Rescue signalPropagationCurve
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0.8
+    packetLossRate: Rescue packetLossRate
+    encryptionLatencySeconds: 2
+    meshSelfHealingThreshold: Rescue meshSelfHealingThreshold
+    relaySaturationCurve: Rescue relaySaturationCurve
+  cognitive:
+    decisionConfidence: 2
+    threatRecognitionAccuracy: 2
+    adaptiveLearningRatePerMission: 2
+    commandOverrideResistance: 2
+    cooperativeBehaviorIndex: 2
+  behaviorNodes:
+  - behaviorNode: 
+    weight: -0.00000008226931
+    description: 
+  - behaviorNode: 
+    weight: 0
+    description: 
+  missionBehaviors:
+  - missionType: 
+    behaviorFocus: 
+    efficiency: -0.00000008228733
+  - missionType: 
+    behaviorFocus: 
+    efficiency: 0
+  unitSynergies:
+  - partnerUnit: 
+    synergyRating: -0.000000081262726
+    function: 
+  - partnerUnit: 
+    synergyRating: 0
+    function: 
+  damageResponses:
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  upgrades:
+  - upgrade: 
+    effect: 
+    efficiencyGain: -0.00000008129882
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  tactical:
+    formationAdaptability: 2
+    tacticalRoleWeight: 2
+    commandResponseDelaySeconds: 2
+    reinforcementTriggerConditions: Rescue reinforcementTriggerConditions
+    retreatLogicThresholds: Rescue retreatLogicThresholds
+  maintenance:
+    meanTimeBetweenFailuresHours: 2
+    repairCycleSeconds: 2
+    resourceDrainPerHourPercent: 20
+    batteryEfficiencyPercent: 0.8
+    rotorStabilityPercent: 20
+    sensorCalibrationDriftPercentPerHour: 20
+    coolingEfficiencyPercent: 0.8
+    operationalUptimePercent: 20
+    energyRecoveryRatePercent: 20
+    energyRecoveryRatePercentPerIdleMinute: 20
+    componentWearPercentPerHour: 20
+    maintenancePriorityLevel: Rescue maintenancePriorityLevel
+    sparePartDependencyIndex: 2
+    operationalCostPerHour: Rescue operationalCostPerHour
+  threatResponses:
+  - threatType: 
+    reactionTimeSeconds: -1.6962372e-20
+    countermeasureEfficiency: 5.79e-43
+  - threatType: 
+    reactionTimeSeconds: 0
+    countermeasureEfficiency: 0
+  commandNetwork:
+  - node: 
+    loadPercent: -0.00001955549
+    latencySeconds: 5.79e-43
+    status: 
+  - node: 
+    loadPercent: 0
+    latencySeconds: 0
+    status: 
+  performance:
+    missionSuccessProbability: 0.75
+    averageEngagementDurationMinutes: 2
+    reconDataYieldMbPerMinute: 2
+    communicationUptime: 2
+    threatAvoidanceEfficiency: 0.8

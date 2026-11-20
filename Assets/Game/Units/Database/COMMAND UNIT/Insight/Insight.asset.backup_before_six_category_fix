@@ -1,0 +1,231 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Insight
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-air-insight
+  displayName: Insight
+  category: 5
+  role: Strategic Intelligence / Multi-Spectrum Recon
+  tier: Command
+  status: Active
+  storeImage: {fileID: 6391041288039483299, guid: 062eabe88318f2e40bdf968787d91cca, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 3.6
+    widthMeters: 2.8
+    heightMeters: 1.3
+    massKg: 34
+    powerSource: Command-grade battery
+    energyCapacityWh: 3200
+    energyConsumptionWhPerMinute: 75
+    endurance: "35\u201350 min"
+    payloadCapacityKg: 3.5
+    modules:
+    - Multi-spectrum intelligence suite
+    navigationSystem: GPS + Strategic Recon AI
+    structuralIntegrityHp: 190
+    armorRating: 0.3
+    heatSignature: Medium
+    noiseSignature: Medium
+    topSpeedMetersPerSecond: 23
+    topSpeedDescription: 23 m/s
+    acceleration: Medium
+    turningRadius: Moderate
+    climbRate: Medium
+    stabilityRating: Very High
+  autonomy:
+    behaviorProfile: Strategic Recon / Intelligence
+    aggression: 0.1
+    caution: 0.8
+    persistence: 0.9
+    flankingLikelihood: 0.2
+    retreatThreshold: 0.65
+    retreatBehaviorDescription: 
+    targetPriority: High-value intelligence targets
+    formationDiscipline: Very High
+    riskTolerance: 0
+  sensors:
+    visualRangeMeters: 2400
+    visualRangeDescription: 2400 m
+    thermalRangeMeters: 1500
+    thermalRangeDescription: 1500 m
+    acousticRange: Medium
+    radarRange: Medium
+    lidarRange: Medium
+    signalDetectionRange: Very High
+  communication:
+    meshRangeKm: 10
+    meshRangeDescription: 10 km
+    relayCapacity: 4
+    commandLinkType: Intelligence Grid
+    networkPriority: Very High
+  combat:
+    firepowerRating: 0.25
+    firepowerDescription: Low
+    accuracy: Medium
+    stabilization: Very High
+    weaponMounts: 1 (marker beam / deterrent pulse)
+    weaponTypes: Marker beam / deterrent pulse
+    suppressionValue: 0.5
+    trackingStrength: Very High
+    disruptionStrength: Medium
+    breachCapability: None
+    countermeasureRating: Medium
+    threatLevel: 5
+    engagementDistance: "200\u2013400 m"
+    preferredTerrain: High-visibility recon airspace
+    preferredTargets: High-value targets / command nodes
+    vulnerabilityProfile: Ballistic / EMP / jamming
+  squad:
+    squadRole: Strategic Recon
+    squadSizeContribution: 1
+    formationBehavior: Command-grade spacing
+    intentInterpretationRules: Maintain oversight, coordinate recon units
+    retreatBehavior: Medium
+    breachBehavior: None
+    flankingBehavior: Light
+    reinforcementBehavior: Supports recon, mesh, and command squads
+    parentCommandUnit: Command Core
+    subordinateUnits:
+    - Iris
+    - Locator
+    - Nightguard
+    - ScoutEye
+    relayNodes:
+    - Relay Node 1
+    - Relay Node 2
+    - Relay Node 3
+    - Relay Node 4
+    networkDependencies: Intelligence Grid
+  vrOperator:
+    operatorSeatType: Command Drone View
+    operatorHud: Multi-Spectrum Intelligence Overlay
+    cameraFeeds: Optical
+    thermalView: 1
+    lidarView: 1
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Full drone flight
+    sensorControls: Multi-sensor switching
+    abilityControls: Mark Target, Intelligence Ping, Scan
+    weaponControls: Marker beam / deterrent pulse
+    stabilizationControls: Auto-hover
+    operatorAbilities:
+    - Intelligence Ping
+    - Multi-Spectrum Scan
+    - Target Mark
+    - Squad Coordination
+    - Relay Intelligence Data
+  economy:
+    creditCost: 2200
+    buildCost: 280 Metal / 260 Electronics
+    buildTimeSeconds: 80
+    factoryType: Drone Bay
+    techRequirements: Intelligence Systems I
+    maintenanceCost: Medium
+    repairTimeSeconds: 20
+    supplyConsumption: Medium
+    operationalCost: Moderate
+    deploymentRequirements: Command drone pad
+    transportCompatibility: All aerial racks
+    launchMethod: Vertical takeoff
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Medium Alloy Plates
+      quantity: 20
+    - component: Composite Frame Rods
+      quantity: 12
+    - component: Micro-Servo Actuators
+      quantity: 8
+    - component: Stabilizer Fins
+      quantity: 4
+    - component: Intelligence Sensor Housing
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 20
+    - component: Signal Processors
+      quantity: 14
+    - component: Drone Control Chips
+      quantity: 6
+    - component: Intelligence AI Chips
+      quantity: 4
+    power:
+    - component: Command-Grade Battery Pack
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 3
+    rareTradeable:
+    - component: Multi-Spectrum Intelligence Core
+      quantity: 1
+    - component: Encrypted Intelligence Processor
+      quantity: 1
+    optionalUpgrades:
+    - Extended Intelligence Range Module
+    - Anti-Jamming Shielding
+    - Silent Rotor Kit
+    - High-Density Sensor Grid
+  environment:
+    terrainAdaptationCoefficients: 
+    weatherSensitivityIndex: 0
+    visibilityModifiers: 
+    signalPropagationCurve: 
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0
+    packetLossRate: 
+    encryptionLatencySeconds: 0
+    meshSelfHealingThreshold: 
+    relaySaturationCurve: 
+  cognitive:
+    decisionConfidence: 0
+    threatRecognitionAccuracy: 0
+    adaptiveLearningRatePerMission: 0
+    commandOverrideResistance: 0
+    cooperativeBehaviorIndex: 0
+  behaviorNodes: []
+  missionBehaviors: []
+  unitSynergies: []
+  damageResponses: []
+  upgrades: []
+  tactical:
+    formationAdaptability: 0
+    tacticalRoleWeight: 0
+    commandResponseDelaySeconds: 0
+    reinforcementTriggerConditions: 
+    retreatLogicThresholds: 
+  maintenance:
+    meanTimeBetweenFailuresHours: 0
+    repairCycleSeconds: 0
+    resourceDrainPerHourPercent: 0
+    batteryEfficiencyPercent: 0
+    rotorStabilityPercent: 0
+    sensorCalibrationDriftPercentPerHour: 0
+    coolingEfficiencyPercent: 0
+    operationalUptimePercent: 0
+    energyRecoveryRatePercent: 0
+    energyRecoveryRatePercentPerIdleMinute: 0
+    componentWearPercentPerHour: 0
+    maintenancePriorityLevel: 
+    sparePartDependencyIndex: 0
+    operationalCostPerHour: 
+  threatResponses: []
+  commandNetwork: []
+  performance:
+    missionSuccessProbability: 0
+    averageEngagementDurationMinutes: 0
+    reconDataYieldMbPerMinute: 0
+    communicationUptime: 0
+    threatAvoidanceEfficiency: 0

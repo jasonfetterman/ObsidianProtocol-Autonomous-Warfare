@@ -1,0 +1,227 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Tidebreaker
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-sea-tidebreaker
+  displayName: Tidebreaker
+  category: 2
+  role: Heavy Marine Assault / Wave-Stabilized Breaker Vessel
+  tier: Heavy
+  status: Active
+  storeImage: {fileID: 3922054423026776067, guid: c25bcc875c37d3a4d995a5d8de5843bb, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 14
+    widthMeters: 5.5
+    heightMeters: 4
+    massKg: 12000
+    powerSource: Dual marine diesel-electric turbines
+    energyCapacityWh: 40000
+    energyConsumptionWhPerMinute: 210
+    endurance: "16\u201330 hours"
+    payloadCapacityKg: 800
+    modules:
+    - Reinforced breaker hull
+    - Heavy stabilization fins
+    - Forward impact prow
+    - Marine assault suite
+    navigationSystem: Marine GPS + Assault AI
+    structuralIntegrityHp: 2400
+    armorRating: 0.75
+    heatSignature: Medium
+    noiseSignature: High
+    topSpeedMetersPerSecond: 9
+    topSpeedDescription: 9 m/s
+    acceleration: Low
+    turningRadius: Heavy marine turn
+    climbRate: 
+    stabilityRating: Maximum (storm-grade)
+  autonomy:
+    behaviorProfile: Heavy assault / wave breaking / path clearing
+    aggression: 0.7
+    caution: 0.6
+    persistence: 1
+    flankingLikelihood: 0.15
+    retreatThreshold: 0.4
+    retreatBehaviorDescription: Late
+    targetPriority: Obstacles / hostile marine positions
+    formationDiscipline: High
+    riskTolerance: 0.8
+  sensors:
+    visualRangeMeters: 2400
+    visualRangeDescription: 2400 m
+    thermalRangeMeters: 900
+    thermalRangeDescription: 900 m
+    acousticRange: Medium
+    radarRange: Medium
+    lidarRange: 
+    signalDetectionRange: Medium
+  communication:
+    meshRangeKm: 8
+    meshRangeDescription: 8 km
+    relayCapacity: 2
+    commandLinkType: Marine Assault Grid
+    networkPriority: High
+  combat:
+    firepowerRating: 0.5
+    firepowerDescription: Medium
+    accuracy: Medium
+    stabilization: Very High
+    weaponMounts: 2 (medium)
+    weaponTypes: Marine autocannon / suppression turret
+    suppressionValue: 0.5
+    trackingStrength: Medium
+    disruptionStrength: Medium
+    breachCapability: Very High (breaker prow)
+    countermeasureRating: Medium
+    threatLevel: 7
+    engagementDistance: "300\u20131200 m"
+    preferredTerrain: Rough waters / storm zones / assault lanes
+    preferredTargets: Marine obstacles / hostile marine positions / light-to-medium surface threats
+    vulnerabilityProfile: Ballistic / torpedoes / heavy waves
+  squad:
+    squadRole: Heavy Marine Assault / Path Clearing
+    squadSizeContribution: 4
+    formationBehavior: Front-line assault spacing
+    intentInterpretationRules: Break waves, clear paths, push forward
+    retreatBehavior: Late
+    breachBehavior: Aggressive obstacle breach
+    flankingBehavior: Limited
+    reinforcementBehavior: Supports assault & marine squads
+    parentCommandUnit: Fusion / Command Core
+    subordinateUnits:
+    - Harbor
+    - Current
+    relayNodes:
+    - Relay Node 1
+    - Relay Node 2
+    networkDependencies: Marine Assault Grid
+  vrOperator:
+    operatorSeatType: Heavy Assault Console
+    operatorHud: Marine Assault Overlay
+    cameraFeeds: Optical + prow cam
+    thermalView: 1
+    lidarView: 0
+    sonarView: 1
+    tacticalOverlay: 1
+    movementControls: Heavy marine drive
+    sensorControls: Thermal / sonar / radar / zoom
+    abilityControls: Break Wave, Stabilize, Breach Mode
+    weaponControls: Turrets
+    stabilizationControls: Automatic storm stabilization
+    operatorAbilities:
+    - Wave Break
+    - Hull Ram
+    - Suppression Burst
+    - Assault Relay
+    - Breach Mode
+  economy:
+    creditCost: 2100
+    buildCost: 1,400 Metal / 700 Electronics
+    buildTimeSeconds: 200
+    factoryType: Marine Bay
+    techRequirements: Marine Systems III
+    maintenanceCost: High
+    repairTimeSeconds: 55
+    supplyConsumption: High
+    operationalCost: 22 Metal / 12 Electronics per hour
+    deploymentRequirements: Heavy water launch pad
+    transportCompatibility: Heavy marine racks
+    launchMethod: Water drop
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Marine Alloy Plates
+      quantity: 80
+    - component: Reinforced Marine Rods
+      quantity: 40
+    - component: Hydraulic Actuators
+      quantity: 12
+    - component: Armor Panels
+      quantity: 4
+    - component: Breaker Hull Assembly
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 36
+    - component: Signal Processors
+      quantity: 22
+    - component: Marine Control Chips
+      quantity: 6
+    - component: Assault AI Chips
+      quantity: 3
+    power:
+    - component: Dual Marine Turbine Core
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 3
+    rareTradeable:
+    - component: Breaker Prow Module
+      quantity: 1
+    optionalUpgrades:
+    - Reinforced Hull
+    - Extended Fuel Tank
+    - Anti-Jamming Shielding
+  environment:
+    terrainAdaptationCoefficients: 
+    weatherSensitivityIndex: 0
+    visibilityModifiers: 
+    signalPropagationCurve: 
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0
+    packetLossRate: 
+    encryptionLatencySeconds: 0
+    meshSelfHealingThreshold: 
+    relaySaturationCurve: 
+  cognitive:
+    decisionConfidence: 0
+    threatRecognitionAccuracy: 0
+    adaptiveLearningRatePerMission: 0
+    commandOverrideResistance: 0
+    cooperativeBehaviorIndex: 0
+  behaviorNodes: []
+  missionBehaviors: []
+  unitSynergies: []
+  damageResponses: []
+  upgrades: []
+  tactical:
+    formationAdaptability: 0
+    tacticalRoleWeight: 0
+    commandResponseDelaySeconds: 0
+    reinforcementTriggerConditions: 
+    retreatLogicThresholds: 
+  maintenance:
+    meanTimeBetweenFailuresHours: 0
+    repairCycleSeconds: 0
+    resourceDrainPerHourPercent: 0
+    batteryEfficiencyPercent: 0
+    rotorStabilityPercent: 0
+    sensorCalibrationDriftPercentPerHour: 0
+    coolingEfficiencyPercent: 0
+    operationalUptimePercent: 0
+    energyRecoveryRatePercent: 0
+    energyRecoveryRatePercentPerIdleMinute: 0
+    componentWearPercentPerHour: 0
+    maintenancePriorityLevel: 
+    sparePartDependencyIndex: 0
+    operationalCostPerHour: 
+  threatResponses: []
+  commandNetwork: []
+  performance:
+    missionSuccessProbability: 0
+    averageEngagementDurationMinutes: 0
+    reconDataYieldMbPerMinute: 0
+    communicationUptime: 0
+    threatAvoidanceEfficiency: 0

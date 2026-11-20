@@ -1,0 +1,220 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Survey
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-air-survey
+  displayName: Survey
+  category: 2
+  role: Wide-Area Recon / Terrain Scanning
+  tier: Recon Support
+  status: Active
+  storeImage: {fileID: -7255614424338374382, guid: 078390a2cb4d1784489b3611ee181cd0, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 2
+    widthMeters: 1.5
+    heightMeters: 0.8
+    massKg: 14
+    powerSource: Mid-capacity battery
+    energyCapacityWh: 1600
+    energyConsumptionWhPerMinute: 32
+    endurance: 40-60 min
+    payloadCapacityKg: 1
+    modules:
+    - Wide-area optical + terrain scan suite
+    navigationSystem: GPS + Survey AI
+    structuralIntegrityHp: 100
+    armorRating: 0.12
+    heatSignature: Low
+    noiseSignature: Low
+    topSpeedMetersPerSecond: 20
+    topSpeedDescription: 20 m/s
+    acceleration: Medium
+    turningRadius: Tight
+    climbRate: Medium
+    stabilityRating: High
+  autonomy:
+    behaviorProfile: Wide-Area Recon / Terrain Survey
+    aggression: 0
+    caution: 0.85
+    persistence: 0.8
+    flankingLikelihood: 0
+    retreatThreshold: 0.9
+    retreatBehaviorDescription: Early
+    targetPriority: Terrain features / movement
+    formationDiscipline: Medium
+    riskTolerance: 0.25
+  sensors:
+    visualRangeMeters: 1800
+    visualRangeDescription: 1800 m
+    thermalRangeMeters: 700
+    thermalRangeDescription: 700 m
+    acousticRange: Low
+    radarRange: None
+    lidarRange: Medium
+    signalDetectionRange: Medium
+  communication:
+    meshRangeKm: 5
+    meshRangeDescription: 5 km
+    relayCapacity: 0
+    commandLinkType: Recon Grid
+    networkPriority: Medium
+  combat:
+    firepowerRating: 0
+    firepowerDescription: 0
+    accuracy: N/A
+    stabilization: High
+    weaponMounts: None
+    weaponTypes: None
+    suppressionValue: 0
+    trackingStrength: Medium
+    disruptionStrength: Low
+    breachCapability: None
+    countermeasureRating: Low
+    threatLevel: 2
+    engagementDistance: N/A
+    preferredTerrain: Open air / recon corridors
+    preferredTargets: None
+    vulnerabilityProfile: Ballistic / weather
+  squad:
+    squadRole: Wide-Area Recon
+    squadSizeContribution: 1
+    formationBehavior: Broad recon spacing
+    intentInterpretationRules: Maintain visibility, avoid conflict
+    retreatBehavior: Early
+    breachBehavior: None
+    flankingBehavior: None
+    reinforcementBehavior: Supports recon and command squads
+    parentCommandUnit: Overseer / Insight
+    subordinateUnits: []
+    relayNodes: []
+    networkDependencies: Recon Grid
+  vrOperator:
+    operatorSeatType: Drone View
+    operatorHud: Survey Overlay
+    cameraFeeds: Optical
+    thermalView: 1
+    lidarView: 1
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Full drone flight
+    sensorControls: Thermal / LiDAR / zoom
+    abilityControls: Scan, Mark Terrain, Stabilize
+    weaponControls: None
+    stabilizationControls: Auto-hover
+    operatorAbilities:
+    - Wide-Area Scan
+    - Terrain Mark
+    - Thermal Search
+    - LiDAR Sweep
+    - Relay Recon Data
+  economy:
+    creditCost: 850
+    buildCost: 90 Metal / 80 Electronics
+    buildTimeSeconds: 30
+    factoryType: Drone Bay
+    techRequirements: Recon Systems II
+    maintenanceCost: Low
+    repairTimeSeconds: 10
+    supplyConsumption: Low
+    operationalCost: Minimal
+    deploymentRequirements: Standard drone pad
+    transportCompatibility: All aerial racks
+    launchMethod: Vertical takeoff
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Light Alloy Plates
+      quantity: 10
+    - component: Composite Frame Rods
+      quantity: 6
+    - component: Micro-Servo Actuators
+      quantity: 4
+    - component: Stabilizer Fins
+      quantity: 2
+    - component: Survey Sensor Housing
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 10
+    - component: Signal Processors
+      quantity: 8
+    - component: Drone Control Chips
+      quantity: 3
+    - component: Survey AI Chips
+      quantity: 2
+    power:
+    - component: Mid-Capacity Battery Pack
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 2
+    rareTradeable:
+    - component: Wide-Area Scan Core
+      quantity: 1
+    optionalUpgrades:
+    - Silent Rotor Kit
+    - Extended Battery Pack
+    - High-Density Scan Grid
+  environment:
+    terrainAdaptationCoefficients: 
+    weatherSensitivityIndex: 0
+    visibilityModifiers: 
+    signalPropagationCurve: 
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0
+    packetLossRate: 
+    encryptionLatencySeconds: 0
+    meshSelfHealingThreshold: 
+    relaySaturationCurve: 
+  cognitive:
+    decisionConfidence: 0
+    threatRecognitionAccuracy: 0
+    adaptiveLearningRatePerMission: 0
+    commandOverrideResistance: 0
+    cooperativeBehaviorIndex: 0
+  behaviorNodes: []
+  missionBehaviors: []
+  unitSynergies: []
+  damageResponses: []
+  upgrades: []
+  tactical:
+    formationAdaptability: 0
+    tacticalRoleWeight: 0
+    commandResponseDelaySeconds: 0
+    reinforcementTriggerConditions: 
+    retreatLogicThresholds: 
+  maintenance:
+    meanTimeBetweenFailuresHours: 0
+    repairCycleSeconds: 0
+    resourceDrainPerHourPercent: 0
+    batteryEfficiencyPercent: 0
+    rotorStabilityPercent: 0
+    sensorCalibrationDriftPercentPerHour: 0
+    coolingEfficiencyPercent: 0
+    operationalUptimePercent: 0
+    energyRecoveryRatePercent: 0
+    energyRecoveryRatePercentPerIdleMinute: 0
+    componentWearPercentPerHour: 0
+    maintenancePriorityLevel: 
+    sparePartDependencyIndex: 0
+    operationalCostPerHour: 
+  threatResponses: []
+  commandNetwork: []
+  performance:
+    missionSuccessProbability: 0
+    averageEngagementDurationMinutes: 0
+    reconDataYieldMbPerMinute: 0
+    communicationUptime: 0
+    threatAvoidanceEfficiency: 0

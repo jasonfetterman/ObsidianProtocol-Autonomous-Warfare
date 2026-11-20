@@ -1,0 +1,401 @@
+using System;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
+namespace ObsidianProtocol.UI.Menus
+{
+    public class SettingsSceneController : MonoBehaviour
+    {
+        private readonly string[] allPanels =
+        {
+            SGENERAL_SETTINGSS,
+            SDISPLAY_SETTINGSS,
+            SAUDIO_SETTINGSS,
+            SCONTROL_SETTINGSS,
+            SINTERFACE_SETTINGSS,
+            SACCESSIBILITY_SETTINGSS
+        };
+
+        private void Awake()
+        {
+            WireNavigation();
+            WireControls();
+
+            ShowGameplay();
+
+            Debug.Log(S[SETTINGS] Settings HUD initialized.S);
+        }
+
+        // =========================================================
+        // NAVIGATION
+        // =========================================================
+
+        private void WireNavigation()
+        {
+            WireButton(SGAMEPLAYS, ShowGameplay);
+            WireButton(SCONTROLSS, ShowControls);
+            WireButton(SAUDIOS, ShowAudio);
+            WireButton(SVIDEOS, ShowDisplay);
+            WireButton(SVRS, ShowVR);
+            WireButton(SHUDS, ShowHUD);
+            WireButton(SACCESSIBILITYS, ShowAccessibility);
+            WireButton(SNETWORKS, ShowNetwork);
+            WireButton(SACCOUNTS, ShowAccount);
+
+            WireButton(SBACKS, GoBack);
+            WireButton(SPREVIOUSS, GoBack);
+
+            WireButton(SCLOSE_CUSTOMIZATIONS, CloseCustomization);
+        }
+
+        private void WireButton(string objectName, UnityEngine.Events.UnityAction action)
+        {
+            Button button = FindButton(objectName);
+
+            if (button == null)
+            {
+                Debug.LogWarning(S[SETTINGS] Button not found: S + objectName);
+                return;
+            }
+
+            button.onClick.RemoveListener(action);
+            button.onClick.AddListener(action);
+        }
+
+        // =========================================================
+        // CATEGORY PANELS
+        // =========================================================
+
+        public void ShowGameplay()
+        {
+            ShowSettingsPanel(SGENERAL_SETTINGSS, SGAMEPLAYS);
+        }
+
+        public void ShowControls()
+        {
+            ShowSettingsPanel(SCONTROL_SETTINGSS, SCONTROLSS);
+        }
+
+        public void ShowAudio()
+        {
+            ShowSettingsPanel(SAUDIO_SETTINGSS, SAUDIOS);
+        }
+
+        public void ShowDisplay()
+        {
+            ShowSettingsPanel(SDISPLAY_SETTINGSS, SVIDEOS);
+        }
+
+        public void ShowAccessibility()
+        {
+            ShowSettingsPanel(SACCESSIBILITY_SETTINGSS, SACCESSIBILITYS);
+        }
+
+        public void ShowVR()
+        {
+            Debug.Log(S[SETTINGS] VR selected.S);
+
+            if (Application.CanStreamedLevelBeLoaded(SSCN20_VR_COMMANDS))
+            {
+                SceneManager.LoadScene(SSCN20_VR_COMMANDS);
+            }
+            else
+            {
+                Debug.LogWarning(
+                    S[SETTINGS] VR_Command is not available in Build Settings.S
+                );
+            }
+        }
+
+        public void ShowHUD()
+        {
+            GameObject content = FindObject(SSETTINGS_CONTENTS);
+            GameObject customization = FindObject(SHUD_CUSTOMIZATIONS);
+
+            if (content != null)
+                content.SetActive(false);
+
+            if (customization != null)
+                customization.SetActive(true);
+
+            MoveActiveIndicator(SHUDS);
+        }
+
+        public void CloseCustomization()
+        {
+            GameObject content = FindObject(SSETTINGS_CONTENTS);
+            GameObject customization = FindObject(SHUD_CUSTOMIZATIONS);
+
+            if (customization != null)
+                customization.SetActive(false);
+
+            if (content != null)
+                content.SetActive(true);
+
+            ShowGameplay();
+        }
+
+        public void ShowNetwork()
+        {
+            Debug.Log(S[SETTINGS] Network selected.S);
+            ShowGameplay();
+        }
+
+        public void ShowAccount()
+        {
+            Debug.Log(S[SETTINGS] Account selected.S);
+            ShowGameplay();
+        }
+
+        private void ShowSettingsPanel(string targetPanelName, string buttonName)
+        {
+            GameObject content = FindObject(SSETTINGS_CONTENTS);
+            GameObject customization = FindObject(SHUD_CUSTOMIZATIONS);
+
+            if (content != null)
+                content.SetActive(true);
+
+            if (customization != null)
+                customization.SetActive(false);
+
+            foreach (string panelName in allPanels)
+            {
+                GameObject panel = FindObject(panelName);
+
+                if (panel != null)
+                {
+                    panel.SetActive(
+                        string.Equals(
+                            panelName,
+                            targetPanelName,
+                            StringComparison.OrdinalIgnoreCase
+                        )
+                    );
+                }
+            }
+
+            MoveActiveIndicator(buttonName);
+
+            Debug.Log(S[SETTINGS] Active panel: S + targetPanelName);
+        }
+
+        // =========================================================
+        // ACTIVE INDICATOR
+        // =========================================================
+
+        private void MoveActiveIndicator(string buttonName)
+        {
+            GameObject buttonObject = FindObject(buttonName);
+            GameObject indicator = FindObject(SACTIVE_INDICATORS);
+
+            if (buttonObject == null || indicator == null)
+                return;
+
+            RectTransform buttonRect =
+                buttonObject.GetComponent<RectTransform>();
+
+            RectTransform indicatorRect =
+                indicator.GetComponent<RectTransform>();
+
+            if (buttonRect == null || indicatorRect == null)
+                return;
+
+            indicator.transform.SetParent(
+                buttonObject.transform,
+                false
+            );
+
+            indicator.transform.SetAsFirstSibling();
+
+            indicatorRect.anchorMin = new Vector2(0f, 0f);
+            indicatorRect.anchorMax = new Vector2(0f, 1f);
+            indicatorRect.pivot = new Vector2(0f, 0.5f);
+
+            indicatorRect.anchoredPosition = Vector2.zero;
+            indicatorRect.sizeDelta =
+                new Vector2(
+                    indicatorRect.sizeDelta.x,
+                    0f
+                );
+        }
+
+        // =========================================================
+        // CONTROLS
+        // =========================================================
+
+        private void WireControls()
+        {
+            WireSlider(SMaster_VolumeS);
+            WireSlider(SMusic_VolumeS);
+            WireSlider(SEffects_VolumeS);
+            WireSlider(SVoice_VolumeS);
+
+            WireSlider(SBrightnessS);
+            WireSlider(SContrastS);
+            WireSlider(SHUD_ScaleS);
+            WireSlider(SMouse_SensitivityS);
+
+            WireButton(SAPPLY_AUDIO_SETTINGSS, ApplyAudio);
+            WireButton(SAPPLY_DISPLAY_SETTINGSS, ApplyDisplay);
+            WireButton(SAPPLY_CONTROL_SETTINGSS, ApplyControls);
+            WireButton(SAPPLY_ACCESSIBILITY_SETTINGSS, ApplyAccessibility);
+            WireButton(SAPPLY_INTERFACE_SETTINGSS, ApplyInterface);
+        }
+
+        private void WireSlider(string objectName)
+        {
+            GameObject objectRoot = FindObject(objectName);
+
+            if (objectRoot == null)
+            {
+                Debug.LogWarning(
+                    S[SETTINGS] Slider object not found: S + objectName
+                );
+                return;
+            }
+
+            Slider slider =
+                objectRoot.GetComponentInChildren<Slider>(true);
+
+            if (slider == null)
+            {
+                Debug.LogWarning(
+                    S[SETTINGS] No Slider component found under: S +
+                    objectName
+                );
+                return;
+            }
+
+            slider.onValueChanged.RemoveListener(
+                delegate { UpdateSliderLabel(objectRoot, slider); }
+            );
+
+            slider.onValueChanged.AddListener(
+                value => UpdateSliderLabel(objectRoot, slider)
+            );
+
+            UpdateSliderLabel(objectRoot, slider);
+        }
+
+        private void UpdateSliderLabel(
+            GameObject objectRoot,
+            Slider slider
+        )
+        {
+            Text valueText = null;
+
+            Transform valueTransform =
+                objectRoot.transform.Find(SVALUES);
+
+            if (valueTransform != null)
+                valueText =
+                    valueTransform.GetComponent<Text>();
+
+            if (valueText == null)
+            {
+                Text[] texts =
+                    objectRoot.GetComponentsInChildren<Text>(true);
+
+                if (texts.Length > 0)
+                    valueText = texts[texts.Length - 1];
+            }
+
+            if (valueText == null)
+                return;
+
+            float value = slider.value;
+
+            if (slider.maxValue <= 1.01f)
+            {
+                valueText.text =
+                    Mathf.RoundToInt(value * 100f) + S%S;
+            }
+            else
+            {
+                valueText.text =
+                    value.ToString(S0.0S);
+            }
+        }
+
+        // =========================================================
+        // APPLY
+        // =========================================================
+
+        public void ApplyAudio()
+        {
+            Debug.Log(S[SETTINGS] Audio settings applied.S);
+        }
+
+        public void ApplyDisplay()
+        {
+            Debug.Log(S[SETTINGS] Display settings applied.S);
+        }
+
+        public void ApplyControls()
+        {
+            Debug.Log(S[SETTINGS] Control settings applied.S);
+        }
+
+        public void ApplyAccessibility()
+        {
+            Debug.Log(S[SETTINGS] Accessibility settings applied.S);
+        }
+
+        public void ApplyInterface()
+        {
+            Debug.Log(S[SETTINGS] Interface settings applied.S);
+        }
+
+        // =========================================================
+        // EXIT
+        // =========================================================
+
+        public void GoBack()
+        {
+            Debug.Log(S[SETTINGS] Returning to Main Menu.S);
+
+            if (Application.CanStreamedLevelBeLoaded(SSCN-01 MAIN MENUS))
+            {
+                SceneManager.LoadScene(SSCN-01 MAIN MENUS);
+                return;
+            }
+
+            SceneManager.LoadScene(0);
+        }
+
+        // =========================================================
+        // FINDERS
+        // =========================================================
+
+        private GameObject FindObject(string objectName)
+        {
+            Transform[] transforms =
+                GetComponentsInChildren<Transform>(true);
+
+            foreach (Transform transform in transforms)
+            {
+                if (string.Equals(
+                    transform.name,
+                    objectName,
+                    StringComparison.OrdinalIgnoreCase))
+                {
+                    return transform.gameObject;
+                }
+            }
+
+            return null;
+        }
+
+        private Button FindButton(string objectName)
+        {
+            GameObject objectRoot = FindObject(objectName);
+
+            if (objectRoot == null)
+                return null;
+
+            return objectRoot.GetComponentInChildren<Button>(true);
+        }
+    }
+}
+

@@ -1,0 +1,2992 @@
+﻿
+============================================================================
+Assets\Scripts\UI\Store\StoreMasterController.cs : lines 76-220
+============================================================================
+   76:         private void Awake()
+   77:         {
+   78:             EnsureCanvas();
+   79:         }
+   80: 
+   81:         private void OnEnable()
+   82:         {
+   83:             if (!Application.isPlaying)
+   84:             {
+   85:                 EnsureCanvas();
+   86:                 LoadUnits();
+   87:                 BuildInterface();
+   88:                 RefreshCredits();
+   89:                 RefreshCatalog();
+   90: 
+   91:                 if (units.Count > 0)
+   92:                     SelectUnit(units[0]);
+   93: 
+   94:                 Canvas.ForceUpdateCanvases();
+   95:             }
+   96:         }
+   97: 
+   98:         private void Start()
+   99:         {
+  100:             Debug.Log("[STORE] START ENTERED");
+  101: 
+  102:             EnsureCanvas();
+  103:             Debug.Log("[STORE] CANVAS READY");
+  104: 
+  105:             LoadUnits();
+  106:             Debug.Log("[STORE] UNITS LOADED = " + units.Count);
+  107: 
+  108:             BuildInterface();
+  109:             Debug.Log("[STORE] INTERFACE BUILT");
+  110: 
+  111:             RefreshCredits();
+  112:             RefreshCatalog();
+  113: 
+  114:             if (units.Count > 0)
+  115:                 SelectUnit(units[0]);
+  116: 
+  117:             Canvas.ForceUpdateCanvases();
+  118: 
+  119:             Debug.Log(
+  120:                 "[STORE] MASTER INTERFACE ACTIVE | " +
+  121:                 "UNITS=" + units.Count +
+  122:                 " | CANVAS=SCREEN_SPACE_OVERLAY");
+  123:         }
+  124: 
+  125:         private void EnsureCanvas()
+  126:         {
+  127: 
+  128:             transform.localPosition = Vector3.zero;
+  129:             transform.localRotation = Quaternion.identity;
+  130:             transform.localScale = Vector3.one;
+  131: 
+  132:             RectTransform rect =
+  133:                 GetComponent<RectTransform>();
+  134: 
+  135:             rect.anchorMin = Vector2.zero;
+  136:             rect.anchorMax = Vector2.one;
+  137:             rect.offsetMin = Vector2.zero;
+  138:             rect.offsetMax = Vector2.zero;
+  139:             rect.pivot = new Vector2(0.5f, 0.5f);
+  140:             rect.localScale = Vector3.one;
+  141: 
+  142:             canvas =
+  143:                 GetComponent<Canvas>();
+  144: 
+  145:             if (canvas == null)
+  146:                 canvas = gameObject.AddComponent<Canvas>();
+  147: 
+  148:             canvas.enabled = true;
+  149:             canvas.renderMode =
+  150:                 RenderMode.ScreenSpaceOverlay;
+  151: 
+  152:             canvas.worldCamera = null;
+  153:             canvas.planeDistance = 100f;
+  154:             canvas.overrideSorting = true;
+  155:             canvas.sortingOrder = 5000;
+  156: 
+  157:             canvasScaler =
+  158:                 GetComponent<CanvasScaler>();
+  159: 
+  160:             if (canvasScaler == null)
+  161:                 canvasScaler =
+  162:                     gameObject.AddComponent<CanvasScaler>();
+  163: 
+  164:             canvasScaler.enabled = true;
+  165:             canvasScaler.uiScaleMode =
+  166:                 CanvasScaler.ScaleMode.ScaleWithScreenSize;
+  167: 
+  168:             canvasScaler.referenceResolution =
+  169:                 new Vector2(1920f, 1080f);
+  170: 
+  171:             canvasScaler.screenMatchMode =
+  172:                 CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
+  173: 
+  174:             canvasScaler.matchWidthOrHeight = 0.5f;
+  175: 
+  176:             raycaster =
+  177:                 GetComponent<GraphicRaycaster>();
+  178: 
+  179:             if (raycaster == null)
+  180:                 raycaster =
+  181:                     gameObject.AddComponent<GraphicRaycaster>();
+  182: 
+  183:             raycaster.enabled = true;
+  184: 
+  185:             gameObject.SetActive(true);
+  186:         }
+  187: 
+  188:         private void LoadUnits()
+  189:         {
+  190:             units.Clear();
+  191: 
+  192:             foreach (InventoryItemDefinition definition
+  193:                 in InventoryDefinitionRegistry.GetAll())
+  194:             {
+  195:                 if (definition == null)
+  196:                     continue;
+  197: 
+  198:                 if (definition.Type !=
+  199:                     InventoryItemType.Unit)
+  200:                     continue;
+  201: 
+  202:                 UnitDefinition unit =
+  203:                     UnitDatabaseRuntime.Get(
+  204:                         definition.DefinitionId);
+  205: 
+  206:                 if (unit != null)
+  207:                     units.Add(unit);
+  208:             }
+  209: 
+  210:             units.Sort(
+  211:                 (a, b) =>
+  212:                     string.Compare(
+  213:                         a.DisplayName,
+  214:                         b.DisplayName,
+  215:                         StringComparison.OrdinalIgnoreCase));
+  216:         }
+  217: 
+  218:         private void BuildInterface()
+  219:         {
+  220:             Transform old =
+
+============================================================================
+Assets\Scripts\UI\Store\StoreMasterController.cs : lines 218-263
+============================================================================
+  218:         private void BuildInterface()
+  219:         {
+  220:             Transform old =
+  221:                 transform.Find("STORE_MASTER_INTERFACE");
+  222: 
+  223:             if (old != null)
+  224:             {
+  225:                 if (Application.isPlaying)
+  226:                     Destroy(old.gameObject);
+  227:                 else
+  228:                     DestroyImmediate(old.gameObject);
+  229:             }
+  230: 
+  231:             GameObject root =
+  232:                 CreateUI(
+  233:                     "STORE_MASTER_INTERFACE",
+  234:                     transform);
+  235: 
+  236:             RectTransform rootRect =
+  237:                 root.GetComponent<RectTransform>();
+  238: 
+  239:             rootRect.anchorMin = Vector2.zero;
+  240:             rootRect.anchorMax = Vector2.one;
+  241:             rootRect.offsetMin = Vector2.zero;
+  242:             rootRect.offsetMax = Vector2.zero;
+  243:             rootRect.localScale = Vector3.one;
+  244: 
+  245:             Image backgroundImage =
+  246:                 root.AddComponent<Image>();
+  247: 
+  248:             backgroundImage.color =
+  249:                 background;
+  250: 
+  251:             BuildTop(root.transform);
+  252:             BuildCategories(root.transform);
+  253:             BuildCatalog(root.transform);
+  254:             BuildInspection(root.transform);
+  255:             BuildBottom(root.transform);
+  256:             BuildConfirmation(root.transform);
+  257: 
+  258:             interfaceBuilt = true;
+  259:             storeInterface = root;
+  260:             root.SetActive(false);
+  261:         }
+  262: 
+  263:         private void Update()
+
+============================================================================
+Assets\Scripts\UI\Store\StoreMasterController.cs : lines 837-955
+============================================================================
+  837:         private void RefreshCatalog()
+  838:         {
+  839:             if (!interfaceBuilt ||
+  840:                 catalogRoot == null)
+  841:                 return;
+  842: 
+  843:             for (int i = catalogRoot.childCount - 1;
+  844:                  i >= 0;
+  845:                  i--)
+  846:             {
+  847:                 Destroy(
+  848:                     catalogRoot.GetChild(i).gameObject);
+  849:             }
+  850: 
+  851:             string search =
+  852:                 searchField != null
+  853:                     ? searchField.text.Trim()
+  854:                     : "";
+  855: 
+  856:             List<UnitDefinition> filtered =
+  857:                 units.Where(
+  858:                     u =>
+  859:                         MatchesCategory(
+  860:                             u,
+  861:                             activeCategory) &&
+  862:                         (
+  863:                             string.IsNullOrWhiteSpace(search) ||
+  864:                             u.DisplayName.IndexOf(
+  865:                                 search,
+  866:                                 StringComparison.OrdinalIgnoreCase) >= 0 ||
+  867:                             u.UnitId.IndexOf(
+  868:                                 search,
+  869:                                 StringComparison.OrdinalIgnoreCase) >= 0
+  870:                         ))
+  871:                 .ToList();
+  872: 
+  873:             RectTransform content = catalogRoot as RectTransform;
+  874:             RectTransform viewport = content.parent as RectTransform;
+  875: 
+  876:             float availableWidth = viewport.rect.width;
+  877:             Debug.Log(
+  878:                 "[STORE LAYOUT] RootActive=" + (storeInterface != null && storeInterface.activeInHierarchy) +
+  879:                 " | CatalogActive=" + (catalogRoot != null && catalogRoot.gameObject.activeInHierarchy) +
+  880:                 " | Viewport=" + viewport.rect.width + "x" + viewport.rect.height +
+  881:                 " | FilteredUnits=" + filtered.Count +
+  882:                 " | Screen=" + Screen.width + "x" + Screen.height);
+  883:             int columns = 3;
+  884:             float gap = 12f;
+  885:             float cardHeight = 226f;
+  886:             float cardWidth = Mathf.Max(150f, (availableWidth - gap * (columns - 1)) / columns);
+  887: 
+  888:             int rows = Mathf.CeilToInt(filtered.Count / (float)columns);
+  889:             content.sizeDelta = new Vector2(0f, Mathf.Max(600f, rows * (cardHeight + gap)));
+  890: 
+  891:             for (int i = 0; i < filtered.Count; i++)
+  892:             {
+  893:                 UnitDefinition unit = filtered[i];
+  894:                 int row = i / columns;
+  895:                 int column = i % columns;
+  896: 
+  897:                 GameObject card = CreateUI("UNIT_CARD_" + unit.UnitId, catalogRoot);
+  898:                 RectTransform cardRect = card.GetComponent<RectTransform>();
+  899:                 cardRect.anchorMin = new Vector2(0f, 1f);
+  900:                 cardRect.anchorMax = new Vector2(0f, 1f);
+  901:                 cardRect.pivot = new Vector2(0f, 1f);
+  902:                 cardRect.sizeDelta = new Vector2(cardWidth, cardHeight);
+  903:                 cardRect.anchoredPosition = new Vector2(column * (cardWidth + gap), -row * (cardHeight + gap));
+  904: 
+  905:                 Image cardImage = card.AddComponent<Image>();
+  906:                 cardImage.color = panel2;
+  907: 
+  908:                 Outline outline = card.AddComponent<Outline>();
+  909:                 outline.effectColor = line;
+  910:                 outline.effectDistance = new Vector2(1f, 1f);
+  911: 
+  912:                 Button button = card.AddComponent<Button>();
+  913:                 ColorBlock colors = button.colors;
+  914:                 colors.normalColor = Color.white;
+  915:                 colors.highlightedColor = new Color(accent.r, accent.g, accent.b, 0.22f);
+  916:                 colors.pressedColor = new Color(accent.r, accent.g, accent.b, 0.35f);
+  917:                 button.colors = colors;
+  918: 
+  919:                 GameObject art = CreateUI("UNIT_IMAGE_PLACEHOLDER", card.transform);
+  920:                 RectTransform artRect = art.GetComponent<RectTransform>();
+  921:                 Stretch(artRect, 0.06f, 0.43f, 0.94f, 0.94f);
+  922:                 Image artImage = art.AddComponent<Image>();
+  923:                 artImage.color = background;
+  924: 
+  925:                 TMP_Text artLabel = Label("UNIT VISUAL\nART PENDING", art.transform, 10, TextAlignmentOptions.Center);
+  926:                 Stretch(artLabel.rectTransform, 0.05f, 0.05f, 0.95f, 0.95f);
+  927:                 artLabel.color = accent;
+  928: 
+  929:                 TMP_Text name = Label(unit.DisplayName, card.transform, 13, TextAlignmentOptions.Left);
+  930:                 Stretch(name.rectTransform, 0.06f, 0.29f, 0.94f, 0.41f);
+  931: 
+  932:                 TMP_Text category = Label(GetCategory(unit), card.transform, 9, TextAlignmentOptions.Left);
+  933:                 category.color = accent;
+  934:                 Stretch(category.rectTransform, 0.06f, 0.20f, 0.94f, 0.29f);
+  935: 
+  936:                 TMP_Text price = Label(FormatCredits(unit.Economy.creditCost), card.transform, 11, TextAlignmentOptions.Left);
+  937:                 price.color = accent;
+  938:                 Stretch(price.rectTransform, 0.06f, 0.06f, 0.60f, 0.19f);
+  939: 
+  940:                 bool owned = InventoryRuntime.Has(unit.UnitId);
+  941:                 TMP_Text ownership = Label(owned ? "OWNED" : "AVAILABLE", card.transform, 8, TextAlignmentOptions.Right);
+  942:                 ownership.color = owned ? good : Color.white;
+  943:                 Stretch(ownership.rectTransform, 0.53f, 0.06f, 0.94f, 0.19f);
+  944: 
+  945:                 button.onClick.AddListener(() => SelectUnit(unit));
+  946:             }
+  947:             if (catalogScroll != null)
+  948:             {
+  949:                 catalogScroll.StopMovement();
+  950:                 catalogScroll.verticalNormalizedPosition = 1f;
+  951:             }
+  952: 
+  953:             Canvas.ForceUpdateCanvases();
+  954:         }
+  955: 
+
+============================================================================
+Assets\Scripts\UI\Store\StoreMasterController.cs : lines 1020-1120
+============================================================================
+ 1020:                 Safe(unit.Economy.launchMethod) +
+ 1021:                 "\n" +
+ 1022:                 "DEPLOYMENT REQUIREMENTS   " +
+ 1023:                 Safe(unit.Economy.deploymentRequirements);
+ 1024:         }
+ 1025: 
+ 1026:         private void RequestPurchase()
+ 1027:         {
+ 1028:             if (selectedUnit == null)
+ 1029:                 return;
+ 1030: 
+ 1031:             if (!InventoryRuntime.CampaignActive ||
+ 1032:                 !EconomyRuntime.CampaignActive)
+ 1033:             {
+ 1034:                 SetStatus(
+ 1035:                     "NO ACTIVE CAMPAIGN",
+ 1036:                     danger);
+ 1037: 
+ 1038:                 return;
+ 1039:             }
+ 1040: 
+ 1041:             if (InventoryRuntime.Has(
+ 1042:                 selectedUnit.UnitId))
+ 1043:             {
+ 1044:                 SetStatus(
+ 1045:                     "UNIT ALREADY OWNED",
+ 1046:                     danger);
+ 1047: 
+ 1048:                 return;
+ 1049:             }
+ 1050: 
+ 1051:             int price =
+ 1052:                 selectedUnit.Economy.creditCost;
+ 1053: 
+ 1054:             if (price <= 0)
+ 1055:             {
+ 1056:                 SetStatus(
+ 1057:                     "PRICE NOT CONFIGURED",
+ 1058:                     danger);
+ 1059: 
+ 1060:                 return;
+ 1061:             }
+ 1062: 
+ 1063:             if (EconomyRuntime.Credits < price)
+ 1064:             {
+ 1065:                 SetStatus(
+ 1066:                     "INSUFFICIENT CREDITS",
+ 1067:                     danger);
+ 1068: 
+ 1069:                 return;
+ 1070:             }
+ 1071: 
+ 1072:             confirmationText.text =
+ 1073:                 selectedUnit.DisplayName +
+ 1074:                 "\n\n" +
+ 1075:                 "PROCUREMENT COST   " +
+ 1076:                 FormatCredits(price) +
+ 1077:                 "\n\n" +
+ 1078:                 "Credits will be deducted immediately." +
+ 1079:                 "\nThe unit will be added to persistent inventory." +
+ 1080:                 "\n\n" +
+ 1081:                 "Battlefield deployment budget is unchanged.";
+ 1082: 
+ 1083:             confirmationPanel.SetActive(true);
+ 1084:         }
+ 1085: 
+ 1086:         private void CompletePurchase()
+ 1087:         {
+ 1088:             confirmationPanel.SetActive(false);
+ 1089: 
+ 1090:             if (selectedUnit == null)
+ 1091:                 return;
+ 1092: 
+ 1093:             UnitPurchaseService service =
+ 1094:                 new UnitPurchaseService();
+ 1095: 
+ 1096:             bool success =
+ 1097:                 service.Purchase(
+ 1098:                     selectedUnit.UnitId);
+ 1099: 
+ 1100:             if (!success)
+ 1101:             {
+ 1102:                 SetStatus(
+ 1103:                     "PROCUREMENT FAILED",
+ 1104:                     danger);
+ 1105: 
+ 1106:                 return;
+ 1107:             }
+ 1108: 
+ 1109:             SetStatus(
+ 1110:                 "PROCUREMENT COMPLETE  //  " +
+ 1111:                 selectedUnit.DisplayName,
+ 1112:                 good);
+ 1113: 
+ 1114:             RefreshCredits();
+ 1115:             RefreshCatalog();
+ 1116:             SelectUnit(selectedUnit);
+ 1117:         }
+ 1118: 
+ 1119:         private void RefreshCurrent()
+ 1120:         {
+
+============================================================================
+Assets\Scripts\UI\Store\StoreMasterController.cs : lines 1150-1205
+============================================================================
+ 1150:         }
+ 1151: 
+ 1152:         private bool MatchesCategory(
+ 1153:             UnitDefinition unit,
+ 1154:             string category)
+ 1155:         {
+ 1156:             if (category == "ALL")
+ 1157:                 return true;
+ 1158: 
+ 1159:             return GetCategory(unit)
+ 1160:                 .Equals(
+ 1161:                     category,
+ 1162:                     StringComparison.OrdinalIgnoreCase);
+ 1163:         }
+ 1164: 
+ 1165:         private string GetCategory(
+ 1166:             UnitDefinition unit)
+ 1167:         {
+ 1168:             switch (
+ 1169:                 unit.Category.ToString()
+ 1170:                     .ToUpperInvariant())
+ 1171:             {
+ 1172:                 case "COMMAND":
+ 1173:                     return "COMMAND";
+ 1174: 
+ 1175:                 case "AIR":
+ 1176:                     return "AIR";
+ 1177: 
+ 1178:                 case "GROUND":
+ 1179:                     return "GROUND";
+ 1180: 
+ 1181:                 case "SEA":
+ 1182:                     return "SEA";
+ 1183: 
+ 1184:                 case "EXPERIMENTAL":
+ 1185:                     return "EXPERIMENTAL";
+ 1186: 
+ 1187:                 case "SATELLITE":
+ 1188:                     return "SATELLITE";
+ 1189:             }
+ 1190: 
+ 1191:             string id =
+ 1192:                 unit.UnitId.ToLowerInvariant();
+ 1193: 
+ 1194:             if (id.Contains("command"))
+ 1195:                 return "COMMAND";
+ 1196: 
+ 1197:             if (id.Contains("satellite"))
+ 1198:                 return "SATELLITE";
+ 1199: 
+ 1200:             return "OTHER";
+ 1201:         }
+ 1202: 
+ 1203:         private string Safe(
+ 1204:             string value)
+ 1205:         {
+
+============================================================================
+Assets\Scripts\UI\Store\StoreRuntimeController.cs : lines 59-118
+============================================================================
+   59:         private void Awake()
+   60:         {
+   61:             BuildStore();
+   62:         }
+   63: 
+   64:         private void BuildStore()
+   65:         {
+   66:             canvas = GetComponent<Canvas>();
+   67: 
+   68:             if (canvas == null)
+   69:                 canvas = GetComponentInParent<Canvas>();
+   70: 
+   71:             if (canvas == null)
+   72:                 return;
+   73: 
+   74:             Transform storePanel =
+   75:                 canvas.transform.Find("StorePanel");
+   76: 
+   77:             if (storePanel == null)
+   78:             {
+   79:                 Debug.LogError(
+   80:                     "StoreRuntimeController: StorePanel was not found under the Garage Canvas.");
+   81:                 return;
+   82:             }
+   83: 
+   84:             Transform old =
+   85:                 storePanel.Find("STORE_FINAL_INTERFACE");
+   86: 
+   87:             if (old != null)
+   88:                 Destroy(old.gameObject);
+   89: 
+   90:             Transform old2 =
+   91:                 storePanel.Find("STORE_REBUILT_INTERFACE");
+   92: 
+   93:             if (old2 != null)
+   94:                 Destroy(old2.gameObject);
+   95: 
+   96:             root = Rect(
+   97:                 "STORE_FINAL_INTERFACE",
+   98:                 storePanel,
+   99:                 Vector2.zero,
+  100:                 Vector2.one);
+  101: 
+  102:             Image background =
+  103:                 root.gameObject.AddComponent<Image>();
+  104: 
+  105:             background.color =
+  106:                 new Color(0.012f, 0.019f, 0.024f, 0.985f);
+  107: 
+  108:             BuildTopBar();
+  109:             BuildCategoryRail();
+  110:             BuildCatalog();
+  111:             BuildDetails();
+  112:             BuildBottomBar();
+  113:             BuildConfirmation();
+  114: 
+  115:             LoadDefinitions();
+  116:             RefreshEverything();
+  117:         }
+  118: 
+
+============================================================================
+Assets\Scripts\UI\Store\StoreRuntimeController.cs : lines 624-855
+============================================================================
+  624:         private void LoadDefinitions()
+  625:         {
+  626:             unitDefinitions.Clear();
+  627: 
+  628:             foreach (
+  629:                 InventoryItemDefinition definition
+  630:                 in InventoryDefinitionRegistry.GetAll())
+  631:             {
+  632:                 if (definition == null)
+  633:                     continue;
+  634: 
+  635:                 if (definition.Type !=
+  636:                     InventoryItemType.Unit)
+  637:                     continue;
+  638: 
+  639:                 unitDefinitions.Add(definition);
+  640:             }
+  641: 
+  642:             unitDefinitions.Sort(
+  643:                 (a, b) =>
+  644:                     string.Compare(
+  645:                         a.DisplayName,
+  646:                         b.DisplayName,
+  647:                         StringComparison.OrdinalIgnoreCase));
+  648:         }
+  649: 
+  650:         private void RefreshEverything()
+  651:         {
+  652:             RefreshCredits();
+  653:             RefreshCategories();
+  654:             RefreshCatalog();
+  655:             RefreshDetails();
+  656:         }
+  657: 
+  658:         private void RefreshCredits()
+  659:         {
+  660:             if (credits == null)
+  661:                 return;
+  662: 
+  663:             credits.text =
+  664:                 EconomyRuntime.Credits.ToString("N0") +
+  665:                 " C";
+  666:         }
+  667: 
+  668:         private void RefreshCategories()
+  669:         {
+  670:             foreach (
+  671:                 KeyValuePair<string, Button> item
+  672:                 in categoryButtons)
+  673:             {
+  674:                 item.Value.interactable =
+  675:                     item.Key != selectedCategory;
+  676:             }
+  677:         }
+  678: 
+  679:         private void RefreshCatalog()
+  680:         {
+  681:             if (cardContainer == null)
+  682:                 return;
+  683: 
+  684:             for (
+  685:                 int i = cardContainer.childCount - 1;
+  686:                 i >= 0;
+  687:                 i--)
+  688:             {
+  689:                 Destroy(
+  690:                     cardContainer.GetChild(i).gameObject);
+  691:             }
+  692: 
+  693:             IEnumerable<InventoryItemDefinition> filtered =
+  694:                 unitDefinitions;
+  695: 
+  696:             if (selectedCategory != "ALL")
+  697:             {
+  698:                 filtered =
+  699:                     filtered.Where(
+  700:                         x =>
+  701:                             Category(
+  702:                                 x.DefinitionId) ==
+  703:                             selectedCategory);
+  704:             }
+  705: 
+  706:             int count = 0;
+  707: 
+  708:             foreach (
+  709:                 InventoryItemDefinition definition
+  710:                 in filtered)
+  711:             {
+  712:                 CreateCard(definition);
+  713:                 count++;
+  714:             }
+  715: 
+  716:             if (catalogStatus != null)
+  717:             {
+  718:                 catalogStatus.text =
+  719:                     count +
+  720:                     " ITEMS";
+  721:             }
+  722:         }
+  723: 
+  724:         private void CreateCard(
+  725:             InventoryItemDefinition definition)
+  726:         {
+  727:             GameObject card =
+  728:                 new GameObject(
+  729:                     "CARD_" +
+  730:                     definition.DefinitionId,
+  731:                     typeof(RectTransform),
+  732:                     typeof(Image));
+  733: 
+  734:             card.transform.SetParent(
+  735:                 cardContainer,
+  736:                 false);
+  737: 
+  738:             Image image =
+  739:                 card.GetComponent<Image>();
+  740: 
+  741:             image.color =
+  742:                 new Color(
+  743:                     0.035f,
+  744:                     0.055f,
+  745:                     0.065f,
+  746:                     1f);
+  747: 
+  748:             RectTransform rect =
+  749:                 card.GetComponent<RectTransform>();
+  750: 
+  751:             TMP_Text name =
+  752:                 Label(
+  753:                     card.transform,
+  754:                     "NAME",
+  755:                     definition.DisplayName,
+  756:                     14f,
+  757:                     TextAlignmentOptions.Left);
+  758: 
+  759:             SetRect(
+  760:                 name.rectTransform,
+  761:                 0.06f,
+  762:                 0.68f,
+  763:                 0.94f,
+  764:                 0.88f);
+  765: 
+  766:             TMP_Text category =
+  767:                 Label(
+  768:                     card.transform,
+  769:                     "CATEGORY",
+  770:                     Category(definition.DefinitionId),
+  771:                     9f,
+  772:                     TextAlignmentOptions.Left);
+  773: 
+  774:             SetRect(
+  775:                 category.rectTransform,
+  776:                 0.06f,
+  777:                 0.55f,
+  778:                 0.94f,
+  779:                 0.66f);
+  780: 
+  781:             UnitDefinition unit =
+  782:                 UnitDatabaseRuntime.Get(
+  783:                     definition.DefinitionId);
+  784: 
+  785:             int price =
+  786:                 unit != null
+  787:                     ? Convert.ToInt32(
+  788:                         unit.Economy.creditCost)
+  789:                     : 0;
+  790: 
+  791:             TMP_Text priceText =
+  792:                 Label(
+  793:                     card.transform,
+  794:                     "PRICE",
+  795:                     price.ToString("N0") +
+  796:                     " C",
+  797:                     12f,
+  798:                     TextAlignmentOptions.Left);
+  799: 
+  800:             SetRect(
+  801:                 priceText.rectTransform,
+  802:                 0.06f,
+  803:                 0.35f,
+  804:                 0.50f,
+  805:                 0.52f);
+  806: 
+  807:             bool owned =
+  808:                 InventoryRuntime.Has(
+  809:                     definition.DefinitionId);
+  810: 
+  811:             TMP_Text state =
+  812:                 Label(
+  813:                     card.transform,
+  814:                     "STATE",
+  815:                     owned
+  816:                         ? "OWNED"
+  817:                         : "AVAILABLE",
+  818:                     9f,
+  819:                     TextAlignmentOptions.Left);
+  820: 
+  821:             SetRect(
+  822:                 state.rectTransform,
+  823:                 0.06f,
+  824:                 0.20f,
+  825:                 0.45f,
+  826:                 0.32f);
+  827: 
+  828:             Button inspect =
+  829:                 MakeButton(
+  830:                     card.transform,
+  831:                     owned
+  832:                         ? "INSPECT"
+  833:                         : "SELECT",
+  834:                     10f,
+  835:                     32f);
+  836: 
+  837:             SetRect(
+  838:                 inspect.GetComponent<RectTransform>(),
+  839:                 0.55f,
+  840:                 0.10f,
+  841:                 0.94f,
+  842:                 0.30f);
+  843: 
+  844:             string id =
+  845:                 definition.DefinitionId;
+  846: 
+  847:             inspect.onClick.AddListener(
+  848:                 () =>
+  849:                 {
+  850:                     selectedId = id;
+  851:                     RefreshDetails();
+  852:                 });
+  853:         }
+  854: 
+  855:         private void RefreshDetails()
+
+============================================================================
+Assets\Game\Store\UI\StoreRuntimeBuilder.cs : lines 31-70
+============================================================================
+   31:         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+   32:         private static void Bootstrap()
+   33:         {
+   34:             if (FindObjectOfType<StoreRuntimeBuilder>() != null)
+   35:                 return;
+   36: 
+   37:             var host = new GameObject("NEW_STORE_RUNTIME");
+   38:             DontDestroyOnLoad(host);
+   39:             host.AddComponent<StoreRuntimeBuilder>();
+   40:         }
+   41: 
+   42:         private void Awake()
+   43:         {
+   44:             font = UnityEngine.Resources.GetBuiltinResource<Font>("Arial.ttf");
+   45:             BuildInterface();
+   46:             RefreshCatalog();
+   47:             SetStatus("STORE ONLINE  |  Press F8 to open or close");
+   48:             storeRoot.SetActive(false);
+   49:         }
+   50: 
+   51:         private void Update()
+   52:         {
+   53:             if (Input.GetKeyDown(ToggleKey))
+   54:                 storeRoot.SetActive(!storeRoot.activeSelf);
+   55: 
+   56:             if (creditsText != null)
+   57:                 creditsText.text = EconomyRuntime.CampaignActive
+   58:                     ? "CAMPAIGN CREDITS   " + EconomyRuntime.Credits.ToString("N0")
+   59:                     : "CAMPAIGN CREDITS   —";
+   60: 
+   61:             if (purchaseButton != null)
+   62:             {
+   63:                 purchaseButton.interactable =
+   64:                     selectedUnit != null &&
+   65:                     EconomyRuntime.CampaignActive &&
+   66:                     selectedUnit.Economy != null &&
+   67:                     selectedUnit.Economy.creditCost > 0;
+   68:             }
+   69:         }
+   70: 
+
+============================================================================
+Assets\Game\Store\UI\StoreRuntimeBuilder.cs : lines 339-449
+============================================================================
+  339:         private void RefreshCatalog()
+  340:         {
+  341:             units.Clear();
+  342: 
+  343:             if (!UnitDatabaseRuntime.EnsureInitialized())
+  344:             {
+  345:                 SetStatus("ERROR: Unit database could not initialize.");
+  346:                 return;
+  347:             }
+  348: 
+  349:             var database = UnitDatabaseRuntime.Database;
+  350:             if (database == null || database.Units == null)
+  351:             {
+  352:                 SetStatus("ERROR: Unit database or unit collection is missing.");
+  353:                 return;
+  354:             }
+  355: 
+  356:             foreach (UnitDefinition unit in database.Units)
+  357:             {
+  358:                 if (unit == null ||
+  359:                     string.IsNullOrWhiteSpace(unit.UnitId) ||
+  360:                     string.IsNullOrWhiteSpace(unit.DisplayName) ||
+  361:                     unit.Economy == null ||
+  362:                     unit.Economy.creditCost <= 0)
+  363:                     continue;
+  364: 
+  365:                 units.Add(unit);
+  366:                 CreateUnitCard(unit);
+  367:             }
+  368: 
+  369:             SetStatus("CATALOG READY  /  " + units.Count + " purchasable units");
+  370:         }
+  371: 
+  372:         private void CreateUnitCard(UnitDefinition unit)
+  373:         {
+  374:             GameObject card = new GameObject(
+  375:                 "UnitCard_" + unit.UnitId,
+  376:                 typeof(RectTransform), typeof(Image), typeof(Button), typeof(LayoutElement));
+  377: 
+  378:             card.transform.SetParent(listContent, false);
+  379:             card.GetComponent<LayoutElement>().preferredHeight = 72;
+  380:             card.GetComponent<LayoutElement>().minHeight = 72;
+  381: 
+  382:             Image image = card.GetComponent<Image>();
+  383:             image.color = new Color(0.11f, 0.145f, 0.16f, 1f);
+  384: 
+  385:             Button button = card.GetComponent<Button>();
+  386:             button.targetGraphic = image;
+  387: 
+  388:             string displayName = unit.DisplayName;
+  389:             int cost = unit.Economy.creditCost;
+  390: 
+  391:             MakeText(card.transform, "UnitName", displayName,
+  392:                 17, Color.white,
+  393:                 new Vector2(0.04f, 0.42f), new Vector2(0.96f, 0.94f),
+  394:                 TextAnchor.MiddleLeft);
+  395: 
+  396:             MakeText(card.transform, "UnitCost", cost.ToString("N0") + " CREDITS",
+  397:                 12, new Color(0.55f, 0.88f, 0.67f, 1f),
+  398:                 new Vector2(0.04f, 0.06f), new Vector2(0.96f, 0.42f),
+  399:                 TextAnchor.MiddleLeft);
+  400: 
+  401:             button.onClick.AddListener(() => SelectUnit(unit));
+  402:         }
+  403: 
+  404:         private void SelectUnit(UnitDefinition unit)
+  405:         {
+  406:             selectedUnit = unit;
+  407: 
+  408:             selectedNameText.text = unit.DisplayName.ToUpperInvariant();
+  409:             selectedCategoryText.text =
+  410:                 "CATEGORY  " + unit.Category + "   /   ROLE  " + unit.Role;
+  411:             selectedPriceText.text =
+  412:                 "ACQUISITION COST  " + unit.Economy.creditCost.ToString("N0") + " CREDITS";
+  413: 
+  414:             selectedDescriptionText.text =
+  415:                 "UNIT ID: " + unit.UnitId +
+  416:                 "\nTIER: " + unit.Tier +
+  417:                 "\nSTATUS: " + unit.Status +
+  418:                 "\n\nPurchase adds this unit to campaign inventory and registers it with fleet management.";
+  419: 
+  420:             SetStatus("SELECTED  /  " + unit.DisplayName);
+  421:         }
+  422: 
+  423:         private void PurchaseSelectedUnit()
+  424:         {
+  425:             if (selectedUnit == null)
+  426:             {
+  427:                 SetStatus("Select a unit before acquiring.");
+  428:                 return;
+  429:             }
+  430: 
+  431:             if (!EconomyRuntime.CampaignActive)
+  432:             {
+  433:                 SetStatus("PURCHASE BLOCKED  /  Start or load a campaign first.");
+  434:                 return;
+  435:             }
+  436: 
+  437:             bool success = purchaseService.Purchase(selectedUnit.UnitId);
+  438: 
+  439:             if (success)
+  440:             {
+  441:                 SetStatus("ACQUISITION COMPLETE  /  " + selectedUnit.DisplayName);
+  442:             }
+  443:             else
+  444:             {
+  445:                 SetStatus("ACQUISITION FAILED  /  Check credits, ownership, inventory, and fleet registration.");
+  446:             }
+  447:         }
+  448: 
+  449:         private void SetStatus(string message)
+
+============================================================================
+Assets\Game\Store\UI\StoreUnitCatalogBuilder.cs : lines 1-100
+============================================================================
+    1: using System;
+    2: using ObsidianProtocol.Game.Runtime;
+    3: using UnityEngine;
+    4: 
+    5: namespace ObsidianProtocol.Game.Store.UI
+    6: {
+    7:     public sealed class StoreUnitCatalogBuilder : MonoBehaviour
+    8:     {
+    9:         public UnitCatalog Catalog { get; private set; }
+   10: 
+   11:         public bool BuildCatalog()
+   12:         {
+   13:             if (!UnitDatabaseRuntime.EnsureInitialized())
+   14:             {
+   15:                 Debug.LogError("[Store] Unit database could not be initialized.");
+   16:                 return false;
+   17:             }
+   18: 
+   19:             var database = UnitDatabaseRuntime.Database;
+   20:             if (database == null || database.Units == null)
+   21:             {
+   22:                 Debug.LogError("[Store] Unit database contains no unit collection.");
+   23:                 return false;
+   24:             }
+   25: 
+   26:             var catalog = new UnitCatalog();
+   27:             int registered = 0;
+   28: 
+   29:             foreach (var unit in database.Units)
+   30:             {
+   31:                 if (unit == null ||
+   32:                     string.IsNullOrWhiteSpace(unit.UnitId) ||
+   33:                     string.IsNullOrWhiteSpace(unit.DisplayName) ||
+   34:                     unit.Economy == null ||
+   35:                     unit.Economy.creditCost <= 0)
+   36:                 {
+   37:                     continue;
+   38:                 }
+   39: 
+   40:                 string id = unit.UnitId.Trim();
+   41:                 string name = unit.DisplayName.Trim();
+   42: 
+   43:                 var entry = new UnitCatalogEntry(
+   44:                     id,
+   45:                     id,
+   46:                     name,
+   47:                     unit.Economy.creditCost);
+   48: 
+   49:                 if (!catalog.Register(entry))
+   50:                 {
+   51:                     Debug.LogWarning(
+   52:                         "[Store] Skipped duplicate or invalid unit: " + id);
+   53:                     continue;
+   54:                 }
+   55: 
+   56:                 catalog.SetAvailable(id);
+   57:                 registered++;
+   58:             }
+   59: 
+   60:             Catalog = catalog;
+   61:             Debug.Log("[Store] Registered " + registered + " purchasable units.");
+   62:             return true;
+   63:         }
+   64: 
+   65:         public void ClearCatalog()
+   66:         {
+   67:             if (Catalog != null)
+   68:                 Catalog.Clear();
+   69: 
+   70:             Catalog = null;
+   71:         }
+   72:     }
+   73: }
+
+============================================================================
+Assets\Scripts\UI\Store\StoreTerminalInteraction.cs : lines 1-90
+============================================================================
+    1: using UnityEngine;
+    2: using ObsidianProtocol.UI.Store;
+    3: 
+    4: [DisallowMultipleComponent]
+    5: public sealed class StoreTerminalInteraction : MonoBehaviour
+    6: {
+    7:     [SerializeField] private float interactionDistance = 3.0f;
+    8:     private Camera playerCamera;
+    9:     private StoreMasterController storeController;
+   10:     private Collider terminalCollider;
+   11: 
+   12:     private void Start()
+   13:     {
+   14:         playerCamera = Camera.main;
+   15:         storeController = FindFirstObjectByType<StoreMasterController>();
+   16:         terminalCollider = GetComponent<Collider>();
+   17: 
+   18:         foreach (Transform item in FindObjectsByType<Transform>(
+   19:             FindObjectsInactive.Include, FindObjectsSortMode.None))
+   20:         {
+   21:             if (item.name != "Procurement terminal glass")
+   22:                 continue;
+   23: 
+   24:             BoxCollider glassCollider = item.GetComponent<BoxCollider>();
+   25:             if (glassCollider == null)
+   26:                 glassCollider = item.gameObject.AddComponent<BoxCollider>();
+   27: 
+   28:             glassCollider.center = Vector3.zero;
+   29:             glassCollider.size = Vector3.one;
+   30:             glassCollider.isTrigger = false;
+   31:             glassCollider.enabled = true;
+   32:         }
+   33: 
+   34:         Debug.Log("[STORE] Three procurement glass panels initialized.");
+   35:     }
+   36: 
+   37:     private void Update()
+   38:     {
+   39:         if (!Input.GetKeyDown(KeyCode.E)) return;
+   40:         if (playerCamera == null) playerCamera = Camera.main;
+   41:         if (playerCamera == null) return;
+   42: 
+   43:         Ray ray = new Ray(
+   44:             playerCamera.transform.position,
+   45:             playerCamera.transform.forward);
+   46: 
+   47:         if (!Physics.Raycast(ray, out RaycastHit hit, interactionDistance))
+   48:             return;
+   49: 
+   50:         bool isTerminal = terminalCollider != null &&
+   51:                           hit.collider == terminalCollider;
+   52:         bool isProcurementGlass =
+   53:             hit.collider.gameObject.name == "Procurement terminal glass";
+   54: 
+   55:         if (!isTerminal && !isProcurementGlass)
+   56:             return;
+   57: 
+   58:         if (storeController == null)
+   59:             storeController = FindFirstObjectByType<StoreMasterController>();
+   60: 
+   61:         if (storeController == null)
+   62:         {
+   63:             Debug.LogError("[STORE] StoreMasterController not found.");
+   64:             return;
+   65:         }
+   66: 
+   67:         storeController.OpenStore();
+   68:     }
+   69: }
+
+============================================================================
+SCENE STORE-COMPONENT REFERENCES
+============================================================================
+134: m_Name: Bay safety dash (44)
+219: m_Name: Store_Reinforced_Smartglass_Window
+353: m_Name: VIEWPORT
+388: m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+389: m_Name:
+401: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+402: m_Name:
+443: m_Name: AIR_OPERATIONS_COUNTER
+555: m_Name: ROOF
+666: m_Name: TEXT_8943d237358a4c1a80dcf05306b7745e
+700: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+701: m_Name:
+803: m_Name: STORE_LIGHT
+898: m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+899: m_Name:
+930: m_Name: TEXT_5d2e69c1837a4e56af4a7069d44c0563
+964: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+965: m_Name:
+1067: m_Name: TEXT_41989b49a411479ebe488ceface90421
+1101: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+1102: m_Name:
+1204: m_Name: TEXT_31b7c60ae90a46f28b7e6fa200adf581
+1238: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+1239: m_Name:
+1343: m_Name: BUTTON_REFRESH
+1378: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+1379: m_Name:
+1422: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+1423: m_Name:
+1437: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+1438: m_Name:
+1478: m_Name: TEXT_d5639a21faa04e59865c776222c2610e
+1512: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+1513: m_Name:
+1615: m_Name: TEXT_589043c65f5447419077b5c0def37c86
+1649: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+1650: m_Name:
+1752: m_Name: TEXT_0ac4ab53a94b4cc2896975a7cc8bed80
+1786: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+1787: m_Name:
+1890: m_Name: CEILING_BEAM
+2001: m_Name: TEXT_d7f0c7180d404e5bb91897ca5a409500
+2035: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+2036: m_Name:
+2139: m_Name: CONFIRMATION
+2177: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+2178: m_Name:
+2192: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+2193: m_Name:
+2233: m_Name: TEXT_8151b3a6aadd4720a642387b6d305487
+2267: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+2268: m_Name:
+2370: m_Name: STORE_LIGHT
+2465: m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+2466: m_Name:
+2497: m_Name: Aisle cyan guide (34)
+2587: m_Name: TEXT_4b25d7840876488db0462d2a42748e0c
+2621: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+2622: m_Name:
+2724: m_Name: TEXT_1c3aa32d48dd4c21807b8f80f87b4d06
+2758: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+2759: m_Name:
+2861: m_Name: STORE_LIGHT
+2956: m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+2957: m_Name:
+2989: m_Name: FRONT_RIGHT_WALL
+3100: m_Name: Aisle cyan guide (48)
+3190: m_Name: TEXT_28660b143a064051ba11674f6505aa2f
+3224: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+3225: m_Name:
+3329: m_Name: UNIT_CARD_obs-air-link
+3367: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+3368: m_Name:
+3411: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+3412: m_Name:
+3426: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+3427: m_Name:
+3467: m_Name: TEXT
+3501: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+3502: m_Name:
+3605: m_Name: EXPERIMENTAL_BACK
+3718: m_Name: UNIT_CARD_obs-air-sentinel
+3756: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+3757: m_Name:
+3800: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+3801: m_Name:
+3815: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+3816: m_Name:
+3856: m_Name: TEXT_6ef7b3d5dbdf4a7ca3037dfb72872bb0
+3890: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+3891: m_Name:
+3993: m_Name: TEXT_58cf1a443c3041c486bf6168ebc7ac8c
+4027: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+4028: m_Name:
+4130: m_Name: TEXT_18e090a52920498e80e96568925a1a49
+4164: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+4165: m_Name:
+4267: m_Name: Aisle cyan guide (11)
+4358: m_Name: SATELLITE_SYSTEMS_RIGHT
+4469: m_Name: TEXT_615401d62fa14ccab97a7bb52aa7af4e
+4503: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+4504: m_Name:
+4606: m_Name: TEXT_0ff4b52801b84dfa9c9e6a6c57f02fcd
+4640: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+4641: m_Name:
+4743: m_Name: TEXT_409556ef789a4337b7399372ad90b884
+4777: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+4778: m_Name:
+4881: m_Name: EXPERIMENTAL_LEFT
+4993: m_Name: STRUCTURAL_COLUMN
+5106: m_Name: UNIT_CARD_obs-ground-scout
+5144: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+5145: m_Name:
+5188: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+5189: m_Name:
+5203: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+5204: m_Name:
+5244: m_Name: TEXT_e92695fb750448feb98707f1fed54308
+5278: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+5279: m_Name:
+5381: m_Name: TEXT_e55c59760d0f4089848dc8612e38cd60
+5415: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+5416: m_Name:
+5518: m_Name: TEXT_9b4416cbf6704dbb8c7951fe7032f55f
+5552: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+5553: m_Name:
+5657: m_Name: UNIT_CARD_obs-ground-ironwalker
+5695: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+5696: m_Name:
+5739: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+5740: m_Name:
+5754: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+5755: m_Name:
+5795: m_Name: TEXT_cbd24a3b238f42cf9c7d9a7ce0abc8a9
+5829: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+5830: m_Name:
+5927: m_Name: ENTRANCE_GLASS
+6056: m_Name: TEXT_669869984c3d4d5b9cbc79fa86f17bed
+6090: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+6091: m_Name:
+6193: m_Name: TEXT_735e5d404a6e4828817c024d9e5c1525
+6227: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+6228: m_Name:
+6332: m_Name: UNIT_CARD_obs-air-trailblazer
+6370: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+6371: m_Name:
+6414: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+6415: m_Name:
+6429: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+6430: m_Name:
+6470: m_Name: TEXT_2f612b9b9e3144f5b8967762fafbf128
+6504: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+6505: m_Name:
+6607: m_Name: TEXT_6f87201626314ae3aab8d45f5f2a1259
+6641: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+6642: m_Name:
+6744: m_Name: TEXT_fe90d6c01ce44585a41be264d64cc9ba
+6778: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+6779: m_Name:
+6883: m_Name: UNIT_CARD_obs-sat-nebula
+6921: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+6922: m_Name:
+6965: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+6966: m_Name:
+6980: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+6981: m_Name:
+7021: m_Name: TEXT_830d159c669f4f2e8be91b2c274230e3
+7055: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+7056: m_Name:
+7158: m_Name: TEXT_523b1012684a4ee299546f0ed6de9fa0
+7192: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+7193: m_Name:
+7296: m_Name: GROUND_SYSTEMS_BACK
+7407: m_Name: TEXT_081eba7657d64f5b9fab6278014a59ee
+7441: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+7442: m_Name:
+7544: m_Name: TEXT_bc63d6c62e25428e9bdd5facb8e36a6b
+7578: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+7579: m_Name:
+7683: m_Name: UNIT_CARD_obs-air-terrain
+7721: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+7722: m_Name:
+7765: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+7766: m_Name:
+7780: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+7781: m_Name:
+7821: m_Name: TEXT_c771e7b498a34608804bacc2cfd8ad0d
+7855: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+7856: m_Name:
+7959: m_Name: SATELLITE_SYSTEMS_COUNTER
+8070: m_Name: Aisle cyan guide (42)
+8160: m_Name: TEXT_69aa70d7eb6d4ca2abeee30886b4a38e
+8194: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+8195: m_Name:
+8297: m_Name: Aisle cyan guide (3)
+8387: m_Name: TEXT_312adb63bf834c889548cf570d0eee16
+8421: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+8422: m_Name:
+8524: m_Name: TEXT_2ae799a321374bee941740bc88642573
+8558: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+8559: m_Name:
+8661: m_Name: STORE_PLAYER
+8676: m_Script: {fileID: 11500000, guid: 2d90ebbf281828548963ec2ea0f1399f, type: 3}
+8677: m_Name:
+8738: m_Name: TEXT_4daff0464d4b40e3ade6c8fcf8f1b5b0
+8772: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+8773: m_Name:
+8877: m_Name: BUTTON_CLOSE STORE
+8912: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+8913: m_Name:
+8956: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+8957: m_Name:
+8971: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+8972: m_Name:
+9014: m_Name: UNIT_CARD_obs-command-insight
+9052: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+9053: m_Name:
+9096: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+9097: m_Name:
+9111: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+9112: m_Name:
+9153: m_Name: GROUND_SYSTEMS_LEFT
+9264: m_Name: TEXT_19896ae91b0444fcbaba576c6ad510c5
+9298: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+9299: m_Name:
+9401: m_Name: TEXT_26c3fe21ab2248c1b074ec6d59e7ea11
+9435: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+9436: m_Name:
+9539: m_Name: LEFT_WALL
+9650: m_Name: Bay safety dash (37)
+9740: m_Name: TEXT_04350e532dfe44089db3ccbedef871f4
+9774: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+9775: m_Name:
+9877: m_Name: TEXT_41ae042282d649368c7987355771d1d3
+9911: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+9912: m_Name:
+10014: m_Name: TEXT_85e3e4386bdf443ebc43cc042b65665f
+10048: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+10049: m_Name:
+10151: m_Name: TEXT_54c85740fb394149b24e4855884c55c1
+10185: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+10186: m_Name:
+10288: m_Name: TEXT_5e3ca6d207954edab60fe54fb4a08166
+10322: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+10323: m_Name:
+10425: m_Name: Central aisle inset (1)
+10515: m_Name: TEXT_ef93b14967864a1a8c8b5731f3743773
+10549: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+10550: m_Name:
+10654: m_Name: BUTTON_COMMAND
+10689: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+10690: m_Name:
+10733: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+10734: m_Name:
+10748: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+10749: m_Name:
+10789: m_Name: TEXT_c0898e2b18624bc4bde98d11a21ad0bf
+10823: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+10824: m_Name:
+10928: m_Name: UNIT_CARD_obs-air-warden
+10966: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+10967: m_Name:
+11010: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+11011: m_Name:
+11025: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+11026: m_Name:
+11068: m_Name: UNIT_CARD_obs-air-horizon
+11106: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+11107: m_Name:
+11150: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+11151: m_Name:
+11165: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+11166: m_Name:
+11207: m_Name: COMMAND_SYSTEMS_COUNTER
+11313: m_Name: Store_Reinforced_Smartglass_Window
+11446: m_Name: TEXT_612c331052d24c319fa9be3c5aceafff
+11480: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+11481: m_Name:
+11583: m_Name: TEXT_81304870a8b84b689c7dc67b8389df79
+11617: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+11618: m_Name:
+11721: m_Name: CATALOG_PANEL
+11758: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+11759: m_Name:
+11773: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+11774: m_Name:
+11815: m_Name: ENTRANCE_RIGHT_FRAME
+11926: m_Name: Aisle cyan guide (35)
+12018: m_Name: UNIT_CARD_obs-air-beacon
+12056: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+12057: m_Name:
+12100: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+12101: m_Name:
+12115: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+12116: m_Name:
+12158: m_Name: UNIT_CARD_obs-air-nightguard
+12196: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+12197: m_Name:
+12240: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+12241: m_Name:
+12255: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+12256: m_Name:
+12296: m_Name: TEXT_98a8e3133c1d4ece8238e4bce01eddec
+12330: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+12331: m_Name:
+12428: m_Name: Store_Reinforced_Smartglass_Window
+12556: m_Name: Store_Architectural_Graphite
+12690: m_Name: TEXT_e9e47bf589be48159b41f92082be9a13
+12724: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+12725: m_Name:
+12827: m_Name: TEXT_7d6e13c7909144c2a9dd6c68f947c7c2
+12861: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+12862: m_Name:
+12964: m_Name: TEXT_de460f7795714b7ca6024e822c21d5c9
+12998: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+12999: m_Name:
+13103: m_Name: PURCHASE_TERMINAL
+13211: m_Script: {fileID: 11500000, guid: 5fa2b91e4b1527f4e9cc6f236878f040, type: 3}
+13212: m_Name:
+13213: m_EditorClassIdentifier: Assembly-CSharp::StoreTerminalInteraction
+13222: m_Name: Store_Reinforced_Smartglass_Window
+13355: m_Name: Bay safety dash (6)
+13445: m_Name: TEXT_6c252ebb0aa94b82bd594e1d309b6953
+13479: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+13480: m_Name:
+13577: m_Name: ENTRANCE_TRIM
+13706: m_Name: TEXT_f8410d5376dd49488f418ad910eea2af
+13740: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+13741: m_Name:
+13843: m_Name: TEXT_ba4dd04c6f73412b92dae6e55f94db3f
+13877: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+13878: m_Name:
+13980: m_Name: STORE_LIGHT
+14075: m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+14076: m_Name:
+14107: m_Name: TEXT_96f0273eb881402bb0d74c87e00c7c5a
+14141: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+14142: m_Name:
+14244: m_Name: TEXT_1f25dbf4ac1f4456976789cfaa30bcf7
+14278: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+14279: m_Name:
+14383: m_Name: UNIT_CARD_obs-sat-orbiter
+14421: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+14422: m_Name:
+14465: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+14466: m_Name:
+14480: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+14481: m_Name:
+14521: m_Name: TEXT_830728b97a804662a829e22885fc0e75
+14555: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+14556: m_Name:
+14658: m_Name: TEXT_7e2b2b06987b4a9fa6f6167b2d2900e6
+14692: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+14693: m_Name:
+14795: m_Name: TEXT_969f28a0ff1b4a3e8971979ac18e8d1a
+14829: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+14830: m_Name:
+14932: m_Name: TEXT_63d3152abc8546a7839898b706b763ff
+14966: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+14967: m_Name:
+15069: m_Name: Aisle cyan guide (32)
+15161: m_Name: UNIT_CARD_obs-command-pulse
+15199: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+15200: m_Name:
+15243: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+15244: m_Name:
+15258: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+15259: m_Name:
+15301: m_Name: BUTTON_SEA
+15336: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+15337: m_Name:
+15380: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+15381: m_Name:
+15395: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+15396: m_Name:
+15436: m_Name: TEXT_fa9d04b251134c099920cbf809630d62
+15470: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+15471: m_Name:
+15573: m_Name: Aisle cyan guide (9)
+15665: m_Name: UNIT_CARD_obs-sat-astral
+15703: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+15704: m_Name:
+15747: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+15748: m_Name:
+15762: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+15763: m_Name:
+15805: m_Name: UNIT_CARD_obs-air-lidar
+15843: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+15844: m_Name:
+15887: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+15888: m_Name:
+15902: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+15903: m_Name:
+15943: m_Name: TEXT_85fb11e0e59b4a0d9ef315c423e3d432
+15977: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+15978: m_Name:
+16081: m_Name: EXPERIMENTAL_RIGHT
+16192: m_Name: Aisle cyan guide (33)
+16282: m_Name: TEXT_b8c0d5872be44c599195284b65480b7b
+16316: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+16317: m_Name:
+16414: m_Name: STORE_FLOOR
+16543: m_Name: TEXT_a294b08f4d1946319e9679a4ae65fbc8
+16577: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+16578: m_Name:
+16680: m_Name: TEXT_4ae4b7a4835e472892ba89bd9667d1fd
+16714: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+16715: m_Name:
+16818: m_Name: EXPERIMENTAL_COUNTER
+16929: m_Name: TEXT_8e5d980afc5b4b8aa1f450ae8655c4f6
+16963: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+16964: m_Name:
+17066: m_Name: TEXT_0db3ae9a1c6741e2bf1df1a617b94d72
+17100: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+17101: m_Name:
+17203: m_Name: Aisle cyan guide (22)
+17293: m_Name: TEXT_0d92f3fc461f4536b9b1e895d619e326
+17327: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+17328: m_Name:
+17432: m_Name: PREVIEW_STATUS
+17466: m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+17467: m_Name:
+17514: m_Name: Aisle cyan guide (7)
+17604: m_Name: TEXT_9529a6d06f8046eb981e077fd5001c32
+17638: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+17639: m_Name:
+17736: m_Name: DISPLAY_STRUCTURE
+17865: m_Name: TEXT_4f501a72e4bb4f25830d84ff22f72893
+17899: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+17900: m_Name:
+18002: m_Name: TEXT_e326c194e86741c7a39e5e1f0ea541dd
+18036: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+18037: m_Name:
+18139: m_Name: STORE_LIGHT
+18234: m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+18235: m_Name:
+18266: m_Name: Bay safety dash (25)
+18356: m_Name: TEXT_5ca3944dcabb43e2b5ceb23bc9a61dd8
+18390: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+18391: m_Name:
+18493: m_Name: TEXT_53683172273d4c42a6fa7313aee3f5e1
+18527: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+18528: m_Name:
+18630: m_Name: TEXT_8cd798ee68424087977df22142ffc2f2
+18664: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+18665: m_Name:
+18769: m_Name: UNIT_CARD_obs-air-lifeline
+18807: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+18808: m_Name:
+18851: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+18852: m_Name:
+18866: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+18867: m_Name:
+18907: m_Name: Aisle cyan guide (40)
+18997: m_Name: TEXT_5ffde5f186f6484a877e8c956b6f80ba
+19031: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+19032: m_Name:
+19135: m_Name: PURCHASE_SIGN
+19246: m_Name: TEXT_232d3ec3455b48e3b4104e872577a436
+19280: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+19281: m_Name:
+19383: m_Name: Aisle cyan guide (21)
+19475: m_Name: UNIT_3D_PREVIEW_HOST
+19514: m_Script: {fileID: 11500000, guid: 6d88ea0dc43d970479f735f8b83cf55a, type: 3}
+19515: m_Name:
+19526: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+19527: m_Name:
+19541: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+19542: m_Name:
+19582: m_Name: TEXT_c0e29157ed0648b79d7972fd944d9d53
+19616: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+19617: m_Name:
+19719: m_Name: TEXT_019f3fe0d5be41a19f64bb4c3b92fe59
+19753: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+19754: m_Name:
+19856: m_Name: TEXT_b16eba3749d442ef94e5ddecbaeb8724
+19890: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+19891: m_Name:
+19993: m_Name: TEXT_08e53d42dda542448888db1b38ffb33b
+20027: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+20028: m_Name:
+20130: m_Name: TEXT_a538716929b24fa0866fb3ae51b9abda
+20164: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+20165: m_Name:
+20269: m_Name: UNIT_CARD_obs-air-iris
+20307: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+20308: m_Name:
+20351: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+20352: m_Name:
+20366: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+20367: m_Name:
+20408: m_Name: GROUND_SYSTEMS_TOP
+20514: m_Name: CHECKOUT_TERMINAL
+20643: m_Name: TEXT_73e791dda8fd48bfa0a69ad4ca7a79fd
+20677: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+20678: m_Name:
+20780: m_Name: TEXT_17c497373fd942c2a6fa05c069ca1836
+20814: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+20815: m_Name:
+20917: m_Name: TEXT_c76c26912a82497ca23fe940445ed9bd
+20951: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+20952: m_Name:
+21056: m_Name: UNIT_CARD_obs-air-tracker
+21094: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+21095: m_Name:
+21138: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+21139: m_Name:
+21153: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+21154: m_Name:
+21194: m_Name: TEXT_46df3b71dcbe4f1d995863f54b58d36b
+21228: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+21229: m_Name:
+21331: m_Name: Bay safety dash (34)
+21421: m_Name: TEXT_479619f9fd7b44ea8082a2629a27ca15
+21455: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+21456: m_Name:
+21559: m_Name: EQUIPMENT_SHELF_0
+21670: m_Name: TEXT_041821e00de44f7b87dca7894113b032
+21704: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+21705: m_Name:
+21807: m_Name: TEXT_01a709fd275948caa8f2d8ff3ca0b1d4
+21841: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+21842: m_Name:
+21944: m_Name: TEXT_517d6fb890c1489aa266b618096c8699
+21978: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+21979: m_Name:
+22081: m_Name: Main Camera
+22163: m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+22164: m_Name:
+22212: m_Name: UNIT_CARD_obs-air-scout
+22250: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+22251: m_Name:
+22294: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+22295: m_Name:
+22309: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+22310: m_Name:
+22350: m_Name: Aisle cyan guide (6)
+22440: m_Name: TEXT_1043bebc11e848aab75f5d07494cfd5c
+22474: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+22475: m_Name:
+22577: m_Name: TEXT_10ddaaba862b4bdbabf1771534363d26
+22611: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+22612: m_Name:
+22714: m_Name: TEXT_0c447c8626fd48f7878436a6e4d898a6
+22748: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+22749: m_Name:
+22851: m_Name: TEXT_eb1705e0725c45fb979e44b6e04c3348
+22885: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+22886: m_Name:
+22988: m_Name: TEXT_cd24bdd6f07c44dea6267c39858efa95
+23022: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+23023: m_Name:
+23126: m_Name: ENTRANCE_LEFT_FRAME
+23237: m_Name: TEXT_639f7c74e9874540848149851aad4569
+23271: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+23272: m_Name:
+23374: m_Name: TEXT_99d69e4311064e38a7a4b6b6c35363d9
+23408: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+23409: m_Name:
+23511: m_Name: TEXT_0654c26479d1441aa0e177024567479d
+23545: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+23546: m_Name:
+23650: m_Name: UNIT_CARD_obs-air-insight
+23688: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+23689: m_Name:
+23732: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+23733: m_Name:
+23747: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+23748: m_Name:
+23788: m_Name: Bay safety dash (46)
+23878: m_Name: TEXT_ec2344d5bfb445c399bd375d68f42ce2
+23912: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+23913: m_Name:
+24015: m_Name: TEXT_88f1c992e834461286ed2b1b00ab8757
+24049: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+24050: m_Name:
+24152: m_Name: Bay safety dash (5)
+24242: m_Name: TEXT_f5994ca5839d4a5dab4b31882f06a9b1
+24276: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+24277: m_Name:
+24379: m_Name: TEXT_5204ec5bfb0a463dae07cdd97448e2a5
+24413: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+24414: m_Name:
+24518: m_Name: UNIT_CARD_obs-sea-sonar
+24556: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+24557: m_Name:
+24600: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+24601: m_Name:
+24615: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+24616: m_Name:
+24657: m_Name: FRONT_LEFT_WALL
+24769: m_Name: EXPERIMENTAL_TOP
+24881: m_Name: CATEGORY_RAIL
+24924: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+24925: m_Name:
+24939: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+24940: m_Name:
+24980: m_Name: TEXT_73e33216073343e5a21b90693aa49b3c
+25014: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+25015: m_Name:
+25117: m_Name: Bay safety dash (11)
+25207: m_Name: TEXT_6fd189aec5404726bc78d4f96eba8b90
+25241: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+25242: m_Name:
+25344: m_Name: TEXT_29f6fe8d1a3745f091097ef155586dc4
+25378: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+25379: m_Name:
+25483: m_Name: BUTTON_CONFIRM PURCHASE
+25518: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+25519: m_Name:
+25562: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+25563: m_Name:
+25577: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+25578: m_Name:
+25618: m_Name: TEXT_44c5cad81c264233bf8708f6b43b4afa
+25652: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+25653: m_Name:
+25755: m_Name: TEXT_a5c22685529b41d68eaf3194db2b4da8
+25789: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+25790: m_Name:
+25892: m_Name: TEXT_85ecb620a3664d258a873dc20f6cc8ae
+25926: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+25927: m_Name:
+26029: m_Name: TEXT_796ab4cf93ad410e87d93fe35bdafd3e
+26063: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+26064: m_Name:
+26161: m_Name: Store_Edge_Ceramic
+26290: m_Name: TEXT_a8481f55a9ec4414b3b05fb0f5323f30
+26324: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+26325: m_Name:
+26427: m_Name: TEXT_85a5ae5527c346ccb987475f71430b7e
+26461: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+26462: m_Name:
+26564: m_Name: Checkout Video Surface
+26654: m_Name: TEXT_b4a2f1af955b44bca79caf398344cce7
+26688: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+26689: m_Name:
+26791: m_Name: TEXT_35e69b0063c44a02adafdb4b491f6d53
+26825: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+26826: m_Name:
+26928: m_Name: TEXT_660ed9e76e214ea8b3b304aa335c029e
+26962: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+26963: m_Name:
+27065: m_Name: TEXT_2dc0349d78114980a5336d44019eddbd
+27099: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+27100: m_Name:
+27202: m_Name: TEXT_a44323940b6c4926afd733e505583c0a
+27236: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+27237: m_Name:
+27339: m_Name: TEXT_08ace87a042a49e997f2f8638cd6ac04
+27373: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+27374: m_Name:
+27476: m_Name: TEXT_7e8a67ce893846bab8e1ed7016fd32c7
+27510: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+27511: m_Name:
+27613: m_Name: Bay safety dash (29)
+27703: m_Name: Aisle cyan guide (5)
+27794: m_Name: SATELLITE_SYSTEMS_BACK
+27905: m_Name: Bay safety dash (7)
+27990: m_Name: Store_SmartGlass
+28119: m_Name: TEXT_fd9743a5573a49c0af74ef15b23ff16f
+28153: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+28154: m_Name:
+28256: m_Name: Aisle cyan guide (27)
+28346: m_Name: TEXT_c2e0445423a2474ea05de7c8318d3f5b
+28380: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+28381: m_Name:
+28483: m_Name: Bay safety dash (4)
+28568: m_Name: CHECKOUT_COUNTER
+28697: m_Name: TEXT_15dc1ed1ddf341e8a316f52df10af62c
+28731: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+28732: m_Name:
+28834: m_Name: TEXT_e11b20a9ffe14f8ba24547b523cf03a5
+28868: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+28869: m_Name:
+28973: m_Name: UNIT_CARD_obs-air-relay
+29011: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+29012: m_Name:
+29055: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+29056: m_Name:
+29070: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+29071: m_Name:
+29111: m_Name: TEXT_9508c6efb9d641c4afa021244c01f42b
+29145: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+29146: m_Name:
+29248: m_Name: TEXT_2c4d74b3ab6345d09ef34b4435f4f031
+29282: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+29283: m_Name:
+29386: m_Name: SHOWROOM_BOLLARD
+29499: m_Name: TEXT_ac40fd63dad040f98c87d8988b1e0787
+29533: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+29534: m_Name:
+29637: m_Name: INTERIOR_COLUMN
+29748: m_Name: TEXT_d60d3c022e4c4248bf63f639c58ef46b
+29782: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+29783: m_Name:
+29885: m_Name: TEXT_2ebf2ca7c88343b59f52b24db6937a6a
+29919: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+29920: m_Name:
+30022: m_Name: TEXT_592341a46b6a4608a3b9a46964b2383c
+30056: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+30057: m_Name:
+30159: m_Name: TEXT_d754cc77bb814becaaf519588963616e
+30193: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+30194: m_Name:
+30298: m_Name: UNIT_CARD_obs-command-worldmap
+30336: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+30337: m_Name:
+30380: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+30381: m_Name:
+30395: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+30396: m_Name:
+30438: m_Name: UNIT_CARD_obs-ground-hammer
+30476: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+30477: m_Name:
+30520: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+30521: m_Name:
+30535: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+30536: m_Name:
+30576: m_Name: TEXT_998fbb6079584156a01edd2550cbb8f5
+30610: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+30611: m_Name:
+30713: m_Name: TEXT_ba41c7beb23b434a91ec35b359267b07
+30747: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+30748: m_Name:
+30850: m_Name: TEXT_44ca71a80afb4587b374abe4bdb758a9
+30884: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+30885: m_Name:
+30987: m_Name: STORE_PLAYER_LIGHT
+31082: m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+31083: m_Name:
+31115: m_Name: COMMAND_SYSTEMS_BACK
+31226: m_Name: Bay safety dash (13)
+31316: m_Name: Bay safety dash (20)
+31406: m_Name: Bay safety dash (35)
+31496: m_Name: TEXT_96597c14b4c34d11bf17ecce76c08f35
+31530: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+31531: m_Name:
+31633: m_Name: Aisle cyan guide (10)
+31725: m_Name: UNIT_CARD_obs-ground-patrol
+31763: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+31764: m_Name:
+31807: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+31808: m_Name:
+31822: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+31823: m_Name:
+31863: m_Name: Bay safety dash (2)
+31953: m_Name: STORE_LIGHT
+32048: m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+32049: m_Name:
+32080: m_Name: Aisle cyan guide (45)
+32170: m_Name: TEXT_c717622089cf4ef2aabb41f86ff0dc84
+32204: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+32205: m_Name:
+32309: m_Name: UNIT_CARD_obs-sat-skylink
+32347: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+32348: m_Name:
+32391: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+32392: m_Name:
+32406: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+32407: m_Name:
+32447: m_Name: TEXT_94d8d113f33a4285ae7f9becb71c450b
+32481: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+32482: m_Name:
+32584: m_Name: TEXT_5c91f53472574a2f84d3e782ec0cd40f
+32618: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+32619: m_Name:
+32721: m_Name: TEXT_7a919f08ebf94a91a26917bb8b20e5e2
+32755: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+32756: m_Name:
+32858: m_Name: TEXT_5d478878310a4e89a46a30bce732ca9e
+32892: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+32893: m_Name:
+32995: m_Name: TEXT_f8036459e2d54634a52a76f6ca48bb2a
+33029: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+33030: m_Name:
+33133: m_Name: SHOWROOM_BOLLARD
+33246: m_Name: TEXT_e62d68c67406407f9daa5d1e22fe46aa
+33280: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+33281: m_Name:
+33383: m_Name: TEXT_f8e04053cc1148aa8557b2418aa51324
+33417: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+33418: m_Name:
+33521: m_Name: AIR_OPERATIONS_RIGHT
+33632: m_Name: TEXT_da4c71a6473641c9aa43dc60c7da5519
+33666: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+33667: m_Name:
+33769: m_Name: TEXT_294c94d41fa241a8bceb0824d0196049
+33803: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+33804: m_Name:
+33906: m_Name: Bay safety dash (30)
+33996: m_Name: Bay safety dash (19)
+34086: m_Name: TEXT_46565cf991e14d17a110168cf8561505
+34120: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+34121: m_Name:
+34223: m_Name: EventSystem
+34238: m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+34239: m_Name:
+34269: m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+34270: m_Name:
+34302: m_Name: TEXT_000ecd1988c7467abb4659fc8867c131
+34336: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+34337: m_Name:
+34439: m_Name: TEXT_4b17a4a2bdc341a6b86d86f2966a4803
+34473: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+34474: m_Name:
+34578: m_Name: UNIT_CARD_obs-ground-mule
+34616: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+34617: m_Name:
+34660: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+34661: m_Name:
+34675: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+34676: m_Name:
+34716: m_Name: Bay safety dash (36)
+34806: m_Name: TEXT_b51b86de1fa749b3bae485e5d193e178
+34840: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+34841: m_Name:
+34938: m_Name: Store_Reinforced_Smartglass_Window
+35072: m_Name: STRUCTURAL_COLUMN
+35183: m_Name: TEXT_2f2d2b61d02c4fc8b0b86ecb008b8fe4
+35217: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+35218: m_Name:
+35321: m_Name: INTERIOR_COLUMN
+35432: m_Name: Bay safety dash (40)
+35522: m_Name: Aisle cyan guide (39)
+35612: m_Name: TEXT_babc18f73eb84c5b8ae5699e463815fc
+35646: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+35647: m_Name:
+35749: m_Name: TEXT_7c07382fe1eb4344ac46b428e50b7d42
+35783: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+35784: m_Name:
+35886: m_Name: TEXT_61d1abbb5f1a4c25ae422b3068f64668
+35920: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+35921: m_Name:
+36023: m_Name: TEXT_5ca9007693164bef8cf075079c3707e8
+36057: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+36058: m_Name:
+36160: m_Name: TEXT_d57ae978e7024016a203cd183290963c
+36194: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+36195: m_Name:
+36299: m_Name: UNIT_CARD_obs-air-scout-eye
+36337: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+36338: m_Name:
+36381: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+36382: m_Name:
+36396: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+36397: m_Name:
+36437: m_Name: TEXT_d4e7dae68a1f438e86affad5e32983b1
+36471: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+36472: m_Name:
+36574: m_Name: Bay safety dash (45)
+36664: m_Name: TEXT_709dd8f7c59e4143a193fe0107aca70f
+36698: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+36699: m_Name:
+36803: m_Name: UNIT_CARD_obs-ground-rescue
+36841: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+36842: m_Name:
+36885: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+36886: m_Name:
+36900: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+36901: m_Name:
+36941: m_Name: TEXT_00a3534de26f4f30935a033847452a49
+36975: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+36976: m_Name:
+37079: m_Name: AIR_OPERATIONS_BACK
+37190: m_Name: TEXT_4ef2741f834a4f3a9020e871b07c3fd7
+37224: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+37225: m_Name:
+37327: m_Name: Bay safety dash (31)
+37417: m_Name: TEXT_ea0a1d748e594469b7cda6c0d27e28b7
+37451: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+37452: m_Name:
+37554: m_Name: TEXT_b7e987f1169d425db429a21793463c10
+37588: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+37589: m_Name:
+37693: m_Name: UNIT_CARD_obs-air-pulse
+37731: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+37732: m_Name:
+37775: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+37776: m_Name:
+37790: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+37791: m_Name:
+37831: m_Name: TEXT_d43db0d842c84f2e93b85085fe9b7502
+37865: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+37866: m_Name:
+37968: m_Name: TEXT_afb00993bbc740d58fbd0d2b9252b23f
+38002: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+38003: m_Name:
+38105: m_Name: TEXT_1546d61f1b1741f38ff744ba166f3951
+38139: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+38140: m_Name:
+38242: m_Name: Aisle cyan guide (13)
+38334: m_Name: UNIT_CARD_obs-air-vector
+38372: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+38373: m_Name:
+38416: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+38417: m_Name:
+38431: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+38432: m_Name:
+38472: m_Name: TEXT_d09f6b1e07ee433f9002e367f4c4e8e0
+38506: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+38507: m_Name:
+38609: m_Name: TEXT_01a40349a1c54ddfa881612c596808c6
+38643: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+38644: m_Name:
+38746: m_Name: TEXT_e614186159eb44c2b896060cf8cdd62b
+38780: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+38781: m_Name:
+38883: m_Name: TEXT_9c0dc3f45af543e6859b2aaa05ff9a44
+38917: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+38918: m_Name:
+39021: m_Name: STORE_FLOOR
+39132: m_Name: TEXT_e8ecee33bf314fb0aed9089f3a462308
+39166: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+39167: m_Name:
+39269: m_Name: TEXT_68a27f17f94c4d9b88e5ff5d1c191d8e
+39303: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+39304: m_Name:
+39406: m_Name: TEXT_80533f4c988848b7886f505474097270
+39440: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+39441: m_Name:
+39545: m_Name: UNIT_CARD_obs-command-fusion
+39583: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+39584: m_Name:
+39627: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+39628: m_Name:
+39642: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+39643: m_Name:
+39685: m_Name: UNIT_CARD_obs-experimental-echo
+39723: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+39724: m_Name:
+39767: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+39768: m_Name:
+39782: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+39783: m_Name:
+39825: m_Name: BUTTON_ALL
+39860: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+39861: m_Name:
+39904: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+39905: m_Name:
+39919: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+39920: m_Name:
+39960: m_Name: TEXT_d0b7a2e0099c4512b6b8f45918f7692a
+39994: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+39995: m_Name:
+40098: m_Name: SEA_SYSTEMS_TOP
+40210: m_Name: SATELLITE_SYSTEMS_LEFT
+40321: m_Name: Aisle cyan guide (24)
+40411: m_Name: TEXT_ce367e3608874f3aa6e2e5f0cc2c1cf6
+40445: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+40446: m_Name:
+40548: m_Name: TEXT_33edb759bfeb41ed9fb8a8f0e17928b6
+40582: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+40583: m_Name:
+40686: m_Name: CHECKOUT_WALL_VIDEO_SCREEN_NEW
+40814: m_Name: COMMAND_SYSTEMS_RIGHT
+40925: m_Name: TEXT_44b2e75152354bb082ce7e51b0a53f9e
+40959: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+40960: m_Name:
+41063: m_Name: INTERIOR_COLUMN
+41174: m_Name: TEXT_326e7ba5fc7743ac9067989e73e4a950
+41208: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+41209: m_Name:
+41312: m_Name: ENTRANCE_GLASS_LEFT
+41425: m_Name: UNIT_CARD_obs-ground-rover
+41463: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+41464: m_Name:
+41507: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+41508: m_Name:
+41522: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+41523: m_Name:
+41563: m_Name: Aisle cyan guide (47)
+41653: m_Name: TEXT_7b1dd94d3af1411895fd08dbccd81597
+41687: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+41688: m_Name:
+41790: m_Name: Aisle cyan guide (44)
+41880: m_Name: Aisle cyan guide (31)
+41970: m_Name: TEXT_0f5d7b9d702840649c841a4129f86727
+42004: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+42005: m_Name:
+42102: m_Name: Store_Reinforced_Smartglass_Window
+42235: m_Name: TEXT_df03fe3c625c40129a8413a518547194
+42269: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+42270: m_Name:
+42372: m_Name: Bay safety dash (39)
+42464: m_Name: UNIT_CARD_obs-air-survey
+42502: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+42503: m_Name:
+42546: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+42547: m_Name:
+42561: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+42562: m_Name:
+42602: m_Name: TEXT_15ca97f57ec843ed83ccfba59941123e
+42636: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+42637: m_Name:
+42739: m_Name: TEXT_8c71feed51d845998eb421e3e6812c9c
+42773: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+42774: m_Name:
+42877: m_Name: COMMAND_SYSTEMS_LEFT
+42988: m_Name: Bay safety dash (12)
+43078: m_Name: TEXT_6bad16617d4242a1a6352f791bcf78ce
+43112: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+43113: m_Name:
+43215: m_Name: STORE_LIGHT
+43310: m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+43311: m_Name:
+43342: m_Name: Aisle cyan guide (2)
+43432: m_Name: TEXT_2d2a09ef3e594234953428cc158837bf
+43466: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+43467: m_Name:
+43571: m_Name: UNIT_CARD_obs-sea-rescue
+43609: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+43610: m_Name:
+43653: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+43654: m_Name:
+43668: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+43669: m_Name:
+43709: m_Name: TEXT_bfc0a72968014e248ea357601115b1b9
+43743: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+43744: m_Name:
+43846: m_Name: TEXT_62a44254d7bf42a9ae61a1ac90dc5233
+43880: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+43881: m_Name:
+43983: m_Name: TEXT_a948d1af742a48c28f92fd8c552a2d65
+44017: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+44018: m_Name:
+44122: m_Name: UNIT_CARD_obs-experimental-phantom
+44160: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+44161: m_Name:
+44204: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+44205: m_Name:
+44219: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+44220: m_Name:
+44260: m_Name: TEXT_4239bd3c901944558a6e18a97c78450c
+44294: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+44295: m_Name:
+44397: m_Name: TEXT_4987377352c14074bb8dc676e685283f
+44431: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+44432: m_Name:
+44534: m_Name: TEXT_8d41c9dcae56430e9a39cd14d39fa1b6
+44568: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+44569: m_Name:
+44671: m_Name: TEXT_c2047a2317cb4319997f6715f15c7e7b
+44705: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+44706: m_Name:
+44810: m_Name: UNIT_CARD_obs-air-spotter
+44848: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+44849: m_Name:
+44892: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+44893: m_Name:
+44907: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+44908: m_Name:
+44948: m_Name: TEXT_d13f752ca0e04affbf08429123fc9287
+44982: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+44983: m_Name:
+45080: m_Name: Store_Reinforced_Smartglass_Window
+45213: m_Name: Aisle cyan guide (4)
+45303: m_Name: TEXT_af3856bae4a54d89a45bfa49e5a0f781
+45337: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+45338: m_Name:
+45442: m_Name: UNIT_CARD_obs-sea-surveyor-mk1
+45480: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+45481: m_Name:
+45524: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+45525: m_Name:
+45539: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+45540: m_Name:
+45575: m_Name: Store_Cyan_Emission
+45705: m_Name: Aisle cyan guide (16)
+45796: m_Name: COMMAND_UNIT_PLATFORM
+45906: m_Name: Exterior_Sign
+45999: m_Name: TEXT_f03c32695b144578a259266780d0ec13
+46033: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+46034: m_Name:
+46138: m_Name: UNIT_CARD_obs-command-vectorcore
+46176: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+46177: m_Name:
+46220: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+46221: m_Name:
+46235: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+46236: m_Name:
+46278: m_Name: UNIT_CARD_obs-experimental-nullpoint
+46316: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+46317: m_Name:
+46360: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+46361: m_Name:
+46375: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+46376: m_Name:
+46416: m_Name: TEXT_5ebfa9e568cd400196bf3471a5878bd6
+46450: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+46451: m_Name:
+46553: m_Name: TEXT_ec07a2d7399848308402de12ea8864c5
+46587: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+46588: m_Name:
+46690: m_Name: Aisle cyan guide (36)
+46780: m_Name: Bay safety dash (28)
+46870: m_Name: TEXT_8420525f72864b98b6548b404f7daf8d
+46904: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+46905: m_Name:
+47007: m_Name: Bay safety dash (42)
+47097: m_Name: STORE_LIGHT
+47192: m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+47193: m_Name:
+47224: m_Name: TEXT_085afb2da021457b82f819454380210d
+47258: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+47259: m_Name:
+47361: m_Name: TEXT_c4b134f3e3b444f88de6a480bf53a30c
+47395: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+47396: m_Name:
+47498: m_Name: TEXT_dbc8171bc9a34e8290d6e7982f9c359d
+47532: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+47533: m_Name:
+47635: m_Name: Bay safety dash (9)
+47727: m_Name: UNIT_CARD_obs-ground-bulldog
+47765: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+47766: m_Name:
+47809: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+47810: m_Name:
+47824: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+47825: m_Name:
+47860: m_Name: Store_Reinforced_Smartglass_Window
+47993: m_Name: TEXT_c5f71d6e2bba494889d386fa425b61b6
+48027: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+48028: m_Name:
+48130: m_Name: TEXT_f4347cdd82e343f39bd783d36556c76d
+48164: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+48165: m_Name:
+48269: m_Name: UNIT_CARD_obs-air-overseer
+48307: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+48308: m_Name:
+48351: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+48352: m_Name:
+48366: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+48367: m_Name:
+48407: m_Name: TEXT_53a6d482c21147d991c86f1cee75dfc2
+48441: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+48442: m_Name:
+48544: m_Name: TEXT_7534872743e9470c835e59062827b370
+48578: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+48579: m_Name:
+48681: m_Name: TEXT_2edead8a04ea4219b791037c508300d1
+48715: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+48716: m_Name:
+48818: m_Name: TEXT_ec927fc8a0fc489da4159e5a253b124f
+48852: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+48853: m_Name:
+48956: m_Name: COMMAND_SYSTEMS_TOP
+49067: m_Name: TEXT_257391e277b84256bc825485a6cbb9fa
+49101: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+49102: m_Name:
+49204: m_Name: TEXT_be740ce24ce94b6aba7cdff5b899690b
+49238: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+49239: m_Name:
+49343: m_Name: BUTTON_GROUND
+49378: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+49379: m_Name:
+49422: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+49423: m_Name:
+49437: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+49438: m_Name:
+49478: m_Name: STORE_LIGHT
+49573: m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+49574: m_Name:
+49605: m_Name: Aisle cyan guide (23)
+49695: m_Name: TEXT_9a58ce710470469f84e3649384283457
+49729: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+49730: m_Name:
+49833: m_Name: SEA_SYSTEMS_RIGHT
+49942: m_Name: STORE_FACILITY
+50068: m_Name: COMMAND_UNIT_BACKDROP
+50179: m_Name: TEXT_4671120534bb48368cd652298bc9a6f5
+50213: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+50214: m_Name:
+50316: m_Name: TEXT_ef2f6143c03b4fafa188c2203ba76cc4
+50350: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+50351: m_Name:
+50453: m_Name: STORE_MASTER_INTERFACE
+50493: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+50494: m_Name:
+50534: m_Name: TEXT_79f5a17463ba40c693287e4437ecab13
+50568: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+50569: m_Name:
+50671: m_Name: TEXT_5baac0b26d984defafdf9efa1129a2fa
+50705: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+50706: m_Name:
+50808: m_Name: TEXT_a16cb895a04d4e619b0beec7f0f993d5
+50842: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+50843: m_Name:
+50945: m_Name: TEXT_5572f82e348c47119ce5b59cea2449d4
+50979: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+50980: m_Name:
+51082: m_Name: TEXT_0abac5d0bcda4a5ca64b1cace63b8f2a
+51116: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+51117: m_Name:
+51219: m_Name: Aisle cyan guide (18)
+51309: m_Name: TEXT_222c23ac835a43e5864f03bae8adc4af
+51343: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+51344: m_Name:
+51446: m_Name: TEXT_d5e8ae4122464512abd9ac9a0519fea0
+51480: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+51481: m_Name:
+51584: m_Name: INTERIOR_COLUMN
+51696: m_Name: SEA_SYSTEMS_LEFT
+51807: m_Name: TEXT_7173a5376a8946da9fd200d76f2a3938
+51841: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+51842: m_Name:
+51944: m_Name: TEXT_e9f7724ee3544ffcb92d237c3b340291
+51978: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+51979: m_Name:
+52081: m_Name: Bay safety dash (47)
+52171: m_Name: Bay safety dash (10)
+52263: m_Name: UNIT_CARD_obs-sea-current
+52301: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+52302: m_Name:
+52345: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+52346: m_Name:
+52360: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+52361: m_Name:
+52401: m_Name: TEXT_26bd1663429c403cb54b8fbd8e898f16
+52435: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+52436: m_Name:
+52533: m_Name: STORE_STRUCTURE
+52662: m_Name: TEXT_f3a921eecaa6451dabcf198eacf8291c
+52696: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+52697: m_Name:
+52801: m_Name: UNIT_CARD_obs-sea-tidebreaker
+52839: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+52840: m_Name:
+52883: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+52884: m_Name:
+52898: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+52899: m_Name:
+52939: m_Name: TEXT_828a4063cb3646a08d8e2f98975f6f5e
+52973: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+52974: m_Name:
+53074: m_Name: MILITARY_STORE
+53108: m_Name: TEXT_e9ed8ec567744cce8720f4bddda1d6d8
+53142: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+53143: m_Name:
+53245: m_Name: TEXT_5d83e1e062c1462fbdb19bfdeed3777d
+53279: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+53280: m_Name:
+53382: m_Name: Bay safety dash (14)
+53472: m_Name: Bay safety dash (15)
+53563: m_Name: ENTRANCE_TOP_FRAME
+53674: m_Name: TEXT_0c767b5defa74f4bb37b9fd52364c136
+53708: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+53709: m_Name:
+53813: m_Name: BUTTON_EXPERIMENTAL
+53848: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+53849: m_Name:
+53892: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+53893: m_Name:
+53907: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+53908: m_Name:
+53948: m_Name: TEXT_debf80b971f74790b79c6900e9f05e90
+53982: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+53983: m_Name:
+54085: m_Name: TEXT_dfcd814aabe04c1f87327a8c4b7b8bde
+54119: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+54120: m_Name:
+54222: m_Name: TEXT_0ef6cdae73ea4769afb5a74df8da2ff8
+54256: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+54257: m_Name:
+54371: m_Name: CATALOG_SCROLL
+54406: m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
+54407: m_Name:
+54439: m_Name: Bay safety dash (41)
+54529: m_Name: STORE_LIGHT
+54624: m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+54625: m_Name:
+54657: m_Name: PURCHASE_COUNTER
+54768: m_Name: TEXT_5741b74f6c9441f1b8ff9570adeea53a
+54802: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+54803: m_Name:
+54906: m_Name: MILITARY_STORE_SIGN
+55017: m_Name: TEXT_8528755b47ff4ed3bebf7d27acad41dc
+55051: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+55052: m_Name:
+55149: m_Name: EQUIPMENT_SHELF
+55279: m_Name: COMMAND_CENTER_SIGN
+55390: m_Name: TEXT_91da42bf6a284dfca2af085597cff068
+55424: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+55425: m_Name:
+55528: m_Name: SATELLITE_SYSTEMS_TOP
+55641: m_Name: UNIT_CARD_obs-ground-crusher
+55679: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+55680: m_Name:
+55723: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+55724: m_Name:
+55738: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+55739: m_Name:
+55779: m_Name: TEXT_5b81229ba0d746f9ba6efbe8b50892bd
+55813: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+55814: m_Name:
+55916: m_Name: TEXT_3ba632457ba9475fad6d1d5ad6429230
+55950: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+55951: m_Name:
+56055: m_Name: UNIT_CARD_obs-air-watchtower
+56093: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+56094: m_Name:
+56137: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+56138: m_Name:
+56152: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+56153: m_Name:
+56193: m_Name: TEXT_15ee4c7702584672acb878388e67e21b
+56227: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+56228: m_Name:
+56330: m_Name: STORE_LIGHT
+56425: m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+56426: m_Name:
+56457: m_Name: Bay safety dash (1)
+56547: m_Name: TEXT_74ee029face848b3b1787d6299707a3e
+56581: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+56582: m_Name:
+56684: m_Name: TEXT_e4aebbd75c534a1a95e107b637b19588
+56718: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+56719: m_Name:
+56822: m_Name: GROUND_SYSTEMS_COUNTER
+56933: m_Name: TEXT_2ebe832ee75848f38396c577be972eae
+56967: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+56968: m_Name:
+57072: m_Name: UNIT_CARD_obs-ground-sentinel
+57110: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+57111: m_Name:
+57154: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+57155: m_Name:
+57169: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+57170: m_Name:
+57210: m_Name: TEXT_e9ec749fc10e448ea82c021defadc5d9
+57244: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+57245: m_Name:
+57347: m_Name: TEXT_6bf5e3d2f3a743a18cc7b4c32942f0c0
+57381: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+57382: m_Name:
+57484: m_Name: TEXT_133d8cda1b8147949419526c15898a81
+57518: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+57519: m_Name:
+57621: m_Name: TEXT_61d543cfb13b48eaad2e8bb7755b01e9
+57655: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+57656: m_Name:
+57758: m_Name: TEXT_57aabf2b5e594acb9603799ae55d8445
+57792: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+57793: m_Name:
+57895: m_Name: TEXT_1a2fcea1a77a470fbbb93ec9f1876b7c
+57929: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+57930: m_Name:
+58027: m_Name: COMMAND_PLATFORM
+58158: m_Name: UNIT_CARD_obs-air-sar
+58196: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+58197: m_Name:
+58240: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+58241: m_Name:
+58255: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+58256: m_Name:
+58296: m_Name: TEXT_d2be164a873d490e9cf41cf80873fe68
+58330: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+58331: m_Name:
+58433: m_Name: TEXT_227dac6c66be42eeb89df2f21bdc0d0f
+58467: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+58468: m_Name:
+58571: m_Name: TOP_BAR
+58610: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+58611: m_Name:
+58625: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+58626: m_Name:
+58667: m_Name: CEILING_BEAM
+58780: m_Name: UNIT_CARD_obs-sea-harbor
+58818: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+58819: m_Name:
+58862: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+58863: m_Name:
+58877: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+58878: m_Name:
+58918: m_Name: Aisle cyan guide (28)
+59008: m_Name: TEXT_c07acee8d3784273a49284642863cd3f
+59042: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+59043: m_Name:
+59146: m_Name: AIR_OPERATIONS_TOP
+59258: m_Name: CEILING_BEAM
+59364: m_Name: Store_Sign_White
+59493: m_Name: Bay safety dash (32)
+59583: m_Name: TEXT_4415c528cde8404a9d5588410d11d72d
+59617: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+59618: m_Name:
+59720: m_Name: TEXT_108e1fd29c464c48a62c9b4d139d13b2
+59754: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+59755: m_Name:
+59857: m_Name: Aisle cyan guide (15)
+59947: m_Name: Aisle cyan guide (46)
+60038: m_Name: RIGHT_WALL
+60149: m_Name: TEXT_3725e22bd0ec4f7c98fe1d92b529607b
+60183: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+60184: m_Name:
+60288: m_Name: UNIT_CARD_obs-air-mesh
+60326: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+60327: m_Name:
+60370: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+60371: m_Name:
+60385: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+60386: m_Name:
+60426: m_Name: TEXT_6f52ea28d7544cd6a2dc1ba735634161
+60460: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+60461: m_Name:
+60563: m_Name: TEXT_c545e32317bd4e1787c4df3d5254dbe2
+60597: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+60598: m_Name:
+60700: m_Name: TEXT_77948280901f4578ba81c70a91a70f40
+60734: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+60735: m_Name:
+60837: m_Name: TEXT_9d7fef601f234b3f853651035a394402
+60871: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+60872: m_Name:
+60975: m_Name: SEA_SYSTEMS_BACK
+61088: m_Name: UNIT_CARD_obs-command-archive
+61126: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+61127: m_Name:
+61170: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+61171: m_Name:
+61185: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+61186: m_Name:
+61228: m_Name: UNIT_CARD_obs-air-drop
+61266: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+61267: m_Name:
+61310: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+61311: m_Name:
+61325: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+61326: m_Name:
+61368: m_Name: SEARCH_FIELD
+61403: m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+61404: m_Name:
+61504: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+61505: m_Name:
+61519: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+61520: m_Name:
+61560: m_Name: TEXT_b7a22a0858424207a878592f3521fd4d
+61594: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+61595: m_Name:
+61697: m_Name: TEXT_f205a451e6e94c2688e1d97fd5e76652
+61731: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+61732: m_Name:
+61835: m_Name: CEILING_BEAM
+61948: m_Name: UNIT_CARD_obs-experimental-specter
+61986: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+61987: m_Name:
+62030: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+62031: m_Name:
+62045: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+62046: m_Name:
+62086: m_Name: TEXT_95e2d3d5fab941e99b5da0fd5b8116b9
+62120: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+62121: m_Name:
+62223: m_Name: Aisle cyan guide (30)
+62313: m_Name: Bay safety dash (16)
+62403: m_Name: TEXT_d64a5f0adff1460e92aafee985f29a84
+62437: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+62438: m_Name:
+62540: m_Name: TEXT_2f241d11c3084f11a2f37a7d3db049ad
+62574: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+62575: m_Name:
+62679: m_Name: BUTTON_PURCHASE UNIT
+62714: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+62715: m_Name:
+62758: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+62759: m_Name:
+62773: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+62774: m_Name:
+62814: m_Name: TEXT_ba12cbd4a0284b49add39f18bedb0347
+62848: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+62849: m_Name:
+62953: m_Name: UNIT_CARD_obs-command-nexus
+62991: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+62992: m_Name:
+63035: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+63036: m_Name:
+63050: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+63051: m_Name:
+63091: m_Name: TEXT_6149894579854620a533c33953d42114
+63125: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+63126: m_Name:
+63230: m_Name: UNIT_CARD_obs-sat-cosmos
+63268: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+63269: m_Name:
+63312: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+63313: m_Name:
+63327: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+63328: m_Name:
+63368: m_Name: TEXT_74b05047d34b41408d228ad9aa4f21a7
+63402: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+63403: m_Name:
+63507: m_Name: UNIT_CARD_obs-air-nexus-grid
+63545: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+63546: m_Name:
+63589: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+63590: m_Name:
+63604: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+63605: m_Name:
+63647: m_Name: BUTTON_SATELLITE
+63682: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+63683: m_Name:
+63726: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+63727: m_Name:
+63741: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+63742: m_Name:
+63781: m_Name: STORE_PREVIEW_FILL_LIGHT
+63881: m_Name: UNIT_CARD_obs-experimental-shadowgrid
+63919: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+63920: m_Name:
+63963: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+63964: m_Name:
+63978: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+63979: m_Name:
+64020: m_Name: STRUCTURAL_COLUMN
+64132: m_Name: SHOWROOM_BOLLARD
+64245: m_Name: TEXT_5e2b92b4cbad4efd86f27c20568a1ea2
+64279: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+64280: m_Name:
+64384: m_Name: BUTTON_AIR
+64419: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+64420: m_Name:
+64463: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+64464: m_Name:
+64478: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+64479: m_Name:
+64520: m_Name: INTERIOR_COLUMN
+64631: m_Name: TEXT_52687ecd355d445ab29e3eb652ffb2c7
+64665: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+64666: m_Name:
+64768: m_Name: Bay safety dash (17)
+64858: m_Name: Bay safety dash (23)
+64949: m_Name: EQUIPMENT_SHELF_2
+65060: m_Name: TEXT_4b87edab01e7471caf8efd850c497af1
+65094: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+65095: m_Name:
+65197: m_Name: Bay safety dash (26)
+65287: m_Name: TEXT_cd6bdc358dd749f7996cad448abebec4
+65321: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+65322: m_Name:
+65419: m_Name: STORE_SIGN
+65548: m_Name: MODEL_RENDER_TEXTURE
+65582: m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+65583: m_Name:
+65621: m_Name: STRUCTURAL_COLUMN
+65732: m_Name: Aisle cyan guide (37)
+65822: m_Name: TEXT_25e3f1a496fd4cef850db3e190e0579a
+65856: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+65857: m_Name:
+65959: m_Name: TEXT_ecd6e37e44b04c26ac85edae7c388769
+65993: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+65994: m_Name:
+66096: m_Name: TEXT_7647bfb87b8f4c2190bd7b9acde0592d
+66130: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+66131: m_Name:
+66233: m_Name: TEXT_d662d9b873344bd1a527c39223b76ed8
+66267: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+66268: m_Name:
+66370: m_Name: TEXT_404db081ba3f4c6c9ad82a934c63efd6
+66404: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+66405: m_Name:
+66507: m_Name: TEXT_d677ef59cb864d1b8523a06a3199bdef
+66541: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+66542: m_Name:
+66644: m_Name: Bay safety dash (21)
+66734: m_Name: Bay safety dash (18)
+66819: m_Name: INTERIOR_TRIM
+66948: m_Name: Aisle cyan guide (41)
+67039: m_Name: SHOWROOM_BOLLARD
+67152: m_Name: Bay safety dash (27)
+67242: m_Name: TEXT_f52899cc7f554172b3543473d1fd4ce4
+67276: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+67277: m_Name:
+67379: m_Name: TEXT_7f2b9c336a6043a6b1400bf79754c918
+67413: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+67414: m_Name:
+67516: m_Name: Aisle cyan guide (38)
+67607: m_Name: STRUCTURAL_COLUMN
+67718: m_Name: Bay safety dash (22)
+67810: m_Name: MILITARY STORE HUD
+67845: m_Script: {fileID: 11500000, guid: af4bb23f2324ff045a25357e996dc18e, type: 3}
+67846: m_Name:
+67847: m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.UI.Store.StoreMasterController
+67857: m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+67858: m_Name:
+67874: m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+67875: m_Name:
+67924: m_Name: TEXT_c19ee41513b94e47adb946ec1f0911c0
+67958: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+67959: m_Name:
+68063: m_Name: UNIT_CARD_obs-sea-scout
+68101: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+68102: m_Name:
+68145: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+68146: m_Name:
+68160: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+68161: m_Name:
+68201: m_Name: TEXT_68b586492f12445bb239e46f52f57963
+68235: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+68236: m_Name:
+68338: m_Name: TEXT_858abdea59c2405585c3c94fa2ae7437
+68372: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+68373: m_Name:
+68475: m_Name: TEXT_3521cc45950a475c945ebe5ebe2638a8
+68509: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+68510: m_Name:
+68612: m_Name: TEXT_42bdbbf3579e4c7d8618e48f80aa2115
+68646: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+68647: m_Name:
+68751: m_Name: UNIT_CARD_obs-ground-hauler
+68789: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+68790: m_Name:
+68833: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+68834: m_Name:
+68848: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+68849: m_Name:
+68891: m_Name: UNIT_CARD_obs-command-core
+68929: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+68930: m_Name:
+68973: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+68974: m_Name:
+68988: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+68989: m_Name:
+69029: m_Name: STORE_LIGHT
+69124: m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+69125: m_Name:
+69156: m_Name: TEXT_274109e7573f4afc94e2a4cf07c7f0d8
+69190: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+69191: m_Name:
+69293: m_Name: TEXT_b86c0588f6d04f2dba0dec820fdbbae7
+69327: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+69328: m_Name:
+69430: m_Name: TEXT_4fbbf7dbb6304cab80e63b32380b2597
+69464: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+69465: m_Name:
+69562: m_Name: DISPLAY_ACCENT
+69685: m_Name: STORE_WARDEN_PREVIEW_RT
+69727: m_Name: STORE_LOCAL_BLOOM_VOLUME
+69742: m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+69743: m_Name:
+69777: m_Name: Aisle cyan guide (8)
+69867: m_Name: Aisle cyan guide (17)
+69958: m_Name: SEA_SYSTEMS_COUNTER
+70069: m_Name: TEXT_e03f07c2636c466bb70bcd54cbc928a9
+70103: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+70104: m_Name:
+70206: m_Name: TEXT_52dad72ac9d64ca5b0851a291fa2c988
+70240: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+70241: m_Name:
+70344: m_Name: FINAL_REVIEW_TERMINAL
+70456: m_Name: INTERIOR_COLUMN
+70569: m_Name: UNIT_CARD_obs-sea-depthwatch
+70607: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+70608: m_Name:
+70651: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+70652: m_Name:
+70666: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+70667: m_Name:
+70709: m_Name: BUTTON_CANCEL
+70744: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+70745: m_Name:
+70788: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+70789: m_Name:
+70803: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+70804: m_Name:
+70845: m_Name: CEILING_BEAM
+70956: m_Name: TEXT_6ac188e7b787492ea965cff6fff0d408
+70990: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+70991: m_Name:
+71093: m_Name: Bay safety dash (38)
+71185: m_Name: UNIT_CARD_obs-experimental-helix
+71223: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+71224: m_Name:
+71267: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+71268: m_Name:
+71282: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+71283: m_Name:
+71323: m_Name: TEXT_8e478e5b08154fa38c4ca14cb22f247e
+71357: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+71358: m_Name:
+71460: m_Name: TEXT_2d98f654780645fcbeb20d8b29f4e2d8
+71494: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+71495: m_Name:
+71597: m_Name: TEXT_61ed264c21cf4cc48bcfe280c16e684f
+71631: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+71632: m_Name:
+71734: m_Name: TEXT_eebc6110a6aa4555bbe53e8da4d44c75
+71768: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+71769: m_Name:
+71872: m_Name: GROUND_SYSTEMS_RIGHT
+71985: m_Name: UNIT_CARD_obs-air-inspect
+72023: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+72024: m_Name:
+72067: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+72068: m_Name:
+72082: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+72083: m_Name:
+72124: m_Name: SYSTEM_BAR
+72159: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+72160: m_Name:
+72174: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+72175: m_Name:
+72215: m_Name: STORE_LIGHT
+72310: m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+72311: m_Name:
+72344: m_Name: UNIT_CARD_obs-sat-starcast
+72382: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+72383: m_Name:
+72426: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+72427: m_Name:
+72441: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+72442: m_Name:
+72482: m_Name: Aisle cyan guide (29)
+72572: m_Name: Bay safety dash (33)
+72661: m_Name: STORE_PREVIEW_KEY_LIGHT
+72759: m_Name: TEXT_b38049295fa347e780eaf558b215d3b8
+72793: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+72794: m_Name:
+72891: m_Name: STORE_WALL
+73020: m_Name: TEXT_dce64d155ccb46c982dc01117980dce0
+73054: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+73055: m_Name:
+73158: m_Name: STRUCTURAL_COLUMN
+73271: m_Name: UNIT_CARD_obs-air-thermal
+73309: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+73310: m_Name:
+73353: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+73354: m_Name:
+73368: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+73369: m_Name:
+73409: m_Name: TEXT_8e89ca207e7345b59673700337d8e78b
+73443: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+73444: m_Name:
+73546: m_Name: TEXT_2564c5e367084b098c912b2fc88916b3
+73580: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+73581: m_Name:
+73683: m_Name: STORE_LIGHT
+73778: m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+73779: m_Name:
+73810: m_Name: TEXT_f6755688c54c48babb400fba5565ea62
+73844: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+73845: m_Name:
+73947: m_Name: TEXT_5ebe48705e9d4a988b372c3461dfc6f1
+73981: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+73982: m_Name:
+74085: m_Name: INTERIOR_COLUMN
+74196: m_Name: TEXT_a063a5a596a042bca79ecffaaa1d77b7
+74230: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+74231: m_Name:
+74333: m_Name: TEXT_9e958eddc63f44c4860d65b30f7640b4
+74367: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+74368: m_Name:
+74470: m_Name: TEXT_23d1940bc7a94e5c98da9c95dc6abe19
+74504: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+74505: m_Name:
+74607: m_Name: TEXT_82f30ba2f7bc44699da53154143090ce
+74641: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+74642: m_Name:
+74739: m_Name: Store_Safety_Amber
+74870: m_Name: STRUCTURAL_COLUMN
+74981: m_Name: TEXT_d924f4bf690043d8bb459c42ba4c8946
+75015: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+75016: m_Name:
+75118: m_Name: TEXT_e7c098ee16124016b3839a940d41c19d
+75152: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+75153: m_Name:
+75256: m_Name: BACK_WALL
+75367: m_Name: TEXT_6dd9a37e952d4edf883e7737010da93c
+75401: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+75402: m_Name:
+75504: m_Name: TEXT_5a8bb560c98d4069a27d5ad3e7956a28
+75538: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+75539: m_Name:
+75641: m_Name: TEXT_171dbde7314243ed9de2182f622da0ad
+75675: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+75676: m_Name:
+75778: m_Name: TEXT_3686fddce93847baa1fc760bc74d2fac
+75812: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+75813: m_Name:
+75915: m_Name: TEXT_f8c8487c1c8841c5802798657e511aa9
+75949: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+75950: m_Name:
+76052: m_Name: Aisle cyan guide (43)
+76142: m_Name: TEXT_cb0085535433424bb75d80f7c39e66f6
+76176: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+76177: m_Name:
+76280: m_Name: ENTRANCE_GLASS_RIGHT
+76392: m_Name: AIR_OPERATIONS_LEFT
+76505: m_Name: UNIT_CARD_obs-air-locator
+76543: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+76544: m_Name:
+76587: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+76588: m_Name:
+76602: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+76603: m_Name:
+76638: m_Name: Universal Render Pipeline/Unlit
+76701: m_Name: UNIT_CARD_obs-ground-forge
+76739: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+76740: m_Name:
+76783: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+76784: m_Name:
+76798: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+76799: m_Name:
+76839: m_Name: TEXT_b66dc94b49b54bb3b448939c2cbc542c
+76873: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+76874: m_Name:
+76976: m_Name: TEXT_1217357601144b91b0150221f5e79cb7
+77010: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+77011: m_Name:
+77113: m_Name: TEXT_2a9119a1b1874e74a0b390fb5184d07e
+77147: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+77148: m_Name:
+77245: m_Name: Store_Armor_Titanium
+77373: m_Name: STORE_PREVIEW_CAMERA
+77457: m_Name: TEXT_256fbb2e075246929066984a9122b4ca
+77491: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+77492: m_Name:
+77594: m_Name: TEXT_96c093732f86438e8a423b52d98da4d4
+77628: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+77629: m_Name:
+77731: m_Name: Aisle cyan guide (1)
+77823: m_Name: UNIT_CARD_obs-sat-galaxy
+77861: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+77862: m_Name:
+77905: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+77906: m_Name:
+77920: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+77921: m_Name:
+77961: m_Name: TEXT_ae2eb0ef13f246a9b6d0c6f3bd164b75
+77995: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+77996: m_Name:
+78096: m_Name: UNIT_CATALOG
+78205: m_Name: TEXT_1c5bdc60dd0d4ab182e9ca41173ef4da
+78239: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+78240: m_Name:
+78337: m_Name: Store_Floor_Charcoal
+78466: m_Name: TEXT_2a30586501e342f282174ad4f6d63450
+78500: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+78501: m_Name:
+78604: m_Name: FRONT_HEADER
+78715: m_Name: TEXT_ccc2c1ac32594af18933d320091c3403
+78749: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+78750: m_Name:
+78852: m_Name: Bay safety dash (3)
+78942: m_Name: TEXT_171b185fbf7d4196b366ec1d6ddaa18a
+78976: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+78977: m_Name:
+79080: m_Name: EQUIPMENT_SHELF_1
+79186: m_Name: Store_Screen_Glass
+79315: m_Name: STORE_LIGHT
+79410: m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+79411: m_Name:
+79442: m_Name: TEXT_abffc6d90239461dbf1b6c479b249618
+79476: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+79477: m_Name:
+79579: m_Name: Aisle cyan guide (14)
+79669: m_Name: TEXT_b65cbc78b757456482b5951ab6f4470f
+79703: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+79704: m_Name:
+79806: m_Name: Bay safety dash (43)
+79891: m_Name: Store_Platform_Rubber
+80020: m_Name: TEXT_b92c0fe7f368401e916ac0d1cbd0d770
+80054: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+80055: m_Name:
+80157: m_Name: TEXT_1ed84ba1a3044f7f9979c4eedcd14f8a
+80191: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+80192: m_Name:
+80294: m_Name: Aisle cyan guide (12)
+80384: m_Name: TEXT_f4dc9060bdba4e1b8d33c9e3cf972586
+80418: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+80419: m_Name:
+80522: m_Name: INSPECTION_PANEL
+80568: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+80569: m_Name:
+80583: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+80584: m_Name:
+80626: m_Name: UNIT_CARD_obs-air-skywatch
+80664: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+80665: m_Name:
+80708: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+80709: m_Name:
+80723: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+80724: m_Name:
+80766: m_Name: UNIT_CARD_obs-air-cartographer
+80804: m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+80805: m_Name:
+80848: m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+80849: m_Name:
+80863: m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+80864: m_Name:
+80904: m_Name: Bay safety dash (8)
+80994: m_Name: TEXT_f7a4063fea1543728bef9a2ed2f0ac60
+81028: m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+81029: m_Name:

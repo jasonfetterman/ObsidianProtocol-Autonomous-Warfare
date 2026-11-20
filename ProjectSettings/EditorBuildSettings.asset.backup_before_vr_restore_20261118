@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: "Assets/Scenes/SCN01_MAIN_MENU/MAIN MENU HUD/SCN\u201101  MAIN MENU.unity"
+    guid: 3a119c7292583d54cbbc2cfac953750c
+  - enabled: 1
+    path: Assets/Scenes/SCN02_COMMAND_CENTER/COMMAND CENTER HUD/Command_Center.unity
+    guid: 7283dd3c6babe0d4f907577c96b6f010
+  - enabled: 1
+    path: Assets/Scenes/SCN10_AFTER_ACTION_REPORT/[HUD] AFTER ACTION REPORT HUD/After_Action_HUD.unity
+    guid: a0757e715182ce54883ba1be86234e42
+  - enabled: 1
+    path: Assets/Scenes/SCN14_SETTINGS/[HUD] SETTINGS HUD/Settings.unity
+    guid: 270d5fbd49d3eed438b6238ca7ea02f1
+  - enabled: 1
+    path: Assets/Scenes/SYS01_AI_AUTONOMY/[HUD] AI  AUTONOMY HUD/AI_Autonomy.unity
+    guid: 6031b6202be12074389b5459465e3688
+  - enabled: 1
+    path: Assets/Scenes/SYS04_CORE_SIMULATION/SYS04_SimulationCore.unity
+    guid: 9002e9d3ddaf0d845b84d42884cf1e4e
+  - enabled: 1
+    path: Assets/Scenes/SCN04_GARAGE/SCN04_GARAGE.unity
+    guid: 022204f23cca1eb47ac8070b733cd0c1
+  - enabled: 1
+    path: Assets/Scenes/SCN17_PERSISTENT_MILITARY/SCN17_PERSISTENT_MILITARY.unity
+    guid: 942595b333018c347838d26b870503f4
+  - enabled: 1
+    path: Assets/Scenes/SCN22_UNIT_INSPECTION/SCN22_UNIT_INSPECTION.unity
+    guid: a0f39c4c6a32dfe46971f2c09eb7192b
+  - enabled: 1
+    path: Assets/Scenes/SCN23_CREDITS/Credits.unity
+    guid: 0a9f0fcba96eaa4438a69481a5980876
+  - enabled: 0
+    path: Assets/Scenes/SCN03_BATTLEFIELD_AAA/SCN03_BATTLEFIELD_AAA.unity
+    guid: 0472de175882e6243882727495766e93
+  m_configObjects:
+    com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}

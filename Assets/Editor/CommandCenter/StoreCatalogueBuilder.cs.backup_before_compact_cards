@@ -1,0 +1,315 @@
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
+using ObsidianProtocol.Game.Store.UI;
+
+public static class StoreCatalogueBuilder
+{
+    private const string ScenePath = "Assets/Scenes/SCN02_COMMAND_CENTER/COMMAND CENTER HUD/Command_Center.unity";
+
+    [MenuItem("Obsidian Protocol/Command Center/BUILD UNIT STORE CATALOGUE")]
+    public static void Build()
+    {
+        var scene = SceneManager.GetActiveScene();
+        if (scene.path != ScenePath)
+            scene = EditorSceneManager.OpenScene(ScenePath);
+
+        string backupPath = ScenePath + ".backup_before_unit_store_catalogue";
+        if (!System.IO.File.Exists(backupPath))
+            System.IO.File.Copy(ScenePath, backupPath);
+
+        GameObject store = FindSceneObject("STORE_REAL_PANEL");
+        if (store == null)
+        {
+            Debug.LogError("[UNIT STORE] STORE_REAL_PANEL not found.");
+            return;
+        }
+
+        Transform old = store.transform.Find("UNIT_STORE_CATALOGUE");
+        if (old != null)
+            Object.DestroyImmediate(old.gameObject);
+
+        GameObject root = new GameObject("UNIT_STORE_CATALOGUE", typeof(RectTransform), typeof(ScrollRect));
+        root.transform.SetParent(store.transform, false);
+        Stretch(root.GetComponent<RectTransform>());
+
+        GameObject viewport = new GameObject("VIEWPORT", typeof(RectTransform), typeof(Image), typeof(Mask));
+        viewport.transform.SetParent(root.transform, false);
+        Stretch(viewport.GetComponent<RectTransform>());
+        viewport.GetComponent<Image>().color = Color.white;
+        viewport.GetComponent<Mask>().showMaskGraphic = false;
+
+        GameObject body = new GameObject("CATALOGUE_CONTENT", typeof(RectTransform), typeof(VerticalLayoutGroup), typeof(ContentSizeFitter));
+        body.transform.SetParent(viewport.transform, false);
+
+        RectTransform bodyRect = body.GetComponent<RectTransform>();
+        bodyRect.anchorMin = new Vector2(0, 1);
+        bodyRect.anchorMax = new Vector2(1, 1);
+        bodyRect.pivot = new Vector2(0.5f, 1);
+        bodyRect.anchoredPosition = Vector2.zero;
+        bodyRect.sizeDelta = Vector2.zero;
+
+        VerticalLayoutGroup layout = body.GetComponent<VerticalLayoutGroup>();
+        layout.padding = new RectOffset(16, 16, 14, 16);
+        layout.spacing = 7;
+        layout.childControlWidth = true;
+        layout.childControlHeight = true;
+        layout.childForceExpandWidth = true;
+        layout.childForceExpandHeight = false;
+        body.GetComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+
+        ScrollRect scroll = root.GetComponent<ScrollRect>();
+        scroll.viewport = viewport.GetComponent<RectTransform>();
+        scroll.content = bodyRect;
+        scroll.horizontal = false;
+        scroll.vertical = true;
+        scroll.movementType = ScrollRect.MovementType.Clamped;
+
+        AddText(body.transform, "MILITARY PROCUREMENT", 23, true);
+        AddText(body.transform, "UNIT CATALOGUE // ALL REGISTERED UNIT DEFINITIONS", 12, false);
+        AddText(body.transform, "Catalogue source: Six authorized unit database categories", 11, false);
+
+        string[] folders =
+        {
+            "Assets/Game/Units/Database/AIR UNIT",
+            "Assets/Game/Units/Database/COMMAND UNIT",
+            "Assets/Game/Units/Database/EXPERIMENTAL",
+            "Assets/Game/Units/Database/GROUND UNIT",
+            "Assets/Game/Units/Database/SATELLITE",
+            "Assets/Game/Units/Database/SEA UNIT"
+        };
+
+        int total = 0;
+
+        foreach (string folder in folders)
+        {
+            string category = folder.Substring(folder.LastIndexOf('/') + 1);
+            AddSection(body.transform, category);
+
+            string[] guids = AssetDatabase.FindAssets("t:UnitDefinition", new[] { folder });
+            System.Array.Sort(guids);
+
+            foreach (string guid in guids)
+            {
+                string path = AssetDatabase.GUIDToAssetPath(guid);
+                Object asset = AssetDatabase.LoadMainAssetAtPath(path);
+                if (asset == null)
+                    continue;
+
+                AddUnit(body.transform, asset);
+                total++;
+            }
+
+            AddText(body.transform, "CATEGORY TOTAL: " + guids.Length, 10, true);
+        }
+
+        AddSection(body.transform, "PROCUREMENT SUMMARY");
+        AddText(body.transform, "REGISTERED UNIT DEFINITIONS: " + total, 15, true);
+        AddText(body.transform, "Catalogue data is read directly from the unit definition assets.", 11, false);
+        AddText(body.transform, "Model assignments and source unit assets are not modified.", 11, false);
+
+        EditorSceneManager.MarkSceneDirty(scene);
+        EditorSceneManager.SaveScene(scene);
+
+        Debug.Log("[UNIT STORE] Built catalogue with " + total + " unit definitions.");
+    }
+
+    private static void AddUnit(Transform parent, Object asset)
+    {
+        SerializedObject serialized = new SerializedObject(asset);
+        SerializedProperty idProperty = serialized.FindProperty("unitId");
+
+        if (idProperty == null || string.IsNullOrWhiteSpace(idProperty.stringValue))
+        {
+            Debug.LogError("[UNIT STORE] Missing unitId: " + asset.name);
+            return;
+        }
+
+        GameObject section = new GameObject(
+            "UNIT_" + asset.name,
+            typeof(RectTransform),
+            typeof(Image),
+            typeof(VerticalLayoutGroup),
+            typeof(ContentSizeFitter),
+            typeof(Button),
+            typeof(StoreCatalogueCard));
+
+        section.transform.SetParent(parent, false);
+        section.GetComponent<Image>().color = new Color(0.025f, 0.075f, 0.10f, 0.98f);
+
+        StoreCatalogueCard card = section.GetComponent<StoreCatalogueCard>();
+        card.UnitId = idProperty.stringValue;
+
+        Button button = section.GetComponent<Button>();
+        button.targetGraphic = section.GetComponent<Image>();
+        button.navigation = new Navigation { mode = Navigation.Mode.None };
+
+        VerticalLayoutGroup layout = section.GetComponent<VerticalLayoutGroup>();
+        layout.padding = new RectOffset(12, 12, 9, 9);
+        layout.spacing = 5;
+        layout.childControlWidth = true;
+        layout.childControlHeight = true;
+        layout.childForceExpandWidth = true;
+        layout.childForceExpandHeight = false;
+
+        section.GetComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+
+        AddText(section.transform, asset.name, 15, true);
+
+        SerializedProperty property = serialized.GetIterator();
+        bool enterChildren = true;
+
+        while (property.NextVisible(enterChildren))
+        {
+            enterChildren = false;
+            if (property.propertyPath == "m_Script" || property.propertyPath == "unitId")
+                continue;
+
+            if (property.propertyType == SerializedPropertyType.Generic)
+            {
+                AddText(section.transform, property.displayName + ":", 11, true);
+                continue;
+            }
+
+            AddText(section.transform, property.displayName + ": " + GetValue(property), 10, false);
+        }
+    }
+    private static string GetValue(SerializedProperty property)
+    {
+        switch (property.propertyType)
+        {
+            case SerializedPropertyType.Integer:
+                return property.intValue.ToString();
+
+            case SerializedPropertyType.Boolean:
+                return property.boolValue.ToString();
+
+            case SerializedPropertyType.Float:
+                return property.doubleValue.ToString("G");
+
+            case SerializedPropertyType.String:
+                return string.IsNullOrEmpty(property.stringValue) ? "--" : property.stringValue;
+
+            case SerializedPropertyType.Enum:
+                return property.enumDisplayNames[property.enumValueIndex];
+
+            case SerializedPropertyType.ObjectReference:
+                return property.objectReferenceValue != null
+                    ? property.objectReferenceValue.name
+                    : "None";
+
+            case SerializedPropertyType.Vector2:
+                return property.vector2Value.ToString();
+
+            case SerializedPropertyType.Vector3:
+                return property.vector3Value.ToString();
+
+            case SerializedPropertyType.Vector4:
+                return property.vector4Value.ToString();
+
+            case SerializedPropertyType.Color:
+                return property.colorValue.ToString();
+
+            case SerializedPropertyType.Rect:
+                return property.rectValue.ToString();
+
+            case SerializedPropertyType.Bounds:
+                return property.boundsValue.ToString();
+
+            case SerializedPropertyType.ArraySize:
+                return property.intValue.ToString();
+
+            case SerializedPropertyType.Character:
+                return ((char)property.intValue).ToString();
+
+            case SerializedPropertyType.AnimationCurve:
+                return "Animation Curve";
+
+            case SerializedPropertyType.Gradient:
+                return "Gradient";
+
+            case SerializedPropertyType.ExposedReference:
+                return property.exposedReferenceValue != null
+                    ? property.exposedReferenceValue.name
+                    : "None";
+
+            case SerializedPropertyType.ManagedReference:
+                return property.managedReferenceFullTypename ?? "None";
+
+            default:
+                return property.propertyType.ToString();
+        }
+    }
+
+    private static void AddSection(Transform parent, string title)
+    {
+        GameObject section = new GameObject(
+            "CATEGORY_" + title.Replace(" ", "_"),
+            typeof(RectTransform),
+            typeof(Image),
+            typeof(VerticalLayoutGroup),
+            typeof(ContentSizeFitter));
+
+        section.transform.SetParent(parent, false);
+        section.GetComponent<Image>().color = new Color(0.02f, 0.11f, 0.15f, 0.98f);
+
+        VerticalLayoutGroup layout = section.GetComponent<VerticalLayoutGroup>();
+        layout.padding = new RectOffset(12, 12, 9, 9);
+        layout.spacing = 4;
+        layout.childControlWidth = true;
+        layout.childControlHeight = true;
+        layout.childForceExpandWidth = true;
+        layout.childForceExpandHeight = false;
+
+        section.GetComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+
+        AddText(section.transform, title, 17, true);
+    }
+
+    private static void AddText(Transform parent, string value, int size, bool bold)
+    {
+        GameObject go = new GameObject(
+            "ENTRY",
+            typeof(RectTransform),
+            typeof(TextMeshProUGUI),
+            typeof(LayoutElement));
+
+        go.transform.SetParent(parent, false);
+
+        TextMeshProUGUI text = go.GetComponent<TextMeshProUGUI>();
+        text.text = value;
+        text.fontSize = size;
+        text.fontStyle = bold ? FontStyles.Bold : FontStyles.Normal;
+        text.color = new Color(0.55f, 0.88f, 0.96f);
+        text.textWrappingMode = TextWrappingModes.Normal;
+        text.overflowMode = TextOverflowModes.Overflow;
+
+        LayoutElement element = go.GetComponent<LayoutElement>();
+        element.minHeight = size + 5;
+        element.preferredHeight = size + 8;
+    }
+
+    private static GameObject FindSceneObject(string objectName)
+    {
+        foreach (GameObject candidate in Resources.FindObjectsOfTypeAll<GameObject>())
+        {
+            if (candidate.name == objectName &&
+                candidate.scene.IsValid() &&
+                candidate.scene.isLoaded)
+                return candidate;
+        }
+
+        return null;
+    }
+
+    private static void Stretch(RectTransform rect)
+    {
+        rect.anchorMin = Vector2.zero;
+        rect.anchorMax = Vector2.one;
+        rect.offsetMin = Vector2.zero;
+        rect.offsetMax = Vector2.zero;
+    }
+}

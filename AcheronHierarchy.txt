@@ -1,0 +1,816 @@
+STAR_000
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+LABEL
+
+LayerToggle_Resources
+
+
+Universal Render Pipeline/Lit
+LABEL
+
+STAR_099
+SystemSearchField
+
+
+OrbitalStabilityIndicator
+
+Universal Render Pipeline/Lit
+OpenOperations
+
+
+Universal Render Pipeline/Lit
+BACKGROUND
+
+Universal Render Pipeline/Lit
+HUD-202-01D PlayerResourcesPanel
+
+Universal Render Pipeline/Lit
+STAR_129
+STAR_039
+STAR_018
+Universal Render Pipeline/Lit
+OpenLogisticsOverviewButton
+
+
+STAR_128
+FilterPanelButton
+
+
+Universal Render Pipeline/Lit
+ACHERON_SINGLE_CONTINUOUS_SURFACE
+HUD-202-01E TimeControlPanel
+
+LABEL
+
+ENTER PLANET
+
+
+STAR_075
+Universal Render Pipeline/Lit
+HUD
+
+
+STAR_122
+TITLE
+
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+SystemObjectNameDisplay
+
+JumpToPlanetOverviewButton
+
+
+LABEL
+
+Environment
+
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+STAR_012
+STAR_062
+STAR_103
+LABEL
+
+Universal Render Pipeline/Lit
+STAR_137
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+LayerToggle_TradeRoutes
+
+
+STAR_134
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+WORLD_CAMERA
+Universal Render Pipeline/Lit
+LABEL
+
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+TEXT
+
+Universal Render Pipeline/Lit
+ACHERON_OCEAN_REALISTIC
+LABEL
+
+Universal Render Pipeline/Lit
+JumpToHomeworldButton
+
+
+STAR_019
+HUD-201-05 GalaxyLegendPanel
+
+STAR_084
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+SystemObjectOwnerFactionDisplay
+
+LayerToggle_LogisticsRoutes
+
+
+HUD-201-01 TopBar
+
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+LABEL
+
+Universal Render Pipeline/Lit
+STAR_054
+STAR_044
+STAR_072
+SectorListDropdown
+
+
+STAR_091
+OpenIntel
+
+
+LayerToggle_Sectors
+
+
+STAR_023
+INTELLIGENCE
+
+
+SystemFilterPanelButton
+
+
+STAR_083
+
+Universal Render Pipeline/Lit
+LABEL
+
+Universal Render Pipeline/Lit
+STAR_119
+STAR_145
+STAR_043
+LABEL
+
+LABEL
+
+STAR_070
+Universal Render Pipeline/Lit
+STAR_124
+Universal Render Pipeline/Lit
+STAR_006
+SystemObjectThreatLevelDisplay
+
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+STAR_093
+STAR_017
+Universal Render Pipeline/Lit
+ObjectOwnerFactionDisplay
+
+STAR_001
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+STAR_131
+STAR_036
+ATMOSPHERE
+LABEL
+
+STAR_029
+STAR_068
+ENTER PLANET
+
+
+STAR_102
+STAR_071
+Universal Render Pipeline/Lit
+STAR_007
+PLANET LOCATION PANEL
+
+TEXT
+
+LABEL
+
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+OpenDeployment
+
+
+Universal Render Pipeline/Lit
+STAR_020
+Universal Render Pipeline/Lit
+ObjectThreatLevelDisplay
+
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+LayerToggle_Factions
+
+
+STAR_086
+STAR_045
+HUD-201 GalaxyMapHUD
+
+Universal Render Pipeline/Lit
+STAR_009
+Universal Render Pipeline/Lit
+CurrentSystemNameDisplay
+
+STAR_048
+LABEL
+
+CurrentGalaxyNameDisplay
+
+STAR_112
+INTELLIGENCE
+
+
+Universal Render Pipeline/Lit
+STAR_115
+STAR_057
+LayerToggle_Galaxy
+
+
+STAR_037
+STAR_108
+LABEL
+
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+STAR_114
+Universal Render Pipeline/Lit
+LABEL
+
+STAR_050
+SystemZoomInButton
+
+
+Universal Render Pipeline/Lit
+LABEL
+
+STAR_033
+Universal Render Pipeline/Lit
+STAR_133
+STAR_022
+ACHERON_PLANET_OVERVIEW
+
+
+
+LABEL
+
+STAR_025
+STAR_078
+LABEL
+
+ATMOSPHERE_REALISTIC
+TEXT
+
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+SUN
+
+ACHERON_CLOUDS
+Universal Render Pipeline/Lit
+STAR_042
+LABEL
+
+Universal Render Pipeline/Lit
+STAR_049
+Universal Render Pipeline/Lit
+STAR_021
+LABEL
+
+STAR_121
+STAR_117
+PlanetListDropdown
+
+
+STAR_052
+STAR_100
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+LABEL
+
+LABEL
+
+JumpToGalaxyMapButton
+
+
+HUD-202-04 SystemObjectInfoPanel
+
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+STAR_104
+STAR_120
+TEXT
+
+STAR_035
+LABEL
+
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+STAR_067
+STAR_074
+ObjectTypeDisplay
+
+CurrentSectorNameDisplay
+
+STAR_148
+ObjectEnterButton
+
+
+PLANET OVERVIEW HUD
+
+
+
+SystemObjectStatusDisplay
+
+STAR_132
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+CurrentStarNameDisplay
+
+PLANET_ACTIONS_PANEL
+
+Universal Render Pipeline/Lit
+PlanetID
+
+STAR_028
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+STAR_031
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+HUD-202-07 AlertsPanel
+
+HUD-201-04 GalaxyObjectInfoPanel
+
+STAR_080
+STAR_127
+STAR_069
+STAR_141
+EventSystem
+
+
+Universal Render Pipeline/Lit
+TEXT
+
+STAR_030
+STAR_110
+STAR_016
+Universal Render Pipeline/Lit
+ACHERON_REALISTIC_PLANET
+STAR_087
+WORLD
+Universal Render Pipeline/Lit
+STAR_040
+OrbitPathToggle
+
+
+LABEL
+
+STAR_008
+LABEL
+
+STAR_013
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+OPERATIONS
+
+
+Universal Render Pipeline/Lit
+PLANET TOP BAR
+
+Universal Render Pipeline/Lit
+PLANET ACTION PANEL
+
+TOP_BAR
+
+LABEL
+
+HUD-202 StarSystemHUD
+
+Universal Render Pipeline/Lit
+ExitToCommandCenterButton
+
+
+Universal Render Pipeline/Lit
+STAR_098
+GalaxyZoomOutButton
+
+
+CLOSE
+
+
+SettingsButton
+
+
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+TEXT
+
+STAR_034
+STAR_003
+STAR_090
+LABEL
+
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+OrbitalDistanceDisplay
+
+LABEL
+
+LABEL
+
+STAR_111
+STAR_144
+SCN30_ACHERON
+PLANET_INFORMATION_PANEL_NEW
+
+Universal Render Pipeline/Lit
+SystemDoctrineButton
+
+
+Universal Render Pipeline/Lit
+DEPLOYMENT
+
+
+LABEL
+
+STAR_060
+Universal Render Pipeline/Lit
+STAR_085
+STAR_055
+LayerToggle_Star
+
+
+SystemBackButton
+
+
+CLOSE OVERVIEW
+
+
+STAR_123
+LABEL
+
+PlanetSearchField
+
+
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+ACHERON_ATMOSPHERE_REALISTIC
+LABEL
+
+LABEL
+
+Universal Render Pipeline/Lit
+LayerToggle_Orbits
+
+
+Universal Render Pipeline/Lit
+ACHERON_DISPLAY
+
+STAR_056
+TITLE
+
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+LABEL
+
+JumpToLastViewedPlanetButton
+
+
+PLANET_LOCATION_PANEL
+
+STAR_051
+LABEL
+
+ACHERON_DISPLAY
+
+BackButton
+
+
+STAR_079
+OpenStarSystem
+
+
+HUD-202-08 BottomBar
+
+OpenGalaxyMap
+
+
+Universal Render Pipeline/Lit
+LABEL
+
+HUD-201-01D PlayerResourcesPanel
+
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+ACHERON_PLANET_LIGHT
+STAR_096
+SystemSettingsButton
+
+
+LayerToggle_Resources
+
+
+Universal Render Pipeline/Lit
+PLANET INFORMATION PANEL
+
+Universal Render Pipeline/Lit
+STAR_105
+DATA
+
+ACHERON_ATMOSPHERE
+STAR_041
+STAR_059
+STAR_076
+Universal Render Pipeline/Lit
+LABEL
+
+Universal Render Pipeline/Lit
+LABEL
+
+LABEL
+
+STAR_047
+DATA
+
+TEXT
+
+STAR_004
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+LayerToggle_Factions
+
+
+STAR_118
+STAR_066
+Universal Render Pipeline/Lit
+STAR_138
+STAR_095
+Universal Render Pipeline/Lit
+STAR_081
+ObjectNameDisplay
+
+Universal Render Pipeline/Lit
+LABEL
+
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+STAR_147
+ObjectStatusDisplay
+
+DISPLAY
+
+STAR_140
+STAR_106
+STAR_038
+Universal Render Pipeline/Lit
+LABEL
+
+STAR_135
+TEXT
+
+STAR_046
+LABEL
+
+STAR_058
+Faction
+
+Universal Render Pipeline/Lit
+LOGISTICS
+
+
+STAR_101
+HUD-201-03 MapLayerPanel
+
+PlanetName
+
+Universal Render Pipeline/Lit
+STAR_061
+SystemObjectTypeDisplay
+
+ACHERON_FINAL_HUD
+
+
+
+Universal Render Pipeline/Lit
+PLANET_INFORMATION_PANEL
+
+STAR_089
+ACHERON_UNIFIED_PLANET_SURFACE
+HUD-201-07 AlertsPanel
+
+LABEL
+
+STAR_053
+OpenIntelNetworkButton
+
+
+Universal Render Pipeline/Lit
+STAR_146
+STAR_026
+HUD-202-01 TopBar
+
+LABEL
+
+LayerToggle_WarfareZones
+
+
+ACHERON_LAND_REALISTIC
+HUD-201-06 QuickActionsPanel
+
+HelpButton
+
+
+ACHERON_DISPLAY
+
+STAR_077
+STAR_005
+Universal Render Pipeline/Lit
+STAR_088
+STAR_094
+Universal Render Pipeline/Lit
+HUD-201-01E TimeControlPanel
+
+Universal Render Pipeline/Lit
+ACHERON_PLANETARY_DATA_MAIN
+
+PLANET_TOP_BAR
+
+STAR_092
+STAR_064
+STAR_002
+STAR_136
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+SystemIntelButton
+
+
+STAR_113
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+ACHERON_DISPLAY
+
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+OPERATIONS
+
+
+STAR_010
+LABEL
+
+PLANET_METADATA
+
+Universal Render Pipeline/Lit
+PLANET_LOCATION_PANEL_NEW
+
+LABEL
+
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+OpenDoctrineManagerButton
+
+
+SystemHelpButton
+
+
+LayerToggle_WarfareZones
+
+
+
+SystemCommandCenterButton
+
+
+STARFIELD
+STAR_139
+LABEL
+
+LABEL
+
+LABEL
+
+PLANET_ACTION_PANEL
+
+STAR_073
+STAR_082
+HUD-202-06 QuickActionsPanel
+
+Universal Render Pipeline/Lit
+LABEL
+
+Universal Render Pipeline/Lit
+LABEL
+
+STAR_130
+Universal Render Pipeline/Lit
+HUD-201-08 BottomBar
+
+
+STAR_024
+HUD-201-02 NavigationPanel
+
+BackToSystem
+
+
+STAR_014
+STAR_015
+LayerToggle_Planets
+
+
+SystemZoomOutButton
+
+
+STAR_065
+Universal Render Pipeline/Lit
+OrbitalVelocityIndicator
+
+LABEL
+
+ACHERON_MOUNTAINS_REALISTIC
+Universal Render Pipeline/Lit
+STAR_032
+STAR_149
+ClosePlanetOverview
+
+
+DATA
+
+STAR_097
+Universal Render Pipeline/Lit
+HUD-202-02 NavigationPanel
+
+STAR_142
+STAR_143
+Universal Render Pipeline/Lit
+SystemLogisticsButton
+
+
+Universal Render Pipeline/Lit
+STAR_011
+STAR_063
+LABEL
+
+Universal Render Pipeline/Lit
+SystemObjectEnterButton
+
+
+Universal Render Pipeline/Lit
+HUD-202-05 OrbitPanel
+
+STAR_107
+STAR_125
+DEPLOYMENT
+
+
+DISPLAY
+
+GalaxyZoomInButton
+
+
+LABEL
+
+TEXT
+
+Universal Render Pipeline/Lit
+Universal Render Pipeline/Lit
+HUD-202-03 MapLayerPanel
+
+DISPLAY
+
+TEXT
+
+FactionControl
+
+STAR_116
+Universal Render Pipeline/Lit
+LOGISTICS
+
+
+LABEL
+
+LABEL
+
+Universal Render Pipeline/Lit
+LayerToggle_Planets
+
+
+WarfareFocus
+
+Universal Render Pipeline/Lit
+BACKGROUND
+
+STAR_027
+Universal Render Pipeline/Lit
+DISPLAY
+
+CLOUD_LAYER
+STAR_109
+STAR_126
+LABEL
+

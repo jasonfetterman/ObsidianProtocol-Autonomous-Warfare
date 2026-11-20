@@ -1,0 +1,370 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: ScoutEye
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-air-scouteye
+  displayName: Scout Eye
+  category: 8
+  role: Lightweight Recon / Rapid Visual Scan
+  tier: Basic
+  status: Active
+  storeImage: {fileID: 4090230682052122621, guid: 433b5cf1d9a828c429179dbe8bbb7fa7, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 1.2
+    widthMeters: 0.9
+    heightMeters: 0.5
+    massKg: 10
+    powerSource: Compact battery
+    energyCapacityWh: 1200
+    energyConsumptionWhPerMinute: 25
+    endurance: "25\u201340 min"
+    payloadCapacityKg: 0.8
+    modules:
+    - Micro-camera array
+    navigationSystem: GPS + Basic Stabilization
+    structuralIntegrityHp: 80
+    armorRating: 0.1
+    heatSignature: Very Low
+    noiseSignature: Very Low
+    topSpeedMetersPerSecond: 20
+    topSpeedDescription: 20 m/s
+    acceleration: High
+    turningRadius: Very Tight
+    climbRate: Medium
+    stabilityRating: Medium
+  autonomy:
+    behaviorProfile: Light Recon
+    aggression: 0
+    caution: 0.9
+    persistence: 0.5
+    flankingLikelihood: 0
+    retreatThreshold: 0.8
+    retreatBehaviorDescription: Early withdrawal; prioritize survival over information gain
+    targetPriority: Recon targets
+    formationDiscipline: Medium
+    riskTolerance: 0.1
+  sensors:
+    visualRangeMeters: 1200
+    visualRangeDescription: 1200 m
+    thermalRangeMeters: 400
+    thermalRangeDescription: 400 m, low-resolution thermal
+    acousticRange: Low
+    radarRange: None
+    lidarRange: None
+    signalDetectionRange: Low
+  communication:
+    meshRangeKm: 4
+    meshRangeDescription: 4 km
+    relayCapacity: 0
+    commandLinkType: Standard Warden mesh
+    networkPriority: Low
+  combat:
+    firepowerRating: 0
+    firepowerDescription: Unarmed reconnaissance platform; direct combat prohibited
+    accuracy: N/A
+    stabilization: Medium
+    weaponMounts: None
+    weaponTypes: None
+    suppressionValue: 0
+    trackingStrength: Low
+    disruptionStrength: Low
+    breachCapability: None
+    countermeasureRating: Low
+    threatLevel: 1
+    engagementDistance: N/A
+    preferredTerrain: Low-risk airspace
+    preferredTargets: None
+    vulnerabilityProfile: Ballistic / weather
+  squad:
+    squadRole: Recon
+    squadSizeContribution: 1
+    formationBehavior: Loose recon spacing
+    intentInterpretationRules: Avoid threats, prioritize visibility
+    retreatBehavior: Early
+    breachBehavior: None
+    flankingBehavior: None
+    reinforcementBehavior: Supports recon squads
+    parentCommandUnit: Sentinel / Overseer
+    subordinateUnits: []
+    relayNodes: []
+    networkDependencies: Standard Warden mesh
+  vrOperator:
+    operatorSeatType: Drone View
+    operatorHud: Minimal Recon Overlay
+    cameraFeeds: Optical
+    thermalView: 1
+    lidarView: 0
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Full drone flight
+    sensorControls: Zoom / thermal
+    abilityControls: Scan, Mark Target
+    weaponControls: None
+    stabilizationControls: Auto-hover
+    operatorAbilities:
+    - Quick Scan
+    - Mark Target
+    - Relay Recon Data
+  economy:
+    creditCost: 450
+    buildCost: 60 Metal / 40 Electronics
+    buildTimeSeconds: 25
+    factoryType: Drone Bay
+    techRequirements: Basic Recon
+    maintenanceCost: Very Low
+    repairTimeSeconds: 8
+    supplyConsumption: Very Low
+    operationalCost: Minimal
+    deploymentRequirements: Standard drone pad
+    transportCompatibility: All aerial racks
+    launchMethod: Vertical takeoff
+    deploymentPointsDefined: 1
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Light Alloy Plates
+      quantity: 8
+    - component: Composite Frame Rods
+      quantity: 4
+    - component: Micro-Servo Actuators
+      quantity: 4
+    - component: Stabilizer Fins
+      quantity: 2
+    - component: Micro-Camera Housing
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 6
+    - component: Signal Processors
+      quantity: 4
+    - component: Drone Control Chips
+      quantity: 2
+    power:
+    - component: Compact Battery Pack
+      quantity: 1
+    - component: Power Regulation Node
+      quantity: 1
+    rareTradeable:
+    - component: Miniature Lens Assembly
+      quantity: 1
+    optionalUpgrades:
+    - Silent Rotor Kit
+    - Thermal Boost
+    - Extended Battery
+    - Micro-Optical
+    - Basic Recon Processor
+  environment:
+    terrainAdaptationCoefficients: Open Air 1.0 / Urban 0.85 / Forest 0.70 / Mountain 0.75 / Desert 0.90 / Snow 0.65 / Water 0.0
+    weatherSensitivityIndex: 0.72
+    visibilityModifiers: Day 1.0 / Night 0.65 / Fog 0.50 / Rain 0.70 / Heavy Storm 0.45
+    signalPropagationCurve: Effective range decreases 0.25% per 10% atmospheric interference
+    modifiers:
+    - condition: 
+      effect: 
+    - condition: 
+      effect: 
+    - condition: 
+      effect: 
+    - condition: 
+      effect: 
+    - condition: 
+      effect: 
+    - condition: 
+      effect: 
+  network:
+    nodeHandoffEfficiency: 0.92
+    packetLossRate: 2.0% under load
+    encryptionLatencySeconds: 0.12
+    meshSelfHealingThreshold: 1 lost node
+    relaySaturationCurve: Throughput decreases 7% per active node beyond 4
+  cognitive:
+    decisionConfidence: 0.82
+    threatRecognitionAccuracy: 0.84
+    adaptiveLearningRatePerMission: 0.03
+    commandOverrideResistance: 0.1
+    cooperativeBehaviorIndex: 0.88
+  behaviorNodes:
+  - behaviorNode: Quick Scan
+    weight: 0.9
+    description: Rapidly scan the assigned area
+  - behaviorNode: Visual Detection
+    weight: 0.88
+    description: Detect and report visual contacts; target recognition baseline 80%
+  - behaviorNode: Target Marking
+    weight: 0.82
+    description: Mark observed reconnaissance targets
+  - behaviorNode: Route Avoidance
+    weight: 0.94
+    description: Choose safer routes around hazards
+  - behaviorNode: Visibility Optimization
+    weight: 0.86
+    description: Prioritize clear sightlines and observation positions
+  - behaviorNode: Recon Persistence
+    weight: 0.68
+    description: Continue observation while risk remains acceptable
+  - behaviorNode: Threat Avoidance
+    weight: 0.96
+    description: Avoid threats; threat prediction baseline 76%
+  - behaviorNode: Retreat
+    weight: 0.9
+    description: Return to a safe zone when retreat thresholds are reached
+  - behaviorNode: Relay Recon Data
+    weight: 0.91
+    description: Transmit collected reconnaissance data
+  - behaviorNode: Override Response
+    weight: 0.85
+    description: Respect Network > AI > Manual override priority
+  missionBehaviors:
+  - missionType: Rapid Scan
+    behaviorFocus: Fast area scan
+    efficiency: 0.93
+  - missionType: Visual Recon
+    behaviorFocus: Visual reconnaissance
+    efficiency: 0.88
+  - missionType: Target Marking
+    behaviorFocus: Noncombat observation and marking
+    efficiency: 0.82
+  - missionType: Route Scouting
+    behaviorFocus: Safe route discovery
+    efficiency: 0.91
+  - missionType: Surveillance Hold
+    behaviorFocus: Stable low-risk observation
+    efficiency: 0.84
+  - missionType: Data Relay
+    behaviorFocus: Transmit reconnaissance data
+    efficiency: 0.91
+  - missionType: Emergency Retreat
+    behaviorFocus: Survival-first return to safe zone
+    efficiency: 0.94
+  unitSynergies:
+  - partnerUnit: Warden
+    synergyRating: 0.84
+    function: Shared reconnaissance mesh
+  - partnerUnit: Beacon
+    synergyRating: 0.78
+    function: Coordinate sensor coverage
+  - partnerUnit: Iris
+    synergyRating: 0.86
+    function: Complementary observation
+  - partnerUnit: Sentinel
+    synergyRating: 0.82
+    function: Reports recon contacts to command
+  - partnerUnit: Drop
+    synergyRating: 0.72
+    function: Supports deployment-area scouting
+  - partnerUnit: Overseer
+    synergyRating: 0.8
+    function: Relays reconnaissance to operational command
+  - partnerUnit: Insight
+    synergyRating: 0.79
+    function: Shares observation and intelligence data
+  damageResponses:
+  - damageType: Ballistic
+    effect: Sensor degradation and reduced stability
+    recovery: Increase distance and retreat to safety
+  - damageType: EMP
+    effect: Communications lost; preserve onboard data
+    recovery: Attempt basic recovery and reconnect to mesh
+  - damageType: Weather
+    effect: Reduced flight stability and sensor effectiveness
+    recovery: Reduce sensor load and return to safe zone
+  - damageType: Optical Damage
+    effect: Reduced scan range until recalibration
+    recovery: Recalibrate optical sensors at recovery
+  - damageType: Rotor Damage
+    effect: Reduced maneuverability; initiate emergency return
+    recovery: Return to safe zone if flight remains controllable
+  upgrades:
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  tactical:
+    formationAdaptability: 0.72
+    tacticalRoleWeight: 0.68
+    commandResponseDelaySeconds: 0.5
+    reinforcementTriggerConditions: Battery <25% OR Signal Integrity <55%
+    retreatLogicThresholds: Structural Integrity <35% OR Threat Level >3 OR Battery <20%
+  maintenance:
+    meanTimeBetweenFailuresHours: 100
+    repairCycleSeconds: 8
+    resourceDrainPerHourPercent: 2
+    batteryEfficiencyPercent: 91
+    rotorStabilityPercent: 89
+    sensorCalibrationDriftPercentPerHour: 8
+    coolingEfficiencyPercent: 87
+    operationalUptimePercent: 94
+    energyRecoveryRatePercent: 8
+    energyRecoveryRatePercentPerIdleMinute: 8
+    componentWearPercentPerHour: 0.25
+    maintenancePriorityLevel: Tier III
+    sparePartDependencyIndex: 0.38
+    operationalCostPerHour: 2 Metal / 2 Electronics
+  threatResponses:
+  - threatType: Ballistic
+    reactionTimeSeconds: 0.2
+    countermeasureEfficiency: 0.35
+  - threatType: Explosive
+    reactionTimeSeconds: 0.5
+    countermeasureEfficiency: 0.3
+  - threatType: EMP
+    reactionTimeSeconds: 0.8
+    countermeasureEfficiency: 0.28
+  - threatType: Thermal
+    reactionTimeSeconds: 0.3
+    countermeasureEfficiency: 0.4
+  - threatType: Signal Jam
+    reactionTimeSeconds: 0.6
+    countermeasureEfficiency: 0.36
+  - threatType: Weather
+    reactionTimeSeconds: 0.4
+    countermeasureEfficiency: 0.48
+  commandNetwork:
+  - node: Standard Warden Mesh
+    loadPercent: 22
+    latencySeconds: 0.5
+    status: Stable
+  - node: Recon Data Link
+    loadPercent: 31
+    latencySeconds: 0.2
+    status: Active
+  - node: Sensor Processing Core
+    loadPercent: 36
+    latencySeconds: 0.15
+    status: Stable
+  - node: Flight Control Link
+    loadPercent: 24
+    latencySeconds: 0.12
+    status: Optimal
+  - node: Sentinel/Overseer
+    loadPercent: 29
+    latencySeconds: 0.55
+    status: Active
+  performance:
+    missionSuccessProbability: 0.86
+    averageEngagementDurationMinutes: 6
+    reconDataYieldMbPerMinute: 10
+    communicationUptime: 0.95
+    threatAvoidanceEfficiency: 0.91

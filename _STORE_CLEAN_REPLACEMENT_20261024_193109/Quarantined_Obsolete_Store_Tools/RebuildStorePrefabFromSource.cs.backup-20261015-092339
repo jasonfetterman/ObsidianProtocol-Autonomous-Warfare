@@ -1,0 +1,150 @@
+﻿using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public static class RebuildStorePrefabFromSource
+{
+    private const string SourceScene =
+        "Assets/Scenes/SCN16_STORE/SCN16_STORE.unity";
+
+    private const string OutputPrefab =
+        "Assets/Prefabs/Buildings/Store/STORE_FACILITY_SOURCE_TEST.prefab";
+
+    [MenuItem("Obsidian Protocol/Store/Rebuild Source Test Prefab")]
+    private static void Rebuild()
+    {
+        if (EditorApplication.isPlaying)
+        {
+            Debug.LogError("Stop Play Mode before rebuilding the Store prefab.");
+            return;
+        }
+
+        if (AssetDatabase.LoadAssetAtPath<GameObject>(OutputPrefab) != null)
+        {
+            Debug.LogError("Output prefab already exists; refusing to overwrite it: " + OutputPrefab);
+            return;
+        }
+
+        Scene source = SceneManager.GetSceneByPath(SourceScene);
+        bool openedHere = !source.IsValid() || !source.isLoaded;
+
+        if (openedHere)
+            source = EditorSceneManager.OpenScene(SourceScene, OpenSceneMode.Additive);
+
+        if (!source.IsValid() || !source.isLoaded)
+        {
+            Debug.LogError("Could not load source scene: " + SourceScene);
+            return;
+        }
+
+        GameObject root = null;
+        foreach (GameObject candidate in Resources.FindObjectsOfTypeAll<GameObject>())
+        {
+            if (candidate.name == "STORE_FACILITY" &&
+                candidate.scene == source)
+            {
+                root = candidate;
+                break;
+            }
+        }
+
+        if (root == null)
+        {
+            Debug.LogError("STORE_FACILITY was not found in the source scene.");
+            if (openedHere) EditorSceneManager.CloseScene(source, true);
+            return;
+        }
+
+        int renderersBefore = root.GetComponentsInChildren<Renderer>(true).Length;
+        int materialSlotsBefore = 0;
+        int emptySlotsBefore = 0;
+
+        foreach (Renderer renderer in root.GetComponentsInChildren<Renderer>(true))
+        {
+            foreach (Material material in renderer.sharedMaterials)
+            {
+                materialSlotsBefore++;
+                if (material == null) emptySlotsBefore++;
+            }
+        }
+
+        GameObject saved = PrefabUtility.SaveAsPrefabAsset(root, OutputPrefab);
+
+        if (saved == null)
+            Debug.LogError("Prefab save failed: " + OutputPrefab);
+        else
+        {
+            int renderersAfter = saved.GetComponentsInChildren<Renderer>(true).Length;
+            int materialSlotsAfter = 0;
+            int emptySlotsAfter = 0;
+
+            foreach (Renderer renderer in saved.GetComponentsInChildren<Renderer>(true))
+            {
+                foreach (Material material in renderer.sharedMaterials)
+                {
+                    materialSlotsAfter++;
+                    if (material == null) emptySlotsAfter++;
+                }
+            }
+
+            Debug.Log(
+                "[STORE SOURCE PREFAB TEST] Saved: " + OutputPrefab +
+                " | Renderers: " + renderersBefore + " -> " + renderersAfter +
+                " | Material slots: " + materialSlotsBefore + " -> " + materialSlotsAfter +
+                " | Empty slots: " + emptySlotsBefore + " -> " + emptySlotsAfter);
+        }
+
+        if (openedHere)
+            EditorSceneManager.CloseScene(source, true);
+    }
+
+    [MenuItem("Obsidian Protocol/Store/Inspect Source Materials")]
+    private static void InspectSourceMaterials()
+    {
+        Scene source = SceneManager.GetSceneByPath(SourceScene);
+        bool openedHere = !source.IsValid() || !source.isLoaded;
+
+        if (openedHere)
+            source = EditorSceneManager.OpenScene(SourceScene, OpenSceneMode.Additive);
+
+        if (!source.IsValid() || !source.isLoaded)
+        {
+            Debug.LogError("Could not load source scene: " + SourceScene);
+            return;
+        }
+
+        GameObject root = null;
+        foreach (GameObject candidate in Resources.FindObjectsOfTypeAll<GameObject>())
+        {
+            if (candidate.name == "STORE_FACILITY" && candidate.scene == source)
+            {
+                root = candidate;
+                break;
+            }
+        }
+
+        if (root == null)
+        {
+            Debug.LogError("STORE_FACILITY not found in source scene.");
+        }
+        else
+        {
+            foreach (Renderer renderer in root.GetComponentsInChildren<Renderer>(true))
+            {
+                string materials = "";
+                foreach (Material material in renderer.sharedMaterials)
+                    materials += (materials.Length > 0 ? ", " : "") +
+                                 (material == null ? "<NULL>" :
+                                  material.name + " [" + AssetDatabase.GetAssetPath(material) + "]");
+
+                Debug.Log("[STORE SOURCE MATERIAL] " + renderer.name + " | " + materials, renderer);
+            }
+        }
+
+        if (openedHere)
+            EditorSceneManager.CloseScene(source, true);
+    }
+}
+
+

@@ -1,0 +1,459 @@
+=== INTELLIGENCE HUD COMPONENT INSPECTION ===
+
+- INTELLIGENCE HUD [ACTIVE]
+  COMPONENT: UnityEngine.RectTransform
+  COMPONENT: UnityEngine.Canvas
+  COMPONENT: UnityEngine.UI.CanvasScaler
+  COMPONENT: UnityEngine.UI.GraphicRaycaster
+  - HEADER [ACTIVE]
+    COMPONENT: UnityEngine.RectTransform
+    COMPONENT: UnityEngine.CanvasRenderer
+    COMPONENT: UnityEngine.UI.Image
+    - TITLE [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Text
+    - SUBTITLE [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Text
+    - STATUS [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Text
+  - CONTACTS [ACTIVE]
+    COMPONENT: UnityEngine.RectTransform
+    COMPONENT: UnityEngine.CanvasRenderer
+    COMPONENT: UnityEngine.UI.Image
+    - TITLE [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Text
+    - BUTTON - UNKNOWN [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Image
+      COMPONENT: UnityEngine.UI.Button
+      - LABEL [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Text
+    - BUTTON - SUSPECTED [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Image
+      COMPONENT: UnityEngine.UI.Button
+      - LABEL [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Text
+    - BUTTON - IDENTIFIED [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Image
+      COMPONENT: UnityEngine.UI.Button
+      - LABEL [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Text
+    - BUTTON - TRACKED [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Image
+      COMPONENT: UnityEngine.UI.Button
+      - LABEL [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Text
+    - BUTTON - LOST CONTACT [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Image
+      COMPONENT: UnityEngine.UI.Button
+      - LABEL [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Text
+    - CONTACT SUMMARY [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Text
+  - SENSORS [ACTIVE]
+    COMPONENT: UnityEngine.RectTransform
+    COMPONENT: UnityEngine.CanvasRenderer
+    COMPONENT: UnityEngine.UI.Image
+    - TITLE [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Text
+    - DATA [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Text
+    - BUTTON - SENSOR CONTROL [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Image
+      COMPONENT: UnityEngine.UI.Button
+      - LABEL [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Text
+  - NETWORK [ACTIVE]
+    COMPONENT: UnityEngine.RectTransform
+    COMPONENT: UnityEngine.CanvasRenderer
+    COMPONENT: UnityEngine.UI.Image
+    - TITLE [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Text
+    - DATA [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Text
+    - BUTTON - NETWORK CONTROL [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Image
+      COMPONENT: UnityEngine.UI.Button
+      - LABEL [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Text
+  - THREAT ANALYSIS [ACTIVE]
+    COMPONENT: UnityEngine.RectTransform
+    COMPONENT: UnityEngine.CanvasRenderer
+    COMPONENT: UnityEngine.UI.Image
+    - TITLE [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Text
+    - THREAT [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Text
+    - BUTTON - GENERATE SUMMARY [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Image
+      COMPONENT: UnityEngine.UI.Button
+      - LABEL [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Text
+    - BUTTON - ANALYZE CONTACT [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Image
+      COMPONENT: UnityEngine.UI.Button
+      - LABEL [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Text
+  - INTELLIGENCE REPORTS [ACTIVE]
+    COMPONENT: UnityEngine.RectTransform
+    COMPONENT: UnityEngine.CanvasRenderer
+    COMPONENT: UnityEngine.UI.Image
+    - TITLE [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Text
+    - RECENT [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Text
+    - ARCHIVE [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Text
+    - BUTTON - OPEN REPORT [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Image
+      COMPONENT: UnityEngine.UI.Button
+      - LABEL [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Text
+  - SURVEILLANCE [ACTIVE]
+    COMPONENT: UnityEngine.RectTransform
+    COMPONENT: UnityEngine.CanvasRenderer
+    COMPONENT: UnityEngine.UI.Image
+    - TITLE [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Text
+    - DATA [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Text
+    - BUTTON - VIEW FEED [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Image
+      COMPONENT: UnityEngine.UI.Button
+      - LABEL [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Text
+    - BUTTON - ANALYZE DATA [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Image
+      COMPONENT: UnityEngine.UI.Button
+      - LABEL [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Text
+  - ANALYSIS [ACTIVE]
+    COMPONENT: UnityEngine.RectTransform
+    COMPONENT: UnityEngine.CanvasRenderer
+    COMPONENT: UnityEngine.UI.Image
+    - TITLE [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Text
+    - DATA [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Text
+    - BUTTON - GENERATE SUMMARY [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Image
+      COMPONENT: UnityEngine.UI.Button
+      - LABEL [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Text
+  - OPERATIONS LINK [ACTIVE]
+    COMPONENT: UnityEngine.RectTransform
+    COMPONENT: UnityEngine.CanvasRenderer
+    COMPONENT: UnityEngine.UI.Image
+    - TITLE [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Text
+    - BUTTON - FORWARD TO COMMAND [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Image
+      COMPONENT: UnityEngine.UI.Button
+      - LABEL [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Text
+    - BUTTON - FORWARD TO FLEET [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Image
+      COMPONENT: UnityEngine.UI.Button
+      - LABEL [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Text
+    - BUTTON - FORWARD TO RESEARCH [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Image
+      COMPONENT: UnityEngine.UI.Button
+      - LABEL [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Text
+  - STRATEGIC INTELLIGENCE MAP [ACTIVE]
+    COMPONENT: UnityEngine.RectTransform
+    COMPONENT: UnityEngine.CanvasRenderer
+    COMPONENT: UnityEngine.UI.Image
+    - MAP TITLE [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Text
+    - MAP FIELD [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Image
+      - MAP VERTICAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP HORIZONTAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP VERTICAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP HORIZONTAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP VERTICAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP HORIZONTAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP VERTICAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP HORIZONTAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP VERTICAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP HORIZONTAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP VERTICAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP HORIZONTAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP VERTICAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP HORIZONTAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP VERTICAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP HORIZONTAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP VERTICAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP HORIZONTAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP VERTICAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP HORIZONTAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP VERTICAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP HORIZONTAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP VERTICAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP HORIZONTAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP VERTICAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP HORIZONTAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP VERTICAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP HORIZONTAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP VERTICAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP HORIZONTAL GRID [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+      - MAP MARKER - HOSTILE [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+        - LABEL [ACTIVE]
+          COMPONENT: UnityEngine.RectTransform
+          COMPONENT: UnityEngine.CanvasRenderer
+          COMPONENT: UnityEngine.UI.Text
+      - MAP MARKER - HOSTILE [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+        - LABEL [ACTIVE]
+          COMPONENT: UnityEngine.RectTransform
+          COMPONENT: UnityEngine.CanvasRenderer
+          COMPONENT: UnityEngine.UI.Text
+      - MAP MARKER - FRIENDLY [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+        - LABEL [ACTIVE]
+          COMPONENT: UnityEngine.RectTransform
+          COMPONENT: UnityEngine.CanvasRenderer
+          COMPONENT: UnityEngine.UI.Text
+      - MAP MARKER - TRACKED [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+        - LABEL [ACTIVE]
+          COMPONENT: UnityEngine.RectTransform
+          COMPONENT: UnityEngine.CanvasRenderer
+          COMPONENT: UnityEngine.UI.Text
+      - MAP MARKER - SENSOR [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Image
+        - LABEL [ACTIVE]
+          COMPONENT: UnityEngine.RectTransform
+          COMPONENT: UnityEngine.CanvasRenderer
+          COMPONENT: UnityEngine.UI.Text
+    - MAP LEGEND [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Text
+    - BUTTON - OPEN FULL MAP [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Image
+      COMPONENT: UnityEngine.UI.Button
+      - LABEL [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Text
+    - BUTTON - CLOSE MAP [ACTIVE]
+      COMPONENT: UnityEngine.RectTransform
+      COMPONENT: UnityEngine.CanvasRenderer
+      COMPONENT: UnityEngine.UI.Image
+      COMPONENT: UnityEngine.UI.Button
+      - LABEL [ACTIVE]
+        COMPONENT: UnityEngine.RectTransform
+        COMPONENT: UnityEngine.CanvasRenderer
+        COMPONENT: UnityEngine.UI.Text
+
+=== END ===

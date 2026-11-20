@@ -1,0 +1,24 @@
+STORE BUILDER REFERENCE AUDIT — 20261024_193109
+
+
+--- AddBlackspireStoreHUD ---
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\AddBlackspireStoreHUD.cs:7: public static class AddBlackspireStoreHUD
+
+--- FixStorePinkMaterials ---
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\FixStorePinkMaterials.cs:5: public static class FixStorePinkMaterials
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\FixStorePinkMaterials.cs:9: static FixStorePinkMaterials()
+
+--- RebuildStorePrefabFromSource ---
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\RebuildStorePrefabFromSource.cs:8: public static class RebuildStorePrefabFromSource
+
+--- RepairBlackspireStoreMaterials ---
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\RepairBlackspireStoreMaterials.cs:7: public static class RepairBlackspireStoreMaterials
+
+--- RepairBlackspireStoreTerminal ---
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\RepairBlackspireStoreTerminal.cs:6: public static class RepairBlackspireStoreTerminal
+
+--- ReplaceBlackspireStore ---
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\ReplaceBlackspireStore.cs:6: public static class ReplaceBlackspireStore
+
+--- StoreAAABuilder ---
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreAAABuilder.cs:13: public static class StoreAAABuilder

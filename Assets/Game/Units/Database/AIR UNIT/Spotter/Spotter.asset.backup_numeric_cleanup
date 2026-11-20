@@ -1,0 +1,242 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Spotter
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-air-spotter
+  displayName: Spotter
+  category: 0
+  role: Target Identification / Precision Marking
+  tier: Recon Support
+  status: Active
+  storeImage: {fileID: 14228103989687478, guid: 8dc6d8d6c74d070418d0805700ad9861, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 1.8
+    widthMeters: 1.3
+    heightMeters: 0.7
+    massKg: 12
+    powerSource: Compact battery
+    energyCapacityWh: 1400
+    energyConsumptionWhPerMinute: 30
+    endurance: 35-50 min
+    payloadCapacityKg: 0.8
+    modules:
+    - Precision marker beam
+    navigationSystem: GPS + Targeting AI
+    structuralIntegrityHp: 90
+    armorRating: 0.1
+    heatSignature: Low
+    noiseSignature: Very Low
+    topSpeedMetersPerSecond: 22
+    topSpeedDescription: 22 m/s
+    acceleration: High
+    turningRadius: Tight
+    climbRate: Medium
+    stabilityRating: High
+  autonomy:
+    behaviorProfile: Target Identification / Recon Support
+    aggression: 0.1
+    caution: 0.85
+    persistence: 0.7
+    flankingLikelihood: 0.1
+    retreatThreshold: 0.85
+    retreatBehaviorDescription: Early
+    targetPriority: High-value targets / moving targets
+    formationDiscipline: Medium
+    riskTolerance: 0.25
+  sensors:
+    visualRangeMeters: 1600
+    visualRangeDescription: 1600 m
+    thermalRangeMeters: 600
+    thermalRangeDescription: 600 m
+    acousticRange: Medium
+    radarRange: None
+    lidarRange: Short-range
+    signalDetectionRange: Medium
+  communication:
+    meshRangeKm: 5
+    meshRangeDescription: 5 km
+    relayCapacity: 0
+    commandLinkType: Recon Grid
+    networkPriority: Medium
+  combat:
+    firepowerRating: 1
+    firepowerDescription: Low (marker beam only)
+    accuracy: High
+    stabilization: High
+    weaponMounts: 1 (marker beam)
+    weaponTypes: Target marker beam
+    suppressionValue: 1
+    trackingStrength: High
+    disruptionStrength: Low
+    breachCapability: None
+    countermeasureRating: Low
+    threatLevel: 2
+    engagementDistance: 200-400 m
+    preferredTerrain: Recon corridors
+    preferredTargets: High-value targets
+    vulnerabilityProfile: Ballistic / weather
+  squad:
+    squadRole: Target Spotting
+    squadSizeContribution: 1
+    formationBehavior: Recon spacing
+    intentInterpretationRules: Maintain visibility, avoid conflict
+    retreatBehavior: Early
+    breachBehavior: None
+    flankingBehavior: Minimal
+    reinforcementBehavior: Supports recon and command squads
+    parentCommandUnit: Overseer / Insight
+    subordinateUnits: []
+    relayNodes: []
+    networkDependencies: Recon Grid
+  vrOperator:
+    operatorSeatType: Drone View
+    operatorHud: Targeting Overlay
+    cameraFeeds: Optical
+    thermalView: 1
+    lidarView: 1
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Full drone flight
+    sensorControls: Thermal / LiDAR / zoom
+    abilityControls: Mark Target, Scan, Stabilize
+    weaponControls: Marker beam
+    stabilizationControls: Auto-hover
+    operatorAbilities:
+    - Precision Target Mark
+    - Recon Scan
+    - Thermal Search
+    - Stabilize
+    - Relay Target Data
+  economy:
+    creditCost: 800
+    buildCost: 70 Metal / 60 Electronics
+    buildTimeSeconds: 25
+    factoryType: Drone Bay
+    techRequirements: Recon Systems I
+    maintenanceCost: Low
+    repairTimeSeconds: 8
+    supplyConsumption: Low
+    operationalCost: Minimal
+    deploymentRequirements: Standard drone pad
+    transportCompatibility: All aerial racks
+    launchMethod: Vertical takeoff
+    deploymentPointsDefined: 1
+    deploymentPoints: 1
+  buildRequirements:
+    commonComponents:
+    - component: Light Alloy Plates
+      quantity: 8
+    - component: Composite Frame Rods
+      quantity: 6
+    - component: Micro-Servo Actuators
+      quantity: 3
+    - component: Stabilizer Fin
+      quantity: 1
+    - component: Marker Beam Housing
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 8
+    - component: Signal Processors
+      quantity: 6
+    - component: Drone Control Chips
+      quantity: 2
+    - component: Targeting AI Chips
+      quantity: 2
+    power:
+    - component: Compact Battery Pack
+      quantity: 1
+    - component: Power Regulation Node
+      quantity: 1
+    rareTradeable:
+    - component: Precision Marker Core
+      quantity: 1
+    optionalUpgrades:
+    - Silent Rotor Kit
+    - Thermal Boost Module
+    - Extended Battery Pack
+  environment:
+    terrainAdaptationCoefficients: Spotter terrainAdaptationCoefficients
+    weatherSensitivityIndex: 1
+    visibilityModifiers: Spotter visibilityModifiers
+    signalPropagationCurve: Spotter signalPropagationCurve
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0.8
+    packetLossRate: Spotter packetLossRate
+    encryptionLatencySeconds: 1
+    meshSelfHealingThreshold: Spotter meshSelfHealingThreshold
+    relaySaturationCurve: Spotter relaySaturationCurve
+  cognitive:
+    decisionConfidence: 1
+    threatRecognitionAccuracy: 1
+    adaptiveLearningRatePerMission: 1
+    commandOverrideResistance: 1
+    cooperativeBehaviorIndex: 1
+  behaviorNodes:
+  - behaviorNode: 
+    weight: -0.00000008226931
+    description: 
+  missionBehaviors:
+  - missionType: 
+    behaviorFocus: 
+    efficiency: -0.00000008228733
+  unitSynergies:
+  - partnerUnit: 
+    synergyRating: -0.000000081262726
+    function: 
+  damageResponses:
+  - damageType: 
+    effect: 
+    recovery: 
+  upgrades:
+  - upgrade: 
+    effect: 
+    efficiencyGain: -0.00000008129882
+  tactical:
+    formationAdaptability: 1
+    tacticalRoleWeight: 1
+    commandResponseDelaySeconds: 1
+    reinforcementTriggerConditions: Spotter reinforcementTriggerConditions
+    retreatLogicThresholds: Spotter retreatLogicThresholds
+  maintenance:
+    meanTimeBetweenFailuresHours: 1
+    repairCycleSeconds: 1
+    resourceDrainPerHourPercent: 10
+    batteryEfficiencyPercent: 0.8
+    rotorStabilityPercent: 10
+    sensorCalibrationDriftPercentPerHour: 10
+    coolingEfficiencyPercent: 0.8
+    operationalUptimePercent: 10
+    energyRecoveryRatePercent: 10
+    energyRecoveryRatePercentPerIdleMinute: 10
+    componentWearPercentPerHour: 10
+    maintenancePriorityLevel: Spotter maintenancePriorityLevel
+    sparePartDependencyIndex: 1
+    operationalCostPerHour: Spotter operationalCostPerHour
+  threatResponses:
+  - threatType: 
+    reactionTimeSeconds: -1.6962372e-20
+    countermeasureEfficiency: 5.79e-43
+  commandNetwork:
+  - node: 
+    loadPercent: -0.00001955549
+    latencySeconds: 5.79e-43
+    status: 
+  performance:
+    missionSuccessProbability: 0.75
+    averageEngagementDurationMinutes: 1
+    reconDataYieldMbPerMinute: 1
+    communicationUptime: 1
+    threatAvoidanceEfficiency: 0.8

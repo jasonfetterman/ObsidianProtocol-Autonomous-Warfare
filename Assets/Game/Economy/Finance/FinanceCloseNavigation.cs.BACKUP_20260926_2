@@ -1,0 +1,37 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class FinanceCloseNavigation : MonoBehaviour
+{
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    private static void Install()
+    {
+        GameObject buttonObject = GameObject.Find("BUTTON_CLOSE");
+
+        if (buttonObject == null)
+        {
+            Debug.LogError("[FINANCE] BUTTON_CLOSE NOT FOUND.");
+            return;
+        }
+
+        Button button = buttonObject.GetComponent<Button>();
+
+        if (button == null)
+        {
+            Debug.LogError("[FINANCE] BUTTON_CLOSE HAS NO BUTTON COMPONENT.");
+            return;
+        }
+
+        button.onClick.RemoveAllListeners();
+        button.onClick.AddListener(ReturnToMainMenu);
+
+        Debug.Log("[FINANCE] CLOSE navigation connected -> MAIN MENU (index 0).");
+    }
+
+    private static void ReturnToMainMenu()
+    {
+        Debug.Log("[FINANCE] CLOSE pressed -> loading MAIN MENU index 0.");
+        SceneManager.LoadScene(0);
+    }
+}

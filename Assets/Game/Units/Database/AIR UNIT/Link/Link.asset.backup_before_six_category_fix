@@ -1,0 +1,374 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Link
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-air-link
+  displayName: Link
+  category: 5
+  role: Network Bridge / Signal Routing Drone
+  tier: Operational
+  status: Active
+  storeImage: {fileID: -2913357612719945269, guid: 436f9fad9fcd0fd4c8f7a0763b32a526, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 1.9
+    widthMeters: 1.4
+    heightMeters: 0.7
+    massKg: 14
+    powerSource: High-efficiency battery
+    energyCapacityWh: 1700
+    energyConsumptionWhPerMinute: 30
+    endurance: "40\u201355 min; active relay 30 Wh/min; maximum relay load 45; signal boosting 40; emergency routing 48; idle 8; emergency power 12"
+    payloadCapacityKg: 1
+    modules:
+    - Dual antenna array
+    navigationSystem: GPS + Mesh Routing AI
+    structuralIntegrityHp: 100
+    armorRating: 0.12
+    heatSignature: Low
+    noiseSignature: Low
+    topSpeedMetersPerSecond: 18
+    topSpeedDescription: 18 m/s
+    acceleration: Medium
+    turningRadius: Tight
+    climbRate: Medium
+    stabilityRating: High
+  autonomy:
+    behaviorProfile: Network Bridge / Signal Routing
+    aggression: 0
+    caution: 0.8
+    persistence: 0.7
+    flankingLikelihood: 0
+    retreatThreshold: 0.8
+    retreatBehaviorDescription: Relocate or retreat if integrity <25%, battery <15%, or signal integrity <40%; preserve network coverage.
+    targetPriority: Network gaps / weak mesh zones
+    formationDiscipline: High
+    riskTolerance: 0.15
+  sensors:
+    visualRangeMeters: 900
+    visualRangeDescription: 900 m
+    thermalRangeMeters: 400
+    thermalRangeDescription: 400 m
+    acousticRange: Low
+    radarRange: None
+    lidarRange: None
+    signalDetectionRange: High
+  communication:
+    meshRangeKm: 15
+    meshRangeDescription: 15 km
+    relayCapacity: 6
+    commandLinkType: Mesh-Optimized
+    networkPriority: High
+  combat:
+    firepowerRating: 0
+    firepowerDescription: Noncombatant network support drone
+    accuracy: N/A
+    stabilization: High
+    weaponMounts: None
+    weaponTypes: None
+    suppressionValue: 0
+    trackingStrength: Low
+    disruptionStrength: Medium
+    breachCapability: None
+    countermeasureRating: Low
+    threatLevel: 2
+    engagementDistance: N/A
+    preferredTerrain: High-altitude mesh corridors
+    preferredTargets: None; direct combat assignment prohibited
+    vulnerabilityProfile: Ballistic / EMP / jamming
+  squad:
+    squadRole: Network Bridge
+    squadSizeContribution: 1
+    formationBehavior: Mesh-optimized spacing
+    intentInterpretationRules: 'Maintain coverage and avoid conflict. Commands: establish network bridge; restore signal; route command traffic; cover network gap; boost weak signal; reconfigure mesh; restore communication.'
+    retreatBehavior: Early
+    breachBehavior: None
+    flankingBehavior: None
+    reinforcementBehavior: Supports communication squads; global mesh range 15 km; redundant links Warden Mesh Grid / Command Mesh.
+    parentCommandUnit: NexusGrid / Overseer
+    subordinateUnits: []
+    relayNodes:
+    - Relay Node 1
+    - Relay Node 2
+    - Relay Node 3
+    - Relay Node 4
+    - Relay Node 5
+    - Relay Node 6
+    networkDependencies: Warden mesh grid / Command Mesh
+  vrOperator:
+    operatorSeatType: Drone View
+    operatorHud: Mesh Bridge Overlay; mesh coverage visualization
+    cameraFeeds: Optical
+    thermalView: 1
+    lidarView: 0
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Full drone flight
+    sensorControls: Signal scan / relay diagnostics
+    abilityControls: Deploy Bridge, Boost Signal
+    weaponControls: None
+    stabilizationControls: Auto-hover
+    operatorAbilities:
+    - Deploy Bridge Node
+    - Boost Signal
+    - Network Scan
+    - Mesh Diagnostics
+  economy:
+    creditCost: 750
+    buildCost: 150 Metal / 140 Electronics
+    buildTimeSeconds: 50
+    factoryType: Drone Bay
+    techRequirements: Mesh Networking I
+    maintenanceCost: Low
+    repairTimeSeconds: 12
+    supplyConsumption: Low
+    operationalCost: Minimal; 3 Metal / 5 Electronics per hour
+    deploymentRequirements: Standard drone pad
+    transportCompatibility: All aerial racks
+    launchMethod: Vertical takeoff
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Light Alloy Plates
+      quantity: 12
+    - component: Composite Frame Rods
+      quantity: 8
+    - component: Micro-Servo Actuators
+      quantity: 6
+    - component: Stabilizer Fins
+      quantity: 2
+    - component: Dual Antenna Housing
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 12
+    - component: Signal Processors
+      quantity: 8
+    - component: Drone Control Chips
+      quantity: 4
+    - component: Mesh Routing Chips
+      quantity: 2
+    power:
+    - component: High-Efficiency Battery Pack
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 2
+    rareTradeable:
+    - component: Mesh-Grade Antenna Array
+      quantity: 1
+    - component: Encrypted Bridge Core
+      quantity: 1
+    optionalUpgrades:
+    - Extended Mesh Range Module
+    - Signal Boost Amplifier
+    - Anti-Jamming Shielding
+    - Silent Rotor Kit
+    - Multi-Node Relay Processor
+    - Hardened Bridge Core
+  environment:
+    terrainAdaptationCoefficients: Open Air 1.00 / Urban 0.95 / Forest 0.85 / Mountain 0.90 / Desert 0.95 / Snow 0.85 / Water 1.00
+    weatherSensitivityIndex: 0.3
+    visibilityModifiers: Day 1.00 / Night 0.90 / Fog 0.80 / Rain 0.85 / Heavy Storm 0.65
+    signalPropagationCurve: Atmospheric interference reduces effective relay efficiency by 0.20% per 10% interference
+    modifiers:
+    - condition: Severe weather
+      effect: Relay range reduced by 20%
+    - condition: Electromagnetic interference
+      effect: External network efficiency reduced by 35%
+    - condition: Mesh signal
+      effect: 98% nominal signal reliability
+  network:
+    nodeHandoffEfficiency: 0.98
+    packetLossRate: 0.8% nominal
+    encryptionLatencySeconds: 0.05
+    meshSelfHealingThreshold: 2 lost nodes
+    relaySaturationCurve: Throughput decreases 3% per active relay beyond 6 connected nodes
+  cognitive:
+    decisionConfidence: 0.95
+    threatRecognitionAccuracy: 0.94
+    adaptiveLearningRatePerMission: 0.04
+    commandOverrideResistance: 0.04
+    cooperativeBehaviorIndex: 0.99
+  behaviorNodes:
+  - behaviorNode: Network Gap Detection
+    weight: 0.98
+    description: Identify weak or broken mesh
+  - behaviorNode: Relay Placement
+    weight: 0.96
+    description: Position for optimal network coverage
+  - behaviorNode: Signal Routing
+    weight: 0.97
+    description: Select efficient communication paths
+  - behaviorNode: Bridge Maintenance
+    weight: 0.95
+    description: Maintain active relay connections
+  - behaviorNode: Signal Boosting
+    weight: 0.91
+    description: Increase weak-link signal strength
+  - behaviorNode: Network Reconfiguration
+    weight: 0.94
+    description: Adapt mesh topology
+  - behaviorNode: Threat Avoidance
+    weight: 0.88
+    description: Avoid hostile or dangerous zones
+  - behaviorNode: Relay Handoff
+    weight: 0.96
+    description: Transfer connections between nodes
+  - behaviorNode: Operator Override
+    weight: 0.88
+    description: Accept authorized network commands
+  missionBehaviors:
+  - missionType: Network Gap Detection
+    behaviorFocus: Identify broken mesh links
+    efficiency: 0.98
+  - missionType: Relay Placement
+    behaviorFocus: Place relay for coverage
+    efficiency: 0.96
+  - missionType: Signal Recovery
+    behaviorFocus: Restore signal
+    efficiency: 0.95
+  - missionType: Mesh Bridge Maintenance
+    behaviorFocus: Maintain relay links
+    efficiency: 0.97
+  - missionType: Weak-Link Identification
+    behaviorFocus: Find weak links
+    efficiency: 0.94
+  - missionType: Communication Reroute
+    behaviorFocus: Route around disruption
+    efficiency: 0.96
+  - missionType: Emergency Network Recovery
+    behaviorFocus: Recover critical network
+    efficiency: 0.92
+  unitSynergies:
+  - partnerUnit: Beacon
+    synergyRating: 0.96
+    function: Signal coordination and mesh extension
+  - partnerUnit: Warden
+    synergyRating: 0.9
+    function: Integrate with Warden mesh grid
+  - partnerUnit: Sentinel
+    synergyRating: 0.82
+    function: Share surveillance and command connectivity
+  damageResponses:
+  - damageType: Ballistic
+    effect: Antenna efficiency reduced by 20%
+    recovery: Automatically relocate relay
+  - damageType: Explosive
+    effect: Relay stability reduced by 25%
+    recovery: Activate emergency handoff
+  - damageType: EMP
+    effect: Network signal reduced by 50%
+    recovery: Initiate autonomous mesh recovery
+  - damageType: Jamming
+    effect: Effective mesh range reduced by 45%
+    recovery: Use alternate routing
+  - damageType: Antenna damage
+    effect: Relay capacity reduced
+    recovery: Prioritize remaining nodes
+  - damageType: Network failure
+    effect: Current connection unavailable
+    recovery: Establish nearest viable relay connection
+  - damageType: Emergency recovery
+    effect: Current mesh corridor unsafe
+    recovery: Return to safe mesh corridor
+  upgrades:
+  - upgrade: Extended Mesh Range Module
+    effect: +25% relay range; +8% coverage
+    efficiencyGain: 0.25
+  - upgrade: Signal Boost Amplifier
+    effect: +20% signal strength; +10% weak-link recovery
+    efficiencyGain: 0.2
+  - upgrade: Anti-Jamming Shielding
+    effect: +30% resistance; +8% network uptime
+    efficiencyGain: 0.3
+  - upgrade: Silent Rotor Kit
+    effect: -25% noise signature; +6% survivability
+    efficiencyGain: 0.06
+  - upgrade: Multi-Node Relay Processor
+    effect: +2 relay capacity; +8% routing efficiency
+    efficiencyGain: 0.08
+  - upgrade: Hardened Bridge Core
+    effect: +20% EMP resistance; +10% network recovery
+    efficiencyGain: 0.2
+  tactical:
+    formationAdaptability: 0.94
+    tacticalRoleWeight: 0.88
+    commandResponseDelaySeconds: 0.3
+    reinforcementTriggerConditions: Network coverage <75% or mesh loss >20%
+    retreatLogicThresholds: Integrity <25%; battery <15%; signal integrity <40%
+  maintenance:
+    meanTimeBetweenFailuresHours: 1600
+    repairCycleSeconds: 12
+    resourceDrainPerHourPercent: 0.24
+    batteryEfficiencyPercent: 96
+    rotorStabilityPercent: 0
+    sensorCalibrationDriftPercentPerHour: 0
+    coolingEfficiencyPercent: 0
+    operationalUptimePercent: 99
+    energyRecoveryRatePercent: 0
+    energyRecoveryRatePercentPerIdleMinute: 7
+    componentWearPercentPerHour: 0.002
+    maintenancePriorityLevel: Tier I
+    sparePartDependencyIndex: 0.48
+    operationalCostPerHour: 3 Metal / 5 Electronics
+  threatResponses:
+  - threatType: Ballistic
+    reactionTimeSeconds: 0.3
+    countermeasureEfficiency: 0.5
+  - threatType: Explosive
+    reactionTimeSeconds: 0.7
+    countermeasureEfficiency: 0.45
+  - threatType: EMP
+    reactionTimeSeconds: 0.15
+    countermeasureEfficiency: 0.48
+  - threatType: Thermal
+    reactionTimeSeconds: 0.3
+    countermeasureEfficiency: 0.55
+  - threatType: Signal jam
+    reactionTimeSeconds: 0.1
+    countermeasureEfficiency: 0.72
+  - threatType: Network disruption
+    reactionTimeSeconds: 0.2
+    countermeasureEfficiency: 0.86
+  commandNetwork:
+  - node: Mesh-Optimized Core
+    loadPercent: 48
+    latencySeconds: 0.3
+    status: Optimal
+  - node: Relay Node 1
+    loadPercent: 44
+    latencySeconds: 0.42
+    status: Stable
+  - node: Relay Node 2
+    loadPercent: 47
+    latencySeconds: 0.46
+    status: Stable
+  - node: Relay Node 3
+    loadPercent: 39
+    latencySeconds: 0.5
+    status: Active
+  - node: NexusGrid / Overseer
+    loadPercent: 52
+    latencySeconds: 0.35
+    status: Active
+  - node: Warden Mesh Grid
+    loadPercent: 56
+    latencySeconds: 0.4
+    status: Active
+  performance:
+    missionSuccessProbability: 0.98
+    averageEngagementDurationMinutes: 0.3
+    reconDataYieldMbPerMinute: 24
+    communicationUptime: 0.99
+    threatAvoidanceEfficiency: 0.89

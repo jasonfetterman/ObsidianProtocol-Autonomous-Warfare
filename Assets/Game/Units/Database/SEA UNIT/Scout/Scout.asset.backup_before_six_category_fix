@@ -1,0 +1,285 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Scout
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-sea-scout
+  displayName: Scout
+  category: 2
+  role: Marine Recon / Fast Surface Scouting
+  tier: Recon
+  status: Active
+  storeImage: {fileID: 346630532945538327, guid: 4a6a6bce33d9ec34882737b8ebf96eea, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 4.5
+    widthMeters: 2.2
+    heightMeters: 1.8
+    massKg: 1600
+    powerSource: Electric-hybrid marine drive
+    energyCapacityWh: 7000
+    energyConsumptionWhPerMinute: 45
+    endurance: "4\u20138 hours"
+    payloadCapacityKg: 80
+    modules:
+    - Recon optics
+    - Light sonar
+    - Silent propulsion
+    navigationSystem: Marine GPS + Recon AI
+    structuralIntegrityHp: 600
+    armorRating: 0.25
+    heatSignature: Very Low
+    noiseSignature: Very Low
+    topSpeedMetersPerSecond: 14
+    topSpeedDescription: 14 m/s
+    acceleration: High
+    turningRadius: Very tight
+    climbRate: Scout climbRate
+    stabilityRating: High
+  autonomy:
+    behaviorProfile: Recon / Forward Scouting
+    aggression: 0.1
+    caution: 0.9
+    persistence: 0.8
+    flankingLikelihood: 0
+    retreatThreshold: 0.85
+    retreatBehaviorDescription: Early
+    targetPriority: Movement / anomalies
+    formationDiscipline: Medium
+    riskTolerance: 0.2
+  sensors:
+    visualRangeMeters: 2400
+    visualRangeDescription: 2400 m
+    thermalRangeMeters: 900
+    thermalRangeDescription: 900 m
+    acousticRange: High
+    radarRange: Short
+    lidarRange: Not specified
+    signalDetectionRange: Medium
+  communication:
+    meshRangeKm: 6
+    meshRangeDescription: 6 km
+    relayCapacity: 0
+    commandLinkType: Marine Recon Grid
+    networkPriority: High
+  combat:
+    firepowerRating: 0.1
+    firepowerDescription: Very Low
+    accuracy: Medium
+    stabilization: Not specified
+    weaponMounts: 1 (light)
+    weaponTypes: Light turret / recon suppressor
+    suppressionValue: 0.2
+    trackingStrength: Medium
+    disruptionStrength: Low
+    breachCapability: None
+    countermeasureRating: Low
+    threatLevel: 3
+    engagementDistance: "200\u2013400 m"
+    preferredTerrain: Surface waters / recon lanes
+    preferredTargets: Movement / anomalies
+    vulnerabilityProfile: Ballistic / waves / collision
+  squad:
+    squadRole: Marine Recon / Forward Eyes
+    squadSizeContribution: 1
+    formationBehavior: Forward spacing
+    intentInterpretationRules: Identify threats early
+    retreatBehavior: Early
+    breachBehavior: None
+    flankingBehavior: None
+    reinforcementBehavior: Supports recon & marine squads
+    parentCommandUnit: Insight / Pulse
+    subordinateUnits: []
+    relayNodes: []
+    networkDependencies: Marine Recon Grid
+  vrOperator:
+    operatorSeatType: Recon Cockpit
+    operatorHud: Marine Recon Overlay
+    cameraFeeds: Optical
+    thermalView: 1
+    lidarView: 0
+    sonarView: 1
+    tacticalOverlay: 1
+    movementControls: Marine drive
+    sensorControls: Thermal / sonar / zoom
+    abilityControls: Mark Target, Scan, Stabilize
+    weaponControls: Light turret
+    stabilizationControls: Marine drive stabilization
+    operatorAbilities:
+    - Recon Scan
+    - Silent Approach
+    - Threat Marking
+    - Recon Relay
+  economy:
+    creditCost: 460
+    buildCost: 300 Metal / 160 Electronics
+    buildTimeSeconds: 70
+    factoryType: Marine Bay
+    techRequirements: Marine Systems I
+    maintenanceCost: Low
+    repairTimeSeconds: 18
+    supplyConsumption: Low
+    operationalCost: Low
+    deploymentRequirements: Water launch pad
+    transportCompatibility: Light marine racks
+    launchMethod: Water drop
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Marine Alloy Plates
+      quantity: 24
+    - component: Reinforced Marine Rods
+      quantity: 12
+    - component: Hydraulic Actuators
+      quantity: 4
+    - component: Recon Sensor Housing
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 14
+    - component: Signal Processors
+      quantity: 10
+    - component: Marine Control Chips
+      quantity: 3
+    - component: Recon AI Chips
+      quantity: 2
+    power:
+    - component: Hybrid Marine Engine Core
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 2
+    rareTradeable:
+    - component: Silent Propulsion Module
+      quantity: 1
+    optionalUpgrades:
+    - Extended Battery Pack
+    - Silent Drive Kit
+    - Anti-Jamming Shielding
+  environment:
+    terrainAdaptationCoefficients: Scout terrainAdaptationCoefficients
+    weatherSensitivityIndex: 3
+    visibilityModifiers: Scout visibilityModifiers
+    signalPropagationCurve: Scout signalPropagationCurve
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0.8
+    packetLossRate: Scout packetLossRate
+    encryptionLatencySeconds: 3
+    meshSelfHealingThreshold: Scout meshSelfHealingThreshold
+    relaySaturationCurve: Scout relaySaturationCurve
+  cognitive:
+    decisionConfidence: 3
+    threatRecognitionAccuracy: 3
+    adaptiveLearningRatePerMission: 3
+    commandOverrideResistance: 3
+    cooperativeBehaviorIndex: 3
+  behaviorNodes:
+  - behaviorNode: 
+    weight: -0.00000008226931
+    description: 
+  - behaviorNode: 
+    weight: 0
+    description: 
+  - behaviorNode: 
+    weight: 0
+    description: 
+  missionBehaviors:
+  - missionType: 
+    behaviorFocus: 
+    efficiency: -0.00000008228733
+  - missionType: 
+    behaviorFocus: 
+    efficiency: 0
+  - missionType: 
+    behaviorFocus: 
+    efficiency: 0
+  unitSynergies:
+  - partnerUnit: 
+    synergyRating: -0.000000081262726
+    function: 
+  - partnerUnit: 
+    synergyRating: 0
+    function: 
+  - partnerUnit: 
+    synergyRating: 0
+    function: 
+  damageResponses:
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  upgrades:
+  - upgrade: 
+    effect: 
+    efficiencyGain: -0.00000008129882
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  tactical:
+    formationAdaptability: 3
+    tacticalRoleWeight: 3
+    commandResponseDelaySeconds: 3
+    reinforcementTriggerConditions: Scout reinforcementTriggerConditions
+    retreatLogicThresholds: Scout retreatLogicThresholds
+  maintenance:
+    meanTimeBetweenFailuresHours: 3
+    repairCycleSeconds: 3
+    resourceDrainPerHourPercent: 30
+    batteryEfficiencyPercent: 0.8
+    rotorStabilityPercent: 30
+    sensorCalibrationDriftPercentPerHour: 30
+    coolingEfficiencyPercent: 0.8
+    operationalUptimePercent: 30
+    energyRecoveryRatePercent: 30
+    energyRecoveryRatePercentPerIdleMinute: 30
+    componentWearPercentPerHour: 30
+    maintenancePriorityLevel: Scout maintenancePriorityLevel
+    sparePartDependencyIndex: 3
+    operationalCostPerHour: Scout operationalCostPerHour
+  threatResponses:
+  - threatType: 
+    reactionTimeSeconds: -1.6962372e-20
+    countermeasureEfficiency: 5.79e-43
+  - threatType: 
+    reactionTimeSeconds: 0
+    countermeasureEfficiency: 0
+  - threatType: 
+    reactionTimeSeconds: 0
+    countermeasureEfficiency: 0
+  commandNetwork:
+  - node: 
+    loadPercent: -0.00001955549
+    latencySeconds: 5.79e-43
+    status: 
+  - node: 
+    loadPercent: 0
+    latencySeconds: 0
+    status: 
+  - node: 
+    loadPercent: 0
+    latencySeconds: 0
+    status: 
+  performance:
+    missionSuccessProbability: 0.75
+    averageEngagementDurationMinutes: 3
+    reconDataYieldMbPerMinute: 3
+    communicationUptime: 3
+    threatAvoidanceEfficiency: 0.8

@@ -1,0 +1,104 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace ObsidianProtocol.UI.HUD.Minimap
+{
+    public class MAP012_CameraPosition : MonoBehaviour
+    {
+        public const string ID = "MAP-012";
+
+        [Header("Blackspire Expanse Bounds")]
+        [SerializeField] private float minX = -24f;
+        [SerializeField] private float maxX = 1000f;
+        [SerializeField] private float minZ = 0f;
+        [SerializeField] private float maxZ = 1024f;
+
+        [Header("Marker Settings")]
+        [SerializeField] private float markerSize = 13f;
+        [SerializeField] private Color cameraColor = Color.white;
+
+        private RectTransform markerLayer;
+        private RectTransform markerRect;
+        private Image markerImage;
+        private Transform playerTransform;
+        private Camera battlefieldCamera;
+
+        private void Awake()
+        {
+            Initialize();
+        }
+
+        public void Initialize()
+        {
+            markerLayer = GetComponent<RectTransform>();
+            battlefieldCamera = Camera.main;
+
+            GameObject player = GameObject.Find("PLAYER_INSTANCE");
+            if (player != null)
+                playerTransform = player.transform;
+
+            GameObject markerObject = new GameObject(
+                "PLAYER_CAMERA_POSITION",
+                typeof(RectTransform),
+                typeof(CanvasRenderer),
+                typeof(Image)
+            );
+
+            markerObject.transform.SetParent(markerLayer, false);
+            markerRect = markerObject.GetComponent<RectTransform>();
+            markerRect.sizeDelta = new Vector2(markerSize, markerSize);
+
+            markerImage = markerObject.GetComponent<Image>();
+            markerImage.sprite = MAPMinimapMarkerUtility.DotSprite;
+            markerImage.color = cameraColor;
+            markerImage.raycastTarget = false;
+
+            Debug.Log("[Minimap] MAP-012 tracking " +
+                (playerTransform != null ? "PLAYER_INSTANCE." : "Main Camera fallback."));
+        }
+
+        private void LateUpdate()
+        {
+            if (playerTransform == null)
+            {
+                GameObject player = GameObject.Find("PLAYER_INSTANCE");
+                if (player != null)
+                    playerTransform = player.transform;
+            }
+
+            if (battlefieldCamera == null)
+                battlefieldCamera = Camera.main;
+
+            if (markerRect == null || markerLayer == null)
+                return;
+
+            Transform target = playerTransform != null
+                ? playerTransform
+                : battlefieldCamera != null
+                    ? battlefieldCamera.transform
+                    : null;
+
+            if (target == null)
+                return;
+
+            Vector3 position = target.position;
+
+            markerRect.anchoredPosition =
+                MAPMinimapMarkerUtility.WorldToAnchored(
+                    new Vector3(
+                        Mathf.Clamp(position.x, minX, maxX),
+                        position.y,
+                        Mathf.Clamp(position.z, minZ, maxZ)
+                    ),
+                    markerLayer,
+                    minX, maxX, minZ, maxZ
+                );
+
+            float yaw = battlefieldCamera != null
+                ? battlefieldCamera.transform.eulerAngles.y
+                : target.eulerAngles.y;
+
+            markerRect.localEulerAngles = new Vector3(0f, 0f, -yaw);
+        }
+    }
+}

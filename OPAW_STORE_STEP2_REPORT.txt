@@ -1,0 +1,599 @@
+﻿
+========================================================================
+FILE: Assets\Scripts\UI\Store\StoreMasterController.cs
+========================================================================
+Full path: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs
+   17: public class StoreMasterController : MonoBehaviour
+   47: new Color(0.008f, 0.012f, 0.018f, 1f);
+   50: new Color(0.025f, 0.035f, 0.045f, 1f);
+   53: new Color(0.045f, 0.060f, 0.072f, 1f);
+   56: new Color(0.18f, 0.23f, 0.27f, 1f);
+   59: new Color(0.88f, 0.68f, 0.22f, 1f);
+   62: new Color(0.30f, 0.78f, 0.48f, 1f);
+   65: new Color(0.85f, 0.28f, 0.24f, 1f);
+   76: private void Awake()
+   81: private void OnEnable()
+   89: RefreshCatalog();
+   98: private void Start()
+  112: RefreshCatalog();
+  125: private void EnsureCanvas()
+  133: GetComponent<RectTransform>();
+  143: GetComponent<Canvas>();
+  158: GetComponent<CanvasScaler>();
+  169: new Vector2(1920f, 1080f);
+  177: GetComponent<GraphicRaycaster>();
+  188: private void LoadUnits()
+  203: UnitDatabaseRuntime.Get(
+  218: private void BuildInterface()
+  232: CreateUI(
+  237: root.GetComponent<RectTransform>();
+  253: BuildCatalog(root.transform);
+  263: private void Update()
+  269: public void OpenStore()
+  288: RefreshCatalog();
+  292: public void CloseStore()
+  307: private void BuildTop(Transform parent)
+  313: new Vector2(0f, 0.89f),
+  314: new Vector2(1f, 1f),
+  339: new Color(0.55f, 0.60f, 0.64f, 1f);
+  380: RectTransform closeRect = closeButton.GetComponent<RectTransform>();
+  387: private void BuildCategories(Transform parent)
+  393: new Vector2(0.01f, 0.075f),
+  394: new Vector2(0.17f, 0.875f),
+  437: button.GetComponent<RectTransform>();
+  440: new Vector2(0.08f, y - 0.065f);
+  443: new Vector2(0.92f, y);
+  452: RefreshCatalog();
+  466: new Color(0.50f, 0.55f, 0.58f, 1f);
+  476: private void BuildCatalog(Transform parent)
+  482: new Vector2(0.18f, 0.075f),
+  483: new Vector2(0.665f, 0.875f),
+  507: CreateUI(
+  512: scroll.GetComponent<RectTransform>();
+  530: CreateUI(
+  535: viewport.GetComponent<RectTransform>();
+  548: new Color(0f, 0f, 0f, 0f);
+  556: CreateUI(
+  564: content.GetComponent<RectTransform>();
+  567: new Vector2(0f, 1f);
+  570: new Vector2(1f, 1f);
+  573: new Vector2(0.5f, 1f);
+  590: private void BuildInspection(Transform parent)
+  596: new Vector2(0.675f, 0.075f),
+  597: new Vector2(0.99f, 0.875f),
+  623: new Vector2(0.05f, 0.425f),
+  624: new Vector2(0.95f, 0.795f),
+  628: unitPreview.Initialize();
+  656: Button purchase = MakeButton("PURCHASE UNIT", detail.transform, 11);
+  657: RectTransform purchaseRect = purchase.GetComponent<RectTransform>();
+  658: purchaseRect.anchorMin = new Vector2(0.05f, 0.055f);
+  659: purchaseRect.anchorMax = new Vector2(0.95f, 0.095f);
+  660: purchaseRect.offsetMin = Vector2.zero;
+  661: purchaseRect.offsetMax = Vector2.zero;
+  662: purchase.onClick.AddListener(RequestPurchase);
+  665: RectTransform refreshRect = refresh.GetComponent<RectTransform>();
+  673: private void BuildBottom(Transform parent)
+  679: new Vector2(0.01f, 0.005f),
+  680: new Vector2(0.99f, 0.06f),
+  691: new Color(0.55f, 0.60f, 0.63f, 1f);
+  701: private void BuildConfirmation(Transform parent)
+  707: new Vector2(0.30f, 0.28f),
+  708: new Vector2(0.70f, 0.72f),
+  709: new Color(0.018f, 0.025f, 0.032f, 0.99f));
+  748: "CONFIRM PURCHASE",
+  753: confirm.GetComponent<RectTransform>();
+  756: new Vector2(0.08f, 0.16f);
+  759: new Vector2(0.46f, 0.29f);
+  765: CompletePurchase);
+  774: cancel.GetComponent<RectTransform>();
+  777: new Vector2(0.54f, 0.16f);
+  780: new Vector2(0.92f, 0.29f);
+  792: private TMP_InputField CreateSearchField(
+  799: new Vector2(0.64f, 0.915f),
+  800: new Vector2(0.975f, 0.985f),
+  807: CreateUI(
+  831: RefreshCatalog();
+  837: private void RefreshCatalog()
+  867: u.UnitId.IndexOf(
+  897: GameObject card = CreateUI("UNIT_CARD_" + unit.UnitId, catalogRoot);
+  898: RectTransform cardRect = card.GetComponent<RectTransform>();
+  919: GameObject art = CreateUI("UNIT_IMAGE_PLACEHOLDER", card.transform);
+  920: RectTransform artRect = art.GetComponent<RectTransform>();
+  925: TMP_Text artLabel = Label("UNIT VISUAL\nART PENDING", art.transform, 10, TextAlignmentOptions.Center);
+  940: bool owned = InventoryRuntime.Has(unit.UnitId);
+  956: private void SelectUnit(
+  965: unitPreview.ShowUnit(unit.UnitId);
+  969: unit.UnitId);
+  977: unit.UnitId;
+ 1026: private void RequestPurchase()
+ 1042: selectedUnit.UnitId))
+ 1086: private void CompletePurchase()
+ 1093: UnitPurchaseService service =
+ 1094: new UnitPurchaseService();
+ 1097: service.Purchase(
+ 1098: selectedUnit.UnitId);
+ 1115: RefreshCatalog();
+ 1119: private void RefreshCurrent()
+ 1123: RefreshCatalog();
+ 1127: else if (units.Count > 0)
+ 1131: private void RefreshCredits()
+ 1141: private void SetStatus(
+ 1152: private bool MatchesCategory(
+ 1159: return GetCategory(unit)
+ 1165: private string GetCategory(
+ 1192: unit.UnitId.ToLowerInvariant();
+ 1203: private string Safe(
+ 1211: private string FormatCredits(
+ 1217: private GameObject Panel(
+ 1225: CreateUI(name, parent);
+ 1228: go.GetComponent<RectTransform>();
+ 1245: new Vector2(1f, 1f);
+ 1250: private Button MakeButton(
+ 1256: CreateUI(
+ 1270: new Vector2(1f, 1f);
+ 1281: new Color(
+ 1288: new Color(
+ 1313: private TMP_Text Label(
+ 1320: CreateUI(
+ 1340: private GameObject CreateUI(
+ 1345: new GameObject(
+ 1359: private void Stretch(
+ 1367: new Vector2(minX, minY);
+ 1370: new Vector2(maxX, maxY);
+
+========================================================================
+FILE: Assets\Game\Store\UI\StoreFrontController.cs
+========================================================================
+Full path: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UI\StoreFrontController.cs
+    7: public sealed class StoreFrontController : MonoBehaviour
+   14: [SerializeField] private Button purchaseButton;
+   15: [SerializeField] private StoreUnitCatalogBuilder catalogBuilder;
+   18: private readonly UnitPurchaseService purchaseService =
+   19: new UnitPurchaseService();
+   21: private string selectedUnitId = string.Empty;
+   23: private void Awake()
+   25: if (purchaseButton != null)
+   26: purchaseButton.onClick.AddListener(PurchaseSelectedUnit);
+   32: private void OnDestroy()
+   34: if (purchaseButton != null)
+   35: purchaseButton.onClick.RemoveListener(PurchaseSelectedUnit);
+   38: private void Update()
+   42: if (purchaseButton != null)
+   43: purchaseButton.interactable =
+   45: !string.IsNullOrWhiteSpace(selectedUnitId);
+   48: public void RefreshUnitList()
+   58: if (!RefreshCatalog())
+   79: RectTransform buttonRect = buttonObject.GetComponent<RectTransform>();
+   82: Image buttonImage = buttonObject.GetComponent<Image>();
+   87: Button unitButton = buttonObject.GetComponent<Button>();
+   97: RectTransform labelRect = labelObject.GetComponent<RectTransform>();
+  103: Text label = labelObject.GetComponent<Text>();
+  111: string unitId = entry.UnitId;
+  115: () => SelectUnit(unitId, displayName));
+  120: public bool RefreshCatalog()
+  128: bool built = catalogBuilder.BuildCatalog();
+  136: public void ShowStore()
+  144: public void HideStore()
+  150: public void SelectUnit(string unitId, string displayName)
+  152: selectedUnitId = unitId ?? string.Empty;
+  157: ? selectedUnitId
+  161: string.IsNullOrWhiteSpace(selectedUnitId)
+  166: public void ClearSelection()
+  168: selectedUnitId = string.Empty;
+  176: public void PurchaseSelectedUnit()
+  178: if (string.IsNullOrWhiteSpace(selectedUnitId))
+  190: bool purchased = purchaseService.Purchase(selectedUnitId);
+  193: purchased
+  194: ? "Purchase successful."
+  195: : "Purchase failed. Check credits, availability, and ownership.");
+  200: public void RefreshCredits()
+  210: public void SetStatus(string message)
+
+========================================================================
+FILE: Assets\Game\Store\UI\StoreRuntimeBuilder.cs
+========================================================================
+Full path: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UI\StoreRuntimeBuilder.cs
+   12: public sealed class StoreRuntimeBuilder : MonoBehaviour
+   16: private readonly UnitPurchaseService purchaseService = new UnitPurchaseService();
+   26: private Button purchaseButton;
+   31: [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+   32: private static void Bootstrap()
+   34: if (FindObjectOfType<StoreRuntimeBuilder>() != null)
+   39: host.AddComponent<StoreRuntimeBuilder>();
+   42: private void Awake()
+   46: RefreshCatalog();
+   51: private void Update()
+   61: if (purchaseButton != null)
+   63: purchaseButton.interactable =
+   71: private void BuildInterface()
+   82: Canvas canvas = canvasObject.GetComponent<Canvas>();
+   86: CanvasScaler scaler = canvasObject.GetComponent<CanvasScaler>();
+   91: if (FindObjectOfType<EventSystem>() == null)
+  102: new Color(0.025f, 0.04f, 0.055f, 0.97f),
+  107: new Color(0.83f, 0.48f, 0.13f, 1f),
+  108: new Vector2(0, 0.925f), new Vector2(1, 0.932f),
+  114: new Vector2(0.045f, 0.94f), new Vector2(0.7f, 0.99f),
+  120: new Vector2(0.045f, 0.86f), new Vector2(0.55f, 0.94f),
+  126: new Vector2(0.65f, 0.89f), new Vector2(0.94f, 0.95f),
+  131: new Vector2(0.82f, 0.935f), new Vector2(0.96f, 0.985f),
+  132: new Color(0.2f, 0.23f, 0.25f, 1f), () =>
+  140: new Vector2(0.045f, 0.79f), new Vector2(0.45f, 0.84f),
+  146: new Vector2(0.045f, 0.755f), new Vector2(0.5f, 0.79f),
+  151: new Color(0.07f, 0.095f, 0.11f, 1f),
+  152: new Vector2(0.04f, 0.18f), new Vector2(0.49f, 0.75f),
+  160: RectTransform scrollRect = scrollObject.GetComponent<RectTransform>();
+  166: Image scrollBackground = scrollObject.GetComponent<Image>();
+  174: RectTransform viewportRect = viewport.GetComponent<RectTransform>();
+  179: viewport.GetComponent<Image>().color = Color.white;
+  180: viewport.GetComponent<Mask>().showMaskGraphic = false;
+  188: RectTransform contentRect = content.GetComponent<RectTransform>();
+  195: VerticalLayoutGroup layout = content.GetComponent<VerticalLayoutGroup>();
+  203: ContentSizeFitter fitter = content.GetComponent<ContentSizeFitter>();
+  206: ScrollRect scroll = scrollObject.GetComponent<ScrollRect>();
+  215: new Color(0.07f, 0.095f, 0.11f, 1f),
+  216: new Vector2(0.515f, 0.18f), new Vector2(0.96f, 0.75f),
+  222: new Vector2(0.54f, 0.68f), new Vector2(0.92f, 0.73f),
+  228: new Vector2(0.54f, 0.59f), new Vector2(0.92f, 0.67f),
+  234: new Vector2(0.54f, 0.54f), new Vector2(0.92f, 0.59f),
+  240: new Vector2(0.54f, 0.47f), new Vector2(0.92f, 0.53f),
+  246: new Vector2(0.54f, 0.32f), new Vector2(0.92f, 0.46f),
+  249: purchaseButton = MakeButton(
+  250: storeRoot.transform, "PurchaseUnitButton", "ACQUIRE UNIT",
+  251: new Vector2(0.54f, 0.205f), new Vector2(0.92f, 0.285f),
+  252: new Color(0.55f, 0.31f, 0.1f, 1f), PurchaseSelectedUnit);
+  257: new Vector2(0.045f, 0.09f), new Vector2(0.92f, 0.15f),
+  263: new Vector2(0.045f, 0.025f), new Vector2(0.8f, 0.07f),
+  267: private GameObject Panel(
+  274: RectTransform rect = obj.GetComponent<RectTransform>();
+  279: obj.GetComponent<Image>().color = color;
+  283: private Text MakeText(
+  292: RectTransform rect = obj.GetComponent<RectTransform>();
+  298: Text text = obj.GetComponent<Text>();
+  309: private Button MakeButton(
+  320: RectTransform rect = obj.GetComponent<RectTransform>();
+  326: Image image = obj.GetComponent<Image>();
+  329: Button button = obj.GetComponent<Button>();
+  339: private void RefreshCatalog()
+  343: if (!UnitDatabaseRuntime.EnsureInitialized())
+  345: SetStatus("ERROR: Unit database could not initialize.");
+  349: var database = UnitDatabaseRuntime.Database;
+  359: string.IsNullOrWhiteSpace(unit.UnitId) ||
+  372: private void CreateUnitCard(UnitDefinition unit)
+  375: "UnitCard_" + unit.UnitId,
+  379: card.GetComponent<LayoutElement>().preferredHeight = 72;
+  380: card.GetComponent<LayoutElement>().minHeight = 72;
+  382: Image image = card.GetComponent<Image>();
+  385: Button button = card.GetComponent<Button>();
+  393: new Vector2(0.04f, 0.42f), new Vector2(0.96f, 0.94f),
+  398: new Vector2(0.04f, 0.06f), new Vector2(0.96f, 0.42f),
+  404: private void SelectUnit(UnitDefinition unit)
+  415: "UNIT ID: " + unit.UnitId +
+  418: "\n\nPurchase adds this unit to campaign inventory and registers it with fleet management.";
+  423: private void PurchaseSelectedUnit()
+  433: SetStatus("PURCHASE BLOCKED  /  Start or load a campaign first.");
+  437: bool success = purchaseService.Purchase(selectedUnit.UnitId);
+  449: private void SetStatus(string message)
+
+========================================================================
+FILE: Assets\Game\Store\UI\StoreUnitCatalogBuilder.cs
+========================================================================
+Full path: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UI\StoreUnitCatalogBuilder.cs
+    7: public sealed class StoreUnitCatalogBuilder : MonoBehaviour
+   11: public bool BuildCatalog()
+   13: if (!UnitDatabaseRuntime.EnsureInitialized())
+   15: Debug.LogError("[Store] Unit database could not be initialized.");
+   19: var database = UnitDatabaseRuntime.Database;
+   32: string.IsNullOrWhiteSpace(unit.UnitId) ||
+   40: string id = unit.UnitId.Trim();
+   65: public void ClearCatalog()
+
+========================================================================
+FILE: Assets\Scripts\UI\Store\StoreRuntimeController.cs
+========================================================================
+Full path: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs
+   32: private Button purchaseButton;
+   59: private void Awake()
+   61: BuildStore();
+   64: private void BuildStore()
+   66: canvas = GetComponent<Canvas>();
+   69: canvas = GetComponentInParent<Canvas>();
+  106: new Color(0.012f, 0.019f, 0.024f, 0.985f);
+  110: BuildCatalog();
+  119: private void BuildTopBar()
+  125: new Vector2(0f, 0.90f),
+  126: new Vector2(1f, 1f),
+  127: new Color(0.020f, 0.032f, 0.040f, 1f));
+  190: private void BuildCategoryRail()
+  196: new Vector2(0.015f, 0.105f),
+  197: new Vector2(0.155f, 0.885f),
+  198: new Color(0.020f, 0.032f, 0.040f, 1f));
+  219: new Vector2(0.07f, 0.08f),
+  220: new Vector2(0.93f, 0.91f));
+  227: new RectOffset(0, 0, 4, 4);
+  252: RefreshCatalog();
+  257: private void BuildCatalog()
+  263: new Vector2(0.17f, 0.105f),
+  264: new Vector2(0.655f, 0.885f),
+  265: new Color(0.020f, 0.032f, 0.040f, 1f));
+  301: new Vector2(0.025f, 0.025f),
+  302: new Vector2(0.975f, 0.915f));
+  308: new Color(0f, 0f, 0f, 0.01f);
+  328: new Vector2(0f, 1f),
+  329: new Vector2(1f, 1f));
+  332: new Vector2(0.5f, 1f);
+  338: new Vector2(245f, 132f);
+  341: new Vector2(10f, 10f);
+  344: new RectOffset(5, 5, 5, 5);
+  360: private void BuildDetails()
+  366: new Vector2(0.67f, 0.105f),
+  367: new Vector2(0.985f, 0.885f),
+  368: new Color(0.025f, 0.040f, 0.048f, 1f));
+  478: purchaseButton =
+  481: "PURCHASE UNIT",
+  486: purchaseButton.GetComponent<RectTransform>(),
+  492: purchaseButton.onClick.AddListener(
+  496: private TMP_Text DetailLine(
+  520: private void BuildBottomBar()
+  526: new Vector2(0f, 0f),
+  527: new Vector2(1f, 0.075f),
+  528: new Color(0.018f, 0.029f, 0.036f, 1f));
+  546: private void BuildConfirmation()
+  552: new Vector2(0.30f, 0.30f),
+  553: new Vector2(0.70f, 0.70f),
+  554: new Color(0.012f, 0.022f, 0.029f, 0.995f))
+  595: confirm.GetComponent<RectTransform>(),
+  602: CompletePurchase);
+  612: cancel.GetComponent<RectTransform>(),
+  624: private void LoadDefinitions()
+  650: private void RefreshEverything()
+  654: RefreshCatalog();
+  658: private void RefreshCredits()
+  668: private void RefreshCategories()
+  679: private void RefreshCatalog()
+  724: private void CreateCard(
+  728: new GameObject(
+  739: card.GetComponent<Image>();
+  742: new Color(
+  749: card.GetComponent<RectTransform>();
+  782: UnitDatabaseRuntime.Get(
+  838: inspect.GetComponent<RectTransform>(),
+  855: private void RefreshDetails()
+  871: purchaseButton.interactable = false;
+  885: UnitDatabaseRuntime.Get(
+  948: purchaseButton.interactable =
+  954: private void OpenConfirmation()
+  961: UnitDatabaseRuntime.Get(selectedId);
+  988: private void CompletePurchase()
+  995: UnitPurchaseService service =
+  996: new UnitPurchaseService();
+  999: service.Purchase(selectedId);
+ 1008: private void CloseConfirmation()
+ 1014: private string Category(string id)
+ 1076: private RectTransform Panel(
+ 1094: private TMP_Text Label(
+ 1102: new GameObject(
+ 1112: obj.GetComponent<TMP_Text>();
+ 1124: new Color(
+ 1133: private Button MakeButton(
+ 1140: new GameObject(
+ 1151: obj.GetComponent<Image>();
+ 1154: new Color(
+ 1161: obj.GetComponent<Button>();
+ 1167: new Color(
+ 1174: new Color(
+ 1181: new Color(
+ 1188: new Color(
+ 1214: private RectTransform Rect(
+ 1221: new GameObject(
+ 1230: obj.GetComponent<RectTransform>();
+ 1240: private void SetRect(
+ 1248: new Vector2(minX, minY);
+ 1251: new Vector2(maxX, maxY);
+
+========================================================================
+FILE: Assets\Scripts\UI\Store\StoreTerminalInteraction.cs
+========================================================================
+Full path: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreTerminalInteraction.cs
+    9: private StoreMasterController storeController;
+   12: private void Start()
+   15: storeController = FindFirstObjectByType<StoreMasterController>();
+   16: terminalCollider = GetComponent<Collider>();
+   24: BoxCollider glassCollider = item.GetComponent<BoxCollider>();
+   34: Debug.Log("[STORE] Three procurement glass panels initialized.");
+   37: private void Update()
+   59: storeController = FindFirstObjectByType<StoreMasterController>();
+   63: Debug.LogError("[STORE] StoreMasterController not found.");
+
+========================================================================
+FILE: Assets\Editor\StoreMasterBuilder.cs
+========================================================================
+Full path: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreMasterBuilder.cs
+   10: public static void Build()
+   13: EditorSceneManager.GetActiveScene();
+   40: new GameObject(
+   51: new GameObject(
+   62: new GameObject(
+   91: new Vector2(1920f, 1080f);
+  104: StoreMasterController controller =
+  105: hud.GetComponent<StoreMasterController>();
+  109: hud.AddComponent<StoreMasterController>();
+  116: EditorSceneManager.MarkSceneDirty(scene);
+  117: EditorSceneManager.SaveScene(scene);
+  123: private static void BuildFacility(
+  130: new GameObject(
+  147: new Color(
+  157: new Vector2(
+  162: new Vector3(
+
+========================================================================
+FILE: Assets\Editor\StoreAAABuilder.cs
+========================================================================
+FILE NOT FOUND
+
+========================================================================
+FILE: Assets\Editor\StoreRebuildBuilder.cs
+========================================================================
+Full path: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreRebuildBuilder.cs
+    8: [MenuItem("Obsidian Protocol/Store/Install Rebuilt Store")]
+    9: public static void Build()
+   12: EditorSceneManager.GetActiveScene();
+   38: EditorSceneManager.MarkSceneDirty(scene);
+   39: EditorSceneManager.SaveScene(scene);
+
+========================================================================
+FILE: Assets\Editor\StoreRuntimeBuilder.cs
+========================================================================
+Full path: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\StoreRuntimeBuilder.cs
+    5: public static class StoreRuntimeBuilder
+   10: [MenuItem("Obsidian Protocol/Store/REMOVE Runtime Overlay")]
+   11: public static void RemoveRuntimeOverlay()
+   13: EditorSceneManager.OpenScene(
+   15: OpenSceneMode.Single);
+   21: Object.DestroyImmediate(existing);
+   23: EditorSceneManager.SaveScene(
+
+========================================================================
+FILE: Assets\Editor\SCN16StorePlayerSetup.cs
+========================================================================
+Full path: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\SCN16StorePlayerSetup.cs
+    8: [MenuItem("Obsidian Protocol/Store/Fix Player Movement and Camera")]
+    9: private static void Setup()
+   31: Undo.RegisterCreatedObjectUndo(player, "Create Store Player");
+   51: EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
+   52: EditorSceneManager.SaveScene(SceneManager.GetActiveScene());
+
+========================================================================
+STORE IMAGE INVENTORY
+========================================================================
+Image directory: C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\Images
+Image file count: 78
+Armored Bulldozer.png | 1132726 bytes
+Armored Grader.png | 1178985 bytes
+Armored Loader.png | 1043707 bytes
+Astral.png | 1011149 bytes
+AUTONOMOUS DOCKING PLATFORM.png | 1087808 bytes
+beacon.png | 1014002 bytes
+Boat Launcher.png | 1016832 bytes
+Boat Recovery Trailer.png | 1068838 bytes
+Bridge Deployment Vehicle.png | 1155737 bytes
+Cargo Carrier.png | 1147728 bytes
+Cartographer.png | 1001635 bytes
+Command Unit Insight.png | 1540871 bytes
+Container Transport Vehicle.png | 980231 bytes
+Cosmos.png | 1326043 bytes
+Counter Jammer.png | 1368533 bytes
+Crusher.png | 1023566 bytes
+Drone Carrier.png | 1146713 bytes
+Drop.png | 1000572 bytes
+Electric Batery Transport Vehicle.png | 1044363 bytes
+electric power and charging barge.png | 1018683 bytes
+Energy Transport Vehicle.png | 1178559 bytes
+Equipment Transport Trailer.png | 896948 bytes
+Galaxy.png | 1255373 bytes
+Hammer.png | 1136063 bytes
+Hauler.png | 1129918 bytes
+Heavy Cargo Forklift.png | 1085127 bytes
+Heavy Equipment Trailer.png | 1038075 bytes
+Heavy Marine Transporter.png | 847473 bytes
+Heavy Recovery Crane.png | 1143180 bytes
+Heavy Recovery Vehicle.png | 1023462 bytes
+Heavy Tractor Vehicle.png | 1074704 bytes
+Insight.png | 1424675 bytes
+Inspect.png | 873705 bytes
+Iris.png | 1233807 bytes
+Ironwalker.png | 1583691 bytes
+Jammer.png | 1145991 bytes
+Lidar.png | 1090772 bytes
+LifeLine.png | 1044818 bytes
+Link.png | 1129888 bytes
+Locator.png | 1269798 bytes
+Marine Crane.png | 1348519 bytes
+Marine Transport Trailer.png | 1108896 bytes
+Meshy_AI_2c43c0da870789a831a1030b34fbfd50b153e3937b0b8ad6efe676306fdae688.png | 1056242 bytes
+Meshy_AI_554f5b10e7ac6d978a1110e7816c1bff92dcf6e826d6e6ec1282e8a30b8eae0c.png | 1087808 bytes
+Meshy_AI_844dd6b93ed667f26fdde009f5b778397a9073933bd50997693a07b11522224d.png | 1018683 bytes
+Meshy_AI_f04a7f2994925ab203bcffce89450bc2be402e18f539bbd5dd1b9bec0f0b0471.png | 1449141 bytes
+Meshy_AI_image_08c56f01-5763-4358-a8fd-73349af1754f_0.png | 1322937 bytes
+Meshy_AI_image_b08b907f-9fee-4de5-8f9d-4b991795f4a9_0.png | 1523380 bytes
+mobile communications relay vehicle.png | 1107303 bytes
+Mobile Dock.png | 1123965 bytes
+Mobile Fabrication Workshop.png | 1076867 bytes
+Mobile Heavy Crane.png | 1071708 bytes
+Mobile Power Vehicle.png | 1150833 bytes
+mobile radar vehicle.png | 1320145 bytes
+Mobile Repair Vevicle.png | 1021878 bytes
+mobile sensor mast vehicle.png | 1145068 bytes
+Mobile Workshop Trailer.png | 1102602 bytes
+Mule.png | 1126545 bytes
+Nebula.png | 1458829 bytes
+Orbiter.png | 1037716 bytes
+Patrol.png | 1108585 bytes
+Pulse.png | 1148492 bytes
+Rescue.png | 1434511 bytes
+Robotic Crane.png | 1269327 bytes
+Rover.png | 1147823 bytes
+satellite communications tower.png | 1056242 bytes
+ScoutEye.png | 743269 bytes
+scrap and recovery collector.png | 1202986 bytes
+Sentinel.png | 885405 bytes
+Skylink.png | 1329866 bytes
+Sonar.png | 1043579 bytes
+Starcast.png | 1576816 bytes
+Surveyor MK1.png | 1309472 bytes
+Tidebreaker.png | 1378497 bytes
+Tracked Excavator.png | 1089958 bytes
+Universal Utility Trailer.png | 1075566 bytes
+VectorCore.png | 1229311 bytes
+Worldmap.png | 1444694 bytes
+
+========================================================================
+UNIT DATABASE ASSET LOCATIONS
+========================================================================
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\Units\BuildUnitDatabase.cs | 38331 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\Units\BuildUnitDatabase.cs.bak_20261021 | 38936 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\Units\BuildUnitDatabase.cs.bak_20261021.meta | 155 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\Units\BuildUnitDatabase.cs.bak_cleanup_20261021_181614 | 38936 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\Units\BuildUnitDatabase.cs.bak_cleanup_20261021_181614.meta | 155 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\Units\BuildUnitDatabase.cs.bak_guard_20261021_181922 | 38936 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\Units\BuildUnitDatabase.cs.bak_guard_20261021_181922.meta | 155 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\Units\BuildUnitDatabase.cs.bak_guard_20261021_182117 | 38400 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\Units\BuildUnitDatabase.cs.bak_guard_20261021_182117.meta | 155 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\Units\BuildUnitDatabase.cs.meta | 59 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\Units\BuildUnitDatabase.cs.pre-scout-eye-config-20261015_181940 | 12187 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\Units\BuildUnitDatabase.cs.pre-scout-eye-config-20261015_181940.meta | 155 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\Units\BuildUnitDatabase.cs.pre-scout-eye-economy-20261015_182054 | 18411 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\Units\BuildUnitDatabase.cs.pre-scout-eye-economy-20261015_182054.meta | 155 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\Units\BuildUnitDatabase.cs.pre-scout-eye-guard-20261015_181803 | 11953 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\Units\BuildUnitDatabase.cs.pre-scout-eye-guard-20261015_181803.meta | 155 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\Units\BuildUnitDatabase.cs.pre-scout-eye-lists-20261015_182232 | 22973 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\Units\BuildUnitDatabase.cs.pre-scout-eye-lists-20261015_182232.meta | 155 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\Units\BuildUnitDatabase.cs.pre-scout-eye-sensors-20261015_182009 | 15017 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\Units\BuildUnitDatabase.cs.pre-scout-eye-sensors-20261015_182009.meta | 155 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\Units\UnitDatabaseManagerWindow.cs | 16446 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Editor\Units\UnitDatabaseManagerWindow.cs.meta | 59 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryUnitDefinitionBridge.cs | 1140 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryUnitDefinitionBridge.cs.meta | 59 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitCatalog.cs | 3233 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitCatalog.cs.meta | 59 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UI\StoreUnitCatalogBuilder.cs | 2113 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UI\StoreUnitCatalogBuilder.cs.meta | 59 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\UnitDefinition.cs | 14409 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\UnitDefinition.cs.meta | 59 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\Database\UnitDatabase.asset | 5584 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\Database\UnitDatabase.asset.bak_cleanup_20261021_181614 | 5595 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\Database\UnitDatabase.asset.bak_cleanup_20261021_181614.meta | 155 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\Database\UnitDatabase.asset.bak_nullfix_20261021_182926 | 5595 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\Database\UnitDatabase.asset.bak_nullfix_20261021_182926.meta | 155 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\Database\UnitDatabase.asset.meta | 189 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\Database\UnitDatabase.cs | 1740 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\Database\UnitDatabase.cs.meta | 59 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\Database\UnitDatabaseRuntime.cs | 1422 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\Database\UnitDatabaseRuntime.cs.meta | 59 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Resources\UnitDatabase.asset | 5584 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Resources\UnitDatabase.asset.bak_cleanup_20261021_181614 | 5595 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Resources\UnitDatabase.asset.bak_cleanup_20261021_181614.meta | 155 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Resources\UnitDatabase.asset.bak_nullfix_20261021_182926 | 5595 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Resources\UnitDatabase.asset.bak_nullfix_20261021_182926.meta | 155 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Resources\UnitDatabase.asset.meta | 182 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\ThirdParty\RTS-Learning\MiniRTS\MiniRTS\Assets\Scripts\MiniRTS\UnitDefinition.cs | 5612 bytes
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\ThirdParty\RTS-Learning\MiniRTS\MiniRTS\Assets\Scripts\MiniRTS\UnitDefinition.cs.meta | 62 bytes

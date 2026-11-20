@@ -1,0 +1,202 @@
+﻿using System.Collections.Generic;
+using System.IO;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public static class RebuildStorePrefabFromSource
+{
+    private const string SourceScene = "Assets/Scenes/SCN16_STORE/SCN16_STORE.unity";
+    private const string MaterialFolder = "Assets/Materials/StoreExtracted";
+    private const string OutputPrefab = "Assets/Prefabs/Buildings/Store/STORE_FACILITY_MATERIAL_TEST_03.prefab";
+
+    [MenuItem("Obsidian Protocol/Store/Extract Materials And Build Test Prefab")]
+    private static void ExtractAndBuild()
+    {
+        if (EditorApplication.isPlaying)
+        {
+            Debug.LogError("[STORE EXTRACT] Stop Play Mode first.");
+            return;
+        }
+
+        if (AssetDatabase.LoadAssetAtPath<GameObject>(OutputPrefab) != null)
+        {
+            Debug.LogError("[STORE EXTRACT] Output already exists; refusing to overwrite: " + OutputPrefab);
+            return;
+        }
+
+        Scene source = SceneManager.GetSceneByPath(SourceScene);
+        bool openedHere = !source.IsValid() || !source.isLoaded;
+
+        try
+        {
+            if (openedHere)
+                source = EditorSceneManager.OpenScene(SourceScene, OpenSceneMode.Additive);
+
+            if (!source.IsValid() || !source.isLoaded)
+            {
+                Debug.LogError("[STORE EXTRACT] Could not load source scene.");
+                return;
+            }
+
+            GameObject original = null;
+            foreach (GameObject candidate in Resources.FindObjectsOfTypeAll<GameObject>())
+            {
+                if (candidate.name == "STORE_FACILITY" && candidate.scene == source)
+                {
+                    original = candidate;
+                    break;
+                }
+            }
+
+            if (original == null)
+            {
+                Debug.LogError("[STORE EXTRACT] STORE_FACILITY not found.");
+                return;
+            }
+
+            if (!AssetDatabase.IsValidFolder("Assets/Materials"))
+                AssetDatabase.CreateFolder("Assets", "Materials");
+            if (!AssetDatabase.IsValidFolder(MaterialFolder))
+                AssetDatabase.CreateFolder("Assets/Materials", "StoreExtracted");
+
+            GameObject copy = null;
+            var extracted = new Dictionary<Material, Material>();
+            int slotsBefore = 0;
+            int emptyBefore = 0;
+            int extractedCount = 0;
+
+            try
+            {
+                copy = Object.Instantiate(original);
+                copy.name = "STORE_FACILITY";
+                copy.transform.SetParent(null, false);
+                copy.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
+                copy.transform.localScale = Vector3.one;
+
+                foreach (Renderer renderer in copy.GetComponentsInChildren<Renderer>(true))
+                {
+                    Material[] materials = renderer.sharedMaterials;
+                    bool changed = false;
+
+                    for (int i = 0; i < materials.Length; i++)
+                    {
+                        slotsBefore++;
+                        Material material = materials[i];
+
+                        if (material == null)
+                        {
+                            emptyBefore++;
+                            continue;
+                        }
+
+                        if (!string.IsNullOrEmpty(AssetDatabase.GetAssetPath(material)))
+                            continue;
+
+                        if (!extracted.TryGetValue(material, out Material asset))
+                        {
+                            string safeName = string.Join("_", material.name.Split(Path.GetInvalidFileNameChars()));
+                            if (string.IsNullOrWhiteSpace(safeName))
+                                safeName = "StoreMaterial";
+
+                            string path = AssetDatabase.GenerateUniqueAssetPath(
+                                MaterialFolder + "/" + safeName + ".mat");
+
+                            asset = new Material(material);
+                            asset.name = material.name;
+                            AssetDatabase.CreateAsset(asset, path);
+                            extracted.Add(material, asset);
+                            extractedCount++;
+                        }
+
+                        materials[i] = asset;
+                        changed = true;
+                    }
+
+                    if (changed)
+                        renderer.sharedMaterials = materials;
+                }
+
+                AssetDatabase.SaveAssets();
+
+                GameObject saved = PrefabUtility.SaveAsPrefabAsset(copy, OutputPrefab);
+                if (saved == null)
+                {
+                    Debug.LogError("[STORE EXTRACT] Prefab save failed: " + OutputPrefab);
+                    return;
+                }
+
+                int rendererCount = saved.GetComponentsInChildren<Renderer>(true).Length;
+                int slotsAfter = 0;
+                int emptyAfter = 0;
+                int unpersistedAfter = 0;
+
+                foreach (Renderer renderer in saved.GetComponentsInChildren<Renderer>(true))
+                {
+                    foreach (Material material in renderer.sharedMaterials)
+                    {
+                        slotsAfter++;
+                        if (material == null)
+                            emptyAfter++;
+                        else if (string.IsNullOrEmpty(AssetDatabase.GetAssetPath(material)))
+                            unpersistedAfter++;
+                    }
+                }
+
+                Debug.Log(
+                    "[STORE EXTRACT RESULT] Prefab=" + OutputPrefab +
+                    " | Extracted materials=" + extractedCount +
+                    " | Renderers=" + rendererCount +
+                    " | Slots before=" + slotsBefore +
+                    " | Initially empty=" + emptyBefore +
+                    " | Slots after=" + slotsAfter +
+                    " | Empty after=" + emptyAfter +
+                    " | Non-asset materials after=" + unpersistedAfter);
+
+                if (emptyAfter != 0 || unpersistedAfter != 0)
+                    Debug.LogError("[STORE EXTRACT] Validation failed. Do not place this prefab in Blackspire yet.");
+                else
+                    Debug.Log("[STORE EXTRACT] Material-slot validation passed. Inspect the prefab before placement.");
+            }
+            finally
+            {
+                if (copy != null)
+                    Object.DestroyImmediate(copy);
+            }
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogException(ex);
+        }
+        finally
+        {
+            if (openedHere && source.IsValid() && source.isLoaded)
+                EditorSceneManager.CloseScene(source, true);
+        }
+    }
+
+    [MenuItem("Obsidian Protocol/Store/Frame Test 03 In Scene View")]
+    private static void FrameTest03()
+    {
+        const string path = "Assets/Prefabs/Buildings/Store/STORE_FACILITY_MATERIAL_TEST_03.prefab";
+        GameObject root = PrefabUtility.LoadPrefabContents(path);
+        if (root == null) { Debug.LogError("Test prefab could not be loaded."); return; }
+        try
+        {
+            Renderer[] rs = root.GetComponentsInChildren<Renderer>(true);
+            if (rs.Length == 0) { Debug.LogError("Prefab has no renderers."); return; }
+            Bounds b = rs[0].bounds;
+            foreach (Renderer r in rs) b.Encapsulate(r.bounds);
+            SceneView view = SceneView.lastActiveSceneView;
+            if (view == null) view = EditorWindow.GetWindow<SceneView>();
+            view.Frame(b, false);
+            view.Repaint();
+            Debug.Log("[STORE FRAME] Framed test prefab bounds: " + b);
+        }
+        finally { PrefabUtility.UnloadPrefabContents(root); }
+    }
+}
+
+
+

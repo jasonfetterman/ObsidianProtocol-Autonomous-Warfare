@@ -1,0 +1,572 @@
+using System;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using ObsidianProtocol.Game.Store.UI;
+using UnityEngine.SceneManagement;
+
+public static class StoreCatalogueBuilder
+{
+    private const string ScenePath = "Assets/Scenes/SCN02_COMMAND_CENTER/COMMAND CENTER HUD/Command_Center.unity";
+
+    private static readonly string[] Categories =
+    {
+        "AIR UNIT", "COMMAND UNIT", "EXPERIMENTAL",
+        "GROUND UNIT", "SATELLITE", "SEA UNIT"
+    };
+
+    private static readonly Color Background = new Color(.012f, .027f, .043f, 1);
+    private static readonly Color Panel = new Color(.025f, .065f, .09f, 1);
+    private static readonly Color Card = new Color(.035f, .085f, .115f, 1);
+    private static readonly Color Cyan = new Color(.20f, .78f, .91f, 1);
+    private static readonly Color Muted = new Color(.48f, .67f, .75f, 1);
+    private static readonly Color White = new Color(.86f, .95f, .98f, 1);
+
+    [MenuItem("Obsidian Protocol/Command Center/BUILD AAA UNIT STORE")]
+    public static void Build()
+    {
+        var scene = SceneManager.GetActiveScene();
+        if (scene.path != ScenePath)
+            scene = EditorSceneManager.OpenScene(ScenePath);
+
+        string backup = ScenePath + ".backup_before_AAA_store";
+        if (!System.IO.File.Exists(backup))
+            System.IO.File.Copy(ScenePath, backup);
+
+        GameObject store = FindSceneObject("STORE_REAL_PANEL");
+        if (store == null)
+        {
+            Debug.LogError("[STORE] STORE_REAL_PANEL not found.");
+            return;
+        }
+
+        for (int i = store.transform.childCount - 1; i >= 0; i--)
+            UnityEngine.Object.DestroyImmediate(store.transform.GetChild(i).gameObject);
+
+        RectTransform storeRect = store.GetComponent<RectTransform>();
+        if (storeRect == null)
+        {
+            Debug.LogError("[STORE] Panel has no RectTransform.");
+            return;
+        }
+
+        GameObject root = new GameObject("AAA_UNIT_STORE", typeof(RectTransform), typeof(Image));
+        root.transform.SetParent(store.transform, false);
+        Stretch(root.GetComponent<RectTransform>());
+        root.GetComponent<Image>().color = Background;
+
+        BuildHeader(root.transform);
+        StoreCatalogueInteractionController controller = root.AddComponent<StoreCatalogueInteractionController>();
+        BuildDetailsPanel(root.transform, controller);
+
+        GameObject scrollRoot = new GameObject("CATALOGUE_SCROLL", typeof(RectTransform), typeof(ScrollRect));
+        scrollRoot.transform.SetParent(root.transform, false);
+
+        RectTransform scrollRect = scrollRoot.GetComponent<RectTransform>();
+        scrollRect.anchorMin = Vector2.zero;
+        scrollRect.anchorMax = Vector2.one;
+        scrollRect.offsetMin = new Vector2(0, 0);
+        scrollRect.offsetMax = new Vector2(0, -112);
+
+        GameObject viewport = new GameObject("VIEWPORT", typeof(RectTransform), typeof(Image), typeof(Mask));
+        viewport.transform.SetParent(scrollRoot.transform, false);
+        Stretch(viewport.GetComponent<RectTransform>());
+        viewport.GetComponent<Image>().color = Color.white;
+        viewport.GetComponent<Mask>().showMaskGraphic = false;
+
+        GameObject content = new GameObject("CATALOGUE_CONTENT", typeof(RectTransform), typeof(VerticalLayoutGroup), typeof(ContentSizeFitter));
+        content.transform.SetParent(viewport.transform, false);
+
+        RectTransform contentRect = content.GetComponent<RectTransform>();
+        contentRect.anchorMin = new Vector2(0, 1);
+        contentRect.anchorMax = new Vector2(1, 1);
+        contentRect.pivot = new Vector2(.5f, 1);
+        contentRect.sizeDelta = Vector2.zero;
+
+        VerticalLayoutGroup vertical = content.GetComponent<VerticalLayoutGroup>();
+        vertical.padding = new RectOffset(24, 24, 22, 28);
+        vertical.spacing = 18;
+        vertical.childControlWidth = true;
+        vertical.childControlHeight = true;
+        vertical.childForceExpandWidth = true;
+        vertical.childForceExpandHeight = false;
+        content.GetComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+
+        ScrollRect scroll = scrollRoot.GetComponent<ScrollRect>();
+        scroll.viewport = viewport.GetComponent<RectTransform>();
+        scroll.content = contentRect;
+        scroll.horizontal = false;
+        scroll.vertical = true;
+        scroll.movementType = ScrollRect.MovementType.Clamped;
+        scroll.scrollSensitivity = 60f;
+
+        int total = 0;
+        int[] categoryCounts = new int[Categories.Length];
+        string[][] categoryGuids = new string[Categories.Length][];
+
+        for (int i = 0; i < Categories.Length; i++)
+        {
+            string folder = "Assets/Game/Units/Database/" + Categories[i];
+            categoryGuids[i] = AssetDatabase.FindAssets("t:UnitDefinition", new[] { folder });
+            Array.Sort(categoryGuids[i]);
+            categoryCounts[i] = categoryGuids[i].Length;
+            total += categoryCounts[i];
+        }
+
+        BuildCategoryNavigation(content.transform, categoryCounts);
+
+        for (int i = 0; i < Categories.Length; i++)
+        {
+            BuildCategory(content.transform, Categories[i], categoryGuids[i]);
+        }
+
+        BuildFooter(content.transform, total);
+
+        EditorSceneManager.MarkSceneDirty(scene);
+        EditorSceneManager.SaveScene(scene);
+
+        Debug.Log("[STORE] AAA catalogue built. " + total + " unit cards across six categories.");
+    }
+
+    private static void BuildHeader(Transform parent)
+    {
+        GameObject header = CreatePanel(parent, "PROCUREMENT_HEADER", Panel, 96);
+        RectTransform rect = header.GetComponent<RectTransform>();
+        rect.anchorMin = new Vector2(0, 1);
+        rect.anchorMax = new Vector2(1, 1);
+        rect.pivot = new Vector2(.5f, 1);
+        rect.offsetMin = new Vector2(0, -96);
+        rect.offsetMax = Vector2.zero;
+
+        AddText(header.transform, "OBSIDIAN  //  MILITARY PROCUREMENT", 11, true, Cyan);
+        AddText(header.transform, "UNIT ARMORY", 25, true, White);
+        AddText(header.transform, "FORCE ASSET CATALOGUE     /     AUTHORIZED PROCUREMENT", 10, false, Muted);
+    }
+
+    private static void BuildCategoryNavigation(Transform parent, int[] counts)
+    {
+        GameObject nav = CreatePanel(parent, "CATEGORY_NAVIGATION", Panel, 62);
+
+        AddText(nav.transform, "BROWSE BY CLASSIFICATION", 10, true, Cyan);
+
+        GameObject row = new GameObject("CATEGORY_INDICATORS", typeof(RectTransform), typeof(HorizontalLayoutGroup), typeof(LayoutElement));
+        row.transform.SetParent(nav.transform, false);
+
+        HorizontalLayoutGroup horizontal = row.GetComponent<HorizontalLayoutGroup>();
+        horizontal.spacing = 8;
+        horizontal.childControlWidth = true;
+        horizontal.childControlHeight = true;
+        horizontal.childForceExpandWidth = true;
+        horizontal.childForceExpandHeight = true;
+
+        for (int i = 0; i < Categories.Length; i++)
+        {
+            GameObject tab = new GameObject("CATEGORY_" + i, typeof(RectTransform), typeof(Image), typeof(LayoutElement));
+            tab.transform.SetParent(row.transform, false);
+            tab.GetComponent<Image>().color = new Color(.045f, .12f, .16f, 1);
+            tab.GetComponent<LayoutElement>().preferredHeight = 34;
+            AddText(tab.transform, Categories[i] + "  /  " + counts[i], 9, true, White);
+        }
+    }
+
+    private static void BuildCategory(Transform parent, string category, string[] guids)
+    {
+        GameObject section = new GameObject(
+            "SECTION_" + category.Replace(" ", "_"),
+            typeof(RectTransform),
+            typeof(VerticalLayoutGroup),
+            typeof(LayoutElement));
+
+        section.transform.SetParent(parent, false);
+
+        VerticalLayoutGroup sectionLayout = section.GetComponent<VerticalLayoutGroup>();
+        sectionLayout.spacing = 10;
+        sectionLayout.childControlWidth = true;
+        sectionLayout.childControlHeight = true;
+        sectionLayout.childForceExpandWidth = true;
+        sectionLayout.childForceExpandHeight = false;
+
+        GameObject heading = CreatePanel(section.transform, "CATEGORY_HEADING", Panel, 43);
+        AddText(heading.transform, category, 17, true, Cyan);
+        AddText(heading.transform, "REGISTERED ASSETS  /  " + guids.Length, 9, false, Muted);
+
+        GameObject gridObject = new GameObject(
+            "UNIT_CARD_GRID",
+            typeof(RectTransform),
+            typeof(GridLayoutGroup),
+            typeof(ContentSizeFitter));
+
+        gridObject.transform.SetParent(section.transform, false);
+
+        GridLayoutGroup grid = gridObject.GetComponent<GridLayoutGroup>();
+        grid.cellSize = new Vector2(250, 285);
+        grid.spacing = new Vector2(14, 14);
+        grid.padding = new RectOffset(2, 2, 2, 8);
+        grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+        grid.constraintCount = 6;
+        grid.childAlignment = TextAnchor.UpperLeft;
+
+        ContentSizeFitter fitter = gridObject.GetComponent<ContentSizeFitter>();
+        fitter.horizontalFit = ContentSizeFitter.FitMode.Unconstrained;
+        fitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+
+        foreach (string guid in guids)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            UnityEngine.Object asset = AssetDatabase.LoadMainAssetAtPath(path);
+            if (asset == null) continue;
+
+            CreateUnitCard(gridObject.transform, asset);
+        }
+    }
+
+    private static void CreateUnitCard(Transform parent, UnityEngine.Object asset)
+    {
+        SerializedObject data = new SerializedObject(asset);
+
+        GameObject card = new GameObject(
+            "UNIT_CARD_" + asset.name,
+            typeof(RectTransform),
+            typeof(Image),
+            typeof(VerticalLayoutGroup),
+            typeof(LayoutElement));
+
+        card.transform.SetParent(parent, false);
+        card.GetComponent<Image>().color = Card;
+
+        Button cardButton = card.AddComponent<Button>();
+        cardButton.targetGraphic = card.GetComponent<Image>();
+        cardButton.transition = Selectable.Transition.ColorTint;
+        StoreCatalogueCard cardData = card.AddComponent<StoreCatalogueCard>();
+        SerializedProperty idProperty = data.FindProperty("unitId");
+        cardData.UnitId = idProperty != null ? idProperty.stringValue : string.Empty;
+
+        LayoutElement cardElement = card.GetComponent<LayoutElement>();
+        cardElement.preferredWidth = 250;
+        cardElement.preferredHeight = 285;
+        cardElement.minHeight = 285;
+
+        VerticalLayoutGroup layout = card.GetComponent<VerticalLayoutGroup>();
+        layout.padding = new RectOffset(12, 12, 12, 12);
+        layout.spacing = 6;
+        layout.childControlWidth = true;
+        layout.childControlHeight = false;
+        layout.childForceExpandWidth = true;
+        layout.childForceExpandHeight = false;
+
+        GameObject artworkFrame = new GameObject(
+            "ARTWORK_FRAME",
+            typeof(RectTransform),
+            typeof(Image),
+            typeof(LayoutElement));
+
+        artworkFrame.transform.SetParent(card.transform, false);
+        artworkFrame.GetComponent<Image>().color = new Color(.012f, .035f, .05f, 1);
+        artworkFrame.GetComponent<Image>().raycastTarget = false;
+        artworkFrame.GetComponent<LayoutElement>().preferredHeight = 132;
+
+        GameObject artwork = new GameObject("UNIT_ARTWORK", typeof(RectTransform), typeof(RawImage));
+        artwork.transform.SetParent(artworkFrame.transform, false);
+        Stretch(artwork.GetComponent<RectTransform>());
+
+        RawImage rawImage = artwork.GetComponent<RawImage>();
+        rawImage.color = Color.white;
+        rawImage.raycastTarget = false;
+
+        SerializedProperty imageProperty = data.FindProperty("storeImage");
+        if (imageProperty != null && imageProperty.propertyType == SerializedPropertyType.ObjectReference)
+        {
+            UnityEngine.Object reference = imageProperty.objectReferenceValue;
+            if (reference is Sprite sprite) rawImage.texture = sprite.texture;
+            else if (reference is Texture texture) rawImage.texture = texture;
+        }
+
+        AddText(card.transform, ReadString(data, "displayName", asset.name), 16, true, White);
+        AddText(card.transform, ReadString(data, "role", "ROLE UNASSIGNED"), 10, false, Muted);
+        AddText(card.transform, "TIER  /  " + ReadString(data, "tier", "UNSPECIFIED"), 10, true, Cyan);
+
+        GameObject footer = new GameObject(
+            "CARD_FOOTER",
+            typeof(RectTransform),
+            typeof(Image),
+            typeof(LayoutElement));
+
+        footer.transform.SetParent(card.transform, false);
+        footer.GetComponent<Image>().color = new Color(.055f, .15f, .19f, 1);
+        footer.GetComponent<Image>().raycastTarget = false;
+        footer.GetComponent<LayoutElement>().preferredHeight = 32;
+
+        AddText(footer.transform, "CREDIT COST  //  " + ReadCreditCost(data), 11, true, White);
+    }
+
+    private static string ReadString(SerializedObject data, string field, string fallback)
+    {
+        SerializedProperty property = data.FindProperty(field);
+        if (property == null) return fallback;
+
+        if (property.propertyType == SerializedPropertyType.String)
+            return string.IsNullOrWhiteSpace(property.stringValue) ? fallback : property.stringValue;
+
+        if (property.propertyType == SerializedPropertyType.Enum)
+            return property.enumDisplayNames[property.enumValueIndex];
+
+        return fallback;
+    }
+
+    private static string ReadCreditCost(SerializedObject data)
+    {
+        SerializedProperty property = FindPropertyRecursive(data.GetIterator(), "creditCost");
+        if (property == null) return "NOT LISTED";
+
+        if (property.propertyType == SerializedPropertyType.Integer)
+            return property.intValue.ToString("N0");
+
+        if (property.propertyType == SerializedPropertyType.Float)
+            return property.doubleValue.ToString("N0");
+
+        return "NOT LISTED";
+    }
+
+    private static SerializedProperty FindPropertyRecursive(SerializedProperty iterator, string name)
+    {
+        SerializedProperty copy = iterator.Copy();
+        if (!copy.Next(true)) return null;
+
+        do
+        {
+            if (copy.name == name)
+                return copy.Copy();
+        }
+        while (copy.Next(true));
+
+        return null;
+    }
+
+
+    private static void BuildDetailsPanel(Transform parent, StoreCatalogueInteractionController controller)
+    {
+        GameObject panel = new GameObject("UNIT_DETAILS_PANEL", typeof(RectTransform), typeof(Image));
+        panel.transform.SetParent(parent, false);
+        RectTransform panelRect = panel.GetComponent<RectTransform>();
+        panelRect.anchorMin = new Vector2(.5f, .5f);
+        panelRect.anchorMax = new Vector2(.5f, .5f);
+        panelRect.pivot = new Vector2(.5f, .5f);
+        panelRect.sizeDelta = new Vector2(1050, 760);
+        panel.GetComponent<Image>().color = new Color(.012f, .035f, .052f, .99f);
+
+        TMP_Text name = CreateDetailText(panel.transform, "UNIT_NAME", "UNIT DESIGNATION", 25, Cyan, new Vector2(24, -18), new Vector2(720, 42));
+        TMP_Text identity = CreateDetailText(panel.transform, "UNIT_IDENTITY", "CLASSIFICATION // ROLE // TIER", 12, Muted, new Vector2(24, -64), new Vector2(850, 28));
+        TMP_Text price = CreateDetailText(panel.transform, "UNIT_PRICE", "PROCUREMENT COST", 15, White, new Vector2(24, -105), new Vector2(500, 30));
+        TMP_Text credits = CreateDetailText(panel.transform, "AVAILABLE_CREDITS", "AVAILABLE CREDITS", 13, Cyan, new Vector2(550, -105), new Vector2(450, 30));
+        TMP_Text status = CreateDetailText(panel.transform, "PROCUREMENT_STATUS", "SELECT A UNIT", 12, Muted, new Vector2(24, -145), new Vector2(950, 28));
+
+        GameObject artworkObject = new GameObject("UNIT_ARTWORK", typeof(RectTransform), typeof(Image));
+        artworkObject.transform.SetParent(panel.transform, false);
+        RectTransform artworkRect = artworkObject.GetComponent<RectTransform>();
+        artworkRect.anchorMin = new Vector2(1, 1);
+        artworkRect.anchorMax = new Vector2(1, 1);
+        artworkRect.pivot = new Vector2(1, 1);
+        artworkRect.anchoredPosition = new Vector2(-24, -18);
+        artworkRect.sizeDelta = new Vector2(210, 125);
+        Image artwork = artworkObject.GetComponent<Image>();
+        artwork.color = new Color(.035f, .085f, .115f, 1);
+        artwork.preserveAspect = true;
+
+        GameObject scrollObject = new GameObject("SPECIFICATION_SCROLL", typeof(RectTransform), typeof(Image), typeof(Mask), typeof(ScrollRect));
+        scrollObject.transform.SetParent(panel.transform, false);
+        RectTransform scrollRect = scrollObject.GetComponent<RectTransform>();
+        scrollRect.anchorMin = new Vector2(0, 0);
+        scrollRect.anchorMax = new Vector2(1, 1);
+        scrollRect.offsetMin = new Vector2(24, 105);
+        scrollRect.offsetMax = new Vector2(-24, -190);
+        scrollObject.GetComponent<Image>().color = new Color(.02f, .05f, .068f, 1);
+        scrollObject.GetComponent<Mask>().showMaskGraphic = false;
+
+        GameObject viewport = new GameObject("SPECIFICATION_VIEWPORT", typeof(RectTransform));
+        viewport.transform.SetParent(scrollObject.transform, false);
+        Stretch(viewport.GetComponent<RectTransform>());
+
+        GameObject content = new GameObject("SPECIFICATION_CONTENT", typeof(RectTransform), typeof(ContentSizeFitter));
+        content.transform.SetParent(viewport.transform, false);
+        RectTransform contentRect = content.GetComponent<RectTransform>();
+        contentRect.anchorMin = new Vector2(0, 1);
+        contentRect.anchorMax = new Vector2(1, 1);
+        contentRect.pivot = new Vector2(.5f, 1);
+        contentRect.sizeDelta = Vector2.zero;
+
+        ContentSizeFitter contentFitter = content.GetComponent<ContentSizeFitter>();
+        contentFitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+
+        TMP_Text specification = CreateDetailText(content.transform, "FULL_UNIT_SPECIFICATION", "Select a unit to inspect its complete specification.", 12, White, Vector2.zero, new Vector2(940, 100));
+        specification.alignment = TextAlignmentOptions.TopLeft;
+        specification.textWrappingMode = TextWrappingModes.Normal;
+        specification.overflowMode = TextOverflowModes.Overflow;
+        specification.GetComponent<RectTransform>().anchorMin = new Vector2(0, 1);
+        specification.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
+        specification.GetComponent<RectTransform>().pivot = new Vector2(.5f, 1);
+        specification.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+        specification.GetComponent<LayoutElement>().minHeight = 100;
+
+        ScrollRect specScroll = scrollObject.GetComponent<ScrollRect>();
+        specScroll.viewport = viewport.GetComponent<RectTransform>();
+        specScroll.content = contentRect;
+        specScroll.horizontal = false;
+        specScroll.vertical = true;
+        specScroll.scrollSensitivity = 55;
+        specScroll.movementType = ScrollRect.MovementType.Clamped;
+
+        Button purchase = CreateDetailButton(panel.transform, "PURCHASE_UNIT", "PURCHASE UNIT", new Vector2(24, 22), new Vector2(230, 54), Cyan);
+        Button close = CreateDetailButton(panel.transform, "CLOSE_DETAILS", "CLOSE", new Vector2(270, 22), new Vector2(150, 54), Muted);
+
+        SerializedObject serializedController = new SerializedObject(controller);
+        serializedController.FindProperty("detailsPanel").objectReferenceValue = panel;
+        serializedController.FindProperty("unitArtwork").objectReferenceValue = artwork;
+        serializedController.FindProperty("unitName").objectReferenceValue = name;
+        serializedController.FindProperty("unitIdentity").objectReferenceValue = identity;
+        serializedController.FindProperty("specificationText").objectReferenceValue = specification;
+        serializedController.FindProperty("priceText").objectReferenceValue = price;
+        serializedController.FindProperty("statusText").objectReferenceValue = status;
+        serializedController.FindProperty("creditsText").objectReferenceValue = credits;
+        serializedController.FindProperty("purchaseButton").objectReferenceValue = purchase;
+        serializedController.FindProperty("closeButton").objectReferenceValue = close;
+        serializedController.ApplyModifiedPropertiesWithoutUndo();
+    }
+
+    private static TMP_Text CreateDetailText(Transform parent, string objectName, string value, int size, Color color, Vector2 position, Vector2 dimensions)
+    {
+        GameObject go = new GameObject(objectName, typeof(RectTransform), typeof(TextMeshProUGUI), typeof(LayoutElement));
+        go.transform.SetParent(parent, false);
+        RectTransform rect = go.GetComponent<RectTransform>();
+        rect.anchorMin = new Vector2(0, 1);
+        rect.anchorMax = new Vector2(0, 1);
+        rect.pivot = new Vector2(0, 1);
+        rect.anchoredPosition = position;
+        rect.sizeDelta = dimensions;
+
+        TextMeshProUGUI text = go.GetComponent<TextMeshProUGUI>();
+        text.text = value;
+        text.fontSize = size;
+        text.color = color;
+        text.raycastTarget = false;
+        text.fontStyle = FontStyles.Bold;
+        text.textWrappingMode = TextWrappingModes.Normal;
+        text.overflowMode = TextOverflowModes.Overflow;
+
+        LayoutElement element = go.GetComponent<LayoutElement>();
+        element.ignoreLayout = true;
+        return text;
+    }
+
+    private static Button CreateDetailButton(Transform parent, string objectName, string label, Vector2 position, Vector2 dimensions, Color color)
+    {
+        GameObject go = new GameObject(objectName, typeof(RectTransform), typeof(Image), typeof(Button));
+        go.transform.SetParent(parent, false);
+        RectTransform rect = go.GetComponent<RectTransform>();
+        rect.anchorMin = new Vector2(0, 0);
+        rect.anchorMax = new Vector2(0, 0);
+        rect.pivot = new Vector2(0, 0);
+        rect.anchoredPosition = position;
+        rect.sizeDelta = dimensions;
+        Image image = go.GetComponent<Image>();
+        image.color = new Color(color.r, color.g, color.b, .25f);
+        Button button = go.GetComponent<Button>();
+        button.targetGraphic = image;
+        button.transition = Selectable.Transition.ColorTint;
+
+        GameObject textObject = new GameObject("LABEL", typeof(RectTransform), typeof(TextMeshProUGUI));
+        textObject.transform.SetParent(go.transform, false);
+        Stretch(textObject.GetComponent<RectTransform>());
+        TMP_Text text = textObject.GetComponent<TMP_Text>();
+        text.text = label;
+        text.fontSize = 14;
+        text.fontStyle = FontStyles.Bold;
+        text.color = White;
+        text.alignment = TextAlignmentOptions.Center;
+        text.raycastTarget = false;
+        return button;
+    }
+    private static void BuildFooter(Transform parent, int total)
+    {
+        GameObject footer = CreatePanel(parent, "CATALOGUE_FOOTER", Panel, 48);
+        AddText(footer.transform, "TOTAL REGISTERED UNIT ASSETS  /  " + total, 12, true, Cyan);
+        AddText(footer.transform, "OBSIDIAN PROTOCOL     //     PROCUREMENT DIVISION", 9, false, Muted);
+    }
+
+    private static GameObject CreatePanel(Transform parent, string name, Color color, float height)
+    {
+        GameObject panel = new GameObject(
+            name,
+            typeof(RectTransform),
+            typeof(Image),
+            typeof(VerticalLayoutGroup),
+            typeof(LayoutElement));
+
+        panel.transform.SetParent(parent, false);
+        panel.GetComponent<Image>().color = color;
+
+        LayoutElement element = panel.GetComponent<LayoutElement>();
+        element.preferredHeight = height;
+        element.minHeight = height;
+
+        VerticalLayoutGroup layout = panel.GetComponent<VerticalLayoutGroup>();
+        layout.padding = new RectOffset(14, 14, 7, 7);
+        layout.spacing = 3;
+        layout.childControlWidth = true;
+        layout.childControlHeight = true;
+        layout.childForceExpandWidth = true;
+        layout.childForceExpandHeight = false;
+
+        return panel;
+    }
+
+    private static void AddText(Transform parent, string value, int size, bool bold, Color color)
+    {
+        GameObject go = new GameObject(
+            "TEXT_" + value.GetHashCode(),
+            typeof(RectTransform),
+            typeof(TextMeshProUGUI),
+            typeof(LayoutElement));
+
+        go.transform.SetParent(parent, false);
+
+        TextMeshProUGUI text = go.GetComponent<TextMeshProUGUI>();
+        text.text = value;
+        text.fontSize = size;
+        text.fontStyle = bold ? FontStyles.Bold : FontStyles.Normal;
+        text.color = color;
+        text.raycastTarget = false;
+        text.textWrappingMode = TextWrappingModes.Normal;
+        text.overflowMode = TextOverflowModes.Ellipsis;
+
+        LayoutElement element = go.GetComponent<LayoutElement>();
+        element.minHeight = size + 5;
+        element.preferredHeight = size + 9;
+    }
+
+    private static GameObject FindSceneObject(string name)
+    {
+        foreach (GameObject candidate in Resources.FindObjectsOfTypeAll<GameObject>())
+        {
+            if (candidate.name == name && candidate.scene.IsValid() && candidate.scene.isLoaded)
+                return candidate;
+        }
+
+        return null;
+    }
+
+    private static void Stretch(RectTransform rect)
+    {
+        rect.anchorMin = Vector2.zero;
+        rect.anchorMax = Vector2.one;
+        rect.offsetMin = Vector2.zero;
+        rect.offsetMax = Vector2.zero;
+    }
+}
+
+
+
+
+
+

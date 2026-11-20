@@ -1,0 +1,225 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Forge
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-ground-forge
+  displayName: Forge
+  category: 3
+  role: Field Construction / Mobile Fabrication
+  tier: Engineering
+  status: Active
+  storeImage: {fileID: 1298260404372906065, guid: 23c80d3dddeacbc47a13025f4fca7bfc, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 4.6
+    widthMeters: 2.3
+    heightMeters: 2
+    massKg: 1450
+    powerSource: Heavy industrial generator + auxiliary battery
+    energyCapacityWh: 6800
+    energyConsumptionWhPerMinute: 0
+    endurance: "5\u20138 hours"
+    payloadCapacityKg: 500
+    modules:
+    - Fabrication arm
+    - Welding suite
+    - Structural scanner
+    navigationSystem: GPS + Construction AI
+    structuralIntegrityHp: 1000
+    armorRating: 0.55
+    heatSignature: Medium
+    noiseSignature: High
+    topSpeedMetersPerSecond: 12
+    topSpeedDescription: 12 m/s
+    acceleration: Low
+    turningRadius: Moderate
+    climbRate: 
+    stabilityRating: Very High
+  autonomy:
+    behaviorProfile: Construction / Repair / Deployment
+    aggression: 0
+    caution: 0.9
+    persistence: 1
+    flankingLikelihood: 0
+    retreatThreshold: 0.7
+    retreatBehaviorDescription: Early
+    targetPriority: Damaged structures / build sites
+    formationDiscipline: High
+    riskTolerance: 0.2
+  sensors:
+    visualRangeMeters: 1500
+    visualRangeDescription: 1500 m
+    thermalRangeMeters: 600
+    thermalRangeDescription: 600 m
+    acousticRange: Medium
+    radarRange: None
+    lidarRange: Medium
+    signalDetectionRange: Short
+  communication:
+    meshRangeKm: 4
+    meshRangeDescription: 4 km
+    relayCapacity: 1
+    commandLinkType: Engineering Grid
+    networkPriority: High
+  combat:
+    firepowerRating: 0
+    firepowerDescription: None
+    accuracy: N/A
+    stabilization: 
+    weaponMounts: None
+    weaponTypes: None
+    suppressionValue: 0
+    trackingStrength: Low
+    disruptionStrength: Medium (construction tools)
+    breachCapability: Medium (structural arm)
+    countermeasureRating: Low
+    threatLevel: 3
+    engagementDistance: N/A
+    preferredTerrain: Build zones / forward bases
+    preferredTargets: None
+    vulnerabilityProfile: Ballistic / explosives
+  squad:
+    squadRole: Engineering / Construction
+    squadSizeContribution: 3
+    formationBehavior: Build-site spacing
+    intentInterpretationRules: Prioritize repairs and construction
+    retreatBehavior: Early
+    breachBehavior: Structural arm only
+    flankingBehavior: None
+    reinforcementBehavior: Supports all squads via repairs
+    parentCommandUnit: Command Core / Fusion
+    subordinateUnits:
+    - Mule
+    - Hauler
+    relayNodes:
+    - Relay Node 1
+    networkDependencies: Engineering Grid
+  vrOperator:
+    operatorSeatType: Engineering Cockpit
+    operatorHud: Construction Overlay
+    cameraFeeds: Optical + arm cam
+    thermalView: 1
+    lidarView: 1
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Full vehicle drive
+    sensorControls: Thermal / LiDAR / zoom
+    abilityControls: Deploy Structure, Repair, Scan Integrity
+    weaponControls: N/A - construction tools only
+    stabilizationControls: 
+    operatorAbilities:
+    - Structural Repair
+    - Rapid Deployment
+    - Material Fabrication
+    - Build Zone Marking
+  economy:
+    creditCost: 1100
+    buildCost: 700 Metal / 400 Electronics
+    buildTimeSeconds: 140
+    factoryType: Vehicle Bay
+    techRequirements: Engineering Systems I
+    maintenanceCost: Medium
+    repairTimeSeconds: 35
+    supplyConsumption: Medium
+    operationalCost: Moderate
+    deploymentRequirements: Vehicle pad
+    transportCompatibility: Heavy racks
+    launchMethod: Drive-out
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Heavy Alloy Plates
+      quantity: 50
+    - component: Reinforced Frame Rods
+      quantity: 24
+    - component: Hydraulic Actuators
+      quantity: 8
+    - component: Armor Panels
+      quantity: 4
+    - component: Fabrication Arm Housing
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 24
+    - component: Signal Processors
+      quantity: 16
+    - component: Vehicle Control Chips
+      quantity: 5
+    - component: Engineering AI Chips
+      quantity: 3
+    power:
+    - component: Industrial Generator Core
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 3
+    rareTradeable:
+    - component: Precision Welding Module
+      quantity: 1
+    optionalUpgrades:
+    - Reinforced Arm
+    - Silent Generator Kit
+    - Extended Fuel Tank
+    - Anti-Jamming Shielding
+  environment:
+    terrainAdaptationCoefficients: 
+    weatherSensitivityIndex: 0
+    visibilityModifiers: 
+    signalPropagationCurve: 
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0
+    packetLossRate: 
+    encryptionLatencySeconds: 0
+    meshSelfHealingThreshold: 
+    relaySaturationCurve: 
+  cognitive:
+    decisionConfidence: 0
+    threatRecognitionAccuracy: 0
+    adaptiveLearningRatePerMission: 0
+    commandOverrideResistance: 0
+    cooperativeBehaviorIndex: 0
+  behaviorNodes: []
+  missionBehaviors: []
+  unitSynergies: []
+  damageResponses: []
+  upgrades: []
+  tactical:
+    formationAdaptability: 0
+    tacticalRoleWeight: 0
+    commandResponseDelaySeconds: 0
+    reinforcementTriggerConditions: 
+    retreatLogicThresholds: 
+  maintenance:
+    meanTimeBetweenFailuresHours: 0
+    repairCycleSeconds: 0
+    resourceDrainPerHourPercent: 0
+    batteryEfficiencyPercent: 0
+    rotorStabilityPercent: 0
+    sensorCalibrationDriftPercentPerHour: 0
+    coolingEfficiencyPercent: 0
+    operationalUptimePercent: 0
+    energyRecoveryRatePercent: 0
+    energyRecoveryRatePercentPerIdleMinute: 0
+    componentWearPercentPerHour: 0
+    maintenancePriorityLevel: 
+    sparePartDependencyIndex: 0
+    operationalCostPerHour: 
+  threatResponses: []
+  commandNetwork: []
+  performance:
+    missionSuccessProbability: 0
+    averageEngagementDurationMinutes: 0
+    reconDataYieldMbPerMinute: 0
+    communicationUptime: 0
+    threatAvoidanceEfficiency: 0

@@ -1,0 +1,285 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Current
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-sea-current
+  displayName: Current
+  category: 2
+  role: Fast Marine Transport / Rapid Response
+  tier: Support
+  status: Active
+  storeImage: {fileID: 8534417228057905096, guid: ffe9d3c0f7a040a4a99a3b65d52933d7, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 6
+    widthMeters: 2.8
+    heightMeters: 2
+    massKg: 2100
+    powerSource: Marine diesel-electric hybrid
+    energyCapacityWh: 9000
+    energyConsumptionWhPerMinute: 3
+    endurance: "5\u201310 hours"
+    payloadCapacityKg: 300
+    modules:
+    - Stabilized hull
+    - Rapid-thrust propulsion
+    navigationSystem: Marine GPS + Response AI
+    structuralIntegrityHp: 800
+    armorRating: 0.3
+    heatSignature: Low
+    noiseSignature: Low
+    topSpeedMetersPerSecond: 12
+    topSpeedDescription: 12 m/s
+    acceleration: High
+    turningRadius: Tight marine turn
+    climbRate: Current climbRate
+    stabilityRating: High
+  autonomy:
+    behaviorProfile: Rapid Transport / Marine Response
+    aggression: 0
+    caution: 0.8
+    persistence: 0.7
+    flankingLikelihood: 1
+    retreatThreshold: 0.85
+    retreatBehaviorDescription: Early
+    targetPriority: Friendly units requesting support
+    formationDiscipline: Medium
+    riskTolerance: 0.2
+  sensors:
+    visualRangeMeters: 1800
+    visualRangeDescription: 1800 m
+    thermalRangeMeters: 700
+    thermalRangeDescription: 700 m
+    acousticRange: Medium
+    radarRange: Short
+    lidarRange: Current lidarRange
+    signalDetectionRange: Medium
+  communication:
+    meshRangeKm: 6
+    meshRangeDescription: 6 km
+    relayCapacity: 1
+    commandLinkType: Marine Support Grid
+    networkPriority: High
+  combat:
+    firepowerRating: 0
+    firepowerDescription: None
+    accuracy: N/A
+    stabilization: High
+    weaponMounts: None
+    weaponTypes: None
+    suppressionValue: 0
+    trackingStrength: Low
+    disruptionStrength: Low
+    breachCapability: None
+    countermeasureRating: Low
+    threatLevel: 2
+    engagementDistance: N/A
+    preferredTerrain: Surface waters
+    preferredTargets: None
+    vulnerabilityProfile: Ballistic / collision / waves
+  squad:
+    squadRole: Marine Transport / Support
+    squadSizeContribution: 2
+    formationBehavior: Support spacing
+    intentInterpretationRules: Deliver personnel or supplies
+    retreatBehavior: Early
+    breachBehavior: Current breachBehavior
+    flankingBehavior: Current flankingBehavior
+    reinforcementBehavior: Supports all marine squads
+    parentCommandUnit: Worldmap / Insight
+    subordinateUnits: []
+    relayNodes:
+    - Relay Node 1
+    networkDependencies: Marine Support Grid
+  vrOperator:
+    operatorSeatType: Marine Transport Console
+    operatorHud: Support Overlay
+    cameraFeeds: Optical
+    thermalView: 1
+    lidarView: 0
+    sonarView: 1
+    tacticalOverlay: 1
+    movementControls: Marine drive
+    sensorControls: Thermal / sonar / zoom
+    abilityControls: Mark Drop Zone / Stabilize / Route Lock
+    weaponControls: 'Cargo controls: Load / secure'
+    stabilizationControls: Stabilized hull
+    operatorAbilities:
+    - Rapid Transport
+    - Stabilization Pulse
+    - Route Optimization
+    - Support Relay
+  economy:
+    creditCost: 660
+    buildCost: 420 Metal / 240 Electronics
+    buildTimeSeconds: 95
+    factoryType: Marine Bay
+    techRequirements: Marine Systems I
+    maintenanceCost: Low
+    repairTimeSeconds: 24
+    supplyConsumption: Low
+    operationalCost: Low
+    deploymentRequirements: Water launch pad
+    transportCompatibility: Marine racks
+    launchMethod: Water drop
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Marine Alloy Plates
+      quantity: 32
+    - component: Reinforced Marine Rods
+      quantity: 18
+    - component: Hydraulic Actuators
+      quantity: 5
+    - component: Hull Stabilizer Assembly
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 18
+    - component: Signal Processors
+      quantity: 12
+    - component: Marine Control Chips
+      quantity: 3
+    - component: Support AI Chips
+      quantity: 2
+    power:
+    - component: Marine Hybrid Engine Core
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 2
+    rareTradeable:
+    - component: Rapid-Thrust Propulsion Module
+      quantity: 1
+    optionalUpgrades:
+    - Silent Propulsion
+    - Extended Fuel Tank
+    - Anti-Jamming Shielding
+  environment:
+    terrainAdaptationCoefficients: Current terrainAdaptationCoefficients
+    weatherSensitivityIndex: 3
+    visibilityModifiers: Current visibilityModifiers
+    signalPropagationCurve: Current signalPropagationCurve
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0.8
+    packetLossRate: Current packetLossRate
+    encryptionLatencySeconds: 3
+    meshSelfHealingThreshold: Current meshSelfHealingThreshold
+    relaySaturationCurve: Current relaySaturationCurve
+  cognitive:
+    decisionConfidence: 3
+    threatRecognitionAccuracy: 3
+    adaptiveLearningRatePerMission: 3
+    commandOverrideResistance: 3
+    cooperativeBehaviorIndex: 3
+  behaviorNodes:
+  - behaviorNode: 
+    weight: -0.00000008226931
+    description: 
+  - behaviorNode: 
+    weight: 0
+    description: 
+  - behaviorNode: 
+    weight: 0
+    description: 
+  missionBehaviors:
+  - missionType: 
+    behaviorFocus: 
+    efficiency: -0.00000008228733
+  - missionType: 
+    behaviorFocus: 
+    efficiency: 0
+  - missionType: 
+    behaviorFocus: 
+    efficiency: 0
+  unitSynergies:
+  - partnerUnit: 
+    synergyRating: -0.000000081262726
+    function: 
+  - partnerUnit: 
+    synergyRating: 0
+    function: 
+  - partnerUnit: 
+    synergyRating: 0
+    function: 
+  damageResponses:
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  upgrades:
+  - upgrade: 
+    effect: 
+    efficiencyGain: -0.00000008129882
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  tactical:
+    formationAdaptability: 3
+    tacticalRoleWeight: 3
+    commandResponseDelaySeconds: 3
+    reinforcementTriggerConditions: Current reinforcementTriggerConditions
+    retreatLogicThresholds: Current retreatLogicThresholds
+  maintenance:
+    meanTimeBetweenFailuresHours: 3
+    repairCycleSeconds: 3
+    resourceDrainPerHourPercent: 30
+    batteryEfficiencyPercent: 0.8
+    rotorStabilityPercent: 30
+    sensorCalibrationDriftPercentPerHour: 30
+    coolingEfficiencyPercent: 0.8
+    operationalUptimePercent: 30
+    energyRecoveryRatePercent: 30
+    energyRecoveryRatePercentPerIdleMinute: 30
+    componentWearPercentPerHour: 30
+    maintenancePriorityLevel: Current maintenancePriorityLevel
+    sparePartDependencyIndex: 3
+    operationalCostPerHour: Current operationalCostPerHour
+  threatResponses:
+  - threatType: 
+    reactionTimeSeconds: -1.6962372e-20
+    countermeasureEfficiency: 5.79e-43
+  - threatType: 
+    reactionTimeSeconds: 0
+    countermeasureEfficiency: 0
+  - threatType: 
+    reactionTimeSeconds: 0
+    countermeasureEfficiency: 0
+  commandNetwork:
+  - node: 
+    loadPercent: -0.00001955549
+    latencySeconds: 5.79e-43
+    status: 
+  - node: 
+    loadPercent: 0
+    latencySeconds: 0
+    status: 
+  - node: 
+    loadPercent: 0
+    latencySeconds: 0
+    status: 
+  performance:
+    missionSuccessProbability: 0.75
+    averageEngagementDurationMinutes: 3
+    reconDataYieldMbPerMinute: 3
+    communicationUptime: 3
+    threatAvoidanceEfficiency: 0.8

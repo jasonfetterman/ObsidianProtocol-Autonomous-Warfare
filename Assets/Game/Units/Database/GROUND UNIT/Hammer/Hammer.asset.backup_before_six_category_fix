@@ -1,0 +1,267 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Hammer
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-ground-hammer
+  displayName: Hammer
+  category: 1
+  role: Heavy Breach / Structural Breaker
+  tier: Assault Engineering
+  status: Active
+  storeImage: {fileID: 5393448996881579246, guid: 8938eb56839d74b49a2e7f32564dfd92, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 4.9
+    widthMeters: 2.4
+    heightMeters: 2.1
+    massKg: 1800
+    powerSource: Industrial diesel-electric hybrid
+    energyCapacityWh: 7200
+    energyConsumptionWhPerMinute: 2
+    endurance: 4-7 hours
+    payloadCapacityKg: 400
+    modules:
+    - Hydraulic breach ram
+    - Reinforced chassis
+    navigationSystem: GPS + Breach AI
+    structuralIntegrityHp: 1300
+    armorRating: 0.75
+    heatSignature: High
+    noiseSignature: High
+    topSpeedMetersPerSecond: 10
+    topSpeedDescription: 10 m/s
+    acceleration: Low
+    turningRadius: Tight
+    climbRate: Hammer climbRate
+    stabilityRating: Maximum
+  autonomy:
+    behaviorProfile: Breach / Structural Assault
+    aggression: 0.6
+    caution: 0.5
+    persistence: 1
+    flankingLikelihood: 0
+    retreatThreshold: 0.4
+    retreatBehaviorDescription: Late
+    targetPriority: Barriers / fortifications / hardened structures
+    formationDiscipline: High
+    riskTolerance: 0.8
+  sensors:
+    visualRangeMeters: 1200
+    visualRangeDescription: 1200 m
+    thermalRangeMeters: 500
+    thermalRangeDescription: 500 m
+    acousticRange: Medium
+    radarRange: None
+    lidarRange: Medium
+    signalDetectionRange: Short
+  communication:
+    meshRangeKm: 4
+    meshRangeDescription: 4 km
+    relayCapacity: 0
+    commandLinkType: Engineering Grid
+    networkPriority: Medium
+  combat:
+    firepowerRating: 0.25
+    firepowerDescription: Low (ram only)
+    accuracy: N/A
+    stabilization: Reinforced breach stance
+    weaponMounts: None
+    weaponTypes: Hydraulic breach ram
+    suppressionValue: 0.25
+    trackingStrength: None
+    disruptionStrength: High
+    breachCapability: Very High
+    countermeasureRating: Medium
+    threatLevel: 6
+    engagementDistance: Contact
+    preferredTerrain: Fortified zones / breach points
+    preferredTargets: Walls, gates, bunkers
+    vulnerabilityProfile: Ballistic / explosives
+  squad:
+    squadRole: Breach / Assault Engineering
+    squadSizeContribution: 3
+    formationBehavior: Front-line breach spacing
+    intentInterpretationRules: Break fortifications
+    retreatBehavior: Late
+    breachBehavior: Primary
+    flankingBehavior: None
+    reinforcementBehavior: Supports assault squads
+    parentCommandUnit: Command Core / Fusion
+    subordinateUnits:
+    - Mule
+    - Forge
+    relayNodes: []
+    networkDependencies: Engineering Grid
+  vrOperator:
+    operatorSeatType: Heavy Engineering Cockpit
+    operatorHud: Breach Overlay
+    cameraFeeds: Optical + ram cam
+    thermalView: 1
+    lidarView: 1
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Heavy vehicle drive
+    sensorControls: Thermal / LiDAR / zoom
+    abilityControls: Breach Mode, Stabilize, Structural Scan
+    weaponControls: Ram charge / impact / retract
+    stabilizationControls: Hammer stabilizationControls
+    operatorAbilities:
+    - Hydraulic Ram Charge
+    - Structural Weak-Point Scan
+    - Breach Execution
+    - Reinforced Stance
+  economy:
+    creditCost: 1350
+    buildCost: 900 Metal / 450 Electronics
+    buildTimeSeconds: 160
+    factoryType: Vehicle Bay
+    techRequirements: Engineering Systems II
+    maintenanceCost: High
+    repairTimeSeconds: 40
+    supplyConsumption: High
+    operationalCost: High
+    deploymentRequirements: Heavy vehicle pad
+    transportCompatibility: Heavy racks
+    launchMethod: Drive-out
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Heavy Alloy Plates
+      quantity: 60
+    - component: Reinforced Frame Rods
+      quantity: 30
+    - component: Hydraulic Actuators
+      quantity: 10
+    - component: Armor Panels
+      quantity: 6
+    - component: Breach Ram Housing
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 28
+    - component: Signal Processors
+      quantity: 18
+    - component: Vehicle Control Chips
+      quantity: 6
+    - component: Engineering AI Chips
+      quantity: 4
+    power:
+    - component: Industrial Hybrid Engine Core
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 3
+    rareTradeable:
+    - component: Hydraulic Ram Core
+      quantity: 1
+    optionalUpgrades:
+    - Reinforced Ram
+    - Shock-Dampened Chassis
+    - Extended Fuel Tank
+    - Anti-Jamming Shielding
+  environment:
+    terrainAdaptationCoefficients: Hammer terrainAdaptationCoefficients
+    weatherSensitivityIndex: 2
+    visibilityModifiers: Hammer visibilityModifiers
+    signalPropagationCurve: Hammer signalPropagationCurve
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0.8
+    packetLossRate: Hammer packetLossRate
+    encryptionLatencySeconds: 2
+    meshSelfHealingThreshold: Hammer meshSelfHealingThreshold
+    relaySaturationCurve: Hammer relaySaturationCurve
+  cognitive:
+    decisionConfidence: 2
+    threatRecognitionAccuracy: 2
+    adaptiveLearningRatePerMission: 2
+    commandOverrideResistance: 2
+    cooperativeBehaviorIndex: 2
+  behaviorNodes:
+  - behaviorNode: 
+    weight: -0.00000008226931
+    description: 
+  - behaviorNode: 
+    weight: 0
+    description: 
+  missionBehaviors:
+  - missionType: 
+    behaviorFocus: 
+    efficiency: -0.00000008228733
+  - missionType: 
+    behaviorFocus: 
+    efficiency: 0
+  unitSynergies:
+  - partnerUnit: 
+    synergyRating: -0.000000081262726
+    function: 
+  - partnerUnit: 
+    synergyRating: 0
+    function: 
+  damageResponses:
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  upgrades:
+  - upgrade: 
+    effect: 
+    efficiencyGain: -0.00000008129882
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  tactical:
+    formationAdaptability: 2
+    tacticalRoleWeight: 2
+    commandResponseDelaySeconds: 2
+    reinforcementTriggerConditions: Hammer reinforcementTriggerConditions
+    retreatLogicThresholds: Hammer retreatLogicThresholds
+  maintenance:
+    meanTimeBetweenFailuresHours: 2
+    repairCycleSeconds: 2
+    resourceDrainPerHourPercent: 20
+    batteryEfficiencyPercent: 0.8
+    rotorStabilityPercent: 20
+    sensorCalibrationDriftPercentPerHour: 20
+    coolingEfficiencyPercent: 0.8
+    operationalUptimePercent: 20
+    energyRecoveryRatePercent: 20
+    energyRecoveryRatePercentPerIdleMinute: 20
+    componentWearPercentPerHour: 20
+    maintenancePriorityLevel: Hammer maintenancePriorityLevel
+    sparePartDependencyIndex: 2
+    operationalCostPerHour: Hammer operationalCostPerHour
+  threatResponses:
+  - threatType: 
+    reactionTimeSeconds: -1.6962372e-20
+    countermeasureEfficiency: 5.79e-43
+  - threatType: 
+    reactionTimeSeconds: 0
+    countermeasureEfficiency: 0
+  commandNetwork:
+  - node: 
+    loadPercent: -0.00001955549
+    latencySeconds: 5.79e-43
+    status: 
+  - node: 
+    loadPercent: 0
+    latencySeconds: 0
+    status: 
+  performance:
+    missionSuccessProbability: 0.75
+    averageEngagementDurationMinutes: 2
+    reconDataYieldMbPerMinute: 2
+    communicationUptime: 2
+    threatAvoidanceEfficiency: 0.8

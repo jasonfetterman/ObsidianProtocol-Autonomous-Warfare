@@ -1,0 +1,1463 @@
+RUNTIME STORE INTEGRATION AUDIT — 20261024_193109
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\DeploymentOperationTerminalInteraction.cs:45: hit.collider.GetComponentInParent<
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\DeploymentTerminalInteraction.cs:47: hit.collider.GetComponentInParent<DeploymentTerminalInteraction>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\AI\AutonomousVehicle.cs:24: agent = GetComponent<NavMeshAgent>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\AI\AutonomousVehicle.cs:27: squadIntent = GetComponent<SquadIntentController>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\AI\AutonomousVehicle.cs:30: squadIntent = GetComponentInChildren<SquadIntentController>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Command\ArchiveCommandBrain.cs:31: commandUnit = GetComponent<CommandUnit>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Command\ArchiveCommandBrain.cs:261: UnitAutonomy autonomy = unit.GetComponent<UnitAutonomy>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Command\CommandIntentManager.cs:27: unit.GetComponent<CommandUnit>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Command\CommandIntentManager.cs:42: unit.GetComponent<WardenCommandReceiver>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Command\CommandPanelController.cs:14: if (unit.GetComponent<CommandUnit>() != null)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Command\CommandUnit.cs:25: archiveBrain = GetComponent<ArchiveCommandBrain>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Command\DamageTestController.cs:15: UnitStatsComponent stats = unit.GetComponent<UnitStatsComponent>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Command\FleetPanelManager.cs:38: UnitRowDisplay display = newRow.GetComponent<UnitRowDisplay>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Command\UnitHoverManager.cs:19: hitUnit = hit.collider.GetComponent<SelectableUnit>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Command\UnitMovementManager.cs:31: CommandUnit commandUnit = unit.GetComponent<CommandUnit>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Command\UnitMovementManager.cs:57: UnitMovement mover = unit.GetComponent<UnitMovement>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Command\UnitSelectionManager.cs:46: hit.collider.GetComponent<SelectableUnit>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Command\UnitSelectionManager.cs:52: var identity = unit.GetComponent<ObsidianProtocol.Game.PersistentMilitary.MilitaryUnitIdentity>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Command\WardenCommandReceiver.cs:11: autonomy = GetComponent<UnitAutonomy>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Credits\CreditsSceneController.cs:5: namespace ObsidianProtocol.UI.Credits
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Credits\CreditsSceneController.cs:7: public sealed class CreditsSceneController : MonoBehaviour
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Credits\CreditsSceneController.cs:12: [Header("Credits Scroll")]
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Credits\CreditsSceneController.cs:13: [SerializeField] private ScrollRect creditsScroll;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Credits\CreditsSceneController.cs:21: if (creditsScroll == null)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Credits\CreditsSceneController.cs:23: GameObject scrollObject = GameObject.Find("CreditsScrollArea");
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Credits\CreditsSceneController.cs:25: creditsScroll = scrollObject.GetComponent<ScrollRect>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Credits\CreditsSceneController.cs:32: backButton = backObject.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Credits\CreditsSceneController.cs:45: if (creditsScroll == null)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Credits\CreditsSceneController.cs:46: Debug.LogError("[SCN-23] CreditsScrollArea ScrollRect not found.");
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Credits\CreditsSceneController.cs:51: if (creditsScroll != null)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Credits\CreditsSceneController.cs:52: creditsScroll.verticalNormalizedPosition = 1f;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Credits\CreditsSceneController.cs:57: if (creditsScroll == null)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Credits\CreditsSceneController.cs:60: creditsScroll.verticalNormalizedPosition = Mathf.Clamp01(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Credits\CreditsSceneController.cs:61: creditsScroll.verticalNormalizedPosition -
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Editor\AttachGalaxyMapHUD201Controller.cs:49: Component existing = hud.GetComponent(controllerType);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Editor\AuditNavButtons.cs:23: Button btn = go.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Editor\AuditSliders.cs:39: Slider slider = found.GetComponent<Slider>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Editor\CheckTextType.cs:29: if (masterVal.GetComponent<TMP_Text>() != null)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Editor\CheckTextType.cs:31: else if (masterVal.GetComponent<Text>() != null)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Editor\InspectSliderLocation.cs:30: Debug.Log($"  Slider on self: {mv.GetComponent<Slider>() != null}");
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Editor\InspectSliderLocation.cs:31: Debug.Log($"  Slider on children: {mv.GetComponentInChildren<Slider>(true) != null}");
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Editor\InspectSliderLocation.cs:32: Debug.Log($"  Slider on parent: {mv.GetComponentInParent<Slider>() != null}");
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Editor\ObsidianStore26Builder.cs:45: CreateNode("STORE-011 Credits", categories);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Editor\ObsidianStore26Builder.cs:54: CreateNode("STORE-013 Purchase Confirmation", purchasing);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Editor\ObsidianStore26Builder.cs:55: CreateNode("STORE-014 Purchase Success", purchasing);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Editor\ObsidianStore26Builder.cs:56: CreateNode("STORE-015 Purchase Failure", purchasing);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Editor\ObsidianStore26Builder.cs:68: // INVENTORY
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Editor\ObsidianStore26Builder.cs:71: Transform inventory = GetOrCreate("Inventory", store);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Editor\ObsidianStore26Builder.cs:73: CreateNode("STORE-018 Inventory", inventory);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Game\Campaign\CampaignState.cs:3: using ObsidianProtocol.Game.Inventory;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Game\Campaign\CampaignState.cs:120: InventoryRuntime.StartNewCampaign(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Game\Campaign\CampaignState.cs:136: $"INVENTORY=EMPTY | " +
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Game\Campaign\CampaignState.cs:137: $"CREDITS=10000 | " +
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:58: Image contentBackground = contentRoot.GetComponent<Image>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:62: Outline contentOutline = contentRoot.GetComponent<Outline>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:68: RectTransform root = contentRoot.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:121: RectTransform rect = obj.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:127: Text text = obj.GetComponent<Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:155: RectTransform rect = obj.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:161: Image background = obj.GetComponent<Image>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:164: InputField input = obj.GetComponent<InputField>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:173: RectTransform textRect = textObject.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:179: Text text = textObject.GetComponent<Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:194: placeholderObject.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:200: Text placeholder = placeholderObject.GetComponent<Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:225: RectTransform fieldRect = field.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:231: Image fieldImage = field.GetComponent<Image>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:234: Button fieldButton = field.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:246: RectTransform captionRect = captionObject.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:252: factionDropdownCaption = captionObject.GetComponent<Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:269: factionDropdownMenu.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:275: Image menuBackground = factionDropdownMenu.GetComponent<Image>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:293: RectTransform optionRect = option.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:301: Image optionImage = option.GetComponent<Image>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:307: Button optionButton = option.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:322: labelObject.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:328: Text label = labelObject.GetComponent<Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:395: RectTransform rect = obj.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:407: Image background = obj.GetComponent<Image>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:410: Button button = obj.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:421: RectTransform textRect = textObject.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\CampaignSetupController.cs:427: Text text = textObject.GetComponent<Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\MainMenuManager.cs:17: public GameObject creditsWindow;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\MainMenuManager.cs:46: Text text = button.GetComponentInChildren<Text>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\MainMenuManager.cs:74: else if (label == "CREDITS")
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\MainMenuManager.cs:76: button.onClick.RemoveListener(Credits);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\MainMenuManager.cs:77: button.onClick.AddListener(Credits);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\MainMenuManager.cs:150: campaignWindow.GetComponent<ObsidianProtocol.UI.CampaignSetupController>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\MainMenuManager.cs:181: public void Credits()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\MainMenuManager.cs:183: Debug.Log("[MainMenu] CREDITS CLICKED.");
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\MainMenuManager.cs:184: LoadScene("SCN23_CREDITS");
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\MainMenuManager.cs:212: SetState(creditsWindow, false);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\MainMenu\MainMenuManager.cs:312: IsOpen(creditsWindow);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Movement\CommanderPlayerMovement.cs:25: GetComponent<CharacterController>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Movement\CommanderPlayerMovement.cs:34: GetComponentInChildren<Camera>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Movement\UnitMovement.cs:10: agent = GetComponent<NavMeshAgent>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Operations\OperationsHUDController.cs:43: Button button = target.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Operations\OperationsHUDController.cs:53: Image image = target.GetComponent<Image>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Operations\OperationsHUDController.cs:172: GetComponentsInChildren<Transform>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\PersistentMilitary\SCN17FirstPersonWalkController.cs:23: characterController = GetComponent<CharacterController>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\CommanderProfile\CommanderProfileController.cs:278: canvas.GetComponentsInChildren<Transform>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\CommanderProfile\CommanderProfileController.cs:305: window.GetComponentsInChildren<Graphic>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\CommanderProfile\CommanderProfileController.cs:317: window.GetComponentsInChildren<Transform>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\CommanderProfile\CommanderProfileController.cs:365: Image cardImage = t.GetComponent<Image>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\CommanderProfile\CommanderProfileController.cs:377: Button button = t.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\CommanderProfile\CommanderProfileController.cs:415: TMPro.TMP_Text tmp = target.GetComponent<TMPro.TMP_Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\CommanderProfile\CommanderProfileController.cs:424: target.GetComponent<UnityEngine.UI.Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\CommanderProfile\CommanderProfileController.cs:490: Button button = go.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\CommanderProfile\CommanderProfileController.cs:532: Image image = go.GetComponent<Image>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\CommanderProfile\CommanderProfileController.cs:594: Image image = buttonObject.GetComponent<Image>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\CommanderProfile\CommanderProfileController.cs:617: TMPro.TMP_Text tmp = go.GetComponent<TMPro.TMP_Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\CommanderProfile\CommanderProfileController.cs:625: Text legacy = go.GetComponent<Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\CommanderProfile\CommanderProfileController.cs:671: protocolPopup.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\CommanderProfile\CommanderProfileController.cs:680: protocolPopup.GetComponent<Image>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\CommanderProfile\CommanderProfileController.cs:738: textObject.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Core\UIAudioFeedbackSystem.cs:20: audioSource = GetComponent<AudioSource>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Core\UIScalingSystem.cs:21: canvasScaler = GetComponent<CanvasScaler>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Core\UITooltipSystem.cs:59: var tmp = tooltip.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Core\UITooltipSystem.cs:63: var uiText = tooltip.GetComponentInChildren<UnityEngine.UI.Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Garage\Main\GAR003_FleetOverview.cs:3: using ObsidianProtocol.Game.Inventory;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Garage\Main\GAR003_FleetOverview.cs:53: if (!InventoryRuntime.CampaignActive)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Garage\Main\GAR003_FleetOverview.cs:62: if (!UnitDatabaseRuntime.EnsureInitialized())
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Garage\Main\GAR003_FleetOverview.cs:71: var ownedUnits = InventoryRuntime.GetByType(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Garage\Main\GAR003_FleetOverview.cs:72: InventoryItemType.Unit
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Garage\Main\GAR003_FleetOverview.cs:77: foreach (InventoryItem item in ownedUnits)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Garage\Main\GAR003_FleetOverview.cs:82: var definition = UnitDatabaseRuntime.Get(item.DefinitionId);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Garage\Main\GAR003_FleetOverview.cs:152: root.GetComponentsInChildren<Transform>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Garage\Main\GAR003_FleetOverview.cs:159: TMP_Text text = child.GetComponent<TMP_Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Garage\Main\GAR003_FleetOverview.cs:168: private string FormatState(InventoryItemState state)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Garage\Main\GAR003_FleetOverview.cs:172: case InventoryItemState.Stored:
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Garage\Main\GAR003_FleetOverview.cs:174: case InventoryItemState.Equipped:
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Garage\Main\GAR003_FleetOverview.cs:176: case InventoryItemState.Configuring:
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Garage\Main\GAR003_FleetOverview.cs:178: case InventoryItemState.Maintenance:
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Garage\Main\GAR003_FleetOverview.cs:180: case InventoryItemState.Damaged:
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Garage\Main\GAR003_FleetOverview.cs:182: case InventoryItemState.Deployed:
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Garage\Main\GAR003_FleetOverview.cs:184: case InventoryItemState.Consumed:
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Garage\Main\GAR003_FleetOverview.cs:186: case InventoryItemState.Disabled:
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Garage\Main\GAR003_FleetOverview.cs:188: case InventoryItemState.Salvaged:
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Garage\Main\GaragePanelManager.cs:104: Button button = buttonObject.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Global\Gameplay\UIGlobalPurchaseNotification.cs:4: public class UIGlobalPurchaseNotification : MonoBehaviour
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Global\Gameplay\UIGlobalPurchaseNotification.cs:6: public static UIGlobalPurchaseNotification Instance { get; private set; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Global\Gameplay\UIGlobalPurchaseNotification.cs:8: public string CurrentPurchase { get; private set; } = string.Empty;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Global\Gameplay\UIGlobalPurchaseNotification.cs:11: public event Action<string> OnPurchaseShown;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Global\Gameplay\UIGlobalPurchaseNotification.cs:12: public event Action OnPurchaseHidden;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Global\Gameplay\UIGlobalPurchaseNotification.cs:25: public void Show(string purchase)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Global\Gameplay\UIGlobalPurchaseNotification.cs:27: if (string.IsNullOrWhiteSpace(purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Global\Gameplay\UIGlobalPurchaseNotification.cs:30: CurrentPurchase = purchase;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Global\Gameplay\UIGlobalPurchaseNotification.cs:33: OnPurchaseShown?.Invoke(purchase);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Global\Gameplay\UIGlobalPurchaseNotification.cs:41: CurrentPurchase = string.Empty;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Global\Gameplay\UIGlobalPurchaseNotification.cs:44: OnPurchaseHidden?.Invoke();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\MainMenu\MainMenuMissingSystems.cs:42: transitionGroup = transitionOverlay.GetComponent<CanvasGroup>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\MainMenu\MainMenuMissingSystems.cs:45: loadingGroup = loadingScreen.GetComponent<CanvasGroup>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\MainMenu\MainMenuMissingSystems.cs:102: popup.GetComponent<CanvasGroup>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\MainMenu\MainMenuMissingSystems.cs:142: transitionOverlay.GetComponent<CanvasGroup>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\MainMenu\MainMenuMissingSystems.cs:159: transitionOverlay.GetComponent<CanvasGroup>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\MainMenu\MainMenuMissingSystems.cs:188: loadingScreen.GetComponent<CanvasGroup>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\MainMenu\UIMainMenuCampaign.cs:21: campaignButton = GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\MainMenu\UIMainMenuContinue.cs:21: continueButton = GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\MainMenu\UIMainMenuCredits.cs:4: public class UIMainMenuCredits : MonoBehaviour
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\MainMenu\UIMainMenuCredits.cs:6: public static UIMainMenuCredits Instance { get; private set; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\MainMenu\UIMainMenuCredits.cs:8: [SerializeField] private Button creditsButton;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\MainMenu\UIMainMenuCredits.cs:20: if (creditsButton == null)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\MainMenu\UIMainMenuCredits.cs:21: creditsButton = GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\MainMenu\UIMainMenuCredits.cs:24: public void Credits()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\MainMenu\UIMainMenuCredits.cs:26: Debug.Log("Credits selected.");
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\MainMenu\UIMainMenuCredits.cs:31: if (creditsButton != null)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\MainMenu\UIMainMenuCredits.cs:32: creditsButton.interactable = interactable;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\MainMenu\UIMainMenuExit.cs:21: exitButton = GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\MainMenu\UIMainMenuGarage.cs:21: garageButton = GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\MainMenu\UIMainMenuMultiplayer.cs:21: multiplayerButton = GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\MainMenu\UIMainMenuSettings.cs:21: settingsButton = GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\MainMenu\UIMainMenuStore.cs:21: storeButton = GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\MainMenu\UIMainMenuVROperator.cs:21: vrOperatorButton = GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Menus\Settings\SettingsSceneController.cs:196: buttonObject.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Menus\Settings\SettingsSceneController.cs:199: indicator.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Menus\Settings\SettingsSceneController.cs:259: objectRoot.GetComponentInChildren<Slider>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Menus\Settings\SettingsSceneController.cs:293: valueTransform.GetComponent<Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Menus\Settings\SettingsSceneController.cs:298: objectRoot.GetComponentsInChildren<Text>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Menus\Settings\SettingsSceneController.cs:374: GetComponentsInChildren<Transform>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Menus\Settings\SettingsSceneController.cs:397: return objectRoot.GetComponentInChildren<Button>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Popups\System\SCN15DisplayDiagnostic.cs:17: Canvas canvas = GameObject.Find("EXIT CONFIRMATION HUD")?.GetComponent<Canvas>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Popups\System\SCN15DisplayDiagnostic.cs:47: RectTransform rect = go.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Popups\System\Confirmation\POP019_PurchaseConfirmation.cs:6: /// POP-019 - Purchase confirmation
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Popups\System\Confirmation\POP019_PurchaseConfirmation.cs:8: public class POP019_PurchaseConfirmation : MonoBehaviour
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Popups\System\Confirmation\POP024_ExitConfirmation.cs:62: eventSystem.GetComponent<BaseInputModule>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Popups\System\Confirmation\POP024_ExitConfirmation.cs:76: Canvas canvas = GetComponentInParent<Canvas>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Popups\System\Confirmation\POP024_ExitConfirmation.cs:83: canvas = hud.GetComponent<Canvas>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Popups\System\Confirmation\POP024_ExitConfirmation.cs:95: canvas.GetComponent<GraphicRaycaster>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Popups\System\Confirmation\POP024_ExitConfirmation.cs:119: Graphic graphic = obj.GetComponent<Graphic>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Popups\System\Confirmation\POP024_ExitConfirmation.cs:145: messageText = message.GetComponent<TMP_Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Popups\System\Confirmation\POP024_ExitConfirmation.cs:159: cancelButton = cancel.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Popups\System\Confirmation\POP024_ExitConfirmation.cs:164: cancel.GetComponentInChildren<Button>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Popups\System\Confirmation\POP024_ExitConfirmation.cs:173: confirmButton = confirm.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Popups\System\Confirmation\POP024_ExitConfirmation.cs:178: confirm.GetComponentInChildren<Button>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Research\ResearchMaterialsController.cs:28: materialsText = target.GetComponent<TMP_Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Research\ResearchSelectedController.cs:54: ? textObject.GetComponent<UnityEngine.UI.Text>()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\CheckoutBackWallVideoPlayback.cs:18: player = GetComponent<VideoPlayer>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\CheckoutBackWallVideoPlayback.cs:29: GetComponentsInChildren<Renderer>(true))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\CheckoutBackWallVideoPlayback.cs:48: parentRenderer = GetComponent<Renderer>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:8: using ObsidianProtocol.Game.Inventory;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:17: public class StoreMasterController : MonoBehaviour
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:19: private TMP_Text creditsText;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:86: LoadUnits();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:88: RefreshCredits();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:89: RefreshCatalog();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:92: SelectUnit(units[0]);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:105: LoadUnits();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:111: RefreshCredits();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:112: RefreshCatalog();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:115: SelectUnit(units[0]);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:133: GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:143: GetComponent<Canvas>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:158: GetComponent<CanvasScaler>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:177: GetComponent<GraphicRaycaster>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:188: private void LoadUnits()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:192: foreach (InventoryItemDefinition definition
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:193: in InventoryDefinitionRegistry.GetAll())
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:199: InventoryItemType.Unit)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:203: UnitDatabaseRuntime.Get(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:237: root.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:287: RefreshCredits();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:288: RefreshCatalog();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:348: creditsText =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:350: "CREDITS  0",
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:355: creditsText.color = accent;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:358: creditsText.rectTransform,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:380: RectTransform closeRect = closeButton.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:437: button.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:452: RefreshCatalog();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:512: scroll.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:535: viewport.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:564: content.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:656: Button purchase = MakeButton("PURCHASE UNIT", detail.transform, 11);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:657: RectTransform purchaseRect = purchase.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:658: purchaseRect.anchorMin = new Vector2(0.05f, 0.055f);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:659: purchaseRect.anchorMax = new Vector2(0.95f, 0.095f);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:660: purchaseRect.offsetMin = Vector2.zero;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:661: purchaseRect.offsetMax = Vector2.zero;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:662: purchase.onClick.AddListener(RequestPurchase);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:665: RectTransform refreshRect = refresh.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:685: "PROCUREMENT // INVENTORY PERSISTENCE ACTIVE // DEPLOYMENT BUDGET SEPARATE",
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:748: "CONFIRM PURCHASE",
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:753: confirm.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:765: CompletePurchase);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:774: cancel.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:831: RefreshCatalog();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:837: private void RefreshCatalog()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:859: MatchesCategory(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:898: RectTransform cardRect = card.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:920: RectTransform artRect = art.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:936: TMP_Text price = Label(FormatCredits(unit.Economy.creditCost), card.transform, 11, TextAlignmentOptions.Left);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:940: bool owned = InventoryRuntime.Has(unit.UnitId);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:945: button.onClick.AddListener(() => SelectUnit(unit));
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:956: private void SelectUnit(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:968: InventoryRuntime.Has(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:981: FormatCredits(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:982: unit.Economy.creditCost);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1026: private void RequestPurchase()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1031: if (!InventoryRuntime.CampaignActive ||
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1041: if (InventoryRuntime.Has(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1052: selectedUnit.Economy.creditCost;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1063: if (EconomyRuntime.Credits < price)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1066: "INSUFFICIENT CREDITS",
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1076: FormatCredits(price) +
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1078: "Credits will be deducted immediately." +
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1079: "\nThe unit will be added to persistent inventory." +
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1086: private void CompletePurchase()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1093: UnitPurchaseService service =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1094: new UnitPurchaseService();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1097: service.Purchase(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1114: RefreshCredits();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1115: RefreshCatalog();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1116: SelectUnit(selectedUnit);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1121: LoadUnits();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1122: RefreshCredits();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1123: RefreshCatalog();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1126: SelectUnit(selectedUnit);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1128: SelectUnit(units[0]);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1131: private void RefreshCredits()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1133: if (creditsText != null)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1135: creditsText.text =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1136: "CREDITS  " +
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1137: EconomyRuntime.Credits.ToString("N0");
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1152: private bool MatchesCategory(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1211: private string FormatCredits(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs:1228: go.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:8: using ObsidianProtocol.Game.Inventory;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:20: private TMP_Text credits;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:32: private Button purchaseButton;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:42: private readonly List<InventoryItemDefinition> unitDefinitions =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:43: new List<InventoryItemDefinition>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:66: canvas = GetComponent<Canvas>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:69: canvas = GetComponentInParent<Canvas>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:159: credits =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:162: "CREDITS",
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:168: credits.rectTransform,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:178: "AVAILABLE CAMPAIGN CREDITS",
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:252: RefreshCatalog();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:478: purchaseButton =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:481: "PURCHASE UNIT",
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:486: purchaseButton.GetComponent<RectTransform>(),
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:492: purchaseButton.onClick.AddListener(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:595: confirm.GetComponent<RectTransform>(),
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:602: CompletePurchase);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:612: cancel.GetComponent<RectTransform>(),
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:629: InventoryItemDefinition definition
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:630: in InventoryDefinitionRegistry.GetAll())
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:636: InventoryItemType.Unit)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:652: RefreshCredits();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:654: RefreshCatalog();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:658: private void RefreshCredits()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:660: if (credits == null)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:663: credits.text =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:664: EconomyRuntime.Credits.ToString("N0") +
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:679: private void RefreshCatalog()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:693: IEnumerable<InventoryItemDefinition> filtered =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:709: InventoryItemDefinition definition
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:725: InventoryItemDefinition definition)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:739: card.GetComponent<Image>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:749: card.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:782: UnitDatabaseRuntime.Get(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:788: unit.Economy.creditCost)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:808: InventoryRuntime.Has(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:838: inspect.GetComponent<RectTransform>(),
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:871: purchaseButton.interactable = false;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:875: InventoryItemDefinition definition =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:885: UnitDatabaseRuntime.Get(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:891: unit.Economy.creditCost)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:895: InventoryRuntime.Has(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:908: " CREDITS";
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:944: "Ownership places this unit in the persistent military inventory. " +
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:948: purchaseButton.interactable =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:951: EconomyRuntime.Credits >= price;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:961: UnitDatabaseRuntime.Get(selectedId);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:968: unit.Economy.creditCost);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:974: " CREDITS\n\n" +
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:976: EconomyRuntime.Credits.ToString("N0") +
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:977: " CREDITS\n" +
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:981: EconomyRuntime.Credits - price)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:983: " CREDITS";
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:988: private void CompletePurchase()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:995: UnitPurchaseService service =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:996: new UnitPurchaseService();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:999: service.Purchase(selectedId);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:1112: obj.GetComponent<TMP_Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:1151: obj.GetComponent<Image>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:1161: obj.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreRuntimeController.cs:1230: obj.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreTerminalInteraction.cs:5: public sealed class StoreTerminalInteraction : MonoBehaviour
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreTerminalInteraction.cs:16: terminalCollider = GetComponent<Collider>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreTerminalInteraction.cs:24: BoxCollider glassCollider = item.GetComponent<BoxCollider>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreUnitPreview3D.cs:44: previewImage = GetComponentInChildren<RawImage>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreUnitPreview3D.cs:54: RectTransform imageRect = imageObject.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreUnitPreview3D.cs:60: previewImage = imageObject.GetComponent<RawImage>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreUnitPreview3D.cs:73: RectTransform statusRect = statusObject.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreUnitPreview3D.cs:79: statusText = statusObject.GetComponent<Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreUnitPreview3D.cs:124: Renderer[] renderers = previewModel.GetComponentsInChildren<Renderer>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Categories\STORE011_Credits.cs:6: /// STORE-011 - Credits
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Categories\STORE011_Credits.cs:8: public class STORE011_Credits : MonoBehaviour
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Inventory\STORE018_Inventory.cs:6: /// STORE-018 - Inventory
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Inventory\STORE018_Inventory.cs:8: public class STORE018_Inventory : MonoBehaviour
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Purchasing\STORE013_PurchaseConfirmation.cs:6: /// STORE-013 - Purchase confirmation
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Purchasing\STORE013_PurchaseConfirmation.cs:8: public class STORE013_PurchaseConfirmation : MonoBehaviour
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Purchasing\STORE014_PurchaseSuccess.cs:6: /// STORE-014 - Purchase success
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Purchasing\STORE014_PurchaseSuccess.cs:8: public class STORE014_PurchaseSuccess : MonoBehaviour
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Purchasing\STORE015_PurchaseFailure.cs:6: /// STORE-015 - Purchase failure
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\Purchasing\STORE015_PurchaseFailure.cs:8: public class STORE015_PurchaseFailure : MonoBehaviour
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Units\RepairRowDisplay.cs:16: costText.text = $"{cost} Credits";
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\Units\SelectableUnit.cs:26: unitRenderer = GetComponent<Renderer>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\ClimateModelViewHUD219Controller.cs:44: foreach (Transform t in GetComponentsInChildren<Transform>(true))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\ClimateModelViewHUD219Controller.cs:46: TMP_Text tmp = t.GetComponent<TMP_Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\ClimateModelViewHUD219Controller.cs:61: foreach (Transform t in GetComponentsInChildren<Transform>(true))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\ClimateModelViewHUD219Controller.cs:63: Button button = t.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\ClimateModelViewHUD219Controller.cs:169: foreach (Transform t in GetComponentsInChildren<Transform>(true))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\ClimateModelViewHUD219Controller.cs:171: Toggle toggle = t.GetComponent<Toggle>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\ClimateModelViewHUD219Controller.cs:203: Slider slider = sliderTransform.GetComponent<Slider>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\ClimateModelViewHUD219Controller.cs:224: selectorTransform.GetComponent<TMP_Dropdown>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\ClimateModelViewHUD219Controller.cs:389: "CREDITS  84,250\nENERGY  72%\nDATA  18,440");
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\ClimateModelViewHUD219Controller.cs:467: return t != null ? t.GetComponent<TMP_Text>() : null;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\ClimateModelViewHUD219Controller.cs:491: foreach (Transform child in root.GetComponentsInChildren<Transform>(true))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\GalaxyMapHUD201Controller.cs:53: Button[] allButtons = GetComponentsInChildren<Button>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\GalaxyMapHUD201Controller.cs:68: Button[] planetButtons = map.GetComponentsInChildren<Button>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\GalaxyMapHUD201Controller.cs:513: Text legacyText = target.GetComponent<Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\GalaxyMapHUD201Controller.cs:521: Component[] components = target.GetComponents<Component>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\PlanetaryBiosphereMapHUD220Controller.cs:137: foreach (Transform t in GetComponentsInChildren<Transform>(true))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\PlanetaryBiosphereMapHUD220Controller.cs:191: TextMeshProUGUI text = target.GetComponent<TextMeshProUGUI>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\PlanetaryBiosphereMapHUD220Controller.cs:367: Button button = target.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\PlanetaryBiosphereMapHUD220Controller.cs:391: Toggle toggle = target.GetComponent<Toggle>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\StormCellAnalysisHUD218Controller.cs:207: TextMeshProUGUI text = button.GetComponent<TextMeshProUGUI>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\StormCellAnalysisHUD218Controller.cs:419: Transform[] cells = stormLayer.GetComponentsInChildren<Transform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\StormCellAnalysisHUD218Controller.cs:477: return t == null ? null : t.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\StormCellAnalysisHUD218Controller.cs:484: return t == null ? null : t.GetComponent<Slider>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\StormCellAnalysisHUD218Controller.cs:494: TextMeshProUGUI text = t.GetComponent<TextMeshProUGUI>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\WorldBuilding\StormCellAnalysisHUD218Controller.cs:502: Transform[] all = GetComponentsInChildren<Transform>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\CommandCenterPlayerMode.cs:22: var movement = xrOrigin.GetComponent<CommandCenterWalkability>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\CommandCenterPlayerMode.cs:26: var camera = xrOrigin.GetComponentInChildren<Camera>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\CommandCenterPlayerMode.cs:29: var trackedPose = camera.GetComponent<TrackedPoseDriver>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\CommandCenterWalkability.cs:24: characterController = GetComponent<CharacterController>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\VRCommandController.cs:153: return obj != null ? obj.GetComponent<Button>() : null;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\VRMenuAutoWire.cs:18: var tmp = button.GetComponentInChildren<TMP_Text>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\VRMenuAutoWire.cs:22: var legacy = button.GetComponentInChildren<Text>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Acheron\AcheronFinalHUDController.cs:26: Button b = t.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\AI\UnitAutonomy.cs:46: agent = GetComponent<NavMeshAgent>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\AI\UnitAutonomy.cs:194: agent = GetComponent<NavMeshAgent>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\AirWarfare\ScoutEyeCockpitInteraction.cs:23: walking = GetComponent<SCN17FirstPersonWalkController>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\AirWarfare\ScoutEyeCockpitInteraction.cs:24: character = GetComponent<CharacterController>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\AirWarfare\ScoutEyeCockpitInteraction.cs:36: flight = drone.GetComponent<ScoutEyeFlightBehaviour>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\AirWarfare\ScoutEyeFlightBehaviour.cs:31: body = GetComponent<Rigidbody>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Combat\ComponentDamage\ComponentDamageSystem.cs:80: public bool TryGetComponent(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Command\RTSCommandInterface.cs:63: public void SelectUnit(string unitId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Command\UnitSelectionSystem.cs:16: public bool SelectUnit(string unitId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Core\SaveLoad\SaveData.cs:53: public List<StorageInventorySnapshot> Storages =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Core\SaveLoad\SaveData.cs:54: new List<StorageInventorySnapshot>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Core\SaveLoad\SaveData.cs:56: public List<DepotInventorySnapshot> Depots =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Core\SaveLoad\SaveData.cs:57: new List<DepotInventorySnapshot>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Core\SaveLoad\SaveData.cs:68: public sealed class StorageInventorySnapshot
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Core\SaveLoad\SaveData.cs:83: public sealed class DepotInventorySnapshot
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Deployment\BattlefieldDeploymentMaterializer.cs:70: UnitDatabaseRuntime.Get(entry.UnitId);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Deployment\Runtime\DeploymentRuntimeController.cs:741: obj.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Deployment\Runtime\DeploymentRuntimeController.cs:775: obj.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Deployment\Runtime\DeploymentRuntimeController.cs:852: obj.GetComponent<TMP_Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Deployment\Runtime\DeploymentRuntimeController.cs:861: obj.GetComponent<Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\EconomyRuntime.cs:12: public int Credits = 0;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\EconomyRuntime.cs:37: public static int Credits =>
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\EconomyRuntime.cs:38: data != null ? Mathf.Max(0, data.Credits) : 0;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\EconomyRuntime.cs:45: int startingCredits,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\EconomyRuntime.cs:69: Credits = Mathf.Max(0, startingCredits)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\EconomyRuntime.cs:75: public static bool SpendCredits(int amount)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\EconomyRuntime.cs:80: data.Credits < amount)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\EconomyRuntime.cs:85: data.Credits -= amount;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\EconomyRuntime.cs:91: public static void AddCredits(int amount)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\EconomyRuntime.cs:100: if (data.Credits > int.MaxValue - amount)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\EconomyRuntime.cs:101: data.Credits = int.MaxValue;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\EconomyRuntime.cs:103: data.Credits += amount;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\EconomyRuntime.cs:108: public static void SetCredits(int amount)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\EconomyRuntime.cs:113: data.Credits = Mathf.Max(0, amount);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceBudgetController.cs:15: hud.GetComponent<FinanceBudgetController>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceBudgetController.cs:34: Button button = buttonTransform.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceBudgetController.cs:56: RectTransform rt = budgetPanel.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceBudgetController.cs:63: Image bg = budgetPanel.GetComponent<Image>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceBudgetController.cs:147: RectTransform rt = go.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceBudgetController.cs:154: Image image = go.GetComponent<Image>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceBudgetController.cs:157: Button button = go.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceBudgetController.cs:188: RectTransform rt = go.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceBudgetController.cs:195: Text text = go.GetComponent<Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceCloseNavigation.cs:40: Button button = buttonObject.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceCloseNavigation.cs:65: root.GetComponentsInChildren<Transform>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceCommandCenterNavigation.cs:16: var controller = hud.GetComponent<FinanceCommandCenterNavigation>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceCommandCenterNavigation.cs:34: Button button = t.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceController.cs:12: FinanceController controller = hud.GetComponent<FinanceController>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceController.cs:19: Button b = button.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceGarageNavigation.cs:15: Button button = buttonTransform.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceIntelligenceNavigation.cs:15: Button button = buttonTransform.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceInvestmentsController.cs:14: var c = hud.GetComponent<FinanceInvestmentsController>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceInvestmentsController.cs:29: Button b = t.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceInvestmentsController.cs:49: RectTransform rt = panel.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceInvestmentsController.cs:56: panel.GetComponent<Image>().color =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceInvestmentsController.cs:106: RectTransform rt = go.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceInvestmentsController.cs:113: go.GetComponent<Image>().color =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceInvestmentsController.cs:116: go.GetComponent<UnityEngine.UI.Button>()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceInvestmentsController.cs:138: RectTransform rt = go.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceInvestmentsController.cs:145: var text = go.GetComponent<UnityEngine.UI.Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceLogisticsNavigation.cs:15: Button button = buttonTransform.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceOperationsNavigation.cs:15: Button button = buttonTransform.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinancePurchasesController.cs:4: public class FinancePurchasesController : MonoBehaviour
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinancePurchasesController.cs:14: var c = hud.GetComponent<FinancePurchasesController>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinancePurchasesController.cs:15: if (c == null) c = hud.AddComponent<FinancePurchasesController>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinancePurchasesController.cs:22: Transform t = transform.Find("FINANCE CONTROL PANEL/BUTTON_PURCHASES");
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinancePurchasesController.cs:25: Debug.LogWarning("[FINANCE] PURCHASES button not found.");
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinancePurchasesController.cs:29: Button b = t.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinancePurchasesController.cs:43: "PURCHASES PANEL",
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinancePurchasesController.cs:49: RectTransform rt = panel.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinancePurchasesController.cs:56: panel.GetComponent<Image>().color =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinancePurchasesController.cs:59: Text(panel.transform, "PURCHASES",
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinancePurchasesController.cs:74: "CURRENT CREDITS",
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinancePurchasesController.cs:94: "PURCHASE_" + name,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinancePurchasesController.cs:101: RectTransform rt = row.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinancePurchasesController.cs:108: row.GetComponent<Image>().color =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinancePurchasesController.cs:137: RectTransform rt = go.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinancePurchasesController.cs:144: go.GetComponent<Image>().color =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinancePurchasesController.cs:147: go.GetComponent<Button>().onClick.AddListener(action);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinancePurchasesController.cs:169: RectTransform rt = go.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinancePurchasesController.cs:176: Text text = go.GetComponent<Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceReportController.cs:14: var c = hud.GetComponent<FinanceReportController>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceReportController.cs:29: Button b = t.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceReportController.cs:49: RectTransform rt = panel.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceReportController.cs:56: panel.GetComponent<Image>().color =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceReportController.cs:67: Report("CURRENT CREDITS", "84,250 CR", 125);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceReportController.cs:124: RectTransform rt = go.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceReportController.cs:131: go.GetComponent<Image>().color =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceReportController.cs:134: go.GetComponent<Button>().onClick.AddListener(action);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceReportController.cs:156: RectTransform rt = go.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceReportController.cs:163: Text text = go.GetComponent<Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceResearchNavigation.cs:15: Button button = buttonTransform.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceStoreNavigation.cs:15: Button button = buttonTransform.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceTransactionsController.cs:14: var c = hud.GetComponent<FinanceTransactionsController>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceTransactionsController.cs:29: Button b = t.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceTransactionsController.cs:49: RectTransform rt = panel.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceTransactionsController.cs:56: panel.GetComponent<Image>().color =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceTransactionsController.cs:140: RectTransform rt = go.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceTransactionsController.cs:147: go.GetComponent<Image>().color =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceTransactionsController.cs:150: go.GetComponent<Button>().onClick.AddListener(action);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceTransactionsController.cs:172: RectTransform rt = go.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Economy\Finance\FinanceTransactionsController.cs:179: Text text = go.GetComponent<Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Garage\FleetInventory.cs:6: public sealed class FleetInventoryEntry
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Garage\FleetInventory.cs:15: public FleetInventoryEntry(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Garage\FleetInventory.cs:69: public sealed class FleetInventory
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Garage\FleetInventory.cs:73: FleetInventoryEntry> entries =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Garage\FleetInventory.cs:76: FleetInventoryEntry>(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Garage\FleetInventory.cs:80: FleetInventoryEntry entry)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Garage\FleetInventory.cs:107: out FleetInventoryEntry entry)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Garage\FleetInventory.cs:120: out FleetInventoryEntry entry))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Garage\FleetInventory.cs:135: out FleetInventoryEntry entry))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Garage\FleetInventory.cs:144: FleetInventoryEntry>
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\GroundWarfare\Movement\GroundLogisticsSystem.cs:15: public sealed class GroundLogisticsInventory
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\GroundWarfare\Movement\GroundLogisticsSystem.cs:20: public GroundLogisticsInventory()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\GroundWarfare\Movement\GroundLogisticsSystem.cs:83: private readonly Dictionary<string, GroundLogisticsInventory> inventories =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\GroundWarfare\Movement\GroundLogisticsSystem.cs:84: new Dictionary<string, GroundLogisticsInventory>(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\GroundWarfare\Movement\GroundLogisticsSystem.cs:99: new GroundLogisticsInventory());
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\GroundWarfare\Movement\GroundLogisticsSystem.cs:122: out GroundLogisticsInventory inventory) &&
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\GroundWarfare\Movement\GroundLogisticsSystem.cs:123: inventory.TryConsume(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\GroundWarfare\Movement\GroundLogisticsSystem.cs:134: out GroundLogisticsInventory inventory)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\GroundWarfare\Movement\GroundLogisticsSystem.cs:135: ? inventory.Get(resource)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\GroundWarfare\Movement\GroundLogisticsSystem.cs:139: public bool TryGetInventory(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\GroundWarfare\Movement\GroundLogisticsSystem.cs:141: out GroundLogisticsInventory inventory)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\GroundWarfare\Movement\GroundLogisticsSystem.cs:145: out inventory);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Intelligence\IntelligenceContactFunctionController.cs:15: contactSummary = summary.GetComponent<Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Intelligence\IntelligenceContactFunctionController.cs:108: foreach (Transform child in parent.GetComponentsInChildren<Transform>(true))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Intelligence\IntelligenceHUDController.cs:45: sensorDataText = dataObject.GetComponent<Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Intelligence\IntelligenceHUDController.cs:50: threatStatusText = threatObject.GetComponent<Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Intelligence\IntelligenceHUDController.cs:125: RectTransform buttonRect = openMapButton.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Intelligence\IntelligenceHUDController.cs:186: foreach (Transform child in parent.GetComponentsInChildren<Transform>(true))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Intelligence\IntelligenceHUDController.cs:202: return buttonObject.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Intelligence\IntelligenceWorldInteraction.cs:14: targetCamera = GameObject.Find("INTELLIGENCE CAMERA")?.GetComponent<Camera>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Intelligence\IntelligenceWorldInteraction.cs:43: hit.collider.GetComponent<IntelligenceSensorArrayTarget>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryBootstrap.cs:3: namespace ObsidianProtocol.Game.Inventory
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryBootstrap.cs:5: public sealed class InventoryBootstrap : MonoBehaviour
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryBootstrap.cs:7: // Inventory initialization is campaign-driven.
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryBootstrap.cs:9: // InventoryRuntime.StartNewCampaign(CampaignId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryDefinitionBootstrap.cs:5: namespace ObsidianProtocol.Game.Inventory
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryDefinitionBootstrap.cs:7: public static class InventoryDefinitionBootstrap
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryDefinitionBootstrap.cs:13: if (!UnitDatabaseRuntime.EnsureInitialized())
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryDefinitionBootstrap.cs:16: UnitDatabase database = UnitDatabaseRuntime.Database;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryDefinitionBootstrap.cs:19: InventoryUnitDefinitionBridge.RegisterAll(database);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryDefinitionBootstrap.cs:22: "[INVENTORY] Unit definitions registered: " +
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryDefinitionRegistry.cs:4: namespace ObsidianProtocol.Game.Inventory
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryDefinitionRegistry.cs:6: public static class InventoryDefinitionRegistry
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryDefinitionRegistry.cs:10: InventoryItemDefinition> definitions =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryDefinitionRegistry.cs:13: InventoryItemDefinition>(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryDefinitionRegistry.cs:17: InventoryItemDefinition definition)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryDefinitionRegistry.cs:47: out InventoryItemDefinition definition)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryDefinitionRegistry.cs:64: InventoryItemDefinition>
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryItem.cs:4: namespace ObsidianProtocol.Game.Inventory
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryItem.cs:6: public enum InventoryItemType
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryItem.cs:26: public enum InventoryItemState
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryItem.cs:40: public sealed class InventoryItem
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryItem.cs:45: public InventoryItemType Type =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryItem.cs:46: InventoryItemType.Other;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryItem.cs:48: public InventoryItemState State =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryItem.cs:49: InventoryItemState.Stored;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryItem.cs:68: public sealed class InventorySaveData
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryItem.cs:73: public List<InventoryItem> Items =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryItem.cs:74: new List<InventoryItem>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryItemDefinition.cs:3: namespace ObsidianProtocol.Game.Inventory
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryItemDefinition.cs:6: public sealed class InventoryItemDefinition
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryItemDefinition.cs:10: public InventoryItemType Type =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryItemDefinition.cs:11: InventoryItemType.Other;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:5: namespace ObsidianProtocol.Game.Inventory
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:7: public static class InventoryRuntime
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:10: "obsidian_protocol_inventory_";
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:12: private static InventorySaveData data;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:22: public static InventorySaveData Data =>
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:25: public static IReadOnlyList<InventoryItem> Items =>
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:28: : Array.Empty<InventoryItem>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:68: data = new InventorySaveData
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:72: Items = new List<InventoryItem>()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:79: data.Items = new List<InventoryItem>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:114: data = new InventorySaveData
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:118: Items = new List<InventoryItem>()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:124: public static InventoryItem Add(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:126: InventoryItemType type,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:144: if (InventoryDefinitionRegistry.TryGet(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:146: out InventoryItemDefinition definition))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:164: InventoryItem existing =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:179: InventoryItem item =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:180: new InventoryItem
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:192: InventoryItemState.Stored,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:230: InventoryItem item =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:257: public static InventoryItem Find(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:268: foreach (InventoryItem item in data.Items)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:285: public static InventoryItem FindInstance(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:296: foreach (InventoryItem item in data.Items)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:323: foreach (InventoryItem item in data.Items)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:350: public static IReadOnlyList<InventoryItem> GetByType(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:351: InventoryItemType type)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:354: return Array.Empty<InventoryItem>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:358: List<InventoryItem> result =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:359: new List<InventoryItem>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:361: foreach (InventoryItem item in data.Items)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:373: public static IReadOnlyList<InventoryItem> GetByLocation(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:377: return Array.Empty<InventoryItem>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:381: List<InventoryItem> result =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:382: new List<InventoryItem>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:384: foreach (InventoryItem item in data.Items)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:403: InventoryItemState state)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:405: InventoryItem item =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:422: InventoryItem item =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:488: JsonUtility.FromJson<InventorySaveData>(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:508: data.Items = new List<InventoryItem>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:521: new InventorySaveData
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:525: Items = new List<InventoryItem>()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:536: private static InventoryItem FindStack(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:538: InventoryItemType type,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:541: foreach (InventoryItem item in data.Items)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryRuntime.cs:575: InventoryItem item)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryUnitDefinitionBridge.cs:3: namespace ObsidianProtocol.Game.Inventory
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryUnitDefinitionBridge.cs:5: public static class InventoryUnitDefinitionBridge
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryUnitDefinitionBridge.cs:8: UnitDatabase database)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryUnitDefinitionBridge.cs:23: InventoryItemDefinition definition =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryUnitDefinitionBridge.cs:24: new InventoryItemDefinition
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryUnitDefinitionBridge.cs:27: Type = InventoryItemType.Unit,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Inventory\InventoryUnitDefinitionBridge.cs:32: if (InventoryDefinitionRegistry.Register(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\LogisticsHUDController.cs:24: energyValueText = GameObject.Find("ENERGY_VALUE")?.GetComponent<Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\LogisticsHUDController.cs:43: if (energyValueText == null) energyValueText = GameObject.Find("ENERGY_VALUE")?.GetComponent<Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\LogisticsHUDController.cs:51: TMP_Text[] texts = row.GetComponentsInChildren<TMP_Text>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\LogisticsHUDController.cs:58: TMP_Text rateText = rateTransform.GetComponent<TMP_Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\LogisticsHUDController.cs:69: TMP_Text value = obj.GetComponentInChildren<TMP_Text>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\LogisticsHUDController.cs:189: TMP_Text text = target.GetComponent<TMP_Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\LogisticsRuntime.cs:319: if (Resources != null && Resources.Inventory != null)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\LogisticsRuntime.cs:321: foreach (var pair in Resources.Inventory.GetAmounts())
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\LogisticsRuntime.cs:342: new ObsidianProtocol.Game.Core.StorageInventorySnapshot
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\LogisticsRuntime.cs:347: foreach (var pair in storage.Inventory.GetAmounts())
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\LogisticsRuntime.cs:371: new ObsidianProtocol.Game.Core.DepotInventorySnapshot
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\LogisticsRuntime.cs:376: foreach (var pair in depot.GetInventory())
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\LogisticsRuntime.cs:401: if (Resources != null && Resources.Inventory != null &&
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\LogisticsRuntime.cs:404: Resources.Inventory.Clear();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\LogisticsRuntime.cs:410: Resources.Inventory.SetAmount(entry.Key, entry.Amount);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\LogisticsRuntime.cs:429: storage.Inventory.Clear();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\LogisticsRuntime.cs:435: storage.Inventory.SetAmount(entry.Key, entry.Amount);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\LogisticsRuntime.cs:455: depot.ClearInventory();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\Editor\LogisticsHUDAutoAttach.cs:22: if (hud.GetComponent<LogisticsHUDController>() == null)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\Editor\LogisticsResourceTextSetup.cs:55: Text oldText = target.GetComponent<Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\Editor\LogisticsResourceTextSetup.cs:56: TMP_Text existingTMP = target.GetComponent<TMP_Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\Supply\SupplyDepotSystem.cs:8: private readonly Dictionary<SupplyType, float> inventory =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\Supply\SupplyDepotSystem.cs:51: if (inventory.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\Supply\SupplyDepotSystem.cs:61: public IReadOnlyDictionary<SupplyType, float> GetInventory()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\Supply\SupplyDepotSystem.cs:63: return inventory;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\Supply\SupplyDepotSystem.cs:79: inventory[supplyType] =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\Supply\SupplyDepotSystem.cs:102: inventory.Remove(supplyType);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\Supply\SupplyDepotSystem.cs:106: inventory[supplyType] =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\Supply\SupplyDepotSystem.cs:129: public void ClearInventory()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Logistics\Supply\SupplyDepotSystem.cs:131: inventory.Clear();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Multiplayer\Offline\Player1CommandSystem.cs:149: public bool SelectUnit(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Multiplayer\Offline\Player1CommandSystem.cs:163: public bool DeselectUnit(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Multiplayer\Offline\Player2CommandSystem.cs:108: public bool SelectUnit(string unitId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Multiplayer\Offline\Player2CommandSystem.cs:119: public bool DeselectUnit(string unitId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\NavalWarfare\NavalLogisticsSystem.cs:15: public sealed class NavalLogisticsInventory
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\NavalWarfare\NavalLogisticsSystem.cs:20: public NavalLogisticsInventory()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\NavalWarfare\NavalLogisticsSystem.cs:73: private readonly Dictionary<string, NavalLogisticsInventory> inventories =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\NavalWarfare\NavalLogisticsSystem.cs:74: new Dictionary<string, NavalLogisticsInventory>(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\NavalWarfare\NavalLogisticsSystem.cs:89: new NavalLogisticsInventory());
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\NavalWarfare\NavalLogisticsSystem.cs:112: out NavalLogisticsInventory inventory) &&
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\NavalWarfare\NavalLogisticsSystem.cs:113: inventory.TryConsume(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\NavalWarfare\NavalLogisticsSystem.cs:124: out NavalLogisticsInventory inventory)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\NavalWarfare\NavalLogisticsSystem.cs:125: ? inventory.Get(resource)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\NavalWarfare\NavalLogisticsSystem.cs:129: public bool TryGetInventory(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\NavalWarfare\NavalLogisticsSystem.cs:131: out NavalLogisticsInventory inventory)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\NavalWarfare\NavalLogisticsSystem.cs:135: out inventory);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\PersistentMilitaryRuntime.cs:553: objectFound.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\PersistentMilitaryRuntime.cs:581: ? selectedObject.GetComponent<Button>()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17FullRecordBottomButton.cs:72: buttonObject.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17FullRecordBottomButton.cs:78: buttonObject.GetComponent<Image>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17FullRecordBottomButton.cs:90: buttonObject.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17FullRecordBottomButton.cs:107: labelObject.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17FullRecordBottomButton.cs:122: labelObject.GetComponent<TextMeshProUGUI>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17FullRecordBottomButton.cs:147: Button button = buttonObject.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17FullRecordBottomButton.cs:176: buttonObject.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17FullRecordBottomButton.cs:196: commandCenter.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17InputBootstrap.cs:48: eventSystem.GetComponent<InputSystemUIInputModule>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17InputBootstrap.cs:136: hit.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17InputBootstrap.cs:140: hit.GetComponentInParent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17PersistentMilitaryUI.cs:74: if (root.GetComponent<SCN17PersistentMilitaryUI>() == null)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17PersistentMilitaryUI.cs:116: GetComponent<SCN17RuntimeUnitSelector>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17PersistentMilitaryUI.cs:175: Transform[] transforms = root.GetComponentsInChildren<Transform>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17PersistentMilitaryUI.cs:185: Button button = item.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17PersistentMilitaryUI.cs:215: GetComponentsInChildren<Button>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17PersistentMilitaryUI.cs:261: HandleButton(selected.GetComponent<Button>());
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17PersistentMilitaryUI.cs:286: GetComponent<SCN17RuntimeUnitSelector>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17PersistentMilitaryUI.cs:289: selector.SelectUnitFromButton(selected.name);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17PersistentMilitaryUI.cs:496: ? existing.GetComponent<TextMeshProUGUI>()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17PersistentMilitaryUI.cs:508: RectTransform rect = textObject.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17PersistentMilitaryUI.cs:514: display = textObject.GetComponent<TextMeshProUGUI>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17PersistentMilitaryUI.cs:640: GetComponentsInChildren<Button>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17PersistentMilitaryUI.cs:797: target.GetComponentsInChildren<TMP_Text>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17PersistentMilitaryUI.cs:818: target.GetComponentsInChildren<TMP_Text>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17PersistentUnitRecordPanels.cs:66: Canvas canvas = button.GetComponentInParent<Canvas>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17PersistentUnitRecordPanels.cs:140: button.GetComponent<SCN17CloseButtonPointerHandler>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17PersistentUnitRecordPanels.cs:160: Button existingButton = existing.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17PersistentUnitRecordPanels.cs:181: buttonObject.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17PersistentUnitRecordPanels.cs:189: Image image = buttonObject.GetComponent<Image>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17PersistentUnitRecordPanels.cs:193: Button button = buttonObject.GetComponent<Button>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17PersistentUnitRecordPanels.cs:206: labelObject.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17PersistentUnitRecordPanels.cs:214: labelObject.GetComponent<TextMeshProUGUI>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17PersistentUnitRecordPanels.cs:303: panel.transform.Find("TITLE")?.GetComponent<TMP_Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17PersistentUnitRecordPanels.cs:306: panel.transform.Find("BODY")?.GetComponent<TMP_Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17RuntimeUnitSelector.cs:36: RectTransform panelRect = panel.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17RuntimeUnitSelector.cs:43: panel.GetComponent<Image>().color =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17RuntimeUnitSelector.cs:65: scrollObject.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17RuntimeUnitSelector.cs:72: scrollObject.GetComponent<Image>().color =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17RuntimeUnitSelector.cs:80: viewportObject.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17RuntimeUnitSelector.cs:87: viewportObject.GetComponent<Image>().color =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17RuntimeUnitSelector.cs:90: viewportObject.GetComponent<Mask>().showMaskGraphic = false;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17RuntimeUnitSelector.cs:97: content = contentObject.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17RuntimeUnitSelector.cs:105: contentObject.GetComponent<VerticalLayoutGroup>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17RuntimeUnitSelector.cs:115: contentObject.GetComponent<ContentSizeFitter>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17RuntimeUnitSelector.cs:123: scrollObject.GetComponent<ScrollRect>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17RuntimeUnitSelector.cs:134: public void SelectUnitFromButton(string buttonName)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17RuntimeUnitSelector.cs:236: buttonObject.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17RuntimeUnitSelector.cs:240: Image image = buttonObject.GetComponent<Image>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17RuntimeUnitSelector.cs:284: textObject.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\PersistentMilitary\SCN17RuntimeUnitSelector.cs:293: textObject.GetComponent<TextMeshProUGUI>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Polish\StorePolish.cs:34: SetDefault("CreditBalance", true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Polish\StorePolish.cs:35: SetDefault("PurchaseConfirmation", true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Polish\StorePolish.cs:36: SetDefault("InventoryIntegration", true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Research\ResearchLabPresentationController.cs:43: if (cameraObject.GetComponent<ResearchLabPresentationController>() == null)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Research\ResearchLabPresentationController.cs:49: sceneCamera = GetComponent<Camera>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Research\ResearchLabPresentationController.cs:54: researchConsole = consoleObject.GetComponent<Collider>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Research\ResearchManager.cs:13: private TechnologyInventory technologyInventory =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Research\ResearchManager.cs:14: new TechnologyInventory();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Research\ResearchManager.cs:62: UnlockedTechnologyIds = technologyInventory.GetUnlockedIds(),
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Research\ResearchManager.cs:78: technologyInventory.RestoreUnlockedIds(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Research\ResearchManager.cs:180: return technologyInventory.IsUnlocked(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Research\ResearchManager.cs:261: if (!technologyInventory.IsUnlocked(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Research\ResearchManager.cs:276: technologyInventory.Unlock(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceConsumptionSystem.cs:30: ResourceInventory inventory,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceConsumptionSystem.cs:33: if (inventory == null ||
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceConsumptionSystem.cs:46: inventory.GetAmount(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceConsumptionSystem.cs:58: ResourceInventory inventory,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceConsumptionSystem.cs:62: inventory,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceConsumptionSystem.cs:72: if (!inventory.TrySpend(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceExtractionSystem.cs:15: ResourceInventory destination,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceInventory.cs:5: public sealed class ResourceInventory
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceProcessingSystem.cs:90: ResourceInventory inventory)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceProcessingSystem.cs:92: if (inventory == null ||
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceProcessingSystem.cs:100: return inventory.GetAmount(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceProcessingSystem.cs:107: ResourceInventory inventory)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceProcessingSystem.cs:109: if (inventory == null ||
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceProcessingSystem.cs:119: inventory))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceProcessingSystem.cs:124: if (!inventory.TrySpend(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceProcessingSystem.cs:131: inventory.Add(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceScarcitySystem.cs:140: ResourceInventory inventory)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceScarcitySystem.cs:142: if (inventory == null)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceScarcitySystem.cs:149: inventory.GetAmount(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceStorageSystem.cs:12: private readonly ResourceInventory inventory =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceStorageSystem.cs:13: new ResourceInventory();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceStorageSystem.cs:32: public ResourceInventory Inventory =>
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceStorageSystem.cs:33: inventory;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceStorageSystem.cs:46: inventory.GetAmount(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceStorageSystem.cs:78: if (inventory.GetAmount(resourceId) > capacity)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceStorageSystem.cs:107: return inventory.GetAmount(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceStorageSystem.cs:137: inventory.Add(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceStorageSystem.cs:148: return inventory.TrySpend(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceSystem.cs:25: private readonly ResourceInventory inventory =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceSystem.cs:26: new ResourceInventory();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceSystem.cs:28: public ResourceInventory Inventory =>
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceSystem.cs:29: inventory;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceSystem.cs:85: return inventory.GetAmount(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceSystem.cs:99: inventory.Add(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceSystem.cs:115: return inventory.TrySpend(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceSystem.cs:141: if (!inventory.TrySpend(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Resources\ResourceSystem.cs:152: inventory.Add(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\AntiPayToWinRestrictions.cs:5: public enum CompetitivePurchaseRule
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\AntiPayToWinRestrictions.cs:15: public CompetitivePurchaseRule Evaluate(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\AntiPayToWinRestrictions.cs:21: return CompetitivePurchaseRule.Allowed;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\AntiPayToWinRestrictions.cs:24: return CompetitivePurchaseRule.Allowed;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\AntiPayToWinRestrictions.cs:27: return CompetitivePurchaseRule.Allowed;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\AntiPayToWinRestrictions.cs:30: return CompetitivePurchaseRule.Allowed;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\AntiPayToWinRestrictions.cs:33: return CompetitivePurchaseRule.Allowed;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\AntiPayToWinRestrictions.cs:36: return CompetitivePurchaseRule.Allowed;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\AntiPayToWinRestrictions.cs:39: return CompetitivePurchaseRule.RequiresProgression;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\AntiPayToWinRestrictions.cs:42: return CompetitivePurchaseRule.RequiresProgression;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\AntiPayToWinRestrictions.cs:45: return CompetitivePurchaseRule.RequiresProgression;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\AntiPayToWinRestrictions.cs:48: return CompetitivePurchaseRule.Restricted;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\AntiPayToWinRestrictions.cs:57: CompetitivePurchaseRule rule =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\AntiPayToWinRestrictions.cs:62: case CompetitivePurchaseRule.Allowed:
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\AntiPayToWinRestrictions.cs:65: case CompetitivePurchaseRule.RequiresProgression:
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\AntiPayToWinRestrictions.cs:69: case CompetitivePurchaseRule.Restricted:
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\AntiPayToWinRestrictions.cs:72: case CompetitivePurchaseRule.Prohibited:
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\AntiPayToWinRestrictions.cs:80: public bool CanPurchaseForCompetitiveMatch(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:6: public sealed class CampaignResourcePurchase
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:8: public string PurchaseId { get; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:13: public int CreditCost { get; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:15: public PurchaseStatus Status
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:21: public CampaignResourcePurchase(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:22: string purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:26: int creditCost)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:28: PurchaseId =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:29: purchaseId ?? string.Empty;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:40: CreditCost =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:41: Math.Max(0, creditCost);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:44: PurchaseStatus.Pending;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:48: !string.IsNullOrWhiteSpace(PurchaseId) &&
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:55: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:56: Status = PurchaseStatus.Completed;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:61: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:62: Status = PurchaseStatus.Rejected;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:67: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:68: Status = PurchaseStatus.Cancelled;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:76: CampaignResourcePurchase> purchases =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:79: CampaignResourcePurchase>(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:83: CampaignResourcePurchase purchase)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:85: if (purchase == null ||
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:86: !purchase.Valid ||
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:87: purchases.ContainsKey(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:88: purchase.PurchaseId))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:93: purchases.Add(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:94: purchase.PurchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:95: purchase);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:101: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:103: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:104: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:105: out CampaignResourcePurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:110: purchase.Complete();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:115: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:117: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:118: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:119: out CampaignResourcePurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:124: purchase.Reject();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:129: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:131: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:132: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:133: out CampaignResourcePurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:138: purchase.Cancel();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:143: string purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:144: out CampaignResourcePurchase purchase)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:146: return purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:147: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:148: out purchase);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:152: CampaignResourcePurchase>
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:153: GetPurchases()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:155: return purchases.Values;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CampaignResourcePurchasing.cs:160: purchases.Clear();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:11: InventoryConvenience,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:15: public sealed class ConveniencePurchase
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:17: public string PurchaseId { get; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:23: public int CreditCost { get; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:25: public PurchaseStatus Status
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:31: public ConveniencePurchase(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:32: string purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:36: int creditCost)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:38: PurchaseId =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:39: purchaseId ?? string.Empty;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:49: CreditCost =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:50: Math.Max(0, creditCost);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:53: PurchaseStatus.Pending;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:57: !string.IsNullOrWhiteSpace(PurchaseId) &&
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:63: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:64: Status = PurchaseStatus.Completed;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:69: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:70: Status = PurchaseStatus.Rejected;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:75: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:76: Status = PurchaseStatus.Cancelled;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:84: ConveniencePurchase> purchases =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:87: ConveniencePurchase>(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:91: ConveniencePurchase purchase)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:93: if (purchase == null ||
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:94: !purchase.Valid ||
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:95: purchases.ContainsKey(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:96: purchase.PurchaseId))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:101: purchases.Add(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:102: purchase.PurchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:103: purchase);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:109: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:111: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:112: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:113: out ConveniencePurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:118: purchase.Complete();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:123: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:125: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:126: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:127: out ConveniencePurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:132: purchase.Reject();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:137: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:139: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:140: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:141: out ConveniencePurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:146: purchase.Cancel();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:151: string purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:152: out ConveniencePurchase purchase)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:154: return purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:155: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:156: out purchase);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:160: ConveniencePurchase>
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:161: GetPurchases()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:163: return purchases.Values;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ConveniencePurchasing.cs:168: purchases.Clear();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:15: public sealed class CosmeticPurchase
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:17: public string PurchaseId { get; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:23: public int CreditCost { get; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:25: public PurchaseStatus Status
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:31: public CosmeticPurchase(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:32: string purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:36: int creditCost)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:38: PurchaseId =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:39: purchaseId ?? string.Empty;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:49: CreditCost =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:50: Math.Max(0, creditCost);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:53: PurchaseStatus.Pending;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:57: !string.IsNullOrWhiteSpace(PurchaseId) &&
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:63: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:64: Status = PurchaseStatus.Completed;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:69: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:70: Status = PurchaseStatus.Rejected;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:75: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:76: Status = PurchaseStatus.Cancelled;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:84: CosmeticPurchase> purchases =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:87: CosmeticPurchase>(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:91: CosmeticPurchase purchase)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:93: if (purchase == null ||
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:94: !purchase.Valid ||
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:95: purchases.ContainsKey(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:96: purchase.PurchaseId))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:101: purchases.Add(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:102: purchase.PurchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:103: purchase);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:109: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:111: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:112: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:113: out CosmeticPurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:118: purchase.Complete();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:123: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:125: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:126: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:127: out CosmeticPurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:132: purchase.Reject();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:137: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:139: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:140: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:141: out CosmeticPurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:146: purchase.Cancel();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:151: string purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:152: out CosmeticPurchase purchase)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:154: return purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:155: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:156: out purchase);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:160: CosmeticPurchase>
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:161: GetPurchases()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:163: return purchases.Values;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CosmeticPurchasing.cs:168: purchases.Clear();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CreditSystem.cs:6: public sealed class CreditWallet
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CreditSystem.cs:12: public CreditWallet(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CreditSystem.cs:69: public sealed class CreditTransaction
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CreditSystem.cs:75: public bool IsCredit { get; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CreditSystem.cs:77: public CreditTransaction(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CreditSystem.cs:81: bool isCredit)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CreditSystem.cs:92: IsCredit = isCredit;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CreditSystem.cs:103: public sealed class CreditSystem
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CreditSystem.cs:107: CreditWallet> wallets =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CreditSystem.cs:110: CreditWallet>(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CreditSystem.cs:114: CreditTransaction> transactions =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CreditSystem.cs:116: CreditTransaction>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CreditSystem.cs:119: CreditWallet wallet)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CreditSystem.cs:147: out CreditWallet wallet)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CreditSystem.cs:154: public bool GrantCredits(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CreditSystem.cs:161: out CreditWallet wallet))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CreditSystem.cs:169: CreditTransaction transaction =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CreditSystem.cs:170: new CreditTransaction(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CreditSystem.cs:187: public bool SpendCredits(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CreditSystem.cs:194: out CreditWallet wallet))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CreditSystem.cs:202: CreditTransaction transaction =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CreditSystem.cs:203: new CreditTransaction(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CreditSystem.cs:221: CreditWallet>
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\CreditSystem.cs:228: CreditTransaction>
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\DeploymentBudgetSeparation.cs:10: public bool PurchaseAffectsDeploymentBudget =>
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\DeploymentBudgetSeparation.cs:13: public bool CreditsAffectDeploymentBudget =>
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\DeploymentBudgetSeparation.cs:59: public bool CanStorePurchaseBypassDeployment(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\DeploymentBudgetSeparation.cs:60: bool purchased,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\DeploymentBudgetSeparation.cs:64: if (!purchased)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:6: public sealed class EquipmentPurchase
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:8: public string PurchaseId { get; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:12: public int CreditCost { get; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:14: public PurchaseStatus Status
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:20: public EquipmentPurchase(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:21: string purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:24: int creditCost)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:26: PurchaseId =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:27: purchaseId ?? string.Empty;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:35: CreditCost =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:36: Math.Max(0, creditCost);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:39: PurchaseStatus.Pending;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:43: !string.IsNullOrWhiteSpace(PurchaseId) &&
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:49: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:50: Status = PurchaseStatus.Completed;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:55: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:56: Status = PurchaseStatus.Rejected;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:61: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:62: Status = PurchaseStatus.Cancelled;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:70: EquipmentPurchase> purchases =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:73: EquipmentPurchase>(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:77: EquipmentPurchase purchase)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:79: if (purchase == null ||
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:80: !purchase.Valid ||
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:81: purchases.ContainsKey(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:82: purchase.PurchaseId))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:87: purchases.Add(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:88: purchase.PurchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:89: purchase);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:95: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:97: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:98: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:99: out EquipmentPurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:104: purchase.Complete();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:109: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:111: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:112: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:113: out EquipmentPurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:118: purchase.Reject();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:123: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:125: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:126: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:127: out EquipmentPurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:132: purchase.Cancel();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:137: string purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:138: out EquipmentPurchase purchase)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:140: return purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:141: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:142: out purchase);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:146: EquipmentPurchase>
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:147: GetPurchases()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:149: return purchases.Values;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\EquipmentPurchasing.cs:154: purchases.Clear();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:11: public int CreditCost { get; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:16: int creditCost)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:24: CreditCost =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:25: Math.Max(0, creditCost);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:35: public sealed class FabricationMaterialPurchase
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:37: public string PurchaseId { get; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:42: public int CreditCost { get; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:44: public PurchaseStatus Status
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:50: public FabricationMaterialPurchase(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:51: string purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:55: int creditCost)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:57: PurchaseId =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:58: purchaseId ?? string.Empty;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:69: CreditCost =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:70: Math.Max(0, creditCost);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:73: PurchaseStatus.Pending;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:77: !string.IsNullOrWhiteSpace(PurchaseId) &&
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:83: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:84: Status = PurchaseStatus.Completed;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:89: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:90: Status = PurchaseStatus.Rejected;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:95: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:96: Status = PurchaseStatus.Cancelled;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:112: FabricationMaterialPurchase> purchases =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:115: FabricationMaterialPurchase>(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:157: public bool RegisterPurchase(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:158: FabricationMaterialPurchase purchase)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:160: if (purchase == null ||
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:161: !purchase.Valid ||
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:162: purchases.ContainsKey(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:163: purchase.PurchaseId))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:168: purchases.Add(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:169: purchase.PurchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:170: purchase);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:175: public bool CompletePurchase(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:176: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:178: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:179: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:180: out FabricationMaterialPurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:185: purchase.Complete();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:189: public bool RejectPurchase(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:190: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:192: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:193: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:194: out FabricationMaterialPurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:199: purchase.Reject();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:203: public bool CancelPurchase(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:204: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:206: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:207: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:208: out FabricationMaterialPurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:213: purchase.Cancel();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:225: FabricationMaterialPurchase>
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:226: GetPurchases()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:228: return purchases.Values;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\FabricationMaterials.cs:234: purchases.Clear();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:6: public sealed class GarageSlotPurchase
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:8: public string PurchaseId { get; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:12: public int CreditCost { get; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:14: public PurchaseStatus Status
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:20: public GarageSlotPurchase(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:21: string purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:24: int creditCost)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:26: PurchaseId =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:27: purchaseId ?? string.Empty;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:35: CreditCost =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:36: Math.Max(0, creditCost);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:39: PurchaseStatus.Pending;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:43: !string.IsNullOrWhiteSpace(PurchaseId) &&
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:49: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:50: Status = PurchaseStatus.Completed;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:55: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:56: Status = PurchaseStatus.Rejected;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:61: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:62: Status = PurchaseStatus.Cancelled;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:70: GarageSlotPurchase> purchases =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:73: GarageSlotPurchase>(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:77: GarageSlotPurchase purchase)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:79: if (purchase == null ||
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:80: !purchase.Valid ||
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:81: purchases.ContainsKey(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:82: purchase.PurchaseId))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:87: purchases.Add(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:88: purchase.PurchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:89: purchase);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:95: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:97: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:98: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:99: out GarageSlotPurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:104: purchase.Complete();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:109: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:111: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:112: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:113: out GarageSlotPurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:118: purchase.Reject();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:123: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:125: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:126: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:127: out GarageSlotPurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:132: purchase.Cancel();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:137: string purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:138: out GarageSlotPurchase purchase)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:140: return purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:141: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:142: out purchase);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:146: GarageSlotPurchase>
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:147: GetPurchases()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:149: return purchases.Values;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\GarageSlotPurchasing.cs:154: purchases.Clear();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\MilitaryStore.cs:33: public int CreditCost { get; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\MilitaryStore.cs:49: int creditCost)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\MilitaryStore.cs:59: CreditCost =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\MilitaryStore.cs:60: Math.Max(0, creditCost);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\MilitaryStore.cs:69: CreditCost >= 0;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:6: public sealed class ModulePurchase
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:8: public string PurchaseId { get; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:12: public int CreditCost { get; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:14: public PurchaseStatus Status
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:20: public ModulePurchase(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:21: string purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:24: int creditCost)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:26: PurchaseId =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:27: purchaseId ?? string.Empty;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:35: CreditCost =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:36: Math.Max(0, creditCost);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:39: PurchaseStatus.Pending;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:43: !string.IsNullOrWhiteSpace(PurchaseId) &&
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:49: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:50: Status = PurchaseStatus.Completed;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:55: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:56: Status = PurchaseStatus.Rejected;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:61: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:62: Status = PurchaseStatus.Cancelled;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:70: ModulePurchase> purchases =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:73: ModulePurchase>(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:77: ModulePurchase purchase)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:79: if (purchase == null ||
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:80: !purchase.Valid ||
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:81: purchases.ContainsKey(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:82: purchase.PurchaseId))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:87: purchases.Add(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:88: purchase.PurchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:89: purchase);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:95: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:97: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:98: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:99: out ModulePurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:104: purchase.Complete();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:109: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:111: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:112: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:113: out ModulePurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:118: purchase.Reject();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:123: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:125: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:126: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:127: out ModulePurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:132: purchase.Cancel();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:137: string purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:138: out ModulePurchase purchase)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:140: return purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:141: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:142: out purchase);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:146: ModulePurchase>
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:147: GetPurchases()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:149: return purchases.Values;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\ModulePurchasing.cs:154: purchases.Clear();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:5: public enum PurchaseValidationResult
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:11: InsufficientCredits,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:18: public sealed class PurchaseValidation
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:20: public PurchaseValidationResult Result
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:28: PurchaseValidationResult.Valid;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:36: private PurchaseValidation(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:37: PurchaseValidationResult result,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:44: public static PurchaseValidation Valid()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:46: return new PurchaseValidation(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:47: PurchaseValidationResult.Valid,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:48: "Purchase approved.");
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:51: public static PurchaseValidation Reject(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:52: PurchaseValidationResult result,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:55: return new PurchaseValidation(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:61: public sealed class PurchaseValidator
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:63: public PurchaseValidation Validate(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:66: CreditWallet wallet)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:70: return PurchaseValidation.Reject(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:71: PurchaseValidationResult.InvalidPlayer,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:78: return PurchaseValidation.Reject(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:79: PurchaseValidationResult.InvalidItem,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:85: return PurchaseValidation.Reject(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:86: PurchaseValidationResult.ItemUnavailable,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:90: if (item.CreditCost < 0)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:92: return PurchaseValidation.Reject(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:93: PurchaseValidationResult.InvalidCost,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:100: return PurchaseValidation.Reject(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:101: PurchaseValidationResult.InvalidPlayer,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:102: "Credit wallet is invalid.");
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:110: return PurchaseValidation.Reject(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:111: PurchaseValidationResult.InvalidPlayer,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:112: "Credit wallet does not belong to player.");
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:116: item.CreditCost))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:118: return PurchaseValidation.Reject(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:119: PurchaseValidationResult.InsufficientCredits,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:120: "Insufficient credits.");
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:123: return PurchaseValidation.Valid();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:126: public PurchaseValidation ValidateCredits(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:128: int creditCost,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:129: CreditWallet wallet)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:133: return PurchaseValidation.Reject(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:134: PurchaseValidationResult.InvalidPlayer,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:138: if (creditCost < 0)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:140: return PurchaseValidation.Reject(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:141: PurchaseValidationResult.InvalidCost,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:142: "Credit cost is invalid.");
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:148: return PurchaseValidation.Reject(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:149: PurchaseValidationResult.InvalidPlayer,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:150: "Credit wallet is invalid.");
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:158: return PurchaseValidation.Reject(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:159: PurchaseValidationResult.InvalidPlayer,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:160: "Credit wallet does not belong to player.");
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:163: if (!wallet.CanSpend(creditCost))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:165: return PurchaseValidation.Reject(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:166: PurchaseValidationResult.InsufficientCredits,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:167: "Insufficient credits.");
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:170: return PurchaseValidation.Valid();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:173: public PurchaseValidation ValidateProgression(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:178: return PurchaseValidation.Reject(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:179: PurchaseValidationResult.ProgressionLocked,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:183: return PurchaseValidation.Valid();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:186: public PurchaseValidation ValidateCompetitiveRestriction(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:191: return PurchaseValidation.Reject(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:192: PurchaseValidationResult.CompetitiveRestriction,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:193: "This purchase cannot be used to bypass competitive restrictions.");
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\PurchaseValidation.cs:196: return PurchaseValidation.Valid();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:6: public sealed class RepairPurchase
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:8: public string PurchaseId { get; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:12: public int CreditCost { get; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:14: public PurchaseStatus Status
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:20: public RepairPurchase(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:21: string purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:24: int creditCost)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:26: PurchaseId =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:27: purchaseId ?? string.Empty;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:35: CreditCost =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:36: Math.Max(0, creditCost);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:39: PurchaseStatus.Pending;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:43: !string.IsNullOrWhiteSpace(PurchaseId) &&
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:49: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:50: Status = PurchaseStatus.Completed;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:55: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:56: Status = PurchaseStatus.Rejected;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:61: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:62: Status = PurchaseStatus.Cancelled;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:70: RepairPurchase> purchases =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:73: RepairPurchase>(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:77: RepairPurchase purchase)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:79: if (purchase == null ||
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:80: !purchase.Valid ||
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:81: purchases.ContainsKey(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:82: purchase.PurchaseId))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:87: purchases.Add(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:88: purchase.PurchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:89: purchase);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:95: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:97: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:98: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:99: out RepairPurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:104: purchase.Complete();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:109: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:111: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:112: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:113: out RepairPurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:118: purchase.Reject();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:123: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:125: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:126: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:127: out RepairPurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:132: purchase.Cancel();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:137: string purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:138: out RepairPurchase purchase)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:140: return purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:141: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:142: out purchase);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:146: RepairPurchase>
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:147: GetPurchases()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:149: return purchases.Values;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\RepairPurchasing.cs:154: purchases.Clear();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitCatalog.cs:12: public int CreditCost { get; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitCatalog.cs:20: int creditCost)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitCatalog.cs:31: CreditCost =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitCatalog.cs:32: Math.Max(0, creditCost);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchaseService.cs:4: using ObsidianProtocol.Game.Inventory;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchaseService.cs:11: public sealed class UnitPurchaseService
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchaseService.cs:13: public bool Purchase(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchaseService.cs:20: if (!InventoryDefinitionRegistry.TryGet(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchaseService.cs:22: out InventoryItemDefinition definition))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchaseService.cs:25: if (definition.Type != InventoryItemType.Unit)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchaseService.cs:29: UnitDatabaseRuntime.Get(unitId);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchaseService.cs:34: int creditCost = unit.Economy.creditCost;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchaseService.cs:36: if (creditCost <= 0)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchaseService.cs:39: if (!InventoryRuntime.CampaignActive)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchaseService.cs:42: if (InventoryRuntime.Has(unitId))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchaseService.cs:55: if (!EconomyRuntime.SpendCredits(creditCost))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchaseService.cs:58: InventoryItem purchased =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchaseService.cs:59: InventoryRuntime.Add(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchaseService.cs:61: InventoryItemType.Unit,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchaseService.cs:65: if (purchased == null)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchaseService.cs:67: EconomyRuntime.AddCredits(creditCost);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchaseService.cs:71: FleetUnit fleetUnit = new FleetUnit(purchased.InstanceId, unitId);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchaseService.cs:74: InventoryRuntime.Remove(unitId, 1);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchaseService.cs:75: EconomyRuntime.AddCredits(creditCost);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:6: public enum PurchaseStatus
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:14: public sealed class UnitPurchase
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:16: public string PurchaseId { get; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:20: public int CreditCost { get; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:22: public PurchaseStatus Status
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:28: public UnitPurchase(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:29: string purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:32: int creditCost)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:34: PurchaseId =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:35: purchaseId ?? string.Empty;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:43: CreditCost =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:44: Math.Max(0, creditCost);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:47: PurchaseStatus.Pending;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:51: !string.IsNullOrWhiteSpace(PurchaseId) &&
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:57: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:58: Status = PurchaseStatus.Completed;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:63: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:64: Status = PurchaseStatus.Rejected;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:69: if (Status == PurchaseStatus.Pending)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:70: Status = PurchaseStatus.Cancelled;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:78: UnitPurchase> purchases =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:81: UnitPurchase>(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:85: UnitPurchase purchase)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:87: if (purchase == null ||
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:88: !purchase.Valid ||
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:89: purchases.ContainsKey(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:90: purchase.PurchaseId))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:95: purchases.Add(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:96: purchase.PurchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:97: purchase);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:103: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:105: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:106: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:107: out UnitPurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:112: purchase.Complete();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:117: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:119: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:120: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:121: out UnitPurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:126: purchase.Reject();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:131: string purchaseId)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:133: if (!purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:134: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:135: out UnitPurchase purchase))
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:140: purchase.Cancel();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:145: string purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:146: out UnitPurchase purchase)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:148: return purchases.TryGetValue(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:149: purchaseId,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:150: out purchase);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:154: UnitPurchase>
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:155: GetPurchases()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:157: return purchases.Values;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UnitPurchasing.cs:162: purchases.Clear();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UI\StoreUIState.cs:12: public int CreditBalance { get; private set; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UI\StoreUIState.cs:16: public bool PurchaseAvailable
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UI\StoreUIState.cs:28: CreditBalance = 0;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UI\StoreUIState.cs:29: PurchaseAvailable = false;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UI\StoreUIState.cs:42: public void SetCreditBalance(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UI\StoreUIState.cs:45: CreditBalance =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UI\StoreUIState.cs:58: PurchaseAvailable = false;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UI\StoreUIState.cs:68: public void SetPurchaseAvailable(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UI\StoreUIState.cs:71: PurchaseAvailable =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UI\StoreUIState.cs:86: PurchaseAvailable = false;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UI\StoreUIState.cs:96: CreditBalance = 0;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Store\UI\StoreUIState.cs:99: PurchaseAvailable = false;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Technology\TechnologyInventory.cs:5: public sealed class TechnologyInventory
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\UI\Battlefield\BattlefieldWindowContent.cs:58: RectTransform rect = content.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\UI\Battlefield\BattlefieldWindowContent.cs:64: Text text = content.GetComponent<Text>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\UI\Battlefield\LiveTacticalMap.cs:81: ObsidianProtocol.Game.Core.EntityId entityId = unit.GetComponent<ObsidianProtocol.Game.Core.EntityId>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\UI\Battlefield\LiveTacticalMap.cs:103: marker = go.GetComponent<Image>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\UI\Battlefield\SensorCoverageOverlay.cs:51: coverageLayer = layer.GetComponent<RectTransform>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\UI\Battlefield\SensorCoverageOverlay.cs:83: var entityId = unit.GetComponent<ObsidianProtocol.Game.Core.EntityId>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\UI\Battlefield\SensorCoverageOverlay.cs:165: Image image = go.GetComponent<Image>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\GroundUnitManualDriver.cs:19: unitAnimation = GetComponent<Animation>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\GroundUnitManualDriver.cs:61: BoxCollider groundCollider = GetComponent<BoxCollider>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\GroundUnitManualDriver.cs:107: GetComponentInChildren<SkinnedMeshRenderer>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\Unit.cs:15: entityId = GetComponent<ObsidianProtocol.Game.Core.EntityId>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\UnitDefinition.cs:20: public sealed class UnitDefinition : ScriptableObject
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\UnitDefinition.cs:281: public int creditCost;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\UnitMountedCamera.cs:19: unitCamera = GetComponent<Camera>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\UnitMountedCamera.cs:25: unitCamera = GetComponent<Camera>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\UnitTakeoverController.cs:56: walking = GetComponent<SCN17FirstPersonWalkController>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\UnitTakeoverController.cs:57: character = GetComponent<CharacterController>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\UnitTakeoverController.cs:121: Camera[] cameras = unit.GetComponentsInChildren<Camera>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\UnitTakeoverController.cs:160: hit.GetComponentsInParent<MonoBehaviour>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\UnitTakeoverController.cs:183: bestAutonomy = candidate.GetComponent<UnitAutonomy>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\WaypointPatrolNPC.cs:29: agent = GetComponent<NavMeshAgent>();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\Database\UnitCreationDatabaseBridge.cs:10: if (framework == null || UnitDatabaseRuntime.Database == null)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\Database\UnitCreationDatabaseBridge.cs:17: foreach (UnitDefinition unit in UnitDatabaseRuntime.Database.Units)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\Database\UnitDatabase.cs:7: fileName = "UnitDatabase",
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\Database\UnitDatabase.cs:9: public sealed class UnitDatabase : ScriptableObject
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\Database\UnitDatabaseRuntime.cs:6: public static class UnitDatabaseRuntime
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\Database\UnitDatabaseRuntime.cs:8: public static UnitDatabase Database { get; private set; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\Database\UnitDatabaseRuntime.cs:21: Database = UnityEngine.Resources.Load<UnitDatabase>("UnitDatabase");
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\Database\UnitDatabaseRuntime.cs:25: Debug.LogError("UnitDatabase not found in Resources.");
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\Units\Database\UnitDatabaseRuntime.cs:33: public static bool Initialize(UnitDatabase database)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\VR\VRStore.cs:13: Purchase,
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\VR\VRStore.cs:23: public int CreditCost { get; }
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\VR\VRStore.cs:30: int creditCost)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\VR\VRStore.cs:38: CreditCost =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\VR\VRStore.cs:39: Math.Max(0, creditCost);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\VR\VRStore.cs:64: purchasedItems =
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\VR\VRStore.cs:75: public int PurchasedItemCount =>
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\VR\VRStore.cs:76: purchasedItems.Count;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\VR\VRStore.cs:86: purchasedItems.Clear();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\VR\VRStore.cs:112: int creditCost)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\VR\VRStore.cs:117: creditCost < 0)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\VR\VRStore.cs:135: creditCost));
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\VR\VRStore.cs:151: public bool PurchaseItem(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\VR\VRStore.cs:169: return purchasedItems.Add(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\VR\VRStore.cs:173: public bool HasPurchased(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\VR\VRStore.cs:182: return purchasedItems.Contains(
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\VR\VRStore.cs:209: GetPurchasedItems()
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\VR\VRStore.cs:211: return purchasedItems;
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\VR\VRStore.cs:217: purchasedItems.Clear();
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\World\PlanetOverviewHUD203RuntimeController.cs:249: if (planet.GetComponent<PlanetRotation>() == null)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\World\PlanetOverviewHUD203RuntimeController.cs:253: planet.GetComponentsInChildren<Transform>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\World\PlanetOverviewHUD203RuntimeController.cs:261: if (child.GetComponent<CloudRotation>() == null)
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\World\PlanetOverviewHUD203RuntimeController.cs:274: planet.GetComponentsInChildren<Renderer>(true);
+C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Game\World\Terrain\TerrainController.cs:18: terrain = GetComponent<UnityEngine.Terrain>();

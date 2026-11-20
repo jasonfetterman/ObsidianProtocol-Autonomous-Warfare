@@ -1,0 +1,1000 @@
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
+using ObsidianProtocol.Game.Runtime;
+using ObsidianProtocol.Game.Units;
+
+namespace ObsidianProtocol.Game.Deployment
+{
+    public class DeploymentRuntimeController : MonoBehaviour
+    {
+        private DeploymentRulesConfiguration rulesConfiguration;
+        private DeploymentMode deploymentMode = DeploymentMode.Unconfigured;
+
+        private DeploymentBudget deploymentBudget;
+        private BattleBudget battleBudget;
+        private DeploymentPointPool deploymentPoints;
+        private DeploymentPointLedger pointLedger;
+        private DeploymentFramework deploymentFramework;
+        private DeploymentRoster deploymentRoster;
+        private DeploymentStagingSystem stagingSystem;
+        private UnitDeploymentCostRegistry costRegistry;
+        private DeploymentZoneSystem zoneSystem;
+        private DeploymentRestrictionRegistry restrictionRegistry;
+        private DeploymentValidator validator;
+        private ArmyComposition armyComposition;
+
+        private DeploymentOperationSelectionController
+            operationSelectionController;
+
+        private string selectedOperation =
+            "BLACK HORIZON";
+
+        private readonly List<string> selectedUnits =
+            new List<string>();
+
+        private readonly List<string> selectedDeploymentIds =
+            new List<string>();
+
+        private readonly string[] windows =
+        {
+            "[WINDOW] SELECT OPERATION",
+            "[WINDOW] SELECT FORCE",
+            "[WINDOW] FLEET SELECTION",
+            "[WINDOW] FORMATION",
+            "[WINDOW] COMMAND STRUCTURE",
+            "[WINDOW] COMMAND INTENT",
+            "[WINDOW] RULES OF ENGAGEMENT",
+            "[WINDOW] DEPLOYMENT BUDGET",
+            "[WINDOW] FINAL REVIEW",
+            "[HUD] UNIT INSPECTION"
+        };
+
+        private GameObject currentWindow;
+
+        public string SelectedOperation
+        {
+            get
+            {
+                return selectedOperation;
+            }
+        }
+
+        private void Awake()
+        {
+            operationSelectionController =
+                FindFirstObjectByType<
+                    DeploymentOperationSelectionController>();
+
+            if (operationSelectionController != null)
+            {
+                selectedOperation =
+                    operationSelectionController.GetSelectedOperation();
+
+                Debug.Log(
+                    "[DEPLOYMENT] OPERATION INITIALIZED // " +
+                    selectedOperation);
+            }
+            else
+            {
+                Debug.LogWarning(
+                    "[DEPLOYMENT] OPERATION SELECTION CONTROLLER NOT FOUND // " +
+                    "DEFAULTING TO " +
+                    selectedOperation);
+            }
+
+            InitializeDeploymentSystems();
+            HideAllWindows();
+            BindButtons();
+            UpdateDisplays();
+
+            Debug.Log("[DEPLOYMENT] RUNTIME INITIALIZED // MODE=" + deploymentMode);
+        }
+
+        private void InitializeDeploymentSystems()
+        {
+            rulesConfiguration =
+                UnityEngine.Resources.Load<DeploymentRulesConfiguration>(
+                    "DeploymentRulesConfiguration");
+
+            if (rulesConfiguration == null)
+            {
+                Debug.LogError("[DEPLOYMENT] RULES CONFIGURATION ASSET NOT FOUND");
+                deploymentMode = DeploymentMode.Unconfigured;
+            }
+            else
+            {
+                deploymentMode = rulesConfiguration.Mode;
+            }
+
+            deploymentBudget = null;
+            battleBudget = null;
+
+            int maximumDeploymentPoints = 0;
+
+            if (rulesConfiguration != null &&
+                deploymentMode == DeploymentMode.Offline &&
+                rulesConfiguration.IsConfigured)
+            {
+                deploymentBudget =
+                    new DeploymentBudget(
+                        rulesConfiguration.OfflineDeploymentBudget);
+
+                maximumDeploymentPoints =
+                    rulesConfiguration.OfflineMaximumDeploymentPoints;
+            }
+            else if (rulesConfiguration != null &&
+                     deploymentMode == DeploymentMode.Multiplayer &&
+                     rulesConfiguration.IsConfigured)
+            {
+                battleBudget =
+                    new BattleBudget(
+                        rulesConfiguration.MultiplayerBattleBudget);
+
+                maximumDeploymentPoints =
+                    rulesConfiguration.MultiplayerMaximumDeploymentPoints;
+            }
+            else
+            {
+                deploymentMode = DeploymentMode.Unconfigured;
+                Debug.LogError(
+                    "[DEPLOYMENT] BUDGET CONFIGURATION INVALID OR UNCONFIGURED // DEPLOYMENT DISABLED");
+            }
+
+            deploymentPoints =
+                new DeploymentPointPool(maximumDeploymentPoints);
+
+            pointLedger =
+                new DeploymentPointLedger();
+
+            deploymentFramework =
+                new DeploymentFramework();
+
+            deploymentRoster =
+                new DeploymentRoster();
+
+            stagingSystem =
+                new DeploymentStagingSystem();
+
+            costRegistry =
+                new UnitDeploymentCostRegistry();
+
+            zoneSystem =
+                new DeploymentZoneSystem();
+
+            zoneSystem.RegisterZone(
+                new DeploymentZone(
+                    "PLAYER_DEPLOYMENT",
+                    DeploymentZoneType.Player));
+
+            restrictionRegistry =
+                new DeploymentRestrictionRegistry();
+
+            armyComposition =
+                new ArmyComposition();
+
+            RegisterUnitCosts();
+
+            validator =
+                new DeploymentValidator(
+                    deploymentFramework,
+                    zoneSystem,
+                    costRegistry);
+        }
+        private void RegisterUnitCosts()
+        {
+            if (!UnitDatabaseRuntime.EnsureInitialized() ||
+                UnitDatabaseRuntime.Database == null)
+            {
+                Debug.LogError("[DEPLOYMENT] UNIT DATABASE UNAVAILABLE");
+                return;
+            }
+
+            foreach (UnitDefinition definition in UnitDatabaseRuntime.Database.Units)
+            {
+                if (definition == null ||
+                    string.IsNullOrWhiteSpace(definition.UnitId))
+                    continue;
+
+                EconomyLogistics economy = definition.Economy;
+
+                if (economy == null ||
+                    !economy.deploymentPointsDefined ||
+                    economy.deploymentPoints <= 0)
+                    continue;
+
+                costRegistry.Register(
+                    new UnitDeploymentCost(
+                        definition.UnitId,
+                        economy.deploymentPoints));
+            }
+        }
+
+        private void BindButtons()
+        {
+            BindButton(
+                "[BUTTON] SELECT OPERATION",
+                () => OpenWindow("[WINDOW] SELECT OPERATION"));
+
+            BindButton(
+                "[BUTTON] OPEN FLEET",
+                () => OpenWindow("[WINDOW] FLEET SELECTION"));
+
+            BindButton(
+                "[BUTTON] CONFIGURE FORMATION",
+                () => OpenWindow("[WINDOW] FORMATION"));
+
+            BindButton(
+                "[BUTTON] CONFIGURE COMMAND",
+                () => OpenWindow("[WINDOW] COMMAND STRUCTURE"));
+
+            BindButton(
+                "[BUTTON] CONFIGURE INTENT",
+                () => OpenWindow("[WINDOW] COMMAND INTENT"));
+
+            BindButton(
+                "[BUTTON] CONFIGURE ROE",
+                () => OpenWindow("[WINDOW] RULES OF ENGAGEMENT"));
+
+            BindButton(
+                "[BUTTON] FINAL REVIEW",
+                () => OpenWindow("[WINDOW] FINAL REVIEW"));
+
+BindButton(
+                "[BUTTON] ADD UNIT",
+                AddFirstAffordableUnit);
+
+            BindButton(
+                "[BUTTON] REMOVE UNIT",
+                RemoveLastUnit);
+
+            BindButton(
+                "[BUTTON] CLEAR FORCE",
+                ClearForce);
+
+            BindButton(
+                "[BUTTON] FINAL REVIEW",
+                () => OpenWindow("[WINDOW] FINAL REVIEW"));
+
+            BindButton(
+                "CONFIRM DEPLOYMENT",
+                Deploy);
+
+            BindButton(
+                "[BUTTON] DEPLOY",
+                Deploy);
+
+            BindButton(
+                "CANCEL DEPLOYMENT",
+                CancelDeployment);
+
+            BindButton(
+                "[BUTTON] BACK",
+                Back);
+
+            BindButton(
+                "[BUTTON] CLOSE MAP",
+                CloseCurrentWindow);
+
+            BindButton(
+                "CLOSE INSPECTION",
+                CloseCurrentWindow);
+
+            BindButton(
+                "CLOSE FLEET",
+                CloseCurrentWindow);
+
+            BindButton(
+                "CLOSE REVIEW",
+                CloseCurrentWindow);
+
+            BindButton(
+                "[BUTTON] SAVE LOADOUT",
+                SaveLoadout);
+
+            BindButton(
+                "[BUTTON] UNIT DETAILS",
+                OpenUnitInspection);
+        }
+
+        private void AddUnit(string unitId)
+        {
+            if (!UnitDatabaseRuntime.EnsureInitialized())
+                return;
+
+            UnitDefinition definition = UnitDatabaseRuntime.Get(unitId);
+
+            if (definition == null)
+            {
+                Debug.LogWarning("[DEPLOYMENT] UNIT NOT FOUND IN DATABASE // " + unitId);
+                return;
+            }
+
+            EconomyLogistics economy = definition.Economy;
+
+            if (economy == null ||
+                !economy.deploymentPointsDefined ||
+                economy.deploymentPoints <= 0)
+            {
+                Debug.LogWarning("[DEPLOYMENT] UNIT HAS NO CONFIGURED DEPLOYMENT POINTS // " + unitId);
+                return;
+            }
+
+            int cost = economy.deploymentPoints;
+            string displayName = string.IsNullOrWhiteSpace(definition.DisplayName)
+                ? definition.UnitId
+                : definition.DisplayName;
+
+            if (!costRegistry.TryGetCost(unitId, out int registeredCost) ||
+                registeredCost != cost)
+            {
+                Debug.LogWarning("[DEPLOYMENT] UNIT COST REGISTRY MISMATCH // " + unitId);
+                return;
+            }
+
+            bool budgetAllowsUnit = false;
+
+            if (deploymentMode == DeploymentMode.Offline &&
+                deploymentBudget != null)
+            {
+                budgetAllowsUnit = deploymentBudget.CanSpend(cost);
+            }
+            else if (deploymentMode == DeploymentMode.Multiplayer &&
+                     battleBudget != null)
+            {
+                budgetAllowsUnit =
+                    battleBudget.CanCommit(pointLedger.TotalAllocated + cost);
+            }
+
+            if (!budgetAllowsUnit)
+            {
+                Debug.LogWarning("[DEPLOYMENT] INSUFFICIENT OR UNCONFIGURED BUDGET // " + displayName);
+                return;
+            }
+
+            string deploymentId = "deployment-" + Guid.NewGuid().ToString("N");
+            string serviceRecordId = "unit-" + Guid.NewGuid().ToString("N");
+
+            DeploymentEntry entry = new DeploymentEntry(
+                deploymentId,
+                unitId,
+                cost,
+                serviceRecordId);
+
+            bool rosterAccepted =
+                deploymentMode == DeploymentMode.Offline
+                    ? deploymentRoster.TryAdd(deploymentBudget, entry)
+                    : deploymentMode == DeploymentMode.Multiplayer &&
+                      deploymentRoster.TryAdd(entry);
+
+            if (!rosterAccepted)
+            {
+                Debug.LogWarning("[DEPLOYMENT] ROSTER REJECTED // " + displayName);
+                return;
+            }
+
+            if (!pointLedger.Allocate(deploymentId, cost, deploymentPoints))
+            {
+                if (deploymentMode == DeploymentMode.Offline)
+                    deploymentRoster.Remove(deploymentBudget, entry);
+                else
+                    deploymentRoster.Remove(entry);
+
+                Debug.LogWarning("[DEPLOYMENT] POINT LEDGER REJECTED // " + displayName);
+                return;
+            }
+
+            ObsidianProtocol.Game.PersistentMilitary.PersistentMilitaryRuntime.AddUnit(
+                serviceRecordId,
+                displayName,
+                "PLAYER");
+
+            deploymentFramework.Register(entry);
+            deploymentFramework.SetAvailable(deploymentId);
+
+            stagingSystem.Register(
+                new DeploymentStagingEntry(
+                    deploymentId,
+                    "PLAYER_DEPLOYMENT"));
+
+            selectedUnits.Add(displayName);
+            selectedDeploymentIds.Add(deploymentId);
+            armyComposition.AddUnit(unitId);
+
+            UpdateDisplays();
+
+            Debug.Log("[DEPLOYMENT] ADDED // " + displayName + " // " + cost + " DP");
+        }
+        private void AddFirstAffordableUnit()
+        {
+            if (!UnitDatabaseRuntime.EnsureInitialized() ||
+                UnitDatabaseRuntime.Database == null)
+                return;
+
+            foreach (UnitDefinition definition in UnitDatabaseRuntime.Database.Units)
+            {
+                if (definition == null ||
+                    string.IsNullOrWhiteSpace(definition.UnitId))
+                    continue;
+
+                EconomyLogistics economy = definition.Economy;
+
+                if (economy == null ||
+                    !economy.deploymentPointsDefined ||
+                    economy.deploymentPoints <= 0)
+                    continue;
+
+                int cost = economy.deploymentPoints;
+                bool affordable = false;
+
+                if (deploymentMode == DeploymentMode.Offline &&
+                    deploymentBudget != null)
+                {
+                    affordable = deploymentBudget.CanSpend(cost);
+                }
+                else if (deploymentMode == DeploymentMode.Multiplayer &&
+                         battleBudget != null)
+                {
+                    affordable =
+                        battleBudget.CanCommit(pointLedger.TotalAllocated + cost);
+                }
+
+                if (affordable &&
+                    deploymentPoints != null &&
+                    deploymentPoints.CanSpend(cost))
+                {
+                    AddUnit(definition.UnitId);
+                    return;
+                }
+            }
+
+            Debug.LogWarning("[DEPLOYMENT] NO CONFIGURED AFFORDABLE UNITS FOUND");
+        }
+        private void RemoveLastUnit()
+        {
+            if (selectedDeploymentIds.Count == 0)
+                return;
+
+            int index =
+                selectedDeploymentIds.Count - 1;
+
+            string deploymentId =
+                selectedDeploymentIds[index];
+
+            DeploymentEntry entry;
+
+            if (deploymentFramework.TryGet(
+                deploymentId,
+                out entry))
+            {
+                deploymentRoster.Remove(
+                    deploymentBudget,
+                    entry);
+
+                deploymentFramework.Remove(
+                    deploymentId);
+
+
+                pointLedger.Release(
+                    deploymentId,
+                    deploymentPoints);
+
+                stagingSystem.Remove(
+                    deploymentId);
+
+                armyComposition.RemoveUnit(
+                    entry.UnitId);
+            }
+
+            selectedDeploymentIds.RemoveAt(index);
+            selectedUnits.RemoveAt(index);
+
+            UpdateDisplays();
+
+            Debug.Log(
+                "[DEPLOYMENT] REMOVED LAST UNIT");
+        }
+
+        private void ClearForce()
+        {
+            for (int i = selectedDeploymentIds.Count - 1;
+                 i >= 0;
+                 i--)
+            {
+                string deploymentId =
+                    selectedDeploymentIds[i];
+
+                DeploymentEntry entry;
+
+                if (deploymentFramework.TryGet(
+                    deploymentId,
+                    out entry))
+                {
+                    deploymentFramework.Remove(
+                        deploymentId);
+
+                    stagingSystem.Remove(
+                        deploymentId);
+                }
+            }
+
+            deploymentRoster.Clear(
+                deploymentBudget);
+
+            pointLedger.Clear(
+                deploymentPoints);
+
+            deploymentPoints.Reset();
+
+            deploymentFramework.Clear();
+            stagingSystem.Clear();
+            armyComposition.Clear();
+
+            selectedUnits.Clear();
+            selectedDeploymentIds.Clear();
+
+            UpdateDisplays();
+
+            Debug.Log(
+                "[DEPLOYMENT] FORCE CLEARED // MODE=" + deploymentMode);
+        }
+
+        private void Deploy()
+        {
+            if (operationSelectionController != null)
+            {
+                selectedOperation =
+                    operationSelectionController.GetSelectedOperation();
+            }
+
+            if (selectedDeploymentIds.Count == 0)
+            {
+                Debug.LogWarning("[DEPLOYMENT] CANNOT DEPLOY // FORCE EMPTY");
+                return;
+            }
+
+            if (deploymentMode == DeploymentMode.Unconfigured ||
+                pointLedger == null ||
+                deploymentFramework == null ||
+                stagingSystem == null)
+            {
+                Debug.LogError("[DEPLOYMENT] CANNOT DEPLOY // SYSTEMS UNCONFIGURED");
+                return;
+            }
+
+            int totalDeploymentPoints = pointLedger.TotalAllocated;
+
+            if (totalDeploymentPoints <= 0)
+            {
+                Debug.LogError("[DEPLOYMENT] CANNOT DEPLOY // INVALID POINT ALLOCATION");
+                return;
+            }
+
+            if (deploymentMode == DeploymentMode.Multiplayer &&
+                (battleBudget == null ||
+                 !battleBudget.CanCommit(totalDeploymentPoints)))
+            {
+                Debug.LogWarning("[DEPLOYMENT] CANNOT DEPLOY // INSUFFICIENT BATTLE BUDGET");
+                return;
+            }
+
+            List<DeploymentEntry> battlefieldEntries =
+                new List<DeploymentEntry>();
+
+            foreach (string deploymentId in selectedDeploymentIds)
+            {
+                if (!deploymentFramework.TryGet(
+                        deploymentId,
+                        out DeploymentEntry entry))
+                {
+                    Debug.LogError("[DEPLOYMENT] VALIDATION FAILED // ENTRY MISSING");
+                    return;
+                }
+
+                DeploymentValidationResult result =
+                    validator.Validate(
+                        deploymentId,
+                        "PLAYER_DEPLOYMENT",
+                        entry.UnitId,
+                        pointLedger);
+
+                if (!result.Valid)
+                {
+                    Debug.LogWarning(
+                        "[DEPLOYMENT] VALIDATION FAILED // " +
+                        result.Failure);
+                    return;
+                }
+
+                if (!stagingSystem.TryGet(
+                        deploymentId,
+                        out DeploymentStagingEntry stagingEntry) ||
+                    stagingEntry == null ||
+                    !stagingEntry.Valid)
+                {
+                    Debug.LogError("[DEPLOYMENT] VALIDATION FAILED // STAGING ENTRY MISSING");
+                    return;
+                }
+
+                battlefieldEntries.Add(entry);
+            }
+
+            foreach (string deploymentId in selectedDeploymentIds)
+            {
+                if (!deploymentFramework.Stage(deploymentId) ||
+                    !stagingSystem.Stage(deploymentId) ||
+                    !stagingSystem.MarkReady(deploymentId))
+                {
+                    Debug.LogError(
+                        "[DEPLOYMENT] STAGING FAILED // " + deploymentId);
+                    return;
+                }
+            }
+
+            bool multiplayerBudgetCommitted = false;
+
+            if (deploymentMode == DeploymentMode.Multiplayer)
+            {
+                multiplayerBudgetCommitted =
+                    battleBudget.TryCommit(totalDeploymentPoints);
+
+                if (!multiplayerBudgetCommitted)
+                {
+                    Debug.LogError("[DEPLOYMENT] BATTLE BUDGET COMMIT FAILED");
+                    return;
+                }
+            }
+
+            foreach (string deploymentId in selectedDeploymentIds)
+            {
+                if (!deploymentFramework.Deploy(deploymentId) ||
+                    !stagingSystem.Deploy(deploymentId))
+                {
+                    if (multiplayerBudgetCommitted)
+                        battleBudget.Release(totalDeploymentPoints);
+
+                    Debug.LogError(
+                        "[DEPLOYMENT] DEPLOYMENT FAILED // " + deploymentId);
+                    return;
+                }
+            }
+
+            Debug.Log(
+                "[DEPLOYMENT] DEPLOYMENT COMPLETE // " +
+                selectedUnits.Count +
+                " UNITS // OPERATION=" +
+                selectedOperation);
+
+            BattlefieldDeploymentContext context =
+                BattlefieldDeploymentContext.Instance;
+
+            if (context == null)
+            {
+                GameObject contextObject =
+                    new GameObject("[SYSTEM] BATTLEFIELD DEPLOYMENT CONTEXT");
+
+                context =
+                    contextObject.AddComponent<BattlefieldDeploymentContext>();
+            }
+
+            context.SetDeployment(
+                selectedOperation,
+                battlefieldEntries);
+
+            ObsidianProtocol.Game.Core.SaveLoadService.Save(
+                new ObsidianProtocol.Game.Core.SaveData());
+
+            Debug.Log(
+                "[DEPLOYMENT] BATTLEFIELD CONTEXT HANDOFF COMPLETE // " +
+                battlefieldEntries.Count +
+                " UNITS");
+
+            TryOpenBattlefield();
+        }
+        public string GetSelectedOperation()
+        {
+            return selectedOperation;
+        }
+
+        private void CancelDeployment()
+        {
+            ClearForce();
+            CloseCurrentWindow();
+
+            Debug.Log(
+                "[DEPLOYMENT] DEPLOYMENT CANCELLED");
+        }
+
+        private void SaveLoadout()
+        {
+            Debug.Log(
+                "[DEPLOYMENT] LOADOUT SAVE REQUESTED // " +
+                selectedUnits.Count +
+                " UNITS");
+        }
+
+        private void OpenUnitInspection()
+        {
+            Debug.Log(
+                "[DEPLOYMENT] UNIT INSPECTION REQUESTED");
+
+            OpenWindow("[HUD] UNIT INSPECTION");
+        }
+
+        private void Back()
+        {
+            if (currentWindow != null)
+            {
+                CloseCurrentWindow();
+
+                Debug.Log(
+                    "[DEPLOYMENT] BACK // CURRENT WINDOW CLOSED");
+
+                return;
+            }
+
+            GameObject hud =
+                FindSceneObject("[HUD] DEPLOYMENT HUD");
+
+            if (hud != null)
+            {
+                hud.SetActive(false);
+
+                DeploymentTerminalInteraction terminal =
+                    FindFirstObjectByType<DeploymentTerminalInteraction>();
+
+                if (terminal != null)
+                    terminal.CloseDeploymentHUD();
+
+                Debug.Log(
+                    "[DEPLOYMENT] BACK // DEPLOYMENT HUD CLOSED");
+            }
+        }
+
+        private void TryOpenBattlefield()
+        {
+            string[] scenePaths =
+            {
+                "Assets/Scenes/SCN03_BATTLEFIELD_AAA/SCN03_BATTLEFIELD_AAA.unity",
+                "SCN03_BATTLEFIELD_AAA",
+                "Assets/Scenes/SCN03 _BATTLEFIELD/[HUD] BATTLEFIELD HUD/Battlefield_HUD.unity",
+                "Battlefield_HUD"
+            };
+
+            foreach (string scenePath in scenePaths)
+            {
+                if (Application.CanStreamedLevelBeLoaded(scenePath))
+                {
+                    SceneManager.LoadScene(scenePath);
+                    return;
+                }
+
+                if (Application.CanStreamedLevelBeLoaded(
+                    System.IO.Path.GetFileNameWithoutExtension(
+                        scenePath)))
+                {
+                    SceneManager.LoadScene(
+                        System.IO.Path.GetFileNameWithoutExtension(
+                            scenePath));
+                    return;
+                }
+            }
+
+            Debug.LogWarning(
+                "[DEPLOYMENT] BATTLEFIELD SCENE NOT FOUND IN BUILD SETTINGS");
+        }
+
+        private void HideAllWindows()
+        {
+            foreach (string windowName in windows)
+            {
+                GameObject window =
+                    FindSceneObject(windowName);
+
+                if (window != null)
+                    window.SetActive(false);
+            }
+
+            currentWindow = null;
+        }
+
+        private void OpenWindow(string windowName)
+        {
+            HideAllWindows();
+
+            GameObject window =
+                FindSceneObject(windowName);
+
+            if (window == null)
+            {
+                Debug.LogWarning(
+                    "[DEPLOYMENT] WINDOW NOT FOUND // " +
+                    windowName);
+                return;
+            }
+
+            window.SetActive(true);
+            currentWindow = window;
+
+            Debug.Log(
+                "[DEPLOYMENT] OPENED // " +
+                windowName);
+        }
+
+        private void CloseCurrentWindow()
+        {
+            if (currentWindow != null)
+                currentWindow.SetActive(false);
+
+            currentWindow = null;
+        }
+
+        private void BindButton(
+            string objectName,
+            UnityEngine.Events.UnityAction action)
+        {
+            GameObject obj =
+                FindSceneObject(objectName);
+
+            if (obj == null)
+            {
+                Debug.LogWarning(
+                    "[DEPLOYMENT] BUTTON NOT FOUND // " +
+                    objectName);
+                return;
+            }
+
+            Button button =
+                obj.GetComponent<Button>();
+
+            if (button == null)
+            {
+                Debug.LogWarning(
+                    "[DEPLOYMENT] NO BUTTON COMPONENT // " +
+                    objectName);
+                return;
+            }
+
+            button.onClick.AddListener(action);
+        }
+
+        private GameObject FindSceneObject(
+            string objectName)
+        {
+            GameObject[] objects =
+                UnityEngine.Resources
+                    .FindObjectsOfTypeAll<GameObject>();
+
+            GameObject best = null;
+            int bestScore = int.MinValue;
+
+            foreach (GameObject obj in objects)
+            {
+                if (obj.name != objectName)
+                    continue;
+
+                if (obj.hideFlags != HideFlags.None)
+                    continue;
+
+                int score = 0;
+
+                RectTransform rect =
+                    obj.GetComponent<RectTransform>();
+
+                if (rect != null)
+                {
+                    if (rect.parent != null)
+                        score += 100;
+
+                    if (rect.childCount > 0)
+                        score += 100;
+
+                    if (rect.anchorMin !=
+                        new Vector2(0.5f, 0.5f))
+                        score += 50;
+
+                    if (rect.anchorMax !=
+                        new Vector2(0.5f, 0.5f))
+                        score += 50;
+                }
+
+                if (score > bestScore)
+                {
+                    bestScore = score;
+                    best = obj;
+                }
+            }
+
+            return best;
+        }
+
+        private void UpdateDisplays()
+        {
+            int remaining = 0;
+            int maximum = 0;
+
+            if (deploymentMode == DeploymentMode.Offline &&
+                deploymentBudget != null)
+            {
+                remaining = deploymentBudget.RemainingPoints;
+                maximum = deploymentBudget.MaximumPoints;
+            }
+            else if (deploymentMode == DeploymentMode.Multiplayer &&
+                     battleBudget != null)
+            {
+                remaining = battleBudget.RemainingBudget;
+                maximum = battleBudget.StartingBudget;
+            }
+
+            string budgetDisplay =
+                remaining.ToString("N0") +
+                " / " +
+                maximum.ToString("N0");
+
+            SetText("[STAT] 10,000 / 10,000", budgetDisplay);
+
+            SetText(
+                "REMAINING BUDGET",
+                remaining.ToString("N0") + " DP");
+
+            SetText(
+                "BUDGET SUMMARY",
+                remaining.ToString("N0") + " DP REMAINING");
+        }
+
+        private void SetText(
+            string objectName,
+            string value)
+        {
+            GameObject obj =
+                FindSceneObject(objectName);
+
+            if (obj == null)
+                return;
+
+            TMP_Text tmp =
+                obj.GetComponent<TMP_Text>();
+
+            if (tmp != null)
+            {
+                tmp.text = value;
+                return;
+            }
+
+            Text legacy =
+                obj.GetComponent<Text>();
+
+            if (legacy != null)
+                legacy.text = value;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,26 @@
+STORE CLEAN REPLACEMENT MANIFEST
+Timestamp: 20261024_193109
+Project: C:\ObsidianProtocol-Autonomous-Warfare\OPAW
+
+Backup files:
+  C:\ObsidianProtocol-Autonomous-Warfare\OPAW\_STORE_CLEAN_REPLACEMENT_20261024_193109\Originals
+
+Quarantined obsolete Store editor tooling:
+  C:\ObsidianProtocol-Autonomous-Warfare\OPAW\_STORE_CLEAN_REPLACEMENT_20261024_193109\Quarantined_Obsolete_Store_Tools
+
+Reports:
+  C:\ObsidianProtocol-Autonomous-Warfare\OPAW\_STORE_CLEAN_REPLACEMENT_20261024_193109\Reports
+
+Preserved runtime controller:
+  C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scripts\UI\Store\StoreMasterController.cs
+
+Preserved Store scene:
+  C:\ObsidianProtocol-Autonomous-Warfare\OPAW\Assets\Scenes\SCN16_STORE\SCN16_STORE.unity
+
+No scene YAML was edited.
+No runtime purchasing code was intentionally changed.
+No permanent deletion was performed.
+
+Rollback:
+  Move quarantined files back to their recorded original paths using
+  QuarantineLog.csv, after closing Unity.

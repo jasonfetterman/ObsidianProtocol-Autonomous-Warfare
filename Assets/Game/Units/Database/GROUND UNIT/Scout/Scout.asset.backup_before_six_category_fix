@@ -1,0 +1,264 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Scout
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-ground-scout
+  displayName: Scout
+  category: 1
+  role: Light Recon / Rapid Ground Scouting
+  tier: Recon
+  status: Active
+  storeImage: {fileID: 1818633030365861049, guid: 94b17367b188ca14cb094b2b6d88aac9, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 3.6
+    widthMeters: 1.8
+    heightMeters: 1.6
+    massKg: 780
+    powerSource: Electric-hybrid
+    energyCapacityWh: 4600
+    energyConsumptionWhPerMinute: 2
+    endurance: "4\u20137 hours"
+    payloadCapacityKg: 80
+    modules:
+    - Recon optics
+    - Silent drive kit
+    navigationSystem: GPS + Recon AI
+    structuralIntegrityHp: 600
+    armorRating: 0.28
+    heatSignature: Low
+    noiseSignature: Very Low
+    topSpeedMetersPerSecond: 22
+    topSpeedDescription: 22 m/s
+    acceleration: High
+    turningRadius: Very Tight
+    climbRate: Scout climbRate
+    stabilityRating: High
+  autonomy:
+    behaviorProfile: Recon / Forward Scouting
+    aggression: 0.1
+    caution: 0.9
+    persistence: 0.8
+    flankingLikelihood: 0
+    retreatThreshold: 0.85
+    retreatBehaviorDescription: Early
+    targetPriority: Movement / anomalies
+    formationDiscipline: Medium
+    riskTolerance: 0.2
+  sensors:
+    visualRangeMeters: 2000
+    visualRangeDescription: 2000 m
+    thermalRangeMeters: 900
+    thermalRangeDescription: 900 m
+    acousticRange: High
+    radarRange: Short
+    lidarRange: Medium
+    signalDetectionRange: Medium
+  communication:
+    meshRangeKm: 6
+    meshRangeDescription: 6 km
+    relayCapacity: 0
+    commandLinkType: Recon Grid
+    networkPriority: High
+  combat:
+    firepowerRating: 0.15
+    firepowerDescription: Very Low
+    accuracy: Medium
+    stabilization: Light turret stabilization
+    weaponMounts: 1 (light)
+    weaponTypes: Light turret / recon suppressor
+    suppressionValue: 0.25
+    trackingStrength: Medium
+    disruptionStrength: Low
+    breachCapability: None
+    countermeasureRating: Low
+    threatLevel: 3
+    engagementDistance: "200\u2013400 m"
+    preferredTerrain: Open ground / recon lanes
+    preferredTargets: Light infantry
+    vulnerabilityProfile: Ballistic / explosives
+  squad:
+    squadRole: Recon / Forward Eyes
+    squadSizeContribution: 1
+    formationBehavior: Forward spacing
+    intentInterpretationRules: Identify threats early
+    retreatBehavior: Early
+    breachBehavior: None
+    flankingBehavior: None
+    reinforcementBehavior: Supports security & recon squads
+    parentCommandUnit: Command Core / Pulse
+    subordinateUnits: []
+    relayNodes: []
+    networkDependencies: Recon Grid
+  vrOperator:
+    operatorSeatType: Recon Cockpit
+    operatorHud: Recon Overlay
+    cameraFeeds: Optical
+    thermalView: 1
+    lidarView: 1
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Full vehicle drive
+    sensorControls: Thermal / LiDAR / zoom
+    abilityControls: Mark Target, Scan, Stabilize
+    weaponControls: Light turret
+    stabilizationControls: Light turret stabilization
+    operatorAbilities:
+    - Recon Scan
+    - Silent Approach
+    - Threat Marking
+    - Relay Recon Data
+  economy:
+    creditCost: 460
+    buildCost: 300 Metal / 160 Electronics
+    buildTimeSeconds: 70
+    factoryType: Vehicle Bay
+    techRequirements: Recon Systems I
+    maintenanceCost: Low
+    repairTimeSeconds: 18
+    supplyConsumption: Low
+    operationalCost: Low
+    deploymentRequirements: Vehicle pad
+    transportCompatibility: Light racks
+    launchMethod: Drive-out
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Light Alloy Plates
+      quantity: 24
+    - component: Reinforced Frame Rods
+      quantity: 12
+    - component: Hydraulic Actuators
+      quantity: 4
+    - component: Armor Panels
+      quantity: 2
+    - component: Recon Sensor Housing
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 14
+    - component: Signal Processors
+      quantity: 10
+    - component: Vehicle Control Chips
+      quantity: 3
+    - component: Recon AI Chips
+      quantity: 2
+    power:
+    - component: Hybrid Engine Core
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 2
+    rareTradeable:
+    - component: Silent Drive Module
+      quantity: 1
+    optionalUpgrades:
+    - Extended Battery Pack
+    - Silent Drive Kit
+    - Anti-Jamming Shielding
+  environment:
+    terrainAdaptationCoefficients: Scout terrainAdaptationCoefficients
+    weatherSensitivityIndex: 2
+    visibilityModifiers: Scout visibilityModifiers
+    signalPropagationCurve: Scout signalPropagationCurve
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0.8
+    packetLossRate: Scout packetLossRate
+    encryptionLatencySeconds: 2
+    meshSelfHealingThreshold: Scout meshSelfHealingThreshold
+    relaySaturationCurve: Scout relaySaturationCurve
+  cognitive:
+    decisionConfidence: 2
+    threatRecognitionAccuracy: 2
+    adaptiveLearningRatePerMission: 2
+    commandOverrideResistance: 2
+    cooperativeBehaviorIndex: 2
+  behaviorNodes:
+  - behaviorNode: 
+    weight: -0.00000008226931
+    description: 
+  - behaviorNode: 
+    weight: 0
+    description: 
+  missionBehaviors:
+  - missionType: 
+    behaviorFocus: 
+    efficiency: -0.00000008228733
+  - missionType: 
+    behaviorFocus: 
+    efficiency: 0
+  unitSynergies:
+  - partnerUnit: 
+    synergyRating: -0.000000081262726
+    function: 
+  - partnerUnit: 
+    synergyRating: 0
+    function: 
+  damageResponses:
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  upgrades:
+  - upgrade: 
+    effect: 
+    efficiencyGain: -0.00000008129882
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  tactical:
+    formationAdaptability: 2
+    tacticalRoleWeight: 2
+    commandResponseDelaySeconds: 2
+    reinforcementTriggerConditions: Scout reinforcementTriggerConditions
+    retreatLogicThresholds: Scout retreatLogicThresholds
+  maintenance:
+    meanTimeBetweenFailuresHours: 2
+    repairCycleSeconds: 2
+    resourceDrainPerHourPercent: 20
+    batteryEfficiencyPercent: 0.8
+    rotorStabilityPercent: 20
+    sensorCalibrationDriftPercentPerHour: 20
+    coolingEfficiencyPercent: 0.8
+    operationalUptimePercent: 20
+    energyRecoveryRatePercent: 20
+    energyRecoveryRatePercentPerIdleMinute: 20
+    componentWearPercentPerHour: 20
+    maintenancePriorityLevel: Scout maintenancePriorityLevel
+    sparePartDependencyIndex: 2
+    operationalCostPerHour: Scout operationalCostPerHour
+  threatResponses:
+  - threatType: 
+    reactionTimeSeconds: -1.6962372e-20
+    countermeasureEfficiency: 5.79e-43
+  - threatType: 
+    reactionTimeSeconds: 0
+    countermeasureEfficiency: 0
+  commandNetwork:
+  - node: 
+    loadPercent: -0.00001955549
+    latencySeconds: 5.79e-43
+    status: 
+  - node: 
+    loadPercent: 0
+    latencySeconds: 0
+    status: 
+  performance:
+    missionSuccessProbability: 0.75
+    averageEngagementDurationMinutes: 2
+    reconDataYieldMbPerMinute: 2
+    communicationUptime: 2
+    threatAvoidanceEfficiency: 0.8

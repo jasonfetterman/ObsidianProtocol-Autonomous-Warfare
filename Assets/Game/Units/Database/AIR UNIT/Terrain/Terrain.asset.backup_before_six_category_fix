@@ -1,0 +1,242 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Terrain
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-air-terrain
+  displayName: Terrain
+  category: 8
+  role: Ground-Mapping / Elevation Analysis
+  tier: Recon Support
+  status: Active
+  storeImage: {fileID: 8074338581418846440, guid: 7a95816f523f037439effc8d2c0e5fb8, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 2.2
+    widthMeters: 1.6
+    heightMeters: 0.8
+    massKg: 15
+    powerSource: Mid-capacity battery
+    energyCapacityWh: 1700
+    energyConsumptionWhPerMinute: 34
+    endurance: 40-55 min
+    payloadCapacityKg: 1.2
+    modules:
+    - Elevation scan suite + ground-mesh generator
+    navigationSystem: GPS + Terrain AI
+    structuralIntegrityHp: 105
+    armorRating: 0.12
+    heatSignature: Low
+    noiseSignature: Low
+    topSpeedMetersPerSecond: 19
+    topSpeedDescription: 19 m/s
+    acceleration: Medium
+    turningRadius: Tight
+    climbRate: Medium
+    stabilityRating: High
+  autonomy:
+    behaviorProfile: Terrain Mapping / Recon Support
+    aggression: 0
+    caution: 0.85
+    persistence: 0.85
+    flankingLikelihood: 0
+    retreatThreshold: 0.9
+    retreatBehaviorDescription: Early
+    targetPriority: Elevation features / structural terrain
+    formationDiscipline: Medium
+    riskTolerance: 0.25
+  sensors:
+    visualRangeMeters: 1600
+    visualRangeDescription: 1600 m
+    thermalRangeMeters: 500
+    thermalRangeDescription: 500 m
+    acousticRange: Low
+    radarRange: None
+    lidarRange: Medium (elevation-optimized)
+    signalDetectionRange: Medium
+  communication:
+    meshRangeKm: 5
+    meshRangeDescription: 5 km
+    relayCapacity: 0
+    commandLinkType: Recon Grid
+    networkPriority: Medium
+  combat:
+    firepowerRating: 0
+    firepowerDescription: 0
+    accuracy: N/A
+    stabilization: High
+    weaponMounts: None
+    weaponTypes: None
+    suppressionValue: 0
+    trackingStrength: Medium
+    disruptionStrength: Low
+    breachCapability: None
+    countermeasureRating: Low
+    threatLevel: 2
+    engagementDistance: N/A
+    preferredTerrain: Open air / elevation corridors
+    preferredTargets: None
+    vulnerabilityProfile: Ballistic / weather
+  squad:
+    squadRole: Terrain Mapping
+    squadSizeContribution: 1
+    formationBehavior: Broad recon spacing
+    intentInterpretationRules: Maintain elevation visibility
+    retreatBehavior: Early
+    breachBehavior: None
+    flankingBehavior: None
+    reinforcementBehavior: Supports recon, survey, and command squads
+    parentCommandUnit: Overseer / Insight
+    subordinateUnits: []
+    relayNodes: []
+    networkDependencies: Recon Grid
+  vrOperator:
+    operatorSeatType: Drone View
+    operatorHud: Elevation Mapping Overlay
+    cameraFeeds: Optical
+    thermalView: 1
+    lidarView: 1
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Full drone flight
+    sensorControls: LiDAR / thermal / zoom
+    abilityControls: Elevation Scan, Terrain Mesh, Stabilize
+    weaponControls: None
+    stabilizationControls: Auto-hover
+    operatorAbilities:
+    - Elevation Scan
+    - Terrain Mesh Generation
+    - Thermal Search
+    - LiDAR Sweep
+    - Relay Recon Data
+  economy:
+    creditCost: 1000
+    buildCost: 95 Metal / 85 Electronics
+    buildTimeSeconds: 30
+    factoryType: Drone Bay
+    techRequirements: Recon Systems II
+    maintenanceCost: Low
+    repairTimeSeconds: 10
+    supplyConsumption: Low
+    operationalCost: Minimal
+    deploymentRequirements: Standard drone pad
+    transportCompatibility: All aerial racks
+    launchMethod: Vertical takeoff
+    deploymentPointsDefined: 1
+    deploymentPoints: 1
+  buildRequirements:
+    commonComponents:
+    - component: Light Alloy Plates
+      quantity: 10
+    - component: Composite Frame Rods
+      quantity: 6
+    - component: Micro-Servo Actuators
+      quantity: 4
+    - component: Stabilizer Fins
+      quantity: 2
+    - component: Elevation Sensor Housing
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 10
+    - component: Signal Processors
+      quantity: 8
+    - component: Drone Control Chips
+      quantity: 3
+    - component: Terrain AI Chips
+      quantity: 2
+    power:
+    - component: Mid-Capacity Battery Pack
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 2
+    rareTradeable:
+    - component: Elevation Scan Core
+      quantity: 1
+    optionalUpgrades:
+    - Silent Rotor Kit
+    - Extended Battery Pack
+    - High-Density Elevation Grid
+  environment:
+    terrainAdaptationCoefficients: Terrain terrainAdaptationCoefficients
+    weatherSensitivityIndex: 1
+    visibilityModifiers: Terrain visibilityModifiers
+    signalPropagationCurve: Terrain signalPropagationCurve
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0.8
+    packetLossRate: Terrain packetLossRate
+    encryptionLatencySeconds: 1
+    meshSelfHealingThreshold: Terrain meshSelfHealingThreshold
+    relaySaturationCurve: Terrain relaySaturationCurve
+  cognitive:
+    decisionConfidence: 1
+    threatRecognitionAccuracy: 1
+    adaptiveLearningRatePerMission: 1
+    commandOverrideResistance: 1
+    cooperativeBehaviorIndex: 1
+  behaviorNodes:
+  - behaviorNode: 
+    weight: -0.00000008226931
+    description: 
+  missionBehaviors:
+  - missionType: 
+    behaviorFocus: 
+    efficiency: -0.00000008228733
+  unitSynergies:
+  - partnerUnit: 
+    synergyRating: -0.000000081262726
+    function: 
+  damageResponses:
+  - damageType: 
+    effect: 
+    recovery: 
+  upgrades:
+  - upgrade: 
+    effect: 
+    efficiencyGain: -0.00000008129882
+  tactical:
+    formationAdaptability: 1
+    tacticalRoleWeight: 1
+    commandResponseDelaySeconds: 1
+    reinforcementTriggerConditions: Terrain reinforcementTriggerConditions
+    retreatLogicThresholds: Terrain retreatLogicThresholds
+  maintenance:
+    meanTimeBetweenFailuresHours: 1
+    repairCycleSeconds: 1
+    resourceDrainPerHourPercent: 10
+    batteryEfficiencyPercent: 0.8
+    rotorStabilityPercent: 10
+    sensorCalibrationDriftPercentPerHour: 10
+    coolingEfficiencyPercent: 0.8
+    operationalUptimePercent: 10
+    energyRecoveryRatePercent: 10
+    energyRecoveryRatePercentPerIdleMinute: 10
+    componentWearPercentPerHour: 10
+    maintenancePriorityLevel: Terrain maintenancePriorityLevel
+    sparePartDependencyIndex: 1
+    operationalCostPerHour: Terrain operationalCostPerHour
+  threatResponses:
+  - threatType: 
+    reactionTimeSeconds: -1.6962372e-20
+    countermeasureEfficiency: 5.79e-43
+  commandNetwork:
+  - node: 
+    loadPercent: -0.00001955549
+    latencySeconds: 5.79e-43
+    status: 
+  performance:
+    missionSuccessProbability: 0.75
+    averageEngagementDurationMinutes: 1
+    reconDataYieldMbPerMinute: 1
+    communicationUptime: 1
+    threatAvoidanceEfficiency: 0.8

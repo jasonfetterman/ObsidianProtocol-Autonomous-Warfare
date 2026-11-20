@@ -1,0 +1,112 @@
+using System;
+using ObsidianProtocol.Game.Runtime;
+using ObsidianProtocol.Game.Units;
+using UnityEngine;
+
+namespace ObsidianProtocol.Game.Deployment
+{
+    public sealed class BattlefieldReinforcementService : MonoBehaviour
+    {
+        public bool RequestReinforcement(
+            string unitId,
+            string serviceRecordId)
+        {
+            BattlefieldDeploymentContext context =
+                BattlefieldDeploymentContext.Instance;
+
+            if (context == null || !context.ReinforcementsAllowed)
+                return Reject("REINFORCEMENTS NOT AVAILABLE");
+
+            BattlefieldDeploymentMaterializer materializer =
+                GetComponent<BattlefieldDeploymentMaterializer>();
+
+            if (materializer == null)
+                return Reject("BATTLEFIELD MATERIALIZER NOT FOUND");
+
+            if (string.IsNullOrWhiteSpace(unitId))
+                return Reject("UNIT ID IS REQUIRED");
+
+            UnitDefinition definition = UnitDatabaseRuntime.Get(unitId);
+
+            if (definition == null)
+                return Reject("UNIT NOT FOUND IN DATABASE // " + unitId);
+
+            if (definition.ModelPrefab == null)
+                return Reject("UNIT MODEL PREFAB NOT ASSIGNED // " + unitId);
+
+            if (!definition.Economy.deploymentPointsDefined ||
+                definition.Economy.deploymentPoints <= 0)
+            {
+                return Reject("UNIT DEPLOYMENT POINT COST NOT CONFIGURED // " + unitId);
+            }
+
+            int cost = definition.Economy.deploymentPoints;
+
+            if (!context.CanSpendReinforcementPoints(cost))
+                return Reject("INSUFFICIENT REINFORCEMENT POINTS // " + unitId);
+
+            string resolvedServiceRecordId =
+                string.IsNullOrWhiteSpace(serviceRecordId)
+                    ? context.SelectedServiceRecordId
+                    : serviceRecordId;
+
+            if (string.IsNullOrWhiteSpace(resolvedServiceRecordId))
+                return Reject("SERVICE RECORD ID IS REQUIRED");
+
+            string deploymentId = Guid.NewGuid().ToString("N");
+
+            DeploymentEntry entry = new DeploymentEntry(
+                deploymentId,
+                unitId,
+                cost,
+                resolvedServiceRecordId);
+
+            if (!entry.Valid)
+                return Reject("REINFORCEMENT ENTRY INVALID");
+
+            entry.SetAvailable();
+            entry.Stage();
+
+            if (!context.TrySpendReinforcementPoints(cost))
+                return Reject("REINFORCEMENT BUDGET SPEND FAILED");
+
+            if (!context.AddReinforcements(
+                new DeploymentEntry[] { entry }))
+            {
+                context.RefundReinforcementPoints(cost);
+                return Reject("REINFORCEMENT CONTEXT REGISTRATION FAILED");
+            }
+
+            if (!materializer.MaterializeEntries(
+                new DeploymentEntry[] { entry }))
+            {
+                context.RemoveReinforcements(
+                    new string[] { deploymentId });
+
+                context.RefundReinforcementPoints(cost);
+                return Reject("REINFORCEMENT MATERIALIZATION FAILED");
+            }
+
+            entry.Deploy();
+
+            Debug.Log(
+                "[BATTLEFIELD REINFORCEMENT] DEPLOYED // " +
+                definition.DisplayName +
+                " // UNIT=" + unitId +
+                " // DP=" + cost +
+                " // REMAINING=" +
+                context.RemainingReinforcementPoints);
+
+            return true;
+        }
+
+        private static bool Reject(string reason)
+        {
+            Debug.LogWarning(
+                "[BATTLEFIELD REINFORCEMENT] REQUEST REJECTED // " +
+                reason);
+
+            return false;
+        }
+    }
+}

@@ -1,0 +1,187 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Nullpoint
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-experimental-nullpoint
+  displayName: Nullpoint
+  category: 4
+  role: Experimental Unit
+  tier: Standard
+  status: ACTIVE
+  storeImage: {fileID: -3078793099621519151, guid: 2737117e6ef29454f842c2103ae61c11, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 0
+    widthMeters: 0
+    heightMeters: 0
+    massKg: 0
+    powerSource: 
+    energyCapacityWh: 0
+    energyConsumptionWhPerMinute: 0
+    endurance: 
+    payloadCapacityKg: 0
+    modules: []
+    navigationSystem: 
+    structuralIntegrityHp: 0
+    armorRating: 0
+    heatSignature: 
+    noiseSignature: 
+    topSpeedMetersPerSecond: 0
+    topSpeedDescription: 
+    acceleration: 
+    turningRadius: 
+    climbRate: 
+    stabilityRating: 
+  autonomy:
+    behaviorProfile: 
+    aggression: 0
+    caution: 0
+    persistence: 0
+    flankingLikelihood: 0
+    retreatThreshold: 0
+    retreatBehaviorDescription: 
+    targetPriority: 
+    formationDiscipline: 
+    riskTolerance: 0
+  sensors:
+    visualRangeMeters: 0
+    visualRangeDescription: 
+    thermalRangeMeters: 0
+    thermalRangeDescription: 
+    acousticRange: 
+    radarRange: 
+    lidarRange: 
+    signalDetectionRange: 
+  communication:
+    meshRangeKm: 0
+    meshRangeDescription: 
+    relayCapacity: 0
+    commandLinkType: 
+    networkPriority: 
+  combat:
+    firepowerRating: 0
+    firepowerDescription: 
+    accuracy: 
+    stabilization: 
+    weaponMounts: 
+    weaponTypes: 
+    suppressionValue: 0
+    trackingStrength: 
+    disruptionStrength: 
+    breachCapability: 
+    countermeasureRating: 
+    threatLevel: 0
+    engagementDistance: 
+    preferredTerrain: 
+    preferredTargets: 
+    vulnerabilityProfile: 
+  squad:
+    squadRole: 
+    squadSizeContribution: 0
+    formationBehavior: 
+    intentInterpretationRules: 
+    retreatBehavior: 
+    breachBehavior: 
+    flankingBehavior: 
+    reinforcementBehavior: 
+    parentCommandUnit: 
+    subordinateUnits: []
+    relayNodes: []
+    networkDependencies: 
+  vrOperator:
+    operatorSeatType: 
+    operatorHud: 
+    cameraFeeds: 
+    thermalView: 0
+    lidarView: 0
+    sonarView: 0
+    tacticalOverlay: 0
+    movementControls: 
+    sensorControls: 
+    abilityControls: 
+    weaponControls: 
+    stabilizationControls: 
+    operatorAbilities: []
+  economy:
+    creditCost: 16000
+    buildCost: 
+    buildTimeSeconds: 0
+    factoryType: 
+    techRequirements: 
+    maintenanceCost: 
+    repairTimeSeconds: 0
+    supplyConsumption: 
+    operationalCost: 
+    deploymentRequirements: 
+    transportCompatibility: 
+    launchMethod: 
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents: []
+    electronics: []
+    power: []
+    rareTradeable: []
+    optionalUpgrades: []
+  environment:
+    terrainAdaptationCoefficients: 
+    weatherSensitivityIndex: 0
+    visibilityModifiers: 
+    signalPropagationCurve: 
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0
+    packetLossRate: 
+    encryptionLatencySeconds: 0
+    meshSelfHealingThreshold: 
+    relaySaturationCurve: 
+  cognitive:
+    decisionConfidence: 0
+    threatRecognitionAccuracy: 0
+    adaptiveLearningRatePerMission: 0
+    commandOverrideResistance: 0
+    cooperativeBehaviorIndex: 0
+  behaviorNodes: []
+  missionBehaviors: []
+  unitSynergies: []
+  damageResponses: []
+  upgrades: []
+  tactical:
+    formationAdaptability: 0
+    tacticalRoleWeight: 0
+    commandResponseDelaySeconds: 0
+    reinforcementTriggerConditions: 
+    retreatLogicThresholds: 
+  maintenance:
+    meanTimeBetweenFailuresHours: 0
+    repairCycleSeconds: 0
+    resourceDrainPerHourPercent: 0
+    batteryEfficiencyPercent: 0
+    rotorStabilityPercent: 0
+    sensorCalibrationDriftPercentPerHour: 0
+    coolingEfficiencyPercent: 0
+    operationalUptimePercent: 0
+    energyRecoveryRatePercent: 0
+    energyRecoveryRatePercentPerIdleMinute: 0
+    componentWearPercentPerHour: 0
+    maintenancePriorityLevel: 
+    sparePartDependencyIndex: 0
+    operationalCostPerHour: 
+  threatResponses: []
+  commandNetwork: []
+  performance:
+    missionSuccessProbability: 0
+    averageEngagementDurationMinutes: 0
+    reconDataYieldMbPerMinute: 0
+    communicationUptime: 0
+    threatAvoidanceEfficiency: 0

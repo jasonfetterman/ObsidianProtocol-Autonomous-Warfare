@@ -1,0 +1,437 @@
+﻿using System;
+using System.Collections;
+using System.Reflection;
+using System.Text;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+using ObsidianProtocol.Game.Economy;
+using ObsidianProtocol.Game.Inventory;
+using ObsidianProtocol.Game.Runtime;
+using ObsidianProtocol.Game.Store;
+
+namespace ObsidianProtocol.Game.Store.UI
+{
+    public sealed class StoreCatalogueCard : MonoBehaviour
+    {
+        public string UnitId;
+    }
+
+    public sealed class StoreCatalogueCategoryButton : MonoBehaviour
+    {
+        public string CategoryName;
+    }
+    public sealed class StoreCatalogueInteractionController : MonoBehaviour
+    {
+        [SerializeField] private GameObject detailsPanel;
+        [SerializeField] private Image unitArtwork;
+        [SerializeField] private TMP_Text unitName;
+        [SerializeField] private TMP_Text unitIdentity;
+        [SerializeField] private TMP_Text specificationText;
+        [SerializeField] private TMP_Text priceText;
+        [SerializeField] private TMP_Text statusText;
+        [SerializeField] private TMP_Text creditsText;
+        [SerializeField] private Button purchaseButton;
+        [SerializeField] private Button closeButton;
+
+        private readonly UnitPurchaseService purchaseService =
+            new UnitPurchaseService();
+
+        private string selectedUnitId;
+        private ScrollRect catalogueScroll;
+
+        private void Awake()
+        {
+            Transform scrollTransform = transform.Find("CATALOGUE_SCROLL");
+            if (scrollTransform != null)
+                catalogueScroll = scrollTransform.GetComponent<ScrollRect>();
+
+            foreach (StoreCatalogueCategoryButton categoryButton in
+                GetComponentsInChildren<StoreCatalogueCategoryButton>(true))
+            {
+                Button button = categoryButton.GetComponent<Button>();
+                if (button == null) continue;
+
+                string category = categoryButton.CategoryName;
+                button.onClick.AddListener(() => SelectCategory(category, categoryButton));
+            }
+
+            if (purchaseButton != null)
+                purchaseButton.onClick.AddListener(PurchaseSelectedUnit);
+
+            if (closeButton != null)
+                closeButton.onClick.AddListener(CloseDetails);
+
+            foreach (StoreCatalogueCard card in
+                GetComponentsInChildren<StoreCatalogueCard>(true))
+            {
+                Button button = card.GetComponent<Button>();
+                if (button == null || string.IsNullOrWhiteSpace(card.UnitId))
+                    continue;
+
+                string id = card.UnitId;
+                button.onClick.AddListener(() => SelectUnit(id));
+
+                Transform inspectTransform = card.transform.Find("INSPECT_UNIT_BUTTON");
+                if (inspectTransform != null)
+                {
+                    Button inspectButton = inspectTransform.GetComponent<Button>();
+                    if (inspectButton != null)
+                        inspectButton.onClick.AddListener(() => SelectUnit(id));
+                }
+            }
+
+            if (detailsPanel != null)
+                detailsPanel.SetActive(false);
+
+            RefreshCredits();
+        }
+
+
+        private void SelectCategory(string category, StoreCatalogueCategoryButton selectedButton)
+        {
+            foreach (StoreCatalogueCategoryButton item in
+                GetComponentsInChildren<StoreCatalogueCategoryButton>(true))
+            {
+                StoreNeonButtonEffect glow = item.GetComponent<StoreNeonButtonEffect>();
+                if (glow != null)
+                    glow.SetSelected(item == selectedButton);
+            }
+
+            ScrollToCategory(category);
+        }
+        private void Update()
+        {
+            RefreshCredits();
+
+            if (purchaseButton != null)
+            {
+                bool owned = !string.IsNullOrEmpty(selectedUnitId) &&
+                    InventoryRuntime.CampaignActive &&
+                    InventoryRuntime.Has(selectedUnitId);
+
+                purchaseButton.interactable =
+                    !string.IsNullOrEmpty(selectedUnitId) &&
+                    EconomyRuntime.CampaignActive && !owned;
+            }
+        }
+
+        public void ScrollToCategory(string categoryName)
+        {
+            if (catalogueScroll == null || catalogueScroll.content == null ||
+                catalogueScroll.viewport == null)
+                return;
+
+            string sectionName = "SECTION_" + categoryName.Replace(" ", "_");
+            RectTransform section = null;
+
+            foreach (RectTransform candidate in
+                catalogueScroll.content.GetComponentsInChildren<RectTransform>(true))
+            {
+                if (candidate.name == sectionName)
+                {
+                    section = candidate;
+                    break;
+                }
+            }
+
+            if (section == null) return;
+
+            Canvas.ForceUpdateCanvases();
+            LayoutRebuilder.ForceRebuildLayoutImmediate(catalogueScroll.content);
+
+            float scrollableHeight =
+                catalogueScroll.content.rect.height -
+                catalogueScroll.viewport.rect.height;
+
+            if (scrollableHeight <= 0f) return;
+
+            float localY = catalogueScroll.content.InverseTransformPoint(
+                section.position).y;
+
+            float targetY = Mathf.Max(
+                0f, -localY - section.rect.height * .5f);
+
+            catalogueScroll.verticalNormalizedPosition =
+                Mathf.Clamp01(1f - targetY / scrollableHeight);
+        }
+        public void SelectUnit(string unitId)
+        {
+            if (!UnitDatabaseRuntime.EnsureInitialized())
+            {
+                SetStatus("UNIT DATABASE UNAVAILABLE");
+                return;
+            }
+
+            var unit = UnitDatabaseRuntime.Get(unitId);
+            if (unit == null)
+            {
+                SetStatus("UNIT DEFINITION NOT FOUND");
+                return;
+            }
+
+            selectedUnitId = unit.UnitId;
+
+            foreach (StoreCatalogueCard card in GetComponentsInChildren<StoreCatalogueCard>(true))
+            {
+                bool isSelected = card.UnitId == selectedUnitId;
+
+                StoreNeonButtonEffect cardGlow = card.GetComponent<StoreNeonButtonEffect>();
+                if (cardGlow != null)
+                    cardGlow.SetSelected(isSelected);
+
+                Transform inspect = card.transform.Find("INSPECT_UNIT_BUTTON");
+                if (inspect != null)
+                {
+                    StoreNeonButtonEffect inspectGlow = inspect.GetComponent<StoreNeonButtonEffect>();
+                    if (inspectGlow != null)
+                        inspectGlow.SetSelected(isSelected);
+                }
+            }
+
+            if (detailsPanel != null)
+            {
+                detailsPanel.SetActive(true);
+                detailsPanel.transform.SetAsLastSibling();
+            }
+
+            if (unitName != null)
+                unitName.text = unit.DisplayName;
+
+            if (unitIdentity != null)
+            {
+                unitIdentity.text =
+                    unit.Category.ToString().ToUpperInvariant() +
+                    "  //  " + unit.Role +
+                    "  //  " + unit.Tier +
+                    "  //  " + unit.Status;
+            }
+
+            if (unitArtwork != null)
+            {
+                unitArtwork.sprite = unit.StoreImage;
+                unitArtwork.enabled = unit.StoreImage != null;
+                unitArtwork.preserveAspect = true;
+            }
+
+            if (specificationText != null)
+                specificationText.text = FormatSpecification(unit);
+
+            int cost = unit.Economy != null
+                ? unit.Economy.creditCost
+                : 0;
+
+            if (priceText != null)
+                priceText.text = "PROCUREMENT COST  //  " + cost.ToString("N0") + " CREDITS";
+
+            bool owned = InventoryRuntime.CampaignActive &&
+                InventoryRuntime.Has(unit.UnitId);
+
+            SetStatus(owned ? "UNIT ALREADY REGISTERED IN YOUR INVENTORY" :
+                "UNIT SELECTED // REVIEW SPECIFICATIONS");
+
+            RefreshCredits();
+        }
+
+        private string FormatSpecification(
+            ObsidianProtocol.Game.Units.UnitDefinition unit)
+        {
+            if (unit == null)
+                return "UNIT DEFINITION UNAVAILABLE";
+
+            StringBuilder builder = new StringBuilder();
+            AppendSerializedFields(builder, unit, 0);
+            return builder.ToString();
+        }
+
+        private void AppendSerializedFields(
+            StringBuilder builder, object target, int depth)
+        {
+            if (target == null)
+                return;
+
+            if (depth > 12)
+            {
+                builder.AppendLine(new string(' ', depth * 2) + "[Maximum nesting reached]");
+                return;
+            }
+
+            FieldInfo[] fields = target.GetType().GetFields(
+                BindingFlags.Instance |
+                BindingFlags.Public |
+                BindingFlags.NonPublic |
+                BindingFlags.DeclaredOnly);
+
+            bool found = false;
+
+            foreach (FieldInfo field in fields)
+            {
+                if (field.IsStatic || field.IsInitOnly || field.IsLiteral ||
+                    Attribute.IsDefined(field, typeof(NonSerializedAttribute)))
+                    continue;
+
+                if (!field.IsPublic &&
+                    !Attribute.IsDefined(field, typeof(SerializeField)))
+                    continue;
+
+                found = true;
+
+                string indent = new string(' ', depth * 2);
+                string label = FormatFieldLabel(field.Name);
+                object value = field.GetValue(target);
+
+                if (value == null)
+                {
+                    builder.Append(indent).Append(label).AppendLine(": None");
+                }
+                else if (value is UnityEngine.Object assetReference)
+                {
+                    builder.Append(indent).Append(label).Append(": ")
+                        .AppendLine(assetReference != null
+                            ? assetReference.name + " [" + assetReference.GetType().Name + "]"
+                            : "None");
+                }
+                else if (IsSimpleSpecificationValue(value))
+                {
+                    builder.Append(indent).Append(label).Append(": ")
+                        .AppendLine(value.ToString());
+                }
+                else if (value is IList list)
+                {
+                    builder.Append(indent).Append(label).AppendLine(":");
+
+                    if (list.Count == 0)
+                    {
+                        builder.Append(indent).AppendLine("  None");
+                        continue;
+                    }
+
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        object item = list[i];
+                        string itemIndent = indent + "  ";
+
+                        if (item == null)
+                        {
+                            builder.Append(itemIndent).Append('[').Append(i)
+                                .AppendLine("] None");
+                        }
+                        else if (item is UnityEngine.Object itemAsset)
+                        {
+                            builder.Append(itemIndent).Append('[').Append(i)
+                                .Append("] ").AppendLine(itemAsset != null
+                                    ? itemAsset.name
+                                    : "None");
+                        }
+                        else if (IsSimpleSpecificationValue(item))
+                        {
+                            builder.Append(itemIndent).Append('[').Append(i)
+                                .Append("] ").AppendLine(item.ToString());
+                        }
+                        else
+                        {
+                            builder.Append(itemIndent).Append('[')
+                                .Append(i).AppendLine("]");
+                            AppendSerializedFields(builder, item, depth + 2);
+                        }
+                    }
+                }
+                else
+                {
+                    builder.Append(indent).Append(label).AppendLine(":");
+                    AppendSerializedFields(builder, value, depth + 1);
+                }
+            }
+
+            if (!found)
+                builder.Append(new string(' ', depth * 2)).AppendLine("(No serialized fields)");
+        }
+
+        private bool IsSimpleSpecificationValue(object value)
+        {
+            Type type = value.GetType();
+            return type.IsPrimitive || type.IsEnum ||
+                value is string || value is decimal;
+        }
+
+        private string FormatFieldLabel(string fieldName)
+        {
+            if (string.IsNullOrEmpty(fieldName))
+                return fieldName;
+
+            StringBuilder label = new StringBuilder();
+
+            for (int i = 0; i < fieldName.Length; i++)
+            {
+                char character = fieldName[i];
+
+                if (i > 0 && char.IsUpper(character))
+                    label.Append(' ');
+
+                label.Append(character);
+            }
+
+            label[0] = char.ToUpperInvariant(label[0]);
+            return label.ToString();
+        }
+
+        public void PurchaseSelectedUnit()
+        {
+            if (string.IsNullOrWhiteSpace(selectedUnitId))
+            {
+                SetStatus("SELECT A UNIT FIRST");
+                return;
+            }
+
+            if (!EconomyRuntime.CampaignActive)
+            {
+                SetStatus("CAMPAIGN REQUIRED FOR PROCUREMENT");
+                return;
+            }
+
+            if (InventoryRuntime.CampaignActive &&
+                InventoryRuntime.Has(selectedUnitId))
+            {
+                SetStatus("UNIT ALREADY OWNED");
+                return;
+            }
+
+            bool success = purchaseService.Purchase(selectedUnitId);
+
+            SetStatus(success
+                ? "PROCUREMENT COMPLETE // UNIT ADDED TO FLEET"
+                : "PROCUREMENT FAILED // CHECK CAMPAIGN, CREDITS AND REGISTRATION");
+
+            RefreshCredits();
+        }
+
+        public void CloseDetails()
+        {
+            if (detailsPanel != null)
+                detailsPanel.SetActive(false);
+
+            selectedUnitId = null;
+        }
+
+        private void RefreshCredits()
+        {
+            if (creditsText != null)
+            {
+                creditsText.text = EconomyRuntime.CampaignActive
+                    ? "AVAILABLE CREDITS  //  " + EconomyRuntime.Credits.ToString("N0")
+                    : "CAMPAIGN NOT ACTIVE";
+            }
+        }
+
+        private void SetStatus(string message)
+        {
+            if (statusText != null)
+                statusText.text = message;
+        }
+    }
+}
+
+
+
+
+

@@ -1,0 +1,216 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Scout
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-air-scout
+  displayName: Scout
+  category: 0
+  role: Fast Recon / Rapid Visual Sweep
+  tier: Basic Recon
+  status: Active
+  storeImage: {fileID: -964236655161252650, guid: e2a4223d21623b542bcf6e46c5c79b1b, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 1.4
+    widthMeters: 1
+    heightMeters: 0.5
+    massKg: 9
+    powerSource: Compact battery
+    energyCapacityWh: 1100
+    energyConsumptionWhPerMinute: 22
+    endurance: "30\u201345 min"
+    payloadCapacityKg: 0.6
+    modules:
+    - Lightweight optical camera
+    navigationSystem: GPS + Basic Stabilization
+    structuralIntegrityHp: 75
+    armorRating: 0.08
+    heatSignature: Very Low
+    noiseSignature: Very Low
+    topSpeedMetersPerSecond: 24
+    topSpeedDescription: 24 m/s
+    acceleration: High
+    turningRadius: Very Tight
+    climbRate: Medium
+    stabilityRating: Medium
+  autonomy:
+    behaviorProfile: Fast Recon
+    aggression: 0
+    caution: 0.85
+    persistence: 0.6
+    flankingLikelihood: 0
+    retreatThreshold: 0.9
+    retreatBehaviorDescription: Early retreat; avoid threats and preserve reconnaissance capability.
+    targetPriority: Recon targets
+    formationDiscipline: Medium
+    riskTolerance: 0.1
+  sensors:
+    visualRangeMeters: 1400
+    visualRangeDescription: Rapid optical reconnaissance to 1400 m
+    thermalRangeMeters: 300
+    thermalRangeDescription: Low-resolution thermal sensing to 300 m
+    acousticRange: Low
+    radarRange: None
+    lidarRange: None
+    signalDetectionRange: Low
+  communication:
+    meshRangeKm: 4
+    meshRangeDescription: 4 km
+    relayCapacity: 0
+    commandLinkType: Standard
+    networkPriority: Low
+  combat:
+    firepowerRating: 0
+    firepowerDescription: Unarmed reconnaissance drone; no offensive capability.
+    accuracy: N/A
+    stabilization: Medium
+    weaponMounts: None
+    weaponTypes: None
+    suppressionValue: 0
+    trackingStrength: Low
+    disruptionStrength: Low
+    breachCapability: None
+    countermeasureRating: Low
+    threatLevel: 1
+    engagementDistance: N/A
+    preferredTerrain: Low-risk airspace
+    preferredTargets: None
+    vulnerabilityProfile: Ballistic / weather
+  squad:
+    squadRole: Recon
+    squadSizeContribution: 1
+    formationBehavior: Loose recon spacing
+    intentInterpretationRules: Avoid threats, prioritize visibility
+    retreatBehavior: Early
+    breachBehavior: None
+    flankingBehavior: None
+    reinforcementBehavior: Supports recon squads
+    parentCommandUnit: Sentinel / Overseer
+    subordinateUnits: []
+    relayNodes: []
+    networkDependencies: Standard Warden mesh
+  vrOperator:
+    operatorSeatType: Drone View
+    operatorHud: Minimal Recon Overlay
+    cameraFeeds: Optical
+    thermalView: 1
+    lidarView: 0
+    sonarView: 0
+    tacticalOverlay: 1
+    movementControls: Full drone flight
+    sensorControls: Zoom / thermal
+    abilityControls: Scan, Mark Target
+    weaponControls: None
+    stabilizationControls: Auto-hover
+    operatorAbilities:
+    - Quick Scan
+    - Mark Target
+    - Relay Recon Data
+  economy:
+    creditCost: 600
+    buildCost: 50 Metal / 35 Electronics
+    buildTimeSeconds: 20
+    factoryType: Drone Bay
+    techRequirements: Basic Recon
+    maintenanceCost: Very Low
+    repairTimeSeconds: 6
+    supplyConsumption: Very Low
+    operationalCost: Minimal
+    deploymentRequirements: Standard drone pad
+    transportCompatibility: All aerial racks
+    launchMethod: Vertical takeoff
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Light Alloy Plates
+      quantity: 6
+    - component: Composite Frame Rods
+      quantity: 4
+    - component: Micro-Servo Actuators
+      quantity: 3
+    - component: Stabilizer Fin
+      quantity: 1
+    - component: Optical Camera Housing
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 5
+    - component: Signal Processors
+      quantity: 3
+    - component: Drone Control Chips
+      quantity: 2
+    power:
+    - component: Compact Battery Pack
+      quantity: 1
+    - component: Power Regulation Node
+      quantity: 1
+    rareTradeable:
+    - component: Miniature Lens Assembly
+      quantity: 1
+    optionalUpgrades:
+    - Silent Rotor Kit
+    - Thermal Boost Module
+    - Extended Battery Pack
+  environment:
+    terrainAdaptationCoefficients: 
+    weatherSensitivityIndex: 0
+    visibilityModifiers: 
+    signalPropagationCurve: 
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0
+    packetLossRate: 
+    encryptionLatencySeconds: 0
+    meshSelfHealingThreshold: 
+    relaySaturationCurve: 
+  cognitive:
+    decisionConfidence: 0
+    threatRecognitionAccuracy: 0
+    adaptiveLearningRatePerMission: 0
+    commandOverrideResistance: 0
+    cooperativeBehaviorIndex: 0
+  behaviorNodes: []
+  missionBehaviors: []
+  unitSynergies: []
+  damageResponses: []
+  upgrades: []
+  tactical:
+    formationAdaptability: 0
+    tacticalRoleWeight: 0
+    commandResponseDelaySeconds: 0
+    reinforcementTriggerConditions: 
+    retreatLogicThresholds: 
+  maintenance:
+    meanTimeBetweenFailuresHours: 0
+    repairCycleSeconds: 0
+    resourceDrainPerHourPercent: 0
+    batteryEfficiencyPercent: 0
+    rotorStabilityPercent: 0
+    sensorCalibrationDriftPercentPerHour: 0
+    coolingEfficiencyPercent: 0
+    operationalUptimePercent: 0
+    energyRecoveryRatePercent: 0
+    energyRecoveryRatePercentPerIdleMinute: 0
+    componentWearPercentPerHour: 0
+    maintenancePriorityLevel: 
+    sparePartDependencyIndex: 0
+    operationalCostPerHour: 
+  threatResponses: []
+  commandNetwork: []
+  performance:
+    missionSuccessProbability: 0
+    averageEngagementDurationMinutes: 0
+    reconDataYieldMbPerMinute: 0
+    communicationUptime: 0
+    threatAvoidanceEfficiency: 0

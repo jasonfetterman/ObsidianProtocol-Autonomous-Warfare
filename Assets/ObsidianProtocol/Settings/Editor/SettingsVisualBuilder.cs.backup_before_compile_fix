@@ -1,0 +1,482 @@
+﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using TMPro;
+using ObsidianProtocol.UI.Menus;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+
+public static class SettingsVisualBuilder
+{
+    private const string CanvasName = "SETTINGS_CANVAS";
+    private const string RootName = "SETTINGS_HUD";
+
+    private static TMP_FontAsset DisplayFont;
+    private static TMP_FontAsset BodyFont;
+
+    private static readonly Color Background = new Color(0.012f, 0.020f, 0.029f);
+    private static readonly Color Surface = new Color(0.026f, 0.039f, 0.052f);
+    private static readonly Color SurfaceRaised = new Color(0.039f, 0.058f, 0.073f);
+    private static readonly Color Cyan = new Color(0.12f, 0.82f, 0.91f);
+    private static readonly Color Muted = new Color(0.52f, 0.63f, 0.69f);
+    private static readonly Color White = new Color(0.91f, 0.96f, 0.98f);
+    private static readonly Color Orange = new Color(1f, 0.57f, 0.23f);
+
+    [MenuItem("Obsidian Protocol/Settings/BUILD AAA SETTINGS SCENE")]
+    public static void BuildSettingsHUD()
+    {
+        string scenePath = FindSettingsScene();
+
+        if (string.IsNullOrEmpty(scenePath))
+        {
+            EditorUtility.DisplayDialog("Settings", "Settings.unity was not found.", "OK");
+            return;
+        }
+
+        DisplayFont = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(
+            "Assets/TextMesh Pro/Resources/Fonts & Materials/EurostileExtendedBlack SDF.asset");
+
+        BodyFont = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(
+            "Assets/TextMesh Pro/Resources/Fonts & Materials/JetBrainsMono-VariableFont_wght SDF.asset");
+
+        if (DisplayFont == null || BodyFont == null)
+        {
+            EditorUtility.DisplayDialog("Settings", "Required TextMesh Pro fonts could not be loaded.", "OK");
+            return;
+        }
+
+        Scene scene = EditorSceneManager.OpenScene(scenePath, OpenSceneMode.Single);
+
+        foreach (GameObject obj in scene.GetRootGameObjects())
+        {
+            if (obj.name == "EventSystem" || obj.GetComponent<Camera>() != null ||
+                obj.GetComponent<Light>() != null)
+                continue;
+
+            if (obj.name == CanvasName || obj.name == RootName ||
+                obj.GetComponent<Canvas>() != null ||
+                obj.name.Contains("SETTINGS") || obj.name.Contains("[HUD]"))
+                Object.DestroyImmediate(obj);
+        }
+
+        EnsureEventSystem();
+
+        GameObject canvasObject = new GameObject(
+            CanvasName, typeof(RectTransform), typeof(Canvas),
+            typeof(CanvasScaler), typeof(GraphicRaycaster));
+
+        Canvas canvas = canvasObject.GetComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvas.sortingOrder = 100;
+
+        CanvasScaler scaler = canvasObject.GetComponent<CanvasScaler>();
+        scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+        scaler.referenceResolution = new Vector2(1920, 1080);
+        scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
+        scaler.matchWidthOrHeight = 0.5f;
+
+        GameObject root = Panel(RootName, canvasObject.transform,
+            Vector2.zero, Vector2.one, Background);
+
+        BuildBackdrop(root.transform);
+        BuildHeader(root.transform);
+        BuildNavigation(root.transform);
+        BuildPages(root.transform);
+        BuildCustomization(root.transform);
+        BuildFooter(root.transform);
+
+        root.AddComponent<SettingsSceneController>();
+
+        EditorSceneManager.MarkSceneDirty(scene);
+        EditorSceneManager.SaveScene(scene);
+        Selection.activeGameObject = root;
+
+        Debug.Log("[SettingsVisualBuilder] New AAA Settings interface built: " + scenePath);
+
+        EditorUtility.DisplayDialog(
+            "AAA SETTINGS",
+            "New Settings interface created and saved.\n\nOpen the scene to review the design.",
+            "OK");
+    }
+
+    private static string FindSettingsScene()
+    {
+        foreach (string guid in AssetDatabase.FindAssets("t:Scene"))
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            if (System.IO.Path.GetFileName(path).Equals(
+                "Settings.unity", System.StringComparison.OrdinalIgnoreCase))
+                return path;
+        }
+        return null;
+    }
+
+    private static void EnsureEventSystem()
+    {
+        if (Object.FindObjectOfType<EventSystem>() != null) return;
+
+        GameObject es = new GameObject("EventSystem",
+            typeof(EventSystem), typeof(StandaloneInputModule));
+    }
+
+    private static void BuildBackdrop(Transform parent)
+    {
+        Panel("BACKGROUND_GLOW", parent, new Vector2(0.25f, 0.05f),
+            new Vector2(1f, 0.95f), new Color(0.02f, 0.07f, 0.09f, 0.35f));
+
+        Panel("TOP_ACCENT", parent, new Vector2(0.025f, 0.925f),
+            new Vector2(0.975f, 0.929f), Cyan);
+
+        Panel("LEFT_ACCENT", parent, new Vector2(0.025f, 0.105f),
+            new Vector2(0.027f, 0.90f), Cyan);
+
+        Panel("HEADER_SURFACE", parent, new Vector2(0.025f, 0.935f),
+            new Vector2(0.975f, 0.99f), Surface);
+
+        Panel("NAV_SURFACE", parent, new Vector2(0.025f, 0.115f),
+            new Vector2(0.235f, 0.915f), Surface);
+
+        Panel("CONTENT_SURFACE", parent, new Vector2(0.25f, 0.115f),
+            new Vector2(0.975f, 0.915f), Surface);
+    }
+
+    private static void BuildHeader(Transform parent)
+    {
+        Transform header = Panel("HEADER", parent,
+            new Vector2(0.025f, 0.935f), new Vector2(0.975f, 0.99f), Surface).transform;
+
+        Text(header, "BRAND", "OBSIDIAN PROTOCOL", 0.025f, 0.52f, 0.34f, 0.91f,
+            25, White, true, TextAlignmentOptions.MidlineLeft);
+
+        Text(header, "SECTION", "SYSTEM CONFIGURATION  /  SETTINGS", 0.36f, 0.52f,
+            0.70f, 0.91f, 15, Muted, false, TextAlignmentOptions.MidlineLeft);
+
+        Text(header, "STATUS", "●  SYSTEM ONLINE", 0.76f, 0.52f,
+            0.97f, 0.91f, 13, new Color(0.32f, 0.91f, 0.69f),
+            false, TextAlignmentOptions.MidlineRight);
+    }
+
+    private static void BuildNavigation(Transform parent)
+    {
+        Transform nav = Panel("SETTINGS_NAVIGATION", parent,
+            new Vector2(0.025f, 0.115f), new Vector2(0.235f, 0.915f), Surface).transform;
+
+        Text(nav, "NAV_HEADING", "CONFIGURATION", 0.08f, 0.91f,
+            0.92f, 0.975f, 19, White, true, TextAlignmentOptions.MidlineLeft);
+
+        Text(nav, "NAV_SUBHEADING", "SELECT A SYSTEM", 0.08f, 0.86f,
+            0.92f, 0.90f, 10, Muted, false, TextAlignmentOptions.MidlineLeft);
+
+        string[] names = {
+            "GAMEPLAY", "CONTROLS", "AUDIO", "VIDEO",
+            "VR", "HUD", "ACCESSIBILITY", "NETWORK", "ACCOUNT"
+        };
+
+        string[] captions = {
+            "Gameplay", "Controls", "Audio", "Display",
+            "Virtual Reality", "Interface", "Accessibility",
+            "Network", "Account"
+        };
+
+        for (int i = 0; i < names.Length; i++)
+        {
+            float top = 0.81f - i * 0.078f;
+            GameObject button = Button(names[i], nav, captions[i],
+                new Vector2(0.055f, top - 0.061f),
+                new Vector2(0.945f, top),
+                i == 0 ? new Color(0.035f, 0.16f, 0.19f) : SurfaceRaised);
+
+            if (i == 0)
+                Panel("ACTIVE_INDICATOR", button.transform,
+                    new Vector2(0f, 0.08f), new Vector2(0.012f, 0.92f), Cyan);
+        }
+
+        Button("BACK", nav, "←   BACK TO MAIN MENU",
+            new Vector2(0.055f, 0.035f), new Vector2(0.945f, 0.105f),
+            new Color(0.16f, 0.045f, 0.045f));
+    }
+
+    private static void BuildPages(Transform parent)
+    {
+        Transform content = Panel("SETTINGS_CONTENT", parent,
+            new Vector2(0.25f, 0.115f), new Vector2(0.975f, 0.915f),
+            new Color(0, 0, 0, 0)).transform;
+
+        Page(content, "GENERAL_SETTINGS", "GAMEPLAY SETTINGS",
+            "Configure the core experience and simulation behavior.",
+            new[] { "Difficulty", "Camera Behavior", "Gameplay Assistance", "Tutorial Guidance" },
+            new[] { "STANDARD", "DEFAULT", "ADAPTIVE", "ENABLED" });
+
+        Transform display = Page(content, "DISPLAY_SETTINGS", "DISPLAY & VIDEO",
+            "Fine-tune visual output, performance, and presentation.",
+            new[] { "Resolution", "Display Mode", "Refresh Rate", "V-Sync", "Graphics Quality" },
+            new[] { "NATIVE", "FULLSCREEN", "SYSTEM", "ENABLED", "HIGH" });
+        SliderRow(display, "Brightness", "Brightness", 0.25f, 0.75f);
+        SliderRow(display, "Contrast", "Contrast", 0.12f, 0.50f);
+        Action(display, "APPLY DISPLAY SETTINGS");
+
+        Transform audio = Page(content, "AUDIO_SETTINGS", "AUDIO MIXER",
+            "Balance the soundscape to your preference.",
+            new string[0], new string[0]);
+        SliderRow(audio, "Master_Volume", "Master Volume", 0.67f, 1f);
+        SliderRow(audio, "Music_Volume", "Music Volume", 0.52f, 0.8f);
+        SliderRow(audio, "Effects_Volume", "Effects Volume", 0.37f, 0.9f);
+        SliderRow(audio, "Voice_Volume", "Voice Volume", 0.22f, 0.85f);
+        Action(audio, "APPLY AUDIO SETTINGS");
+
+        Transform controls = Page(content, "CONTROL_SETTINGS", "CONTROL SYSTEMS",
+            "Configure input response and command preferences.",
+            new[] { "Input Device", "Controller Layout", "Invert Y Axis", "Key Bindings" },
+            new[] { "AUTO", "TACTICAL", "OFF", "CUSTOMIZE" });
+        SliderRow(controls, "Mouse_Sensitivity", "Mouse Sensitivity", 0.29f, 0.65f);
+        Action(controls, "APPLY CONTROL SETTINGS");
+
+        Transform ui = Page(content, "INTERFACE_SETTINGS", "INTERFACE & HUD",
+            "Personalize the command interface and information density.",
+            new[] { "Language", "Unit Display Mode", "Tooltip Behavior", "Interface Density" },
+            new[] { "ENGLISH", "TACTICAL", "DETAILED", "STANDARD" });
+        SliderRow(ui, "HUD_Scale", "HUD Scale", 0.32f, 1f);
+        Action(ui, "APPLY INTERFACE SETTINGS");
+
+        Transform accessibility = Page(content, "ACCESSIBILITY_SETTINGS", "ACCESSIBILITY",
+            "Make the experience clearer and more comfortable.",
+            new[] { "Colorblind Assistance", "Subtitles", "Reduced Motion", "High Contrast" },
+            new[] { "OFF", "ON", "OFF", "OFF" });
+        Action(accessibility, "APPLY ACCESSIBILITY SETTINGS");
+    }
+
+    private static Transform Page(Transform parent, string name, string title,
+        string subtitle, string[] labels, string[] values)
+    {
+        Transform page = Panel(name, parent, Vector2.zero, Vector2.one,
+            new Color(0, 0, 0, 0)).transform;
+
+        Text(page, "PAGE_TITLE", title, 0.045f, 0.875f, 0.95f, 0.965f,
+            29, White, true, TextAlignmentOptions.MidlineLeft);
+
+        Text(page, "PAGE_SUBTITLE", subtitle, 0.047f, 0.825f, 0.95f, 0.875f,
+            13, Muted, false, TextAlignmentOptions.MidlineLeft);
+
+        Panel("TITLE_RULE", page, new Vector2(0.045f, 0.805f),
+            new Vector2(0.955f, 0.809f), new Color(Cyan.r, Cyan.g, Cyan.b, 0.55f));
+
+        Transform card = Panel("SETTINGS_CARD", page,
+            new Vector2(0.045f, 0.07f), new Vector2(0.955f, 0.77f), SurfaceRaised).transform;
+
+        Text(card, "CARD_LABEL", "SYSTEM OPTIONS", 0.035f, 0.91f,
+            0.95f, 0.98f, 12, Cyan, false, TextAlignmentOptions.MidlineLeft);
+
+        for (int i = 0; i < labels.Length; i++)
+        {
+            float y = 0.78f - i * 0.135f;
+            SettingRow(card, "OPTION_" + i, labels[i], values[i], y);
+        }
+
+        return page;
+    }
+
+    private static void SettingRow(Transform parent, string name,
+        string label, string value, float y)
+    {
+        Transform row = Panel(name, parent,
+            new Vector2(0.025f, y - 0.105f), new Vector2(0.975f, y),
+            Surface).transform;
+
+        Text(row, "LABEL", label, 0.035f, 0.12f, 0.66f, 0.88f,
+            14, White, false, TextAlignmentOptions.MidlineLeft);
+
+        Text(row, "VALUE", value, 0.68f, 0.12f, 0.96f, 0.88f,
+            13, Cyan, false, TextAlignmentOptions.MidlineRight);
+    }
+
+    private static void SliderRow(Transform parent, string name,
+        string label, float y, float value)
+    {
+        Transform row = Panel(name, parent,
+            new Vector2(0.025f, y - 0.105f), new Vector2(0.975f, y),
+            Surface).transform;
+
+        Text(row, "LABEL", label, 0.035f, 0.52f, 0.40f, 0.92f,
+            14, White, false, TextAlignmentOptions.MidlineLeft);
+
+        GameObject sliderObject = new GameObject("SLIDER",
+            typeof(RectTransform), typeof(Slider));
+        sliderObject.transform.SetParent(row, false);
+
+        RectTransform rect = sliderObject.GetComponent<RectTransform>();
+        rect.anchorMin = new Vector2(0.53f, 0.36f);
+        rect.anchorMax = new Vector2(0.94f, 0.64f);
+        rect.offsetMin = Vector2.zero;
+        rect.offsetMax = Vector2.zero;
+
+        Image track = sliderObject.AddComponent<Image>();
+        track.color = new Color(0.10f, 0.15f, 0.18f);
+
+        GameObject fill = new GameObject("FILL", typeof(RectTransform), typeof(Image));
+        fill.transform.SetParent(sliderObject.transform, false);
+        RectTransform fillRect = fill.GetComponent<RectTransform>();
+        fillRect.anchorMin = Vector2.zero;
+        fillRect.anchorMax = Vector2.one;
+        fillRect.offsetMin = Vector2.zero;
+        fillRect.offsetMax = Vector2.zero;
+        fill.GetComponent<Image>().color = Cyan;
+
+        Slider slider = sliderObject.GetComponent<Slider>();
+        slider.fillRect = fillRect;
+        slider.targetGraphic = track;
+        slider.minValue = 0;
+        slider.maxValue = 1;
+        slider.value = value;
+        slider.direction = Slider.Direction.LeftToRight;
+    }
+
+    private static void Action(Transform parent, string label)
+    {
+        Button(label.Replace(" ", "_"), parent, "APPLY CHANGES",
+            new Vector2(0.68f, 0.015f), new Vector2(0.96f, 0.105f),
+            new Color(0.035f, 0.20f, 0.22f));
+    }
+
+    private static void BuildCustomization(Transform parent)
+    {
+        Transform window = Panel("HUD_CUSTOMIZATION", parent,
+            new Vector2(0.25f, 0.115f), new Vector2(0.975f, 0.915f),
+            Surface).transform;
+
+        window.gameObject.SetActive(false);
+
+        Text(window, "TITLE", "INTERFACE CUSTOMIZATION", 0.045f, 0.87f,
+            0.95f, 0.97f, 29, White, true, TextAlignmentOptions.MidlineLeft);
+
+        Text(window, "SUBTITLE", "PERSONALIZE YOUR TACTICAL DISPLAY", 0.047f, 0.81f,
+            0.95f, 0.87f, 13, Muted, false, TextAlignmentOptions.MidlineLeft);
+
+        Transform preview = Panel("HUD_PREVIEW", window,
+            new Vector2(0.05f, 0.20f), new Vector2(0.95f, 0.75f),
+            new Color(0.008f, 0.018f, 0.025f)).transform;
+
+        Text(preview, "PREVIEW_TITLE", "LIVE HUD PREVIEW", 0.04f, 0.88f,
+            0.96f, 0.98f, 15, Cyan, false, TextAlignmentOptions.MidlineLeft);
+
+        Panel("PREVIEW_TOPBAR", preview, new Vector2(0.05f, 0.72f),
+            new Vector2(0.95f, 0.84f), SurfaceRaised);
+
+        Text(preview, "PREVIEW_STATUS", "COMMAND LINK   /   OPERATIONAL",
+            0.08f, 0.73f, 0.92f, 0.83f, 12, Cyan, false,
+            TextAlignmentOptions.MidlineLeft);
+
+        Panel("PREVIEW_LEFT", preview, new Vector2(0.05f, 0.12f),
+            new Vector2(0.30f, 0.66f), SurfaceRaised);
+
+        Panel("PREVIEW_RIGHT", preview, new Vector2(0.70f, 0.12f),
+            new Vector2(0.95f, 0.66f), SurfaceRaised);
+
+        Text(preview, "PREVIEW_INFO", "UNIT STATUS\n\nINTEGRITY     100%\nENERGY         84%\nARMOR          91%",
+            0.08f, 0.20f, 0.28f, 0.61f, 11, White, false,
+            TextAlignmentOptions.TopLeft);
+
+        Text(preview, "PREVIEW_COMMANDS", "COMMANDS\n\nMOVE\nATTACK\nDEFEND\nPATROL",
+            0.73f, 0.20f, 0.93f, 0.61f, 11, White, false,
+            TextAlignmentOptions.TopLeft);
+
+        Button("CLOSE_CUSTOMIZATION", window, "←   RETURN TO SETTINGS",
+            new Vector2(0.05f, 0.06f), new Vector2(0.35f, 0.14f),
+            new Color(0.12f, 0.045f, 0.045f));
+    }
+
+    private static void BuildFooter(Transform parent)
+    {
+        Transform footer = Panel("FOOTER", parent,
+            new Vector2(0.25f, 0.025f), new Vector2(0.975f, 0.09f),
+            Surface).transform;
+
+        Text(footer, "FOOTER_LEFT", "ESC  /  BACK", 0.025f, 0.12f,
+            0.30f, 0.88f, 12, Muted, false, TextAlignmentOptions.MidlineLeft);
+
+        Text(footer, "FOOTER_CENTER", "OBSIDIAN PROTOCOL     •     SETTINGS",
+            0.32f, 0.12f, 0.70f, 0.88f, 12, Muted, false,
+            TextAlignmentOptions.MidlineCenter);
+
+        Text(footer, "FOOTER_RIGHT", "CONFIGURATION", 0.72f, 0.12f,
+            0.97f, 0.88f, 11, Orange, false, TextAlignmentOptions.MidlineRight);
+    }
+
+    private static GameObject Panel(string name, Transform parent,
+        Vector2 min, Vector2 max, Color color)
+    {
+        GameObject go = new GameObject(name, typeof(RectTransform), typeof(Image));
+        go.transform.SetParent(parent, false);
+
+        RectTransform rect = go.GetComponent<RectTransform>();
+        rect.anchorMin = min;
+        rect.anchorMax = max;
+        rect.offsetMin = Vector2.zero;
+        rect.offsetMax = Vector2.zero;
+
+        Image image = go.GetComponent<Image>();
+        image.color = color;
+        image.raycastTarget = false;
+        return go;
+    }
+
+    private static GameObject Button(string name, Transform parent, string label,
+        Vector2 min, Vector2 max, Color color)
+    {
+        GameObject go = new GameObject(name,
+            typeof(RectTransform), typeof(Image), typeof(Button));
+        go.transform.SetParent(parent, false);
+
+        RectTransform rect = go.GetComponent<RectTransform>();
+        rect.anchorMin = min;
+        rect.anchorMax = max;
+        rect.offsetMin = Vector2.zero;
+        rect.offsetMax = Vector2.zero;
+
+        Image image = go.GetComponent<Image>();
+        image.color = color;
+
+        Button button = go.GetComponent<Button>();
+        ColorBlock cb = button.colors;
+        cb.normalColor = color;
+        cb.highlightedColor = new Color(
+            Mathf.Min(color.r + 0.035f, 1f),
+            Mathf.Min(color.g + 0.12f, 1f),
+            Mathf.Min(color.b + 0.14f, 1f), 1f);
+        cb.pressedColor = Cyan;
+        cb.selectedColor = cb.highlightedColor;
+        button.colors = cb;
+
+        Text(go.transform, "LABEL", label, 0.06f, 0.08f,
+            0.94f, 0.92f, 13, White, false, TextAlignmentOptions.MidlineLeft);
+
+        return go;
+    }
+
+    private static GameObject Text(Transform parent, string name, string value,
+        float xMin, float yMin, float xMax, float yMax, float size,
+        Color color, bool display, TextAlignmentOptions alignment)
+    {
+        GameObject go = new GameObject(name, typeof(RectTransform),
+            typeof(TextMeshProUGUI));
+        go.transform.SetParent(parent, false);
+
+        RectTransform rect = go.GetComponent<RectTransform>();
+        rect.anchorMin = new Vector2(xMin, yMin);
+        rect.anchorMax = new Vector2(xMax, yMax);
+        rect.offsetMin = Vector2.zero;
+        rect.offsetMax = Vector2.zero;
+
+        TextMeshProUGUI text = go.GetComponent<TextMeshProUGUI>();
+        text.text = value;
+        text.font = display ? DisplayFont : BodyFont;
+        text.fontSize = size;
+        text.color = color;
+        text.alignment = alignment;
+        text.enableWordWrapping = true;
+        text.overflowMode = TextOverflowModes.Ellipsis;
+        text.raycastTarget = false;
+
+        return go;
+    }
+}

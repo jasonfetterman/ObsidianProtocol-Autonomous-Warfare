@@ -1,0 +1,286 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af9303acd406aa46b7a9ae4dc491f05, type: 3}
+  m_Name: Depthwatch
+  m_EditorClassIdentifier: Assembly-CSharp::ObsidianProtocol.Game.Units.UnitDefinition
+  unitId: obs-sea-depthwatch
+  displayName: Depthwatch
+  category: 2
+  role: Deep-Water Monitoring / Subsurface Recon
+  tier: Recon / Specialist
+  status: Active
+  storeImage: {fileID: 5586859329254998328, guid: b55dbb8fbca33a24bb9d9f0725a78ff6, type: 3}
+  modelPrefab: {fileID: 0}
+  physical:
+    lengthMeters: 7
+    widthMeters: 3
+    heightMeters: 2.5
+    massKg: 3000
+    powerSource: Marine diesel-electric hybrid
+    energyCapacityWh: 14000
+    energyConsumptionWhPerMinute: 70
+    endurance: "8\u201316 hours"
+    payloadCapacityKg: 200
+    modules:
+    - Deep sonar array
+    - Subsurface mapping suite
+    - Stability fins
+    navigationSystem: Marine GPS + DeepScan AI
+    structuralIntegrityHp: 1000
+    armorRating: 0.45
+    heatSignature: Very Low
+    noiseSignature: Ultra-Low
+    topSpeedMetersPerSecond: 7
+    topSpeedDescription: 7 m/s
+    acceleration: Low
+    turningRadius: Moderate
+    climbRate: Depthwatch climbRate
+    stabilityRating: Maximum (deep-water optimized)
+  autonomy:
+    behaviorProfile: Deep-water scanning / anomaly detection
+    aggression: 0
+    caution: 0.95
+    persistence: 1
+    flankingLikelihood: 0
+    retreatThreshold: 0.9
+    retreatBehaviorDescription: Early
+    targetPriority: Subsurface anomalies / deep acoustic signatures
+    formationDiscipline: High
+    riskTolerance: 0.2
+  sensors:
+    visualRangeMeters: 1400
+    visualRangeDescription: 1400 m
+    thermalRangeMeters: 900
+    thermalRangeDescription: 900 m
+    acousticRange: Very High
+    radarRange: Short
+    lidarRange: Not specified
+    signalDetectionRange: Medium
+  communication:
+    meshRangeKm: 6
+    meshRangeDescription: 6 km
+    relayCapacity: 1
+    commandLinkType: Marine Recon Grid
+    networkPriority: High
+  combat:
+    firepowerRating: 0
+    firepowerDescription: None
+    accuracy: Not specified
+    stabilization: Depthwatch stabilization
+    weaponMounts: None
+    weaponTypes: None
+    suppressionValue: 0
+    trackingStrength: Very High (deep sonar)
+    disruptionStrength: Medium
+    breachCapability: None
+    countermeasureRating: Medium
+    threatLevel: 4
+    engagementDistance: Not applicable
+    preferredTerrain: Deep water / subsurface corridors
+    preferredTargets: Subsurface anomalies / deep acoustic signatures
+    vulnerabilityProfile: Ballistic / collision / extreme waves
+  squad:
+    squadRole: Deep-water Recon / Acoustic Mapping
+    squadSizeContribution: 2
+    formationBehavior: Sensor-optimized spacing
+    intentInterpretationRules: Scan deep zones & identify anomalies
+    retreatBehavior: Early
+    breachBehavior: None
+    flankingBehavior: None
+    reinforcementBehavior: Supports recon & marine squads
+    parentCommandUnit: Insight / Pulse
+    subordinateUnits: []
+    relayNodes:
+    - Relay Node 1
+    networkDependencies: Marine Recon Grid
+  vrOperator:
+    operatorSeatType: DeepScan Console
+    operatorHud: Deep Acoustic Overlay
+    cameraFeeds: Optical
+    thermalView: 1
+    lidarView: 0
+    sonarView: 1
+    tacticalOverlay: 1
+    movementControls: Marine drive
+    sensorControls: Deep sonar / acoustic filters / zoom
+    abilityControls: Deep Scan, Mark Anomaly, Stabilize
+    weaponControls: None
+    stabilizationControls: Deep-water stability control
+    operatorAbilities:
+    - Deep Sonar Sweep
+    - Subsurface Mapping
+    - Hazard Detection
+    - Recon Relay
+  economy:
+    creditCost: 960
+    buildCost: 620 Metal / 340 Electronics
+    buildTimeSeconds: 130
+    factoryType: Marine Bay
+    techRequirements: Marine Systems II
+    maintenanceCost: Medium
+    repairTimeSeconds: 32
+    supplyConsumption: Medium
+    operationalCost: Medium
+    deploymentRequirements: Water launch pad
+    transportCompatibility: Marine racks
+    launchMethod: Water drop
+    deploymentPointsDefined: 0
+    deploymentPoints: 0
+  buildRequirements:
+    commonComponents:
+    - component: Marine Alloy Plates
+      quantity: 40
+    - component: Reinforced Marine Rods
+      quantity: 20
+    - component: Hydraulic Actuators
+      quantity: 6
+    - component: Deep Sonar Housing
+      quantity: 1
+    electronics:
+    - component: Circuit Bundles
+      quantity: 24
+    - component: Signal Processors
+      quantity: 16
+    - component: Marine Control Chips
+      quantity: 4
+    - component: Recon AI Chips
+      quantity: 2
+    power:
+    - component: Marine Hybrid Engine Core
+      quantity: 1
+    - component: Power Regulation Nodes
+      quantity: 2
+    rareTradeable:
+    - component: Deep Sonar Core
+      quantity: 1
+    optionalUpgrades:
+    - Silent Propulsion
+    - Extended Battery Pack
+    - Anti-Jamming Shielding
+  environment:
+    terrainAdaptationCoefficients: Depthwatch terrainAdaptationCoefficients
+    weatherSensitivityIndex: 3
+    visibilityModifiers: Depthwatch visibilityModifiers
+    signalPropagationCurve: Depthwatch signalPropagationCurve
+    modifiers: []
+  network:
+    nodeHandoffEfficiency: 0.8
+    packetLossRate: Depthwatch packetLossRate
+    encryptionLatencySeconds: 3
+    meshSelfHealingThreshold: Depthwatch meshSelfHealingThreshold
+    relaySaturationCurve: Depthwatch relaySaturationCurve
+  cognitive:
+    decisionConfidence: 3
+    threatRecognitionAccuracy: 3
+    adaptiveLearningRatePerMission: 3
+    commandOverrideResistance: 3
+    cooperativeBehaviorIndex: 3
+  behaviorNodes:
+  - behaviorNode: 
+    weight: -0.00000008226931
+    description: 
+  - behaviorNode: 
+    weight: 0
+    description: 
+  - behaviorNode: 
+    weight: 0
+    description: 
+  missionBehaviors:
+  - missionType: 
+    behaviorFocus: 
+    efficiency: -0.00000008228733
+  - missionType: 
+    behaviorFocus: 
+    efficiency: 0
+  - missionType: 
+    behaviorFocus: 
+    efficiency: 0
+  unitSynergies:
+  - partnerUnit: 
+    synergyRating: -0.000000081262726
+    function: 
+  - partnerUnit: 
+    synergyRating: 0
+    function: 
+  - partnerUnit: 
+    synergyRating: 0
+    function: 
+  damageResponses:
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  - damageType: 
+    effect: 
+    recovery: 
+  upgrades:
+  - upgrade: 
+    effect: 
+    efficiencyGain: -0.00000008129882
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  - upgrade: 
+    effect: 
+    efficiencyGain: 0
+  tactical:
+    formationAdaptability: 3
+    tacticalRoleWeight: 3
+    commandResponseDelaySeconds: 3
+    reinforcementTriggerConditions: Depthwatch reinforcementTriggerConditions
+    retreatLogicThresholds: Depthwatch retreatLogicThresholds
+  maintenance:
+    meanTimeBetweenFailuresHours: 3
+    repairCycleSeconds: 3
+    resourceDrainPerHourPercent: 30
+    batteryEfficiencyPercent: 0.8
+    rotorStabilityPercent: 30
+    sensorCalibrationDriftPercentPerHour: 30
+    coolingEfficiencyPercent: 0.8
+    operationalUptimePercent: 30
+    energyRecoveryRatePercent: 30
+    energyRecoveryRatePercentPerIdleMinute: 30
+    componentWearPercentPerHour: 30
+    maintenancePriorityLevel: Depthwatch maintenancePriorityLevel
+    sparePartDependencyIndex: 3
+    operationalCostPerHour: Depthwatch operationalCostPerHour
+  threatResponses:
+  - threatType: 
+    reactionTimeSeconds: -1.6962372e-20
+    countermeasureEfficiency: 5.79e-43
+  - threatType: 
+    reactionTimeSeconds: 0
+    countermeasureEfficiency: 0
+  - threatType: 
+    reactionTimeSeconds: 0
+    countermeasureEfficiency: 0
+  commandNetwork:
+  - node: 
+    loadPercent: -0.00001955549
+    latencySeconds: 5.79e-43
+    status: 
+  - node: 
+    loadPercent: 0
+    latencySeconds: 0
+    status: 
+  - node: 
+    loadPercent: 0
+    latencySeconds: 0
+    status: 
+  performance:
+    missionSuccessProbability: 0.75
+    averageEngagementDurationMinutes: 3
+    reconDataYieldMbPerMinute: 3
+    communicationUptime: 3
+    threatAvoidanceEfficiency: 0.8

@@ -1,0 +1,331 @@
+﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
+
+public static class CommandCenterAAABuilder
+{
+    const string ScenePath = "Assets/Scenes/SCN02_COMMAND_CENTER/COMMAND CENTER HUD/Command_Center.unity";
+
+    static readonly string[] Names =
+    {
+        "COMMAND_REAL_PANEL", "OPERATIONS_REAL_PANEL", "FLEET_REAL_PANEL",
+        "DEPLOY_REAL_PANEL", "LOGISTICS_REAL_PANEL", "RESEARCH_REAL_PANEL",
+        "GARAGE_REAL_PANEL", "FINANCE_REAL_PANEL", "INTELLIGENCE_REAL_PANEL",
+        "STORE_REAL_PANEL"
+    };
+
+    static readonly string[] Labels =
+    {
+        "COMMAND", "OPERATIONS", "FLEET", "DEPLOYMENT", "LOGISTICS",
+        "RESEARCH", "GARAGE", "FINANCE", "INTELLIGENCE", "STORE"
+    };
+
+    static readonly Color Background = new Color32(5, 10, 17, 255);
+    static readonly Color Surface = new Color32(12, 22, 33, 255);
+    static readonly Color SurfaceLight = new Color32(19, 34, 48, 255);
+    static readonly Color Cyan = new Color32(69, 202, 235, 255);
+    static readonly Color Muted = new Color32(125, 151, 171, 255);
+    static readonly Color White = new Color32(225, 237, 245, 255);
+
+    [MenuItem("Obsidian Protocol/Command Center/BUILD AAA COMMAND CENTER")]
+    public static void Build()
+    {
+        if (EditorSceneManager.GetActiveScene().path != ScenePath)
+            EditorSceneManager.OpenScene(ScenePath, OpenSceneMode.Single);
+
+        var canvas = GameObject.Find("COMMAND_CENTER_HUD");
+        if (canvas == null || canvas.GetComponent<Canvas>() == null)
+        {
+            Debug.LogError("[OPAW] Command Center Canvas not found.");
+            return;
+        }
+
+        var realUI = Find(canvas.transform, "COMMAND_CENTER_REAL_UI");
+        if (realUI == null)
+        {
+            Debug.LogError("[OPAW] Existing department container not found.");
+            return;
+        }
+
+        var panels = new GameObject[Names.Length];
+
+        for (int i = 0; i < Names.Length; i++)
+        {
+            var found = Find(realUI, Names[i]);
+            if (found == null)
+            {
+                Debug.LogError("[OPAW] Missing department panel: " + Names[i]);
+                return;
+            }
+            panels[i] = found.gameObject;
+        }
+
+        Undo.RegisterFullObjectHierarchyUndo(canvas, "Build OPAW Command Center");
+
+        var previous = canvas.transform.Find("COMMAND_CENTER_AAA");
+        if (previous != null)
+            Undo.DestroyObjectImmediate(previous.gameObject);
+
+        var root = NewUI("COMMAND_CENTER_AAA", canvas.transform);
+        Stretch(root.GetComponent<RectTransform>());
+
+        Panel(root.transform, "FULLSCREEN_BACKDROP",
+            Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero, Background);
+
+        Panel(root.transform, "TOP_COMMAND_HEADER",
+            new Vector2(0, 1), Vector2.one,
+            new Vector2(0, -88), Vector2.zero, Surface);
+
+        Panel(root.transform, "HEADER_BOTTOM_RULE",
+            new Vector2(0, 1), new Vector2(1, 1),
+            new Vector2(0, -89), new Vector2(0, -87), Cyan);
+
+        TextLabel(root.transform, "OPAW",
+            "OBSIDIAN PROTOCOL", 17, Cyan, TextAnchor.MiddleLeft,
+            new Vector2(0, 1), new Vector2(0, 1),
+            new Vector2(28, -67), new Vector2(260, -18));
+
+        TextLabel(root.transform, "HEADER_TITLE",
+            "COMMAND CENTER", 25, White, TextAnchor.MiddleLeft,
+            new Vector2(0, 1), new Vector2(0, 1),
+            new Vector2(280, -70), new Vector2(650, -16));
+
+        TextLabel(root.transform, "HEADER_CONTEXT",
+            "AUTONOMOUS WARFARE  /  COMMAND INTERFACE",
+            12, Muted, TextAnchor.MiddleRight,
+            new Vector2(1, 1), new Vector2(1, 1),
+            new Vector2(-460, -65), new Vector2(-28, -20));
+
+        Panel(root.transform, "LEFT_NAVIGATION",
+            Vector2.zero, new Vector2(0, 1),
+            new Vector2(0, 34), new Vector2(252, -89), Surface);
+
+        Panel(root.transform, "NAVIGATION_RULE",
+            new Vector2(0, 0), new Vector2(0, 1),
+            new Vector2(251, 34), new Vector2(253, -89), Cyan);
+
+        TextLabel(root.transform, "NAV_LABEL",
+            "COMMAND DEPARTMENTS", 12, Muted, TextAnchor.MiddleLeft,
+            new Vector2(0, 1), new Vector2(0, 1),
+            new Vector2(22, -139), new Vector2(238, -101));
+
+        var content = NewUI("COMMAND_WORKSPACE", root.transform);
+        Stretch(content.GetComponent<RectTransform>());
+        SetRect(content.GetComponent<RectTransform>(),
+            new Vector2(0, 0), new Vector2(1, 1),
+            new Vector2(253, 34), new Vector2(-24, -89));
+
+        var overview = Panel(content.transform, "COMMAND_OVERVIEW",
+            Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero, Background);
+
+        Panel(overview.transform, "HERO_SURFACE",
+            new Vector2(0, 1), new Vector2(1, 1),
+            new Vector2(24, -238), new Vector2(-24, -22), Surface);
+
+        Panel(overview.transform, "HERO_TOP_ACCENT",
+            new Vector2(0, 1), new Vector2(1, 1),
+            new Vector2(24, -24), new Vector2(-24, -22), Cyan);
+
+        TextLabel(overview.transform, "HERO_EYEBROW",
+            "OBSIDIAN PROTOCOL  /  STRATEGIC SYSTEMS",
+            12, Cyan, TextAnchor.MiddleLeft,
+            new Vector2(0, 1), new Vector2(1, 1),
+            new Vector2(55, -82), new Vector2(-55, -48));
+
+        TextLabel(overview.transform, "HERO_TITLE",
+            "COMMAND CENTER", 38, White, TextAnchor.MiddleLeft,
+            new Vector2(0, 1), new Vector2(0.75f, 1),
+            new Vector2(52, -151), new Vector2(-10, -88));
+
+        TextLabel(overview.transform, "HERO_DESCRIPTION",
+            "Select a department to enter its operational workspace.",
+            17, Muted, TextAnchor.MiddleLeft,
+            new Vector2(0, 1), new Vector2(0.8f, 1),
+            new Vector2(55, -194), new Vector2(-10, -157));
+
+        Panel(overview.transform, "HERO_DIVIDER",
+            new Vector2(0, 1), new Vector2(1, 1),
+            new Vector2(55, -210), new Vector2(-55, -209),
+            new Color32(42, 68, 86, 255));
+
+        TextLabel(overview.transform, "MODULE_COUNT",
+            "10", 52, Cyan, TextAnchor.MiddleCenter,
+            new Vector2(1, 1), new Vector2(1, 1),
+            new Vector2(-230, -155), new Vector2(-80, -80));
+
+        TextLabel(overview.transform, "MODULE_COUNT_LABEL",
+            "DEPARTMENT PANELS", 11, Muted, TextAnchor.MiddleCenter,
+            new Vector2(1, 1), new Vector2(1, 1),
+            new Vector2(-260, -188), new Vector2(-50, -156));
+
+        TextLabel(overview.transform, "SECTION_TITLE",
+            "DEPARTMENT ACCESS", 14, White, TextAnchor.MiddleLeft,
+            new Vector2(0, 1), new Vector2(1, 1),
+            new Vector2(28, -290), new Vector2(-28, -252));
+
+        Panel(overview.transform, "SECTION_RULE",
+            new Vector2(0, 1), new Vector2(1, 1),
+            new Vector2(28, -296), new Vector2(-28, -294),
+            new Color32(42, 68, 86, 255));
+
+        var nav = root.AddComponent<CommandCenterDashboardNavigation>();
+        nav.overview = overview;
+
+        var serialized = new SerializedObject(nav);
+        var departmentArray = serialized.FindProperty("departments");
+        departmentArray.arraySize = panels.Length;
+
+        for (int i = 0; i < panels.Length; i++)
+        {
+            string buttonName = "NAV_" + Labels[i];
+
+            CreateNavButton(root.transform, buttonName, Labels[i], i);
+
+            var element = departmentArray.GetArrayElementAtIndex(i);
+            element.FindPropertyRelative("buttonName").stringValue = buttonName;
+            element.FindPropertyRelative("panel").objectReferenceValue = panels[i];
+
+            panels[i].transform.SetParent(content.transform, false);
+            var panelRect = panels[i].GetComponent<RectTransform>();
+            if (panelRect != null)
+                Stretch(panelRect);
+
+            panels[i].SetActive(false);
+        }
+
+        serialized.ApplyModifiedPropertiesWithoutUndo();
+        overview.SetActive(true);
+
+        realUI.gameObject.SetActive(true);
+
+        var oldVisuals = new[]
+        {
+            "BACKGROUND", "BOTTOM_NAVIGATION", "CENTER_CONTENT",
+            "RIGHT_COMMAND_PANEL", "TOP_COMMAND_BAR"
+        };
+
+        foreach (var name in oldVisuals)
+        {
+            var old = DirectChild(canvas.transform, name);
+            if (old != null) old.SetActive(false);
+        }
+
+        var oldInteraction = DirectChild(canvas.transform, "COMMAND_CENTER_FULL_INTERACTION");
+        if (oldInteraction != null)
+        {
+            var group = oldInteraction.GetComponent<CanvasGroup>();
+            if (group == null) group = oldInteraction.AddComponent<CanvasGroup>();
+            group.alpha = 0;
+            group.interactable = false;
+            group.blocksRaycasts = false;
+        }
+
+        root.transform.SetAsLastSibling();
+
+        EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
+        EditorSceneManager.SaveScene(SceneManager.GetActiveScene());
+
+        Debug.Log("[OPAW] AAA COMMAND CENTER BUILT. New workspace saved; all ten existing department objects preserved.");
+    }
+
+    static void CreateNavButton(Transform parent, string name, string label, int index)
+    {
+        var buttonObject = NewUI(name, parent);
+        var rect = buttonObject.GetComponent<RectTransform>();
+
+        SetRect(rect, new Vector2(0, 1), new Vector2(0, 1),
+            new Vector2(14, -202 - index * 67),
+            new Vector2(238, -150 - index * 67));
+
+        var image = buttonObject.AddComponent<Image>();
+        image.color = SurfaceLight;
+
+        var button = buttonObject.AddComponent<Button>();
+        var colors = button.colors;
+        colors.normalColor = SurfaceLight;
+        colors.highlightedColor = new Color32(32, 64, 82, 255);
+        colors.pressedColor = new Color32(24, 104, 132, 255);
+        colors.selectedColor = colors.highlightedColor;
+        button.colors = colors;
+
+        TextLabel(buttonObject.transform, "INDEX",
+            (index + 1).ToString("00"), 12, Cyan, TextAnchor.MiddleLeft,
+            Vector2.zero, Vector2.one,
+            new Vector2(13, 0), new Vector2(42, 0));
+
+        TextLabel(buttonObject.transform, "LABEL",
+            label, 14, White, TextAnchor.MiddleLeft,
+            Vector2.zero, Vector2.one,
+            new Vector2(48, 0), new Vector2(-8, 0));
+    }
+
+    static GameObject Panel(Transform parent, string name,
+        Vector2 min, Vector2 max, Vector2 offsetMin, Vector2 offsetMax, Color color)
+    {
+        var go = NewUI(name, parent);
+        SetRect(go.GetComponent<RectTransform>(), min, max, offsetMin, offsetMax);
+        go.AddComponent<Image>().color = color;
+        return go;
+    }
+
+    static Text TextLabel(Transform parent, string name, string value,
+        int size, Color color, TextAnchor alignment,
+        Vector2 min, Vector2 max, Vector2 offsetMin, Vector2 offsetMax)
+    {
+        var go = NewUI(name, parent);
+        SetRect(go.GetComponent<RectTransform>(), min, max, offsetMin, offsetMax);
+
+        var text = go.AddComponent<Text>();
+        text.text = value;
+        text.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        text.fontSize = size;
+        text.color = color;
+        text.alignment = alignment;
+        text.raycastTarget = false;
+        text.horizontalOverflow = HorizontalWrapMode.Wrap;
+        text.verticalOverflow = VerticalWrapMode.Truncate;
+        return text;
+    }
+
+    static GameObject NewUI(string name, Transform parent)
+    {
+        var go = new GameObject(name, typeof(RectTransform));
+        go.transform.SetParent(parent, false);
+        return go;
+    }
+
+    static void Stretch(RectTransform rect)
+    {
+        SetRect(rect, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+    }
+
+    static void SetRect(RectTransform rect, Vector2 min, Vector2 max,
+        Vector2 offsetMin, Vector2 offsetMax)
+    {
+        rect.anchorMin = min;
+        rect.anchorMax = max;
+        rect.offsetMin = offsetMin;
+        rect.offsetMax = offsetMax;
+    }
+
+    static Transform Find(Transform parent, string name)
+    {
+        foreach (Transform child in parent)
+        {
+            if (child.name == name) return child;
+            var result = Find(child, name);
+            if (result != null) return result;
+        }
+        return null;
+    }
+
+    static GameObject DirectChild(Transform parent, string name)
+    {
+        foreach (Transform child in parent)
+            if (child.name == name) return child.gameObject;
+        return null;
+    }
+}
+

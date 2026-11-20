@@ -1,0 +1,539 @@
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+STAR_65
+LABEL
+
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+STAR_19
+Universal Render Pipeline/Unlit
+PLANET_PLN-16
+
+
+Universal Render Pipeline/Unlit
+HUD-201-06C OpenIntelNetworkButton
+
+
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+STAR_49
+HUD-201-03 MapLayerPanel
+
+LABEL
+
+LABEL
+
+PLANET_PLN-13
+
+
+Universal Render Pipeline/Unlit
+LABEL
+
+STAR_87
+HUD-201-01E TimeControlPanel
+
+MAP_TITLE
+
+Universal Render Pipeline/Unlit
+STAR_09
+HUD-201-08A BackButton
+
+
+HUD-201-06E OpenLogisticsOverviewButton
+
+
+LABEL
+
+PLANET_PLN-19
+
+
+STAR_80
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+STAR_38
+Value
+
+LABEL
+
+STAR_06
+STAR_52
+LABEL
+
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+STAR_04
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+Value
+
+HUD-201-03C LayerToggle_Planets
+
+
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+STAR_89
+Universal Render Pipeline/Unlit
+FactionEmblem
+
+Universal Render Pipeline/Unlit
+HUD-201-03B LayerToggle_Sectors
+
+
+Value
+
+PLANET_PLN-01
+
+
+GalaxyMapCamera
+HUD-201-08 BottomBar
+
+LABEL
+
+LABEL
+
+STAR_69
+Universal Render Pipeline/Unlit
+PLANET_PLN-11
+
+
+Universal Render Pipeline/Unlit
+STAR_22
+PLANET_PLN-24
+
+
+PLANET_PLN-23
+
+
+STAR_59
+STAR_61
+HUD-201-02B GalaxyZoomOutButton
+
+
+PLANET_PLN-20
+
+
+Value
+
+LABEL
+
+PLANET_PLN-14
+
+
+LABEL
+
+PLANET_PLN-08
+
+
+LABEL
+
+STAR_40
+HUD-201-02C SectorListDropdown
+
+STAR_42
+STAR_24
+LABEL
+
+STAR_08
+HUD-201-07 AlertsPanel
+
+PLANET_PLN-12
+
+
+LABEL
+
+Universal Render Pipeline/Unlit
+STAR_13
+STAR_18
+Universal Render Pipeline/Unlit
+CoreLabel
+
+HUD-201-04E ObjectThreatLevelDisplay
+
+LABEL
+
+GALAXY MAP DISPLAY
+
+Universal Render Pipeline/Unlit
+STAR_35
+Universal Render Pipeline/Unlit
+STAR_37
+LABEL
+
+HUD-201-05B WARFAREZONELEGEND
+
+PLANET_PLN-15
+
+
+PLANET_PLN-21
+
+
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+STAR_64
+HUD-201-04A ObjectNameDisplay
+
+HUD-201-01B CurrentSectorNameDisplay
+
+Universal Render Pipeline/Unlit
+STAR_11
+Value
+
+HUD-201-08C SettingsButton
+
+
+HUD-201-04C ObjectOwnerFactionDisplay
+
+STAR_56
+STAR_46
+STAR_33
+PLANET_PLN-18
+
+
+PLANET_PLN-02
+
+
+HUD-201-04 GalaxyObjectInfoPanel
+
+LABEL
+
+Universal Render Pipeline/Unlit
+STAR_01
+STAR_85
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+Time
+
+STAR_03
+STAR_34
+HUD-201-01C PlayerFactionEmblem
+
+Value
+
+STAR_28
+Universal Render Pipeline/Unlit
+PLANET_PLN-22
+
+
+STAR_17
+LABEL
+
+Universal Render Pipeline/Unlit
+STAR_62
+STAR_84
+STAR_12
+STAR_47
+STAR_74
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+HUD-201-06 QuickActionsPanel
+
+STAR_53
+Universal Render Pipeline/Unlit
+LABEL
+
+LABEL
+
+STAR_79
+LABEL
+
+LABEL
+
+LABEL
+
+LABEL
+
+Universal Render Pipeline/Unlit
+STAR_31
+HUD-201-05A FACTIONCOLORLEGEND
+
+PLANET_PLN-10
+
+
+STAR_41
+Value
+
+Universal Render Pipeline/Unlit
+LABEL
+
+DropdownValue
+
+STAR_88
+Universal Render Pipeline/Unlit
+HUD-201-03D LayerToggle_Factions
+
+
+Universal Render Pipeline/Unlit
+STAR_14
+STAR_63
+HUD-201-03G LayerToggle_TradeRoutes
+
+
+HUD-201-03A LayerToggle_Galaxy
+
+
+STAR_86
+Universal Render Pipeline/Unlit
+STAR_55
+HUD-201-05D ENVIRONMENTLEGEND
+
+LABEL
+
+Universal Render Pipeline/Unlit
+STAR_39
+Universal Render Pipeline/Unlit
+LABEL
+
+Universal Render Pipeline/Unlit
+HUD-201-01D PlayerResourcesPanel
+
+STAR_21
+GALAXY_CORE
+
+STAR_72
+Universal Render Pipeline/Unlit
+PLANET_PLN-27
+
+
+STAR_05
+LABEL
+
+PLANET_PLN-06
+
+
+LABEL
+
+Universal Render Pipeline/Unlit
+STAR_57
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+STAR_16
+LABEL
+
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+HUD-201-02D PlanetSearchField
+
+HUD-201-05 GalaxyLegendPanel
+
+STAR_50
+PLANET_PLN-07
+
+
+STAR_44
+STAR_30
+PLANET_PLN-03
+
+
+STAR_25
+LABEL
+
+STAR_75
+EventSystem
+
+
+Universal Render Pipeline/Unlit
+HUD-201-02 NavigationPanel
+
+LABEL
+
+STAR_32
+STAR_02
+Universal Render Pipeline/Unlit
+PLANET_PLN-29
+
+
+STAR_60
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+STAR_48
+LABEL
+
+LABEL
+
+Value
+
+PLANET_PLN-30
+
+
+HUD-201-07C FactionAlertEntry
+
+STAR_58
+LABEL
+
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+SearchValue
+
+Universal Render Pipeline/Unlit
+LABEL
+
+LABEL
+
+STAR_82
+LABEL
+
+HUD-201-01 TopBar
+
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+LABEL
+
+STAR_23
+Resources
+
+Universal Render Pipeline/Unlit
+STAR_45
+STAR_15
+Universal Render Pipeline/Unlit
+LABEL
+
+HUD-201-08B ExitToCommandCenterButton
+
+
+STAR_83
+Value
+
+STAR_07
+HUD-201-08D HelpButton
+
+
+HUD-201-03E LayerToggle_WarfareZones
+
+
+STAR_26
+PLANET_PLN-04
+
+
+STAR_76
+Value
+
+LABEL
+
+HUD-201-06B JumpToLastViewedPlanetButton
+
+
+STAR_51
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+LABEL
+
+HUD-201-03F LayerToggle_Resources
+
+
+HUD-201-04F ObjectEnterButton
+
+
+HUD-201-04D ObjectStatusDisplay
+
+HUD-201-04B ObjectTypeDisplay
+
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+STAR_67
+STAR_20
+Universal Render Pipeline/Unlit
+STAR_81
+HUD-201-01A CurrentGalaxyNameDisplay
+
+Universal Render Pipeline/Unlit
+STAR_00
+PLANET_PLN-17
+
+
+PLANET_PLN-25
+
+
+STAR_73
+STAR_27
+PLANET_PLN-28
+
+
+STAR_66
+HUD-201-07A StrategicAlertEntry
+
+Universal Render Pipeline/Unlit
+HUD-201-05C RESOURCELEGEND
+
+Universal Render Pipeline/Unlit
+Value
+
+HUD-201-06D OpenDoctrineManagerButton
+
+
+Universal Render Pipeline/Unlit
+STAR_43
+GALAXY MAP ENVIRONMENT
+Universal Render Pipeline/Unlit
+HUD-201-07D ResourceAlertEntry
+
+STAR_29
+LABEL
+
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+PLANET_PLN-05
+
+
+Universal Render Pipeline/Unlit
+LABEL
+
+LABEL
+
+Universal Render Pipeline/Unlit
+HUD-201-06A JumpToHomeworldButton
+
+
+Universal Render Pipeline/Unlit
+LABEL
+
+GalaxyBackdrop
+HUD-201-02A GalaxyZoomInButton
+
+
+LABEL
+
+Universal Render Pipeline/Unlit
+STAR_68
+HUD-201-07B WarfareAlertEntry
+
+STAR_70
+Universal Render Pipeline/Unlit
+Universal Render Pipeline/Unlit
+STAR_71
+LABEL
+
+PLANET_PLN-09
+
+
+STAR_10
+Universal Render Pipeline/Unlit
+PLANET_PLN-26
+
+
+LABEL
+
+Universal Render Pipeline/Unlit
+STAR_54
+HUD-201 GalaxyMapHUD
+
+
+
+LABEL
+
+STAR_77
+Value
+
+Universal Render Pipeline/Unlit
+STAR_36
+STAR_78
+HUD-201-02E FilterPanelButton
+
+

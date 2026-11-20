@@ -1,0 +1,108 @@
+﻿        private void Deploy()
+        {
+            if (operationSelectionController != null)
+            {
+                selectedOperation =
+                    operationSelectionController.GetSelectedOperation();
+            }
+
+            Debug.Log(
+                "[DEPLOYMENT] DEPLOYMENT OPERATION // " +
+                selectedOperation);
+
+            if (selectedDeploymentIds.Count == 0)
+            {
+                Debug.LogWarning(
+                    "[DEPLOYMENT] CANNOT DEPLOY // FORCE EMPTY");
+                return;
+            }
+
+            foreach (string deploymentId
+                     in selectedDeploymentIds)
+            {
+                DeploymentEntry entry;
+
+                if (!deploymentFramework.TryGet(
+                    deploymentId,
+                    out entry))
+                {
+                    Debug.LogError(
+                        "[DEPLOYMENT] VALIDATION FAILED // ENTRY MISSING");
+                    return;
+                }
+
+                DeploymentValidationResult result =
+                    validator.Validate(
+                        deploymentId,
+                        "PLAYER_DEPLOYMENT",
+                        entry.UnitId,
+                        battleBudget,
+                        deploymentPoints);
+
+                if (!result.Valid)
+                {
+                    Debug.LogWarning(
+                        "[DEPLOYMENT] VALIDATION FAILED // " +
+                        result.Failure);
+                    return;
+                }
+
+                deploymentFramework.Stage(
+                    deploymentId);
+
+                stagingSystem.Stage(
+                    deploymentId);
+
+                stagingSystem.MarkReady(
+                    deploymentId);
+            }
+
+            foreach (string deploymentId
+                     in selectedDeploymentIds)
+            {
+                deploymentFramework.Deploy(
+                    deploymentId);
+
+                stagingSystem.Deploy(
+                    deploymentId);
+            }
+
+            Debug.Log(
+                "[DEPLOYMENT] DEPLOYMENT COMPLETE // " +
+                selectedUnits.Count +
+                " UNITS // OPERATION=" +
+                selectedOperation);
+
+            BattlefieldDeploymentContext context =
+                FindFirstObjectByType<BattlefieldDeploymentContext>();
+
+            if (context == null)
+            {
+                GameObject contextObject =
+                    new GameObject("[SYSTEM] BATTLEFIELD DEPLOYMENT CONTEXT");
+
+                context =
+                    contextObject.AddComponent<BattlefieldDeploymentContext>();
+            }
+
+            List<DeploymentEntry> deployedEntries =
+                new List<DeploymentEntry>();
+
+            foreach (string deploymentId in selectedDeploymentIds)
+            {
+                DeploymentEntry entry;
+
+                if (deploymentFramework.TryGet(
+                        deploymentId,
+                        out entry) &&
+                    entry.State == DeploymentState.Deployed)
+                {
+                    deployedEntries.Add(entry);
+                }
+            }
+
+            context.SetDeployment(
+                selectedOperation,
+                deployedEntries);
+
+            TryOpenBattlefield();

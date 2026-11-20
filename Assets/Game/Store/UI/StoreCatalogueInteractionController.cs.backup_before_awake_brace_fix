@@ -1,0 +1,262 @@
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+using ObsidianProtocol.Game.Economy;
+using ObsidianProtocol.Game.Inventory;
+using ObsidianProtocol.Game.Runtime;
+using ObsidianProtocol.Game.Store;
+
+namespace ObsidianProtocol.Game.Store.UI
+{
+    public sealed class StoreCatalogueCard : MonoBehaviour
+    {
+        public string UnitId;
+    }
+
+    public sealed class StoreCatalogueCategoryButton : MonoBehaviour
+    {
+        public string CategoryName;
+    }
+    public sealed class StoreCatalogueInteractionController : MonoBehaviour
+    {
+        [SerializeField] private GameObject detailsPanel;
+        [SerializeField] private Image unitArtwork;
+        [SerializeField] private TMP_Text unitName;
+        [SerializeField] private TMP_Text unitIdentity;
+        [SerializeField] private TMP_Text specificationText;
+        [SerializeField] private TMP_Text priceText;
+        [SerializeField] private TMP_Text statusText;
+        [SerializeField] private TMP_Text creditsText;
+        [SerializeField] private Button purchaseButton;
+        [SerializeField] private Button closeButton;
+
+        private readonly UnitPurchaseService purchaseService =
+            new UnitPurchaseService();
+
+        private string selectedUnitId;
+        private ScrollRect catalogueScroll;
+
+        private void Awake()
+        {
+            Transform scrollTransform = transform.Find("CATALOGUE_SCROLL");
+            if (scrollTransform != null)
+                catalogueScroll = scrollTransform.GetComponent<ScrollRect>();
+
+            foreach (StoreCatalogueCategoryButton categoryButton in
+                GetComponentsInChildren<StoreCatalogueCategoryButton>(true))
+            {
+                Button button = categoryButton.GetComponent<Button>();
+                if (button == null) continue;
+
+                string category = categoryButton.CategoryName;
+                button.onClick.AddListener(() => ScrollToCategory(category));
+            }
+
+        {
+            if (purchaseButton != null)
+                purchaseButton.onClick.AddListener(PurchaseSelectedUnit);
+
+            if (closeButton != null)
+                closeButton.onClick.AddListener(CloseDetails);
+
+            foreach (StoreCatalogueCard card in
+                GetComponentsInChildren<StoreCatalogueCard>(true))
+            {
+                Button button = card.GetComponent<Button>();
+                if (button == null || string.IsNullOrWhiteSpace(card.UnitId))
+                    continue;
+
+                string id = card.UnitId;
+                button.onClick.AddListener(() => SelectUnit(id));
+
+                Transform inspectTransform = card.transform.Find("INSPECT_UNIT_BUTTON");
+                if (inspectTransform != null)
+                {
+                    Button inspectButton = inspectTransform.GetComponent<Button>();
+                    if (inspectButton != null)
+                        inspectButton.onClick.AddListener(() => SelectUnit(id));
+                }
+            }
+
+            if (detailsPanel != null)
+                detailsPanel.SetActive(false);
+
+            RefreshCredits();
+        }
+
+        private void Update()
+        {
+            RefreshCredits();
+
+            if (purchaseButton != null)
+            {
+                bool owned = !string.IsNullOrEmpty(selectedUnitId) &&
+                    InventoryRuntime.CampaignActive &&
+                    InventoryRuntime.Has(selectedUnitId);
+
+                purchaseButton.interactable =
+                    !string.IsNullOrEmpty(selectedUnitId) &&
+                    EconomyRuntime.CampaignActive && !owned;
+            }
+        }
+
+        public void ScrollToCategory(string categoryName)
+        {
+            if (catalogueScroll == null || catalogueScroll.content == null ||
+                catalogueScroll.viewport == null)
+                return;
+
+            string sectionName = "SECTION_" + categoryName.Replace(" ", "_");
+            RectTransform section = null;
+
+            foreach (RectTransform candidate in
+                catalogueScroll.content.GetComponentsInChildren<RectTransform>(true))
+            {
+                if (candidate.name == sectionName)
+                {
+                    section = candidate;
+                    break;
+                }
+            }
+
+            if (section == null) return;
+
+            Canvas.ForceUpdateCanvases();
+            LayoutRebuilder.ForceRebuildLayoutImmediate(catalogueScroll.content);
+
+            float scrollableHeight =
+                catalogueScroll.content.rect.height -
+                catalogueScroll.viewport.rect.height;
+
+            if (scrollableHeight <= 0f) return;
+
+            float localY = catalogueScroll.content.InverseTransformPoint(
+                section.position).y;
+
+            float targetY = Mathf.Max(
+                0f, -localY - section.rect.height * .5f);
+
+            catalogueScroll.verticalNormalizedPosition =
+                Mathf.Clamp01(1f - targetY / scrollableHeight);
+        }
+        public void SelectUnit(string unitId)
+        {
+            if (!UnitDatabaseRuntime.EnsureInitialized())
+            {
+                SetStatus("UNIT DATABASE UNAVAILABLE");
+                return;
+            }
+
+            var unit = UnitDatabaseRuntime.Get(unitId);
+            if (unit == null)
+            {
+                SetStatus("UNIT DEFINITION NOT FOUND");
+                return;
+            }
+
+            selectedUnitId = unit.UnitId;
+
+            if (detailsPanel != null)
+                detailsPanel.SetActive(true);
+
+            if (unitName != null)
+                unitName.text = unit.DisplayName;
+
+            if (unitIdentity != null)
+            {
+                unitIdentity.text =
+                    unit.Category.ToString().ToUpperInvariant() +
+                    "  //  " + unit.Role +
+                    "  //  " + unit.Tier +
+                    "  //  " + unit.Status;
+            }
+
+            if (unitArtwork != null)
+            {
+                unitArtwork.sprite = unit.StoreImage;
+                unitArtwork.enabled = unit.StoreImage != null;
+                unitArtwork.preserveAspect = true;
+            }
+
+            if (specificationText != null)
+                specificationText.text = FormatSpecification(unit);
+
+            int cost = unit.Economy != null
+                ? unit.Economy.creditCost
+                : 0;
+
+            if (priceText != null)
+                priceText.text = "PROCUREMENT COST  //  " + cost.ToString("N0") + " CREDITS";
+
+            bool owned = InventoryRuntime.CampaignActive &&
+                InventoryRuntime.Has(unit.UnitId);
+
+            SetStatus(owned ? "UNIT ALREADY REGISTERED IN YOUR INVENTORY" :
+                "UNIT SELECTED // REVIEW SPECIFICATIONS");
+
+            RefreshCredits();
+        }
+
+        private string FormatSpecification(
+            ObsidianProtocol.Game.Units.UnitDefinition unit)
+        {
+            return JsonUtility.ToJson(unit, true);
+        }
+
+        public void PurchaseSelectedUnit()
+        {
+            if (string.IsNullOrWhiteSpace(selectedUnitId))
+            {
+                SetStatus("SELECT A UNIT FIRST");
+                return;
+            }
+
+            if (!EconomyRuntime.CampaignActive)
+            {
+                SetStatus("CAMPAIGN REQUIRED FOR PROCUREMENT");
+                return;
+            }
+
+            if (InventoryRuntime.CampaignActive &&
+                InventoryRuntime.Has(selectedUnitId))
+            {
+                SetStatus("UNIT ALREADY OWNED");
+                return;
+            }
+
+            bool success = purchaseService.Purchase(selectedUnitId);
+
+            SetStatus(success
+                ? "PROCUREMENT COMPLETE // UNIT ADDED TO FLEET"
+                : "PROCUREMENT FAILED // CHECK CAMPAIGN, CREDITS AND REGISTRATION");
+
+            RefreshCredits();
+        }
+
+        public void CloseDetails()
+        {
+            if (detailsPanel != null)
+                detailsPanel.SetActive(false);
+
+            selectedUnitId = null;
+        }
+
+        private void RefreshCredits()
+        {
+            if (creditsText != null)
+            {
+                creditsText.text = EconomyRuntime.CampaignActive
+                    ? "AVAILABLE CREDITS  //  " + EconomyRuntime.Credits.ToString("N0")
+                    : "CAMPAIGN NOT ACTIVE";
+            }
+        }
+
+        private void SetStatus(string message)
+        {
+            if (statusText != null)
+                statusText.text = message;
+        }
+    }
+}
+
+
